@@ -47,7 +47,7 @@ Only pull from `develop` to `main` with fully functional, tested and documented 
 5. Change all relevant fields in the `pyproject.toml` and `docs/conf.py` files. (Don't forget the intersphinx setup)
 
 If you want to run sphinx locally: 
-- `sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/template_for_python_projects`
+- `sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/rare_dif`
 - `make.bat` html
 - Open `docs/_build/html/index.html` in your browser
 
