@@ -1,113 +1,114 @@
-# PythonTemplate
-This repository contains a simple template for Python repositories, including actions and a `.gitignore` file. The actions include organizing imports with `isort`, linting using `ruff`, automatic test execution using `pytest`, as well as a small coverage report with `coverage` on merging to the main branch.
+# RareDIF 
 
-## Get started
+Rare Disease Interoperability Framework enabling HL7 FHIR® and the GA4GH Phenopacket Schema©
 
-First, clone the repository.
-
-Create the `main`, `develop` and, `gh-pages` branches.
-
-Whenever you want to change something, create a new branch. If it is done, create a pull request to the `develop` branch.
-
-Only pull from `develop` to `main` with fully functional, tested and documented new versions.
-
-### Repository Settings
-**Branch Protection Rules**
-1. Go to the repository settings
-2. Open `Branches` in the left sidebar
-3. Click `Add branch ruleset`
-4. Choose an appropriate ruleset name, such as `Branch protection rules for main and develop`
-5. Under `target branches`, enter `main` and `develop`
-6. Under `Rules` select at least:
-    - `Restricht deletions`
-    - `Require linear history`
-    - `Require a pull request before merging`
-      - Select an appropriate number of reviewers
-      - 
-    - `Block force pushes`
-7. Click `Create` to finish. you can now find the ruleset under `Rules`>`Rulesets`
-
-**Actions Permissions**
-1. Go to the repository settings
-2. Open `Actions` > `General` in the left sidebar
-3. Under `Workflow permissions`, select
-   - `Read and write permissions`
-   - `Allow GitHub Actions to create and approve pull requests`
-
-### Set Up Project
-1. [Optional] Create a new virtual environment
-2. Run `pip install -e .[test,docs]`
-
-**Documentation Setup**
-1. Create a `docs` folder in the root of the project and open it (`mkdir docs && cd docs`)
-2. Run `spinx-quickstart` to create a new documentation (On Windows, run `sphinx-quickstart.exe`). Fill out all relevant information.
-    - Select no `[n]` when asked `Separate source and build directories (y/n) [n]`
-3. [Optionally] Run `make html` to build the documentation (On Windows, might have to write full path to `make.bat`).
-4. Copy `docs/conf.py` into your own docs folder, replacing the existing one.
-5. Change all relevant fields in the `pyproject.toml` and `docs/conf.py` files. (Don't forget the intersphinx setup)
-
-If you want to run sphinx locally: 
-- `sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/template_for_python_projects`
-- `make.bat` html
-- Open `docs/_build/html/index.html` in your browser
-
-
-
-You can also add a badge like this one to your README.md file:
-[![Build status](https://github.com/frehburg/TemplateForPythonProjects/workflows/CI/badge.svg)](https://github.com/frehburg/TemplateForPythonProjects/actions/workflows/python_ci.yml)  
-[Stable Documentation](https://frehburg.github.io/TemplateForPythonProjects/stable/)  
-[Latest Documentation](https://frehburg.github.io/TemplateForPythonProjects/latest/)  
-
-See here a template for your README
-
-# Project Name
-
-Brief description of your project.
+[![Python CI](https://github.com/BIH-CEI/RareDIF/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/RareDIF/actions/workflows/python_ci.yml)
 
 ## Table of Contents
 
 - [Project Description](#project-description)
 - [Features](#features)
 - [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-- [Features](#features)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
 - [Contributing](#contributing)
+- [Resources](#resources-)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
 
-A brief overview of your project and its purpose.
+RareDIF (Rare Disease Interoperability Framework) is a comprehensive framework in REDCap for rare disease data 
+management in clinical care or research. It enables data capture, processing, import and export to the international
+interoperability standards HL7 FHIR® and the GA4GH Phenopacket Schema©.
 
 ## Features
 
-List the key features of your project.
+REDCap is a clinical electronic data capture system, for which many university hospitals have licenses. RareDIF bases
+on our Common Data Model for Rare Diseases based on the ERDRI-CDS, HL7 FHIR, and GA4GH Phenopackets. Our data model can
+be found in our ART-DECOR project [_RD CDM_](https://art-decor.org/ad/#/erker-/project/overview) (_you may need to
+deactivate your adblock for this website_). For disease-specific data capture and analyses, recommendations to extend
+our RD CDM are given here (tbc). For further information regarding DCDEs (Domain Specific Data Elements)
+please read: https://pubmed.ncbi.nlm.nih.gov/35594066/
+
+![RareDIF (1)](https://github.com/user-attachments/assets/8bf9186a-bb53-4b6f-938b-6a5d21950aa7)
+
+This framework encompasses the following features for RD data management: 
+1. User guide for implementation and installation in your local REDCap server & project
+2. User manuals for manual data capture (e.g. for HGVS validation)
+3. (Semi-)Automated import script from retrospective (tabular) databases into your REDCap project 
+4. Automated export to validated GA4GH Phenopackets
+5. Automated export to local HL7 FHIR resources or an HL7 FHIR server using the toFHIR Module
+6. Automated import of HL7 FHIR resources to a local RECap project & database using the CDIS-Module
+
+For further use of GA4GH Phenopackets© please read: https://www.nature.com/articles/s41587-022-01357-4.
 
 ## Getting Started
 
-Instructions on how to set up and run your project locally.
+Instructions on how to set up and run your project locally please read the docs here(tbc). To provide a short overview:
+1. Set up your local REDCap license and project
+2. Install packages necessary and activate REDCAp API for you project
+3. Run the installation packages defined below for the specific functionalities you want to use linked to your local 
+REDCap API.
+4. Run the functionalities you need to generate HL7 FHIR resources or GA4GH Phenopackets 
 
 ### Prerequisites
 
-List any software, libraries, or dependencies that need to be installed before setting up the project.
+Software, libraries, or dependencies that need to be installed before setting up the project can be found in detail in 
+our docs here. As a brief overview you need the following:
 
 ### Installation
 
-Step-by-step instructions on how to install and set up your project.
+tbc.
 
-To install your own code run `pip install -e .` in a terminal
+#### RareDIF REDCap Project
 
-## Features
+tbc. 
 
-Provide examples and explanations of how your project can be used. Include code snippets or screenshots if necessary.
+#### (Semi-)Automated Import Scripts
+
+tbc.
+
+#### HL7 FHIR Modules 
+
+tbc.
+
+#### Phenopackets Pipeline
+
+tbc. For the time being, please see more details in our previous GitHub Repository [ERKER2Phenopackets](https://github.com/BIH-CEI/ERKER2Phenopackets)
 
 ## Contributing
 
-Guidelines for contributing to your project. Include information about how others can contribute, submit issues, and create pull requests.
+Please write an issue or exchange with other users in the discussions if you encounter any problems.
+Feel free to reach out to us, if you are interested in collaborating and improve the use of REDCap for rare disease 
+research and care.
+
+## Resources 
+
+### Ontologies
+- Human Phenotype Ontology (HP, version: 2023-06-06) [🔗](http://www.human-phenotype-ontology.org)
+- Online Mendelian Inheritance in Man (OMIM, version: 2023-09-08) [🔗](https://www.omim.org/)
+- Orphanet Rare Disease Ontology (OPRHA, version: 2023-09-10) [🔗](https://www.orpha.net/)
+- National Center for Biotechnology Information Taxonomy (NCBITaxon, version: 2023-02-21) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
+- Logical Observation Identifiers Names and Codes (LOINC, version: 2023-08-15) [🔗](https://loinc.org/)
+- HUGO Gene Nomenclature Committee (HGNC, version: 2023-09-10) [🔗](https://www.genenames.org/)
+- Gene Ontology (GENO, version: 2023-07-27) [🔗](https://geneontology.org/)
 
 ## License
 
-Specify the license under which your project is distributed.
+This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareDIF/blob/main/LICENSE)
 
 ## Acknowledgements
+
+We would like to extend our thanks to ... for his support in the development of this project.
+
+---
+
+
+- Authors:
+  - [Adam Graefe](https://github.com/graefea)
+  - [Filip Rehburg](https://github.com/frehburg)
+  - Daniel Danis, PhD
+  - Prof. Peter N. Robinson
+  - Prof. Sylvia Thun
+  - Prof. Oya Beyan
