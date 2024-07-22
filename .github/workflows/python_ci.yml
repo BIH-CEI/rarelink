@@ -1,0 +1,27 @@
+name: CI
+
+on:
+    push:
+      branches: [ develop ]
+    pull_request:
+      branches: [ main, develop ]
+
+jobs:
+    run-ci:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          python-version: ['3.8', '3.9', '3.10', '3.11']
+
+      steps:
+        - uses: actions/checkout@v4
+        - name: Initialize Python
+          uses: actions/setup-python@v4.3.1
+          with:
+            python-version: ${{ matrix.python-version }}
+        - name: Install package
+          run: |
+            python3 -m pip install --editable .[test,docs]
+        - name: Run pytest tests
+          run: |
+            pytest
