@@ -1,5 +1,5 @@
 import pytest
-import template_for_python_projects
+import rare_dif
 
 
 @pytest.mark.parametrize("a, b, expected", [
@@ -17,4 +17,4 @@ import template_for_python_projects
     (-1, 0, -1),
 ])
 def test_minus(a, b, expected):
-    assert template_for_python_projects.example.plus.plus(a, b) == expected
+    assert rare_dif.example.plus.plus(a, b) == expected

@@ -14,7 +14,7 @@ import sys
 src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
-project = 'template_for_python_projects'
+project = 'rare_dif'
 copyright = '2024, test'
 author = 'test'
 release = '0.0.1'

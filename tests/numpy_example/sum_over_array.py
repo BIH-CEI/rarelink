@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-import template_for_python_projects
+import rare_dif
 
 
 @pytest.mark.parametrize("arr, expected", [
@@ -13,4 +13,4 @@ import template_for_python_projects
     ([2, 1, -3], 0),
 ])
 def test_sum_over_array(arr, expected):
-    assert template_for_python_projects.numpy_example.sum_over_array.sum_over_array(arr) == expected
+    assert rare_dif.numpy_example.sum_over_array.sum_over_array(arr) == expected

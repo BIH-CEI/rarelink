@@ -2,7 +2,7 @@ def plus(a: int, b: int) -> int:
     """
     This function returns the sum of two numbers.
 
-    Very similar to :func:`template_for_python_projects.example.minus.minus` but returns the sum instead of the
+    Very similar to :func:`rare_dif.example.minus.minus` but returns the sum instead of the
     difference.
 
     :param a: an integer number

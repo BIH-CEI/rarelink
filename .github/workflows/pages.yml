@@ -20,7 +20,7 @@ jobs:
       with:
         python-version: 3.11
 
-    - name: Install library with docs dependencies
+    - name: Install library with docs_ dependencies
       run: |
         python3 -m pip install .[docs]
 
