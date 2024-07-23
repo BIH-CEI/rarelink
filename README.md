@@ -33,7 +33,9 @@ deactivate your adblock for this website_). For disease-specific data capture an
 our RD CDM are given here (tbc). For further information regarding DCDEs (Domain Specific Data Elements)
 please read: https://pubmed.ncbi.nlm.nih.gov/35594066/
 
-![RareDIF (1)](https://github.com/user-attachments/assets/8bf9186a-bb53-4b6f-938b-6a5d21950aa7)
+![RareDIF (1)](https://github.com/user-attachments/assets/3f93ca95-dbb8-4b8b-8fdb-bb82168b6074)
+
+
 
 This framework encompasses the following features for RD data management: 
 1. User guide for implementation and installation in your local REDCap server & project
