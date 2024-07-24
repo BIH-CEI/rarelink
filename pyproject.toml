@@ -5,8 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rare_dif"
 authors = [
-    {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
     {name = "Adam Graefe", email="adam.graefe@charite.de"},
+    {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
+
      ]
 description = "Rare Disease Interoperability Framework enabling HL7 FHIR and the GA4GH Phenopacket Schema"
 readme = "README.md"
