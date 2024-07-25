@@ -1,4 +1,4 @@
-# RareDIF 
+# RareDIF
 
 Rare Disease Interoperability Framework enabling HL7 FHIR® and the GA4GH Phenopacket Schema©
 
