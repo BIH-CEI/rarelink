@@ -15,9 +15,22 @@ https://github.com/BIH-CEI/RareDIF
 
 ##### A)
 > start developing now
-- A1) REDCap Implementation & Installation: most native usage of REDCap
-- A2) User Docs: for implementation, installation, and set up in your local REDCap server & project (e.g. Connection with BioPortal)
-- A3) User Docs: for manual data capture (e.g. for HGVS validation)
+- A1) Develop REDCap Forms
+	- Development of separate forms for all sections of RD CDM
+		- define all elements in field annotations
+		- include comments and instructions if necessary
+		- consider ActionTags and BranchingLogic
+	- Develop repeatable forms for the *1...n* sections
+- A2) Prepare REDCap API
+	- Activate API for local REDCap project
+	- read requirements for API usage and implementation
+	- create development overview for implementation in Epic B - E
+- A3) REDCap User Docs
+	- Docs: general implementation and usage of framework
+	- installation of REDCap forms (repeatable, connecting BioPortal, etc.)
+	- prepare template structure in Docs for Epic B - E
+	- SOP: Manual Data Capture of entire form (including e.g. HGVS validation)
+##### B) 
 ##### B)
 > start developing now
 - B1) [Mapping Utils (](https://github.com/BIH-CEI/RareDIF/milestone/3)
