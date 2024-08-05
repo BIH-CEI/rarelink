@@ -35,15 +35,12 @@ please read: https://pubmed.ncbi.nlm.nih.gov/35594066/
 
 ![RareDIF (1)](https://github.com/user-attachments/assets/3f93ca95-dbb8-4b8b-8fdb-bb82168b6074)
 
-
-
 This framework encompasses the following features for RD data management: 
-1. User guide for implementation and installation in your local REDCap server & project
-2. User manuals for manual data capture (e.g. for HGVS validation)
-3. (Semi-)Automated import script from retrospective (tabular) databases into your REDCap project 
-4. Automated export to validated GA4GH Phenopackets
-5. Automated export to local HL7 FHIR resources or an HL7 FHIR server using the toFHIR Module
-6. Automated import of HL7 FHIR resources to a local RECap project & database using the CDIS-Module
+1. *Native REDCap usage*: downloadable REDCap forms of all [_RD CDM_](https://art-decor.org/ad/#/erker-/project/overview) sections, documentation and manuals for installing and setting up your local REDCap project, manual data capture guides, connecting BioPortal, and preparing your REDCap API
+2. *Semi-Automated Data Capture (from Tabluar Data)*: Utilities and manuals mapping tabular data to the [_RD CDM_](https://art-decor.org/ad/#/erker-/project/overview), including a user-friendly GUI, API connection, and clear instructions for each section
+3. *GA4GH Phenopacket Pipeline*: generating validated GA4GH Phenopackets of all [_RD CDM_](https://art-decor.org/ad/#/erker-/project/overview) possible, connected with an API, a GUI and precise documentation. So far, this work is based on the [ERKER2Phenopackets](https://github.com/BIH-CEI/ERKER2Phenopackets) Pipeline. 
+4. *Automated Export to local HL7 FHIR Resources or HL7 FHIR server*: utilising the integrated [_toFHIR_ Module](https://github.com/srdc/tofhir), generating local HL7 FHIR Resources generated from REDCap forms with automated export and record linkage with existing HL7 FHIR servers.
+5. *Automated import of HL7 FHIR resources to RECap*: HL7 FHIR resources are automatically imported to a local REDCap project & database using the CDIS-Module.
 
 For further use of GA4GH Phenopackets© please read: https://www.nature.com/articles/s41587-022-01357-4.
 
