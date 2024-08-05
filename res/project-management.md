@@ -55,11 +55,26 @@ https://github.com/BIH-CEI/RareDIF
 - [C3) Extendability of RD CDM for Specific Usecases](https://github.com/BIH-CEI/RareDIF/milestone/18)
 - [C4) Documentation](https://github.com/BIH-CEI/RareDIF/milestone/19)
 ######  D)
+- D0) REDCap project:
+	- ask Hr Hetey to add: https://github.com/srdc/tofhir-redcap  module
+	- also ask for API key (also ask Mostafa)
+ 	- see screenshots for Hetey to add extended modules for our project
+- D1) link the REDCap forms to the FHIR resources
+	-  mapping tables, 	- profiling not necessary, just put the resources
+- D2) toFHIR dev:
+	- learn from implementation recordings of Samer
+ 	- 
+- D3) 
+- D4)
+- D5)
+- 
+- 
 - generate local HL7 FHIR resources from form
 - HL7 FHIR
 - Automated export to local HL7 FHIR resources or an HL7 FHIR server using the toFHIR Module
 
 ######  E)
+- planned approach: 
 - Automated import of HL7 FHIR resources to a local RECap project & database using the CDIS-Module
 
 
