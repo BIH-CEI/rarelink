@@ -15,22 +15,21 @@ https://github.com/BIH-CEI/RareDIF
 
 ##### A)
 > start developing now
-- A1) Develop REDCap Forms
+- A1) [Develop REDCap Forms](https://github.com/BIH-CEI/RareDIF/milestone/20)
 	- Development of separate forms for all sections of RD CDM
 		- define all elements in field annotations
 		- include comments and instructions if necessary
 		- consider ActionTags and BranchingLogic
 	- Develop repeatable forms for the *1...n* sections
-- A2) Prepare REDCap API
+- A2) [Prepare REDCap API](https://github.com/BIH-CEI/RareDIF/milestone/21)
 	- Activate API for local REDCap project
 	- read requirements for API usage and implementation
 	- create development overview for implementation in Epic B - E
-- A3) REDCap User Docs
+- A3) [REDCap User Docs](https://github.com/BIH-CEI/RareDIF/milestone/22)
 	- Docs: general implementation and usage of framework
 	- installation of REDCap forms (repeatable, connecting BioPortal, etc.)
 	- prepare template structure in Docs for Epic B - E
 	- SOP: Manual Data Capture of entire form (including e.g. HGVS validation)
-##### B) 
 ##### B)
 > start developing now
 - B1) [Mapping Utils (](https://github.com/BIH-CEI/RareDIF/milestone/3)
