@@ -1,4 +1,4 @@
-# RareDIF
+# RareLink
 
 Rare Disease Interoperability Framework in REDCap enabling HL7 FHIR® and the GA4GH Phenopacket Schema©
 
