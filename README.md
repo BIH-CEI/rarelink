@@ -33,7 +33,7 @@ deactivate your adblock for this website_). For disease-specific data capture an
 our RD CDM are given here (tbc). For further information regarding DCDEs (Domain Specific Data Elements)
 please read: https://pubmed.ncbi.nlm.nih.gov/35594066/
 
-![RareDIF (1)](https://github.com/user-attachments/assets/3f93ca95-dbb8-4b8b-8fdb-bb82168b6074)
+[RareLink Abstract.pdf](https://github.com/user-attachments/files/16783170/RareLink.Abstract.pdf)
 
 This framework encompasses the following features for RD data management: 
 1. *Native REDCap usage*: downloadable REDCap forms of all [_RD CDM_](https://art-decor.org/ad/#/erker-/project/overview) sections, documentation and manuals for installing and setting up your local REDCap project, manual data capture guides, connecting BioPortal, and preparing your REDCap API
