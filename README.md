@@ -1,6 +1,6 @@
 # RareLink
 
-Rare Disease Interoperability Framework in REDCap enabling HL7 FHIR® and the GA4GH Phenopacket Schema©
+Rare Disease Interoperability Framework in REDCap linking Registry Use, HL7 FHIR® and the GA4GH Phenopacket Schema©
 
 [![Python CI](https://github.com/BIH-CEI/RareDIF/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/RareDIF/actions/workflows/python_ci.yml)  
 [Stable Documentation](https://BIH-CEI.github.io/RareDIF/stable/)  
