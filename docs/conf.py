@@ -14,7 +14,7 @@ import sys
 src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
-project = 'rare_dif'
+project = 'rare_link'
 copyright = '2024, test'
 author = 'test'
 release = '0.0.1'
