@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rarelink"
 authors = [
-    {name = "Adam Graefe", email="adam.graefe@charite.de"},
+    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
 
      ]
@@ -50,7 +50,7 @@ bugtracker = "https://github.com/BIH-CEI/RareDIF/issues"
 package-dir = { "" = "src" }
 
 [tool.setuptools.dynamic]
-version = { attr = "rare_dif.__version__" }
+version = { attr = "rarelink.__version__" }
 
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
