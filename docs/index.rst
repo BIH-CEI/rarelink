@@ -6,42 +6,24 @@
 RareLink Documentation
 ====================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+RareLink is a novel framework designed for managing and processing rare disease (RD) 
+data within the REDCap system. Rare diseases affect over 260 million individuals 
+worldwide, yet data quality and scarcity pose significant challenges in research 
+and clinical care. RareLink aims to standardize and streamline RD data management 
+by providing a structured project setup that ensures consistency across data collection
+instruments, variables, and data dictionaries, all while adhering to international 
+standards like HL7 FHIR and the GA4GH Phenopacket Schema.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    introduction_rarelink/intro_file
-   introduction_rarelink/rd_interoperability
-   introduction_rarelink/rd_cdm
-   introduction_rarelink/redcap
-
    installation/install_file
-   installation/rarelink_instruments
-   installation/redcap_project
-   installation/redcap_api
-
    user_guide/guide_file
-   user_guide/manual_data_capture
-   user_guide/ontobridge
-   user_guide/phenopacket_mapper
-   user_guide/redcap_api
-   user_guide/tofhir_module
-
-   examples/examples
-   examples/manual_data_capture
-   examples/ontobridge
-   examples/phenopacket_mapper
-   examples/tofhir_module
-
+   examples/examples_file
    faq
-
    glossary
-
    acknowledgements
 
 
