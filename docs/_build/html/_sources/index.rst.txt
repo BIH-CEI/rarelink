@@ -15,24 +15,24 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
-   introduction_rarelink
+   introduction_rarelink/intro_file
    introduction_rarelink/rd_interoperability
    introduction_rarelink/rd_cdm
    introduction_rarelink/redcap
 
-   installation
+   installation/install_file
    installation/rarelink_instruments
    installation/redcap_project
    installation/redcap_api
 
-   user_guide
+   user_guide/guide_file
    user_guide/manual_data_capture
    user_guide/ontobridge
    user_guide/phenopacket_mapper
    user_guide/redcap_api
    user_guide/tofhir_module
 
-   examples
+   examples/examples
    examples/manual_data_capture
    examples/ontobridge
    examples/phenopacket_mapper
