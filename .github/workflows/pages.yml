@@ -50,7 +50,7 @@ jobs:
           printf "Building the %s documentation\n" ${DOCDIR}
 
           cd docs
-          sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/rare_dif
+          sphinx-apidoc --separate --module-first -d 2 -H "API reference" --follow-links -o apidocs ../src/rarelink
           make clean html
           
           mv _build/html/* ../gh-pages/${DOCDIR}
