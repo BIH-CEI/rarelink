@@ -5,6 +5,6 @@ Installation Guide
    :maxdepth: 2
    :caption: Contents:
 
-   installation/rarelink_instruments
-   installation/redcap_project
-   installation/redcap_api
+   rarelink_instruments
+   redcap_project
+   redcap_api
