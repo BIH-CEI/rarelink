@@ -7,16 +7,15 @@ import sys
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
-project = 'rare_link'
-copyright = '2024, test'
-author = 'test'
+project = 'rarelink'
+copyright = '2024, Adam SL Graefe, Filip Rehburg'
+author = 'Adam SL Graefe, Filip Rehburg'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
