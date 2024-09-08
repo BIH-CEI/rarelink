@@ -1,2 +1,2 @@
-User Guide: REDCap Project for RareLink
-====================
+RareLink - REDCap Project
+==========================

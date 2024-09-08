@@ -4,7 +4,7 @@ Introuction RareLink
 RareLink was developed as a response to the widespread challenges in rare disease (RD) data management, 
 specifically the lack of interoperability and standardization within REDCap systems. The framework 
 ensures that RD data is captured, processed, and exported following a predefined common data model
- that facilitates downstream analysis using international standards.
+that facilitates downstream analysis using international standards.
 
 The integration of ontology codes and the connection to the BioPortal Ontology Server enables researchers
 and clinicians to use standardized terminologies, ensuring that data can be easily shared and reused
@@ -17,5 +17,8 @@ both clinical care and research in rare diseases.
    :caption: Contents
 
    rd_interoperability
+   ontologies
+   ga4gh_phenopacket_schema
+   hl7_fhir
    rd_cdm
    redcap

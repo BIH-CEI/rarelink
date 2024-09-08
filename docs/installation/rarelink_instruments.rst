@@ -1,2 +1,2 @@
-Installation Guide: RareLink REDCap Instruments
-====================
+RareLink REDCap Instruments
+============================
