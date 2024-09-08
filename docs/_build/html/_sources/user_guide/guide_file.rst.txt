@@ -6,7 +6,8 @@ RareLink User Guide
    :caption: Contents:
 
    manual_data_capture
+   redcap_api
    ontobridge
    phenopacket_mapper
-   redcap_api
    tofhir_module
+   

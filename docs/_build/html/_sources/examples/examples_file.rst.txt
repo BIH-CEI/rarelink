@@ -5,7 +5,8 @@ Examples
    :maxdepth: 2
    :caption: Contents
 
-   manual_data_capture
-   ontobridge
-   phenopacket_mapper
-   tofhir_module
+   example_redcap_project
+   example_redcap_instruments
+   example_ontobridge
+   example_phenopacket_mapper
+   example_tofhir_module
