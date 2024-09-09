@@ -1,8 +1,7 @@
-LOAD DATA INFILE '/Users/adam/Documents/GIT/RareLink/database/RareLink_v2.0_DataDictionary.csv'
-INTO TABLE RD-CDM
-FIELDS TERMINATED BY ',' 
-LINES TERMINATED BY '\n';
+-- create_tables.sql
+CREATE DATABASE IF NOT EXISTS rarelink_db;
 
+USE rarelink_db;
 
 CREATE TABLE rarelink_data (
     record_id INT PRIMARY KEY,
