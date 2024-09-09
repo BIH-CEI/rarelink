@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:iso13606_2c="http://ontoar.clinic.cat/ontologias/iso_13606_2c.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:csmm="http://ontoks.clinic.cat/ontologias/code_system_mm.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:iso13606_2a="http://ontoar.clinic.cat/ontologias/iso_13606_2a.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#"
+    xmlns:iso13606_3="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#"
+    xmlns:ontoddb="http://infmed.fcrb.es/ontologias/ontoddb.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="TS">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DATA_VALUE"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">POINT_IN_TIME</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ATTACHMENT">
+    <rdfs:label xml:lang="en">ATTACHMENT</rdfs:label>
+    <rdfs:comment xml:lang="en">This DATA_VALUE specialization represents data that is primarily intended for human interpretation or for further machine processing outside the scope of this specification. This includes unformatted or formatted written language, multimedia data, or structured information as defined by a different standard (e.g., XML-signatures).
+This DATA_VALUE specialization is equivalent to ISO 21090:2011 ED data type.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="REAL">
+    <rdfs:label xml:lang="en">REAL VALUES (floats)</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DV_BOOLEAN">
+    <rdfs:comment xml:lang="en">Items which are truly boolean data, such as true/false or yes/no &#xD;answers. For such data, it is important to devise the meanings (usually &#xD;questions in subjective data) carefully, so that the only allowed results are in fact true or false.&#xD;
+Misuse: The DV_BOOLEAN class should not be used as a replacement for &#xD;naively modelled enumerated types such as male/female etc. Such values &#xD;should be coded, and in any case the enumeration often has more than two &#xD;values.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CS">
+    <rdfs:comment xml:lang="en">Coded data in its simplest form, where only the code is not predetermined</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Code"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">CODED_SIMPLE</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="II">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">INSTANCE_IDENTIFIER</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Code">
+    <rdfs:comment xml:lang="es">Esta clase no existe en la EN 13606. Representa los conceptos codificados.</rdfs:comment>
+    <rdfs:label xml:lang="es">Código</rdfs:label>
+    <rdfs:label xml:lang="en">Code</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DV_CODED_TEXT">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DV_STATE">
+    <rdfs:comment xml:lang="en">For representing state values which obey a defined state machine, such &#xD;as a variable representing the states of an instruction or care process.&#xD;
+DV_STATE is expressed as a String but its values are driven by &#xD;archetype-defined state machines. This provides a powerful way of &#xD;capturing stateful complex processes in simple data.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PHYSICAL_QUANTITY">
+    <rdfs:label xml:lang="en">PHYSICAL_QUANTITY</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DURATION">
+    <rdfs:label xml:lang="en">DURATION</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PHYSICAL_QUANTITY"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DATE_TIME">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DATA_VALUE"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="es">This DATA_VALUE specialization represents a quantity specifying a point &#xD;on the axis of natural time. A point in time is most often represented &#xD;as a calendar expression. The value of the DATE_TIME is a string following the syntax "YYYY-MM-DDTHH:MM:SS[+|-ZZzz]" defined in ISO 8601.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#DATA_VALUE">
+    <rdfs:subClassOf rdf:resource="http://infmed.fcrb.es/ontologias/ontoddb.owl#AllowedValues"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment xml:lang="en">Each ELEMENT and DEMOGRAPHIC_ELEMENT contains one data value, to represent the actual instance value being recorded. DATA_VALUE is an abstract class representing the value of an ELEMENT or a DEMOGRAPHIC_ELEMENT. It is instantiated as one of its specialisations, each of which allows a value of a particular datatype to be recorded.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SIMPLE_TEXT">
+    <rdfs:label xml:lang="en">SIMPLE_TEXT</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#DATA_VALUE"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CV">
+    <rdfs:subClassOf rdf:resource="#Code"/>
+    <rdfs:label xml:lang="en">CODED_VALUE</rdfs:label>
+    <rdfs:comment xml:lang="en">This DATA_VALUE specialization is a reference to a concept defined in an external code system, terminology, or ontology.</rdfs:comment>
+    <rdfs:comment xml:lang="es">Las instancias de CV pueden ser a su vez instancias de algún sistema de codificación concreto.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="URI">
+    <rdfs:subClassOf rdf:resource="#DATA_VALUE"/>
+    <rdfs:comment xml:lang="en">Purpose A reference to an object which conforms to the Universal Resource Identifier (URI) standard, as defined by W3C RFC 2936</rdfs:comment>
+    <rdfs:label xml:lang="en">URI</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="unit">
+    <rdf:type>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#FunctionalProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+      </rdf:Description>
+    </rdf:type>
+    <rdfs:range rdf:resource="#CS"/>
+    <rdfs:domain rdf:resource="#PHYSICAL_QUANTITY"/>
+    <rdfs:label xml:lang="en">unit</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="DatatypeProperty_9"/>
+  <owl:DatatypeProperty rdf:ID="code_cv">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Coded value</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Codigo de coded value</rdfs:label>
+    <rdfs:domain rdf:resource="#CV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="datetime_value">
+    <rdfs:domain rdf:resource="#DATE_TIME"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pit_value">
+    <rdfs:domain rdf:resource="#TS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="code_cs">
+    <rdfs:label xml:lang="en">Code simple</rdfs:label>
+    <rdfs:label xml:lang="es">Código de Code simple</rdfs:label>
+    <rdfs:domain rdf:resource="#CS"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="xml_label">
+    <rdfs:comment xml:lang="es">Etiqueta a utilizar para la construcción de extractos. Es la etiqueta a validar, ya que no coincide con la etiqueta especificada en la norma.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">xml_label</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="xml_order">
+    <rdfs:comment xml:lang="es">Orden a utilizar para la construcción de extractos.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">xml_order</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="simple_text_value">
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#SIMPLE_TEXT"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="uri_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:domain rdf:resource="#URI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="physical_quantity_value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PHYSICAL_QUANTITY"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="media_type">
+    <rdfs:range rdf:resource="#CS"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">media type</rdfs:label>
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="is_terminal">
+    <rdfs:comment xml:lang="en">Indicates whether this state is a terminal state, such as "aborted", "completed", etc. from which no further transitions are possible&#xD;.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DV_STATE"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="value_boolean">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment xml:lang="en">&lt;p style="margin-top: 0"&gt;&#xD;
+      Items which are truly boolean data, such as true/false or yes/no &#xD;
+      answers. For such data, it is important to devise the meanings (usually &#xD;
+      questions in subjective data) carefully, so that the only allowed &#xD;
+      results are in fact true or false.&#xD;
+    &lt;/p&gt;&#xD;
+    &lt;p style="margin-top: 0"&gt;&#xD;
+      Misuse: The DV_BOOLEAN class should not be used as a replacement for &#xD;
+      naively modelled enumerated types such as male/female etc. Such values &#xD;
+      should be coded, and in any case the enumeration often has more than two &#xD;
+      values.&#xD;
+    &lt;/p&gt;</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DV_BOOLEAN"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="integrrity_check_algorithm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">integrrity check algorithm</rdfs:label>
+    <rdfs:range rdf:resource="#CS"/>
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="root">
+    <rdfs:domain rdf:resource="#II"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">root</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attachment_description">
+    <rdfs:range rdf:resource="#SIMPLE_TEXT"/>
+    <rdfs:label xml:lang="en">description</rdfs:label>
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="display_name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#CV"/>
+    <rdfs:label xml:lang="en">display_name</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dv_coded_text">
+    <rdfs:domain rdf:resource="#DV_STATE"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#DV_CODED_TEXT"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="real_value">
+    <rdfs:domain rdf:resource="#REAL"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="reference">
+    <rdfs:label xml:lang="en">reference</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+    <rdfs:range rdf:resource="#URI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="uri_description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#URI"/>
+    <rdfs:label xml:lang="en">description</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="identifier_name">
+    <rdfs:label xml:lang="en">identifier_name</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#II"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="original_text">
+    <rdfs:range rdf:resource="#SIMPLE_TEXT"/>
+    <rdfs:domain rdf:resource="#CV"/>
+    <rdfs:label xml:lang="en">original_text</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="thumbnail">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+    <rdfs:range rdf:resource="#ATTACHMENT"/>
+    <rdfs:label xml:lang="en">thumbnail</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attachment_value">
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="language">
+    <rdfs:range rdf:resource="#CS"/>
+    <rdfs:domain rdf:resource="#SIMPLE_TEXT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">language</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="integrrity_check">
+    <rdfs:domain rdf:resource="#ATTACHMENT"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+    <rdfs:label xml:lang="en">integrrity check</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="code_system">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">code_system</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#CV"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="extension">
+    <rdfs:domain rdf:resource="#II"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">extension</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Class">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->

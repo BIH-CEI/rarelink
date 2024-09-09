@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:iso13606_2c="http://ontoar.clinic.cat/ontologias/iso_13606_2c.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:csmm="http://ontoks.clinic.cat/ontologias/code_system_mm.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:iso13606_2a="http://ontoar.clinic.cat/ontologias/iso_13606_2a.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#"
+    xmlns:iso13606_dt="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#"
+    xmlns:iso13606_1="http://ontoar.clinic.cat/ontologias/iso_13606_1.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Term_list">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Class">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Term list</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="REFERENCE_ARCHETYPE">
+    <rdfs:label xml:lang="en">REFERENCE_ARCHETYPE</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://ontoar.clinic.cat/ontologias/iso_13606_2a.owl#AUTHORED_ARCHETYPE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Structures">
+    <rdfs:label xml:lang="es">Estructuras</rdfs:label>
+    <rdfs:label xml:lang="en">Structures</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ISO_13606_3_Terms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Term">
+    <rdfs:label xml:lang="en">Term</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Integrity_check_algorithms">
+    <rdfs:label xml:lang="es">Algoritmos de chequeo de la integridad</rdfs:label>
+    <rdfs:label xml:lang="en">Integrity check algorithms</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ISO_13606_3_Terms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ISO_639-1_languajes">
+    <rdfs:label xml:lang="es">Idiomas ISO 639-1</rdfs:label>
+    <rdfs:label xml:lang="en">ISO 639-1 languajes</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Nulls">
+    <rdfs:label xml:lang="es">Nulos</rdfs:label>
+    <rdfs:label xml:lang="en">Nulls</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ISO_13606_3_Terms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ISO_13606_3_Terms">
+    <rdfs:label xml:lang="es">Términos ISO 13603 - 3</rdfs:label>
+    <rdfs:label xml:lang="en">ISO 13603 - 3 Terms</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Subject_categories">
+    <rdfs:subClassOf rdf:resource="#ISO_13606_3_Terms"/>
+    <rdfs:label xml:lang="en">Subject categories</rdfs:label>
+    <rdfs:label xml:lang="es">Categorías del sujeto</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Links">
+    <rdfs:label xml:lang="es">Enlaces</rdfs:label>
+    <rdfs:label xml:lang="en">Links</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ISO_13606_3_Terms"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Extended_boolean_value">
+    <rdfs:label xml:lang="en">Extended boolean value</rdfs:label>
+    <rdfs:label xml:lang="es">Valor de boolean extendido</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ISO_13606_3_Terms"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://ontoar.clinic.cat/ontologias/iso_13606_1.owl#RECORD_COMPONENT"/>
+  <owl:Class rdf:ID="Version_status">
+    <rdfs:label xml:lang="es">Versión</rdfs:label>
+    <rdfs:label xml:lang="en">Version</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ISO_13606_3_Terms"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="codeSystemVersion">
+    <rdf:type>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#FunctionalProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+      </rdf:Description>
+    </rdf:type>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">codeSystemVersion</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="codeSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">codeSystem</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="code">
+    <rdfs:domain rdf:resource="#Term"/>
+    <rdfs:label xml:lang="en">Code</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="codeSystemName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">codeSystemName</rdfs:label>
+  </owl:FunctionalProperty>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_DER">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DER</code>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <rdfs:label xml:lang="en">derived</rdfs:label>
+  </NULL_FLAVOUR>
+  <AUTHORISED_BY rdf:ID="LINK-B10">
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="LINK-B0">
+        <rdfs:label xml:lang="en">is confirmed by or authorised by</rdfs:label>
+        <rdfs:label xml:lang="es">está confirmado o autorizado por</rdfs:label>
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LINK-B0</code>
+        <rdfs:subClassOf rdf:resource="#Links"/>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">unspecified reference to an attestation</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B10</code>
+  </AUTHORISED_BY>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-8">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-8</code>
+    <rdfs:label xml:lang="en">Research publication</rdfs:label>
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="External_links">
+        <rdfs:subClassOf rdf:resource="#ISO_13606_3_Terms"/>
+        <rdfs:label xml:lang="es">Enlaces externos</rdfs:label>
+        <rdfs:label xml:lang="en">External links</rdfs:label>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+  </TARGET_INFORMATION_TYPE>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E2">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E2</code>
+    <rdfs:comment xml:lang="en">The source component documents in summary form the clinical situation documented by the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">summarises</rdfs:label>
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="LINK-E0">
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LINK-E0</code>
+        <rdfs:subClassOf rdf:resource="#Links"/>
+        <rdfs:label xml:lang="es">es una documentación relacionada</rdfs:label>
+        <rdfs:label xml:lang="en">is a related documentation</rdfs:label>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+  </RELATED_DOCUMENTATION>
+  <RELATED_TO rdf:ID="LINK-A2i">
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-A2</rdfs:comment>
+    <rdfs:label xml:lang="en">is suggested by</rdfs:label>
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="LINK-A0">
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LINK-A0</code>
+        <rdfs:subClassOf rdf:resource="#Links"/>
+        <rdfs:label xml:lang="es">está relacionado con</rdfs:label>
+        <rdfs:label xml:lang="en">is related to</rdfs:label>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-A2i</code>
+  </RELATED_TO>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_QS">
+    <rdfs:label xml:lang="en">sufficient quantity</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QS</code>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+  </NULL_FLAVOUR>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C2">
+    <rdfs:comment xml:lang="en">The interpretation documented in the source component is a revision of or difference in clinical thinking compared to that documented in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">revised interpretation</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C2</code>
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="LINK-C0">
+        <rdfs:label xml:lang="es">está relacionado con el mismo problema o tema de salud</rdfs:label>
+        <rdfs:label xml:lang="en">is related to the same problem or health issue</rdfs:label>
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LINK-C0</code>
+        <rdfs:subClassOf rdf:resource="#Links"/>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+  </SAME_HEALTH_ISSUE>
+  <SAME_PLAN rdf:ID="LINK-D2">
+    <rdfs:subClassOf>
+      <LINK_NATURE rdf:ID="LINK-D0">
+        <rdfs:subClassOf rdf:resource="#Links"/>
+        <rdfs:label xml:lang="es">está relacionado con el mismo plan de atención, acto o episodio</rdfs:label>
+        <rdfs:label xml:lang="en">is related to the same plan of care, act or episode</rdfs:label>
+        <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LINK-D0</code>
+      </LINK_NATURE>
+    </rdfs:subClassOf>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D2</code>
+    <rdfs:comment xml:lang="en">The clinical situation (possibly an objective or criterion) documented in the target component is a pre-condition of the situation documented or intended action in the source component.</rdfs:comment>
+    <rdfs:label xml:lang="en">has pre-condition</rdfs:label>
+  </SAME_PLAN>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E10">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">unspecified reference to a link</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E10</code>
+  </RELATED_DOCUMENTATION>
+  <SUBJECT_CATEGORY rdf:ID="DS06">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS06</code>
+    <rdfs:label xml:lang="en">unrelated person</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+  </SUBJECT_CATEGORY>
+  <RELATED_TO rdf:ID="LINK-A3">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-A3</code>
+    <rdfs:label xml:lang="en">re-occurrence or repeat of</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-A0"/>
+    <rdfs:comment xml:lang="en">The source component documents a clinical situation which, in the opinion of the composer, is a repeat occurrence of the clinical situation documented in the target. This is intended for re-occurrences of real world situations, not repeated documentation of the same real-world event.</rdfs:comment>
+  </RELATED_TO>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-7">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-7</code>
+    <rdfs:label xml:lang="en">Educational resource</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+  </TARGET_INFORMATION_TYPE>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C1i">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C1</rdfs:comment>
+    <rdfs:label xml:lang="en">caused by</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C1i</code>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B3">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B3</code>
+    <rdfs:comment xml:lang="en">The source component documents a permission or an authorisation of an action documented in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">permits (sanctions, authorises)</rdfs:label>
+  </AUTHORISED_BY>
+  <VERSION_STATUS rdf:ID="VER03">
+    <rdfs:label xml:lang="en">Correction</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER03</code>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+  </VERSION_STATUS>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C3i">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C3i</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">justified by</rdfs:label>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C3</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <SAME_PLAN rdf:ID="LINK-D3">
+    <rdfs:label xml:lang="en">evaluation (assessment, milestone)</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D3</code>
+    <rdfs:subClassOf rdf:resource="#LINK-D0"/>
+    <rdfs:comment xml:lang="en">The source component documents a clinical assessment or milestone of the care activity, objective or clinical condition documented in the target component.</rdfs:comment>
+  </SAME_PLAN>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E8i">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">copied to</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E8i</code>
+  </RELATED_DOCUMENTATION>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#ObjectProperty">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E3">
+    <rdfs:label xml:lang="en">supplements</rdfs:label>
+    <rdfs:comment xml:lang="en">The source component provides supplementary information to the situation documented by the target.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E3</code>
+  </RELATED_DOCUMENTATION>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-9">
+    <rdfs:label xml:lang="en">Standard, profile or publicly available specification</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-9</code>
+  </TARGET_INFORMATION_TYPE>
+  <AUTHORISED_BY rdf:ID="LINK-B11">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B11</code>
+    <rdfs:label xml:lang="en">regulates</rdfs:label>
+  </AUTHORISED_BY>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_OTH">
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OTH</code>
+    <rdfs:label xml:lang="en">Other</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+  </NULL_FLAVOUR>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_NINF">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NINF</code>
+    <rdfs:label xml:lang="en">negative infinity</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+  </NULL_FLAVOUR>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C3">
+    <rdfs:comment xml:lang="en">The observation or interpretation documented in the source component provides confirmatory evidence of the interpretation expressed in the target component.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">evidence for</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C3</code>
+  </SAME_HEALTH_ISSUE>
+  <SUBJECT_CATEGORY rdf:ID="DS05">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS05</code>
+    <rdfs:label xml:lang="en">donor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+  </SUBJECT_CATEGORY>
+  <RELATED_TO rdf:ID="LINK-A2">
+    <rdfs:subClassOf rdf:resource="#LINK-A0"/>
+    <rdfs:label xml:lang="en">suggests (tentatively related to)</rdfs:label>
+    <rdfs:label xml:lang="es">sugiere (tentativamente relacionado con)</rdfs:label>
+    <rdfs:comment xml:lang="en">The interpretation expressed in the target component is a possible cause or outcome of the findings documented in the source component</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-A2</code>
+  </RELATED_TO>
+  <AUTHORISED_BY rdf:ID="LINK-B6i">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B6i</code>
+    <rdfs:label xml:lang="en">consented by</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-B6i</rdfs:comment>
+  </AUTHORISED_BY>
+  <AUTHORISED_BY rdf:ID="LINK-B2">
+    <rdfs:comment xml:lang="en">The interpretation expressed in the source component disproves or disagrees with the interpretation expressed in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">disagrees with (e.g. another opinion)</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B2</code>
+  </AUTHORISED_BY>
+  <SUBJECT_CATEGORY rdf:ID="DS00">
+    <rdfs:label xml:lang="en">subject of care</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS00</code>
+  </SUBJECT_CATEGORY>
+  <VERSION_STATUS rdf:ID="VER04">
+    <rdfs:label xml:lang="en">Deletion (in error)</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER04</code>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+  </VERSION_STATUS>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_NI">
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NI</code>
+    <rdfs:label xml:lang="en">no information</rdfs:label>
+    <rdfs:label xml:lang="es">sin información</rdfs:label>
+  </NULL_FLAVOUR>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_NAV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NAV</code>
+    <rdfs:label xml:lang="en">temporarily unavailable</rdfs:label>
+  </NULL_FLAVOUR>
+  <SAME_PLAN rdf:ID="LINK-D4">
+    <rdfs:label xml:lang="en">contributes to or fulfils goal, plan or act</rdfs:label>
+    <rdfs:comment xml:lang="en">The source component documents a care activity or clinical situation that makes some positive contribution towards the achievement of a plan of care or objective</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D4</code>
+    <rdfs:subClassOf rdf:resource="#LINK-D0"/>
+  </SAME_PLAN>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-1">
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-1</code>
+    <rdfs:label xml:lang="en">External data relating to this subject of care</rdfs:label>
+  </TARGET_INFORMATION_TYPE>
+  <INTEGRITY_CHECK_ALGORITHM rdf:ID="SHA256">
+    <rdfs:label xml:lang="en">secure hash algorithm - 256</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Integrity_check_algorithms"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SHA256</code>
+  </INTEGRITY_CHECK_ALGORITHM>
+  <RELATED_TO rdf:ID="LINK-A1">
+    <rdfs:label xml:lang="es">enlace no especificado</rdfs:label>
+    <rdfs:label xml:lang="en">unspecified link</rdfs:label>
+    <rdfs:comment xml:lang="en">The term is used when no semantic information is available for the Link in the EHR system from which the EXTRACT has been created</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-A0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-A1</code>
+  </RELATED_TO>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E8">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E8</code>
+    <rdfs:label xml:lang="en">copied from</rdfs:label>
+  </RELATED_DOCUMENTATION>
+  <SUBJECT_CATEGORY rdf:ID="DS01">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS01</code>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <rdfs:label xml:lang="en">relative of subject of care</rdfs:label>
+  </SUBJECT_CATEGORY>
+  <SUBJECT_CATEGORY rdf:ID="DS04">
+    <rdfs:label xml:lang="en">mother</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS04</code>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+  </SUBJECT_CATEGORY>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_UNK">
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNK</code>
+    <rdfs:label xml:lang="en">unknown</rdfs:label>
+    <rdfs:label xml:lang="es">desconocido</rdfs:label>
+  </NULL_FLAVOUR>
+  <AUTHORISED_BY rdf:ID="LINK-B5">
+    <rdfs:comment xml:lang="en">The participant (e.g. composer) identified in the source component is declining or withdrawing consent to take responsibility for the care acts documented in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">declines (refuses, cancels)</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B5</code>
+  </AUTHORISED_BY>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C9">
+    <rdfs:label xml:lang="en">sequel (consequence, progression)</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C9</code>
+    <rdfs:comment xml:lang="en">The source component documents a clinical situation that is a temporal successor to the target component (expected or unexpected, intended or unintended).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+  </SAME_HEALTH_ISSUE>
+  <VERSION_STATUS rdf:ID="VER01">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER01</code>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+    <rdfs:label xml:lang="en">Finished</rdfs:label>
+  </VERSION_STATUS>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_ASKU">
+    <rdfs:label xml:lang="en">asked but unknown</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ASKU</code>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+  </NULL_FLAVOUR>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-10">
+    <rdfs:label xml:lang="en">Clinical model</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-10</code>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+  </TARGET_INFORMATION_TYPE>
+  <SAME_PLAN rdf:ID="LINK-D5">
+    <rdfs:subClassOf rdf:resource="#LINK-D0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D5</code>
+    <rdfs:comment xml:lang="en">The source component is a revised status of a care activity documented in the target component; e.g. the source might be a completed or cancelled state of a planned healthcare activity documented in the target.</rdfs:comment>
+    <rdfs:label xml:lang="en">revised state of the same act</rdfs:label>
+  </SAME_PLAN>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C1">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C1</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">cause (interpretation)</rdfs:label>
+    <rdfs:comment xml:lang="en">The clinical situation documented in the source component is considered by the author to be the cause of the clinical situation documented in the target component.</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-2">
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-2</code>
+    <rdfs:label xml:lang="en">Part or all of the EHR of another subject of care</rdfs:label>
+  </TARGET_INFORMATION_TYPE>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E1">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:comment xml:lang="en">A clinical situation documented in the source component is more formally, documented in the target component.</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E1</code>
+    <rdfs:label xml:lang="en">documented by (is documented within)</rdfs:label>
+  </RELATED_DOCUMENTATION>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_NA">
+    <rdfs:label xml:lang="en">not applicable</rdfs:label>
+    <rdfs:label xml:lang="es">no aplicable</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NA</code>
+  </NULL_FLAVOUR>
+  <AUTHORISED_BY rdf:ID="LINK-B11i">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B11i</code>
+    <rdfs:label xml:lang="en">is regulated by</rdfs:label>
+  </AUTHORISED_BY>
+  <SUBJECT_CATEGORY rdf:ID="DS03">
+    <rdfs:label xml:lang="en">foetus or neonate or infant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS03</code>
+  </SUBJECT_CATEGORY>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E9">
+    <rdfs:label xml:lang="en">included by reference</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E9</code>
+  </RELATED_DOCUMENTATION>
+  <SUBJECT_CATEGORY rdf:ID="DS02">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS02</code>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <rdfs:label xml:lang="en">next of kin</rdfs:label>
+  </SUBJECT_CATEGORY>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C8">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">manifestation of</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C8</code>
+    <rdfs:comment xml:lang="en">The source component documents a clinical manifestation of the phenomenon documented in the target component.</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <VERSION_STATUS rdf:ID="VER02">
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER02</code>
+    <rdfs:label xml:lang="en">Updated</rdfs:label>
+  </VERSION_STATUS>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-11">
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-11</code>
+    <rdfs:label xml:lang="en">Terminological resource</rdfs:label>
+  </TARGET_INFORMATION_TYPE>
+  <AUTHORISED_BY rdf:ID="LINK-B4">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B3i</code>
+    <rdfs:label xml:lang="en">assumes responsibility for</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:comment xml:lang="en">The participant (e.g. composer) identified in the source component is taking responsibility for the care acts documented in the target component.</rdfs:comment>
+  </AUTHORISED_BY>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C6">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C6</code>
+    <rdfs:label xml:lang="en">contraindicated by</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:comment xml:lang="en">The target component documents an observation or interpretation that is a contraindication for a care action documented in the source component.</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B6">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B6</code>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:comment xml:lang="en">The participant identified in the source component is proving consent to care actions documented in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">consents to</rdfs:label>
+  </AUTHORISED_BY>
+  <VERSION_STATUS rdf:ID="VER00">
+    <rdfs:label xml:lang="en">Draft</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER00</code>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+  </VERSION_STATUS>
+  <SAME_PLAN rdf:ID="LINK-D6">
+    <rdfs:comment xml:lang="en">The healthcare activity documented in the source is a part of or sub-routine of an activity (e.g. a planned activity) documented in the target.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-D0"/>
+    <rdfs:label xml:lang="en">sub-task of</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D6</code>
+  </SAME_PLAN>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-13">
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-13</code>
+    <rdfs:label xml:lang="en">Product or service specification</rdfs:label>
+  </TARGET_INFORMATION_TYPE>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C12">
+    <rdfs:comment xml:lang="en">The clinical situation documented in the target component is an undesirable but possible consequence, sequel or outcome of the situation documented in the source component.</rdfs:comment>
+    <rdfs:label xml:lang="en">to be avoided (at risk of, fear of, prophylaxis against)</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C12</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+  </SAME_HEALTH_ISSUE>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-3">
+    <rdfs:label xml:lang="en">Clinical guideline, protocol or clinical pathway</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-3</code>
+  </TARGET_INFORMATION_TYPE>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E1i">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">documents (describes, reports)</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E1i</code>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-E1</rdfs:comment>
+  </RELATED_DOCUMENTATION>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E6">
+    <rdfs:comment xml:lang="en">The target component provides a reference basis for the interpretation of the values in the source component.</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E6</code>
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">has reference ranges</rdfs:label>
+  </RELATED_DOCUMENTATION>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_UNC">
+    <rdfs:label xml:lang="en">unencoded</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNC</code>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+  </NULL_FLAVOUR>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C7">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">trigger for</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C7</code>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B7">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B7</code>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:label xml:lang="en">countersigns</rdfs:label>
+  </AUTHORISED_BY>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-12">
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <rdfs:label xml:lang="en">Algorithm or derivation rule</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-12</code>
+  </TARGET_INFORMATION_TYPE>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_TRC">
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TRC</code>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <rdfs:label xml:lang="en">trace</rdfs:label>
+  </NULL_FLAVOUR>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C11">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:comment xml:lang="en">The clinical situation documented in the target component is an anticipated consequence, sequel or outcome of the situation documented in the source component (desirable or undesirable).</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C11</code>
+    <rdfs:label xml:lang="en">anticipated (predicted)</rdfs:label>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B3i">
+    <rdfs:label xml:lang="en">permitted by</rdfs:label>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-B3.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B3i</code>
+  </AUTHORISED_BY>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_PINF">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PINF</code>
+    <rdfs:label xml:lang="en">positive infinity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+  </NULL_FLAVOUR>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E7">
+    <rdfs:label xml:lang="en">identified within (study product)</rdfs:label>
+    <rdfs:comment xml:lang="en">The source component is an observation or interpretation taken directly from information contained within the target component.</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E7</code>
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+  </RELATED_DOCUMENTATION>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-4">
+    <rdfs:label xml:lang="en">Study protocol</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-4</code>
+  </TARGET_INFORMATION_TYPE>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C4">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C4</code>
+    <rdfs:comment xml:lang="en">The observation or interpretation documented in the source component provides evidence against the interpretation expressed in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">evidence against</rdfs:label>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B8">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B8</code>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:label xml:lang="en">revokes attestation</rdfs:label>
+  </AUTHORISED_BY>
+  <AUTHORISED_BY rdf:ID="LINK-B12">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B12</code>
+    <rdfs:label xml:lang="en">commissions</rdfs:label>
+  </AUTHORISED_BY>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C8i">
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C8</rdfs:comment>
+    <rdfs:label xml:lang="en">manifested by</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C8i</code>
+  </SAME_HEALTH_ISSUE>
+  <VERSION_STATUS rdf:ID="VER05">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER05</code>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+    <rdfs:label xml:lang="en">Legal deletion</rdfs:label>
+  </VERSION_STATUS>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C7i">
+    <rdfs:label xml:lang="en">triggered by</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C7i</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B1">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B1</code>
+    <rdfs:comment xml:lang="en">The interpretation expressed in the source component provides confirmatory evidence or a confirmatory opinion of the interpretation expressed in the target component.</rdfs:comment>
+    <rdfs:label xml:lang="en">endorses (agrees with, confirms, verifies)</rdfs:label>
+  </AUTHORISED_BY>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_NASK">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NASK</code>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DeprecatedClass"/>
+    <rdfs:label xml:lang="en">not asked</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+  </NULL_FLAVOUR>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-5">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-5</code>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <rdfs:label xml:lang="en">Policy or operating procedure</rdfs:label>
+  </TARGET_INFORMATION_TYPE>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E4">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E4</code>
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">excerpts</rdfs:label>
+    <rdfs:comment xml:lang="en">The source component is an extract (copy) of part or all of information contained within the target component.</rdfs:comment>
+  </RELATED_DOCUMENTATION>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C6i">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C6i</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">contraindication for</rdfs:label>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C6</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C10">
+    <rdfs:label xml:lang="en">intended (aim, goal, target, hoped for, desired)</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C10</code>
+    <rdfs:comment xml:lang="en">The clinical situation documented in the target component is an intended consequence, sequel or outcome of the situation documented in the source component.</rdfs:comment>
+  </SAME_HEALTH_ISSUE>
+  <SUBJECT_CATEGORY rdf:ID="DS08">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS08</code>
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <rdfs:label xml:lang="en">subject of care proxy</rdfs:label>
+  </SUBJECT_CATEGORY>
+  <AUTHORISED_BY rdf:ID="LINK-B9">
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+    <rdfs:label xml:lang="en">removes attestation</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B9</code>
+  </AUTHORISED_BY>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C5">
+    <rdfs:label xml:lang="en">indicated by</rdfs:label>
+    <rdfs:comment xml:lang="en">The target component documents a clinical indication for the care action documented in the source component.</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C5</code>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+  </SAME_HEALTH_ISSUE>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_MSK">
+    <rdfs:label xml:lang="en">masked</rdfs:label>
+    <rdfs:label xml:lang="es">enmascarado</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MSK</code>
+  </NULL_FLAVOUR>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C4i">
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C4</rdfs:comment>
+    <rdfs:label xml:lang="en">countered by</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C4i</code>
+  </SAME_HEALTH_ISSUE>
+  <SAME_HEALTH_ISSUE rdf:ID="LINK-C5i">
+    <rdfs:subClassOf rdf:resource="#LINK-C0"/>
+    <rdfs:label xml:lang="en">indication for</rdfs:label>
+    <rdfs:comment xml:lang="en">The inverse relationship of LINK-C5</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-C5i</code>
+  </SAME_HEALTH_ISSUE>
+  <AUTHORISED_BY rdf:ID="LINK-B12i">
+    <rdfs:label xml:lang="en">is commissioned by</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-B12i</code>
+    <rdfs:subClassOf rdf:resource="#LINK-B0"/>
+  </AUTHORISED_BY>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-14">
+    <rdfs:label xml:lang="en">Other external resource</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-14</code>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+  </TARGET_INFORMATION_TYPE>
+  <VERSION_STATUS rdf:ID="VER06">
+    <rdfs:label xml:lang="en">Encoded</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Version_status"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VER06</code>
+  </VERSION_STATUS>
+  <INTEGRITY_CHECK_ALGORITHM rdf:ID="SHA1">
+    <rdfs:label xml:lang="en">secure hash algorithm - 1</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SHA1</code>
+    <rdfs:subClassOf rdf:resource="#Integrity_check_algorithms"/>
+  </INTEGRITY_CHECK_ALGORITHM>
+  <SAME_PLAN rdf:ID="LINK-D1">
+    <rdfs:comment xml:lang="en">The clinical situation documented in the target component is the direct outcome of the situation documented in the source component.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LINK-D0"/>
+    <rdfs:label xml:lang="en">outcome</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-D1</code>
+  </SAME_PLAN>
+  <TARGET_INFORMATION_TYPE rdf:ID="ELINK-6">
+    <rdfs:label xml:lang="en">Safety report</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#External_links"/>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ELINK-6</code>
+  </TARGET_INFORMATION_TYPE>
+  <SUBJECT_CATEGORY rdf:ID="DS07">
+    <rdfs:subClassOf rdf:resource="#Subject_categories"/>
+    <rdfs:label xml:lang="en">healthcare third party</rdfs:label>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DS07</code>
+  </SUBJECT_CATEGORY>
+  <RELATED_DOCUMENTATION rdf:ID="LINK-E5">
+    <rdfs:subClassOf rdf:resource="#LINK-E0"/>
+    <rdfs:label xml:lang="en">derived from</rdfs:label>
+    <rdfs:comment xml:lang="en">The source component contains information that has been derived (e.g. calculated) from information documented in the target component.</rdfs:comment>
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LINK-E5</code>
+  </RELATED_DOCUMENTATION>
+  <NULL_FLAVOUR rdf:ID="NULL_FLAVOUR_INV">
+    <code rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INV</code>
+    <rdfs:subClassOf rdf:resource="#Nulls"/>
+    <rdfs:label xml:lang="en">Invalid</rdfs:label>
+    <rdfs:label xml:lang="es">no válido</rdfs:label>
+  </NULL_FLAVOUR>
+  <Term_list rdf:ID="INTEGRITY_CHECK_ALGORITHM">
+    <rdfs:subClassOf rdf:resource="#Term"/>
+  </Term_list>
+  <Term_list rdf:ID="SAME_HEALTH_ISSUE">
+    <rdfs:subClassOf>
+      <Term_list rdf:ID="LINK_DESCRIPTION">
+        <rdfs:subClassOf rdf:resource="#Term"/>
+      </Term_list>
+    </rdfs:subClassOf>
+  </Term_list>
+  <Term_list rdf:ID="RELATED_TO">
+    <rdfs:subClassOf rdf:resource="#LINK_DESCRIPTION"/>
+  </Term_list>
+  <Term_list rdf:ID="TARGET_INFORMATION_TYPE">
+    <rdfs:subClassOf rdf:resource="#Term"/>
+  </Term_list>
+  <Term_list rdf:ID="RELATED_DOCUMENTATION">
+    <rdfs:subClassOf rdf:resource="#LINK_DESCRIPTION"/>
+  </Term_list>
+  <Term_list rdf:ID="NULL_FLAVOUR">
+    <rdfs:label xml:lang="en">NULL_FLAVOUR</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Term"/>
+  </Term_list>
+  <Term_list rdf:ID="SUBJECT_CATEGORY">
+    <rdfs:subClassOf rdf:resource="#Term"/>
+  </Term_list>
+  <Term_list rdf:ID="VERSION_STATUS">
+    <rdfs:subClassOf rdf:resource="#Term"/>
+  </Term_list>
+  <Term_list rdf:ID="SAME_PLAN">
+    <rdfs:subClassOf rdf:resource="#LINK_DESCRIPTION"/>
+  </Term_list>
+  <Term_list rdf:ID="AUTHORISED_BY">
+    <rdfs:subClassOf rdf:resource="#LINK_DESCRIPTION"/>
+  </Term_list>
+  <Term_list rdf:ID="LINK_NATURE">
+    <rdfs:subClassOf rdf:resource="#Term"/>
+    <rdfs:label xml:lang="en">LINK_NATURE</rdfs:label>
+  </Term_list>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->

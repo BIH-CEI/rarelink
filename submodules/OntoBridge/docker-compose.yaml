@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  ontobridge:
+    build: 
+      context: services/ontobridge/
+      dockerfile: Dockerfile
+    container_name: ontobridge 
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./data:/app/data
+    networks:
+      red_privada:
+        ipv4_address: 10.0.0.2
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/app/ontop-cli-5.0.2/
+      - ONTOP_CLI_DIR=/app/ontop-cli-5.0.2
+      - LOCAL_SERVICE_HOST=host.docker.internal
+
+  fuseki:
+    image: "stain/jena-fuseki"
+    environment:
+      - FUSEKI_DATASET_1=name1
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    ports: 
+      - "5005:3030"
+    networks:
+      red_privada:
+        ipv4_address: 10.0.0.6
+
+networks:
+  red_privada:
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+
+volumes:
+  data:
+  pgadmin-data:
+
