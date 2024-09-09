@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:iso13606_2c="http://ontoar.clinic.cat/ontologias/iso_13606_2c.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:csmm="http://ontoks.clinic.cat/ontologias/code_system_mm.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:iso13940="http://ontoks.clinic.cat/ontologias/iso_13940.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:iso13606_3="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#"
+    xmlns:iso13606_dt="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#"
+    xmlns="http://ontoar.clinic.cat/ontologias/iso_13606_1.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://ontoar.clinic.cat/ontologias/iso_13606_1.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl"/>
+    <owl:imports rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#DATA_VALUE"/>
+  <rdfs:Class rdf:about="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#CV"/>
+  <rdfs:Class rdf:about="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+  <owl:Class rdf:ID="RECORD_COMPONENT_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BASE_COMPONENT_def"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SECTION_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CONTENT_def"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">SECTION_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ATTESTATION_INFO">
+    <rdfs:subClassOf>
+      <BASE_COMPONENT_def rdf:ID="BASE_COMPONENT"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EXTRACTED_COMPONENT_SET"/>
+  <owl:Class rdf:about="http://ontoks.clinic.cat/ontologias/iso_13940.owl#Healthcare_actor"/>
+  <owl:Class rdf:ID="DEMOGRAPHIC_EXTRACT">
+    <rdfs:subClassOf>
+      <FOLDER_def rdf:ID="DEMOGRAPHIC_FOLDER">
+        <rdfs:comment xml:lang="es">Las propiedade sub_folders y entities estarán representada por las correspondientes propiedades de tipo ObjectProperty</rdfs:comment>
+        <rdfs:subClassOf>
+          <STRUCTURE_COMPONENT_def rdf:ID="STRUCTURE_COMPONENT">
+            <rdfs:subClassOf>
+              <RECORD_COMPONENT_def rdf:ID="RECORD_COMPONENT">
+                <rdfs:subClassOf rdf:resource="#BASE_COMPONENT"/>
+                <rdfs:comment xml:lang="es">archetype_id = node_id de la clase de la que es instancia</rdfs:comment>
+              </RECORD_COMPONENT_def>
+            </rdfs:subClassOf>
+          </STRUCTURE_COMPONENT_def>
+        </rdfs:subClassOf>
+      </FOLDER_def>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="EXTRACT"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DEMOGRAPHIC_ELEMENT_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ELEMENT_def"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="es">Es equivalente a DatatypeProperty. Sus instancias serían los DEMOGRAPHIC_ELEMENT, que están representados por propiedades</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ITEM_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CONTENT_def"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">ITEM_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CLUSTER_def">
+    <rdfs:comment xml:lang="es">Todos los clusters son ObjectProperties</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ITEM_def"/>
+    <rdfs:label xml:lang="en">CLUSTER_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ENTRY_def">
+    <rdfs:label xml:lang="en">ENTRY_def</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CONTENT_def"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AUDIT_INFO"/>
+  <owl:Class rdf:ID="FOLDER_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="STRUCTURE_COMPONENT_def"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">FOLDER_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="COMPOSITION_def">
+    <rdfs:label xml:lang="en">COMPOSITION_def</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#STRUCTURE_COMPONENT_def"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://ontoks.clinic.cat/ontologias/iso_13940.owl#Subject_of_care">
+    <rdfs:label xml:lang="es">Paciente</rdfs:label>
+    <rdfs:label xml:lang="en">Subject of care</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CONTENT_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#STRUCTURE_COMPONENT_def"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">CONTENT_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="EXTERNAL_LINK">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LINK"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">The EXTERNAL_LINK class is a specialisation of LINK that is to be used when crating a non-containment relationship between a BASE_COMPONENT in an EHR extract and information outside that EHR extract.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ELEMENT_def">
+    <rdfs:comment xml:lang="es">Es equivalente a DatatypeProperty. Sus instancias serían los ELEMENT, que están representados por propiedades</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">ELEMENT_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#EXTRACT">
+    <rdfs:comment xml:lang="es">Esta clase no está definida en el estándar</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#LINK">
+    <rdfs:subClassOf rdf:resource="#BASE_COMPONENT"/>
+    <rdfs:comment xml:lang="es">source está representada por el dominio de la propiedad y target por el rango</rdfs:comment>
+    <rdfs:comment xml:lang="en">The LINK class defines the semantics of a non-containment relationship between two BASE_COMPONENTs.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#STRUCTURE_COMPONENT_def">
+    <rdfs:subClassOf rdf:resource="#RECORD_COMPONENT_def"/>
+    <rdfs:label xml:lang="en">STRUCTURE_COMPONENT_def</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="EHR_EXTRACT">
+    <rdfs:comment xml:lang="es">Extracción de datos, extracto</rdfs:comment>
+    <rdfs:subClassOf>
+      <FOLDER_def rdf:ID="FOLDER">
+        <rdfs:comment xml:lang="en">The FOLDER class may be used to organize and group COMPOSITIONs within an EHR_EXTRACT.</rdfs:comment>
+        <rdfs:comment xml:lang="es">La propiedades sub_folders y compositions estarán representada por las correspondientes propiedades de tipo ObjectProperty</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+      </FOLDER_def>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#EXTRACT"/>
+    <rdfs:label xml:lang="en">EHR_EXTRACT</rdfs:label>
+    <rdfs:label xml:lang="es">EHR_EXTRACT</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://ontoks.clinic.cat/ontologias/iso_13940.owl#Healthcare_provider">
+    <rdfs:subClassOf rdf:resource="http://ontoks.clinic.cat/ontologias/iso_13940.owl#Healthcare_actor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BASE_COMPONENT_def">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="auditSourceId">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdf:type>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#FunctionalProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+      </rdf:Description>
+    </rdf:type>
+    <rdfs:domain rdf:resource="#AUDIT_INFO"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="structure_components">
+    <rdfs:domain rdf:resource="#EXTRACTED_COMPONENT_SET"/>
+    <rdfs:range rdf:resource="#STRUCTURE_COMPONENT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="previous_version">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#BASE_COMPONENT"/>
+    <rdfs:domain rdf:resource="#BASE_COMPONENT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="information_provider">
+    <rdfs:range rdf:resource="http://ontoks.clinic.cat/ontologias/iso_13940.owl#Healthcare_provider"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain>
+      <ENTRY_def rdf:ID="ENTRY">
+        <rdfs:subClassOf>
+          <CONTENT_def rdf:ID="CONTENT">
+            <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+            <rdfs:comment xml:lang="es">La propiedad members se representará mediante las correspondientes propiedades apuntando a SECTION</rdfs:comment>
+          </CONTENT_def>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es">La propiedad items se implementa mediante las propiedades correspondientes</rdfs:comment>
+      </ENTRY_def>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="archetype_id">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:domain rdf:resource="#RECORD_COMPONENT_def"/>
+    <rdfs:comment xml:lang="en">The syntax for populating this attribute value is defined in Part 2 of this series.</rdfs:comment>
+    <rdfs:comment xml:lang="es">Se corresponde con los atXXXX</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="version_set_id">
+    <rdfs:range rdf:resource="#BASE_COMPONENT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#BASE_COMPONENT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="value">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#DATA_VALUE"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:comment xml:lang="en">An ELEMENT has a single DATA_VALUE containing the value, unless this is indicated as absent by a null_flavour attribute.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ehr_system">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:label xml:lang="en">ehr_system</rdfs:label>
+    <rdfs:domain rdf:resource="#EXTRACT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="target_component">
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdfs:range rdf:resource="#RECORD_COMPONENT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="authorising_party">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:domain rdf:resource="#EXTRACT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ehr_id">
+    <rdfs:domain rdf:resource="#EHR_EXTRACT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="rc_id">
+    <rdfs:domain rdf:resource="#BASE_COMPONENT"/>
+    <rdfs:comment xml:lang="en">This identifier shall be retained by the EHR Recipient and re-used whenever this BASE_COMPONENT is subsequently included in another extract.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="members">
+    <rdfs:label xml:lang="en">Members</rdfs:label>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <SECTION_def rdf:ID="SECTION">
+            <rdfs:subClassOf rdf:resource="#CONTENT"/>
+          </SECTION_def>
+          <ENTRY_def rdf:about="#ENTRY"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#SECTION_def"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="committer">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:domain rdf:resource="#AUDIT_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="compositions">
+    <rdfs:domain rdf:resource="#FOLDER"/>
+    <rdfs:label xml:lang="en">compositions</rdfs:label>
+    <rdfs:range>
+      <COMPOSITION_def rdf:ID="COMPOSITION">
+        <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+        <rdfs:comment xml:lang="es">Puede representar la unidad de comunicación de información clínica, una interacción de un agente con la HCE, pero los datos en la HC no tienen porqué estar organizados por Composiciones (como en openEHR).</rdfs:comment>
+        <rdfs:comment xml:lang="en">COMPOSITION represents the set of RECORD_COMPONENTS composed (authored) during one clinical encounter or documentation session, and committed within one EHR.</rdfs:comment>
+        <rdfs:comment xml:lang="es">La propiedad content se representará mediante propiedades apuntando a las correspondientes SECTION y ENTRY</rdfs:comment>
+      </COMPOSITION_def>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="subject_of_care">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:domain rdf:resource="#FOLDER"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="composer">
+    <rdfs:domain rdf:resource="#COMPOSITION"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="demographics">
+    <rdfs:range rdf:resource="#DEMOGRAPHIC_EXTRACT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#EHR_EXTRACT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="content">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="#CONTENT"/>
+    <rdfs:label xml:lang="en">content</rdfs:label>
+    <rdfs:domain rdf:resource="#COMPOSITION"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="sub_folders">
+    <rdfs:range rdf:resource="#FOLDER"/>
+    <rdfs:domain rdf:resource="#FOLDER"/>
+    <rdfs:label xml:lang="en">sub_folders</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="sensitivity">
+    <rdfs:domain rdf:resource="#COMPOSITION"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="auditEventActionCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AUDIT_INFO"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="time_created">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">time_created</rdfs:label>
+    <rdfs:domain rdf:resource="#EXTRACT"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="policy_ids">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#COMPOSITION"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="oid">
+    <rdfs:label xml:lang="en">oid</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="rm_id">
+    <rdfs:domain rdf:resource="#EXTRACT"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="access_policy_id">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#EHR_EXTRACT"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="target_system">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#EXTERNAL_LINK"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="time">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="version_status">
+    <rdfs:domain rdf:resource="#BASE_COMPONENT"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#VERSION_STATUS"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="element_archetype_id">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#II"/>
+    <rdfs:domain rdf:resource="#ELEMENT_def"/>
+    <rdfs:comment xml:lang="es">Es el arquetype_id de los ELEMENT. Se corresponde con los atXXXX</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attested_view">
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdfs:comment xml:lang="es">Pendiente revisar su rango</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="reason_for_attestation">
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#CV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="components">
+    <rdfs:domain rdf:resource="#EHR_EXTRACT"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#EXTRACTED_COMPONENT_SET"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="subject_of_information_category">
+    <rdfs:domain rdf:resource="#ENTRY"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#SUBJECT_CATEGORY"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="link_description">
+    <rdfs:domain rdf:resource="#LINK"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#LINK_DESCRIPTION"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="auditEventTimestamp">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AUDIT_INFO"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attestation_means">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#CV"/>
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="attester">
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="auditEventId">
+    <rdfs:domain rdf:resource="#AUDIT_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#CV"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="emphasis">
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_dt.owl#CV"/>
+    <rdfs:domain>
+      <ITEM_def rdf:ID="ITEM"/>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Es un atributo de instancia</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="proof">
+    <rdfs:comment xml:lang="es">Pendiente revisas su rango</rdfs:comment>
+    <rdfs:domain rdf:resource="#ATTESTATION_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="target_information_type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#EXTERNAL_LINK"/>
+    <rdfs:range rdf:resource="http://ontoar.clinic.cat/ontologias/iso_13606_3.owl#TARGET_INFORMATION_TYPE"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="attestations">
+    <rdfs:domain rdf:resource="#STRUCTURE_COMPONENT"/>
+    <rdfs:range rdf:resource="#ATTESTATION_INFO"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="audits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#AUDIT_INFO"/>
+    <rdfs:domain rdf:resource="#BASE_COMPONENT"/>
+  </owl:InverseFunctionalProperty>
+  <CLUSTER_def rdf:ID="DEMOGRAPHIC_CLUSTER">
+    <rdfs:subClassOf>
+      <ITEM_def rdf:ID="DEMOGRAPHIC_ITEM"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+  </CLUSTER_def>
+  <CLUSTER_def rdf:ID="CLUSTER">
+    <rdfs:subClassOf rdf:resource="#ITEM"/>
+    <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+  </CLUSTER_def>
+  <ENTRY_def rdf:ID="DEMOGRAPHIC_ENTITY">
+    <rdfs:subClassOf rdf:resource="#STRUCTURE_COMPONENT"/>
+    <rdfs:comment xml:lang="es">La propiedad items estará representada por las correspondientes propiedades</rdfs:comment>
+  </ENTRY_def>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->

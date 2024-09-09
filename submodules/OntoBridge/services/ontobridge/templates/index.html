@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Data Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button, input[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover, input[type="submit"]:hover {
+            background-color: #003f8a;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>SQL-to-RDF Data Extraction and Transformation</h1>
+    <h2>SQL Database Connection Parameters</h2>
+    <form method="POST" action="/run_ontop">
+        <input type="text" name="jdbc_name" placeholder="JDBC Name" required>
+        <input type="text" name="jdbc_url" placeholder="JDBC URL" required>
+        <input type="text" name="jdbc_user" placeholder="JDBC User" required>
+        <input type="password" name="jdbc_password" placeholder="JDBC Password" required>
+        <button type="submit">Submit</button>
+    </form>
+<div class="container">
+    <h1>CDM Table Creation</h1>
+    <form method="POST" action="/execute_chosen_model">
+        <label for="chosen_model">Select Data Model:</label>
+        <select id="chosen_model" name="chosen_model">
+            <option value="OMOP_5_3">OMOP 5.3</option>
+            <option value="OMOP_5_4">OMOP 5.4</option>
+            <option value="OMOP_6_0">OMOP 6.0</option>
+            <option value="i2b2">i2b2</option>
+            <option value="ISO13606">ISO13606</option>
+        </select>
+        <button type="submit">Create Model Tables</button>
+    </form>
+</div>
+</body>
+</html>

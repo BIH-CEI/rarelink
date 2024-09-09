@@ -9,7 +9,7 @@ authors = [
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
 
      ]
-description = "Rare Disease Interoperability Framework linking HL7 FHIR and the GA4GH Phenopacket Schema"
+description = "Rare Disease Interoperability Framework linking Registry Use, HL7 FHIR and the GA4GH Phenopacket Schema"
 readme = "README.md"
 requires-python = ">=3.8"
 keywords = [
@@ -41,10 +41,10 @@ test = ["pytest>=7.0.0,<8.0.0"]
 docs = ["sphinx>=7.0.0", "sphinx-rtd-theme>=1.3.0", "sphinx-copybutton>=0.5.0"]
 
 [project.urls]
-homepage = "https://github.com/BIH-CEI/RareDIF"
-repository = "https://github.com/BIH-CEI/RareDIF.git"
-documentation = "https://BIH-CEI.github.io/RareDIF/stable"
-bugtracker = "https://github.com/BIH-CEI/RareDIF/issues"
+homepage = "https://github.com/BIH-CEI/RareLink"
+repository = "https://github.com/BIH-CEI/RareLink.git"
+documentation = "https://BIH-CEI.github.io/RareLink/stable"
+bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

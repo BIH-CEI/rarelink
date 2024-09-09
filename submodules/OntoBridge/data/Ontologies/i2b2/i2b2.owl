@@ -1,0 +1,954 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:i2b2="http://ontoks.clinic.cat/ontologias/i2b2.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://ontoks.clinic.cat/ontologias/i2b2.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="i2b2_Concept_def">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
+  <owl:Class rdf:ID="i2b2_Attributes_def">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Visit_dimension_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="i2b2_Attributes"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Modifier_dimension_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#i2b2_Attributes"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Provider_dimension_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#i2b2_Attributes"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_dimension_ref">
+    <rdfs:label xml:lang="en">Non-standard metaclass that allows the mapping of local concepts</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#i2b2_Attributes"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Observation_Fact_def">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#i2b2_Attributes"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="i2b2_Tables"/>
+  <owl:Class rdf:ID="i2b2_Tables_def">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#i2b2_Attributes">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Concept_dimension_def">
+    <rdfs:subClassOf rdf:resource="#i2b2_Attributes"/>
+  </owl:Class>
+  <owl:Class rdf:ID="local_sex_CD">
+    <rdfs:subClassOf rdf:resource="#Other_dimension_ref"/>
+  </owl:Class>
+  <owl:Class rdf:ID="source_value_OF">
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <rdfs:label xml:lang="es">Propiedad inexistente en i2b2, usada para traer los datos no estandarizados tal como estaban representados en el sistema de origen, para usar en el postprocesamiento cuando no haya mapeos estándares</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient_dimension_def">
+    <rdfs:subClassOf rdf:resource="#i2b2_Attributes"/>
+  </owl:Class>
+  <owl:FunctionalProperty rdf:ID="required">
+    <rdfs:label xml:lang="es">Requerido</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#i2b2_Concept_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="type">
+    <rdfs:domain rdf:resource="#i2b2_Concept_def"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">Tipo</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="table_description">
+    <rdfs:comment xml:lang="es">Description of i2b2 table</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#i2b2_Tables_def"/>
+    <rdfs:label xml:lang="es">Descripción de tabla i2b2</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="description">
+    <rdfs:label xml:lang="es">Descripción</rdfs:label>
+    <rdfs:domain rdf:resource="#i2b2_Concept_def"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_PD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A numeric id given to the upload</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Provider_dimension">
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sex_cd_PAD">
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code representing patient sex, defined in the ontology.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="location_cd_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A location code, such as for a clinic</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="visit_blob_VD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(MAX)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PHI or additional information in a parseable format like XML.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_CD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="provider_id_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Practitioner or provider id</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_VD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >"Date the row was updated by the source system Obtained from the source system"</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="birth_date_PAD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patient birth date.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_MD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A numeric id given to the upload</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="name_char_CD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The name of the concept</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(2000)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_PAD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_PD">
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="patient_num_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Encoded i2b2 patient number</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="encounter_num_VD">
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >i2b2 patient visit number</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="marital_status_cd_PAD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code representing patient marital status, defined in the ontology.</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_MD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the row was update by the source system The date is obtained from the source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="instance_num_OF">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Encoded instance number that allows more than one modifier to be provided for each CONCEPT_CD. Each row will have a different MODIFIER_CD but a similar INSTANCE_NUM.</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="inout_cd_VD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A code representing whether this visit was inpatient, outpatient, emergency, etc. Defined in the ontology.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="patient_num_VD">
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >i2b2 patient number</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Visit_dimension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="tval_char_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Used in conjunction with VALTYPE_CD = "T" or "N" When the VALTYPE_CD = "T" Stores the text value  When VALTYPE_CD = "N" E = Equals NE = Not equal L = Less than LE = Less than and Equal to G = Greater than GE = Greater than and Equal to</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(255)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="active_status_cd_VD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Not presently used, but intended to convey the status of an event along with the precision of the available dates. Conceptually it is very similar to the VITAL_STATUS_CD column in the PATIENT_DIMENSION table. The recommended code consists of two characters; the first one represents the validity of the END_DATE and the second one is for the START_DATE.</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="valueflag_cd_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Used in conjunction with VALTYPE_CD = "B", "NLP", "N", or "T"  When the VALTYPE_CD = "N" or "T" it is used to flag certain outlying or abnormal values H = High L = Low A = Abnormal</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="concept_blob_CD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(MAX</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PHI or additional information in a parseable format like XML</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_MD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="provider_path_PD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(700)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The PROVIDER_PATH is the path that describes how the provider fits into the institutional hierarchy. Institution, department, provider name and a code may be included in the path.</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="religion_cd_PAD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code representing patient religion, defined in the ontology.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="death_date_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patient death date.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_MD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="location_cd_VD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A location code, such as for a clinic. It need not have the same code as the corresponding code in observation_fact - one can represent, for example, a site and the other can represent a location within a site.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_VD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="encounter_num_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Encoded i2b2 patient visit number</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="concept_cd_OF">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code for the observation of interest (i.e. diagnoses, procedures, medications, lab tests)</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Modifier_dimension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="valtype_cd_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Format of the concept N = Numeric T = Text (enums / short messages) B = Raw Text (notes / reports)</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="statecityzip_path_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(700)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The codes from the STATECITYZIP_CD are intended to be strings that represent hierarchical information. In the way, the string is queried from left to right in a string comparison to determine which patients are returned by the query. For example, if a code is MA\BOSTON\02114 and all the patient in BOSTON are desired, the string "MA\BOSTON*" (where * is a wildcard) would be queried.</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Concept_dimension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A numeric id given to the upload</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="patient_blob_PAD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(MAX)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PHI or additional information in a parseable format like XML</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_CD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="end_date_VD">
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATEIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Contains the date the event ended.</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A numeric id given to the upload</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="patient_num_PAD">
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >i2b2 patient number</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="confidence_num_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DECIMAL(18,5)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assessment of accuracy of data</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_OF">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATIME</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the row was update by the source system The date is obtained from the source system</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_PAD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="start_date_OF">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Starting date-time of the observation (mm/dd/yyyy)</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="income_cd_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code representing patient income level, defined in the ontology. (Infrequently used.)</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="quantity_num_OF">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Quantity of the value in the NVAL_NUM column</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DECIMAL(18,5)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_CD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(250)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="concept_path_CD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A path that delineates the concept's hierarchy</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(700)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Observation_fact">
+    <rdfs:label xml:lang="es">Observation_Fact Table</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:table_description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Test description</i2b2:table_description>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="end_date_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The end date-time for the observation</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="concept_cd_CD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A code that represents the coded value (e.g. diagnosis, procedure, etc.)</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="modifier_cd_MD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A code that represents the modifier</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="download_date_PD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was downloaded from the source system</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="modifier_path_MD">
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(700)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A path that delineates the modifier's hierarchy</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_CD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >i2b2 patient visit number</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_PD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="zip_cd_PAD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patient zip code.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(10)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="vital_status_cd_PAD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >"Could be used by an ontology or by the vital status breakdown type, but not used by the core platform. Contains a code that represents the vital status of the patient and the precision of the vital status data. The code consists of two characters; the first one represents the validity of the DEATH_DATE and the second one is for the BIRTH_DATE."</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="start_date_VD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Contains the date the event began.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_PAD">
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="name_char_PD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provider name</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(850)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="age_in_years_num_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patient current age (can be computed by birth_date and current date). Optional - usually ontology-based queries use birth_date.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_VD">
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_PAD">
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >"Date the row was updated by the source system Obtained from the source system"</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="location_path_VD">
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A hierarchical path representing the visit location.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(900)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="update_date_PD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >"Date the row was updated by the source system Obtained from the source system"</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="length_of_stay_VD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A computed length of stay. Usually end_date-start_date is used by ontologies to dynamically compute length of stay.</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="nval_num_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DECIMAL(18,5)</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Used in conjunction with VALTYPE_CD = "N" to store a numerical value</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_CD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Concept_dimension_def"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="name_char_MD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(2000)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The name of the modifier</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="provider_blob_PD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PHI or additional information in a parseable format like XML</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(MAX)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="language_cd_PAD">
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code representing patient language, defined in the ontology.</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_MD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_VD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="provider_id_PD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Each record in the PROVIDER_DIMENSION table represents a physician or provider at an institution.</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Provider_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="import_date_OF">
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Date the data was imported into the CRC</i2b2:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DATETIME</i2b2:type>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="modifier_cd_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Code for modifier of interest (i.e. "ROUTE", "DOSE"). Note that the value columns are often used to hold the amounts such as "100" (mg) for the modifier of DOSE or "PO" for the modifier of ROUTE.</i2b2:description>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</i2b2:required>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="sourcesystem_cd_OF">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coded value for the data source system</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="observation_blob_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PH</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TEXT</i2b2:type>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="modifier_blob_MD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Modifier_dimension_def"/>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Holds any raw or miscellaneous data that exists, often encrypted PHI</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TEXT</i2b2:type>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="source_tval_char">
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+    <rdfs:label xml:lang="es">Propiedad inexistente en i2b2, usada para traer los datos no estandarizados de resultado textual tal como estaban representados en el sistema de origen, para usar en el postprocesamiento cuando no haya mapeos estándares</rdfs:label>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="upload_id_VD">
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A numeric id given to the upload</i2b2:description>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >INT</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Visit_dimension_def"/>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Tables_def rdf:ID="Patient_dimension">
+    <rdfs:subClassOf rdf:resource="#i2b2_Tables"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </i2b2:i2b2_Tables_def>
+  <i2b2:i2b2_Concept_def rdf:ID="race_cd_PAD">
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="#Patient_dimension_def"/>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The codes from the RACE_CD column are enumerated values that may be grouped together to achieve a desired result. For instance, if there are four codes to represent a race of "white"; W, WHITE, WHT, and WHITE-HISPANIC then all four codes can be counted directly to determine the number of white-race patients in the database.</i2b2:description>
+  </i2b2:i2b2_Concept_def>
+  <i2b2:i2b2_Concept_def rdf:ID="units_cd_OF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <i2b2:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VARCHAR(50)</i2b2:type>
+    <i2b2:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Units of measurement for the value in the NVAL_NUM column</i2b2:description>
+    <i2b2:required rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NO</i2b2:required>
+    <rdfs:subClassOf rdf:resource="#Observation_Fact_def"/>
+  </i2b2:i2b2_Concept_def>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
