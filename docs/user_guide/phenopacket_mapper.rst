@@ -10,3 +10,21 @@ These mappings are defined in a configuration file that is provided with the Phe
 All data from the RD CDM can be exported to GA4GH Phenopackets using the Phenopacket Mapper module.
 For all data extending the RD CDM, we predefined a set of mappings that can be used to generate GA4GH Phenopackets.
 These mappings specify how data in REDCap should be coded and formatted to generate GA4GH Phenopackets.
+
+Definition REDCap variable suffixes for Phenopacket Mapper
+__________________________________________________________
+
+The Phenopacket Mapper module uses the following suffixes to identify REDCap variables that should be included in the GA4GH Phenopacket.
+
+Disease Block
+-------------
+
+
+PhenotypicFeature Block
+------------------------
+
+- "_mod" - Modifier
+- "_sev" - Severity
+- "_date" - Onset
+
+
