@@ -14,17 +14,48 @@ phenopacket_mapper/stable/)
 - [Phenopacket Mapper GitHub](https://github.com/BIH-CEI/phenopacket_mapper)
 
 
+RareLink Phenopacket Mapper Configuration
+_________________________________________
+
+RareLink - RD CDM v2.0
+----------------------
+
 RareLink provides all REDCap sheets that displa data in the Rare Disease
 Common Data Model v2.0 (RD CDM) with predefined mappings to generate GA4GH
 Phenopackets. These mappings are defined in a configuration file that is
 provided with the Phenopacket Mapper module. All data from the RD CDM can be
 exported to GA4GH Phenopackets using the Phenopacket Mapper module. 
 
-RD CDM --> RareLink Sheets 
---> predefined Phenopacket pipeline --> GA4GH Phenopackets
+RD CDM v2.0 -> RareLink Sheets -> preconfigured Phenopacket 
+--> validated GA4GH Phenopackets
 
 
-For Data extending the 
+RareLink - Data Extending RD CDM
+--------------------------------
+
+For all data extending the RD CDM, we predefined a set of rules that can be used
+to develop further REDCap forms. If these rules are followed, the sheet 
+variables can be used to map the REDCap data to the GA4GH Phenopackets Schema. 
+We provide example sheets that can be used to capture data that extends the RD
+CDM to capture specific Phenopacket Building Blocks. 
+
+
+Extensions around RD CDM --> Rules for REDCap Sheets -> (example sheets to
+ download and use) -> RareLink preconfiguration in Phenopacket Mapper 
+ --> validated GA4GH Phenopackets
+
+
+- extension based on CEIENR use case
+
+
+In the following sections, we will provide a detailed description of the
+Phenopacket Mapper configuration for the RD CDM v2.0 and the data extending the
+RD CDM.
+
+
+
+
+
 
 
 
@@ -39,8 +70,7 @@ These mappings specify how data in REDCap should be coded and formatted to gener
 
 
 
-Extensions around RD CDM --> RareLink Sheets with Phenopacket codes --> preconfiguration in Phenopacket Mapper --> GA4GH Phenopackets
-- extension based on CEIENR use case
+
 
 
 
