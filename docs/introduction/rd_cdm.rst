@@ -54,6 +54,12 @@ provides a rule-based approach to customize REDCap instruments and
 ensure that the model can be adapted to meet the unique needs of different rare
 diseases.
 
+.. image:: images/rd_cdm_v2.0_overview.png
+   :alt: Overview RD CDM v2.0
+   :width: 300px
+   :height: 200px
+   :align: center
+
 **Further Reading:**
 
 - `A common data model for rare diseases based on the ERDRI-CDS, HL7 FHIR, and 
