@@ -46,8 +46,16 @@ precise communication and supporting electronic health information exchange.
      information systems through appropriate coding <https://doi.org/10.1186/s13023-015-0251-8>`_
    * - Orphanet Rare Disease Ontology (ORDO)
      - Structured open-access ontology for RDs that enables queries of rare 
-     disorders and captures relationships between diseases, genes, and other relevant features.
+     disorders and captures relationships between diseases, genes, and other 
+     relevant features.
      - `https://www.orpha.net/consor/cgi-bin/index.php`
+     - `Mondo: Unifying diseases for the world, by the world
+      <https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3>`_
+    * - Monarch Initiative Disease Ontology (MONDO)
+     - The Mondo Disease Ontology (Mondo) aims to harmonize disease definitions 
+     across the world. It is a semi-automatically constructed ontology that 
+     merges in multiple disease resources to yield a coherent merged ontology.
+     - `https://mondo.monarchinitiative.org/`
      - `Ordo: an ontology connecting rare disease, epidemiology and genetic data
       <https://www.researchgate.net/publication/287218703_Ordo_an_ontology_connecting_rare_disease_epidemiology_and_genetic_data>`_
    * - Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT)
@@ -80,4 +88,5 @@ precise communication and supporting electronic health information exchange.
      containing information on all known Mendelian disorders and over 15,000 
      genes.
      - `https://omim.org/`
-     - `OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>`_
+     - `OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog
+      of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>`_
