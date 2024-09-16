@@ -66,11 +66,6 @@ treatments.
 
 For more information please read:
 
-- [Why Digital Medicine depends on Interoperability](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- [Interoperability in Healthcare: A Review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- Interoperability in Rare Diseases: [Challenges and Solutions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- [Rare Disease Data Management: Challenges and Opportunities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- [Rare Disease Data Sharing: A Review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- [Rare Disease Data Standards: An Overview](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
-- [Rare Diseases and Machine Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/)
+- [Why Digital Medicine depends on Interoperability](https://www.nature.com/articles/s41746-019-0158-1)
+
 
