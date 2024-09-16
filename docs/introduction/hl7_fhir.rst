@@ -34,13 +34,13 @@ Although FHIR may not cover all the nuanced aspects required for in-depth RD
 analysis, it is indispensable for achieving interoperability within healthcare
 systems. Its integration in RareLink ensures that data collected from rare
 disease patients can be reused effectively across various platforms, thereby
-supporting both clinical care and bioinformatic research into rare conditions
+supporting both clinical care and bioinformatic research into rare conditions.
 
 **Further Reading:**
 
-* `Why digital medicine depends on interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
-* `HL7 FHIR-based tools and initiatives to support clinical research: a scoping 
+- `Why digital medicine depends on interoperability <https://www.nature.com/articles/s41746-019-0158-1>`
+- `HL7 FHIR-based tools and initiatives to support clinical research: a scoping 
 review <https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865>`
-* `HL7 FHIR Overview <https://www.hl7.org/fhir/overview.html>`_
-* `FHIR Genomics Implementation Guide <https://build.fhir.org/ig/HL7/genomics-reporting/index.html>`_
+- `HL7 FHIR Overview <https://www.hl7.org/fhir/overview.html>`
+- `FHIR Genomics Implementation Guide <https://build.fhir.org/ig/HL7/genomics-reporting/index.html>`
 
