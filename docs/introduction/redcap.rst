@@ -16,10 +16,10 @@ does not natively define or enforce standardized variables. This lack of native
 definitions for variables can lead to inconsistencies in data capture across 
 different projects and institutions, potentially hindering data exchange and 
 interoperability. To address these issues, a wide range of modules and add-ons 
-have been designed and developed, allowing users to extend REDCap's functionality 
-and tailor it to specific research needs. The REDCap API also allows for seamless 
-integration with external systems, enabling automated data transfers and further 
-enhancing the platform’s utility in research environments.
+have been designed and developed, allowing users to extend REDCap's 
+functionality and tailor it to specific research needs. The REDCap API also 
+allows for seamless integration with external systems, enabling automated data 
+transfers and further enhancing the platform’s utility in research environments.
 
 RareLink maximizes the utility of REDCap by providing a comprehensive framework 
 designed specifically for rare disease (RD) research and care. At the core of 
