@@ -67,7 +67,6 @@ treatments.
        `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
 
 
-
 For more information please read:
 
 - [Why Digital Medicine depends on Interoperability](https://www.nature.com/articles/s41746-019-0158-1)
