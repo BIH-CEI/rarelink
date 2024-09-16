@@ -43,6 +43,12 @@ bioinformaticians and clinicians worldwide. As more tools and frameworks are
 built around the Phenopacket schema, the potential for breakthroughs in RD 
 diagnosis and treatment continues to grow.
 
+.. image:: images/ga4gh_phenopacket_schema.png
+   :alt: Overview GA4GH Phenopacket Schema
+   :width: 300px
+   :height: 200px
+   :align: center
+
 **Further Reading:**
    
 - `The GA4GH Phenopacket schema defines a computable representation of 
