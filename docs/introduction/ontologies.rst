@@ -30,12 +30,12 @@ precise communication and supporting electronic health information exchange.
      - A standardised vocabulary of phenotypic abnormalities providing a global 
        standard for describing disease traits.
      - `https://hpo.jax.org/app/`
-     - `The human phenotype ontology in 2021 <https://academic.oup.com/nar/article/52/D1/D1333/7416384?login=false>`_
+     - `The human phenotype ontology in 2021 <https://academic.oup.com/nar/article/52/D1/D1333/7416384?login=false>`
    * - Sequence Ontology (SO)
      - Cohesive and standardised vocabulary for genomic annotation components, 
        enhancing the sharing, analysis, and handling of genomic information.
      - `http://www.sequenceontology.org/`
-     - `The Sequence Ontology: a tool for the unification of genome annotations <https://doi.org/10.1186/gb-2005-6-5-r44>`_
+     - `The Sequence Ontology: a tool for the unification of genome annotations <https://doi.org/10.1186/gb-2005-6-5-r44>`
    * - International Statistical Classification of Diseases and Related Health 
      Problems, 10th & 11th Revision (ICD-10, ICD-11)
      - Used for documenting morbidity in healthcare systems, encoding mortality 
@@ -43,45 +43,45 @@ precise communication and supporting electronic health information exchange.
        comprehensively and precisely.
      - `https://www.who.int/standards/classifications/classification-of-diseases`
      - `Rare diseases in ICD11: making rare diseases visible in health 
-       information systems through appropriate coding <https://doi.org/10.1186/s13023-015-0251-8>`_
+       information systems through appropriate coding <https://doi.org/10.1186/s13023-015-0251-8>`
    * - Orphanet Rare Disease Ontology (ORDO)
      - Structured open-access ontology for RDs that enables queries of rare 
        disorders and captures relationships between diseases, genes, and other 
        relevant features.
      - `https://www.orpha.net/consor/cgi-bin/index.php`
      - `Mondo: Unifying diseases for the world, by the world
-        <https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3>`_
+        <https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3>`
    * - Monarch Initiative Disease Ontology (MONDO)
      - The Mondo Disease Ontology (Mondo) aims to harmonize disease definitions 
        across the world. It is a semi-automatically constructed ontology that 
        merges in multiple disease resources to yield a coherent merged ontology.
      - `https://mondo.monarchinitiative.org/`
      - `Ordo: an ontology connecting rare disease, epidemiology and genetic data
-        <https://www.researchgate.net/publication/287218703_Ordo_an_ontology_connecting_rare_disease_epidemiology_and_genetic_data>`_
+        <https://www.researchgate.net/publication/287218703_Ordo_an_ontology_connecting_rare_disease_epidemiology_and_genetic_data>`
    * - Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT)
      - Comprehensive, standardised and precise clinical health terminology 
        providing codes, terms, synonyms, definitions, and relationships of 
        concepts used in clinical documentation and reporting.
      - `https://www.snomed.org/`
-     - `The use of SNOMED CT, 2013-2020: a literature review <https://doi.org/10.1093/jamia/ocab140>`_
+     - `The use of SNOMED CT, 2013-2020: a literature review <https://doi.org/10.1093/jamia/ocab140>`
    * - Logical Observation Identifiers Names and Codes (LOINC)
      - Widely used terminology for clinical and laboratory observations, health 
        care screening instruments, and document type identifiers that provide a 
        set of identifiers, names, and codes for a wide range of observations.
      - `https://loinc.org/`
      - `A 20-year evaluation of LOINC in the United States' largest integrated 
-       health system <https://doi.org/10.5858/arpa.2019-0045-OA>`_
+       health system <https://doi.org/10.5858/arpa.2019-0045-OA>`
    * - Human Genome Organisation - Gene Nomenclature Committee (HGNC)
      - Approves unique symbols and names for human loci, including 
        protein-coding genes, non-coding RNA genes, and pseudogenes.
      - `https://www.genenames.org/`
-     - `Genenames.org: the HGNC resources in 2023 <https://doi.org/10.1093/nar/gkac1102>`_
+     - `Genenames.org: the HGNC resources in 2023 <https://doi.org/10.1093/nar/gkac1102>`
    * - Human Genome Variation Society (HGVS)
      - Offers guidelines for cataloguing variations in DNA, RNA, and protein 
        sequences and recommends the adoption of HGNC gene symbols in their 
        notation.
      - `https://varnomen.hgvs.org/`
-     - `HGVS recommendations for the description of sequence variants: 2016 update <https://doi.org/10.1002/humu.22981>`_
+     - `HGVS recommendations for the description of sequence variants: 2016 update <https://doi.org/10.1002/humu.22981>`
    * - Online Mendelian Inheritance in Man (OMIM)
      - Comprehensive and authoritative catalogue focusing on the molecular 
        relationship between genetic variation and phenotypic expressions, 
@@ -89,4 +89,4 @@ precise communication and supporting electronic health information exchange.
        genes.
      - `https://omim.org/`
      - `OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog
-        of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>`_
+        of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>`
