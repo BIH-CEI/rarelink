@@ -10,14 +10,14 @@ ensures that data can be easily integrated and queried across different
 databases and platforms.
 
 - An `ontology<https://www.sciencedirect.com/science/article/abs/pii/B9780444517876500039>``
-is a formal and explicit representations of the concepts and relationships 
-within an area of healthcare designed to facilitate the organisation, 
-integration, and exchange of knowledge across healthcare systems and 
-applications.
+  is a formal and explicit representations of the concepts and relationships 
+  within an area of healthcare designed to facilitate the organisation, 
+  integration, and exchange of knowledge across healthcare systems and 
+  applications.
 - `Terminologies<https://d1wqtxts1xzle7.cloudfront.net/51336059/Ontology_Integration_Experiences_with_Me20170113-2402-rzbjr5-libre.pdf?1484315946=&response-content-disposition=inline%3B+filename%3DOntology_integration_Experiences_with_me.pdf&Expires=1726507244&Signature=CvYNGWgVU2mkIW6zFb9XlxJITCnM50tUWUXNkzVdqWgPU4MVt8VFEHDmdqIFhwk740O-h~yjivyBawPMRl4auAJdrZAnw4KYZ3lgQEaJBU59Ld-Dom8dBr3K2N7Ym6dTcHP5bZpCumiz9oshUT8AMQ9f2SskIEWTkL6vBJpUKPxvR0cl~4U~itbMgtB4trc~3EPxiXgvKdp-6zWDqGajN6UnArfmcSpZVdBr8dLCYm5meOF70Kn55xKgn3I~7Ss2PvfnGG5HfnlC7akR5aAQe0wKX1NbnGnHzPJHDM7z45w4z1BCAOF4wnjOiNDXB52ubkxILoUhcHCVA-W34My2kg__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA>`
-encompass the vocabulary used in all healthcare communication and documentation 
-aspects, including terms for conditions, procedures, and equipment, facilitating
-precise communication and supporting electronic health information exchange.
+  encompass the vocabulary used in all healthcare communication and documentation 
+  aspects, including terms for conditions, procedures, and equipment, facilitating
+  precise communication and supporting electronic health information exchange.
 
 +--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
 | Name                     | Description                                              | Website                                               | Recommended Reading                                    |
