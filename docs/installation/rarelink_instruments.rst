@@ -34,30 +34,37 @@ modifications are described in the following sections.
 
 
 .. _formal-criteria:
+
 (1) Formal Criteria
 --------------------
 Content for Formal Criteria goes here.
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _personal-information:
+
 (2) Personal Information
 ------------------------
 Content for Personal Information goes here.
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _patient-status:
+
 (3) Patient Status
 ------------------
 Content for Patient Status goes here.
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _care-pathway:
+
 (4) Care Pathway
 ----------------
 Content for Care Pathway goes here.
@@ -66,19 +73,23 @@ hl7fhir_encounter_period_start -> hl7fhir_enc_period_start
 hl7fhir_encounter_period_end -> hl7fhir_enc_period_end
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 
 
 .. _disease:
+
 (5) Disease
 -----------
 Content for Disease goes here.
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _genetic-findings:
+
 (6.1) Genetic Findings
 -----------------------
 Content for Genetic Findings goes here.
@@ -88,10 +99,12 @@ ga4gh_interpretation_status -> ga4gh_interp_status
 ga4gh_therapeutic_actionability -> ga4gh_therap_action
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 
 .. _phenotypic-features:
+
 (6.2) Phenotypic Features
 --------------------------
 Content for Phenotypic Features goes here.
@@ -109,9 +122,11 @@ ga4gh_phenotypicfeature_modifier_snomed_2 -> ga4gh_pheno_mod_snomed2
 ga4gh_phenotypicfeature_modifier_snomed_3 -> ga4gh_pheno_mod_snomed3
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _family-history:
+
 (6.3) Family History
 ---------------------
 Content for Family History goes here.
@@ -119,9 +134,11 @@ Content for Family History goes here.
 hl7fhir_familymemberhistory_status -> hl7fhir_fmh_status
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _consent:
+
 (7) Consent
 -----------
 Content for Consent goes here.
@@ -129,12 +146,15 @@ customcode_consent_contact_research -> customcode_consent_contact
 customcode_conset_data_reuse -> customcode_consent_data
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
 
 .. _disability:
+
 (8) Disability
 --------------
 Content for Disability goes here.
 
 .. _go-back-top:
+
 Return to `Top <#top>`_.
