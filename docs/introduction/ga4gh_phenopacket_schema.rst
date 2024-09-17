@@ -43,10 +43,10 @@ bioinformaticians and clinicians worldwide. As more tools and frameworks are
 built around the Phenopacket schema, the potential for breakthroughs in RD 
 diagnosis and treatment continues to grow.
 
-.. image:: images/ga4gh_phenopacket_schema.png
-   :alt: Overview GA4GH Phenopacket Schema
-   :width: 300px
-   :height: 200px
+.. image:: ../images/phenopacket-schema-v2.png
+   :alt: GA4GH Phenopacket Schema
+   :width: 600px  
+   :height: 400px  
    :align: center
 
 **Further Reading:**
