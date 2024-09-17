@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REDCap and RareLink Framework &mdash; rarelink 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rarelink
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/guide_file.html">RareLink User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_file.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowlegements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rarelink</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">REDCap and RareLink Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/background/redcap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="redcap-and-rarelink-framework">
+<h1>REDCap and RareLink Framework<a class="headerlink" href="#redcap-and-rarelink-framework" title="Link to this heading"></a></h1>
+<p>REDCap (Research Electronic Data Capture) is a web- and survey-based application
+designed to capture data and create databases and projects for clinical research
+by the Vanderbuilt University. As an open-source tool, REDCap has gained
+widespread adoption across university hospitals, research institutes, and other
+healthcare institutions due to its flexibility and cost-free availability. One
+of the primary advantages of REDCap is its ability to be hosted locally within
+the clinical information system of a hospital. This ensures that sensitive data
+captured through REDCap remains within the hospital’s infrastructure, enhancing
+data privacy and security.</p>
+<p>Although REDCap provides a highly flexible environment for data collection, it
+does not natively define or enforce standardized variables. This lack of native
+definitions for variables can lead to inconsistencies in data capture across
+different projects and institutions, potentially hindering data exchange and
+interoperability. To address these issues, a wide range of modules and add-ons
+have been designed and developed, allowing users to extend REDCap’s
+functionality and tailor it to specific research needs. The REDCap API also
+allows for seamless integration with external systems, enabling automated data
+transfers and further enhancing the platform’s utility in research environments.</p>
+<p>RareLink maximizes the utility of REDCap by providing a comprehensive framework
+designed specifically for rare disease (RD) research and care. At the core of
+RareLink is the Rare Disease Common Data Model (RD CDM), which integrates
+pre-configured REDCap sheets, instruments, and project setups. This framework
+ensures that data capture is both consistent and compliant with international
+standards, such as HL7 FHIR and GA4GH Phenopackets, without the need for
+additional coding or mapping. As a result, RareLink allows researchers and
+clinicians to collect and process rare disease data seamlessly within the REDCap
+environment.</p>
+<p>By embedding standardized data collection instruments and native data processing
+pipelines, RareLink addresses one of the primary limitations of REDCap—its lack
+of native variable definitions. With RareLink, data can be captured, processed,
+and exported in interoperable formats suitable for rare disease registries and
+healthcare information systems. The integration of FHIR resources and
+Phenopackets enables rare disease data to be shared across institutions,
+facilitating collaboration and improving the potential for meaningful research
+and clinical advancements in RD care.</p>
+<p>RareLink enhances the functionality of REDCap by transforming it into a powerful
+tool for rare disease data management. By leveraging the REDCap API and built-in
+tools, RareLink ensures that the data captured in REDCap can be seamlessly
+integrated into broader research ecosystems, maximizing its utility and
+interoperability for rare disease research and patient care.</p>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764586/">Research Electronic Data Capture (REDCap)</a></p></li>
+<li><p><a class="reference external" href="https://synapse.koreamed.org/articles/1147970">Research Development Using REDCap Software</a></p></li>
+<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1532046421002008">REDCap on FHIR: Clinical Data Interoperability Services</a></p></li>
+<li><p><a class="reference external" href="https://redcap.vanderbilt.edu/external_module_api.php">REDCap API Documentation</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/article/10.1186/s13023-023-02719-0">A systematic overview of rare disease patient registries: challenges in design, quality management, and maintenance</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Adam SL Graefe, Filip Rehburg.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

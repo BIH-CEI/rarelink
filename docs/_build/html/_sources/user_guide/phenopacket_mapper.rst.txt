@@ -9,9 +9,9 @@ Mapper for seamless generation of GA4GH Phenopackets from REDCap data.
 
 Further Links Phenopacket Mapper
 ---------------------------------
-- [Phenopacket Mapper Documentation](https://bih-cei.github.io/
-phenopacket_mapper/stable/) 
-- [Phenopacket Mapper GitHub](https://github.com/BIH-CEI/phenopacket_mapper)
+
+- `Phenopacket Mapper Documentation <https://bih-cei.github.io/phenopacket_mapper/stable/>`_
+- `Phenopacket Mapper GitHub <https://github.com/BIH-CEI/phenopacket_mapper>`_
 
 
 RareLink Phenopacket Mapper Configuration
@@ -53,6 +53,7 @@ The Phenopacket Mapper can prinicapally process any kind of data to generate GA4
 if mapped and processed correctly. 
 As elaborated in the REDCap section, REDCap variables and choice codes have specific 
 limitations and requirements: 
+
 - REDCap variables
     - must be unique
     - must not contain spaces or special characters, i.e. only alphanumeric characters and underscores

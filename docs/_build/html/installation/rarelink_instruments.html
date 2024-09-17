@@ -49,19 +49,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/intro_file.html">Introuction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="install_file.html">Installation Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RareLink REDCap Instruments</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#formal-criteria">(1) Formal Criteria</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#personal-information">(2) Personal Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#patient-status">(3) Patient Status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#care-pathway">(4) Care Pathway</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disease">(5) Disease</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#genetic-findings">(6.1) Genetic Findings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phenotypic-features">(6.2) Phenotypic Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#family-history">(6.3) Family History</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#consent">(7) Consent</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disability">(8) Disability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">(1) Formal Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">(2) Personal Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">(3) Patient Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">(4) Care Pathway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">(5) Disease</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">(6.1) Genetic Findings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">(6.2) Phenotypic Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">(6.3) Family History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">(7) Consent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">(8) Disability</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="redcap_project.html">RareLink - REDCap Project</a></li>
@@ -102,55 +101,72 @@
              
   <section id="rarelink-redcap-instruments">
 <h1>RareLink REDCap Instruments<a class="headerlink" href="#rarelink-redcap-instruments" title="Link to this heading"></a></h1>
-<p>The RareLink REDCap Instruments are a collection of REDCap instruments designed to implement the
-<cite>Rare Disease Common Data Model (RD CDM)&lt;rd_cdm.rst&gt;`</cite> within REDCap. These instruments mirror the
-exact structure of the RD CDM, which is based on the ERDRI-CDS standard. Each section of the model
-corresponds to a distinct instrument, ensuring consistency and comprehensive data capture.</p>
-<ol class="arabic simple">
-<li><p>Formal Criteria</p></li>
-<li><p>Personal Information</p></li>
-<li><p>Patient Status</p></li>
-<li><p>Care Pathway</p></li>
-</ol>
-<p>5. Disease
-6.1 Genetic Findings
-6.2 Phenotypic Features
-6.3 Family History
-7. Consent
-8. Disability</p>
-<p>In the following, we will describe the structure of each instrument and the fields that are included in each one.
-Specifically, we will describe how the implementation of the RD CDM in REDCap is structured and how the data variables
-are organized in each instrument. The instruments are designed to be used in a REDCap project.
-To adhere to REDCap’s limitations on the variable names and field types, we have made some modifications to the original
-RD CDM. These modifications are described in the following sections.</p>
+<p>The RareLink REDCap Instruments are a collection of REDCap instruments designed
+to implement the <a class="reference external" href="rd_cdm.rst">Rare Disease Common Data Model (RD CDM)</a> within
+REDCap. These instruments mirror the exact structure of the RD CDM, which is
+based on the ERDRI-CDS standard. Each section of the model corresponds to a
+distinct instrument, ensuring consistency and comprehensive data capture.</p>
 <ul class="simple">
-<li><p>REDCap recommends a maxiumum of 26 characters for variable names. We have shortened the variable names to adhere to this
-limitation.</p></li>
+<li><p><a class="reference external" href="#formal-criteria">1. Formal Criteria</a></p></li>
+<li><p><a class="reference external" href="#personal-information">2. Personal Information</a></p></li>
+<li><p><a class="reference external" href="#patient-status">3. Patient Status</a></p></li>
+<li><p><a class="reference external" href="#care-pathway">4. Care Pathway</a></p></li>
+<li><p><a class="reference external" href="#disease">5. Disease</a></p></li>
+<li><p><a class="reference external" href="#genetic-findings">6.1 Genetic Findings</a></p></li>
+<li><p><a class="reference external" href="#phenotypic-features">6.2 Phenotypic Features</a></p></li>
+<li><p><a class="reference external" href="#family-history">6.3 Family History</a></p></li>
+<li><p><a class="reference external" href="#consent">7. Consent</a></p></li>
+<li><p><a class="reference external" href="#disability">8. Disability</a></p></li>
 </ul>
-<section id="formal-criteria">
-<h2>(1) Formal Criteria<a class="headerlink" href="#formal-criteria" title="Link to this heading"></a></h2>
+<p>In the following, we will describe the structure of each instrument and the
+fields that are included in each one. Specifically, we will describe how the
+implementation of the RD CDM in REDCap is structured and how the data variables
+are organized in each instrument. The instruments are designed to be used in a
+REDCap project. To adhere to REDCap’s limitations on variable names and field
+types, we have made some modifications to the original RD CDM. These
+modifications are described in the following sections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>REDCap recommends a maximum of 26 characters for variable names. We have
+shortened the variable names to adhere to this limitation.</p>
+</div>
+<section id="id1">
+<span id="id2"></span><h2>(1) Formal Criteria<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Content for Formal Criteria goes here.</p>
+<p id="go-back-top">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="personal-information">
-<h2>(2) Personal Information<a class="headerlink" href="#personal-information" title="Link to this heading"></a></h2>
+<section id="id3">
+<span id="id4"></span><h2>(2) Personal Information<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>Content for Personal Information goes here.</p>
+<p id="id5">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="patient-status">
-<h2>(3) Patient Status<a class="headerlink" href="#patient-status" title="Link to this heading"></a></h2>
+<section id="id7">
+<span id="id8"></span><h2>(3) Patient Status<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>Content for Patient Status goes here.</p>
+<p id="id9">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="care-pathway">
-<h2>(4) Care Pathway<a class="headerlink" href="#care-pathway" title="Link to this heading"></a></h2>
+<section id="id11">
+<span id="id12"></span><h2>(4) Care Pathway<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<p>Content for Care Pathway goes here.</p>
 <p>hl7fhir_encounter_period_start -&gt; hl7fhir_enc_period_start
 hl7fhir_encounter_period_end -&gt; hl7fhir_enc_period_end</p>
+<p id="id13">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="disease">
-<h2>(5) Disease<a class="headerlink" href="#disease" title="Link to this heading"></a></h2>
+<section id="id15">
+<span id="id16"></span><h2>(5) Disease<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<p>Content for Disease goes here.</p>
+<p id="id17">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="genetic-findings">
-<h2>(6.1) Genetic Findings<a class="headerlink" href="#genetic-findings" title="Link to this heading"></a></h2>
+<section id="id19">
+<span id="id20"></span><h2>(6.1) Genetic Findings<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<p>Content for Genetic Findings goes here.</p>
 <p>ga4gh_interpretation_status -&gt; ga4gh_interp_status
 ga4gh_therapeutic_actionability -&gt; ga4gh_therap_action</p>
+<p id="id21">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="phenotypic-features">
-<h2>(6.2) Phenotypic Features<a class="headerlink" href="#phenotypic-features" title="Link to this heading"></a></h2>
+<section id="id23">
+<span id="id24"></span><h2>(6.2) Phenotypic Features<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<p>Content for Phenotypic Features goes here.</p>
 <p>snomed_439272007_704321009_363778006 -&gt; snomed_8116006_date
 ga4gh_phenotypicfeature_excluded -&gt; ga4gh_pheno_excluded
 ga4gh_phenotypicfeature_modifier_hp_1 -&gt; ga4gh_pheno_mod_hp1
@@ -162,18 +178,25 @@ ga4gh_phenotypicfeature_modifier_ncbitaxon_3 -&gt; ga4gh_pheno_mod_ncbitax3
 ga4gh_phenotypicfeature_modifier_snomed_1 -&gt; ga4gh_pheno_mod_snomed1
 ga4gh_phenotypicfeature_modifier_snomed_2 -&gt; ga4gh_pheno_mod_snomed2
 ga4gh_phenotypicfeature_modifier_snomed_3 -&gt; ga4gh_pheno_mod_snomed3</p>
+<p id="id25">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="family-history">
-<h2>(6.3) Family History<a class="headerlink" href="#family-history" title="Link to this heading"></a></h2>
+<section id="id27">
+<span id="id28"></span><h2>(6.3) Family History<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
+<p>Content for Family History goes here.</p>
 <p>hl7fhir_familymemberhistory_status -&gt; hl7fhir_fmh_status</p>
+<p id="id29">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="consent">
-<h2>(7) Consent<a class="headerlink" href="#consent" title="Link to this heading"></a></h2>
-<p>customcode_consent_contact_research -&gt; customcode_consent_contact
+<section id="id31">
+<span id="id32"></span><h2>(7) Consent<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
+<p>Content for Consent goes here.
+customcode_consent_contact_research -&gt; customcode_consent_contact
 customcode_conset_data_reuse -&gt; customcode_consent_data</p>
+<p id="id33">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
-<section id="disability">
-<h2>(8) Disability<a class="headerlink" href="#disability" title="Link to this heading"></a></h2>
+<section id="id35">
+<span id="id36"></span><h2>(8) Disability<a class="headerlink" href="#id35" title="Link to this heading"></a></h2>
+<p>Content for Disability goes here.</p>
+<p id="id37">Return to <a class="reference external" href="#top">Top</a>.</p>
 </section>
 </section>
 
