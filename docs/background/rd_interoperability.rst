@@ -63,8 +63,8 @@ treatments.
 +--------------------+---------------------------------------------------------------------------+
 
 
-For more information please read:
-
+Further Reading
+---------------
 - [Why Digital Medicine depends on Interoperability](https://www.nature.com/articles/s41746-019-0158-1)
 
 

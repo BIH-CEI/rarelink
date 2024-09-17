@@ -49,8 +49,8 @@ diagnosis and treatment continues to grow.
    :height: 400px  
    :align: center
 
-**Further Reading:**
-   
+Further Reading
+---------------
 - `The GA4GH Phenopacket schema defines a computable representation of clinical data <https://www.nature.com/articles/s41587-022-01357-4>`_
 - `GA4GH Phenopackets: A Practical Introduction <https://onlinelibrary.wiley.com/doi/full/10.1002/ggn2.202200016>`_
 - `A corpus of GA4GH Phenopackets: case-level phenotyping for genomic diagnostics and discovery <https://www.medrxiv.org/content/10.1101/2024.05.29.24308104v1>`_
