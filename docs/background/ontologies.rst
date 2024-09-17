@@ -34,6 +34,7 @@ databases and platforms.
 
 .. list-table:: Example Table
    :header-rows: 1
+   :width: 100px
 
    * - Name
      - Description
