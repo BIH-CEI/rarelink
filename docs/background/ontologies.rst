@@ -37,7 +37,8 @@ databases and platforms.
 |                                                                                               | providing a global standard for describing disease traits.|
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 | `Systematized Nomenclature of Medicine Clinical Terms                                         | Comprehensive clinical health terminology providing       |
-|  (SNOMED) <https://www.snomed.org/>`_                                                         | codes, terms, and definitions used in documentation.      |
+| (SNOMED) <https://www.sno                                                                     | codes, terms, and definitions used in documentation.      |
+| med.org/>`_                                                                                   |                                                           |
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 | `Logical Observation Identifiers Names and Codes (LOINC) <https://loinc.org/>`_               | Widely used terminology for clinical observations and     |
 |                                                                                               | laboratory identifiers.                                   |
