@@ -6,16 +6,16 @@ The RareLink REDCap Instruments are a collection of REDCap instruments designed 
 exact structure of the RD CDM, which is based on the ERDRI-CDS standard. Each section of the model 
 corresponds to a distinct instrument, ensuring consistency and comprehensive data capture.
 
-1. Formal Criteria
-2. Personal Information
-3. Patient Status
-4. Care Pathway
-5. Disease
-6.1 Genetic Findings
-6.2 Phenotypic Features
-6.3 Family History
-7. Consent
-8. Disability
+- `1. Formal Criteria <#formal-criteria>`_
+- `2. Personal Information <#personal-information>`_
+- `3. Patient Status <#patient-status>`_
+- `4. Care Pathway <#care-pathway>`_
+- `5. Disease <#disease>`_
+- `6.1 Genetic Findings <#genetic-findings>`_
+- `6.2 Phenotypic Features <#phenotypic-features>`_
+- `6.3 Family History <#family-history>`_
+- `7. Consent <#consent>`_
+- `8. Disability <#disability>`_
 
 
 In the following, we will describe the structure of each instrument and the fields that are included in each one.
@@ -28,60 +28,69 @@ RD CDM. These modifications are described in the following sections.
   limitation.
 
 
+.. _formal-criteria:
 (1) Formal Criteria
-____________________
+--------------------
+Content for Formal Criteria goes here.
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
-
-
+.. _personal-information:
 (2) Personal Information
-________________________
+------------------------
+Content for Personal Information goes here.
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
-
-
-
+.. _patient-status:
 (3) Patient Status
-___________________
+------------------
+Content for Patient Status goes here.
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
-
-
-
-
+.. _care-pathway:
 (4) Care Pathway
-_________________
+----------------
+Content for Care Pathway goes here.
 
 hl7fhir_encounter_period_start -> hl7fhir_enc_period_start
 hl7fhir_encounter_period_end -> hl7fhir_enc_period_end
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
 
 
-
+.. _disease:
 (5) Disease
-____________
+-----------
+Content for Disease goes here.
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
-
-
-
+.. _genetic-findings:
 (6.1) Genetic Findings
-_______________________
+-----------------------
+Content for Genetic Findings goes here.
+
 
 ga4gh_interpretation_status -> ga4gh_interp_status
 ga4gh_therapeutic_actionability -> ga4gh_therap_action
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
 
-
-
+.. _phenotypic-features:
 (6.2) Phenotypic Features
-__________________________
+--------------------------
+Content for Phenotypic Features goes here.
+
 snomed_439272007_704321009_363778006 -> snomed_8116006_date
 ga4gh_phenotypicfeature_excluded -> ga4gh_pheno_excluded
 ga4gh_phenotypicfeature_modifier_hp_1 -> ga4gh_pheno_mod_hp1
@@ -94,21 +103,33 @@ ga4gh_phenotypicfeature_modifier_snomed_1 -> ga4gh_pheno_mod_snomed1
 ga4gh_phenotypicfeature_modifier_snomed_2 -> ga4gh_pheno_mod_snomed2
 ga4gh_phenotypicfeature_modifier_snomed_3 -> ga4gh_pheno_mod_snomed3
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
-
+.. _family-history:
 (6.3) Family History
-______________________
+---------------------
+Content for Family History goes here.
+
 hl7fhir_familymemberhistory_status -> hl7fhir_fmh_status
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
+.. _consent:
 (7) Consent
-_____________
+-----------
+Content for Consent goes here.
 customcode_consent_contact_research -> customcode_consent_contact
 customcode_conset_data_reuse -> customcode_consent_data
 
+.. _go-back-top:
+Return to `Top <#top>`_.
 
-
+.. _disability:
 (8) Disability
-______________
+--------------
+Content for Disability goes here.
+
+.. _go-back-top:
+Return to `Top <#top>`_.

@@ -49,13 +49,26 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/intro_file.html">Introuction RareLink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/intro_file.html">Introuction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide_file.html">RareLink User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="manual_data_capture.html">Manual Data Capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="redcap_api.html">REDCap API for RareLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ontobridge.html">Semi-Automatic Data Capture of Existing Databases</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate GA4GH Phenopackets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate GA4GH Phenopackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#further-links-phenopacket-mapper">Further Links Phenopacket Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rarelink-phenopacket-mapper-configuration">RareLink Phenopacket Mapper Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rarelink-rd-cdm-v2-0">RareLink - RD CDM v2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rarelink-data-extending-rd-cdm">RareLink - Data Extending RD CDM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper">Definition REDCap variable suffixes for Phenopacket Mapper</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#disease-block">Disease Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phenotypicfeature-block">PhenotypicFeature Block</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="tofhir_module.html">Generate FHIR Resources</a></li>
 </ul>
 </li>
@@ -92,13 +105,64 @@
              
   <section id="generate-ga4gh-phenopackets">
 <h1>Generate GA4GH Phenopackets<a class="headerlink" href="#generate-ga4gh-phenopackets" title="Link to this heading"></a></h1>
-<p>The Phenopacket Mapper module allows users to generate GA4GH Phenopackets from REDCap data.</p>
-<p>Rarelink predefines a set of mappings between REDCap data and GA4GH Phenopacket fields.
-The Phenopacket Mapper module uses these mappings to generate GA4GH Phenopackets from REDCap data.</p>
-<p>These mappings are defined in a configuration file that is provided with the Phenopacket Mapper module.
-All data from the RD CDM can be exported to GA4GH Phenopackets using the Phenopacket Mapper module.
-For all data extending the RD CDM, we predefined a set of mappings that can be used to generate GA4GH Phenopackets.
-These mappings specify how data in REDCap should be coded and formatted to generate GA4GH Phenopackets.</p>
+<p>The Phenopacket Mapper allows users to generate validated GA4GH Phenopackets
+from any tabular data. Rarelink specifies the how the data should be formatted
+and coded and sheet should be built within REDCap to generate validated GA4GH
+Phenopackets. These specifications were preconfigured into the Phenopacket
+Mapper for seamless generation of GA4GH Phenopackets from REDCap data.</p>
+<section id="further-links-phenopacket-mapper">
+<h2>Further Links Phenopacket Mapper<a class="headerlink" href="#further-links-phenopacket-mapper" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Phenopacket Mapper Documentation](<a class="reference external" href="https://bih-cei.github.io/">https://bih-cei.github.io/</a></p></li>
+</ul>
+<p>phenopacket_mapper/stable/)
+- [Phenopacket Mapper GitHub](<a class="reference external" href="https://github.com/BIH-CEI/phenopacket_mapper">https://github.com/BIH-CEI/phenopacket_mapper</a>)</p>
+<section id="rarelink-phenopacket-mapper-configuration">
+<h3>RareLink Phenopacket Mapper Configuration<a class="headerlink" href="#rarelink-phenopacket-mapper-configuration" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="rarelink-rd-cdm-v2-0">
+<h2>RareLink - RD CDM v2.0<a class="headerlink" href="#rarelink-rd-cdm-v2-0" title="Link to this heading"></a></h2>
+<p>RareLink provides all REDCap sheets that displa data in the Rare Disease
+Common Data Model v2.0 (RD CDM) with predefined mappings to generate GA4GH
+Phenopackets. These mappings are defined in a configuration file that is
+provided with the Phenopacket Mapper module. All data from the RD CDM can be
+exported to GA4GH Phenopackets using the Phenopacket Mapper module.</p>
+<p>RD CDM v2.0 -&gt; RareLink Sheets -&gt; preconfigured Phenopacket
+–&gt; validated GA4GH Phenopackets</p>
+</section>
+<section id="rarelink-data-extending-rd-cdm">
+<h2>RareLink - Data Extending RD CDM<a class="headerlink" href="#rarelink-data-extending-rd-cdm" title="Link to this heading"></a></h2>
+<p>For all data extending the RD CDM, we predefined a set of rules that can be used
+to develop further REDCap forms. If these rules are followed, the sheet
+variables can be used to map the REDCap data to the GA4GH Phenopackets Schema.
+We provide example sheets that can be used to capture data that extends the RD
+CDM to capture specific Phenopacket Building Blocks.</p>
+<p>Extensions around RD CDM –&gt; Rules for REDCap Sheets -&gt; (example sheets to
+download and use) -&gt; RareLink preconfiguration in Phenopacket Mapper
+–&gt; validated GA4GH Phenopackets</p>
+<section id="definition-redcap-variable-suffixes-for-phenopacket-mapper">
+<h3>Definition REDCap variable suffixes for Phenopacket Mapper<a class="headerlink" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper" title="Link to this heading"></a></h3>
+<p>The Phenopacket Mapper can prinicapally process any kind of data to generate GA4GH Phenopackets
+if mapped and processed correctly.
+As elaborated in the REDCap section, REDCap variables and choice codes have specific
+limitations and requirements:
+- REDCap variables</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>must be unique</p></li>
+<li><p>must not contain spaces or special characters, i.e. only alphanumeric characters and underscores</p></li>
+<li><p>should not be longer than 26 characters</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="disease-block">
+<h2>Disease Block<a class="headerlink" href="#disease-block" title="Link to this heading"></a></h2>
+</section>
+<section id="phenotypicfeature-block">
+<h2>PhenotypicFeature Block<a class="headerlink" href="#phenotypicfeature-block" title="Link to this heading"></a></h2>
+</section>
 </section>
 
 

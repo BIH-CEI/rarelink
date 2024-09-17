@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HL7 FHIR &mdash; rarelink 0.0.1 documentation</title>
+  <title>HL7 FHIR (Fast Healthcare Interoperability Resources) &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -49,13 +49,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="intro_file.html">Introuction RareLink</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="intro_file.html">Introuction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rd_interoperability.html">Rare Diseases and Interoperability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ontologies.html">Ontologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ontologies.html">Ontologies and Terminologies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">HL7 FHIR</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HL7 FHIR (Fast Healthcare Interoperability Resources)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rd_cdm.html">Rare Disease Common Data Model v2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="redcap.html">REDCap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redcap.html">REDCap and RareLink Framework</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
@@ -80,8 +80,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="intro_file.html">Introuction RareLink</a></li>
-      <li class="breadcrumb-item active">HL7 FHIR</li>
+          <li class="breadcrumb-item"><a href="intro_file.html">Introuction</a></li>
+      <li class="breadcrumb-item active">HL7 FHIR (Fast Healthcare Interoperability Resources)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/introduction/hl7_fhir.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,11 +91,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hl7-fhir">
-<h1>HL7 FHIR<a class="headerlink" href="#hl7-fhir" title="Link to this heading"></a></h1>
-<p>HL7 FHIR (Fast Healthcare Interoperability Resources) is a standard for exchanging healthcare information electronically.
-It is designed to enable the exchange of healthcare information between different systems, platforms, and organizations,
-promoting interoperability and data sharing in the healthcare domain.</p>
+  <section id="hl7-fhir-fast-healthcare-interoperability-resources">
+<h1>HL7 FHIR (Fast Healthcare Interoperability Resources)<a class="headerlink" href="#hl7-fhir-fast-healthcare-interoperability-resources" title="Link to this heading"></a></h1>
+<p>FHIR (Fast Healthcare Interoperability Resources) is an international standard
+developed by HL7 for exchanging healthcare information electronically. Initially
+designed as a transaction format to facilitate data exchanges between healthcare
+systems, FHIR provides a flexible and modular framework. While it is essential
+for ensuring interoperability across healthcare information systems, its role as
+a transaction format means that it may not always provide the precision needed
+for complex rare disease (RD) analysis. However, it remains a critical tool for
+enabling the smooth exchange of healthcare data between different platforms
+and applications.</p>
+<p>In the context of rare diseases, FHIR plays a key role in improving data sharing
+across institutions and research centers. Due to the scarcity and fragmentation
+of RD data, standardized data exchange is crucial. FHIR enables the
+standardization of clinical and genomic data, ensuring that RD-specific
+information, such as phenotypic traits and genetic variants, can be captured and
+shared in a structured manner. Despite its limitations in handling the
+complexity of some RD data, FHIR’s widespread adoption ensures that RD data can
+be integrated with other healthcare information systems, making it easier to
+collaborate and share insights across various fields.</p>
+<p>RareLink incorporates FHIR to enhance its data processing capabilities, enabling
+the conversion of clinical and research data into FHIR-compatible formats. This
+allows data to be exported for use in registries, uploaded to FHIR servers, or
+adopted by other healthcare systems. By supporting FHIR, RareLink ensures
+that rare disease data can enrich routine healthcare datasets, helping to bridge
+the gap between clinical care and research. Additionally, the ability to process
+and export data into FHIR enables RD researchers to leverage existing FHIR
+tools, thereby expanding the utility of their data across different applications.</p>
+<p>Although FHIR may not cover all the nuanced aspects required for in-depth RD
+analysis, it is indispensable for achieving interoperability within healthcare
+systems. Its integration in RareLink ensures that data collected from rare
+disease patients can be reused effectively across various platforms, thereby
+supporting both clinical care and bioinformatic research into rare conditions.</p>
+<p><strong>Further Reading:</strong></p>
+<ul class="simple">
+<li><p><cite>Why digital medicine depends on interoperability &lt;https://www.nature.com/articles/s41746-019-0158-1&gt;</cite></p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">`</span></a>HL7 FHIR-based tools and initiatives to support clinical research: a scoping</p></li>
+</ul>
+<p>review &lt;<a class="reference external" href="https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865">https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865</a>&gt;`
+- <cite>HL7 FHIR Overview &lt;https://www.hl7.org/fhir/overview.html&gt;</cite>
+- <cite>FHIR Genomics Implementation Guide &lt;https://build.fhir.org/ig/HL7/genomics-reporting/index.html&gt;</cite></p>
 </section>
 
 
