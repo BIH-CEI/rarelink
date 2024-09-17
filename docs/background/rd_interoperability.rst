@@ -45,26 +45,24 @@ treatments.
 +====================+===========================================================================+
 | FAIR Data Principles| Designed to improve the automated discovery and usability of data by       |
 |                    | machines while also facilitating its reuse by individuals (Findable,       |
-|                    | Accessible, Interoperable, Reusable). `Wilkinson et al., 2016            |
-|                    | <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`                  |
+|                    | Accessible, Interoperable, Reusable).                                     |
 +--------------------+---------------------------------------------------------------------------+
 | Interoperability    | The ability of different systems, applications, or devices to connect     |
 |                    | and communicate in a coordinated manner without requiring effort from the  |
-|                    | end user. `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>` |
+|                    | end user.                                                                  |
 +--------------------+---------------------------------------------------------------------------+
 | Syntactic           | The ability of systems to communicate through compatible formats and       |
 | Interoperability    | protocols, such as JSON files, a format for sharing data in key-value    |
-|                    | pairs and arrays, using human-readable text. `Iroju, O., 2019            |
-|                    | <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`                  |
+|                    | pairs and arrays, using human-readable text.                               |
 +--------------------+---------------------------------------------------------------------------+
 | Semantic            | Ensures a shared and precise interpretation of medical data. Uniform data |
 | Interoperability    | structuring and codification enhance machine-to-machine communication,     |
-|                    | improving accuracy and outcomes. `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>` |
+|                    | improving accuracy and outcomes.                                           |
 +--------------------+---------------------------------------------------------------------------+
-
 
 Further Reading
 ---------------
-- [Why Digital Medicine depends on Interoperability](https://www.nature.com/articles/s41746-019-0158-1)
-
+- `Wilkinson et al., 2016 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`
+- `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
+- `Why Digital Medicine depends on Interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
 
