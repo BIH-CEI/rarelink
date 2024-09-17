@@ -29,6 +29,9 @@ databases and platforms.
 | `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation     |
 | <http://www.sequenceonto | components, enhancing sharing and analysis of      |
 | logy.org/>`_             | genomic information.                               |
++--------------------------+----------------------------------------------------+
+
+
 +--------------------------+-----------------------------------------------------------+
 | `International Statistical | Used for documenting morbidity in healthcare systems,     |
 | Classification of Diseases | encoding mortality statistics, and billing purposes.      |
