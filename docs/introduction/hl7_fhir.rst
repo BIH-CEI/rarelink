@@ -38,9 +38,9 @@ supporting both clinical care and bioinformatic research into rare conditions.
 
 **Further Reading:**
 
-- `Why digital medicine depends on interoperability <https://www.nature.com/articles/s41746-019-0158-1>`
-- `HL7 FHIR-based tools and initiatives to support clinical research: a scoping 
-review <https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865>`
-- `HL7 FHIR Overview <https://www.hl7.org/fhir/overview.html>`
-- `FHIR Genomics Implementation Guide <https://build.fhir.org/ig/HL7/genomics-reporting/index.html>`
+- `Why digital medicine depends on interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
+- `HL7 FHIR-based tools and initiatives to support clinical research: a scoping review <https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865>`_
+- `HL7 FHIR Overview <https://www.hl7.org/fhir/overview.html>`_
+- `FHIR Genomics Implementation Guide <https://build.fhir.org/ig/HL7/genomics-reporting/index.html>`_
+
 
