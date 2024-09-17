@@ -48,12 +48,11 @@ interoperability for rare disease research and patient care.
 
 Further Reading
 ---------------
-* `Research Electronic Data Capture (REDCap)<https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764586/>`
-* `Research Development Using REDCap Software <https://synapse.koreamed.org/articles/1147970>`
-* `REDCap on FHIR: Clinical Data Interoperability Services<https://www.sciencedirect.com/science/article/pii/S1532046421002008>`
-* `REDCap API Documentation<https://redcap.vanderbilt.edu/external_module_api.php>`
-* `A systematic overview of rare disease patient registries: challenges in 
-design, quality management, and maintenance<https://link.springer.com/article/10.1186/s13023-023-02719-0>`
+- `Research Electronic Data Capture (REDCap) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764586/>`_
+- `Research Development Using REDCap Software <https://synapse.koreamed.org/articles/1147970>`_
+- `REDCap on FHIR: Clinical Data Interoperability Services <https://www.sciencedirect.com/science/article/pii/S1532046421002008>`_
+- `REDCap API Documentation <https://redcap.vanderbilt.edu/external_module_api.php>`_
+- `A systematic overview of rare disease patient registries: challenges in design, quality management, and maintenance <https://link.springer.com/article/10.1186/s13023-023-02719-0>`_
 
 
 
