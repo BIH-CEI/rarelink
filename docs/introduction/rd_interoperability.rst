@@ -40,31 +40,27 @@ provides a foundation for advancements in rare disease care, facilitating a
 future where more patients can receive timely diagnoses and access to effective 
 treatments.
 
-.. list-table:: FAIR Principles and Interoperability
-   :header-rows: 1
-
-   * - Name (Abbreviation)
-     - Definition
-   * - FAIR Data Principles
-     - Designed to improve the automated discovery and usability of data by 
-       machines while also facilitating its reuse by individuals 
-       (Findable, Accessible, Interoperable, Reusable). 
-       `Wilkinson et al., 2016 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`
-   * - Interoperability
-     - The ability of different systems, applications, or devices to connect and
-       communicate in a coordinated manner without requiring effort from the end 
-       user. 
-       `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
-   * - Syntactic Interoperability
-     - The ability of systems to communicate through compatible formats and 
-       protocols, such as JSON files, a format for sharing data in key-value 
-       pairs and arrays, using human-readable text. 
-       `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
-   * - Semantic Interoperability
-     - Ensures a shared and precise interpretation of medical data. Uniform data
-       structuring and codification enhance machine-to-machine communication, 
-       improving accuracy and outcomes. 
-       `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
++--------------------+---------------------------------------------------------------------------+
+| Name (Abbreviation) | Definition                                                                  |
++====================+===========================================================================+
+| FAIR Data Principles| Designed to improve the automated discovery and usability of data by       |
+|                    | machines while also facilitating its reuse by individuals (Findable,       |
+|                    | Accessible, Interoperable, Reusable). `Wilkinson et al., 2016            |
+|                    | <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`                  |
++--------------------+---------------------------------------------------------------------------+
+| Interoperability    | The ability of different systems, applications, or devices to connect     |
+|                    | and communicate in a coordinated manner without requiring effort from the  |
+|                    | end user. `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>` |
++--------------------+---------------------------------------------------------------------------+
+| Syntactic           | The ability of systems to communicate through compatible formats and       |
+| Interoperability    | protocols, such as JSON files, a format for sharing data in key-value    |
+|                    | pairs and arrays, using human-readable text. `Iroju, O., 2019            |
+|                    | <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`                  |
++--------------------+---------------------------------------------------------------------------+
+| Semantic            | Ensures a shared and precise interpretation of medical data. Uniform data |
+| Interoperability    | structuring and codification enhance machine-to-machine communication,     |
+|                    | improving accuracy and outcomes. `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>` |
++--------------------+---------------------------------------------------------------------------+
 
 
 For more information please read:
