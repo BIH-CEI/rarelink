@@ -26,6 +26,15 @@ REDCap project. To adhere to REDCap's limitations on variable names and field
 types, we have made some modifications to the original RD CDM. These 
 modifications are described in the following sections.
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   instruments_file
+
+
+
 .. note::
 
   REDCap recommends a maximum of 26 characters for variable names. We have 
@@ -112,7 +121,7 @@ ga4gh_phenotypicfeature_modifier_snomed_1 -> ga4gh_pheno_mod_snomed1
 ga4gh_phenotypicfeature_modifier_snomed_2 -> ga4gh_pheno_mod_snomed2
 ga4gh_phenotypicfeature_modifier_snomed_3 -> ga4gh_pheno_mod_snomed3
 
-.. _go-back-top:
+Return to `Top <#top>`_.
 
 
 .. _family-history:
@@ -123,7 +132,7 @@ Content for Family History goes here.
 
 hl7fhir_familymemberhistory_status -> hl7fhir_fmh_status
 
-.. _go-back-top:
+Return to `Top <#top>`_.
 
 
 .. _consent:
@@ -134,7 +143,7 @@ Content for Consent goes here.
 customcode_consent_contact_research -> customcode_consent_contact
 customcode_conset_data_reuse -> customcode_consent_data
 
-.. _go-back-top:
+Return to `Top <#top>`_.
 
 
 .. _disability:
@@ -143,5 +152,5 @@ customcode_conset_data_reuse -> customcode_consent_data
 --------------
 Content for Disability goes here.
 
-.. _go-back-top:
+Return to `Top <#top>`_.
 
