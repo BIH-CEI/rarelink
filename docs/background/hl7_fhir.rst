@@ -36,8 +36,8 @@ systems. Its integration in RareLink ensures that data collected from rare
 disease patients can be reused effectively across various platforms, thereby
 supporting both clinical care and bioinformatic research into rare conditions.
 
-**Further Reading:**
-
+Further Reading
+---------------
 - `Why digital medicine depends on interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
 - `HL7 FHIR-based tools and initiatives to support clinical research: a scoping review <https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865>`_
 - `HL7 FHIR Overview <https://www.hl7.org/fhir/overview.html>`_

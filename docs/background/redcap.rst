@@ -46,8 +46,8 @@ tools, RareLink ensures that the data captured in REDCap can be seamlessly
 integrated into broader research ecosystems, maximizing its utility and 
 interoperability for rare disease research and patient care.
 
-** Further Reading: **
-
+Further Reading
+---------------
 * `Research Electronic Data Capture (REDCap)<https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764586/>`
 * `Research Development Using REDCap Software <https://synapse.koreamed.org/articles/1147970>`
 * `REDCap on FHIR: Clinical Data Interoperability Services<https://www.sciencedirect.com/science/article/pii/S1532046421002008>`
