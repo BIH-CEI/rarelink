@@ -49,8 +49,6 @@ Return to `Top <#top>`_.
 ------------------------
 Content for Personal Information goes here.
 
-.. _go-back-top:
-
 Return to `Top <#top>`_.
 
 .. _patient-status:
@@ -58,8 +56,6 @@ Return to `Top <#top>`_.
 (3) Patient Status
 ------------------
 Content for Patient Status goes here.
-
-.. _go-back-top:
 
 Return to `Top <#top>`_.
 
@@ -72,8 +68,6 @@ Content for Care Pathway goes here.
 hl7fhir_encounter_period_start -> hl7fhir_enc_period_start
 hl7fhir_encounter_period_end -> hl7fhir_enc_period_end
 
-.. _go-back-top:
-
 Return to `Top <#top>`_.
 
 
@@ -83,8 +77,6 @@ Return to `Top <#top>`_.
 (5) Disease
 -----------
 Content for Disease goes here.
-
-.. _go-back-top:
 
 Return to `Top <#top>`_.
 
@@ -98,7 +90,6 @@ Content for Genetic Findings goes here.
 ga4gh_interpretation_status -> ga4gh_interp_status
 ga4gh_therapeutic_actionability -> ga4gh_therap_action
 
-.. _go-back-top:
 
 Return to `Top <#top>`_.
 
@@ -123,7 +114,6 @@ ga4gh_phenotypicfeature_modifier_snomed_3 -> ga4gh_pheno_mod_snomed3
 
 .. _go-back-top:
 
-Return to `Top <#top>`_.
 
 .. _family-history:
 
@@ -135,7 +125,6 @@ hl7fhir_familymemberhistory_status -> hl7fhir_fmh_status
 
 .. _go-back-top:
 
-Return to `Top <#top>`_.
 
 .. _consent:
 
@@ -147,7 +136,6 @@ customcode_conset_data_reuse -> customcode_consent_data
 
 .. _go-back-top:
 
-Return to `Top <#top>`_.
 
 .. _disability:
 
@@ -157,4 +145,3 @@ Content for Disability goes here.
 
 .. _go-back-top:
 
-Return to `Top <#top>`_.
