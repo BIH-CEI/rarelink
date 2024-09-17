@@ -62,7 +62,7 @@ treatments.
 
 Further Reading
 ---------------
-- `Wilkinson et al., 2016 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`
-- `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`
+- `Wilkinson et al., 2016 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`_
+- `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`_
 - `Why Digital Medicine depends on Interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
 
