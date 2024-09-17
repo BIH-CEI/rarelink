@@ -34,7 +34,7 @@ databases and platforms.
 
 .. list-table:: Ontologies Used in RareLink
    :header-rows: 1
-   :width: 50px
+   :width: 50%
 
    * - Name
      - Description

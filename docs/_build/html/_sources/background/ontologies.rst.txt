@@ -32,9 +32,9 @@ databases and platforms.
 +--------------------------+----------------------------------------------------+
 
 
-.. list-table:: Example Table
+.. list-table:: Ontologies Used in RareLink
    :header-rows: 1
-   :width: 100px
+   :width: 50px
 
    * - Name
      - Description
