@@ -42,26 +42,26 @@ treatments.
 
 
 +--------------------+--------------------------------------------------------+
-| Name (Abbreviation) | Definition                                             |
+| Name (Abbreviation)| Definition                                             |
 +====================+========================================================+
-| FAID Data Principles| Designed to improve the automated discovery and       |
-|                    | usability of data by machines while also facilitating  |
+| FAIR Data          | Designed to improve the automated discovery and        |
+| Principles         | usability of data by machines while also facilitating  |
 |                    | its reuse by individuals (Findable, Accessible,        |
 |                    | Interoperable, Reusable).                              |
 +--------------------+--------------------------------------------------------+
-| Interoperability    | The ability of different systems, applications, or    |
+| Interoperability   | The ability of different systems, applications, or     |
 |                    | devices to connect and communicate in a coordinated    |
 |                    | manner without requiring effort from the end user.     |
 +--------------------+--------------------------------------------------------+
-| Syntactic           | The ability of systems to communicate through         |
-| Interoperability    | compatible formats and protocols, such as JSON files,  |
-|                    | a format for sharing data in key-value pairs and      |
-|                    | arrays, using human-readable text.                    |
+| Syntactic          | The ability of systems to communicate through          |
+| Interoperability   | compatible formats and protocols, such as JSON files,  |
+|                    | a format for sharing data in key-value pairs and       |
+|                    | arrays, using human-readable text.                     |
 +--------------------+--------------------------------------------------------+
-| Semantic            | Ensures a shared and precise interpretation of        |
-| Interoperability    | medical data. Uniform data structuring and codification|
-|                    | enhance machine-to-machine communication, improving    |
-|                    | accuracy and outcomes.                                |
+| Semantic           | Ensures a shared and precise interpretation of         |
+| Interoperability   | medical data. Uniform data structuring and             |
+|                    | codification enhance machine-to-machine communication, |
+|                    | improving accuracy and outcomes.                       |
 +--------------------+--------------------------------------------------------+
 
 Further Reading
