@@ -1,5 +1,5 @@
-Introuction
-===========
+Background
+==========
 
 RareLink was developed as a response to the widespread challenges in rare 
 disease (RD) data management, specifically the lack of interoperability and 
