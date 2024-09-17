@@ -1,10 +1,11 @@
 RareLink REDCap Instruments
 ============================
 
-The RareLink REDCap Instruments are a collection of REDCap instruments designed to implement the
-`Rare Disease Common Data Model (RD CDM)<rd_cdm.rst>`` within REDCap. These instruments mirror the 
-exact structure of the RD CDM, which is based on the ERDRI-CDS standard. Each section of the model 
-corresponds to a distinct instrument, ensuring consistency and comprehensive data capture.
+The RareLink REDCap Instruments are a collection of REDCap instruments designed 
+to implement the `Rare Disease Common Data Model (RD CDM) <rd_cdm.rst>`_ within 
+REDCap. These instruments mirror the exact structure of the RD CDM, which is 
+based on the ERDRI-CDS standard. Each section of the model corresponds to a 
+distinct instrument, ensuring consistency and comprehensive data capture.
 
 - `1. Formal Criteria <#formal-criteria>`_
 - `2. Personal Information <#personal-information>`_
@@ -17,15 +18,19 @@ corresponds to a distinct instrument, ensuring consistency and comprehensive dat
 - `7. Consent <#consent>`_
 - `8. Disability <#disability>`_
 
+In the following, we will describe the structure of each instrument and the 
+fields that are included in each one. Specifically, we will describe how the 
+implementation of the RD CDM in REDCap is structured and how the data variables 
+are organized in each instrument. The instruments are designed to be used in a 
+REDCap project. To adhere to REDCap's limitations on variable names and field 
+types, we have made some modifications to the original RD CDM. These 
+modifications are described in the following sections.
 
-In the following, we will describe the structure of each instrument and the fields that are included in each one.
-Specifically, we will describe how the implementation of the RD CDM in REDCap is structured and how the data variables
-are organized in each instrument. The instruments are designed to be used in a REDCap project.
-To adhere to REDCap's limitations on the variable names and field types, we have made some modifications to the original
-RD CDM. These modifications are described in the following sections.
+.. note::
 
-- REDCap recommends a maxiumum of 26 characters for variable names. We have shortened the variable names to adhere to this
-  limitation.
+  REDCap recommends a maximum of 26 characters for variable names. We have 
+  shortened the variable names to adhere to this limitation.
+
 
 
 .. _formal-criteria:
