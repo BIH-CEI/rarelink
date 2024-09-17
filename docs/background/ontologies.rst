@@ -39,7 +39,8 @@ databases and platforms.
    * - Name
      - Description
    * - `Human Phenotype Ontology <https://hpo.jax.org/app/>`_
-     - Standardized vocabulary of phenotypic abnormalities\n providing a global standard for describing\n disease traits.
+     - Standardized vocabulary of phenotypic abnormalities\n providing a global 
+     standard for describing\n disease traits.
    * - `Sequence Ontology (SO) <http://www.sequenceontology.org/>`_
      - Standardized vocabulary for genomic annotation components, enhancing sharing and analysis of genomic information.
    * - `International Statistical Classification of Diseases <https://www.who.int/standards/classifications/classification-of-diseases>`_
