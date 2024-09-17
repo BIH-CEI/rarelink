@@ -45,21 +45,26 @@ databases and platforms.
 | `Human Genome Organisation - Gene Nomenclature Committee <https://www.genenames.org/>`_       | Approves unique symbols and names for human loci.         |
 | (HGNC)                                                                                        |                                                           |
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Human Genome Variation Society (HGVS) <https://varnomen.hgvs.org/>`_                         | Guidelines for cataloguing variations in DNA, RNA, and    |                                 |
+| `Human Genome Variation Society (HGVS) <https://varnomen.hgvs.org/>`_                         | Guidelines for cataloguing variations in DNA, RNA, and    |                                 
 |                                                                                               | protein sequences.                                        |
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Online Mendelian Inheritance in Man (OMIM) <https://omim.org/>`_                             | Authoritative catalogue focusing on genetic variation     |                                   |
+| `Online Mendelian Inheritance in Man (OMIM) <https://omim.org/>`_                             | Authoritative catalogue focusing on genetic variation     |
 |                                                                                               | and phenotypic expressions.                               |
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 | `Sequence Ontology (SO) <http://www.sequenceontology.org/>`_                                  | Standardized vocabulary for genomic annotation            |
 |                                                                                               | components, enhancing sharing and analysis of genomic     |
 |                                                                                               | information.                                              |
 +-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-NCIT
-UO
-NCBITaxon
-GENO
- 
+| `GENO: The Genotype Ontology <http://www.genoontology.org/>`_                                 | An ontology for describing genetic variation and related  |
+|                                                                                               | concepts.                                                 |  
++-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+ 
+| `National Cancer Institute Thesaurus (NCIT) <https://ncithesaurus.org/>`_                     | A reference terminology for cancer                        |
+|                                                                                               | and biomedical research.                                  |
++-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+| `Units of Measurement Ontology (UO) <http://purl.obolibrary.org/obo/uo.owl>`_                 | Ontology for units of measurement used in scientific data.|
++-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+| `NCBI Taxonomy (NCBITaxon) <https://www.ncbi.nlm.nih.gov/taxonomy>`_                          | A hierarchical classification of living organisms.        |
++-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 
 Further Reading
 ---------------
