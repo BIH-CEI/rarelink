@@ -19,53 +19,55 @@ databases and platforms.
   aspects, including terms for conditions, procedures, and equipment, facilitating
   precise communication and supporting electronic health information exchange.
 
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| Name                                                                                          | Description                                               |
-+===============================================================================================+===========================================================|
-| `International Statistical Classification of Diseases and Related Health Problems             | Used for documenting morbidity in healthcare systems,     |
-| (ICD-10ICD-11) <https://www.who.int/standards/classifications/classification-of-diseases>`_   | encoding mortality statistics, and billing purposes.      |
-|                                                                                               | The ICD-11 encodes RDs more comprehensively.              |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Orphanet Rare Disease Ontology (ORDO) <https://www.orpha.net/consor/cgi-bin/index.php>`_     | Open-access ontology for RDs enabling queries of rare     |
-|                                                                                               | disorders and capturing relationships between diseases.   |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Monarch Initiative Disease Ontology (MONDO)                                                  | Aims to harmonize disease definitions across the world.   |
-| <https://mondo.monarchinitiative.org/>`_                                                      | A semi-automatically constructed ontology merging         |
-|                                                                                               | multiple disease resources.                               |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Human Phenotype Ontology (HPO) <https://hpo.jax.org/app/>`_                                  | Standardized vocabulary of phenotypic abnormalities       |
-|                                                                                               | providing a global standard for describing disease traits.|
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Systematized Nomenclature of Medicine Clinical Terms                                         | Comprehensive clinical health terminology providing       |
-| (SNOMED) <https://www.sno                                                                     | codes, terms, and definitions used in documentation.      |
-| med.org/>`_                                                                                   |                                                           |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Logical Observation Identifiers Names and Codes (LOINC) <https://loinc.org/>`_               | Widely used terminology for clinical observations and     |
-|                                                                                               | laboratory identifiers.                                   |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Human Genome Organisation - Gene Nomenclature Committee <https://www.genenames.org/>`_       | Approves unique symbols and names for human loci.         |
-| (HGNC)                                                                                        |                                                           |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Human Genome Variation Society (HGVS) <https://varnomen.hgvs.org/>`_                         | Guidelines for cataloguing variations in DNA, RNA, and    |                                 
-|                                                                                               | protein sequences.                                        |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Online Mendelian Inheritance in Man (OMIM) <https://omim.org/>`_                             | Authoritative catalogue focusing on genetic variation     |
-|                                                                                               | and phenotypic expressions.                               |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Sequence Ontology (SO) <http://www.sequenceontology.org/>`_                                  | Standardized vocabulary for genomic annotation            |
-|                                                                                               | components, enhancing sharing and analysis of genomic     |
-|                                                                                               | information.                                              |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `GENO: The Genotype Ontology <http://www.genoontology.org/>`_                                 | An ontology for describing genetic variation and related  |
-|                                                                                               | concepts.                                                 |  
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+ 
-| `National Cancer Institute Thesaurus (NCIT) <https://ncithesaurus.org/>`_                     | A reference terminology for cancer                        |
-|                                                                                               | and biomedical research.                                  |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `Units of Measurement Ontology (UO) <http://purl.obolibrary.org/obo/uo.owl>`_                 | Ontology for units of measurement used in scientific data.|
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| `NCBI Taxonomy (NCBITaxon) <https://www.ncbi.nlm.nih.gov/taxonomy>`_                          | A hierarchical classification of living organisms.        |
-+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------+
++--------------------------+----------------------------------------------------+
+| Name                     | Description                                        |
++==========================+====================================================+
+| `Human Phenotype Ontology| Standardized vocabulary of phenotypic abnormalities|
+| (HPO) <https://hpo.jax.  | providing a global standard for describing disease |
+| org/app/>`_               | traits.                                           |   
++--------------------------+----------------------------------------------------+
+| `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation     |
+| <http://www.sequenceonto | components, enhancing sharing and analysis of      |
+| logy.org/>`_             | genomic information.                               |
++--------------------------+-----------------------------------------------------------+
+| `International Statistical | Used for documenting morbidity in healthcare systems,     |
+| Classification of Diseases | encoding mortality statistics, and billing purposes.      |
+| (ICD-10ICD-11) <https://www.who.int/standards/classifications/classification-of-diseases>`_ | The ICD-11 encodes RDs more comprehensively.              |
++--------------------------+-----------------------------------------------------------+
+| `Orphanet Rare Disease Ontology <https://www.orpha.net/consor/cgi-bin/index.php>` | Open-access ontology for RDs enabling queries of rare     |
+|                          | disorders and capturing relationships between diseases.   |
++--------------------------+-----------------------------------------------------------+
+| `Monarch Initiative Disease Ontology <https://mondo.monarchinitiative.org/>` | Aims to harmonize disease definitions across the world.   |
+| (MONDO)                  | A semi-automatically constructed ontology merging         |
+|                          | multiple disease resources.                               |
++--------------------------+-----------------------------------------------------------+
+| `Systematized Nomenclature | Comprehensive clinical health terminology providing       |
+| of Medicine Clinical      | codes, terms, and definitions used in documentation.      |
+| Terms (SNOMED) <https://www.snomed.org/>`_               |                                                           |
++--------------------------+-----------------------------------------------------------+
+| `Logical Observation      | Widely used terminology for clinical observations and     |
+| Identifiers Names and    | laboratory identifiers.                                   |
+| Codes (LOINC) <https://loinc.org/>`_                      |                                                           |
++--------------------------+-----------------------------------------------------------+
+| `Human Genome Organisation | Approves unique symbols and names for human loci.         |
+| - Gene Nomenclature      |                                                           |
+| Committee <https://www.genenames.org/>`_                 |                                                           |
++--------------------------+-----------------------------------------------------------+
+| `Human Genome Variation    | Guidelines for cataloguing variations in DNA, RNA, and    |
+| Society (HGVS) <https://varnomen.hgvs.org/>`_             | protein sequences.                                        |
++--------------------------+-----------------------------------------------------------+
+| `Online Mendelian         | Authoritative catalogue focusing on genetic variation     |
+| Inheritance in Man (OMIM) <https://omim.org/>`_           | and phenotypic expressions.                               |
++--------------------------+-----------------------------------------------------------+
+| `National Cancer Institute Thesaurus (NCIT) <https://ncithesaurus.org/>` | A reference terminology for cancer and biomedical research. |
++--------------------------+-----------------------------------------------------------+
+| `Units of Measurement Ontology (UO) <http://purl.obolibrary.org/obo/uo.owl>` | Ontology for units of measurement used in scientific data. |
++--------------------------+-----------------------------------------------------------+
+| `NCBI Taxonomy <https://www.ncbi.nlm.nih.gov/taxonomy>`   | A hierarchical classification of living organisms.       |
++--------------------------+-----------------------------------------------------------+
+| `GENO: The Genotype Ontology <http://www.genoontology.org/>` | An ontology for describing genetic variation and related   |
+|                          | concepts.                                               |
++--------------------------+-----------------------------------------------------------+
 
 Further Reading
 ---------------
