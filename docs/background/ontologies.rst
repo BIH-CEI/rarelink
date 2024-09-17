@@ -38,7 +38,7 @@ databases and platforms.
 
    * - Name
      - Description
-   * - `Human Phenotype Ontology <https://hpo.jax.org/app/>`_
+   * - `Human Phenotype Ontology (HPO) <https://hpo.jax.org/app/>`_
      - Standardized vocabulary of phenotypic abnormalities\n providing a global 
        standard for describing\n disease traits.
    * - `Sequence Ontology (SO) <http://www.sequenceontology.org/>`_
