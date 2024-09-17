@@ -26,11 +26,26 @@ databases and platforms.
 | Ontology (HPO) <https    | providing a global standard for describing disease |
 | ://hpo.jax.org/app/>`_   | traits.                                            |                           
 +--------------------------+----------------------------------------------------+
-| `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation     |
-| <http://www.sequenceonto | components, enhancing sharing and analysis of      |
+| `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation\n   |
+| <http://www.sequenceonto | components, enhancing sharing and analysis of\n    |
 | logy.org/>`_             | genomic information.                               |
 +--------------------------+----------------------------------------------------+
 
+
+.. list-table:: Example Table
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - `Human Phenotype Ontology <https://hpo.jax.org/app/>`_
+     - Standardized vocabulary of phenotypic abnormalities
+     - providing a global standard for describing disease traits.
+   * - `Sequence Ontology (SO) <http://www.sequenceontology.org/>`_
+     - Standardized vocabulary for genomic annotation
+     - components, enhancing sharing and analysis of genomic information.
+   * - `International Statistical Classification of Diseases <https://www.who.int/standards/classifications/classification-of-diseases>`_
+     - Used for documenting morbidity in healthcare systems,
+     - encoding mortality statistics, and billing purposes.
 
 +--------------------------+-----------------------------------------------------------+
 | `International Statistical | Used for documenting morbidity in healthcare systems,     |
