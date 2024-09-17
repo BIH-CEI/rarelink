@@ -19,43 +19,52 @@ databases and platforms.
   aspects, including terms for conditions, procedures, and equipment, facilitating
   precise communication and supporting electronic health information exchange.
 
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Name                     | Description                                              | Website                                               | Recommended Reading                                    |
-+==========================+==========================================================+=======================================================+=======================================================+
-| Human Phenotype Ontology | Standardized vocabulary of phenotypic abnormalities     | `https://hpo.jax.org/app/`                           | `The human phenotype ontology in 2021 <https://academic.oup.com/nar/article/52/D1/D1333/7416384?login=false>` |
-| (HPO)                    | providing a global standard for describing disease traits.|                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation          | `http://www.sequenceontology.org/`                   | `The Sequence Ontology: a tool for the unification of genome annotations <https://doi.org/10.1186/gb-2005-6-5-r44>` |
-|                          | components, enhancing sharing and analysis of genomic    |                                                       |                                                       |
-|                          | information.                                            |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| International Statistical | Used for documenting morbidity in healthcare systems,   | `https://www.who.int/standards/classifications/classification-of-diseases` | `Rare diseases in ICD11: making rare diseases visible in health information systems through appropriate coding <https://doi.org/10.1186/s13023-015-0251-8>` |
-| Classification of Diseases| encoding mortality statistics, and billing purposes.    |                                                       |                                                       |
-| and Related Health       | The ICD-11 encodes RDs more comprehensively.            |                                                       |                                                       |
-| Problems (ICD-10, ICD-11)|                                                          |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Orphanet Rare Disease    | Open-access ontology for RDs enabling queries of rare   | `https://www.orpha.net/consor/cgi-bin/index.php`     | `Mondo: Unifying diseases for the world, by the world <https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3>` |
-| Ontology (ORDO)         | disorders and capturing relationships between diseases.  |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Monarch Initiative Disease| Aims to harmonize disease definitions across the world.  | `https://mondo.monarchinitiative.org/`               | `Ordo: an ontology connecting rare disease, epidemiology and genetic data <https://www.researchgate.net/publication/287218703_Ordo_an_ontology_connecting_rare_disease_epidemiology_and_genetic_data>` |
-| Ontology (MONDO)        | A semi-automatically constructed ontology merging        |                                                       |                                                       |
-|                          | multiple disease resources.                              |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Systematized Nomenclature | Comprehensive clinical health terminology providing      | `https://www.snomed.org/`                            | `The use of SNOMED CT, 2013-2020: a literature review <https://doi.org/10.1093/jamia/ocab140>` |
-| of Medicine Clinical     | codes, terms, and definitions used in documentation.    |                                                       |                                                       |
-| Terms (SNOMED CT)       |                                                          |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Logical Observation      | Widely used terminology for clinical observations and    | `https://loinc.org/`                                 | `A 20-year evaluation of LOINC in the United States' largest integrated health system <https://doi.org/10.5858/arpa.2019-0045-OA>` |
-| Identifiers Names and    | laboratory identifiers.                                  |                                                       |                                                       |
-| Codes (LOINC)           |                                                          |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Human Genome Organisation | Approves unique symbols and names for human loci.       | `https://www.genenames.org/`                         | `Genenames.org: the HGNC resources in 2023 <https://doi.org/10.1093/nar/gkac1102>` |
-| - Gene Nomenclature      |                                                          |                                                       |                                                       |
-| Committee (HGNC)        |                                                          |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Human Genome Variation    | Guidelines for cataloguing variations in DNA, RNA, and  | `https://varnomen.hgvs.org/`                         | `HGVS recommendations for the description of sequence variants: 2016 update <https://doi.org/10.1002/humu.22981>` |
-| Society (HGVS)           | protein sequences.                                      |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
-| Online Mendelian         | Authoritative catalogue focusing on genetic variation   | `https://omim.org/`                                  | `OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>` |
-| Inheritance in Man (OMIM)| and phenotypic expressions.                            |                                                       |                                                       |
-+--------------------------+----------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+
++--------------------------+----------------------------------------------------------+
+| Name                     | Description                                              |
++==========================+==========================================================+
+| `Human Phenotype Ontology <https://hpo.jax.org/app/>` | Standardized vocabulary of phenotypic abnormalities     |
+| (HPO)                    | providing a global standard for describing disease traits.|
++--------------------------+----------------------------------------------------------+
+| `Sequence Ontology (SO) <http://www.sequenceontology.org/>` | Standardized vocabulary for genomic annotation          |
+|                          | components, enhancing sharing and analysis of genomic    |
+|                          | information.                                            |
++--------------------------+----------------------------------------------------------+
+| `International Statistical Classification of Diseases <https://www.who.int/standards/classifications/classification-of-diseases>` | Used for documenting morbidity in healthcare systems,   |
+| and Related Health       | encoding mortality statistics, and billing purposes.    |
+| Problems (ICD-10, ICD-11)| The ICD-11 encodes RDs more comprehensively.            |
++--------------------------+----------------------------------------------------------+
+| `Orphanet Rare Disease Ontology <https://www.orpha.net/consor/cgi-bin/index.php>` | Open-access ontology for RDs enabling queries of rare   |
+|                          | disorders and capturing relationships between diseases.  |
++--------------------------+----------------------------------------------------------+
+| `Monarch Initiative Disease Ontology <https://mondo.monarchinitiative.org/>` | Aims to harmonize disease definitions across the world.  |
+| (MONDO)                  | A semi-automatically constructed ontology merging        |
+|                          | multiple disease resources.                              |
++--------------------------+----------------------------------------------------------+
+| `Systematized Nomenclature of Medicine Clinical Terms <https://www.snomed.org/>` | Comprehensive clinical health terminology providing      |
+| Terms (SNOMED CT)       | codes, terms, and definitions used in documentation.    |
++--------------------------+----------------------------------------------------------+
+| `Logical Observation Identifiers Names and Codes (LOINC) <https://loinc.org/>` | Widely used terminology for clinical observations and    |
+|                          | laboratory identifiers.                                  |
++--------------------------+----------------------------------------------------------+
+| `Human Genome Organisation - Gene Nomenclature Committee <https://www.genenames.org/>` | Approves unique symbols and names for human loci.       |
+| (HGNC)                   |                                                          |
++--------------------------+----------------------------------------------------------+
+| `Human Genome Variation Society <https://varnomen.hgvs.org/>` | Guidelines for cataloguing variations in DNA, RNA, and  |
+| (HGVS)                   | protein sequences.                                      |
++--------------------------+----------------------------------------------------------+
+| `Online Mendelian Inheritance in Man <https://omim.org/>` | Authoritative catalogue focusing on genetic variation   |
+| (OMIM)                   | and phenotypic expressions.                            |
++--------------------------+----------------------------------------------------------+
+
+Further Reading
+---------------
+- `The human phenotype ontology in 2021 <https://academic.oup.com/nar/article/52/D1/D1333/7416384?login=false>`
+- `The Sequence Ontology: a tool for the unification of genome annotations <https://doi.org/10.1186/gb-2005-6-5-r44>`
+- `Rare diseases in ICD11: making rare diseases visible in health information systems through appropriate coding <https://doi.org/10.1186/s13023-015-0251-8>`
+- `Mondo: Unifying diseases for the world, by the world <https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3>`
+- `Ordo: an ontology connecting rare disease, epidemiology and genetic data <https://www.researchgate.net/publication/287218703_Ordo_an_ontology_connecting_rare_disease_epidemiology_and_genetic_data>`
+- `The use of SNOMED CT, 2013-2020: a literature review <https://doi.org/10.1093/jamia/ocab140>`
+- `A 20-year evaluation of LOINC in the United States' largest integrated health system <https://doi.org/10.5858/arpa.2019-0045-OA>`
+- `Genenames.org: the HGNC resources in 2023 <https://doi.org/10.1093/nar/gkac1102>`
+- `HGVS recommendations for the description of sequence variants: 2016 update <https://doi.org/10.1002/humu.22981>`
+- `OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders <https://doi.org/10.1093/nar/gku1205>`
