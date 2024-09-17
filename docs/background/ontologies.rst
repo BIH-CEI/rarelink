@@ -24,7 +24,7 @@ databases and platforms.
 +==========================+====================================================+
 | `Human Phenotype Ontology| Standardized vocabulary of phenotypic abnormalities|
 | (HPO) <https://hpo.jax.  | providing a global standard for describing disease |
-| org/app/>`_               | traits.                                           |   
+| org/app/>`_              | traits.                                            |   
 +--------------------------+----------------------------------------------------+
 | `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation     |
 | <http://www.sequenceonto | components, enhancing sharing and analysis of      |
