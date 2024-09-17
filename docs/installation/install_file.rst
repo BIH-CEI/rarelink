@@ -6,5 +6,6 @@ Installation Guide
    :caption: Contents:
 
    rarelink_instruments
+   instruments_file
    redcap_project
    redcap_api
