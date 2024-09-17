@@ -22,9 +22,9 @@ databases and platforms.
 +--------------------------+----------------------------------------------------+
 | Name                     | Description                                        |
 +==========================+====================================================+
-| `Human Phenotype Ontology| Standardized vocabulary of phenotypic abnormalities|
-| (HPO) <https://hpo.jax.  | providing a global standard for describing disease |
-| org/app/>`_              | traits.                                            |   
+| `Human Phenotype         | Standardized vocabulary of phenotypic abnormalities|
+| Ontology (HPO) <https    | providing a global standard for describing disease |
+| ://hpo.jax.org/app/>`_   | traits.                                            |                           
 +--------------------------+----------------------------------------------------+
 | `Sequence Ontology (SO)  | Standardized vocabulary for genomic annotation     |
 | <http://www.sequenceonto | components, enhancing sharing and analysis of      |
