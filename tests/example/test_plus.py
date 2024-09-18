@@ -1,5 +1,5 @@
 import pytest
-import rare_dif
+import rarelink
 
 
 @pytest.mark.parametrize("a, b, expected", [
