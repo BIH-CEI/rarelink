@@ -1,4 +1,5 @@
-"""An example description for the rarelink package."""
+"""RareLink - A Rare Disease Interoperability Framework in REDcap enabling
+Registry Use, HL7 FHIR and GA4GH Phenopackets"""
 
 __version__ = "0.0.1"
 
