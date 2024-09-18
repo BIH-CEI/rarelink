@@ -73,3 +73,6 @@ intersphinx_mapping = {
 
 html_theme = 'sphinx_rtd_theme'  # experiment with this
 html_static_path = ['_static']
+html_css_files = [
+    'custom.css',  # Include your custom CSS
+]
