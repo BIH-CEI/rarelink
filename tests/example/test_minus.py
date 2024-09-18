@@ -12,4 +12,4 @@ import rarelink
     (10, -1, 11),
 ])
 def test_minus(a, b, expected):
-    assert rare_dif.example.minus.minus(a, b) == expected
+    assert rarelink.example.minus.minus(a, b) == expected
