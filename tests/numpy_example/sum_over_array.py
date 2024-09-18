@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-import rare_dif
+import rarelink
 
 
 @pytest.mark.parametrize("arr, expected", [
