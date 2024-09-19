@@ -1,6 +1,6 @@
 import pytest
 
-from rarelink.preprocessing import preprocess_redcap_code
+from rarelink.preprocessing import parse_redcap_code
 
 
 @pytest.fixture
@@ -15,5 +15,5 @@ def resources():
     ("mondo_0968976", "Coding(system=CodeSystem(name='MONDO', namespace_prefix='MONDO'), code='0968976')"),
 ])
 def test_preprocess_redcap_code(input, resources, expected):
-    assert preprocess_redcap_code(input, resources) == expected
+    assert parse_redcap_code(input, resources) == expected
 
