@@ -5,8 +5,8 @@ __version__ = "0.0.1"
 
 from . import example, numpy_example
 from . import ontology_requests
-from . import pipelines
 from . import preprocessing
+from . import pipelines
 
 __all__ = [
     "example",
