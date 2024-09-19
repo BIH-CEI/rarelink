@@ -30,7 +30,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Rare Diseases"
 ]
 dependencies = [
-    "numpy",
+    "numpy", "jupyter",
 ]
 dynamic = ["version"]
 
