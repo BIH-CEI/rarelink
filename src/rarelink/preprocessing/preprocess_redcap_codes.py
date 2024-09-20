@@ -15,7 +15,8 @@ def parse_redcap_code(redcap_code: str, resources: List[CodeSystem]) -> Coding:
                            'MONDO:12456', no transformation is needed.
                         3. For 'ICD10CM', 'ICD11', 'ICD10', and 'ICD9' codes, 
                            underscores in the code part should be replaced 
-                           with periods, and the prefix must be uppercased.
+                           with periods, and the prefix must be uppercased and 
+                           included in the final code.
     :param resources: A list of available CodeSystems that the redcap_code 
                       prefix can be matched to.
     :return: A Coding object with the matching CodeSystem and the extracted code.
@@ -49,7 +50,7 @@ def parse_redcap_code(redcap_code: str, resources: List[CodeSystem]) -> Coding:
     # with '.' and ensure uppercase prefix
     if prefix.lower() in ["icd10cm", "icd11", "icd10", "icd9"]:
         code = code.replace('_', '.')
-        prefix = prefix.upper()  # Ensure the prefix is in uppercase
+        code = f"{prefix.upper()}:{code}"  # Ensure prefix is uppercased and prepended
 
     # Find the matching CodeSystem based on the prefix
     for resource in resources:
