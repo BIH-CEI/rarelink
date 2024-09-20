@@ -32,7 +32,7 @@ def resources():
 #    ("geno_00000", Coding(system=CodeSystem(name='GENO: The Genotype Ontology', namespace_prefix='GENO', url='http://www.genoontology.org/'), code='00000')),
 #    ("ncit_00000", Coding(system=CodeSystem(name='National Cancer Institute Thesaurus (NCIT)', namespace_prefix='NCIT', url='https://ncithesaurus.org/'), code='00000')),
 #    ("so_00000", Coding(system=CodeSystem(name='Sequence Ontology (SO)', namespace_prefix='SO', url='http://www.sequenceontology.org/'), code='00000')),
-    ("icd10cm_r51_1", Coding(system=CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'), code='R51.1')),
+    ("icd10cm_R51_1", Coding(system=CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'), code='R51.1')),
 #    ("icd11_00000", Coding(system=CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en'), code='00000')),
 ])
 def test_preprocess_redcap_code(input, resources, expected):
