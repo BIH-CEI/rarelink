@@ -6,17 +6,17 @@ from phenopacket_mapper.data_standards import CodeSystem, Coding
 def resources():
     return [
         CodeSystem(name='SNOMED CT', namespace_prefix='SNOMED', url='https://www.snomed.org/snomed-ct'),
-        CodeSystem(name='MONDO', namespace_prefix='MONDO', url='https://mondo.monarchinitiative.org/'),
-        CodeSystem(name='HPO', namespace_prefix='HPO', url='https://hpo.jax.org/'),
-        CodeSystem(name='OMIM', namespace_prefix='OMIM', url='https://omim.org/'),
-        CodeSystem(name='ORDO', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'),
+        CodeSystem(name='Monarch Disease Ontology', namespace_prefix='MONDO', url='https://mondo.monarchinitiative.org/'),
+        CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HPO', url='https://hpo.jax.org/'),
+        CodeSystem(name='Online Mendelian Inheritance', namespace_prefix='OMIM', url='https://omim.org/'),
+        CodeSystem(name='Orphanet', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'),
         CodeSystem(name='NCBI Taxonomy', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'),
-        CodeSystem(name='LOINC', namespace_prefix='LOINC', url='https://loinc.org/'),
-        CodeSystem(name='HGNC', namespace_prefix='HGNC', url='https://www.genenames.org/'),
+        CodeSystem(name='Logical Observation Identifiers Names and Codes', namespace_prefix='LOINC', url='https://loinc.org/'),
+        CodeSystem(name='HUGO Gene Nomenclature Committee', namespace_prefix='HGNC', url='https://www.genenames.org/'),
         CodeSystem(name='GENO: The Genotype Ontology', namespace_prefix='GENO', url='http://www.genoontology.org/'),
         CodeSystem(name='National Cancer Institute Thesaurus (NCIT)', namespace_prefix='NCIT', url='https://ncithesaurus.org/'),
         CodeSystem(name='Sequence Ontology (SO)', namespace_prefix='SO', url='http://www.sequenceontology.org/'),
-        CodeSystem(name='ICD-10-CM', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'),
+        CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'),
         CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en')
     ]
 
