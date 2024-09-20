@@ -23,7 +23,7 @@ def resources():
 @pytest.mark.parametrize("input, expected", [
     ("snomed_410605003", Coding(system=CodeSystem(name='SNOMED CT', namespace_prefix='SNOMED', url='https://www.snomed.org/snomed-ct'), code='410605003')),
     ("mondo_0968976", Coding(system=CodeSystem(name='MONDO', namespace_prefix='MONDO', url='https://mondo.monarchinitiative.org/'), code='0968976')),
-    ("hpo_00000", Coding(system=CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HPO', url='https://hpo.jax.org/'), code='00000')),
+    ("hp::4000034", Coding(system=CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HPO', url='https://hpo.jax.org/'), code='00000')),
     ("omim_00000", Coding(system=CodeSystem(name='OMIM', namespace_prefix='OMIM', url='https://omim.org/'), code='00000')),
     ("ordo_00000", Coding(system=CodeSystem(name='ORDO', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'), code='00000')),
 #    ("ncbitaxon_00000", Coding(system=CodeSystem(name='NCBI Taxonomy', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'), code='00000')),
