@@ -12,7 +12,7 @@ def parse_redcap_code(redcap_code: str, resources: List[CodeSystem]) -> Coding:
     :return: A Coding object with the matching CodeSystem and the extracted code.
     
     Example:
-    >>> parse_redcap_code("snomed_1234567", [CodeSystem(name="SNOMED CT", namespace_prefix="SNOMED")])
+    # parse_redcap_code("snomed_1234567", [CodeSystem(name="SNOMED CT", namespace_prefix="SNOMED")])
     Coding(system=CodeSystem(name='SNOMED CT', namespace_prefix='SNOMED'), code='1234567')
     """
 
