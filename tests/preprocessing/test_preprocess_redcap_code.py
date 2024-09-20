@@ -28,7 +28,7 @@ def resources():
     ("ordo_2322", Coding(system=CodeSystem(name='Orphanet', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'), code='2322')),
 #    ("ncbitaxon_399550", Coding(system=CodeSystem(name='NCBI organismal classification', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'), code='399550')),
     ("loinc_81304_8", Coding(system=CodeSystem(name='Logical Observation Identifiers Names and Codes', namespace_prefix='LOINC', url='https://loinc.org/'), code='81304-8')),
-    ("hgnc_00000", Coding(system=CodeSystem(name='HUGO Gene Nomenclature Committee', namespace_prefix='HGNC', url='https://www.genenames.org/'), code='00000')),
+    ("hgnc_6382", Coding(system=CodeSystem(name='HUGO Gene Nomenclature Committee', namespace_prefix='HGNC', url='https://www.genenames.org/'), code='6382')),
 #    ("geno_00000", Coding(system=CodeSystem(name='GENO: The Genotype Ontology', namespace_prefix='GENO', url='http://www.genoontology.org/'), code='00000')),
 #    ("ncit_00000", Coding(system=CodeSystem(name='National Cancer Institute Thesaurus (NCIT)', namespace_prefix='NCIT', url='https://ncithesaurus.org/'), code='00000')),
 #    ("so_00000", Coding(system=CodeSystem(name='Sequence Ontology (SO)', namespace_prefix='SO', url='http://www.sequenceontology.org/'), code='00000')),
