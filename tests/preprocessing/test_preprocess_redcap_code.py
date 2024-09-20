@@ -17,7 +17,8 @@ def resources():
     #    CodeSystem(name='National Cancer Institute Thesaurus (NCIT)', namespace_prefix='NCIT', url='https://ncithesaurus.org/'),
     #    CodeSystem(name='Sequence Ontology (SO)', namespace_prefix='SO', url='http://www.sequenceontology.org/'),
         CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'),
-        CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en')
+        CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'),
+   #     CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en')
     ]
 
 @pytest.mark.parametrize("input, expected", [
