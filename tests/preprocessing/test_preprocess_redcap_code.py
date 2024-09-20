@@ -7,7 +7,7 @@ def resources():
     return [
         CodeSystem(name='SNOMED CT', namespace_prefix='SNOMED', url='https://www.snomed.org/snomed-ct'),
         CodeSystem(name='Monarch Disease Ontology', namespace_prefix='MONDO', url='https://mondo.monarchinitiative.org/'),
-        CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HPO', url='https://hpo.jax.org/'),
+        CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HP', url='https://hpo.jax.org/'),
         CodeSystem(name='Online Mendelian Inheritance', namespace_prefix='OMIM', url='https://omim.org/'),
         CodeSystem(name='Orphanet', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'),
     #    CodeSystem(name='NCBI organismal classification', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'),
@@ -23,7 +23,7 @@ def resources():
 @pytest.mark.parametrize("input, expected", [
     ("snomed_410605003", Coding(system=CodeSystem(name='SNOMED CT', namespace_prefix='SNOMED', url='https://www.snomed.org/snomed-ct'), code='410605003')),
     ("mondo_0968976", Coding(system=CodeSystem(name='MONDO', namespace_prefix='MONDO', url='https://mondo.monarchinitiative.org/'), code='0968976')),
-    ("hp_4000034", Coding(system=CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HPO', url='https://hpo.jax.org/'), code='4000034')),
+    ("hp_4000034", Coding(system=CodeSystem(name='Human Phenotype Ontology', namespace_prefix='HP', url='https://hpo.jax.org/'), code='4000034')),
     ("omim_147920", Coding(system=CodeSystem(name='OMIM', namespace_prefix='OMIM', url='https://omim.org/'), code='147920')),
     ("ordo_2322", Coding(system=CodeSystem(name='ORDO', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'), code='2322')),
 #    ("ncbitaxon_399550", Coding(system=CodeSystem(name='NCBI organismal classification', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'), code='399550')),
