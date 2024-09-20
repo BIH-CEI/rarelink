@@ -27,7 +27,7 @@ def resources():
     ("omim_147920", Coding(system=CodeSystem(name='OMIM', namespace_prefix='OMIM', url='https://omim.org/'), code='147920')),
     ("ordo_2322", Coding(system=CodeSystem(name='ORDO', namespace_prefix='ORDO', url='https://www.orpha.net/consor/cgi-bin/index.php'), code='2322')),
 #    ("ncbitaxon_399550", Coding(system=CodeSystem(name='NCBI organismal classification', namespace_prefix='NCBITAXON', url='https://www.ncbi.nlm.nih.gov/taxonomy'), code='399550')),
-    ("loinc_00000", Coding(system=CodeSystem(name='LOINC', namespace_prefix='LOINC', url='https://loinc.org/'), code='00000')),
+    ("loinc_81304_8", Coding(system=CodeSystem(name='LOINC', namespace_prefix='LOINC', url='https://loinc.org/'), code='81304-8')),
     ("hgnc_00000", Coding(system=CodeSystem(name='HGNC', namespace_prefix='HGNC', url='https://www.genenames.org/'), code='00000')),
 #    ("geno_00000", Coding(system=CodeSystem(name='GENO: The Genotype Ontology', namespace_prefix='GENO', url='http://www.genoontology.org/'), code='00000')),
 #    ("ncit_00000", Coding(system=CodeSystem(name='National Cancer Institute Thesaurus (NCIT)', namespace_prefix='NCIT', url='https://ncithesaurus.org/'), code='00000')),
