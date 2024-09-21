@@ -75,4 +75,4 @@ class RareLink_CDM_v2_0_0_CodeSystems:
         version="1.0.2"
     )
 
-rarelink_cdm_codesystems = RareLink_CDM_v2_0_0_CodeSystems()
+rarelink_cdm_v2_0_0_codesystems = RareLink_CDM_v2_0_0_CodeSystems()
