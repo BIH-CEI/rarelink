@@ -5,7 +5,6 @@ from . import RareLink_CDM_v2_0_0_ValueSets as VS
 
 rarelink_cdm_v2_0_0 = DataModel(
     data_model_name="RareLink Common Data Model 2.0",
-    fields=[DataField(name="temp", value_set=ValueSet())],
     resources=resources,
     fields=[
         # 1. Formal Criteria
