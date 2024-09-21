@@ -1,6 +1,5 @@
 from importlib import resources
 from phenopacket_mapper.data_standards import DataModel, DataField
-from phenopacket_mapper.data_standards.value_set import ValueSet
 from rarelink.rarelink_cdm.rarelink_cdm_vs import rarelink_cdm_v2_0_0_vs as VS
 
 rarelink_cdm_v2_0_0 = DataModel(
