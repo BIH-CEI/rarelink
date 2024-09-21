@@ -5,6 +5,10 @@ from .rarelink_cdm_codesystems import RareLink_CDM_v2_0_0_CodeSystems as CodeSys
 
 
 class RareLink_CDM_v2_0_0_ValueSets:
+    """
+    This class is a container for the value sets used in the RareLink CDM.
+    ___version__ = '2.0.0'
+    """
 # 1. Formal Criteria
     vs_1_1 = ValueSet(
         elements=[str],
