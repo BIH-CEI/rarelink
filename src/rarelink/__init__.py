@@ -7,6 +7,7 @@ from . import example, numpy_example
 from . import ontology_requests
 from . import preprocessing
 from . import pipelines
+from . import rarelink_cdm
 
 __all__ = [
     "example",
@@ -14,4 +15,5 @@ __all__ = [
     "ontology_requests",
     "pipelines",
     "preprocessing"
+    "rarelink_cdm"
 ]
