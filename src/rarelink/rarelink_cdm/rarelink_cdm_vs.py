@@ -417,11 +417,19 @@ class RareLink_CDM_v2_0_0_ValueSets:
             Coding(system=CodeSystems.LOINC, code="LA26398-0", 
                    display="Sequencing"),
             Coding(system=CodeSystems.LOINC, code="LA26415-2", display="MLPA"),
-            Coding(system=CodeSystems.LOINC, code="LA46-8", display="Other")
+            Coding(system=CodeSystems.LOINC, code="LA46-8", display="Other"),
+            CodeSystems.LOINC
         ],
         name="Value set for 6.1.4 Structural Variant Analysis Method",
         description=("The method used to analyse structural variants in the genome.")
     )
+#        # 6.1.4a Other Structural Variant Analysis Method
+#     vs_6_1_4a = ValueSet(
+#               elements=[CodeSystems.LOINC],
+#               name="Value set for 6.1.4a Other Structural Variant Analysis Method",
+#               description=("The method used to analyse structural variants\
+#                             in the genome.")
+#        )
 
     # 6.1.5 Reference Genome
     vs_6_1_5 = ValueSet(
@@ -500,11 +508,19 @@ class RareLink_CDM_v2_0_0_ValueSets:
             Coding(system=CodeSystems.LOINC, code="LA6704-6", 
                    display="Homoplasmic"),
             Coding(system=CodeSystems.LOINC, code="53034-5_other", 
-                   display="Other")
+                   display="Other"),
+              CodeSystems.LOINC
         ],
         name="Value set for 6.1.11 Zygosity",
         description=("The zygosity of the genetic variant.")
     )
+
+#     # 6.1.11a Other Zygosity
+#     vs_6_1_11a = ValueSet(
+#               elements=[CodeSystems.LOINC],
+#               name="Value set for 6.1.11a Other Zygosity",
+#               description=("The zygosity of the genetic variant.")
+#     )
 
     # 6.1.12 Genomic Source Class
     vs_6_1_12 = ValueSet(
@@ -530,7 +546,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
                     "somatic, or other origins.")
     )
 
-        # 6.1.13 DNA Change Type
+       # 6.1.13 DNA Change Type
     vs_6_1_13 = ValueSet(
         elements=[
             Coding(system=CodeSystems.LOINC, code="LA9658-1", 
@@ -545,12 +561,20 @@ class RareLink_CDM_v2_0_0_ValueSets:
             Coding(system=CodeSystems.LOINC, code="LA6690-7", 
                    display="Substitution"),
             Coding(system=CodeSystems.LOINC, code="48019-4_other", 
-                   display="Other")
+                   display="Other"),
+            CodeSystems.LOINC,
         ],
         name="Value set for 6.1.13 DNA Change Type",
         description=("The variant’s type of DNA change, such as point mutation, "
                     "deletion, insertion, or other types.")
     )
+#        # 6.1.13a Other DNA Change Type
+#     vs_6_1_13a = ValueSet(
+#               elements=[CodeSystems.LOINC],
+#               name="Value set for 6.1.13a Other DNA Change Type",
+#               description=("The variant’s type of DNA change, such as\
+#                             missense, frameshift, or other types of mutation.")
+#     )
 
     # 6.1.14 Clinical Significance [ACMG]
     vs_6_1_14 = ValueSet(
@@ -632,7 +656,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.2.3 Status
     vs_6_2_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="410605003", display="Confirmed present"),
+            Coding(system=CodeSystems.SNOMED, code="410605003", 
+                   display="Confirmed present"),
             Coding(system=CodeSystems.SNOMED, code="723511001", display="Refuted")
         ],
         name="Value set for 6.2.3 Status",
@@ -645,7 +670,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
         elements=[CodeSystems.HPO, CodeSystems.NCBITaxon, CodeSystems.SNOMED],
         name="Value set for 6.2.4 Modifier",
         description=("Further clinical modifiers to describe a specific "
-                     "phenotypic feature, such as severity or linked causative agents.")
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
     )
 
 # 6.3 Family History
