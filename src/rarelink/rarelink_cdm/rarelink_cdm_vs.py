@@ -2,8 +2,6 @@ from sqlite3 import Date
 from phenopacket_mapper.data_standards import ValueSet, Coding, CodeSystem
 from .rarelink_cdm_codesystems import RareLink_CDM_v2_0_0_CodeSystems as CodeSystems
 
-
-
 class RareLink_CDM_v2_0_0_ValueSets:
     """
     This class is a container for the value sets used in the RareLink CDM.
