@@ -14,13 +14,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
         elements=[str],
         name="Value set for 1.1 Pseudonym",
         description="The (local) patient-related Identification code."
-)
+       )
 
     vs_1_2 = ValueSet(
         elements=[Date],
         name="Value set for 1.2 Date of Admission",
         description="The date of admission or data capture of the individual."
-)
+       )
 # 2. Personal Information
     # 2.1 Date of Birth
     vs_2_1 = ValueSet(
