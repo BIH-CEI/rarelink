@@ -2,12 +2,15 @@ from importlib import resources
 from phenopacket_mapper.data_standards import DataModel, DataField
 from phenopacket_mapper.data_standards.value_set import ValueSet
 
+
+
 rarelink_cdm_2_0 = DataModel(
     data_model_name="RareLink Common Data Model 2.0",
     fields=[DataField(name="temp", value_set=ValueSet())],
     resources=resources,
+    fields=[ ],
 )
-#     fields=[
+#     
 #         # 1. Formal Criteria
 #         DataField(section="1. Formal Criteria", ordinal="1.1", 
 #                    name="Pseudonym", value_set=vs_1_1),
