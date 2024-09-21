@@ -346,7 +346,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.1.1 Genomic Diagnosis [MONDO, OMIM]
     vs_6_1_1 = ValueSet(
-        elements=[CodeSystem.MONDO, CodeSystem.OMIM],
+        elements=[CodeSystems.MONDO, CodeSystems.OMIM],
         name="Value set for 6.1.1 Genomic Diagnosis [MONDO]",
         description=("The genetic finding of a variant can be linked to a  "
                     "disease in (5.1) if the same MONDO code is used.")
@@ -622,7 +622,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
             Coding(system=CodeSystems.LOINC, code="LA30203-6", 
                    display="Supporting evidence pathogenic"),
             Coding(system=CodeSystems.LOINC, code="LA30204-4", 
-                   isplay="Supporting evidence benign"),
+                   display="Supporting evidence benign"),
             Coding(system=CodeSystems.LOINC, code="LA30205-1", 
                    display="Strong evidence benign"),
             Coding(system=CodeSystems.LOINC, code="LA30206-9", 

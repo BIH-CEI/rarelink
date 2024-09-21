@@ -3,7 +3,9 @@ from phenopacket_mapper.data_standards.code import CodeSystem
 
 class RareLink_CDM_v2_0_0_CodeSystems:
     """
-    This class is a container for the additional code systems used in the RareLink CDM.
+    This class is a container for the code systems used in the 
+    RareLink CDM v2.0.0.
+
     __version__ = '2.0.0'
     """
     NCBITaxon = CodeSystem(
@@ -75,5 +77,50 @@ class RareLink_CDM_v2_0_0_CodeSystems:
         url='https://www.who.int/classifications/icf/en/',
         version="1.0.2"
     )
+    MONDO = CodeSystem(
+        name="Monarch Disease Ontology",
+        namespace_prefix="MONDO",
+        url="http://purl.obolibrary.org/obo/mondo.owl",
+        version="2024-09-03"
+    )
+    ORDO = CodeSystem(
+        name="Orphanet",
+        namespace_prefix="Orphanet Rare Disease Ontology",
+        url="http://www.orpha.net/",
+        version="2024-09-12"
+    )
+    OMIM = CodeSystem(
+        name="Online Mendelian Inheritance",
+        namespace_prefix="OMIM",
+        url="https://omim.org/", 
+        version="2024-09-12"
+    )
+    LOINC = CodeSystem(
+        name="Logical Observation Identifiers Names and Codes",
+        namespace_prefix="LOINC",
+        url="https://loinc.org/",
+        version="2.78"
+    )
+    HGVS = CodeSystem(
+        name="Human Genome Variation Society",
+        namespace_prefix="HGVS",
+        url="http://varnomen.hgvs.org/", 
+        version="21.0.0"
+    )
+    HGNC = CodeSystem(
+        name="HUGO Gene Nomenclature Committee",
+        namespace_prefix="HGNC",
+        url="https://www.genenames.org/",
+        version="2024-08-23"
+    )
+    HPO = CodeSystem(
+        name="Human Phenotype Ontology",
+        namespace_prefix="HP",
+        url="http://www.human-phenotype-ontology.org",
+        iri_prefix="http://purl.obolibrary.org/obo/HP_",
+        synonyms=["HPO"],
+        version="2024-08-13"
+)
+
 
 rarelink_cdm_v2_0_0_codesystems = RareLink_CDM_v2_0_0_CodeSystems()
