@@ -20,6 +20,7 @@ def resources():
         CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'),
    #     CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en')
         CodeSystem(name='HL7 FHIR', namespace_prefix='HL7FHIR', url='https://www.hl7.org/fhir/'),
+        CodeSystem(name='Global Alliance for Genomics and Health Phenopacket Schema', namespace_prefix='GA4GH', url='https://www.ga4gh.org/'),
     ]
 
 @pytest.mark.parametrize("input, expected", [
@@ -39,6 +40,7 @@ def resources():
     ("icd10_r51_2", Coding(system=CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10', url='https://icd.who.int/en'), code='R51.2')),
  #   ("icd11_r51_2", Coding(system=CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en'), code='ICD11:R51.2')),
     ("hl7fhir_123", Coding(system=CodeSystem(name='HL7 FHIR', namespace_prefix='HL7FHIR', url='https://www.hl7.org/fhir/'), code='123')),
+    ("ga4gh_456", Coding(system=CodeSystem(name='GA4GH', namespace_prefix='GA4GH', url='https://www.ga4gh.org/'), code='456')),
 
 ])
 def test_preprocess_redcap_code(input, resources, expected):
