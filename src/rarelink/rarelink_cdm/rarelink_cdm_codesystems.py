@@ -1,9 +1,10 @@
-from phenopacket_mapper.data_standards.code import Coding, CodeSystem
+from phenopacket_mapper.data_standards.code import CodeSystem
 
 
 class RareLink_CDM_v2_0_0_CodeSystems:
     """
     This class is a container for the additional code systems used in the RareLink CDM.
+    __version__ = '2.0.0'
     """
     NCBITaxon = CodeSystem(
         name='NCBI organismal classification', 
