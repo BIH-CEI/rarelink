@@ -40,7 +40,7 @@ For disease-specific extensions, such as [Domain Specific Data Elements](https:/
 development of additional REDCap sheets, ensuring their seamless integration 
 into RareLink's preconfigured data pipelines.
 
-![RareLink](https://github.com/user-attachments/assets/274e5d79-bdfd-4b53-90b2-d689c46024c2)
+![RareLink](https://github.com/user-attachments/assets/b5a09b05-68c8-43ef-b624-e11bd8bda475)
 
 RareLink integrates the following features for Rare Disease data management in 
 REDCap: 
