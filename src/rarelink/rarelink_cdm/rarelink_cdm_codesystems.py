@@ -12,6 +12,7 @@ class RareLink_CDM_v2_0_0_Resources:
     @property
     def NCBITaxon(self):
         return NCBITaxon.set_version("2024-07-03")
+    
     def GENO(self):
         return GENO.set_version("2023-10-08")
 
