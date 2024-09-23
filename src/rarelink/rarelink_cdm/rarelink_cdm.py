@@ -64,7 +64,7 @@ RARELINK_CDM_V2_0_0 = DataModel(
         DataField(section="5. Disease", ordinal="5.6", 
                    name="Date of Diagnosis", value_set=VS.vs_5_6),
         DataField(section="5. Disease", ordinal="5.7", 
-                   name="Body Site [SNOMED CT]", value_set=VS.vs_5_7),
+                   name="Body Site", value_set=VS.vs_5_7),
         DataField(section="5. Disease", ordinal="5.8", 
                    name="Clinical Status", value_set=VS.vs_5_8),
         DataField(section="5. Disease", ordinal="5.9", 
