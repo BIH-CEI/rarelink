@@ -24,7 +24,7 @@ Rare Disease Interoperability Framework in REDCap linking Registry Use, HL7 FHIR
 
 RareLink - A Rare Disease Interoperability Framework in REDCap to enable 
 Registry Use, HL7 FHIR® and the GA4GH Phenopacket Schema© including 
-comprehensive documentation for data management and user guides. 
+comprehensive documentation for data management and user guides.
 This includes data capture, import, export, project set up and and is ready for 
 clinical use management in clinical care or research.
 
