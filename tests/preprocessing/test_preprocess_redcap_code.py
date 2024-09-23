@@ -38,7 +38,7 @@ def resources():
     ("so_00000", Coding(system=CodeSystem(name='Sequence Ontology (SO)', namespace_prefix='SO', url='http://www.sequenceontology.org/'), code='00000')),
     ("icd10cm_R51_1", Coding(system=CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10CM', url='https://www.cdc.gov/nchs/icd/icd10cm.htm'), code='R51.1')),
     ("icd10_r51_2", Coding(system=CodeSystem(name='International Classification of Diseases', namespace_prefix='ICD10', url='https://icd.who.int/en'), code='R51.2')),
-    ("icd11_r51_2", Coding(system=CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en'), code='ICD11:R51.2')),
+    ("icd11_r51_2", Coding(system=CodeSystem(name='ICD-11', namespace_prefix='ICD11', url='https://icd.who.int/en'), code='R51.2')),
     ("hl7fhir_123", Coding(system=CodeSystem(name='HL7 FHIR', namespace_prefix='HL7FHIR', url='https://www.hl7.org/fhir/'), code='123')),
     ("ga4gh_456", Coding(system=CodeSystem(name='GA4GH', namespace_prefix='GA4GH', url='https://www.ga4gh.org/'), code='456')),
 
