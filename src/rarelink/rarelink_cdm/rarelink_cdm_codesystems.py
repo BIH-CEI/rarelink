@@ -1,126 +1,64 @@
 from phenopacket_mapper.data_standards.code import CodeSystem
+from phenopacket_mapper.data_standards.code_system import NCBITaxon, GENO, SO, ICD10CM, SNOMED, ICD11, HL7FHIR, GA4GH, ISO3166, ICF, MONDO, ORDO, OMIM, LOINC, HGVS, HGNC, HPO
 
 
-class RareLink_CDM_v2_0_0_CodeSystems:
+class RareLink_CDM_v2_0_0_Resources:
     """
     This class is a container for the code systems used in the 
     RareLink CDM v2.0.0.
 
     __version__ = '2.0.0'
     """
-    NCBITaxon = CodeSystem(
-        name='NCBI organismal classification', 
-        namespace_prefix='ncbitaxon', 
-        url='https://www.ncbi.nlm.nih.gov/taxonomy',
-        version="2024-07-03"
-    )
+    @property
+    def NCBITaxon(self):
+        return NCBITaxon.set_version("2024-07-03")
+    def GENO(self):
+        return GENO.set_version("2023-10-08")
 
-    GENO = CodeSystem(
-        name='GENO: The Genotype Ontology', 
-        namespace_prefix='geno', 
-        url='http://www.genoontology.org/',
-        version="2023-10-08"
-    )
+    def SO(self):
+        return SO.set_version("2.6")
 
-    SO = CodeSystem(
-        name='Sequence Ontology (SO)', 
-        namespace_prefix='so', 
-        url='http://www.sequenceontology.org/',
-        version="2.6"
-    )
+    def ICD10CM(self):
+        return ICD10CM.set_version("2024-09-01")
 
-    ICD10CM = CodeSystem(
-        name='ICD-10-CM', 
-        namespace_prefix='icd10cm', 
-        url='https://www.cdc.gov/nchs/icd/icd10cm.htm',
-        version="2024-09-01"
-    )
+    def SNOMED(self):
+        return SNOMED.set_version("2024-09-01")
 
-    SNOMED = CodeSystem(
-        name='SNOMED CT', 
-        namespace_prefix='snomed', 
-        url='https://www.snomed.org/snomed-ct',
-        version="2024-09-01"
-    )
+    def ICD11(self):
+        return ICD11.set_version("2024-09-01")
 
-    ICD11 = CodeSystem(
-        name='ICD-11', 
-        namespace_prefix='icd11', 
-        url='https://icd.who.int/en',
-        version="2024-09-01"
-    )
+    def HL7FHIR(self):
+        return HL7FHIR.set_version("v4.0.1")
 
-    HL7FHIR = CodeSystem(
-        name='HL7 FHIR', 
-        namespace_prefix='hl7fhir', 
-        url='https://www.hl7.org/fhir/',
-        version="v4.0.1"
-    )
+    def GA4GH(self):
+        return GA4GH.set_version("v2.0")
 
-    GA4GH = CodeSystem(
-        name='Global Alliance for Genomics and Health - Phenopacket Schema', 
-        namespace_prefix='ga4gh', 
-        url='https://www.ga4gh.org/',
-        version="v2.0"
-    )
+    def ISO3166(self):
+        return ISO3166.set_version("2020(en)")
 
-    ISO3166 = CodeSystem(
-        name='ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes', 
-        namespace_prefix='iso3166', 
-        url='https://www.iso.org/iso-3166-country-codes.html',
-        version="2020(en)"
-    )
+    def ICF(self):
+        return ICF.set_version("1.0.2")
 
-    ICF = CodeSystem(
-        name='International Classification of Functioning, Disability and Health (ICF)', 
-        namespace_prefix='icf', 
-        url='https://www.who.int/classifications/icf/en/',
-        version="1.0.2"
-    )
-    MONDO = CodeSystem(
-        name="Monarch Disease Ontology",
-        namespace_prefix="MONDO",
-        url="http://purl.obolibrary.org/obo/mondo.owl",
-        version="2024-09-03"
-    )
-    ORDO = CodeSystem(
-        name="Orphanet",
-        namespace_prefix="Orphanet Rare Disease Ontology",
-        url="http://www.orpha.net/",
-        version="2024-09-12"
-    )
-    OMIM = CodeSystem(
-        name="Online Mendelian Inheritance",
-        namespace_prefix="OMIM",
-        url="https://omim.org/", 
-        version="2024-09-12"
-    )
-    LOINC = CodeSystem(
-        name="Logical Observation Identifiers Names and Codes",
-        namespace_prefix="LOINC",
-        url="https://loinc.org/",
-        version="2.78"
-    )
-    HGVS = CodeSystem(
-        name="Human Genome Variation Society",
-        namespace_prefix="HGVS",
-        url="http://varnomen.hgvs.org/", 
-        version="21.0.0"
-    )
-    HGNC = CodeSystem(
-        name="HUGO Gene Nomenclature Committee",
-        namespace_prefix="HGNC",
-        url="https://www.genenames.org/",
-        version="2024-08-23"
-    )
-    HPO = CodeSystem(
-        name="Human Phenotype Ontology",
-        namespace_prefix="HP",
-        url="http://www.human-phenotype-ontology.org",
-        iri_prefix="http://purl.obolibrary.org/obo/HP_",
-        synonyms=["HPO"],
-        version="2024-08-13"
-)
+    def MONDO(self):
+        return MONDO.set_version("2024-09-03")
+
+    def ORDO(self):
+        return ORDO.set_version("2024-09-12")
+
+    def OMIM(self):
+        return OMIM.set_version("2024-09-12")
+
+    def LOINC(self):
+        return LOINC.set_version("2.78")
+
+    def HGVS(self):
+        return HGVS.set_version("21.0.0")
+
+    def HGNC(self):
+        return HGNC.set_version("2024-08-23")
+
+    def HPO(self):
+        return HPO.set_version("2024-08-13")
 
 
-rarelink_cdm_v2_0_0_codesystems = RareLink_CDM_v2_0_0_CodeSystems()
+RARELINK_CDM_V2_0_0_RESOURCES = RareLink_CDM_v2_0_0_Resources()
