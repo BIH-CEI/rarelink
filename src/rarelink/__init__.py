@@ -11,6 +11,6 @@ from . import rarelink_cdm
 __all__ = [
     "ontology_requests",
     "pipelines",
-    "preprocessing"
-    "rarelink_cdm"
+    "preprocessing",
+    "rarelink_cdm",
 ]

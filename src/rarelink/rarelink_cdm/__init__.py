@@ -10,5 +10,5 @@ __all__ = [
     "RARELINK_CDM_V2_0_0",
     "RARELINK_CDM_V2_0_0_VS",
     "RARELINK_CDM_V2_0_0_RESOURCES",
-    "load_rarelink_data"
+    "load_rarelink_data",
 ]
