@@ -1,5 +1,5 @@
 from phenopacket_mapper.data_standards.code import CodeSystem
-from phenopacket_mapper.data_standards.code_system import NCBITaxon, GENO, SO, ICD10CM, SNOMED, ICD11, HL7FHIR, GA4GH, ISO3166, ICF, MONDO, ORDO, OMIM, LOINC, HGVS, HGNC, HPO
+from phenopacket_mapper.data_standards.code_system import NCBITaxon, GENO, SO, ICD10CM, SNOMED_CT, ICD11, HL7FHIR, GA4GH, ISO3166, ICF, MONDO, ORDO, OMIM, LOINC, HGVS, HGNC, HPO
 
 
 class RareLink_CDM_v2_0_0_Resources:
@@ -22,8 +22,8 @@ class RareLink_CDM_v2_0_0_Resources:
     def ICD10CM(self):
         return ICD10CM.set_version("2024-09-01")
 
-    def SNOMED(self):
-        return SNOMED.set_version("2024-09-01")
+    def SNOMED_CT(self):
+        return SNOMED_CT.set_version("2024-09-01")
 
     def ICD11(self):
         return ICD11.set_version("2024-09-01")
