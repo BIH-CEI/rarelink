@@ -135,7 +135,7 @@ disease research and care.
 
 ## License
 
-This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareLink/blob/main/LICENSE)
+This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
 
 ## Acknowledgements
 
