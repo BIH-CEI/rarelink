@@ -31,14 +31,14 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.2 Sex at Birth
     vs_2_2 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="248152002", 
+            Coding(system=res.SNOMED_CT, code="248152002", 
                    display="Female"),
-            Coding(system=res.SNOMED, code="248153007", display="Male"),
-            Coding(system=res.SNOMED, code="184115007", 
+            Coding(system=res.SNOMED_CT, code="248153007", display="Male"),
+            Coding(system=res.SNOMED_CT, code="184115007", 
                    display="Patient sex unknown"),
-            Coding(system=res.SNOMED, code="32570691000036108", 
+            Coding(system=res.SNOMED_CT, code="32570691000036108", 
                    display="Intersex"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 2.2 Sex at Birth",
@@ -48,18 +48,18 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.3 Karyotypic Sex
     vs_2_3 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=res.SNOMED, code="734875008", display="XX"),
-            Coding(system=res.SNOMED, code="734876009", display="XY"),
-            Coding(system=res.SNOMED, code="80427008", display="X0"),
-            Coding(system=res.SNOMED, code="65162001", display="XXY"),
-            Coding(system=res.SNOMED, code="35111009", display="XXX"),
-            Coding(system=res.SNOMED, code="403760006", display="XXYY"),
-            Coding(system=res.SNOMED, code="78317008", display="XXXY"),
-            Coding(system=res.SNOMED, code="10567003", display="XXXX"),
-            Coding(system=res.SNOMED, code="48930007", display="XYY"),
-            Coding(system=res.SNOMED, code="74964007", display="Other")
+            Coding(system=res.SNOMED_CT, code="734875008", display="XX"),
+            Coding(system=res.SNOMED_CT, code="734876009", display="XY"),
+            Coding(system=res.SNOMED_CT, code="80427008", display="X0"),
+            Coding(system=res.SNOMED_CT, code="65162001", display="XXY"),
+            Coding(system=res.SNOMED_CT, code="35111009", display="XXX"),
+            Coding(system=res.SNOMED_CT, code="403760006", display="XXYY"),
+            Coding(system=res.SNOMED_CT, code="78317008", display="XXXY"),
+            Coding(system=res.SNOMED_CT, code="10567003", display="XXXX"),
+            Coding(system=res.SNOMED_CT, code="48930007", display="XYY"),
+            Coding(system=res.SNOMED_CT, code="74964007", display="Other")
         ],
         name="Value set for 2.3 Karyotypic Sex",
         description=("The chromosomal sex of an individual.")
@@ -68,15 +68,15 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.4 Gender Identity
     vs_2_4 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="446141000124107", 
+            Coding(system=res.SNOMED_CT, code="446141000124107", 
                    display="Female gender identity"),
-            Coding(system=res.SNOMED, code="446151000124109", 
+            Coding(system=res.SNOMED_CT, code="446151000124109", 
                    display="Male gender identity"),
-            Coding(system=res.SNOMED, code="394743007", 
+            Coding(system=res.SNOMED_CT, code="394743007", 
                    display="Gender unknown"),
-            Coding(system=res.SNOMED, code="33791000087105", 
+            Coding(system=res.SNOMED_CT, code="33791000087105", 
                    display="Identifies as nonbinary gender"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 2.4 Gender Identity",
@@ -95,13 +95,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.1 Vital Status
     vs_3_1 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="438949009", display="Alive"),
-            Coding(system=res.SNOMED, code="419099009", display="Dead"),
-            Coding(system=res.SNOMED, code="399307001", 
+            Coding(system=res.SNOMED_CT, code="438949009", display="Alive"),
+            Coding(system=res.SNOMED_CT, code="419099009", display="Dead"),
+            Coding(system=res.SNOMED_CT, code="399307001", 
                    display="Unknown - Lost in follow-up"),
-            Coding(system=res.SNOMED, code="185924006", 
+            Coding(system=res.SNOMED_CT, code="185924006", 
                    display="Unknown - Opted-out"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown - Other Reason")
         ],
         name="Value set for 3.1 Vital Status",
@@ -128,19 +128,19 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.4 Age Category
     vs_3_4 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="3658006", display="Infancy"),
-            Coding(system=res.SNOMED, code="713153009", 
+            Coding(system=res.SNOMED_CT, code="3658006", display="Infancy"),
+            Coding(system=res.SNOMED_CT, code="713153009", 
                    display="Toddler"),
-            Coding(system=res.SNOMED, code="255398004", 
+            Coding(system=res.SNOMED_CT, code="255398004", 
                    display="Childhood"),
-            Coding(system=res.SNOMED, code="263659003", 
+            Coding(system=res.SNOMED_CT, code="263659003", 
                    display="Adolescence"),
-            Coding(system=res.SNOMED, code="41847000", 
+            Coding(system=res.SNOMED_CT, code="41847000", 
                    display="Adulthood"),
-            Coding(system=res.SNOMED, code="303112003", 
+            Coding(system=res.SNOMED_CT, code="303112003", 
                    display="Fetal period"),
-            Coding(system=res.SNOMED, code="419099009", display="Dead"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="419099009", display="Dead"),
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 3.4 Age Category",
@@ -157,8 +157,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.6 Undiagnosed RD Case
     vs_3_6 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", display="No")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No")
         ],
         name="Value set for 3.6 Undiagnosed RD Case",
         description=("Identifies cases where an RD diagnosis has not been established.")
@@ -218,7 +218,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
             Coding(system=res.HL7FHIR, code="hh", display="Home Health"),
             Coding(system=res.HL7FHIR, code="rdc", 
                    display="RD Specialist Center"),
-            Coding(system=res.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 4.4 Encounter Class",
         description=("The class of an encounter of the individual at the time of "
@@ -258,11 +258,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.3 Age at Onset
     vs_5_3 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="118189007", 
+            Coding(system=res.SNOMED_CT, code="118189007", 
                    display="Prenatal"),
-            Coding(system=res.SNOMED, code="3950001", display="Birth"),
-            Coding(system=res.SNOMED, code="410672004", display="Date"),
-            Coding(system=res.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="3950001", display="Birth"),
+            Coding(system=res.SNOMED_CT, code="410672004", display="Date"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 5.3 Age at Onset",
         description=("The age at the onset of the first symptoms or signs "
@@ -282,11 +282,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.5 Age at Diagnosis
     vs_5_5 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="118189007", 
+            Coding(system=res.SNOMED_CT, code="118189007", 
                    display="Prenatal"),
-            Coding(system=res.SNOMED, code="3950001", display="Birth"),
-            Coding(system=res.SNOMED, code="410672004", display="Date"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="3950001", display="Birth"),
+            Coding(system=res.SNOMED_CT, code="410672004", display="Date"),
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 5.5 Age at Diagnosis",
@@ -301,10 +301,10 @@ class RareLink_CDM_v2_0_0_ValueSets:
                      "day of the month or the 1st month of the year, respectively.")
     )
 
-    # 5.7 Body Site [SNOMED CT]
+    # 5.7 Body Site [SNOMED_CT CT]
     vs_5_7 = ValueSet(
-        elements=[res.SNOMED],
-        name="Value set for 5.7 Body Site [SNOMED CT]",
+        elements=[res.SNOMED_CT],
+        name="Value set for 5.7 Body Site [SNOMED_CT CT]",
         description=("The specific body site affected by disease is encoded using all "
                      "descendants of SCT Body Structure (123037004).")
     )
@@ -332,10 +332,10 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.9 Severity
     vs_5_9 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="24484000", display="Severe"),
-            Coding(system=res.SNOMED, code="6736007", 
+            Coding(system=res.SNOMED_CT, code="24484000", display="Severe"),
+            Coding(system=res.SNOMED_CT, code="6736007", 
                    display="Moderate"),
-            Coding(system=res.SNOMED, code="255604002", display="Mild")
+            Coding(system=res.SNOMED_CT, code="255604002", display="Mild")
         ],
         name="Value set for 5.9 Severity",
         description=("The severity of the disease is categorised"
@@ -653,9 +653,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.2.3 Status
     vs_6_2_3 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="410605003", 
+            Coding(system=res.SNOMED_CT, code="410605003", 
                    display="Confirmed present"),
-            Coding(system=res.SNOMED, code="723511001", display="Refuted")
+            Coding(system=res.SNOMED_CT, code="723511001", display="Refuted")
         ],
         name="Value set for 6.2.3 Status",
         description=("The current status of the phenotypic feature, indicating "
@@ -664,7 +664,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.2.4 Modifier
     vs_6_2_4 = ValueSet(
-        elements=[res.HPO, res.NCBITaxon, res.SNOMED],
+        elements=[res.HPO, res.NCBITaxon, res.SNOMED_CT],
         name="Value set for 6.2.4 Modifier",
         description=("Further clinical modifiers to describe a specific "
                      "phenotypic feature, such as severity or linked\
@@ -684,13 +684,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.1 Propositus/-a
     vs_6_3_1 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.1 Propositus/-a",
@@ -703,29 +703,29 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # propositus/a
     vs_6_3_2 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="65656005", 
+            Coding(system=res.SNOMED_CT, code="65656005", 
                    display="Natural mother"),
-            Coding(system=res.SNOMED, code="9947008", 
+            Coding(system=res.SNOMED_CT, code="9947008", 
                    display="Natural father"),
-            Coding(system=res.SNOMED, code="83420006", 
+            Coding(system=res.SNOMED_CT, code="83420006", 
                    display="Natural daughter"),
-            Coding(system=res.SNOMED, code="113160008", 
+            Coding(system=res.SNOMED_CT, code="113160008", 
                    display="Natural son"),
-            Coding(system=res.SNOMED, code="60614009", 
+            Coding(system=res.SNOMED_CT, code="60614009", 
                    display="Natural brother"),
-            Coding(system=res.SNOMED, code="73678001", 
+            Coding(system=res.SNOMED_CT, code="73678001", 
                    display="Natural sister"),
-            Coding(system=res.SNOMED, code="11286003", 
+            Coding(system=res.SNOMED_CT, code="11286003", 
                    display="Twin sibling"),
-            Coding(system=res.SNOMED, code="45929001", 
+            Coding(system=res.SNOMED_CT, code="45929001", 
                    display="Half-brother"),
-            Coding(system=res.SNOMED, code="2272004", 
+            Coding(system=res.SNOMED_CT, code="2272004", 
                    display="Half-sister"),
-            Coding(system=res.SNOMED, code="62296006", 
+            Coding(system=res.SNOMED_CT, code="62296006", 
                    display="Natural grandfather"),
-            Coding(system=res.SNOMED, code="17945006", 
+            Coding(system=res.SNOMED_CT, code="17945006", 
                    display="Natural grandmother"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.2 Relationship of the individual to the "
@@ -737,13 +737,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.3 Consanguinity
     vs_6_3_3 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.3 Consanguinity",
@@ -755,29 +755,29 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.4 Family Member Relationship
     vs_6_3_4 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="65656005", 
+            Coding(system=res.SNOMED_CT, code="65656005", 
                    display="Natural mother"),
-            Coding(system=res.SNOMED, code="9947008", 
+            Coding(system=res.SNOMED_CT, code="9947008", 
                    display="Natural father"),
-            Coding(system=res.SNOMED, code="83420006", 
+            Coding(system=res.SNOMED_CT, code="83420006", 
                    display="Natural daughter"),
-            Coding(system=res.SNOMED, code="113160008", 
+            Coding(system=res.SNOMED_CT, code="113160008", 
                    display="Natural son"),
-            Coding(system=res.SNOMED, code="60614009", 
+            Coding(system=res.SNOMED_CT, code="60614009", 
                    display="Natural brother"),
-            Coding(system=res.SNOMED, code="73678001", 
+            Coding(system=res.SNOMED_CT, code="73678001", 
                    display="Natural sister"),
-            Coding(system=res.SNOMED, code="11286003", 
+            Coding(system=res.SNOMED_CT, code="11286003", 
                    display="Twin sibling"),
-            Coding(system=res.SNOMED, code="45929001", 
+            Coding(system=res.SNOMED_CT, code="45929001", 
                    display="Half-brother"),
-            Coding(system=res.SNOMED, code="2272004", 
+            Coding(system=res.SNOMED_CT, code="2272004", 
                    display="Half-sister"),
-            Coding(system=res.SNOMED, code="62296006", 
+            Coding(system=res.SNOMED_CT, code="62296006", 
                    display="Natural grandfather"),
-            Coding(system=res.SNOMED, code="17945006", 
+            Coding(system=res.SNOMED_CT, code="17945006", 
                    display="Natural grandmother"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.4 Family Member Relationship",
@@ -805,15 +805,15 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.6 Family Member Sex
     vs_6_3_6 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="248152002", 
+            Coding(system=res.SNOMED_CT, code="248152002", 
                    display="Female"),
-            Coding(system=res.SNOMED, code="248153007", 
+            Coding(system=res.SNOMED_CT, code="248153007", 
                    display="Male"),
-            Coding(system=res.SNOMED, code="184115007", 
+            Coding(system=res.SNOMED_CT, code="184115007", 
                    display="Patient sex unknown"),
-            Coding(system=res.SNOMED, code="32570691000036108", 
+            Coding(system=res.SNOMED_CT, code="32570691000036108", 
                    display="Intersex"),
-            Coding(system=res.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.6 Family Member Sex",
@@ -839,11 +839,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.9 Family Member Deceased
     vs_6_3_9 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=res.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 6.3.9 Family Member Deceased",
@@ -909,9 +909,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.4 Agreement to be contacted for research purposes
     vs_7_4 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", display="No"),
-            Coding(system=res.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 7.4 Agreement to be contacted for research purposes",
         description=("Indicates whether the patient agrees to be contacted for "
@@ -921,9 +921,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.5 Consent to the reuse of data
     vs_7_5 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", display="No"),
-            Coding(system=res.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="7.5 Consent to the reuse of data",
         description=("Indicates whether the patient consents to the reuse of  "
@@ -933,9 +933,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.6 Biological sample
     vs_7_6 = ValueSet(
         elements=[
-            Coding(system=res.SNOMED, code="373066001", display="Yes"),
-            Coding(system=res.SNOMED, code="373067005", display="No"),
-            Coding(system=res.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="7.6 Biological sample",
         description=("Indicates whether a patient's biological sample is  "
