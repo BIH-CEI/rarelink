@@ -7,6 +7,7 @@ from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
 from rarelink.preprocessing import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 
+# TODO: implement functions from processing and preferencing for multiple values
 
 def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
     # 1. load data
@@ -98,6 +99,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             PhenopacketElement(
                 phenopacket_element=phenopackets.Disease,
                 # (3) Patient Status
+
               #  term=getattr(data_model, f"undiagnosed_rd_case_{i}", None),
                 # (5) Disease
                 term=getattr(data_model, f"disease_{i}", None),
