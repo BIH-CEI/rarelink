@@ -486,6 +486,12 @@ class RareLink_CDM_v2_0_0_ValueSets:
         description=("The specific gene or genes that were analyzed or "
                     " identified in the study.")
     )
+    vs_6_1_10a = ValueSet(
+       elements=[str], # Gene Label
+       name="Value set for 6.1.10a Gene Label",
+       description=("The specific gene or genes that were analyzed or "
+              " identified in the study.")
+    )
 
     # 6.1.11 Zygosity
     vs_6_1_11 = ValueSet(
