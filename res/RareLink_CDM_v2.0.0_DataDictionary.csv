@@ -761,7 +761,7 @@ Choices:
 Version(s): 
 - SNOMED CT Version 23.2.0  
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Family.relatives → 1 Phenopacket per family member  
+- HL7 FHIR Expression v4.0.1: n/a
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member) "
 snomed_408732007,rarelink_6_3_family_history,,dropdown,6.3.2 Relationship of the individual to the index case / propositus/a,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded","Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
 Disclaimer:",,,,,,,,,,,"SNOMED:408732007 | Relationship of the individual to the index case / propositus/a  
@@ -905,16 +905,16 @@ consent_descr,rarelink_7_consent,RareLink - 7) Consent,descriptive,"<div class="
   </ul>
 </div>
 ",,,,,,,,,,,,,
-snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"snomed_draft, Pending | snomed_proposed, Proposed | snomed_active, Active | snomed_rejected, Rejected | snomed_inactive, Inactive | snomed_entered-in-error, Entered in Error
+snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error
 ",Indicates the current status of the consent.,,,,,,,,,,,"Variable: 
 SNOMED:309370004 | Consent Status  
 Choices: 
-- SNOMED:draft | Pending  
-- SNOMED:proposed | Proposed  
-- SNOMED:active | Active  
-- SNOMED:rejected | Rejected  
-- SNOMED:inactive | Inactive  
-- SNOMED:entered-in-error | Entered in Error  
+- HL7FHIR:draft | Pending  
+- HL7FHIR:proposed | Proposed  
+- HL7FHIR:active | Active  
+- HL7FHIR:rejected | Rejected  
+- HL7FHIR:inactive | Inactive  
+- HL7FHIR:entered-in-error | Entered in Error  
 Version(s): 
 - SNOMED CT Version 23.2.0  
 Mapping: 
@@ -1005,137 +1005,3 @@ Mapping:
 - ICF: Classification of functioning / disability  
 - HL7 FHIR Expression v4.0.1: n/a  
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-record_id2,infectionceientest,,text,Registry ID the of Individual ,,,,,,,,,,,,,
-susceptibility_ebv_lymphoproliferative,infectionceientest, ,text,test,,,number_2dp,0,200,,,,,,,,
-infections_description,infectionceientest,,descriptive,"<div class=""rich-text-field-label""><p><strong>Instructions for Documenting Infections:</strong></p> <ul> <li><span style=""font-weight: normal;"">Please record all infections relevant to the patient. You may submit this form </span>multiple times<span style=""font-weight: normal;""> as needed.</span></li> <li><span style=""font-weight: normal;"">If any information is </span>unknown<span style=""font-weight: normal;"">, feel free to leave those fields blank. </span></li> <li><span style=""font-weight: normal;"">You can search for specific infections or provide additional details by selecting ""Other"" where applicable.</span></li> <li><span style=""font-weight: normal;"">Appropriate </span>dropdown menus<span style=""font-weight: normal;""> will appear for further details upon selecting the type of infection. If you change any selections within these dropdowns that affect the displayed fields, please click ""OK"" to reset and update the choice layers.</span></li> <li><span style=""font-weight: normal;"">To record the timing of infections, you may use either the year (YYYY), year and month (YYYY-MM), or a full date (YYYY-MM-DD). Please ensure the correct format is followed.</span></li> <li><span style=""font-weight: normal;""><strong>Tip:</strong> Use </span><span style=""font-weight: normal;"">your keyboard's <em>Tab</em> and <em>Option + Arrow keys</em> for quicker data entry.</span></li> </ul></div>",,,,,,,,,,,,,
-date_infection_form,infectionceientest,,text,Please indicate the date of completion of this form,,please enter the date as YYYY-MM-DD,date_ymd,,,,,,,,,,
-type_of_infection,infectionceientest,,dropdown,Please select the type of infection from the list above.,"sct_61274003, Opportunistic Infection | hpo_0031691, Severe Viral Infection | sct_21483005, CNS Infection | sct_81745001, Eye Infection | sct_385383008, ENT Infection | sct_127856007, Skin and Soft Tissue Infection | sct_110522009, Bone and Joint Infection | sct_20139000, Respiratory Infection | sct_303699009, Gastrointestinal Infection | sct_21514008, Genitourinary Infections | sct_31099001, Systemic Infection |other, Other",,,,,,,,,,,,
-sct_61274003,infectionceientest,,dropdown,Opportunistic Infection,"mondo_0002026, Candidiasis | mondo_0005132, CMV (cytomegalovirus) | mondo_0005724, Cryptococcosis | mondo_0015474, Cryptosporidiasis | mondo_0004609, Herpes Simplex | mondo_0005609, Herpes Zoster | mondo_0005866, Mycobacterium Avium Complex | mondo_0018076, Mycobacterium Tuberculosis | mondo_0019121, Pneumocystis Pneumonia | mondo_0005989, Toxoplasmosis | sct_61274003_other, Other",Please select the opportunistic infection from the list.,,,,,[type_of_infection] = 'sct_61274003',,,,,,
-hpo_0031691,infectionceientest,,dropdown,Severe Viral Infection,"mondo_0005132, CMV | mondo_0100096, COVID | mondo_0005111, EBV | mondo_0005344, HBV | mondo_0005231, HCV | mondo_0005109, HIV | mondo_0004609, HSV | mondo_0005194, Rotavirus | mondo_0005608, VZV",Please select the sever viral infection from the list.,,,,,[type_of_infection] = 'hpo_0031691',,,,,,
-sct_21483005,infectionceientest,,dropdown,CNS Infection,"hp_0030049, Brain Abscess | mondo_0019956, Encephalitis | mondo_0021108, Meningitis | sct_21483005_other, Other",Please select the CNS infection from the list.,,,,,[type_of_infection] = 'sct_21483005',,,,,,
-sct_81745001,infectionceientest,,dropdown,Eye Infection,"hp_0000509, Conjunctivitis | sct_81745001_other, Other",Please select the eye infection from the list.,,,,,[type_of_infection] = 'sct_81745001',,,,,,
-sct_385383008,infectionceientest,,dropdown,ENT Infection,"hp_0000265, Mastoiditis | hp_0000388, Otitis Media | hp_0025439, Pharyngitis | hp_0012384, Rhinitis | hp_0000246, Sinusitis | mondo_0005886, Thrush | mondo_0001039, Tonsilitis | sct_385383008_other, Other",Please select the ENT infection from the list.,,,,,[type_of_infection] = 'sct_385383008',,,,,,
-sct_127856007,infectionceientest,,dropdown,Skin and Soft Tissue Infection,"mondo_0005230, Cellulitis | mondo_0015908, Fungal Dermatitis | mondo_0043653, Herpes Labialis (cold sores) | mondo_0004592, Impetigo | mondo_0002052, Lymphadenitis | mondo_0021562, Omphalitis | mondo_0002922, Pyoderma | hp_0031292, Skin Abscess | mondo_0004712, Viral Dermatitis (herpes group) | hp_0200043, Warts | sct_127856007_other, Other",Please select the Skind and Soft Tissue infection from the list.,,,,,[type_of_infection] = 'sct_127856007',,,,,,
-sct_110522009,infectionceientest,,dropdown,Bone and Joint Infection,"mondo_0005246, Osteomyelitis | mondo_0042485, Septic Arthritis | sct_110522009_other, Other",Please select the Bone and Joint Infection from the list.,,,,,[type_of_infection] = 'sct_110522009',,,,,,
-sct_20139000,infectionceientest,,dropdown,Respiratory Infection,"mondo_0003781, Bronchitis, acute | mondo_0005607, Bronchitis, chronic | mondo_0005242, Empyema | mondo_0000744, Lung Abscess | mondo_0005249, Pneumonia | sct_20139000_other, Other",Please select the Respiratory Infection from the list.,,,,,[type_of_infection] = 'sct_20139000',,,,,,
-sct_303699009,infectionceientest,,dropdown,Gastrointestinal Infection,"mondo_0005790, Hepatitis A | mondo_0005344, Hepatitis B | mondo_0005231, Hepatitis C | mondo_0001673, Diarrhea (infectious) | mondo_0700051, Liver Abscess | hp_0005224, Peri-rectal Abscess | mondo_0004522, Peritonitis | mondo_0005538, Proctitis | mondo_0002333, Spleen Abscess | sct_303699009_other, Other",Please select the Gastrointestinal Infection from the list.,,,,,[type_of_infection] = 'sct_303699009',,,,,,
-sct_21514008,infectionceientest,,dropdown,Genitourinary Infections,"mondo_0021697, Chlamydia | mondo_0006032, Cystitis | mondo_0005770, Genital Herpes | mondo_0004277, Gonorrhoea | mondo_0005161, HPV Infection | mondo_0005280, Prostatitis | mondo_0006939, Pyelonephritis | hp_0032620, Renal Abscess | mondo_0005976, Syphilis | mondo_0002154, Trichomoniasis | mondo_0005297, Urethritis | sct_21514008_other, Other",Please select the Gastrourinary Infection from the list.,,,,,[type_of_infection] = 'sct_21514008',,,,,,
-sct_31099001,infectionceientest,,dropdown,Systemic Infection,"mondo_0005229, Bacteremia | mondo_0024619, Central Venous Line Infections | mondo_0005132, CMV | mondo_0045033, Disseminated Fungal Infection | mondo_0005111, EBV | mondo_0005109, HIV | mondo_0004619, Measles | mondo_0000989, Mumps | mondo_0004656, Rubella | hp_0100806, Sepsis | mondo_0005608, Varicella Zoster | sct_31099001_other, Other",Please select the Systemic Infection from the list.,,,,,[type_of_infection] = 'sct_31099001',,,,,,
-other_infection_hpo,infectionceientest,,text,Other Infection [HPO],BIOPORTAL:HP,"If applicable, search for the other infection in the HPO",,,,,"[type_of_infection] = 'other' or 
-[sct_61274003] = 'sct_61274003_other' or 
-[hpo_0031691] = 'hpo_0031691_other' or 
-[sct_21483005] = 'sct_21483005_other' or 
-[sct_81745001] = 'sct_81745001_other' or 
-[sct_385383008] = 'sct_385383008_other' or 
-[sct_127856007] = 'sct_127856007_other' or 
-[sct_110522009] = 'sct_110522009_other' or 
-[sct_20139000] = 'sct_20139000_other' or 
-[sct_303699009] = 'sct_303699009_other' or 
-[sct_21514008] = 'sct_21514008_other' or 
-[sct_31099001] = 'sct_31099001_other'",,,,,,
-other_infection_mondo,infectionceientest,,text,Other Infection [MONDO],BIOPORTAL:MONDO,"If applicable, search for the other infection in the MONDO",,,,,"[type_of_infection] = 'other' or 
-[sct_61274003] = 'sct_61274003_other' or 
-[hpo_0031691] = 'hpo_0031691_other' or 
-[sct_21483005] = 'sct_21483005_other' or 
-[sct_81745001] = 'sct_81745001_other' or 
-[sct_385383008] = 'sct_385383008_other' or 
-[sct_127856007] = 'sct_127856007_other' or 
-[sct_110522009] = 'sct_110522009_other' or 
-[sct_20139000] = 'sct_20139000_other' or 
-[sct_303699009] = 'sct_303699009_other' or 
-[sct_21514008] = 'sct_21514008_other' or 
-[sct_31099001] = 'sct_31099001_other'",,,,,,
-infection_presence,infectionceientest,,radio,Was the infection present at or before diagnosis?,"1, yes | 2, no",,,,,,,,,,,,
-infection_presence_2,infectionceientest,,radio,Was the infection observed during patient illness?,"1, yes | 2, no",,,,,,,,,,,,
-infection_severity,infectionceientest,,dropdown,Was the infection a prominent feature for the patient?,"hp_0012827, Borderline | hp_0012825, Mild | hp_0012826, Moderate | hp_0012829, Profound | hp_0012828, Severe",Please choose a severity most applicable for the infection.,,,,,,,,,,,
-causing_agent,infectionceientest,,dropdown,What kind of  agent was causing the infection? ,"ncbitaxon_10239, Viral | ncbitaxon_2, Bacterial | ncbitaxon_4751, Mycotic | other, Other","Select one, to choose from respective lists or choose other to specify in detail searching the NCBITaxon.",,,,,,,,,,,
-causing_agent_viral,infectionceientest,,dropdown,"If applicable, what was the causing viral infectious agent of the infection?","ncbitaxon_10358, Cytomegalovirus | ncbitaxon_10407, Hepatitis B virus | ncbitaxon_12092, Hepatovirus A | ncbitaxon_11320, Influenza A virus | ncbitaxon_142786, Norovirus | ncbitaxon_12814, Respiratory syncytial virus | ncbitaxon_10912, Rotavirus | ncbitaxon_2697049, Severe acute respiratory syndrome coronavirus 2 | ncbitaxon_10294, Herpes Simplexvirus | causing_agent_viral_other, Other","Select 'other', to search for other causing infectious agents, or to specify it in more detail.",,,,,[causing_agent] = 'ncbitaxon_10239',,,,,,
-causing_agent_bacterial,infectionceientest,,dropdown,"If applicable, what was the causing bacterial infectious agent of the infection?","ncbitaxon_31979, Clostridiaceae | ncbitaxon_91347, Enterobacterales | ncbitaxon_81852, Enterococcaceae | ncbitaxon_724, Haemophilus | ncbitaxon_33958, Lactobacillaceae | ncbitaxon_445, Legionella | ncbitaxon_186820, Listeriaceae | ncbitaxon_482, Neisseria | ncbitaxon_90964, Staphylococcaceae | ncbitaxon_1300, Streptococcaceae | causing_agent_bacterial_other, Other","Select 'other', to search for other causing infectious agents, or to specify it in more detail.",,,,,[causing_agent] = 'ncbitaxon_2',,,,,,
-causing_agent_mycotic,infectionceientest,,dropdown,"If applicable, what was the causing mycotic infectious agent of the infection?","ncbitaxon_5052, Aspergillus | ncbitaxon_5475, Candida | ncbitaxon_470132, Catenulostroma chromoblastomycosum | ncbitaxon_3027, Cryptophyceae | ncbitaxon_2231446, Dermatophyllum | ncbitaxon_5036, Histoplasma | ncbitaxon_370836, Pityriasis | ncbitaxon_4753, Pneumocystis | ncbitaxon_184471, Sporotrichum | ncbitaxon_41013, Tinea | causing_agent_mycotic_other, Other","Select 'other', to search for other causing infectious agents, or to specify it in more detail.",,,,,[causing_agent] = 'ncbitaxon_4751',,,,,,
-causing_organism_other,infectionceientest,,text,What was the causing organism of the infection?,BIOPORTAL:NCBITAXON,Please search for the causing agent in the search field in the NCBITAXON ontology.,,,,,"[causing_agent] = 'other' or 
-[causing_agent_viral] = 'causing_agent_viral_other' or 
-[causing_agent_bacterial] = 'causing_agent_bacterial_other' or 
-[causing_agent_mycotic] = 'causing_agent_mycotic_other'",,,,,,
-infection_times_obseverd,infectionceientest,,dropdown,How many times was the infection observed during patient illness?,"ncit_C64576, 1 | ncit_C65134, 2 | ncit_C156502, 3| ncit_C200364, 4| ncit_C66836, 5 | txpo_0000294, 6 or more",,,,,,,,,,,,
-infections_time_descr,infectionceientest,,descriptive,"<div class=""rich-text-field-label""><p>If possible, please provide the time of the infection(s) (Year or Year and Month)</p></div>",,,,,,,"[infection_times_obseverd] <> """"",,,,,,
-infection_date,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C64576' or [infection_times_obseverd] = 'ncit_C65134' 
-or [infection_times_obseverd] = 'ncit_C156502' or [infection_times_obseverd] = 'ncit_C200364' 
-or [infection_times_obseverd] = 'ncit_C66836' or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_2,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C65134'
-or [infection_times_obseverd] = 'ncit_C156502' or [infection_times_obseverd] = 'ncit_C200364' 
-or [infection_times_obseverd] = 'ncit_C66836' or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_3,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C156502' or [infection_times_obseverd] = 'ncit_C200364' 
-or [infection_times_obseverd] = 'ncit_C66836' or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_4,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C200364' or [infection_times_obseverd] = 'ncit_C66836' 
-or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_5,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C66836' or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_6,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'ncit_C66836' or [infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_7,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_times_obseverd] = 'txpo_0000294'
-",,,,,,
-infection_date_8,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_date_7] <> """"",,,,,,
-infection_date_9,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_date_8] <> """"",,,,,,
-infection_date_10,infectionceientest,,text,"Time of Infection (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[infection_date_9] <> """"",,,,,,
-conditions_description,conditionceientest,,descriptive,"<div class=""rich-text-field-label""><p><strong>Instructions for Documenting Conditions:</strong></p> <ul> <li><span style=""font-weight: normal;"">Please record all conditions relevant to the patient. You may submit this form </span>multiple times<span style=""font-weight: normal;""> as needed.</span></li> <li><span style=""font-weight: normal;"">If any information is </span>unknown<span style=""font-weight: normal;"">, feel free to leave those fields blank. </span></li> <li><span style=""font-weight: normal;"">You can search for specific infections or provide additional details by selecting ""Other"" where applicable.</span></li> <li><span style=""font-weight: normal;"">Appropriate </span>dropdown menus<span style=""font-weight: normal;""> will appear for further details upon selecting the type of infection. If you change any selections within these dropdowns that affect the displayed fields, please click ""OK"" to reset and update the choice layers.</span></li> <li><span style=""font-weight: normal;"">To record the timing of conditions, you may use either the year (YYYY), year and month (YYYY-MM), or a full date (YYYY-MM-DD). Please ensure the correct format is followed.</span></li> <li><span style=""font-weight: normal;""><strong>Tip:</strong> Use </span><span style=""font-weight: normal;"">your keyboard's <em>Tab</em> and <em>Option + Arrow keys</em> for quicker data entry.</span></li> </ul></div>",,,,,,,,,,,,,
-date_condition_form,conditionceientest,,text,Please indicate the date of completion of this form,,please enter the date as YYYY-MM-DD,number_2dp,0,100,,,,,,,,
-type_of_condition,conditionceientest,,dropdown,Please select the type of condition from the list above.,"snomed_95320005, Skin Conditions | snomed_118938008, Dental/Oral Conditions | snomed_50043002, Sino-Pulmonary Conditions | snomed_49601007, Cardiovascular Conditions | mondo_0005570, Hematologic-Lymphoid Conditions | snomed_928000, Musculoskeletal Conditions | snomed_119292006, Gastrointestinal Conditions | snomed_362969004, Endocrine-Metabolic Conditions | snomed_42030000, Genitourinary Conditions | snomed_55342001, Neoplastic Conditions | snomed_85828009, Autoimmune Conditions | hp_0025142, Constitutional Conditions | snomed_5294002, Growth and Development Conditions | other, Other",Choose 'Other' to search for a condition in HPO or MONDO.,,,,,,,,,,,
-snomed_95320005,conditionceientest,,dropdown,Skin Condition,"hp_0001595, Abnormal Hair | hp_0001596, Alopecia | hp_0000968, Anhydrotic Ectodermal Dysplasia | hp_0000964, Atopic Dermatitis/Eczema | hp_0000966, Hypohidrosis / Decreased Sweating | hp_0032434, Delayed Separation of Umbilical Cord | hp_0001058, Delayed Wound Healing | hp_0007417, Discoid Lupus | hp_0001019, Erythroderma | hp_0032252, Granulomas | mondo_0013730, GVHD or GVHD-like rash | hp_0001597, Nail Defects | hp_0000989, Pruritis | hp_0003765, Psoriasis | hp_0001009, Telangiectasia | snomed_95320005_other, Other",Please select Skin Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_95320005',,,,,,
-snomed_118938008,conditionceientest,,dropdown,Dental/Oral Condition,"hp_0006482, Abnormal Tooth Morphology | hp_0032154, Apthous Ulcers | hp_0000670, Caries (excessive) | hp_0000175, Cleft Palate | hp_0000698, Cone/Peg Teeth | hp_0000684, Delayed Eruption of Teeth | snomed_57650002, Delayed Shedding of Teeth | hp_0000230, Gingivitis | hp_0000668, Hypodontia | hp_0000706, Missing Teeth (Eruption failure) | snomed_118938008_other, Other",Please select Dental/Oral Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_118938008',,,,,,
-snomed_50043002,conditionceientest,,dropdown,Sino-Pulmonary Condition,"mondo_0004979, Asthma | mondo_0005607, Bronchitis (chronic) | hp_0002110, Bronchiectasis | hp_0011946, Bronchiolitis Obliterans | hp_0011945, Bronchiolitis Obliterans Organizing | hp_0001217, Clubbing | hp_0006510, COPD | hp_0002097, Emphysema | hp_0032252, Granulomas | mondo_0015925, Interstitial Lung Disease | snomed_233703007, Parenchymal Lung Disease | mondo_0005279, Pulmonary Embolism | snomed_50043002_other, Other",Please select Sino-Pulmonary Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_50043002',,,,,,
-snomed_49601007,conditionceientest,,dropdown,Cardiovascular Condition,"mondo_0005453, Congenital Heart Disease | mondo_0006711, Constrictive Pericarditis | hp_0000822, Hypertension | mondo_0005068, Myocardial Infarction | hp_0001297, Stroke (CVA) | mondo_0000831, Thrombosis | hp_0002326, Transient Ischemic Attack | mondo_0024291, Vascular Malformation | snomed_49601007_other, Other",Please select Cardiovascular Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_49601007',,,,,,
-mondo_0005570,conditionceientest,,dropdown,Hematologic-Lymphoid Condition,"hp_0002849, Absent Lymph Nodes | hp_0005359, Absent Thymus Shadow | hp_0030813, Absent Tonsils | mondo_0002280, Anemia | mondo_0015909, Aplastic Anemia | snomed_82545002, Blood Transfusion Reaction | hp_0031035, Chronic Infection | hp_0003256, Coagulopathy | mondo_0043358, Engraftment by Maternal Cells | hp_0000421, Epistaxis | hp_0032252, Granulomas | mondo_0004431, Hemarthrosis | mondo_0003664, Hemolytic Anemia | mondo_0006795, Hypersplenism | mondo_0020108, Immune Anemia | mondo_0001356, Iron Deficiency | hp_0001974, Leukocytosis | hp_0002716, Lymphadenopathy | hp_0001888, Lymphopenia | hp_0002863, Myelodysplasia | hp_0001875, Neutropenia | mondo_0008228, Pernicious Anemia | hp_0000967, Petechia | hp_0001744, Splenomegaly | hp_0001873, Thrombocytopenia | mondo_0002048, Thrombocytopenia - immune | hp_0001977, Thrombosis | mondo_0018896, Thrombotic Thrombocytopenia Purpura | mondo_0002280_unsp, Unspecified Anemia | mondo_0005570_other, Other",Please select Hematologic-Lymphoid Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'mondo_0005570',,,,,,
-snomed_928000,conditionceientest,,dropdown,Musculoskeletal Condition,"hp_0002829, Arthralgia | hp_0001369, Arthritis | hp_0002757, Frequent Fractures | mondo_0004431, Hemarthrosis | hp_0001382, Hyperextensibility | mondo_0011429, Juvenile Idiopathic Arthritis | mondo_0021167, Myositis | mondo_0005178, Osteoarthritis | hp_0000939, Osteoporosis | mondo_0008383, Rheumatoid Arthritis | mondo_0005392, Scoliosis | hp_0004322, Short Stature | hp_0000924, Skeletal Abnormality | mondo_0021895, Temporal-Mandibular Joint Dysfunction | hp_0001324, Weakness | snomed_928000_other, Other",Please select Musculoskeletal Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_928000',,,,,,
-snomed_119292006,conditionceientest,,dropdown,Gastrointestinal Condition,"hp_0002027, Abdominal Pain | hp_0032154, Aphthous Ulcers | mondo_0005649, Appendicitis | mondo_0016264, Autoimmune Hepatitis | mondo_0005130, Celiac Disease | snomed_328383001, Chronic Liver Disease | mondo_0005155, Cirrhosis | mondo_0005292, Colitis | hp_0002019, Constipation | mondo_0043579, Enteritis | mondo_0005361, Eosinophilic Esophagitis | hp_0100819, Fistula | mondo_0005281, Gall Bladder Disease | hp_0001081, Gall Stones | mondo_0002269_chronic, Gastroenteritis (chronic) | mondo_0002269_intermittent, Gastroenteritis (intermittent) | hp_0002020, GE Reflux | hp_0002240, Hepatomegaly | mondo_0005265_clinical, Inflammatory Bowel Disease (IBD), clinically diagnosed | mondo_0005265_biopsy, Inflammatory Bowel Disease (IBD), biopsy proven | hp_0011956, Intestinal Nodular Lymphoid Hyperplasia | hp_0001399, Liver Failure | snomed_75183008, Liver Function Abnormalities | hp_0002024, Malabsorption | hp_0004796, Obstruction | perianal_ulceration, Perianal Ulceration | hp_0002586, Peritonitis | mondo_0005538, Proctitis | oae_0005889, Protein Losing Gastroenteropathy | mondo_0018646, Sclerosing Cholangitis | snomed_234319005, Splenectomy | hp_0001744, Splenomegaly | snomed_119292006_other, Other",Please select Gastrointestinal Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_119292006',,,,,,
-snomed_362969004,conditionceientest,,dropdown,Endocrine-Metabolic Condition,"hp_0000846, Adrenal Insufficiency | mondo_0018912, Cushing's Disease | mondo_0005147, Diabetes-Type 1 | mondo_0005148, Diabetes-Type 2 | hp_0034323, Growth Hormone Deficiency | mondo_0007699, Hashimoto's Thyroiditis | hp_0003072, Hypercalcemia | hp_0002901, Hypocalcemia | hp_0000836, Hyperthyroidism | hp_0000821, Hypothyroidism | mondo_0005152, Pituitary Insufficiency | mondo_0005387, Primary Ovarian Failure | snomed_362969004_other, Other",Please select Endocrine-Metabolic Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_362969004',,,,,,
-snomed_42030000,conditionceientest,,dropdown,Genitourinary Condition,"hp_0100577, Cystitis (non-infectious) | hp_0000031, Epididymitis | hp_0000099, Glomerulonephritis | hp_0000790, Hematuria | hp_0005575, Hemolytic Uremic Syndrome | hp_0000123, Nephritis (unspecified) | hp_0000100, Nephrosis | hp_0100796, Orchitis | hp_0000024, Prostatitis | mondo_0001106, Renal Failure | hp_0000787, Renal Stone | hp_0041047, Urinary Outlet Obstruction | snomed_42030000_other, Other",Please select Genitourinary Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_42030000',,,,,,
-snomed_55342001,conditionceientest,,dropdown,Neoplastic Condition,"mondo_0004967, Acute Lymphocytic Leukemia (ALL) | mondo_0018874, Acute Myelogenous Leukemia (AML) | mondo_0004948, Chronic Lymphocytic Leukemia (CLL) | mondo_0011996, Chronic Myelogenous Leukemia (CML) | mondo_0005059, Unspecified Leukemia | mondo_0006188, Lymphoma - Non-Hodgkin's EBV+ | mondo_0018908_ebv_neg, Lymphoma - Non-Hodgkin's EBV- | mondo_0004952_ebv_pos, Lymphoma - Hodgkin's EBV+ | mondo_0004952_ebv_neg, Lymphoma - Hodgkin's EBV- | mondo_0004960, Monoclonal Gammopathy | mondo_0017343, Polyclonal Lymphoproliferation - EBV+ | mondo_0016537, Polyclonal Lymphoproliferation - EBV- | ncit_c9292, Solid Tumor | hp_0100522, Thymoma | snomed_55342001_other, Other",Please select Neoplastic Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_55342001',,,,,,
-snomed_85828009,conditionceientest,,dropdown,Autoimmune Condition,"mondo_0001609, Autoimmune Granulocytopenia | mondo_0020108, Autoimmune Hemolytic Anemia | mondo_0019098, Autoimmune Thrombocytopenia | mondo_0019167, Henoch-Schonlein Purpura (HSP) | mondo_0006814, Iritis | mondo_0019340, Scleroderma | mondo_0007915, Systemic Lupus Erythematosus (SLE) | mondo_0020283, Uveitis | mondo_0003346, Vasculitis - CNS | hp_0005310, Vasculitis - Large Vessel | hp_0011944, Vasculitis - Small Vessel | snomed_85828009_other, Other",Please select Autoimmune Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_85828009',,,,,,
-hp_0025142,conditionceientest,,dropdown,Constitutional Condition,"hp_0033047, Aches | hp_0012378, Fatigue | hp_0001945, Fever | hp_0033834, Malaise | hp_0002329, Sleepiness | hp_0100785, Sleeplessness | hp_0000975, Sweating | hp_0025142_other, Other",Please select Constitutional Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'hp_0025142',,,,,,
-snomed_5294002,conditionceientest,,dropdown,Growth and Development Condition,"hp_0001263, Delayed Developmental Milestones | snomed_253978002, Dysmorphic Features | hp_0001508, Failure to Thrive or Unintended Weight Loss | snomed_448765001, Unintended Weight Loss | hp_0000365, Hearing Impairment (non-congenital) | hp_0001249, Intellectual Disability | hp_0025502, Over-Weight | hp_0004322, Short Stature | hp_0004325, Under-Weight | snomed_5294002_other, Other",Please select Growth and Development Condition from the list. Choose 'Other' to search for a condition in HPO or MONDO.,,,,,[type_of_condition] = 'snomed_5294002',,,,,,
-other_condition_hp,conditionceientest,,text,Other Condition [HPO],BIOPORTAL:HP,,,,,,"[type_of_condition] = 'other' or 
-[snomed_95320005] = 'snomed_95320005_other' or 
-[snomed_118938008] = 'snomed_118938008_other' or 
-[snomed_50043002] = 'snomed_50043002_other' or 
-[snomed_49601007] = 'snomed_49601007_other' or 
-[mondo_0005570] = 'mondo_0005570_other' or 
-[snomed_928000] = 'snomed_928000_other' or 
-[snomed_119292006] = 'snomed_119292006_other' or 
-[snomed_362969004] = 'snomed_362969004_other' or 
-[snomed_42030000] = 'snomed_42030000_other' or 
-[snomed_55342001] = 'snomed_55342001_other' or 
-[snomed_85828009] = 'snomed_85828009_other' or 
-[hp_0025142] = 'hp_0025142_other' or 
-[snomed_5294002] = 'snomed_5294002_other'",,,,,,
-other_condition_mondo,conditionceientest,,text,Other Condition [MONDO],BIOPORTAL:MONDO,,,,,,"[type_of_condition] = 'other' or 
-[snomed_95320005] = 'snomed_95320005_other' or 
-[snomed_118938008] = 'snomed_118938008_other' or 
-[snomed_50043002] = 'snomed_50043002_other' or 
-[snomed_49601007] = 'snomed_49601007_other' or 
-[mondo_0005570] = 'mondo_0005570_other' or 
-[snomed_928000] = 'snomed_928000_other' or 
-[snomed_119292006] = 'snomed_119292006_other' or 
-[snomed_362969004] = 'snomed_362969004_other' or 
-[snomed_42030000] = 'snomed_42030000_other' or 
-[snomed_55342001] = 'snomed_55342001_other' or 
-[snomed_85828009] = 'snomed_85828009_other' or 
-[hp_0025142] = 'hp_0025142_other' or 
-[snomed_5294002] = 'snomed_5294002_other'",,,,,,
-condition_severity,conditionceientest,,dropdown,Was the condition a prominent feature for the patient?,"hp_0012827, Borderline | hp_0012825, Mild | hp_0012826, Moderate | hp_0012829, Profound | hp_0012828, Severe",Please choose a severity most applicable for the infection.,,,,,,,,,,,
-condition_presence,conditionceientest,,radio,Was the condition present at or before diagnosis?,"1, yes | 2, no",,,,,,,,,,,,
-condition_presence_2,conditionceientest,,radio,Was the condition observed during patient illness?,"1, yes | 2, no",,,,,,,,,,,,
-condition_date,conditionceientest,,dropdown,"Do you have the time(s), the condition was observed?","yes, Yes | no, No",Only years and months suffice too. Please fill in all time(s) the condition was observed.,,,,,,,,,,,
-condition_date_1,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,[condition_date] = 'yes',,,,,,
-condition_date_2,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_1] <> """"",,,,,,
-condition_date_3,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_2] <> """"",,,,,,
-condition_date_4,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_3] <> """"",,,,,,
-condition_date_5,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_4] <> """"",,,,,,
-condition_date_6,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_5] <> """"",,,,,,
-condition_date_7,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_6] <> """"",,,,,,
-condition_date_8,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_7] <> """"",,,,,,
-condition_date_9,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_8] <> """"",,,,,,
-condition_date_10,conditionceientest,,text,"Time of Condition (Year, Year-Month, or Date)",,Please us the format: YYYY / YYYY-MM / YYYY-MM-DD,,,,,"[condition_date_9] <> """"",,,,,,
