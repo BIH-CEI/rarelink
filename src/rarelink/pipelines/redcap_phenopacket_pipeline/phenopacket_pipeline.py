@@ -8,6 +8,7 @@ from rarelink.preprocessing import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 
 # TODO: implement functions from processing and preferencing for multiple values
+# TODO: create another class for the Mapping Definition 
 
 def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
     # 1. load data
