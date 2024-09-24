@@ -96,10 +96,9 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                                    
             )
         ]
-        
         diseases=[
             PhenopacketElement(
-                phenopacket_element=phenopacket.Disease,
+                phenopacket_element=phenopackets.Disease,
                 # (3) Patient Status
                 term=data_model.undiagnosed_rd_case,
                 # (5) Disease
@@ -111,10 +110,9 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 primary_site=data_model.body_site
             )
         ]
-            # (6.2) Phenotypic Findings
         phenotypic_features=[
             PhenopacketElement(
-                phenopacket_element=phenopacket.PhenotypicFeature,
+                phenopacket_element=phenopackets.PhenotypicFeature,
                 type=getattr(data_model, f"phenotypic_feature_{i}", None),
                 onset=getattr(data_model, f"determination_date_{i}", None),
                 excluded=getattr(data_model, f"status_{i}", None),
@@ -122,49 +120,29 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             )
             for i in range(n:=9999)
         ]
-
-
-           # (6.3) Family History
-            phenopacket_element=phenopacket.Family,
+        family=[
+            PhenopacketElement(
+                phenopacket_element=phenopacket.Family,
                 id=data_model.family_history_pseudonym,
-            phenopacket_element=phenopacket.Family,
+                proband=data_model.propositus_a,
                 consanguinous_parents=data_model.consanguinity,
-            phenopacket_element=phenopacket.Pedigree.Person,
-                individual_id=data_model.family_member_pseudonym,
-                paternal_id=data_model.family_member_relationship,
-                maternal_id=data_model.family_member_relationship,
-                sex=data_model.family_member_sex,
-
-
-
-
-            
-
-
-
-            # 
-            # TODO do tthis for entire data model
-        )                       
+                pedigree=[
+                    PhenopacketElement(
+                        phenopacket_element=phenopackets.Pedigree
+                        persons=PhenopacketElement(
+                            phenopacket_element=phenopackets.Person,
+                            individual_id=data_model.family_member_pseudonym,
+                            paternal_id=data_model.family_member_relationship,
+                            maternal_id=data_model.family_member_relationship,
+                            sex=data_model.family_member_sex,
+                        )
+                    )
+                ],
+                meta_data=PhenopacketElement(
+                )
+            )
+        ]
     )
-    # 4. map data
-    # 5. Validate Phenoppackets
-    # 6. return Phenopackets  phenopacket_mapper.map()
-,
-    #     family_member_age_column="loinc_54141_7",
-    #     family_member_date_of_birth_column="loinc_54124_3",
-    #     family_member_deceased_column="snomed_740604001",
-    #     family_member_cause_of_death_column="loinc_54112_8",
-    #     family_member_deceased_age_column="loinc_92662_6",
-    #     family_member_disease_column="loinc_75315_2",
-    #     consent_status_column="snomed_309370004",
-    #     consent_date_column="hl7fhir_consent_datetime",
-    #     health_policy_monitoring_column="snomed_386318002",
-    #     agreement_to_be_contacted_for_research_purposes="rarelink_consent_contact",
-    #     consent_to_the_reuse_of_data_column="rarelink_consent_data",
-    #     biological_sample_column="snomed_123038009",
-    #     link_to_a_biobankcolumn="rarelink_biobank_link",
-    #     classification_of_functioning_disability_column="rarelink_icf_score"
-    # )
-    
+
     # return phenopackets
-    return NotImplementedError
+    #return NotImplementedError
