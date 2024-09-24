@@ -2,9 +2,9 @@ from pathlib import Path
 from typing import Union, List
 from phenopackets.schema.v2 import Phenopacket
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
-from rarelink.preprocessing.preprocess_redcap_for_phenopacket import preprocess_redcap_for_phenopackets
+from rarelink.preprocessing.preprocess_redcap_for_phenopackets import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
-from rarelink.preprocessing import preprocess_redcap_for_phenopacket
+from rarelink.preprocessing import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 
 
@@ -98,7 +98,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             PhenopacketElement(
                 phenopacket_element=phenopackets.Disease,
                 # (3) Patient Status
-                term=getattr(data_model, f"undiagnosed_rd_case_{i}", None),
+              #  term=getattr(data_model, f"undiagnosed_rd_case_{i}", None),
                 # (5) Disease
                 term=getattr(data_model, f"disease_{i}", None),
                 excluded=getattr(data_model, f"verification_status_{i}", None),
