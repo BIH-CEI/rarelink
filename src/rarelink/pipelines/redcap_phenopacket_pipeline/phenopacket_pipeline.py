@@ -34,13 +34,84 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 karyotypic_sex=data_model.karyotypic_sex,
                 gender=data_model.gender_identity,
                 vital_status=PhenopacketElement(
-                    phenopacket_element=phenopacket.VitalStatus,
+                    phenopacket_element=phenopackets.VitalStatus,
                     status=data_model.vital_status,
                     time_of_death=data_model.time_of_death,
                     cause_of_death=data_model.cause_of_death,
                     time_at_last_encounter=data_model.age_category,
                 )
         )
+        interpretations=[
+            PhenopacketElement(
+                phenopacket_element=phenopackets.Interpretation,
+                    id=data_model.pseudonym,
+                    progress_status=data_model.progress_status_of_interpretation,
+                    diagnosis=PhenopacketElement(
+                        phenopacket_element=phenopacket.Diagnosis,
+                        disease=data_model.genomic_diagnosis,
+                        genomic_interpretations=[
+                            PhenopacketElement(
+                                phenopacket_element=phenopackets.GenomicInterpretation,
+                                subject_or_biosample_id=data_model.pseudonym,
+                                interpretation_status=PhenopacketElement(
+                                    phenopacket_element=phenopackets.InterpretationStatus,
+                                    interpretation_status=data_model.interpretation_status,
+                                ),
+                                call=PhenopacketElement(
+                                    phenopacket_element=phenopackets.VariationInterpretation,
+                                    acmg_pathogenicity_classification=PhenopacketElement(
+                                        phenopacket_element=phenopackets.AcmgPathogenicityClassification,
+                                        acmg_pathogenicity_classification=data_model.clinical_significance_acmg,
+                                    ),
+                                    therapeutic_actionability=PhenopacketElement(
+                                        phenopacket_element=phenopackets.TherapeuticActionability,
+                                        therapeutic_actionability=data_model.therapeutic_actionability,
+                                    ),
+                                    variation_descriptor=PhenopacketElement(
+                                        phenopacket_element=phenopackets.VariationDescriptor,
+                                        vrs_ref_allele_seq=data_model.reference_genome,
+                                        allelic_state=data_model.zygosity,
+                                        extensions=PhenopacketElement(
+                                            phenopacket_element=phenopackets.Extension,
+                                            name=data_model.genetic_mutation_string,
+                                            value=data_model.genetic_mutation_string,
+                                        ),
+                                        expression=PhenopacketElement(
+                                            phenopacket_element=phenopackets.Expression,
+                                            syntax='hgvs',
+                                            value=data_model.genomic_dna_change,
+                                            value=data_model.sequence_dna_change,
+                                            value=data_model.amino_acid_change,
+                                        ),
+                                        gene_context=PhenopacketElement(
+                                            phenopacket_element=phenopackets.GeneDescriptor,
+                                            value_id=data_model.gene,
+                                            symbol=data_model.gene_symbol,
+                                        ),
+                                    ),
+                                ),
+                            )
+                        ]
+                    )
+                                   
+            )
+        ]
+        
+        diseases=[
+            PhenopacketElement(
+                phenopacket_element=phenopacket.Disease,
+                # (3) Patient Status
+                term=data_model.undiagnosed_rd_case,
+                # (5) Disease
+                term=data_model.disease,
+                excluded=data_model.verification_status,
+                onset=data_model.age_at_onset,
+                onset=data_model.date_of_onset,
+                onset=data_model.date_of_diagnosis,
+                primary_site=data_model.body_site
+            )
+        ]
+            # (6.2) Phenotypic Findings
         phenotypic_features=[
             PhenopacketElement(
                 phenopacket_element=phenopacket.PhenotypicFeature,
@@ -51,56 +122,8 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             )
             for i in range(n:=9999)
         ]
-                
-    
-    
-            
-        
 
-            # (3) Patient Status
-            
 
-            phenopacket_element=phenopacket.Disease,
-                term=data_model.undiagnosed_rd_case,
-            # (4) Encounter
-            # n/a
-            # (5) Disease
-                term=data_model.disease,
-                excluded=data_model.verification_status,
-                onset=data_model.age_at_onset,
-                onset=data_model.date_of_onset,
-                onset=data_model.date_of_diagnosis,
-                primary_site=data_model.body_site,
-            phenopacket_element=phenopacket.Interpretation,
-                progress_status=data_model.clinical_status,
-            # (6.1) Genetic Findings
-                diagnosis_disease=data_model.genomic_diagnosis,
-                progress_status=data_model.progress_status_of_interpretation,
-            phenopacket_element=phenopacket.GenomicInterpretation,
-                interpretation_status=data_model.interpretation_status,
-            phenopacket_element=phenopacket.VariationDescriptor,
-                vrs_ref_allele_seq=data_model.reference_genome,
-            phenopacket_element=phenopacket.VariationDescriptor.Extension,
-                name=data_model.genetic_mutation_string,
-                value=data_model.genetic_mutation_string,
-            phenopacket_element=phenopacket.VariationDescriptor.Expression,
-                syntax='hgvs',
-                value=data_model.genomic_dna_change,
-                value=data_model.sequence_dna_change,
-                value=data_model.amino_acid_change,
-            phenopacket_element=phenopacket.VariationDescriptor.GeneDescriptor,
-                value_id=data_model.gene,
-            phenopacket_element=phenopackets.VariationDescriptor,
-                allelic_state=data_model.zygosity,
-            phenopacket_element=phenopackets.VariantInterpretation,
-                acmg_pathogenicity_classification=data_model.clinical_significance_acmg,
-                therapeutic_actionability=data_model.therapeutic_actionability,
-            # (6.2) Phenotypic Findings
-            phenopacket_element=phenopacket.PhenotypicFeature,
-                type=data_model.phenotypic_feature,
-                onset=data_model.determination_date,
-                excluded=data_model.status,
-                modifier=data_model.modifier,
            # (6.3) Family History
             phenopacket_element=phenopacket.Family,
                 id=data_model.family_history_pseudonym,
