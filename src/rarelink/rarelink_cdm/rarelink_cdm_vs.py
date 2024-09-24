@@ -363,11 +363,17 @@ class RareLink_CDM_v2_0_0_ValueSets:
 # 6.1 Genetic Findings
 
     # 6.1.1 Genomic Diagnosis [MONDO, OMIM]
-    vs_6_1_1 = ValueSet(
-        elements=[res.MONDO, res.OMIM],
+    vs_6_1_1a = ValueSet(
+        elements=[res.MONDO],
         name="Value set for 6.1.1 Genomic Diagnosis [MONDO]",
         description=("The genetic finding of a variant can be linked to a  "
                     "disease in (5.1) if the same MONDO code is used.")
+    )
+    vs_6_1_1b = ValueSet(
+        elements=[res.OMIM],
+        name="Value set for 6.1.1 Genomic Diagnosis [OMIM_P]",
+        description=("The genetic finding of a variant can be linked to a  "
+                    "disease in (5.1) if the same OMIM_P code is used.")
     )
 
     # 6.1.2 Progress Status of Interpretation

@@ -91,8 +91,24 @@ def append_care_pathway_fields(data_model, n=9999):
 def append_disease_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="5. Disease", ordinal="5.1", 
-                      name=f"Disease_{i}", value_set=VS.vs_5_1)
+            DataField(section="5. Disease", ordinal="5.1A", 
+                      name=f"Disease MONDO_{i}", value_set=VS.vs_5_1a)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="5. Disease", ordinal="5.1B", 
+                      name=f"Disease ORDO_{i}", value_set=VS.vs_5_1b)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="5. Disease", ordinal="5.1C", 
+                      name=f"Disease ICD10CM_{i}", value_set=VS.vs_5_1c)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="5. Disease", ordinal="5.1D", 
+                      name=f"Disease ICD11_{i}", value_set=VS.vs_5_1d)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="5. Disease", ordinal="5.1E", 
+                      name=f"Disease OMIM_P_{i}", value_set=VS.vs_5_1e)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.2", 
@@ -132,7 +148,11 @@ def append_genetic_findings_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.1", 
-                      name=f"Genomic Diagnosis_{i}", value_set=VS.vs_6_1_1)
+                      name=f"Genomic Diagnosis_MONDO_{i}", value_set=VS.vs_6_1_1a)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.1 Genetic Findings", ordinal="6.1.1", 
+                      name=f"Genomic Diagnosis_OMIM_P_{i}", value_set=VS.vs_6_1_1b)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.2", 
@@ -405,9 +425,11 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         encounter_end_column="hl7fhir_enc_period_end",
         encounter_status_column="snomed_305058001",
         encounter_class_column="hl7fhir_encounter_class",
-        disease_column=("snomed_64572001_mondo", "snomed_64572001_ordo", 
-                        "snomed_64572001_icd10cm", "snomed_64572001_icd11",
-                          "snomed_64572001_omim_p"),
+        disease_mondo_column="snomed_64572001_mondo",
+        disease_ordo_column="snomed_64572001_ordo",
+        disease_icd10cm_column="snomed_64572001_icd10cm",
+        disease_icd11_column="snomed_64572001_icd11",
+        disease_omim_p_column="snomed_64572001_omim_p",
         verification_status_column="loinc_99498_8",
         age_at_onset_column="snomed_424850005",
         date_of_onset_column="snomed_298059007",
@@ -416,7 +438,8 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         body_site_column="snomed_363698007",
         clinical_status_column="snomed_263493007",
         severity_column="snomed_246112005",
-        genomic_diagnosis_column=("snomed_106221001_mondo", "snomed_106221001_omim_p"),
+        genomic_diagnosis_mondo_column="snomed_106221001_mondo",
+        genomic_diagnosis_omim_p="snomed_106221001_omim_p",
         progress_status_of_interpretation_column="ga4gh_progress_status",
         interpretation_status_column="ga4gh_interp_status",
         structural_variant_analysis_method_column="loinc_81304_8",
