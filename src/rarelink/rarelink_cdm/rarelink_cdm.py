@@ -8,12 +8,13 @@ RARELINK_CDM_V2_0_0 = DataModel(
     data_model_name="RareLink Common Data Model 2.0",
     resources=resources,
     fields=[
+    
         # 1. Formal Criteria
         DataField(section="1. Formal Criteria", ordinal="1.1", 
                    name="Pseudonym", value_set=VS.vs_1_1),
         DataField(section="1. Formal Criteria", ordinal="1.2", 
                    name="Date of Admission", value_set=VS.vs_1_2),
-
+    
         # 2. Personal Information
         DataField(section="2. Personal Information", ordinal="2.1", 
                    name="Date of Birth", value_set=VS.vs_2_1),
@@ -41,16 +42,16 @@ RARELINK_CDM_V2_0_0 = DataModel(
                    name="Undiagnosed RD Case", value_set=VS.vs_3_6),
 
         # 4. Care Pathway
-        l = 9999
-        for i in range(l):
-            DataField(section="4. Care Pathway", ordinal="4.1", 
-                      name=f"Encounter Start_{i}", value_set=VS.vs_4_1),
-            DataField(section="4. Care Pathway", ordinal="4.2", 
-                      name=f"Encounter End_{i}", value_set=VS.vs_4_2),
-            DataField(section="4. Care Pathway", ordinal="4.3", 
-                      name=f"Encounter Status_{i}", value_set=VS.vs_4_3),
-            DataField(section="4. Care Pathway", ordinal="4.4", 
-                      name=f"Encounter Class_{i}", value_set=VS.vs_4_4)
+    ] + [      
+    
+          DataField(section="4. Care Pathway", ordinal=f"4.{j+1}",
+                    name=f"Encounter {name} for Patient_{i}", value_set=VS.vs_4_{j+1})
+        for i in range(9999)
+            for j, name in enumerate(["Start", "End", "Status", "Class"])
+            
+    ] + [
+            # 4. Care Pathway
+            
 
         # 5. Disease
         p = 9999
@@ -97,6 +98,8 @@ RARELINK_CDM_V2_0_0 = DataModel(
                       name=f"Amino Acid Change [p.HGVS]_{i}", value_set=VS.vs_6_1_9),
             DataField(section="6.1 Genetic Findings", ordinal="6.1.10", 
                       name=f"Gene_{i}", value_set=VS.vs_6_1_10),
+            DataField(section="6.1 Genetic Findings", ordinal="6.1.10a",
+                      name=f"Gene Label_{i}", value_set=VS.vs_6_1_10a),
             DataField(section="6.1 Genetic Findings", ordinal="6.1.11", 
                       name=f"Zygosity_{i}", value_set=VS.vs_6_1_11),
             DataField(section="6.1 Genetic Findings", ordinal="6.1.12", 
@@ -172,12 +175,12 @@ RARELINK_CDM_V2_0_0 = DataModel(
         DataField(section="7. Consent", ordinal="7.7", 
                   name="Link to a biobank", 
                   value_set=VS.vs_7_7),
-
+    ]
         # 8. Classification of functioning / disability
         DataField(section="8. Classification", ordinal="8.1", 
                   name="Classification of functioning / disability", 
                   value_set=VS.vs_8_1),
-    ]
+    
 )
 
 
@@ -222,7 +225,8 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         genomic_dna_change_column="loinc_81290_9",
         sequence_dna_change_column="loinc_48004_6",
         amino_acid_change_column="loinc_48005_3",
-        gene_column=("loinc_48018_6", "loinc_48018_6_label"),
+        gene_column=("loinc_48018_6"),
+        gene_label_column=("loinc_48018_6_label"),
         zygosity_column=("loinc_53034_5", "loinc_53034_5_other"),
         genomic_source_class_column="loinc_48002_0",
         dna_change_type_column=("loinc_48019_4", "loinc_48019_4_other"),
