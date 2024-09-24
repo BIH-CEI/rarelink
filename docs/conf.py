@@ -14,8 +14,13 @@ src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
 project = 'rarelink'
-copyright = '2024, Adam SL Graefe, Filip Rehburg'
-author = 'Adam SL Graefe, Filip Rehburg'
+copyright = '2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin'
+author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
+            Daniel Danis, Ana Grönke, Miriam R Hübner, Steffen Sander, \
+                Jana Zschüntzsch, Elisabeth F Nyoungui, Tatiana Kalashnikova, \
+                    Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
+                        Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
+          
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
