@@ -14,6 +14,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
     data_set = load_rarelink_data(path)
     print("idsd of the fields in the data model: \n", 
           data_model.data_model.get_field_ids())
+    # 2. Preprocessing
     preprocess_redcap_for_phenopackets(data_set)
     
     # 3. Define the Mapping 
