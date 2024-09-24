@@ -17,85 +17,83 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
     data_set = data_model.load_data(preprocessed_path, compliance="soft")
     print("idsd of the fields in the data model: \n", 
           data_model.data_model.get_field_ids())
-    #
+    
     # 3. Define the Mapping 
-    # WIP in Phenopacket_Mapper
     phenopacket_mapper = PhenopacketMapper(
         data_set,
         id=data_model.pseudonym,
         subject=PhenopacketElement(
             phenopacket_element=phenopackets.Individual,
             # (1) Formal Criteria
-                id=data_model.pseudonym,
-                time_at_last_encounter=data_model.date_of_admission,
+            id=data_model.pseudonym,
+            time_at_last_encounter=data_model.date_of_admission,
             # (2) Personal Information
-                date_of_birth=data_model.date_of_birth,
-                sex=data_model.sex_at_birth,
-                karyotypic_sex=data_model.karyotypic_sex,
-                gender=data_model.gender_identity,
-                vital_status=PhenopacketElement(
-                    phenopacket_element=phenopackets.VitalStatus,
-                    status=data_model.vital_status,
-                    time_of_death=data_model.time_of_death,
-                    cause_of_death=data_model.cause_of_death,
-                    time_at_last_encounter=data_model.age_category,
-                )
-        )
+            date_of_birth=data_model.date_of_birth,
+            sex=data_model.sex_at_birth,
+            karyotypic_sex=data_model.karyotypic_sex,
+            gender=data_model.gender_identity,
+            vital_status=PhenopacketElement(
+                phenopacket_element=phenopackets.VitalStatus,
+                status=data_model.vital_status,
+                time_of_death=data_model.time_of_death,
+                cause_of_death=data_model.cause_of_death,
+                time_at_last_encounter=data_model.age_category,
+            )
+        ),
         interpretations=[
             PhenopacketElement(
                 phenopacket_element=phenopackets.Interpretation,
-                    id=data_model.pseudonym,
-                    progress_status=data_model.progress_status_of_interpretation,
-                    diagnosis=PhenopacketElement(
-                        phenopacket_element=phenopacket.Diagnosis,
-                        disease=data_model.genomic_diagnosis,
-                        genomic_interpretations=[
-                            PhenopacketElement(
-                                phenopacket_element=phenopackets.GenomicInterpretation,
-                                subject_or_biosample_id=data_model.pseudonym,
-                                interpretation_status=PhenopacketElement(
-                                    phenopacket_element=phenopackets.InterpretationStatus,
-                                    interpretation_status=data_model.interpretation_status,
+                id=data_model.pseudonym,
+                progress_status=data_model.progress_status_of_interpretation,
+                diagnosis=PhenopacketElement(
+                    phenopacket_element=phenopacket.Diagnosis,
+                    disease=data_model.genomic_diagnosis,
+                    genomic_interpretations=[
+                        PhenopacketElement(
+                            phenopacket_element=phenopackets.GenomicInterpretation,
+                            subject_or_biosample_id=data_model.pseudonym,
+                            interpretation_status=PhenopacketElement(
+                                phenopacket_element=phenopackets.InterpretationStatus,
+                                interpretation_status=data_model.interpretation_status,
+                            ),
+                            call=PhenopacketElement(
+                                phenopacket_element=phenopackets.VariationInterpretation,
+                                acmg_pathogenicity_classification=PhenopacketElement(
+                                    phenopacket_element=phenopackets.AcmgPathogenicityClassification,
+                                    acmg_pathogenicity_classification=data_model.clinical_significance_acmg,
                                 ),
-                                call=PhenopacketElement(
-                                    phenopacket_element=phenopackets.VariationInterpretation,
-                                    acmg_pathogenicity_classification=PhenopacketElement(
-                                        phenopacket_element=phenopackets.AcmgPathogenicityClassification,
-                                        acmg_pathogenicity_classification=data_model.clinical_significance_acmg,
+                                therapeutic_actionability=PhenopacketElement(
+                                    phenopacket_element=phenopackets.TherapeuticActionability,
+                                    therapeutic_actionability=data_model.therapeutic_actionability,
+                                ),
+                                variation_descriptor=PhenopacketElement(
+                                    phenopacket_element=phenopackets.VariationDescriptor,
+                                    vrs_ref_allele_seq=data_model.reference_genome,
+                                    allelic_state=data_model.zygosity,
+                                    extensions=PhenopacketElement(
+                                        phenopacket_element=phenopackets.Extension,
+                                        name=data_model.genetic_mutation_string,
+                                        value=data_model.genetic_mutation_string,
                                     ),
-                                    therapeutic_actionability=PhenopacketElement(
-                                        phenopacket_element=phenopackets.TherapeuticActionability,
-                                        therapeutic_actionability=data_model.therapeutic_actionability,
+                                    expression=PhenopacketElement(
+                                        phenopacket_element=phenopackets.Expression,
+                                        syntax='hgvs',
+                                        value=data_model.genomic_dna_change,
+                                        value=data_model.sequence_dna_change,
+                                        value=data_model.amino_acid_change,
                                     ),
-                                    variation_descriptor=PhenopacketElement(
-                                        phenopacket_element=phenopackets.VariationDescriptor,
-                                        vrs_ref_allele_seq=data_model.reference_genome,
-                                        allelic_state=data_model.zygosity,
-                                        extensions=PhenopacketElement(
-                                            phenopacket_element=phenopackets.Extension,
-                                            name=data_model.genetic_mutation_string,
-                                            value=data_model.genetic_mutation_string,
-                                        ),
-                                        expression=PhenopacketElement(
-                                            phenopacket_element=phenopackets.Expression,
-                                            syntax='hgvs',
-                                            value=data_model.genomic_dna_change,
-                                            value=data_model.sequence_dna_change,
-                                            value=data_model.amino_acid_change,
-                                        ),
-                                        gene_context=PhenopacketElement(
-                                            phenopacket_element=phenopackets.GeneDescriptor,
-                                            value_id=data_model.gene,
-                                            symbol=data_model.gene_symbol,
-                                        ),
+                                    gene_context=PhenopacketElement(
+                                        phenopacket_element=phenopackets.GeneDescriptor,
+                                        value_id=data_model.gene,
+                                        symbol=data_model.gene_symbol,
                                     ),
                                 ),
                             )
-                        ]
-                    )
-                                   
+                        )
+                    ]
+                )                     
             )
-        ]
+        ],
         diseases=[
             PhenopacketElement(
                 phenopacket_element=phenopackets.Disease,
@@ -109,7 +107,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 onset=data_model.date_of_diagnosis,
                 primary_site=data_model.body_site
             )
-        ]
+        ],
         phenotypic_features=[
             PhenopacketElement(
                 phenopacket_element=phenopackets.PhenotypicFeature,
@@ -118,8 +116,8 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 excluded=getattr(data_model, f"status_{i}", None),
                 modifier=getattr(data_model, f"modifier_{i}", None),
             )
-            for i in range(n:=9999)
-        ]
+            for i in range(n=9999)
+        ],
         family=[
             PhenopacketElement(
                 phenopacket_element=phenopacket.Family,
@@ -128,7 +126,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 consanguinous_parents=data_model.consanguinity,
                 pedigree=[
                     PhenopacketElement(
-                        phenopacket_element=phenopackets.Pedigree
+                        phenopacket_element=phenopackets.Pedigree,
                         persons=PhenopacketElement(
                             phenopacket_element=phenopackets.Person,
                             individual_id=data_model.family_member_pseudonym,
@@ -138,11 +136,9 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                         )
                     )
                 ],
-                meta_data=PhenopacketElement(
-                )
             )
         ]
     )
 
     # return phenopackets
-    #return NotImplementedError
+    # return NotImplementedError
