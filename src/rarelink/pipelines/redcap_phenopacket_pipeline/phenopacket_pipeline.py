@@ -74,7 +74,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                                     ),
                                     expression=PhenopacketElement(
                                         phenopacket_element=phenopackets.Expression,
-                                        syntax='hgvs',
+                                        syntax="hgvs",
                                         value=getattr(data_model, f"genomic_dna_change_{i}", None),
                                         value=getattr(data_model, f"sequence_dna_change_{i}", None),
                                         value=getattr(data_model, f"amino_acid_change_{i}", None),
