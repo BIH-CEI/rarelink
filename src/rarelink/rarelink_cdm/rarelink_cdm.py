@@ -27,20 +27,18 @@ RARELINK_CDM_V2_0_0 = DataModel(
                     name="Country of Birth", value_set=VS.vs_2_5),                  
 
         # 3. Patient Status
-        k = 9999
-        for i in range(k):
-            DataField(section="3. Patient Status", ordinal="3.1", 
-                    name=f"Vital Status_{i}", value_set=VS.vs_3_1),
-            DataField(section="3. Patient Status", ordinal="3.2", 
-                    name=f"Time of Death_{i}", value_set=VS.vs_3_2),
-            DataField(section="3. Patient Status", ordinal="3.3", 
-                    name=f"Cause of Death_{i}", value_set=VS.vs_3_3),
-            DataField(section="3. Patient Status", ordinal="3.4", 
-                    name=f"Age Category_{i}", value_set=VS.vs_3_4),
-            DataField(section="3. Patient Status", ordinal="3.5", 
-                    name=f"Length of Gestation at Birth_{i}", value_set=VS.vs_3_5),
-            DataField(section="3. Patient Status", ordinal="3.6", 
-                    name=f"Undiagnosed RD Case_{i}", value_set=VS.vs_3_6),
+        DataField(section="3. Patient Status", ordinal="3.1", 
+                   name="Vital Status", value_set=VS.vs_3_1),
+        DataField(section="3. Patient Status", ordinal="3.2", 
+                   name="Time of Death", value_set=VS.vs_3_2),
+        DataField(section="3. Patient Status", ordinal="3.3", 
+                   name="Cause of Death", value_set=VS.vs_3_3),
+        DataField(section="3. Patient Status", ordinal="3.4", 
+                   name="Age Category", value_set=VS.vs_3_4),
+        DataField(section="3. Patient Status", ordinal="3.5", 
+                   name="Length of Gestation at Birth", value_set=VS.vs_3_5),
+        DataField(section="3. Patient Status", ordinal="3.6", 
+                   name="Undiagnosed RD Case", value_set=VS.vs_3_6),
 
 
         # 4. Care Pathway
