@@ -2,18 +2,19 @@ from pathlib import Path
 from typing import Union, List
 from phenopackets.schema.v2 import Phenopacket
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
+from rarelink.preprocessing.preprocess_redcap_for_phenopacket import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
 from rarelink.preprocessing import preprocess_redcap_for_phenopacket_pipeline
+from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 
 
 def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
-    # 1. preprocess data 
-    preprocessed_path = preprocess_redcap_for_phenopacket_pipeline(path)
-    # 2. load preprocessed data
+    # 1. load data
     data_model = RARELINK_CDM_V2_0_0
-    data_set = data_model.load_data(preprocessed_path, compliance="soft")
+    data_set = load_rarelink_data(path)
     print("idsd of the fields in the data model: \n", 
           data_model.data_model.get_field_ids())
+    preprocess_redcap_for_phenopackets(data_set)
     
     # 3. Define the Mapping 
     phenopacket_mapper = PhenopacketMapper(
