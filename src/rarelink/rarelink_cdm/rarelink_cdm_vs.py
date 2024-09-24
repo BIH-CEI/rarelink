@@ -227,14 +227,32 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
 
 # 5. Disease
-    # 5.1 Disease [ORDO]
-    vs_5_1 = ValueSet(
-        elements=[res.MONDO, res.ORDO, res.ICD10CM, res.ICD11, res.OMIM],
-        name="Value set for 5.1 Disease [MONDO, ORDO, ICD10CM, ICD11, OMIM]",
-        description=("A disease that the individual was affected by. If a genetic "
-                     "diagnosis or subtypes were diagnosed, please also provide the "
-                     "respective OMIM_g and OMIM_p codes.")
-    )
+    # 5.1 Disease
+    vs_5_1a = ValueSet(
+       elements=[res.MONDO],
+       name="Value set for 5.1a Disease [MONDO]",
+       description=("A disease that the individual was affected by as classified by MONDO.")
+       )
+    vs_5_1b = ValueSet(
+       elements=[res.ORDO],
+       name="Value set for 5.1b Disease [ORDO]",
+       description=("A disease that the individual was affected by as classified by ORDO.")
+       )
+    vs_5_1c = ValueSet(
+       elements=[res.ICD10CM],
+       name="Value set for 5.1c Disease [ICD-10-CM]",
+       description=("A disease that the individual was affected by as classified by ICD-10-CM.")
+       )
+    vs_5_1d = ValueSet(
+       elements=[res.ICD11],
+       name="Value set for 5.1d Disease [ICD-11]",
+       description=("A disease that the individual was affected by as classified by ICD-11.")
+       )
+    vs_5_1e = ValueSet(
+       elements=[res.OMIM],
+       name="Value set for 5.1e Disease [OMIM]",
+       description=("A disease that the individual was affected by as classified by OMIM.")
+       )
 
     # 5.2 Verification Status
     vs_5_2 = ValueSet(
