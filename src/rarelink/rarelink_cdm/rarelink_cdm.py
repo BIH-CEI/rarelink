@@ -167,6 +167,10 @@ def append_genetic_findings_fields(data_model, n=9999):
                       name=f"Structural Variant Analysis Method_{i}", value_set=VS.vs_6_1_4)
         )
         RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.1 Genetic Findings", ordinal="6.1.4a", 
+                      name=f"Structural Variant Analysis Method_other_{i}", value_set=VS.vs_6_1_4a)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.5", 
                       name=f"Reference Genome_{i}", value_set=VS.vs_6_1_5)
         )
@@ -199,12 +203,20 @@ def append_genetic_findings_fields(data_model, n=9999):
                       name=f"Zygosity_{i}", value_set=VS.vs_6_1_11)
         )
         RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.1 Genetic Findings", ordinal="6.1.11a", 
+                      name=f"Zygosity_other_{i}", value_set=VS.vs_6_1_11a)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.12", 
                       name=f"Genomic Source Class_{i}", value_set=VS.vs_6_1_12)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.13", 
                       name=f"DNA Change Type_{i}", value_set=VS.vs_6_1_13)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.1 Genetic Findings", ordinal="6.1.13a", 
+                      name=f"DNA Change Type_other_{i}", value_set=VS.vs_6_1_13a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.14", 
@@ -235,8 +247,40 @@ def append_phenotypic_features(data_model, n=9999):
                       name=f"Status_{i}", value_set=VS.vs_6_2_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4", 
-                      name=f"Modifier_{i}", value_set=VS.vs_6_2_4)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.1", 
+                      name=f"Modifier_HPO_1_{i}", value_set=VS.vs_6_2_4a_1)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.2", 
+                      name=f"Modifier_HPO_2_{i}", value_set=VS.vs_6_2_4a_2)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.3", 
+                      name=f"Modifier_HPO_3_{i}", value_set=VS.vs_6_2_4a_3)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.1", 
+                      name=f"Modifier_NCBITaxon_1_{i}", value_set=VS.vs_6_2_4b_1)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.2", 
+                      name=f"Modifier_NCBITaxon_2_{i}", value_set=VS.vs_6_2_4b_2)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.3", 
+                      name=f"Modifier_NCBITaxon_3_{i}", value_set=VS.vs_6_2_4b_3)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.1", 
+                      name=f"Modifier_SNOMED_CT_1_{i}", value_set=VS.vs_6_2_4c_1)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.2", 
+                      name=f"Modifier_SNOMED_CT_2_{i}", value_set=VS.vs_6_2_4c_2)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.3", 
+                      name=f"Modifier_SNOMED_CT_3_{i}", value_set=VS.vs_6_2_4c_3)
         )
         
 # 6.3 Family History
@@ -443,27 +487,34 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         progress_status_of_interpretation_column="ga4gh_progress_status",
         interpretation_status_column="ga4gh_interp_status",
         structural_variant_analysis_method_column="loinc_81304_8",
+        structural_variant_analysis_method_other_column="loinc_81304_8_other",
         reference_genome_column="loinc_62374_4",
         genetic_mutation_string_column="loinc_lp7824_8",
         genomic_dna_change_column="loinc_81290_9",
         sequence_dna_change_column="loinc_48004_6",
         amino_acid_change_column="loinc_48005_3",
-        gene_column=("loinc_48018_6"),
-        gene_label_column=("loinc_48018_6_label"),
-        zygosity_column=("loinc_53034_5", "loinc_53034_5_other"),
+        gene_column="loinc_48018_6",
+        gene_label_column="loinc_48018_6_label",
+        zygosity_column="loinc_53034_5",
+        zygosity_other_column="loinc_53034_5_other",
         genomic_source_class_column="loinc_48002_0",
-        dna_change_type_column=("loinc_48019_4", "loinc_48019_4_other"),
+        dna_change_type_column="loinc_48019_4",
+        dna_change_type_other_column="loinc_48019_4_other",
         clinical_significance_acmg_column="loinc_53037_8",
         therapeutic_actionability_column="ga4gh_therap_action",
         clinical_annotation_level_of_evidence_column="loinc_93044_6",
         phenotypic_feature_column="snomed_8116006",
         determination_date_column="snomed_8116006_date",
         status_column="ga4gh_pheno_excluded",
-        modifier_column=("ga4gh_pheno_mod_hp1", "ga4gh_pheno_mod_hp2", 
-                         "ga4gh_pheno_mod_hp3", "ga4gh_pheno_mod_ncbitax1",
-                         "ga4gh_pheno_mod_ncbitax2", "ga4gh_pheno_mod_ncbitax3",
-                         "ga4gh_pheno_mod_snomed1", "ga4gh_pheno_mod_snomed2",
-                         "ga4gh_pheno_mod_snomed3"),
+        modifier_hpo_1_column="ga4gh_pheno_mod_hp1", 
+        modifier_hpo_2_column="ga4gh_pheno_mod_hp2",
+        modifier_hpo_3_column="ga4gh_pheno_mod_hp3",
+        modifier_ncbitaxon_1_column="ga4gh_pheno_mod_ncbitax1",
+        modifier_ncbitaxon_2_column="ga4gh_pheno_mod_ncbitax2",
+        modifier_ncbitaxon_3_column="ga4gh_pheno_mod_ncbitax3",
+        modifier_snomed_ct_1_column="ga4gh_pheno_mod_snomed1",
+        modifier_snomed_ct_2_column="ga4gh_pheno_mod_snomed2",
+        modifier_snomed_ct_3_column="ga4gh_pheno_mod_snomed3",
         family_member_pseudonym_column="family_history_pseudonym",
         propositus_a_column="snomed_64245008",
         relationship_of_the_individual_to_the_index_case_propositus_a_column=
@@ -487,4 +538,4 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         link_to_a_biobankcolumn="rarelink_biobank_link",
         classification_of_functioning_disability_column="rarelink_icf_score"
     )
-
+    

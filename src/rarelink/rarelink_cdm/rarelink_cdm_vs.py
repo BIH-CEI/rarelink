@@ -444,13 +444,12 @@ class RareLink_CDM_v2_0_0_ValueSets:
         name="Value set for 6.1.4 Structural Variant Analysis Method",
         description=("The method used to analyse structural variants in the genome.")
     )
-#        # 6.1.4a Other Structural Variant Analysis Method
-#     vs_6_1_4a = ValueSet(
-#               elements=[res.LOINC],
-#               name="Value set for 6.1.4a Other Structural Variant Analysis Method",
-#               description=("The method used to analyse structural variants\
-#                             in the genome.")
-#        )
+    vs_6_1_4a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.4a Other Structural Variant Analysis Method",
+              description=("The method used to analyse structural variants\
+                            in the genome.")
+       )
 
     # 6.1.5 Reference Genome
     vs_6_1_5 = ValueSet(
@@ -542,12 +541,12 @@ class RareLink_CDM_v2_0_0_ValueSets:
         description=("The zygosity of the genetic variant.")
     )
 
-#     # 6.1.11a Other Zygosity
-#     vs_6_1_11a = ValueSet(
-#               elements=[res.LOINC],
-#               name="Value set for 6.1.11a Other Zygosity",
-#               description=("The zygosity of the genetic variant.")
-#     )
+    # 6.1.11a Other Zygosity
+    vs_6_1_11a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.11a Other Zygosity",
+              description=("The zygosity of the genetic variant.")
+    )
 
     # 6.1.12 Genomic Source Class
     vs_6_1_12 = ValueSet(
@@ -595,13 +594,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
         description=("The variant’s type of DNA change, such as point mutation, "
                     "deletion, insertion, or other types.")
     )
-#        # 6.1.13a Other DNA Change Type
-#     vs_6_1_13a = ValueSet(
-#               elements=[res.LOINC],
-#               name="Value set for 6.1.13a Other DNA Change Type",
-#               description=("The variant’s type of DNA change, such as\
-#                             missense, frameshift, or other types of mutation.")
-#     )
+# 6.1.13a Other DNA Change Type
+    vs_6_1_13a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.13a Other DNA Change Type",
+              description=("The variant’s type of DNA change, such as\
+                            missense, frameshift, or other types of mutation.")
+    )
 
     # 6.1.14 Clinical Significance [ACMG]
     vs_6_1_14 = ValueSet(
@@ -693,8 +692,64 @@ class RareLink_CDM_v2_0_0_ValueSets:
     )
 
     # 6.2.4 Modifier
-    vs_6_2_4 = ValueSet(
-        elements=[res.HPO, res.NCBITaxon, res.SNOMED_CT],
+    vs_6_2_4a_1 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4a_2 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4a_3 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_1 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_2 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_3 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_1 = ValueSet(
+        elements=[res.SNOMED_CT],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_2 = ValueSet(
+        elements=[res.SNOMED_CT],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_3 = ValueSet(
+        elements=[res.SNOMED_CT],
         name="Value set for 6.2.4 Modifier",
         description=("Further clinical modifiers to describe a specific "
                      "phenotypic feature, such as severity or linked\
