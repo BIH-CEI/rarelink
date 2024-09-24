@@ -4,7 +4,7 @@ from phenopackets.schema.v2 import Phenopacket
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.preprocessing.preprocess_redcap_for_phenopacket import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
-from rarelink.preprocessing import preprocess_redcap_for_phenopacket_pipeline
+from rarelink.preprocessing import preprocess_redcap_for_phenopacket
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 
 
@@ -103,8 +103,8 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 term=getattr(data_model, f"disease_{i}", None),
                 excluded=getattr(data_model, f"verification_status_{i}", None),
                 onset=getattr(data_model, f"age_at_onset_{i}", None),
-                onset=getattr(data_model, f"date_of_onset_{i}", None),
-                onset=getattr(data_model, f"date_of_diagnosis_{i}", None),
+                # onset=getattr(data_model, f"date_of_onset_{i}", None),
+                # onset=getattr(data_model, f"date_of_diagnosis_{i}", None),
                 primary_site=getattr(data_model, f"body_site_{i}", None)
             )
             for i in range(n=9999)
@@ -123,7 +123,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             PhenopacketElement(
                 phenopacket_element=phenopacket.Family,
                 id=data_model.family_history_pseudonym,
-                proband=data_model.propositus_a,
+            #    proband=data_model.propositus_a,
                 consanguinous_parents=data_model.consanguinity,
                 pedigree=[
                     PhenopacketElement(
