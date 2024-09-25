@@ -3,12 +3,12 @@ from phenopackets.schema.v2 import Phenopacket
 import phenopackets
 from phenopacket_mapper.data_standards import data_model
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
-from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
+from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_cdm_data
 from rarelink.rarelink_cdm import rarelink_cdm_multiple_fields
 
 
 def rarelink_cdm_phenopackets_mapping():
-    data_set = load_rarelink_data(Path)
+    data_set = load_rarelink_cdm_data(Path)
 
     return PhenopacketMapper(
         data_set=data_set,
