@@ -12,7 +12,7 @@ from rarelink.rarelink_cdm import rarelink_cdm_phenopackets_mapping
 # TODO: implement functions from processing and preferencing for multiple values
 # TODO: create another class for the Mapping Definition 
 
-def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
+def rarelink_cdm_phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
     # 1. load data
     data_model = RARELINK_CDM_V2_0_0
     data_set = load_rarelink_data(path)
