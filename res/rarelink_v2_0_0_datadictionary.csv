@@ -230,7 +230,8 @@ disease_descr,rarelink_5_disease,RareLink - 5) Disease,descriptive,"<div class="
     <li><span style=""font-weight: normal;"">If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively (e.g., sometime in June 2022 --> 01.June.2022, sometime in 2014 --> 01.01.2014).</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
-snomed_64572001_mondo,rarelink_5_disease,,text,5.1 Disease [MONDO],BIOPORTAL:MONDO,Please look up the MONDO code for the disease that the individual was affected by.,,,,,,,,,,,"Variable: 
+disease_coding,rarelink_5_disease,,dropdown,Please choose the encoding of the disease to be captured,"mondo, MONDO | ordo, ORDO | icd10cm, ICD10CM | icd11, ICD11 | omim, OMIM",We recommend using MONDO to capture diseases with,,,,,,,,,,,
+snomed_64572001_mondo,rarelink_5_disease,,text,5.1 Disease [MONDO],BIOPORTAL:MONDO,"Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'mondo',,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -239,7 +240,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_ordo,rarelink_5_disease,,text,5.1 Disease [ORDO],BIOPORTAL:ORDO,Please look up the ORDO code for the disease that the individual was affected by.,,,,,,,,,,,"Variable: 
+snomed_64572001_ordo,rarelink_5_disease,,text,5.1 Disease [ORDO],BIOPORTAL:ORDO,Please look up the ORDO code for the disease that the individual was affected by.,,,,,[disease_coding] = 'ordo',,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -248,7 +249,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_icd10cm,rarelink_5_disease,,text,5.1 Disease [ICD10CM],BIOPORTAL:ICD10CM,Please look up the ICD10CM code for the disease that the individual was affected by.,,,,,,,,,,,"Variable: 
+snomed_64572001_icd10cm,rarelink_5_disease,,text,5.1 Disease [ICD10CM],BIOPORTAL:ICD10CM,Please look up the ICD10CM code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd10cm',,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -257,7 +258,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_icd11,rarelink_5_disease,,text,5.1 Disease [ICD11],,Please enter the ICD11 code for the disease that the individual was affected by.,,,,,,,,,,,"Variable: 
+snomed_64572001_icd11,rarelink_5_disease,,text,5.1 Disease [ICD11],,Please enter the ICD11 code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd11',,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -266,7 +267,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_omim_p,rarelink_5_disease,,text,5.1 Disease [OMIM_P],BIOPORTAL:OMIM,"A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the respective OMIM_g and OMIM_p codes.",,,,,,,,,,,"Variable: 
+snomed_64572001_omim_p,rarelink_5_disease,,text,5.1 Disease [OMIM_P],BIOPORTAL:OMIM,"A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'omim',,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -372,7 +373,7 @@ genetic_findings_descr,rarelink_6_1_genetic_findings,RareLink - 6.1) Genetic Fin
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form, you can enter as many variants as you wish, if desired linked with a genomic disease.</span></li>
     <li><span style=""font-weight: normal;"">If you have no information about something, leave it blank.</span></li>
-    <li><span style=""font-weight: bold;"">If you want to link diseases to a diagnosis entered in the Disease sheet, please use the same MONDO or OMIM_p code.</span></li>
+    <li><span style=""font-weight: bold;"">If you want to link variants to a diagnosis entered in the Disease sheet, please use the same MONDO or OMIM_p code.</span></li>
     <li><span style=""font-weight: normal;"">OMIM_g codes refer to specific genes, while OMIM_p codes refer to phenotypes or clinical manifestations associated with genetic disorders (for more information see <a href=""https://www.omim.org/"">OMIM</a>).</span></li>
     <li><span style=""font-weight: normal;"">To capture the genetic variants, please provide validated HGVS values (<a href=""https://hgvs-nomenclature.org/stable/"">HGVS Nomenclature</a>) for genomic changes (g.HGVS), DNA sequence changes (c.HGVS), or amino acid changes (p.HGVS). We recommend entering g.HGVS values before using c.HGVS or at least p.HGVS.</span></li>
     <li><span style=""font-weight: bold;"">To validate your mutations:</span>
@@ -384,7 +385,8 @@ genetic_findings_descr,rarelink_6_1_genetic_findings,RareLink - 6.1) Genetic Fin
     <li><span style=""font-weight: normal;"">If you cannot validate your variant expressions according to HGVS expressions, please use the text field 6.1.6 Genetic Mutation string to enter all information you have for subsequent validation.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
-snomed_106221001_mondo,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [MONDO],BIOPORTAL:MONDO,The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.,,,,,,,,,,,"Variable: 
+genetic_diagnosis_code,rarelink_6_1_genetic_findings,,dropdown,Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.,"mondo, MONDO | omim, OMIM","If you want to link it to a specific Disease, please use the same code system.",,,,,,,,,,,
+snomed_106221001_mondo,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [MONDO],BIOPORTAL:MONDO,The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.,,,,,[genetic_diagnosis_code] = 'mondo',,,,,,"Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -393,7 +395,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: [Suggested] : Condition.code
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.Diagnosis.disease"
-snomed_106221001_omim_p,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [OMIM_p],BIOPORTAL:OMIM,The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.,,,,,,,,,,,"Variable: 
+snomed_106221001_omim_p,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [OMIM_p],BIOPORTAL:OMIM,The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.,,,,,[genetic_diagnosis_code] = 'omim',,,,,,"Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -469,7 +471,8 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueString
 - GA4GH Phenopacket Schema v2.0 Element: [...].VariantInterpretation.VariationDescriptor.Extension"
-loinc_81290_9,rarelink_6_1_genetic_findings,,text,6.1.7 Genomic DNA Change [g.HGVS],,The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression.,,,,,,,,,,,"Variable: 
+variant_expression,rarelink_6_1_genetic_findings,,dropdown,Please choose the type of the variant's validated HGVS expression,"ghgvs, Genomic DNA change [g.HGVS] | chgvs, Sequence DNA change [c.HGVS] | phgvs, Amino Acid Change [p.HGVS]",We recommend using sequence DNA change expressions (c.HGVS) if possible.,,,,,,,,,,,
+loinc_81290_9,rarelink_6_1_genetic_findings,,text,6.1.7 Genomic DNA Change [g.HGVS],,The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression.,,,,,[variant_expression] = 'ghgvs',,,,,,"Variable: 
 LOINC:81290-9 | Genomic DNA Change
 Choices: 
 n/a
@@ -478,7 +481,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: ""[...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"""
-loinc_48004_6,rarelink_6_1_genetic_findings,,text,6.1.8 Sequence DNA Change [c.HGVS],,The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression,,,,,,,,,,,"Variable: 
+loinc_48004_6,rarelink_6_1_genetic_findings,,text,6.1.8 Sequence DNA Change [c.HGVS],,The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression,,,,,[variant_expression] = 'chgvs',,,,,,"Variable: 
 LOINC:48004-6 | Sequence DNA Change
 Choices: 
 n/a
@@ -487,7 +490,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
-loinc_48005_3,rarelink_6_1_genetic_findings,,text,6.1.9 Amino Acid Change [p.HGVS],,The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression,,,,,,,,,,,"Variable: 
+loinc_48005_3,rarelink_6_1_genetic_findings,,text,6.1.9 Amino Acid Change [p.HGVS],,The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression,,,,,[variant_expression] = 'phgvs',,,,,,"Variable: 
 LOINC:48005-3 | Amino Acid Change
 Choices: 
 n/a
@@ -496,6 +499,9 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:AminoAcidChange
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
+variant_validation,rarelink_6_1_genetic_findings,,radio,Are you sure the entered HGVS expression was validated using the variant validator? ,"yes, Yes - I'm sure | no, No, I need to check again",Please use the links above to ensure validation of the expression you entered!,,,,,"[loinc_81290_9] <> '' or 
+[loinc_48004_6] <> '' or 
+[loinc_48005_3] <> ''",y,,,,,
 loinc_48018_6,rarelink_6_1_genetic_findings,,text,6.1.10 Gene [HGNC-NR],BIOPORTAL:HGNC-NR,The specific gene or genes that were analysed or identified in the study.,,,,,,,,,,,"Variable: 
 LOINC:48018-6 | Gene
 Choices: 
@@ -521,7 +527,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
-loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,,,,,,,"Variable: 
+loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,[loinc_53034_5] = 'other',,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
 Choices: 
 LOINC:LA6705-3 | Homozygous
@@ -662,7 +668,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.Status (Rec VS: observation.status)  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.excluded "
-ga4gh_pheno_mod_hp1,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers (HP:0012823) to describe a specific phenotypic feature, such as severity.",,,,,,,,,,,"Variable: 
+ga4gh_pheno_mod_hp1,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -671,7 +677,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_hp2,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers (HP:0012823) to describe a specific phenotypic feature, such as severity.",,,,,"[ga4gh_pheno_mod_hp1] <> """"",,,,,,"Variable: 
+ga4gh_pheno_mod_hp2,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[ga4gh_pheno_mod_hp1] <> """"",,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -680,7 +686,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_hp3,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers (HP:0012823) to describe a specific phenotypic feature, such as severity.",,,,,"[ga4gh_pheno_mod_hp2] <> """"",,,,,,"Variable: 
+ga4gh_pheno_mod_hp3,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[ga4gh_pheno_mod_hp2] <> """"",,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -689,7 +695,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_ncbitax1,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [NCBITAXON],BIOPORTAL:NCBITAXON,Further modifiers encoded with NCBITaxon to link causative infectious agents of a specific phenotypic feature.,,,,,,,,,,,"Variable: 
+ga4gh_pheno_mod_ncbitax,rarelink_6_2_phenotypic_feature,,text,"6.2.4 If applicable, what was the causing organism? [NCBITAXON]",BIOPORTAL:NCBITAXON,"If applicable, select the causing organism. To search more easily, consider searching in https://www.ebi.ac.uk/ols4/ontologies. It is recommended to select a common set of choices if capturing phenotypes for a cohort. ",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -698,43 +704,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_ncbitax2,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [NCBITAXON],BIOPORTAL:NCBITAXON,Further modifiers encoded with NCBITaxon to link causative infectious agents of a specific phenotypic feature.,,,,,"[ga4gh_pheno_mod_ncbitax1] <> """"",,,,,,"Variable: 
-GA4GH:phenotypicfeature.modifier | Modifier  
-Choices: 
-n/a  
-Version(s): 
-- GA4GH Phenopacket Schema v2.0  
-Mapping: 
-- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
-- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_ncbitax3,rarelink_6_2_phenotypic_feature,,text,6.2.4 Modifier [NCBITAXON],BIOPORTAL:NCBITAXON,Further modifiers encoded with NCBITaxon to link causative infectious agents of a specific phenotypic feature.,,,,,"[ga4gh_pheno_mod_ncbitax2] <> """"",,,,,,"Variable: 
-GA4GH:phenotypicfeature.modifier | Modifier  
-Choices: 
-n/a  
-Version(s): 
-- GA4GH Phenopacket Schema v2.0  
-Mapping: 
-- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
-- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_snomed1,rarelink_6_2_phenotypic_feature,,text,6.2.4I Modifier [SNOMED],BIOPORTAL:SNOMEDCT,Further modifiers encoded with SNOMED to other clinical characteristics of a specific phenotypic feature.,,,,,,,,,,,"Variable: 
-GA4GH:phenotypicfeature.modifier | Modifier  
-Choices: 
-n/a  
-Version(s): 
-- GA4GH Phenopacket Schema v2.0  
-Mapping: 
-- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
-- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_snomed2,rarelink_6_2_phenotypic_feature,,text,6.2.4I Modifier [SNOMED],BIOPORTAL:SNOMEDCT,Further modifiers encoded with SNOMED to other clinical characteristics of a specific phenotypic feature.,,,,,"[ga4gh_pheno_mod_snomed1] <> """"",,,,,,"Variable: 
-GA4GH:phenotypicfeature.modifier | Modifier  
-Choices: 
-n/a  
-Version(s): 
-- GA4GH Phenopacket Schema v2.0  
-Mapping: 
-- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
-- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_snomed3,rarelink_6_2_phenotypic_feature,,text,6.2.4I Modifier [SNOMED],BIOPORTAL:SNOMEDCT,Further modifiers encoded with SNOMED to other clinical characteristics of a specific phenotypic feature.,,,,,"[ga4gh_pheno_mod_snomed2] <> """"",,,,,,"Variable: 
+ga4gh_pheno_mod_snomed,rarelink_6_2_phenotypic_feature,,text,"6.2.4I If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite. To search more easily, consider searching in https://www.ebi.ac.uk/ols4/ontologies. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -905,8 +875,7 @@ consent_descr,rarelink_7_consent,RareLink - 7) Consent,descriptive,"<div class="
   </ul>
 </div>
 ",,,,,,,,,,,,,
-snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error
-",Indicates the current status of the consent.,,,,,,,,,,,"Variable: 
+snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error",Indicates the current status of the consent.,,,,,,,,,,,"Variable: 
 SNOMED:309370004 | Consent Status  
 Choices: 
 - HL7FHIR:draft | Pending  
