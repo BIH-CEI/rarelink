@@ -7,7 +7,7 @@ from rarelink.preprocessing.preprocess_redcap_for_phenopackets import preprocess
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
 from rarelink.preprocessing import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.rarelink_cdm.rarelink_cdm_phenopacket_mapping import RARELINK_CDM_v2_0_0_REPEATING_FIELDS
+from rarelink.rarelink_cdm.rarelink_cdm_phenopacket_mapping import rarelink_cdm_multiple_fields
 
 # TODO: implement functions from processing and preferencing for multiple values
 # TODO: create another class for the Mapping Definition 
@@ -72,7 +72,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                                 variation_descriptor=PhenopacketElement(
                                     phenopacket_element=phenopackets.VariationDescriptor,
                                     vrs_ref_allele_seq=getattr(data_model, f"reference_genome_{i}", None),
-                                    allelic_state=pref_zygosity_code([
+                                    allelic_state=rarelink_cdm_multiple_fields.pref_zygosity_code([
                                         getattr(data_model, f"zygosity_{i}", None),
                                         getattr(data_model, f"zygosity_other_{i}", None)
                                     ]),  # Call pref_zygosity_code function
@@ -84,7 +84,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                                     expression=PhenopacketElement(
                                         phenopacket_element=phenopackets.Expression,
                                         syntax="hgvs",
-                                        value=pref_hgvs_code([
+                                        value=rarelink_cdm_multiple_fields.pref_hgvs_code([
                                             getattr(data_model, f"genomic_dna_change_{i}", None),
                                             getattr(data_model, f"sequence_dna_change_{i}", None),
                                             getattr(data_model, f"amino_acid_dna_change_{i}", None)
@@ -117,8 +117,8 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             if any([mondo, ordo, omim, icd10cm, icd11]):
                 disease_instance = PhenopacketElement(
                     phenopacket_element=phenopackets.Disease,
-                    term=pref_code_disease([mondo, ordo, omim, icd10cm, icd11]),
-                    onset=pref_disease_onset([
+                    term=rarelink_cdm_multiple_fields.pref_code_disease([mondo, ordo, omim, icd10cm, icd11]),
+                    onset=rarelink_cdm_multiple_fields.ref_disease_onset([
                         getattr(data_model, f"date_of_diagnosis_{i}", None),
                         getattr(data_model, f"date_of_onset_{i}", None),
                         getattr(data_model, f"age_at_onset_{i}", None),

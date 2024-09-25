@@ -36,7 +36,6 @@ class rarelink_cdm_multiple_fields:
             return zygosity_other
         else:
             raise ValueError("All values passed are None")
-        
 
     def pref_code_disease(values):
         mondo, ordo, icd10cm, icd11, omim = values
@@ -54,7 +53,7 @@ class rarelink_cdm_multiple_fields:
             raise ValueError("All values passed are None")
         
 
-RARELINK_CDM_v2_0_0_REPEATING_FIELDS = rarelink_cdm_multiple_fields()
+
 
 
 
