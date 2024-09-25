@@ -532,10 +532,11 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         consent_status_column="snomed_309370004",
         consent_date_column="hl7fhir_consent_datetime",
         health_policy_monitoring_column="snomed_386318002",
-        agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",
+        agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",  # Corrected column name
         consent_to_the_reuse_of_data_column="rarelink_consent_data",
         biological_sample_column="snomed_123038009",
-        link_to_a_biobankcolumn="rarelink_biobank_link",
+        link_to_a_biobank_column="rarelink_biobank_link",  # Corrected column name
         classification_of_functioning_disability_column="rarelink_icf_score"
     )
+
     
