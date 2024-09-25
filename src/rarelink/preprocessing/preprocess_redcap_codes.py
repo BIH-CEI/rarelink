@@ -59,3 +59,5 @@ def parse_redcap_code(redcap_code: str, resources: List[CodeSystem]) -> Coding:
     
     # Raise an error if no matching CodeSystem was found
     raise ValueError(f"No matching CodeSystem found for prefix: {prefix}")
+
+# TODO: conversion of value set codes to Phenopacket codes 

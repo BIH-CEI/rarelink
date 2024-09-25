@@ -1,5 +1,5 @@
 from phenopacket_mapper.data_standards import Coding, CodeSystem, Date, ValueSet
-from .rarelink_cdm_codesystems import RareLink_CDM_v2_0_0_CodeSystems as CodeSystems
+from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 
 class RareLink_CDM_v2_0_0_ValueSets:
     """
@@ -31,14 +31,14 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.2 Sex at Birth
     vs_2_2 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="248152002", 
+            Coding(system=res.SNOMED_CT, code="248152002", 
                    display="Female"),
-            Coding(system=CodeSystems.SNOMED, code="248153007", display="Male"),
-            Coding(system=CodeSystems.SNOMED, code="184115007", 
+            Coding(system=res.SNOMED_CT, code="248153007", display="Male"),
+            Coding(system=res.SNOMED_CT, code="184115007", 
                    display="Patient sex unknown"),
-            Coding(system=CodeSystems.SNOMED, code="32570691000036108", 
+            Coding(system=res.SNOMED_CT, code="32570691000036108", 
                    display="Intersex"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 2.2 Sex at Birth",
@@ -48,18 +48,18 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.3 Karyotypic Sex
     vs_2_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=CodeSystems.SNOMED, code="734875008", display="XX"),
-            Coding(system=CodeSystems.SNOMED, code="734876009", display="XY"),
-            Coding(system=CodeSystems.SNOMED, code="80427008", display="X0"),
-            Coding(system=CodeSystems.SNOMED, code="65162001", display="XXY"),
-            Coding(system=CodeSystems.SNOMED, code="35111009", display="XXX"),
-            Coding(system=CodeSystems.SNOMED, code="403760006", display="XXYY"),
-            Coding(system=CodeSystems.SNOMED, code="78317008", display="XXXY"),
-            Coding(system=CodeSystems.SNOMED, code="10567003", display="XXXX"),
-            Coding(system=CodeSystems.SNOMED, code="48930007", display="XYY"),
-            Coding(system=CodeSystems.SNOMED, code="74964007", display="Other")
+            Coding(system=res.SNOMED_CT, code="734875008", display="XX"),
+            Coding(system=res.SNOMED_CT, code="734876009", display="XY"),
+            Coding(system=res.SNOMED_CT, code="80427008", display="X0"),
+            Coding(system=res.SNOMED_CT, code="65162001", display="XXY"),
+            Coding(system=res.SNOMED_CT, code="35111009", display="XXX"),
+            Coding(system=res.SNOMED_CT, code="403760006", display="XXYY"),
+            Coding(system=res.SNOMED_CT, code="78317008", display="XXXY"),
+            Coding(system=res.SNOMED_CT, code="10567003", display="XXXX"),
+            Coding(system=res.SNOMED_CT, code="48930007", display="XYY"),
+            Coding(system=res.SNOMED_CT, code="74964007", display="Other")
         ],
         name="Value set for 2.3 Karyotypic Sex",
         description=("The chromosomal sex of an individual.")
@@ -68,15 +68,15 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 2.4 Gender Identity
     vs_2_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="446141000124107", 
+            Coding(system=res.SNOMED_CT, code="446141000124107", 
                    display="Female gender identity"),
-            Coding(system=CodeSystems.SNOMED, code="446151000124109", 
+            Coding(system=res.SNOMED_CT, code="446151000124109", 
                    display="Male gender identity"),
-            Coding(system=CodeSystems.SNOMED, code="394743007", 
+            Coding(system=res.SNOMED_CT, code="394743007", 
                    display="Gender unknown"),
-            Coding(system=CodeSystems.SNOMED, code="33791000087105", 
+            Coding(system=res.SNOMED_CT, code="33791000087105", 
                    display="Identifies as nonbinary gender"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 2.4 Gender Identity",
@@ -85,7 +85,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 2.5 Country of Birth
     vs_2_5 = ValueSet(
-        elements=[CodeSystems.ISO3166],
+        elements=[res.ISO3166],
         name="Value set for 2.5 Country of Birth",
         description="The country in which the individual was born."
     )
@@ -95,13 +95,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.1 Vital Status
     vs_3_1 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="438949009", display="Alive"),
-            Coding(system=CodeSystems.SNOMED, code="419099009", display="Dead"),
-            Coding(system=CodeSystems.SNOMED, code="399307001", 
+            Coding(system=res.SNOMED_CT, code="438949009", display="Alive"),
+            Coding(system=res.SNOMED_CT, code="419099009", display="Dead"),
+            Coding(system=res.SNOMED_CT, code="399307001", 
                    display="Unknown - Lost in follow-up"),
-            Coding(system=CodeSystems.SNOMED, code="185924006", 
+            Coding(system=res.SNOMED_CT, code="185924006", 
                    display="Unknown - Opted-out"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown - Other Reason")
         ],
         name="Value set for 3.1 Vital Status",
@@ -119,7 +119,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 3.3 Cause of Death [ICD10CM]
     vs_3_3 = ValueSet(
-        elements=[CodeSystems.ICD10CM],
+        elements=[res.ICD10CM],
         name="Value set for 3.3 Cause of Death [ICD10CM]",
         description=("If deceased, the individual’s primary cause of death "
                      "(i.e. according to the death certificate).")
@@ -128,19 +128,19 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.4 Age Category
     vs_3_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="3658006", display="Infancy"),
-            Coding(system=CodeSystems.SNOMED, code="713153009", 
+            Coding(system=res.SNOMED_CT, code="3658006", display="Infancy"),
+            Coding(system=res.SNOMED_CT, code="713153009", 
                    display="Toddler"),
-            Coding(system=CodeSystems.SNOMED, code="255398004", 
+            Coding(system=res.SNOMED_CT, code="255398004", 
                    display="Childhood"),
-            Coding(system=CodeSystems.SNOMED, code="263659003", 
+            Coding(system=res.SNOMED_CT, code="263659003", 
                    display="Adolescence"),
-            Coding(system=CodeSystems.SNOMED, code="41847000", 
+            Coding(system=res.SNOMED_CT, code="41847000", 
                    display="Adulthood"),
-            Coding(system=CodeSystems.SNOMED, code="303112003", 
+            Coding(system=res.SNOMED_CT, code="303112003", 
                    display="Fetal period"),
-            Coding(system=CodeSystems.SNOMED, code="419099009", display="Dead"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="419099009", display="Dead"),
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 3.4 Age Category",
@@ -157,8 +157,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 3.6 Undiagnosed RD Case
     vs_3_6 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", display="No")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No")
         ],
         name="Value set for 3.6 Undiagnosed RD Case",
         description=("Identifies cases where an RD diagnosis has not been established.")
@@ -182,23 +182,23 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 4.3 Encounter Status
     vs_4_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="planned", 
+            Coding(system=res.HL7FHIR, code="planned", 
                    display="Planned"),
-            Coding(system=CodeSystems.HL7FHIR, code="arrived", 
+            Coding(system=res.HL7FHIR, code="arrived", 
                    display="Arrived"),
-            Coding(system=CodeSystems.HL7FHIR, code="triaged", 
+            Coding(system=res.HL7FHIR, code="triaged", 
                    display="Triaged"),
-            Coding(system=CodeSystems.HL7FHIR, code="in-progress", 
+            Coding(system=res.HL7FHIR, code="in-progress", 
                    display="In Progress"),
-            Coding(system=CodeSystems.HL7FHIR, code="onleave", 
+            Coding(system=res.HL7FHIR, code="onleave", 
                    display="On Leave"),
-            Coding(system=CodeSystems.HL7FHIR, code="finished", 
+            Coding(system=res.HL7FHIR, code="finished", 
                    display="Finished"),
-            Coding(system=CodeSystems.HL7FHIR, code="cancelled", 
+            Coding(system=res.HL7FHIR, code="cancelled", 
                    display="Cancelled"),
-            Coding(system=CodeSystems.HL7FHIR, code="entered-in-error", 
+            Coding(system=res.HL7FHIR, code="entered-in-error", 
                    display="Entered in Error"),
-            Coding(system=CodeSystems.HL7FHIR, code="unknown", 
+            Coding(system=res.HL7FHIR, code="unknown", 
                    display="Unknown")
         ],
         name="Value set for 4.3 Encounter Status",
@@ -209,16 +209,16 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 4.4 Encounter Class
     vs_4_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="amb", display="Ambulatory"),
-            Coding(system=CodeSystems.HL7FHIR, code="imp", display="Inpatient"),
-            Coding(system=CodeSystems.HL7FHIR, code="obsenc", 
+            Coding(system=res.HL7FHIR, code="amb", display="Ambulatory"),
+            Coding(system=res.HL7FHIR, code="imp", display="Inpatient"),
+            Coding(system=res.HL7FHIR, code="obsenc", 
                    display="Observation"),
-            Coding(system=CodeSystems.HL7FHIR, code="emer", display="Emergency"),
-            Coding(system=CodeSystems.HL7FHIR, code="vr", display="Virtual"),
-            Coding(system=CodeSystems.HL7FHIR, code="hh", display="Home Health"),
-            Coding(system=CodeSystems.HL7FHIR, code="rdc", 
+            Coding(system=res.HL7FHIR, code="emer", display="Emergency"),
+            Coding(system=res.HL7FHIR, code="vr", display="Virtual"),
+            Coding(system=res.HL7FHIR, code="hh", display="Home Health"),
+            Coding(system=res.HL7FHIR, code="rdc", 
                    display="RD Specialist Center"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 4.4 Encounter Class",
         description=("The class of an encounter of the individual at the time of "
@@ -227,28 +227,46 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
 
 # 5. Disease
-    # 5.1 Disease [ORDO]
-    vs_5_1 = ValueSet(
-        elements=[CodeSystems.MONDO, CodeSystems.ORDO, CodeSystems.ICD10CM, CodeSystems.ICD11, CodeSystems.OMIM],
-        name="Value set for 5.1 Disease [MONDO, ORDO, ICD10CM, ICD11, OMIM]",
-        description=("A disease that the individual was affected by. If a genetic "
-                     "diagnosis or subtypes were diagnosed, please also provide the "
-                     "respective OMIM_g and OMIM_p codes.")
-    )
+    # 5.1 Disease
+    vs_5_1a = ValueSet(
+       elements=[res.MONDO],
+       name="Value set for 5.1a Disease [MONDO]",
+       description=("A disease that the individual was affected by as classified by MONDO.")
+       )
+    vs_5_1b = ValueSet(
+       elements=[res.ORDO],
+       name="Value set for 5.1b Disease [ORDO]",
+       description=("A disease that the individual was affected by as classified by ORDO.")
+       )
+    vs_5_1c = ValueSet(
+       elements=[res.ICD10CM],
+       name="Value set for 5.1c Disease [ICD-10-CM]",
+       description=("A disease that the individual was affected by as classified by ICD-10-CM.")
+       )
+    vs_5_1d = ValueSet(
+       elements=[res.ICD11],
+       name="Value set for 5.1d Disease [ICD-11]",
+       description=("A disease that the individual was affected by as classified by ICD-11.")
+       )
+    vs_5_1e = ValueSet(
+       elements=[res.OMIM],
+       name="Value set for 5.1e Disease [OMIM]",
+       description=("A disease that the individual was affected by as classified by OMIM.")
+       )
 
     # 5.2 Verification Status
     vs_5_2 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="unconfirmed", 
+            Coding(system=res.HL7FHIR, code="unconfirmed", 
                    display="Unconfirmed"),
-            Coding(system=CodeSystems.HL7FHIR, code="provisional", 
+            Coding(system=res.HL7FHIR, code="provisional", 
                    display="Provisional"),
-            Coding(system=CodeSystems.HL7FHIR, code="differential", 
+            Coding(system=res.HL7FHIR, code="differential", 
                    display="Differential"),
-            Coding(system=CodeSystems.HL7FHIR, code="confirmed", 
+            Coding(system=res.HL7FHIR, code="confirmed", 
                    display="Confirmed"),
-            Coding(system=CodeSystems.HL7FHIR, code="refuted", display="Refuted"),
-            Coding(system=CodeSystems.HL7FHIR, code="entered-in-error", 
+            Coding(system=res.HL7FHIR, code="refuted", display="Refuted"),
+            Coding(system=res.HL7FHIR, code="entered-in-error", 
                    display="Entered in Error")
         ],
         name="Value set for 5.2 Verification Status",
@@ -258,11 +276,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.3 Age at Onset
     vs_5_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="118189007", 
+            Coding(system=res.SNOMED_CT, code="118189007", 
                    display="Prenatal"),
-            Coding(system=CodeSystems.SNOMED, code="3950001", display="Birth"),
-            Coding(system=CodeSystems.SNOMED, code="410672004", display="Date"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="3950001", display="Birth"),
+            Coding(system=res.SNOMED_CT, code="410672004", display="Date"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 5.3 Age at Onset",
         description=("The age at the onset of the first symptoms or signs "
@@ -282,11 +300,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.5 Age at Diagnosis
     vs_5_5 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="118189007", 
+            Coding(system=res.SNOMED_CT, code="118189007", 
                    display="Prenatal"),
-            Coding(system=CodeSystems.SNOMED, code="3950001", display="Birth"),
-            Coding(system=CodeSystems.SNOMED, code="410672004", display="Date"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="3950001", display="Birth"),
+            Coding(system=res.SNOMED_CT, code="410672004", display="Date"),
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 5.5 Age at Diagnosis",
@@ -301,10 +319,10 @@ class RareLink_CDM_v2_0_0_ValueSets:
                      "day of the month or the 1st month of the year, respectively.")
     )
 
-    # 5.7 Body Site [SNOMED CT]
+    # 5.7 Body Site [SNOMED_CT CT]
     vs_5_7 = ValueSet(
-        elements=[CodeSystems.SNOMED],
-        name="Value set for 5.7 Body Site [SNOMED CT]",
+        elements=[res.SNOMED_CT],
+        name="Value set for 5.7 Body Site [SNOMED_CT CT]",
         description=("The specific body site affected by disease is encoded using all "
                      "descendants of SCT Body Structure (123037004).")
     )
@@ -312,16 +330,16 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.8 Clinical Status
     vs_5_8 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="active", display="Active"),
-            Coding(system=CodeSystems.HL7FHIR, code="recurrence", 
+            Coding(system=res.HL7FHIR, code="active", display="Active"),
+            Coding(system=res.HL7FHIR, code="recurrence", 
                    display="Recurrence"),
-            Coding(system=CodeSystems.HL7FHIR, code="relapse", 
+            Coding(system=res.HL7FHIR, code="relapse", 
                    display="Relapse"),
-            Coding(system=CodeSystems.HL7FHIR, code="inactive", 
+            Coding(system=res.HL7FHIR, code="inactive", 
                    display="Inactive"),
-            Coding(system=CodeSystems.HL7FHIR, code="remission", 
+            Coding(system=res.HL7FHIR, code="remission", 
                    display="Remission"),
-            Coding(system=CodeSystems.HL7FHIR, code="resolved", 
+            Coding(system=res.HL7FHIR, code="resolved", 
                    display="Resolved")
         ],
         name="Value set for 5.8 Clinical Status",
@@ -332,10 +350,10 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 5.9 Severity
     vs_5_9 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="24484000", display="Severe"),
-            Coding(system=CodeSystems.SNOMED, code="6736007", 
+            Coding(system=res.SNOMED_CT, code="24484000", display="Severe"),
+            Coding(system=res.SNOMED_CT, code="6736007", 
                    display="Moderate"),
-            Coding(system=CodeSystems.SNOMED, code="255604002", display="Mild")
+            Coding(system=res.SNOMED_CT, code="255604002", display="Mild")
         ],
         name="Value set for 5.9 Severity",
         description=("The severity of the disease is categorised"
@@ -345,27 +363,33 @@ class RareLink_CDM_v2_0_0_ValueSets:
 # 6.1 Genetic Findings
 
     # 6.1.1 Genomic Diagnosis [MONDO, OMIM]
-    vs_6_1_1 = ValueSet(
-        elements=[CodeSystems.MONDO, CodeSystems.OMIM],
+    vs_6_1_1a = ValueSet(
+        elements=[res.MONDO],
         name="Value set for 6.1.1 Genomic Diagnosis [MONDO]",
         description=("The genetic finding of a variant can be linked to a  "
                     "disease in (5.1) if the same MONDO code is used.")
+    )
+    vs_6_1_1b = ValueSet(
+        elements=[res.OMIM],
+        name="Value set for 6.1.1 Genomic Diagnosis [OMIM_P]",
+        description=("The genetic finding of a variant can be linked to a  "
+                    "disease in (5.1) if the same OMIM_P code is used.")
     )
 
     # 6.1.2 Progress Status of Interpretation
     vs_6_1_2 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.GA4GH, code="UNKNOWN_PROGRESS", 
+            Coding(system=res.GA4GH, code="UNKNOWN_PROGRESS", 
                    display="No information is available about the diagnosis"),
-            Coding(system=CodeSystems.GA4GH, code="IN_PROGRESS", 
+            Coding(system=res.GA4GH, code="IN_PROGRESS", 
                    display="No diagnosis has been found to date but additional\
                      differential diagnostic work is in progress."),
-            Coding(system=CodeSystems.GA4GH, code="COMPLETED", 
+            Coding(system=res.GA4GH, code="COMPLETED", 
                    display="The work on the interpretation is complete."),
-            Coding(system=CodeSystems.GA4GH, code="SOLVED", 
+            Coding(system=res.GA4GH, code="SOLVED", 
                    display="The interpretation is complete and also considered\
                      to be a definitive diagnosis"),
-            Coding(system=CodeSystems.GA4GH, code="UNSOLVED", 
+            Coding(system=res.GA4GH, code="UNSOLVED", 
                    display="The interpretation is complete but no definitive\
                      diagnosis was found")
         ],
@@ -377,18 +401,18 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.1.3 Interpretation Status
     vs_6_1_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.GA4GH, code="UNKNOWN_STATUS", 
+            Coding(system=res.GA4GH, code="UNKNOWN_STATUS", 
                    display="No information is available about the status"),
-            Coding(system=CodeSystems.GA4GH, code="REJECTED", 
+            Coding(system=res.GA4GH, code="REJECTED", 
                    display="The variant or gene reported here is interpreted\
                       not to be related to the diagnosis"),
-            Coding(system=CodeSystems.GA4GH, code="CANDIDATE", 
+            Coding(system=res.GA4GH, code="CANDIDATE", 
                    display="The variant or gene reported here is interpreted\
                       to possibly be related to the diagnosis"),
-            Coding(system=CodeSystems.GA4GH, code="CONTRIBUTORY", 
+            Coding(system=res.GA4GH, code="CONTRIBUTORY", 
                    display="The variant or gene reported here is interpreted\
                       to be related to the diagnosis"),
-            Coding(system=CodeSystems.GA4GH, code="CAUSATIVE", 
+            Coding(system=res.GA4GH, code="CAUSATIVE", 
                    display="The variant or gene reported here is interpreted\
                       to be causative of the diagnosis")
         ],
@@ -400,46 +424,45 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.1.4 Structural Variant Analysis Method
     vs_6_1_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA26406-1", 
+            Coding(system=res.LOINC, code="LA26406-1", 
                    display="Karyotyping"),
-            Coding(system=CodeSystems.LOINC, code="LA26404-6", display="FISH"),
-            Coding(system=CodeSystems.LOINC, code="LA26418-6", display="PCR"),
-            Coding(system=CodeSystems.LOINC, code="LA26419-4", 
+            Coding(system=res.LOINC, code="LA26404-6", display="FISH"),
+            Coding(system=res.LOINC, code="LA26418-6", display="PCR"),
+            Coding(system=res.LOINC, code="LA26419-4", 
                    display="qPCR (real-time PCR)"),
-            Coding(system=CodeSystems.LOINC, code="LA26400-4", display="SNP array"),
-            Coding(system=CodeSystems.LOINC, code="LA26813-8", 
+            Coding(system=res.LOINC, code="LA26400-4", display="SNP array"),
+            Coding(system=res.LOINC, code="LA26813-8", 
                    display="Restriction fragment length polymorphism (RFLP)"),
-            Coding(system=CodeSystems.LOINC, code="LA26810-4", 
+            Coding(system=res.LOINC, code="LA26810-4", 
                    display="DNA hybridization"),
-            Coding(system=CodeSystems.LOINC, code="LA26398-0", 
+            Coding(system=res.LOINC, code="LA26398-0", 
                    display="Sequencing"),
-            Coding(system=CodeSystems.LOINC, code="LA26415-2", display="MLPA"),
-            Coding(system=CodeSystems.LOINC, code="LA46-8", display="Other"),
-            CodeSystems.LOINC
+            Coding(system=res.LOINC, code="LA26415-2", display="MLPA"),
+            Coding(system=res.LOINC, code="LA46-8", display="Other"),
+            res.LOINC
         ],
         name="Value set for 6.1.4 Structural Variant Analysis Method",
         description=("The method used to analyse structural variants in the genome.")
     )
-#        # 6.1.4a Other Structural Variant Analysis Method
-#     vs_6_1_4a = ValueSet(
-#               elements=[CodeSystems.LOINC],
-#               name="Value set for 6.1.4a Other Structural Variant Analysis Method",
-#               description=("The method used to analyse structural variants\
-#                             in the genome.")
-#        )
+    vs_6_1_4a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.4a Other Structural Variant Analysis Method",
+              description=("The method used to analyse structural variants\
+                            in the genome.")
+       )
 
     # 6.1.5 Reference Genome
     vs_6_1_5 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA14032-9", 
+            Coding(system=res.LOINC, code="LA14032-9", 
                    display="NCBI Build 34 (hg16)"),
-            Coding(system=CodeSystems.LOINC, code="LA14029-5", 
+            Coding(system=res.LOINC, code="LA14029-5", 
                    display="GRCh37 (hg19)"),
-            Coding(system=CodeSystems.LOINC, code="LA14030-3", 
+            Coding(system=res.LOINC, code="LA14030-3", 
                    display="NCBI Build 36.1 (hg18)"),
-            Coding(system=CodeSystems.LOINC, code="LA14031-1", 
+            Coding(system=res.LOINC, code="LA14031-1", 
                    display="NCBI Build 35 (hg17)"),
-            Coding(system=CodeSystems.LOINC, code="LA26806-2", 
+            Coding(system=res.LOINC, code="LA26806-2", 
                    display="GRCh38 (hg38)")
         ],
         name="Value set for 6.1.5 Reference Genome",
@@ -457,7 +480,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.1.7 Genomic DNA Change [g.HGVS]
     vs_6_1_7 = ValueSet(
-        elements=[CodeSystems.HGVS],  # HGVS strings for genomic DNA change
+        elements=[res.HGVS],  # HGVS strings for genomic DNA change
         name="Value set for 6.1.7 Genomic DNA Change [g.HGVS]",
         description=("The specific change in the genomic DNA sequence encoded "
                     "with a validated g.HGVS expression.")
@@ -465,7 +488,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.1.8 Sequence DNA Change [c.HGVS]
     vs_6_1_8 = ValueSet(
-        elements=[CodeSystems.HGVS],  # HGVS strings for DNA sequence changes
+        elements=[res.HGVS],  # HGVS strings for DNA sequence changes
         name="Value set for 6.1.8 Sequence DNA Change [c.HGVS]",
         description=("The specific change in the DNA sequence at the nucleotide  "
                     "level with a validated c.HGVS expression.")
@@ -473,7 +496,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.1.9 Amino Acid Change [p.HGVS]
     vs_6_1_9 = ValueSet(
-        elements=[CodeSystems.HGVS],  # HGVS strings for amino acid changes
+        elements=[res.HGVS],  # HGVS strings for amino acid changes
         name="Value set for 6.1.9 Amino Acid Change [p.HGVS]",
         description=("The specific change in the amino acid sequence resulting "
                     "from a genetic variant as a validated p.HGVS expression.")
@@ -481,61 +504,67 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.1.10 Gene [HGNC-NR]
     vs_6_1_10 = ValueSet(
-        elements=[CodeSystems.HGNC],  # Gene codes
+        elements=[res.HGNC],  # Gene codes
         name="Value set for 6.1.10 Gene [HGNC-NR]",
         description=("The specific gene or genes that were analyzed or "
                     " identified in the study.")
+    )
+    vs_6_1_10a = ValueSet(
+       elements=[str], # Gene Label
+       name="Value set for 6.1.10a Gene Label",
+       description=("The specific gene or genes that were analyzed or "
+              " identified in the study.")
     )
 
     # 6.1.11 Zygosity
     vs_6_1_11 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA6705-3", 
+            Coding(system=res.LOINC, code="LA6705-3", 
                    display="Homozygous"),
-            Coding(system=CodeSystems.LOINC, code="LA6706-1", 
+            Coding(system=res.LOINC, code="LA6706-1", 
                    display="(simple) Heterozygous"),
-            Coding(system=CodeSystems.LOINC, code="LA26217-2", 
+            Coding(system=res.LOINC, code="LA26217-2", 
                    display="Compound heterozygous"),
-            Coding(system=CodeSystems.LOINC, code="LA26220-6", 
+            Coding(system=res.LOINC, code="LA26220-6", 
                    display="Double heterozygous"),
-            Coding(system=CodeSystems.LOINC, code="LA6707-9", 
+            Coding(system=res.LOINC, code="LA6707-9", 
                    display="Hemizygous"),
-            Coding(system=CodeSystems.LOINC, code="LA6703-8", 
+            Coding(system=res.LOINC, code="LA6703-8", 
                    display="Heteroplasmic"),
-            Coding(system=CodeSystems.LOINC, code="LA6704-6", 
+            Coding(system=res.LOINC, code="LA6704-6", 
                    display="Homoplasmic"),
-            Coding(system=CodeSystems.LOINC, code="53034-5_other", 
+            Coding(system=res.LOINC, code="53034-5_other", 
                    display="Other"),
-              CodeSystems.LOINC
+              res.LOINC
         ],
         name="Value set for 6.1.11 Zygosity",
         description=("The zygosity of the genetic variant.")
     )
 
-#     # 6.1.11a Other Zygosity
-#     vs_6_1_11a = ValueSet(
-#               elements=[CodeSystems.LOINC],
-#               name="Value set for 6.1.11a Other Zygosity",
-#               description=("The zygosity of the genetic variant.")
-#     )
+    # 6.1.11a Other Zygosity
+    vs_6_1_11a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.11a Other Zygosity",
+              description=("The zygosity of the genetic variant.")
+    )
 
     # 6.1.12 Genomic Source Class
     vs_6_1_12 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA6683-2", 
+            Coding(system=res.LOINC, code="LA6683-2", 
                    display="Germline"),
-            Coding(system=CodeSystems.LOINC, code="LA6684-0", 
+            Coding(system=res.LOINC, code="LA6684-0", 
                    display="Somatic"),
-            Coding(system=CodeSystems.LOINC, code="LA10429-1", display="Fetal"),
-            Coding(system=CodeSystems.LOINC, code="LA18194-3", 
+            Coding(system=res.LOINC, code="LA10429-1", display="Fetal"),
+            Coding(system=res.LOINC, code="LA18194-3", 
                    display="Likely germline"),
-            Coding(system=CodeSystems.LOINC, code="LA18195-0", 
+            Coding(system=res.LOINC, code="LA18195-0", 
                    display="Likely somatic"),
-            Coding(system=CodeSystems.LOINC, code="LA18196-8", 
+            Coding(system=res.LOINC, code="LA18196-8", 
                    display="Likely fetal"),
-            Coding(system=CodeSystems.LOINC, code="LA18197-6", 
+            Coding(system=res.LOINC, code="LA18197-6", 
                    display="Unknown genomic origin"),
-            Coding(system=CodeSystems.LOINC, code="LA26807-0", 
+            Coding(system=res.LOINC, code="LA26807-0", 
                    display="De novo")
         ],
         name="Value set for 6.1.12 Genomic Source Class",
@@ -546,46 +575,46 @@ class RareLink_CDM_v2_0_0_ValueSets:
        # 6.1.13 DNA Change Type
     vs_6_1_13 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA9658-1", 
+            Coding(system=res.LOINC, code="LA9658-1", 
                    display="Wild type"),
-            Coding(system=CodeSystems.LOINC, code="LA6692-3", display="Deletion"),
-            Coding(system=CodeSystems.LOINC, code="LA6686-5", 
+            Coding(system=res.LOINC, code="LA6692-3", display="Deletion"),
+            Coding(system=res.LOINC, code="LA6686-5", 
                    display="Duplication"),
-            Coding(system=CodeSystems.LOINC, code="LA6687-3", display="Insertion"),
-            Coding(system=CodeSystems.LOINC, code="LA6688-1", 
+            Coding(system=res.LOINC, code="LA6687-3", display="Insertion"),
+            Coding(system=res.LOINC, code="LA6688-1", 
                    display="Insertion/Deletion"),
-            Coding(system=CodeSystems.LOINC, code="LA6689-9", display="Inversion"),
-            Coding(system=CodeSystems.LOINC, code="LA6690-7", 
+            Coding(system=res.LOINC, code="LA6689-9", display="Inversion"),
+            Coding(system=res.LOINC, code="LA6690-7", 
                    display="Substitution"),
-            Coding(system=CodeSystems.LOINC, code="48019-4_other", 
+            Coding(system=res.LOINC, code="48019-4_other", 
                    display="Other"),
-            CodeSystems.LOINC,
+            res.LOINC,
         ],
         name="Value set for 6.1.13 DNA Change Type",
         description=("The variant’s type of DNA change, such as point mutation, "
                     "deletion, insertion, or other types.")
     )
-#        # 6.1.13a Other DNA Change Type
-#     vs_6_1_13a = ValueSet(
-#               elements=[CodeSystems.LOINC],
-#               name="Value set for 6.1.13a Other DNA Change Type",
-#               description=("The variant’s type of DNA change, such as\
-#                             missense, frameshift, or other types of mutation.")
-#     )
+# 6.1.13a Other DNA Change Type
+    vs_6_1_13a = ValueSet(
+              elements=[res.LOINC],
+              name="Value set for 6.1.13a Other DNA Change Type",
+              description=("The variant’s type of DNA change, such as\
+                            missense, frameshift, or other types of mutation.")
+    )
 
     # 6.1.14 Clinical Significance [ACMG]
     vs_6_1_14 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA6668-3", 
+            Coding(system=res.LOINC, code="LA6668-3", 
                    display="Pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA26332-9", 
+            Coding(system=res.LOINC, code="LA26332-9", 
                    display="Likely pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA26333-7", 
+            Coding(system=res.LOINC, code="LA26333-7", 
                    display="Uncertain significance"),
-            Coding(system=CodeSystems.LOINC, code="LA26334-5", 
+            Coding(system=res.LOINC, code="LA26334-5", 
                    display="Likely benign"),
-            Coding(system=CodeSystems.LOINC, code="LA6675-8", display="Benign"),
-            Coding(system=CodeSystems.LOINC, code="LA4489-6", display="Unknown")
+            Coding(system=res.LOINC, code="LA6675-8", display="Benign"),
+            Coding(system=res.LOINC, code="LA4489-6", display="Unknown")
         ],
         name="Value set for 6.1.14 Clinical Significance [ACMG]",
         description=("The clinical significance of the genetic variant, "
@@ -595,12 +624,12 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.1.15 Therapeutic Actionability
     vs_6_1_15 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.GA4GH, code="UNKNOWN_ACTIONABILITY", 
+            Coding(system=res.GA4GH, code="UNKNOWN_ACTIONABILITY", 
                    display="There is not enough information at this time to\
                       support any therapeutic actionability for this variant"),
-            Coding(system=CodeSystems.GA4GH, code="NOT_ACTIONABLE", 
+            Coding(system=res.GA4GH, code="NOT_ACTIONABLE", 
                    display="This variant has no therapeutic actionability."),
-            Coding(system=CodeSystems.GA4GH, code="ACTIONABLE", 
+            Coding(system=res.GA4GH, code="ACTIONABLE", 
                    display="This variant is known to be therapeutically\
                       actionable.")
         ],
@@ -613,19 +642,19 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.1.16 Clinical Annotation Level Of Evidence
     vs_6_1_16 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.LOINC, code="LA30200-2", 
+            Coding(system=res.LOINC, code="LA30200-2", 
                    display="Very strong evidence pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA30201-0", 
+            Coding(system=res.LOINC, code="LA30201-0", 
                    display="Strong evidence pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA30202-8", 
+            Coding(system=res.LOINC, code="LA30202-8", 
                    display="Moderate evidence pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA30203-6", 
+            Coding(system=res.LOINC, code="LA30203-6", 
                    display="Supporting evidence pathogenic"),
-            Coding(system=CodeSystems.LOINC, code="LA30204-4", 
+            Coding(system=res.LOINC, code="LA30204-4", 
                    display="Supporting evidence benign"),
-            Coding(system=CodeSystems.LOINC, code="LA30205-1", 
+            Coding(system=res.LOINC, code="LA30205-1", 
                    display="Strong evidence benign"),
-            Coding(system=CodeSystems.LOINC, code="LA30206-9", 
+            Coding(system=res.LOINC, code="LA30206-9", 
                    display="Stand-alone evidence pathogenic")
         ],
         name="Value set for 6.1.16 Clinical Annotation Level Of Evidence",
@@ -636,7 +665,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 # 6.2 Phenotypic Feature
     # 6.2.1 Phenotypic Feature
     vs_6_2_1 = ValueSet(
-        elements=[CodeSystems.HPO],
+        elements=[res.HPO],
         name="Value set for 6.2.1 Phenotypic Feature",
         description=("An observed physical and clinical characteristic encoded "
                      "with HPO.")
@@ -653,9 +682,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.2.3 Status
     vs_6_2_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="410605003", 
+            Coding(system=res.SNOMED_CT, code="410605003", 
                    display="Confirmed present"),
-            Coding(system=CodeSystems.SNOMED, code="723511001", display="Refuted")
+            Coding(system=res.SNOMED_CT, code="723511001", display="Refuted")
         ],
         name="Value set for 6.2.3 Status",
         description=("The current status of the phenotypic feature, indicating "
@@ -663,8 +692,64 @@ class RareLink_CDM_v2_0_0_ValueSets:
     )
 
     # 6.2.4 Modifier
-    vs_6_2_4 = ValueSet(
-        elements=[CodeSystems.HPO, CodeSystems.NCBITaxon, CodeSystems.SNOMED],
+    vs_6_2_4a_1 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4a_2 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4a_3 = ValueSet(
+        elements=[res.HPO],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_1 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_2 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4b_3 = ValueSet(
+        elements=[res.NCBITaxon],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_1 = ValueSet(
+        elements=[res.SNOMED_CT],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_2 = ValueSet(
+        elements=[res.SNOMED_CT],
+        name="Value set for 6.2.4 Modifier",
+        description=("Further clinical modifiers to describe a specific "
+                     "phenotypic feature, such as severity or linked\
+                              causative agents.")
+    )
+    vs_6_2_4c_3 = ValueSet(
+        elements=[res.SNOMED_CT],
         name="Value set for 6.2.4 Modifier",
         description=("Further clinical modifiers to describe a specific "
                      "phenotypic feature, such as severity or linked\
@@ -684,13 +769,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.1 Propositus/-a
     vs_6_3_1 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.1 Propositus/-a",
@@ -703,29 +788,29 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # propositus/a
     vs_6_3_2 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="65656005", 
+            Coding(system=res.SNOMED_CT, code="65656005", 
                    display="Natural mother"),
-            Coding(system=CodeSystems.SNOMED, code="9947008", 
+            Coding(system=res.SNOMED_CT, code="9947008", 
                    display="Natural father"),
-            Coding(system=CodeSystems.SNOMED, code="83420006", 
+            Coding(system=res.SNOMED_CT, code="83420006", 
                    display="Natural daughter"),
-            Coding(system=CodeSystems.SNOMED, code="113160008", 
+            Coding(system=res.SNOMED_CT, code="113160008", 
                    display="Natural son"),
-            Coding(system=CodeSystems.SNOMED, code="60614009", 
+            Coding(system=res.SNOMED_CT, code="60614009", 
                    display="Natural brother"),
-            Coding(system=CodeSystems.SNOMED, code="73678001", 
+            Coding(system=res.SNOMED_CT, code="73678001", 
                    display="Natural sister"),
-            Coding(system=CodeSystems.SNOMED, code="11286003", 
+            Coding(system=res.SNOMED_CT, code="11286003", 
                    display="Twin sibling"),
-            Coding(system=CodeSystems.SNOMED, code="45929001", 
+            Coding(system=res.SNOMED_CT, code="45929001", 
                    display="Half-brother"),
-            Coding(system=CodeSystems.SNOMED, code="2272004", 
+            Coding(system=res.SNOMED_CT, code="2272004", 
                    display="Half-sister"),
-            Coding(system=CodeSystems.SNOMED, code="62296006", 
+            Coding(system=res.SNOMED_CT, code="62296006", 
                    display="Natural grandfather"),
-            Coding(system=CodeSystems.SNOMED, code="17945006", 
+            Coding(system=res.SNOMED_CT, code="17945006", 
                    display="Natural grandmother"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.2 Relationship of the individual to the "
@@ -737,13 +822,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.3 Consanguinity
     vs_6_3_3 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.3 Consanguinity",
@@ -755,29 +840,29 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.4 Family Member Relationship
     vs_6_3_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="65656005", 
+            Coding(system=res.SNOMED_CT, code="65656005", 
                    display="Natural mother"),
-            Coding(system=CodeSystems.SNOMED, code="9947008", 
+            Coding(system=res.SNOMED_CT, code="9947008", 
                    display="Natural father"),
-            Coding(system=CodeSystems.SNOMED, code="83420006", 
+            Coding(system=res.SNOMED_CT, code="83420006", 
                    display="Natural daughter"),
-            Coding(system=CodeSystems.SNOMED, code="113160008", 
+            Coding(system=res.SNOMED_CT, code="113160008", 
                    display="Natural son"),
-            Coding(system=CodeSystems.SNOMED, code="60614009", 
+            Coding(system=res.SNOMED_CT, code="60614009", 
                    display="Natural brother"),
-            Coding(system=CodeSystems.SNOMED, code="73678001", 
+            Coding(system=res.SNOMED_CT, code="73678001", 
                    display="Natural sister"),
-            Coding(system=CodeSystems.SNOMED, code="11286003", 
+            Coding(system=res.SNOMED_CT, code="11286003", 
                    display="Twin sibling"),
-            Coding(system=CodeSystems.SNOMED, code="45929001", 
+            Coding(system=res.SNOMED_CT, code="45929001", 
                    display="Half-brother"),
-            Coding(system=CodeSystems.SNOMED, code="2272004", 
+            Coding(system=res.SNOMED_CT, code="2272004", 
                    display="Half-sister"),
-            Coding(system=CodeSystems.SNOMED, code="62296006", 
+            Coding(system=res.SNOMED_CT, code="62296006", 
                    display="Natural grandfather"),
-            Coding(system=CodeSystems.SNOMED, code="17945006", 
+            Coding(system=res.SNOMED_CT, code="17945006", 
                    display="Natural grandmother"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.4 Family Member Relationship",
@@ -788,13 +873,13 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.5 Family Member Record Status
     vs_6_3_5 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="partial", 
+            Coding(system=res.HL7FHIR, code="partial", 
                    display="Partial"),
-            Coding(system=CodeSystems.HL7FHIR, code="completed", 
+            Coding(system=res.HL7FHIR, code="completed", 
                    display="Completed"),
-            Coding(system=CodeSystems.HL7FHIR, code="entered-in-error", 
+            Coding(system=res.HL7FHIR, code="entered-in-error", 
                    display="Entered in Error"),
-            Coding(system=CodeSystems.HL7FHIR, code="health-unknown", 
+            Coding(system=res.HL7FHIR, code="health-unknown", 
                    display="Health Unknown")
         ],
         name="Value set for 6.3.5 Family Member Record Status",
@@ -805,15 +890,15 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.6 Family Member Sex
     vs_6_3_6 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="248152002", 
+            Coding(system=res.SNOMED_CT, code="248152002", 
                    display="Female"),
-            Coding(system=CodeSystems.SNOMED, code="248153007", 
+            Coding(system=res.SNOMED_CT, code="248153007", 
                    display="Male"),
-            Coding(system=CodeSystems.SNOMED, code="184115007", 
+            Coding(system=res.SNOMED_CT, code="184115007", 
                    display="Patient sex unknown"),
-            Coding(system=CodeSystems.SNOMED, code="32570691000036108", 
+            Coding(system=res.SNOMED_CT, code="32570691000036108", 
                    display="Intersex"),
-            Coding(system=CodeSystems.SNOMED, code="1220561009", 
+            Coding(system=res.SNOMED_CT, code="1220561009", 
                    display="Not recorded")
         ],
         name="Value set for 6.3.6 Family Member Sex",
@@ -839,11 +924,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 6.3.9 Family Member Deceased
     vs_6_3_9 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", 
+            Coding(system=res.SNOMED_CT, code="373066001", 
                    display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", 
+            Coding(system=res.SNOMED_CT, code="373067005", 
                    display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", 
+            Coding(system=res.SNOMED_CT, code="261665006", 
                    display="Unknown")
         ],
         name="Value set for 6.3.9 Family Member Deceased",
@@ -852,7 +937,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.3.10 Family Member Cause of Death [ICD10CM]
     vs_6_3_10 = ValueSet(
-        elements=[CodeSystems.ICD10CM],
+        elements=[res.ICD10CM],
         name="Value set for 6.3.10 Family Member Cause of Death [ICD10CM]",
         description=("Records the cause of death of the selected deceased\
                       family member.")
@@ -868,7 +953,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     # 6.3.12 Family Member Disease [MONDO]
     vs_6_3_12 = ValueSet(
-        elements=[CodeSystems.MONDO],
+        elements=[res.MONDO],
         name="Value set for 6.3.12 Family Member Disease [MONDO]",
         description=("Indicates whether the selected family member is affected "
                      "by the same RD as the individual or a different rare "
@@ -878,12 +963,12 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.1 Consent Status
     vs_7_1 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.HL7FHIR, code="draft", display="Pending"),
-            Coding(system=CodeSystems.HL7FHIR, code="proposed", display="Proposed"),
-            Coding(system=CodeSystems.HL7FHIR, code="active", display="Active"),
-            Coding(system=CodeSystems.HL7FHIR, code="rejected", display="Rejected"),
-            Coding(system=CodeSystems.HL7FHIR, code="inactive", display="Inactive"),
-            Coding(system=CodeSystems.HL7FHIR, code="entered-in-error", 
+            Coding(system=res.HL7FHIR, code="draft", display="Pending"),
+            Coding(system=res.HL7FHIR, code="proposed", display="Proposed"),
+            Coding(system=res.HL7FHIR, code="active", display="Active"),
+            Coding(system=res.HL7FHIR, code="rejected", display="Rejected"),
+            Coding(system=res.HL7FHIR, code="inactive", display="Inactive"),
+            Coding(system=res.HL7FHIR, code="entered-in-error", 
                    display="Entered in Error")
         ],
         name="Value set for 7.1 Consent Status",
@@ -909,9 +994,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.4 Agreement to be contacted for research purposes
     vs_7_4 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="Value set for 7.4 Agreement to be contacted for research purposes",
         description=("Indicates whether the patient agrees to be contacted for "
@@ -921,9 +1006,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.5 Consent to the reuse of data
     vs_7_5 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="7.5 Consent to the reuse of data",
         description=("Indicates whether the patient consents to the reuse of  "
@@ -933,9 +1018,9 @@ class RareLink_CDM_v2_0_0_ValueSets:
     # 7.6 Biological sample
     vs_7_6 = ValueSet(
         elements=[
-            Coding(system=CodeSystems.SNOMED, code="373066001", display="Yes"),
-            Coding(system=CodeSystems.SNOMED, code="373067005", display="No"),
-            Coding(system=CodeSystems.SNOMED, code="261665006", display="Unknown")
+            Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+            Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+            Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
         ],
         name="7.6 Biological sample",
         description=("Indicates whether a patient's biological sample is  "
@@ -953,7 +1038,7 @@ class RareLink_CDM_v2_0_0_ValueSets:
 
     #8.1 Classification of functioning / disability
     vs_8_1 = ValueSet(
-    elements=[CodeSystems.ICF],
+    elements=[res.ICF],
     name="Value set for 8.1 Classification of functioning / disability",
     description=("Classification of functioning and disability based on the "
                  "International Classification of Functioning, Disability and "
@@ -962,4 +1047,4 @@ class RareLink_CDM_v2_0_0_ValueSets:
 )
 
 
-rarelink_cdm_v2_0_0_vs = RareLink_CDM_v2_0_0_ValueSets()
+RARELINK_CDM_V2_0_0_VS = RareLink_CDM_v2_0_0_ValueSets()
