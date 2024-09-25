@@ -3,7 +3,7 @@ from phenopackets.schema.v2 import phenopackets
 from phenopacket_mapper.data_standards import data_model
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.rarelink_cdm.rarelink_cdm_phenopackets_mapping import rarelink_cdm_multiple_fields
+from rarelink.rarelink_cdm import rarelink_cdm_multiple_fields
 
 
 def rarelink_cdm_phenopackets_mapping():
