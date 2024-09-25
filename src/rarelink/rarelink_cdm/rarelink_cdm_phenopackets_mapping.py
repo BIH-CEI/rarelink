@@ -1,19 +1,20 @@
 from pathlib import Path
 from phenopackets.schema.v2 import Phenopacket
+from phenopackets.schema.v2 import phenopackets
 from phenopacket_mapper.data_standards import data_model
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 from rarelink.rarelink_cdm import rarelink_cdm_multiple_fields
 
 
-def rarelink_cdm_Phenopacket_mapping():
+def rarelink_cdm_phenopacket_mapping():
     data_set = load_rarelink_data(Path)
 
     return PhenopacketMapper(
         data_set=data_set,
         id=data_model.pseudonym,
         subject=PhenopacketElement(
-            phenopacket_element=Phenopacket.Individual,
+            phenopacket_element=phenopackets.Individual,
             # (1) Formal Criteria
             id=data_model.pseudonym,
             time_at_last_encounter=data_model.date_of_admission,
@@ -23,7 +24,7 @@ def rarelink_cdm_Phenopacket_mapping():
             karyotypic_sex=data_model.karyotypic_sex,
             gender=data_model.gender_identity,
             vital_status=PhenopacketElement(
-                phenopacket_element=Phenopacket.VitalStatus,
+                phenopacket_element=phenopackets.VitalStatus,
                 status=data_model.vital_status,
                 time_of_death=data_model.time_of_death,
                 cause_of_death=data_model.cause_of_death,
@@ -32,7 +33,7 @@ def rarelink_cdm_Phenopacket_mapping():
         ),
         interpretations=[
             PhenopacketElement(
-                phenopacket_element=Phenopacket.Interpretation,
+                phenopacket_element=phenopackets.Interpretation,
                 id=getattr(data_model, f"pseudonym_{i}", None),
                 progress_status=getattr(data_model, f"progress_status_of_interpretation_{i}", None),
                 diagnosis=PhenopacketElement(
@@ -40,7 +41,7 @@ def rarelink_cdm_Phenopacket_mapping():
                     disease=getattr(data_model, f"genomic_diagnosis_{i}", None),
                     genomic_interpretations=[
                         PhenopacketElement(
-                            phenopacket_element=Phenopacket.GenomicInterpretation,
+                            phenopacket_element=phenopackets.GenomicInterpretation,
                             subject_or_biosample_id=getattr(data_model, f"pseudonym_{i}", None),
                             interpretation_status=PhenopacketElement(
                                 phenopacket_element=Phenopacket.InterpretationStatus,
@@ -49,27 +50,27 @@ def rarelink_cdm_Phenopacket_mapping():
                             call=PhenopacketElement(
                                 phenopacket_element=Phenopacket.VariationInterpretation,
                                 acmg_pathogenicity_classification=PhenopacketElement(
-                                    phenopacket_element=Phenopacket.AcmgPathogenicityClassification,
+                                    phenopacket_element=phenopackets.AcmgPathogenicityClassification,
                                     acmg_pathogenicity_classification=getattr(data_model, f"clinical_significance_acmg_{i}", None),
                                 ),
                                 therapeutic_actionability=PhenopacketElement(
-                                    phenopacket_element=Phenopacket.TherapeuticActionability,
+                                    phenopacket_element=phenopackets.TherapeuticActionability,
                                     therapeutic_actionability=getattr(data_model, f"therapeutic_actionability_{i}", None),
                                 ),
                                 variation_descriptor=PhenopacketElement(
-                                    phenopacket_element=Phenopacket.VariationDescriptor,
+                                    phenopacket_element=phenopackets.VariationDescriptor,
                                     vrs_ref_allele_seq=getattr(data_model, f"reference_genome_{i}", None),
                                     allelic_state=rarelink_cdm_multiple_fields.pref_zygosity_code([
                                         getattr(data_model, f"zygosity_{i}", None),
                                         getattr(data_model, f"zygosity_other_{i}", None)
                                     ]),  # Call pref_zygosity_code function
                                     extensions=PhenopacketElement(
-                                        phenopacket_element=Phenopacket.Extension,
+                                        phenopacket_element=phenopackets.Extension,
                                         name=getattr(data_model, f"genetic_mutation_string_{i}", None),
                                         value=getattr(data_model, f"genetic_mutation_string_{i}", None),
                                     ),
                                     expression=PhenopacketElement(
-                                        phenopacket_element=Phenopacket.Expression,
+                                        phenopacket_element=phenopackets.Expression,
                                         syntax="hgvs",
                                         value=rarelink_cdm_multiple_fields.pref_hgvs_code([
                                             getattr(data_model, f"genomic_dna_change_{i}", None),
@@ -78,7 +79,7 @@ def rarelink_cdm_Phenopacket_mapping():
                                         ]),  # Call pref_hgvs_code function
                                     ),
                                     gene_context=PhenopacketElement(
-                                        phenopacket_element=Phenopacket.GeneDescriptor,
+                                        phenopacket_element=phenopackets.GeneDescriptor,
                                         value_id=getattr(data_model, f"gene_{i}", None),
                                         symbol=getattr(data_model, f"gene_symbol_{i}", None),
                                     ),
@@ -94,7 +95,7 @@ def rarelink_cdm_Phenopacket_mapping():
         # Diseases list
         diseases=[
             PhenopacketElement(
-                phenopacket_element=Phenopacket.Disease,
+                phenopacket_element=phenopackets.Disease,
                 term=rarelink_cdm_multiple_fields.pref_code_disease([
                     getattr(data_model, f"disease_mondo_{i}", None),
                     getattr(data_model, f"disease_ordo_{i}", None),
@@ -123,7 +124,7 @@ def rarelink_cdm_Phenopacket_mapping():
         # Phenotypic features list
         phenotypic_features=[
             PhenopacketElement(
-                phenopacket_element=Phenopacket.PhenotypicFeature,
+                phenopacket_element=phenopackets.PhenotypicFeature,
                 type=getattr(data_model, f"phenotypic_feature_{i}", None),
                 onset=getattr(data_model, f"determination_date_{i}", None),
                 excluded=getattr(data_model, f"status_{i}", None),
