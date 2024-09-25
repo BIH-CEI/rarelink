@@ -97,52 +97,89 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
             )
             for i in range(n=9999)
         ],
-        diseases = [
-            PhenopacketElement(
-                phenopacket_element=phenopackets.Disease,
-                # (3) Patient Status
+        
+        diseases = []
+        for i in range(9999):
+     
+            mondo = getattr(data_model, f"disease_mondo_{i}", None)
+            ordo = getattr(data_model, f"disease_ordo_{i}", None)
+            omim = getattr(data_model, f"disease_omim_{i}", None)
+            icd10cm = getattr(data_model, f"disease_icd10cm_{i}", None)
+            icd11 = getattr(data_model, f"disease_icd11_{i}", None)
+            
+            if any([mondo, ordo, omim, icd10cm, icd11]):
+                disease_instance = PhenopacketElement(
+                    phenopacket_element=phenopackets.Disease,
+                    term=pref_code_disease([mondo, ordo, omim, icd10cm, icd11]),
+                    onset=pref_disease_onset([
+                        getattr(data_model, f"date_of_diagnosis_{i}", None),
+                        getattr(data_model, f"date_of_onset_{i}", None),
+                        getattr(data_model, f"age_at_onset_{i}", None),
+                    ]),
+                    excluded=getattr(data_model, f"verification_status_{i}", None),
+                    primary_site=getattr(data_model, f"body_site_{i}", None)
+                )
 
-              #  term=getattr(data_model, f"undiagnosed_rd_case_{i}", None),
-                # (5) Disease
-                term=getattr(data_model, f"disease_{i}", None),
-                excluded=getattr(data_model, f"verification_status_{i}", None),
-                onset=getattr(data_model, f"age_at_onset_{i}", None),
-                # onset=getattr(data_model, f"date_of_onset_{i}", None),
-                # onset=getattr(data_model, f"date_of_diagnosis_{i}", None),
-                primary_site=getattr(data_model, f"body_site_{i}", None)
-            )
-            for i in range(n=9999)
-        ],
-        phenotypic_features=[
-            PhenopacketElement(
-                phenopacket_element=phenopackets.PhenotypicFeature,
-                type=getattr(data_model, f"phenotypic_feature_{i}", None),
-                onset=getattr(data_model, f"determination_date_{i}", None),
-                excluded=getattr(data_model, f"status_{i}", None),
-                modifier=getattr(data_model, f"modifier_{i}", None),
-            )
-            for i in range(n=9999)
-        ],
-        family=[
-            PhenopacketElement(
-                phenopacket_element=phenopackets.Family,
-                id=data_model.family_history_pseudonym,
-            #    proband=data_model.propositus_a,
-                consanguinous_parents=data_model.consanguinity,
-                pedigree=[
-                    PhenopacketElement(
-                        phenopacket_element=phenopackets.Pedigree,
-                        persons=PhenopacketElement(
-                            phenopacket_element=phenopackets.Person,
-                            individual_id=data_model.family_member_pseudonym,
-                            paternal_id=data_model.family_member_relationship,
-                            maternal_id=data_model.family_member_relationship,
-                            sex=data_model.family_member_sex,
-                        )
-                    )
-                ],
-            )
-        ]
+                diseases.append(disease_instance)
+            
+            if not any([mondo, ordo, omim, icd10cm, icd11]):
+                break
+    
+        phenotypic_features = []
+
+        for i in range(9999):
+            phenotypic_feature = getattr(data_model, f"phenotypic_feature_{i}", None)
+            determination_date = getattr(data_model, f"determination_date_{i}", None)
+            status = getattr(data_model, f"status_{i}", None)
+
+            modifiers = []
+        
+            for j in range(1, 4):
+                hpo_modifier = getattr(data_model, f"modifier_hpo_{j}_{i}", None)
+                if hpo_modifier:
+                    modifiers.append(hpo_modifier)
+            for j in range(1, 4):
+                ncbitaxon_modifier = getattr(data_model, f"modifier_ncbitaxon_{j}_{i}", None)
+                if ncbitaxon_modifier:
+                    modifiers.append(ncbitaxon_modifier)
+            for j in range(1, 4):
+                snomed_modifier = getattr(data_model, f"modifier_snomed_{j}_{i}", None)
+                if snomed_modifier:
+                    modifiers.append(snomed_modifier)
+            
+            if phenotypic_feature:
+                phenotypic_feature_instance = PhenopacketElement(
+                    phenopacket_element=phenopackets.PhenotypicFeature,
+                    type=phenotypic_feature,
+                    onset=determination_date,
+                    excluded=status,
+                    modifier=modifiers if modifiers else None 
+                )
+                phenotypic_features.append(phenotypic_feature_instance)
+        
+            if not phenotypic_feature:
+                break
+
+        # family=[
+        #     PhenopacketElement(
+        #         phenopacket_element=phenopackets.Family,
+        #         id=data_model.family_history_pseudonym,
+        #     #    proband=data_model.propositus_a,
+        #         consanguinous_parents=data_model.consanguinity,
+        #         pedigree=[
+        #             PhenopacketElement(
+        #                 phenopacket_element=phenopackets.Pedigree,
+        #                 persons=PhenopacketElement(
+        #                     phenopacket_element=phenopackets.Person,
+        #                     individual_id=data_model.family_member_pseudonym,
+        #                     paternal_id=data_model.family_member_relationship,
+        #                     maternal_id=data_model.family_member_relationship,
+        #                     sex=data_model.family_member_sex,
+        #                 )
+        #             )
+        #         ],
+        #     )
+        # ]
     )
 
     # return phenopackets
