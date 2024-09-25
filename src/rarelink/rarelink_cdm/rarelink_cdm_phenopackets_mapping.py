@@ -1,19 +1,19 @@
 from pathlib import Path
-from phenopackets.schema.v2 import phenopackets
+from phenopackets.schema.v2 import Phenopacket
 from phenopacket_mapper.data_standards import data_model
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 from rarelink.rarelink_cdm import rarelink_cdm_multiple_fields
 
 
-def rarelink_cdm_phenopackets_mapping():
+def rarelink_cdm_Phenopacket_mapping():
     data_set = load_rarelink_data(Path)
 
     return PhenopacketMapper(
         data_set=data_set,
         id=data_model.pseudonym,
         subject=PhenopacketElement(
-            phenopacket_element=phenopackets.Individual,
+            phenopacket_element=Phenopacket.Individual,
             # (1) Formal Criteria
             id=data_model.pseudonym,
             time_at_last_encounter=data_model.date_of_admission,
@@ -23,7 +23,7 @@ def rarelink_cdm_phenopackets_mapping():
             karyotypic_sex=data_model.karyotypic_sex,
             gender=data_model.gender_identity,
             vital_status=PhenopacketElement(
-                phenopacket_element=phenopackets.VitalStatus,
+                phenopacket_element=Phenopacket.VitalStatus,
                 status=data_model.vital_status,
                 time_of_death=data_model.time_of_death,
                 cause_of_death=data_model.cause_of_death,
@@ -32,44 +32,44 @@ def rarelink_cdm_phenopackets_mapping():
         ),
         interpretations=[
             PhenopacketElement(
-                phenopacket_element=phenopackets.Interpretation,
+                phenopacket_element=Phenopacket.Interpretation,
                 id=getattr(data_model, f"pseudonym_{i}", None),
                 progress_status=getattr(data_model, f"progress_status_of_interpretation_{i}", None),
                 diagnosis=PhenopacketElement(
-                    phenopacket_element=phenopackets.Diagnosis,
+                    phenopacket_element=Phenopacket.Diagnosis,
                     disease=getattr(data_model, f"genomic_diagnosis_{i}", None),
                     genomic_interpretations=[
                         PhenopacketElement(
-                            phenopacket_element=phenopackets.GenomicInterpretation,
+                            phenopacket_element=Phenopacket.GenomicInterpretation,
                             subject_or_biosample_id=getattr(data_model, f"pseudonym_{i}", None),
                             interpretation_status=PhenopacketElement(
-                                phenopacket_element=phenopackets.InterpretationStatus,
+                                phenopacket_element=Phenopacket.InterpretationStatus,
                                 interpretation_status=getattr(data_model, f"interpretation_status_{i}", None),
                             ),
                             call=PhenopacketElement(
-                                phenopacket_element=phenopackets.VariationInterpretation,
+                                phenopacket_element=Phenopacket.VariationInterpretation,
                                 acmg_pathogenicity_classification=PhenopacketElement(
-                                    phenopacket_element=phenopackets.AcmgPathogenicityClassification,
+                                    phenopacket_element=Phenopacket.AcmgPathogenicityClassification,
                                     acmg_pathogenicity_classification=getattr(data_model, f"clinical_significance_acmg_{i}", None),
                                 ),
                                 therapeutic_actionability=PhenopacketElement(
-                                    phenopacket_element=phenopackets.TherapeuticActionability,
+                                    phenopacket_element=Phenopacket.TherapeuticActionability,
                                     therapeutic_actionability=getattr(data_model, f"therapeutic_actionability_{i}", None),
                                 ),
                                 variation_descriptor=PhenopacketElement(
-                                    phenopacket_element=phenopackets.VariationDescriptor,
+                                    phenopacket_element=Phenopacket.VariationDescriptor,
                                     vrs_ref_allele_seq=getattr(data_model, f"reference_genome_{i}", None),
                                     allelic_state=rarelink_cdm_multiple_fields.pref_zygosity_code([
                                         getattr(data_model, f"zygosity_{i}", None),
                                         getattr(data_model, f"zygosity_other_{i}", None)
                                     ]),  # Call pref_zygosity_code function
                                     extensions=PhenopacketElement(
-                                        phenopacket_element=phenopackets.Extension,
+                                        phenopacket_element=Phenopacket.Extension,
                                         name=getattr(data_model, f"genetic_mutation_string_{i}", None),
                                         value=getattr(data_model, f"genetic_mutation_string_{i}", None),
                                     ),
                                     expression=PhenopacketElement(
-                                        phenopacket_element=phenopackets.Expression,
+                                        phenopacket_element=Phenopacket.Expression,
                                         syntax="hgvs",
                                         value=rarelink_cdm_multiple_fields.pref_hgvs_code([
                                             getattr(data_model, f"genomic_dna_change_{i}", None),
@@ -78,7 +78,7 @@ def rarelink_cdm_phenopackets_mapping():
                                         ]),  # Call pref_hgvs_code function
                                     ),
                                     gene_context=PhenopacketElement(
-                                        phenopacket_element=phenopackets.GeneDescriptor,
+                                        phenopacket_element=Phenopacket.GeneDescriptor,
                                         value_id=getattr(data_model, f"gene_{i}", None),
                                         symbol=getattr(data_model, f"gene_symbol_{i}", None),
                                     ),
@@ -94,7 +94,7 @@ def rarelink_cdm_phenopackets_mapping():
         # Diseases list
         diseases=[
             PhenopacketElement(
-                phenopacket_element=phenopackets.Disease,
+                phenopacket_element=Phenopacket.Disease,
                 term=rarelink_cdm_multiple_fields.pref_code_disease([
                     getattr(data_model, f"disease_mondo_{i}", None),
                     getattr(data_model, f"disease_ordo_{i}", None),
@@ -123,7 +123,7 @@ def rarelink_cdm_phenopackets_mapping():
         # Phenotypic features list
         phenotypic_features=[
             PhenopacketElement(
-                phenopacket_element=phenopackets.PhenotypicFeature,
+                phenopacket_element=Phenopacket.PhenotypicFeature,
                 type=getattr(data_model, f"phenotypic_feature_{i}", None),
                 onset=getattr(data_model, f"determination_date_{i}", None),
                 excluded=getattr(data_model, f"status_{i}", None),
@@ -146,15 +146,15 @@ def rarelink_cdm_phenopackets_mapping():
 
        # family=[
         #     PhenopacketElement(
-        #         phenopacket_element=phenopackets.Family,
+        #         phenopacket_element=Phenopacket.Family,
         #         id=data_model.family_history_pseudonym,
         #     #    proband=data_model.propositus_a,
         #         consanguinous_parents=data_model.consanguinity,
         #         pedigree=[
         #             PhenopacketElement(
-        #                 phenopacket_element=phenopackets.Pedigree,
+        #                 phenopacket_element=Phenopacket.Pedigree,
         #                 persons=PhenopacketElement(
-        #                     phenopacket_element=phenopackets.Person,
+        #                     phenopacket_element=Phenopacket.Person,
         #                     individual_id=data_model.family_member_pseudonym,
         #                     paternal_id=data_model.family_member_relationship,
         #                     maternal_id=data_model.family_member_relationship,
