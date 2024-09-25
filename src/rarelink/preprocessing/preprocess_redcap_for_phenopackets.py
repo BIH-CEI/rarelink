@@ -182,6 +182,15 @@ def preprocess_redcap_for_phenopackets(
         resources=resources,
     )
 
+    def pref_zygosity_code(values):
+        zygosity, zygosity_other = values
+        if zygosity:
+            return zygosity
+        elif zygosity_other:
+            return zygosity_other
+        else:
+            raise ValueError("All values passed are None")
+
     # 6.1.14 Clinical Significance [ACMG]
     data_set.preprocess(
         fields=data_model.clinical_significance_acmg_,
