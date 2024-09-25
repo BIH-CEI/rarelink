@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Union, List
 from phenopackets.schema.v2 import Phenopacket
-from phenopackets.schema.v2 import phenopackets
+import phenopackets
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.preprocessing.preprocess_redcap_for_phenopackets import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
