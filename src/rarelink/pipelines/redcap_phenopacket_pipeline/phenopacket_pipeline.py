@@ -29,6 +29,5 @@ def rarelink_cdm_phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacke
     # 5. Return Phenopackets
     return phenopackets
 
-
     # return NotImplementedError
 
