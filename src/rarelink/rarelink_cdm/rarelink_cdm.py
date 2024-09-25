@@ -348,7 +348,7 @@ append_family_history_fields(RARELINK_CDM_V2_0_0)
 
 
 
-def load_rarelink_cdm_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0):
+def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0):
     return data_model.load_data(
         path,
         pseudonym_column="snomed_422549004",
