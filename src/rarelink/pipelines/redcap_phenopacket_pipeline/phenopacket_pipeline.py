@@ -43,7 +43,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 time_at_last_encounter=data_model.age_category,
             )
         ),
-        interpretations = [
+        interpretations=[
             PhenopacketElement(
                 phenopacket_element=phenopackets.Interpretation,
                 id=getattr(data_model, f"pseudonym_{i}", None),
@@ -102,72 +102,61 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 )
             )
             for i in range(9999)  # Assuming an upper bound
+        ],
+        
+        # Diseases list
+        diseases=[
+            PhenopacketElement(
+                phenopacket_element=phenopackets.Disease,
+                term=rarelink_cdm_multiple_fields.pref_code_disease([
+                    getattr(data_model, f"disease_mondo_{i}", None),
+                    getattr(data_model, f"disease_ordo_{i}", None),
+                    getattr(data_model, f"disease_omim_{i}", None),
+                    getattr(data_model, f"disease_icd10cm_{i}", None),
+                    getattr(data_model, f"disease_icd11_{i}", None)
+                ]),
+                onset=rarelink_cdm_multiple_fields.pref_disease_onset([
+                    getattr(data_model, f"date_of_diagnosis_{i}", None),
+                    getattr(data_model, f"date_of_onset_{i}", None),
+                    getattr(data_model, f"age_at_onset_{i}", None),
+                ]),
+                excluded=getattr(data_model, f"verification_status_{i}", None),
+                primary_site=getattr(data_model, f"body_site_{i}", None)
+            )
+            for i in range(9999)
+            if any([
+                getattr(data_model, f"disease_mondo_{i}", None),
+                getattr(data_model, f"disease_ordo_{i}", None),
+                getattr(data_model, f"disease_omim_{i}", None),
+                getattr(data_model, f"disease_icd10cm_{i}", None),
+                getattr(data_model, f"disease_icd11_{i}", None)
+            ])
+        ],
+
+        # Phenotypic features list
+        phenotypic_features=[
+            PhenopacketElement(
+                phenopacket_element=phenopackets.PhenotypicFeature,
+                type=getattr(data_model, f"phenotypic_feature_{i}", None),
+                onset=getattr(data_model, f"determination_date_{i}", None),
+                excluded=getattr(data_model, f"status_{i}", None),
+                modifier=[
+                    modifier
+                    for modifier in [
+                        getattr(data_model, f"modifier_hpo_{j}_{i}", None) for j in range(1, 4)
+                    ] + [
+                        getattr(data_model, f"modifier_ncbitaxon_{j}_{i}", None) for j in range(1, 4)
+                    ] + [
+                        getattr(data_model, f"modifier_snomed_{j}_{i}", None) for j in range(1, 4)
+                    ]
+                    if modifier
+                ] or None  # If no modifiers, pass None
+            )
+            for i in range(9999)
+            if getattr(data_model, f"phenotypic_feature_{i}", None)
         ]
-
-
-        diseases = []
-        for i in range(9999):
-     
-            mondo = getattr(data_model, f"disease_mondo_{i}", None)
-            ordo = getattr(data_model, f"disease_ordo_{i}", None)
-            omim = getattr(data_model, f"disease_omim_{i}", None)
-            icd10cm = getattr(data_model, f"disease_icd10cm_{i}", None)
-            icd11 = getattr(data_model, f"disease_icd11_{i}", None)
-            
-            if any([mondo, ordo, omim, icd10cm, icd11]):
-                disease_instance = PhenopacketElement(
-                    phenopacket_element=phenopackets.Disease,
-                    term=rarelink_cdm_multiple_fields.pref_code_disease([mondo, ordo, omim, icd10cm, icd11]),
-                    onset=rarelink_cdm_multiple_fields.ref_disease_onset([
-                        getattr(data_model, f"date_of_diagnosis_{i}", None),
-                        getattr(data_model, f"date_of_onset_{i}", None),
-                        getattr(data_model, f"age_at_onset_{i}", None),
-                    ]),
-                    excluded=getattr(data_model, f"verification_status_{i}", None),
-                    primary_site=getattr(data_model, f"body_site_{i}", None)
-                )
-
-                diseases.append(disease_instance)
-            
-            if not any([mondo, ordo, omim, icd10cm, icd11]):
-                break,
-    
-        phenotypic_features = []
-
-        for i in range(9999):
-            phenotypic_feature = getattr(data_model, f"phenotypic_feature_{i}", None)
-            determination_date = getattr(data_model, f"determination_date_{i}", None)
-            status = getattr(data_model, f"status_{i}", None)
-
-            modifiers = []
-        
-            for j in range(1, 4):
-                hpo_modifier = getattr(data_model, f"modifier_hpo_{j}_{i}", None)
-                if hpo_modifier:
-                    modifiers.append(hpo_modifier)
-            for j in range(1, 4):
-                ncbitaxon_modifier = getattr(data_model, f"modifier_ncbitaxon_{j}_{i}", None)
-                if ncbitaxon_modifier:
-                    modifiers.append(ncbitaxon_modifier)
-            for j in range(1, 4):
-                snomed_modifier = getattr(data_model, f"modifier_snomed_{j}_{i}", None)
-                if snomed_modifier:
-                    modifiers.append(snomed_modifier)
-            
-            if phenotypic_feature:
-                phenotypic_feature_instance = PhenopacketElement(
-                    phenopacket_element=phenopackets.PhenotypicFeature,
-                    type=phenotypic_feature,
-                    onset=determination_date,
-                    excluded=status,
-                    modifier=modifiers if modifiers else None 
-                )
-                phenotypic_features.append(phenotypic_feature_instance)
-        
-            if not phenotypic_feature:
-                break,
     )
-        # family=[
+       # family=[
         #     PhenopacketElement(
         #         phenopacket_element=phenopackets.Family,
         #         id=data_model.family_history_pseudonym,
