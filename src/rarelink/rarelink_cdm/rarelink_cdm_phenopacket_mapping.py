@@ -6,7 +6,7 @@ from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 from rarelink.rarelink_cdm.rarelink_cdm_phenopacket_mapping import rarelink_cdm_multiple_fields
 
 
-def rarelink_cdm_phenopacket_mapping():
+def rarelink_cdm_phenopackets_mapping():
     data_set = load_rarelink_data(Path)
 
     return PhenopacketMapper(
@@ -143,3 +143,25 @@ def rarelink_cdm_phenopacket_mapping():
             if getattr(data_model, f"phenotypic_feature_{i}", None)
         ]
     )
+
+       # family=[
+        #     PhenopacketElement(
+        #         phenopacket_element=phenopackets.Family,
+        #         id=data_model.family_history_pseudonym,
+        #     #    proband=data_model.propositus_a,
+        #         consanguinous_parents=data_model.consanguinity,
+        #         pedigree=[
+        #             PhenopacketElement(
+        #                 phenopacket_element=phenopackets.Pedigree,
+        #                 persons=PhenopacketElement(
+        #                     phenopacket_element=phenopackets.Person,
+        #                     individual_id=data_model.family_member_pseudonym,
+        #                     paternal_id=data_model.family_member_relationship,
+        #                     maternal_id=data_model.family_member_relationship,
+        #                     sex=data_model.family_member_sex,
+        #                 )
+        #             )
+        #         ],
+        #     )
+        # ]
+    
