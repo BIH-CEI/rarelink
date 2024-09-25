@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Union, List
 from phenopackets.schema.v2 import Phenopacket
+from phenopackets.schema.v2 import phenopackets
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.preprocessing.preprocess_redcap_for_phenopackets import preprocess_redcap_for_phenopackets
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
@@ -47,7 +48,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
                 id=getattr(data_model, f"pseudonym_{i}", None),
                 progress_status=getattr(data_model, f"progress_status_of_interpretation_{i}", None),
                 diagnosis=PhenopacketElement(
-                    phenopacket_element=phenopacket.Diagnosis,
+                    phenopacket_element=phenopackets.Diagnosis,
                     disease=getattr(data_model, f"genomic_diagnosis_{i}", None),
                     genomic_interpretations=[
                         PhenopacketElement(
@@ -124,7 +125,7 @@ def phenopacket_pipeline(path: Union[str, Path]) -> List[Phenopacket]:
         ],
         family=[
             PhenopacketElement(
-                phenopacket_element=phenopacket.Family,
+                phenopacket_element=phenopackets.Family,
                 id=data_model.family_history_pseudonym,
             #    proband=data_model.propositus_a,
                 consanguinous_parents=data_model.consanguinity,
