@@ -56,13 +56,14 @@ diseases.
 
 .. image:: ../images/rd_cdm_v2.0_overview.png
    :alt: Overview RD CDM v2.0
-   :width: 300px
-   :height: 200px
+   :width: 700px
+   :height: 500px
    :align: center
 
 
 Further Reading
 ---------------
-- `A common data model for rare diseases based on the ERDRI-CDS, HL7 FHIR, and the GA4GH Phenopackets Schema v2.0 <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_
+- `European Rare Disease Infrastructure Common Data Set (ERDRI-CDS) <https://www.erdri-cds.eu>`_
+- `A Common Data Model for Rare Diseases based on the ERDRI-CDS, HL7 FHIR, and the GA4GH Phenopackets Schema v2.0 <https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150>`_
 - `Review of Key Elements in Developing a Common Data Model for Rare Diseases: Identifying Common Success Factors <https://ebooks.iospress.nl/doi/10.3233/SHTI240672>`_
 
