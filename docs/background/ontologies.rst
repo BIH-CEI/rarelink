@@ -21,10 +21,13 @@ databases and platforms.
 
 Below you find the 
 
+teast 
+
 .. fields:: Ontologies Used in RareLink
-  :Human Phenotype Ontology (HPO) <https://hpo.jax.org/app/>`_: Standardized 
-    vocabulary of phenotypic abnormalities providing a global standard for 
-    describing disease traits.
+
+:Human Phenotype Ontology (HPO) <https://hpo.jax.org/app/>`_: Standardized 
+  vocabulary of phenotypic abnormalities providing a global standard for 
+  describing disease traits.
 
 +--------------------------+----------------------------------------------------+
 | Name                     | Description                                        |
