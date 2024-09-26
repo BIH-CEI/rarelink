@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ontologies and Terminologies &mdash; rarelink 0.0.1 documentation</title>
+  <title>1.2. Ontologies and Terminologies &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,7 +24,9 @@
         <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3. GA4GH Phenopacket Schema" href="3_ga4gh_phenopacket_schema.html" />
+    <link rel="prev" title="1.1. Rare Diseases and Interoperability" href="1_rd_interoperability.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,14 +49,26 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../rarelink/0_rarelink_file.html">RareLink</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/guide_file.html">RareLink User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples_file.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowlegements</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="1_0_background_file.html">1. Background</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_rd_interoperability.html">1.1. Rare Diseases and Interoperability</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. Ontologies and Terminologies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#codesystems-used-in-rarelink">1.2.1. Codesystems used in RareLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">1.2.2. Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_ga4gh_phenopacket_schema.html">1.3. GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_hl7_fhir.html">1.4. HL7 FHIR (Fast Healthcare Interoperability Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_rd_cdm.html">1.5. Rare Disease Common Data Model v2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_redcap.html">1.6. REDCap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">4. RareLink Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">5. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">6. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">7. Acknowlegements</a></li>
 </ul>
 
         </div>
@@ -71,7 +85,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Ontologies and Terminologies</li>
+          <li class="breadcrumb-item"><a href="1_0_background_file.html"><span class="section-number">1. </span>Background</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.2. </span>Ontologies and Terminologies</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/1_background/2_ontologies.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -82,7 +97,7 @@
            <div itemprop="articleBody">
              
   <section id="ontologies-and-terminologies">
-<h1>Ontologies and Terminologies<a class="headerlink" href="#ontologies-and-terminologies" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1.2. </span>Ontologies and Terminologies<a class="headerlink" href="#ontologies-and-terminologies" title="Link to this heading"></a></h1>
 <p>RareLink uses a variety of ontologies and terminologies to standardise the
 representation of data and facilitate interoperability between different data
 sources. These ontologies and terminologies are used to describe the phenotypic
@@ -102,7 +117,7 @@ aspects, including terms for conditions, procedures, and equipment, facilitating
 precise communication and supporting electronic health information exchange.</p></li>
 </ul>
 <section id="codesystems-used-in-rarelink">
-<h2>Codesystems used in RareLink<a class="headerlink" href="#codesystems-used-in-rarelink" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2.1. </span>Codesystems used in RareLink<a class="headerlink" href="#codesystems-used-in-rarelink" title="Link to this heading"></a></h2>
 <p>The following codesystems are used in the RareLink Core Framework:</p>
 <dl class="field-list simple">
 <dt class="field-odd"><a class="reference external" href="https://www.who.int/standards/classifications/classification-of-diseases">ICD-10 &amp; ICD-11</a><span class="colon">:</span></dt>
@@ -171,7 +186,7 @@ annotation components, enhancing sharing and analysis of genomic information.</p
 </div>
 </section>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2.2. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://academic.oup.com/nar/article/52/D1/D1333/7416384?login=false">The human phenotype ontology in 2021</a></p></li>
 <li><p><a class="reference external" href="https://doi.org/10.1186/gb-2005-6-5-r44">The Sequence Ontology: a tool for the unification of genome annotations</a></p></li>
@@ -190,7 +205,10 @@ annotation components, enhancing sharing and analysis of genomic information.</p
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_rd_interoperability.html" class="btn btn-neutral float-left" title="1.1. Rare Diseases and Interoperability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_ga4gh_phenopacket_schema.html" class="btn btn-neutral float-right" title="1.3. GA4GH Phenopacket Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

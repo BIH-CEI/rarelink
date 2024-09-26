@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-RareLink Documentation
-====================================
+Welcome to the RareLink REDCap Documentation!
+=============================================
 
 RareLink is a novel framework designed for managing and processing rare disease 
 (RD) data within the REDCap. Rare diseases affect over 260 million individuals 
@@ -18,15 +18,19 @@ GA4GH Phenopacket Schema.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :numbered:
 
-   1_background/0_background_file
-   2_rarelink/0_rarelink_file
-   installation/install_file
-   user_guide/guide_file
-   examples/examples_file
-   faq
-   glossary
-   acknowledgements
+   1_background/1_0_background_file
+   2_rarelink_framework/2_0_rarelink_file
+   3_installation/3_0_install_file
+   4_user_guide/4_0_guide_file
+   5_examples/5_0_examples_file
+   6_changelog
+   7_faq
+   8_glossary
+   9_acknowledgements
+
+
 
 
 Indices and tables

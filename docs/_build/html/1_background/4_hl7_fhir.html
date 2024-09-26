@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HL7 FHIR (Fast Healthcare Interoperability Resources) &mdash; rarelink 0.0.1 documentation</title>
+  <title>1.4. HL7 FHIR (Fast Healthcare Interoperability Resources) &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,7 +24,9 @@
         <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Rare Disease Common Data Model v2.0" href="5_rd_cdm.html" />
+    <link rel="prev" title="1.3. GA4GH Phenopacket Schema" href="3_ga4gh_phenopacket_schema.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,14 +49,25 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../rarelink/0_rarelink_file.html">RareLink</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/guide_file.html">RareLink User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples_file.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowlegements</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="1_0_background_file.html">1. Background</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_rd_interoperability.html">1.1. Rare Diseases and Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_ontologies.html">1.2. Ontologies and Terminologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ga4gh_phenopacket_schema.html">1.3. GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.4. HL7 FHIR (Fast Healthcare Interoperability Resources)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">1.4.1. Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_rd_cdm.html">1.5. Rare Disease Common Data Model v2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_redcap.html">1.6. REDCap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">4. RareLink Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">5. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">6. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">7. Acknowlegements</a></li>
 </ul>
 
         </div>
@@ -71,7 +84,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">HL7 FHIR (Fast Healthcare Interoperability Resources)</li>
+          <li class="breadcrumb-item"><a href="1_0_background_file.html"><span class="section-number">1. </span>Background</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.4. </span>HL7 FHIR (Fast Healthcare Interoperability Resources)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/1_background/4_hl7_fhir.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -82,7 +96,7 @@
            <div itemprop="articleBody">
              
   <section id="hl7-fhir-fast-healthcare-interoperability-resources">
-<h1>HL7 FHIR (Fast Healthcare Interoperability Resources)<a class="headerlink" href="#hl7-fhir-fast-healthcare-interoperability-resources" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1.4. </span>HL7 FHIR (Fast Healthcare Interoperability Resources)<a class="headerlink" href="#hl7-fhir-fast-healthcare-interoperability-resources" title="Link to this heading"></a></h1>
 <p>FHIR (Fast Healthcare Interoperability Resources) is an international standard
 developed by HL7 for exchanging healthcare information electronically. Initially
 designed as a transaction format to facilitate data exchanges between healthcare
@@ -115,7 +129,7 @@ systems. Its integration in RareLink ensures that data collected from rare
 disease patients can be reused effectively across various platforms, thereby
 supporting both clinical care and bioinformatic research into rare conditions.</p>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.4.1. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.nature.com/articles/s41746-019-0158-1">Why digital medicine depends on interoperability</a></p></li>
 <li><p><a class="reference external" href="https://academic.oup.com/jamia/article-abstract/29/9/1642/6639865">HL7 FHIR-based tools and initiatives to support clinical research: a scoping review</a></p></li>
@@ -128,7 +142,10 @@ supporting both clinical care and bioinformatic research into rare conditions.</
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_ga4gh_phenopacket_schema.html" class="btn btn-neutral float-left" title="1.3. GA4GH Phenopacket Schema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_rd_cdm.html" class="btn btn-neutral float-right" title="1.5. Rare Disease Common Data Model v2.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
