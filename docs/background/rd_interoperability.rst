@@ -40,9 +40,24 @@ provides a foundation for advancements in rare disease care, facilitating a
 future where more patients can receive timely diagnoses and access to effective 
 treatments.
 
+-  FAIR Data Principles: Designed to improve the automated discovery and 
+    usability of data by machines while also facilitating its reuse by 
+    individuals (Findable, Accessible, Interoperable, Reusable). 
+
+-  Interoperability: The ability of different systems, applications, or devices
+    to connect and communicate in a coordinated manner without requiring effort
+    from the end user.
+
+-  Syntactic Interoperability: The ability of systems to communicate through
+    compatible formats and protocols, such as JSON files, a format for sharing
+    data in key-value pairs and arrays, using human-readable text.
+
+-  Semantic Interoperability: Ensures a shared and precise interpretation of
+    medical data. Uniform data structuring and codification enhance 
+    machine-to-machine communication, improving accuracy and outcomes.
 
 +--------------------+--------------------------------------------------------+
-| Name (Abbreviation)| Definition                                             |
+| Name               | Definition                                             |
 +====================+========================================================+
 | FAIR Data          | Designed to improve the automated discovery and        |
 | Principles         | usability of data by machines while also facilitating  |
@@ -66,7 +81,6 @@ treatments.
 
 Further Reading
 ---------------
-- `Wilkinson et al., 2016 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`_
-- `Iroju, O., 2019 <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6516823/>`_
-- `Lehne M et al. (2019): Why Digital Medicine depends on Interoperability <https://www.nature.com/articles/s41746-019-0158-1>`_
+- `The FAIR Guiding Principles for scientific data management and stewardship (Wilkinson et al., 2016) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`_
+- `Why Digital Medicine depends on Interoperability (Lehne M et al., 2019) <https://www.nature.com/articles/s41746-019-0158-1>`_
 
