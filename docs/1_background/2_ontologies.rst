@@ -1,5 +1,5 @@
-Ontologies and Terminologies
-=============================
+Ontologies
+===========
 
 RareLink uses a variety of ontologies and terminologies to standardise the 
 representation of data and facilitate interoperability between different data 
@@ -9,17 +9,24 @@ well as the relationships between them. The use of standardised vocabularies
 ensures that data can be easily integrated and queried across different 
 databases and platforms.
 
-- An `ontology <https://www.sciencedirect.com/science/article/abs/pii/B9780444517876500039>`_
-  is a formal and explicit representations of the concepts and relationships 
-  within an area of healthcare designed to facilitate the organisation, 
-  integration, and exchange of knowledge across healthcare systems and 
-  applications.
-- `Terminologies <https://www.sciencedirect.com/science/article/pii/S1071581996900919>`_
-  encompass the vocabulary used in all healthcare communication and documentation 
-  aspects, including terms for conditions, procedures, and equipment, facilitating
-  precise communication and supporting electronic health information exchange.
+- **Terminology**:
+    refers to a collection of preferred or officially recognized 
+    terms within a specific domain. In the medical field, one of the most 
+    significant terminologies for information retrieval is the Medical Subject 
+    Headings (MeSH), which serves as a framework for indexing and searching 
+    literature in Medline.
 
-Codesystems used in RareLink
+- **Ontologies**:
+    ...on the other hand, go beyond mere vocabulary. They establish and define 
+    relationships between concepts, enabling computational reasoning and 
+    inference. 
+
+.. tip::
+    For more detail please read: `Classification, Ontology, and 
+    Precision Medicine (Haendel MA et al., 2018) <https://pubmed.ncbi.nlm.nih.gov/30304648/>`_
+
+
+Ontologies used in RareLink
 ----------------------------
 
 The following codesystems are used in the RareLink Core Framework:

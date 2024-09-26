@@ -21,20 +21,16 @@ complexity of some RD data, FHIR's widespread adoption ensures that RD data can
 be integrated with other healthcare information systems, making it easier to
 collaborate and share insights across various fields.
 
-RareLink incorporates FHIR to enhance its data processing capabilities, enabling
-the conversion of clinical and research data into FHIR-compatible formats. This
-allows data to be exported for use in registries, uploaded to FHIR servers, or
-adopted by other healthcare systems. By supporting FHIR, RareLink ensures
-that rare disease data can enrich routine healthcare datasets, helping to bridge
-the gap between clinical care and research. Additionally, the ability to process
-and export data into FHIR enables RD researchers to leverage existing FHIR
-tools, thereby expanding the utility of their data across different applications.
+The International Patient Summary (IPS) is a FHIR-based standard that aims to 
+provide a concise, standardized summary of a patient's key health information. 
+This summary is designed to facilitate seamless healthcare transitions, 
+particularly for patients with complex health needs, such as those with rare 
+diseases. By standardizing data elements such as medications, allergies, and 
+relevant medical history, the IPS enhances communication between international 
+healthcare providers. This is especially important for RD patients, as the 
+inherent data scarcity requires data exchange and research on an international
+level - such as by the [European Reference Networks (ERNs)](https://health.ec.europa.eu/rare-diseases-and-european-reference-networks_en).
 
-Although FHIR may not cover all the nuanced aspects required for in-depth RD
-analysis, it is indispensable for achieving interoperability within healthcare
-systems. Its integration in RareLink ensures that data collected from rare
-disease patients can be reused effectively across various platforms, thereby
-supporting both clinical care and bioinformatic research into rare conditions.
 
 Further Reading
 ---------------

@@ -40,6 +40,14 @@ provides a foundation for advancements in rare disease care, facilitating a
 future where more patients can receive timely diagnoses and access to effective 
 treatments.
 
+.. tip:: 
+    Read section on Rare Diseases in the article:
+     `Why Digital Medicine depends on Interoperability (Lehne M et al., 2019) <https://www.nature.com/articles/s41746-019-0158-1>`_
+
+
+Definitons
+----------
+
 -  FAIR Data Principles: 
     Designed to improve the automated discovery and usability of data by 
     machines while also facilitating its reuse by individuals 

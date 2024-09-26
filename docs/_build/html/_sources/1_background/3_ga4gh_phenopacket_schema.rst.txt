@@ -13,16 +13,50 @@ Phenopackets are widely adopted in bioinformatics pipelines to ensure the
 standardization of data across different institutions and studies, enhancing 
 data reusability and interoperability.
 
-RareLink integrates the Phenopacket schema to streamline RD data management by 
-ensuring that clinical and genomic data from patients are encoded in a 
-standardized format. By adopting this schema, RareLink allows for more precise 
-and seamless sharing of patient data across different healthcare institutions 
-and research projects. This integration helps overcome the challenge of 
-fragmented RD data, as Phenopackets offer a universal language for describing 
-the clinical characteristics of RD patients. In doing so, RareLink significantly
-enhances the bioinformatic output, making it easier to connect RD patient 
-registries with broader genomic research databases, improving the potential for
-discovering new therapies.
+.. tip:: 
+   Read the GA4GH Phenopacket Schema Paper here:
+      `The GA4GH Phenopacket schema defines a computable representation of clinical data <https://www.nature.com/articles/s41587-022-01357-4>`_
+
+
+Phenopacket Building Blocks
+---------------------------
+
+The GA4GH Phenopcaket Schema v2.0:
+
+.. image:: ../images/phenopacket-schema-v2.png
+   :alt: GA4GH Phenopacket Schema
+   :width: 1000px  
+   :height: 300px  
+   :align: center
+
+
+A Phenopacket characterizes an individual or biosample, linking it to detailed 
+phenotypic descriptions, genetic information, diagnoses, and treatments, all 
+structured as `building blocks <https://phenopacket-schema.readthedocs.io/en/latest/building-blocks.html>`_.
+These cover topics such as phenotype, medical actions, measurements, variant, 
+and pedigree, enabling a rich representation of data that can easily integrate 
+into larger schemas for specific use cases.
+
+Central to the Phenopacket schema is the `PhenotypicFeature <https://phenopacket-schema.readthedocs.io/en/latest/phenotype.html>`_,
+which describes various characteristics such as signs, symptoms, and laboratory 
+findings using ontology, like the Human Phenotype Ontology (HPO). The schema 
+also allows for the documentation of exclusions, severity, frequency, and onset 
+of features. Other essential components inclute `Measurement <https://phenopacket-schema.readthedocs.io/en/latest/measurement.html>`_,
+for capturing data, `Biosample <https://phenopacket-schema.readthedocs.io/en/latest/biosample.html>`_,
+for biological materials, and `MedicalAction <https://phenopacket-schema.readthedocs.io/en/latest/medical-action.html>`_, 
+which includes the hierarchical representation of medical interventions. 
+The `Treatment <https://phenopacket-schema.readthedocs.io/en/latest/treatment.html>`_
+element encompasses a range of therapeutic agents, from medications to advanced 
+therapies. Together, these building blocks create a comprehensive framework for 
+clinical information.
+
+.. note::
+   `Here you find the GA4GH Phenopacket Schema Documentation <https://phenopacket-schema.readthedocs.io/en/latest/index.html>`_
+
+
+
+Phenopacket Tools
+-----------------
 
 Several tools have been developed around the Phenopacket schema, supporting the 
 collection, analysis, and dissemination of RD data. Tools such as the 
@@ -34,20 +68,11 @@ have helped to broaden the impact of Phenopackets in RD research by promoting
 data accuracy, accessibility, and reusability across multiple platforms and 
 projects.
 
-The incorporation of the Phenopacket schema into RareLink has enabled 
-significant advancements in RD research by ensuring that high-quality, 
-standardized data is consistently captured, shared, and analyzed. This not only 
-facilitates collaboration between research centers and hospitals but also 
-accelerates the discovery of potential treatments by making data accessible to 
-bioinformaticians and clinicians worldwide. As more tools and frameworks are 
-built around the Phenopacket schema, the potential for breakthroughs in RD 
-diagnosis and treatment continues to grow.
 
-.. image:: ../images/phenopacket-schema-v2.png
-   :alt: GA4GH Phenopacket Schema
-   :width: 600px  
-   :height: 400px  
-   :align: center
+
+
+
+
 
 Further Reading
 ---------------
