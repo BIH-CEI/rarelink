@@ -40,19 +40,18 @@ provides a foundation for advancements in rare disease care, facilitating a
 future where more patients can receive timely diagnoses and access to effective 
 treatments.
 
--  FAIR Data Principles: Designed to improve the automated discovery and 
-    usability of data by machines while also facilitating its reuse by 
+-  FAIR Data Principles: Designed to improve the automated discovery and usability of data by machines while also facilitating its reuse by 
     individuals (Findable, Accessible, Interoperable, Reusable). 
 
 -  Interoperability: The ability of different systems, applications, or devices
     to connect and communicate in a coordinated manner without requiring effort
     from the end user.
 
--  Syntactic Interoperability: The ability of systems to communicate through
+.. Note:: Syntactic Interoperability: The ability of systems to communicate through
     compatible formats and protocols, such as JSON files, a format for sharing
     data in key-value pairs and arrays, using human-readable text.
 
--  Semantic Interoperability: Ensures a shared and precise interpretation of
+.. Note:: Semantic Interoperability: Ensures a shared and precise interpretation of
     medical data. Uniform data structuring and codification enhance 
     machine-to-machine communication, improving accuracy and outcomes.
 
