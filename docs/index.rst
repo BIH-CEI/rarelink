@@ -19,7 +19,8 @@ GA4GH Phenopacket Schema.
    :maxdepth: 2
    :caption: Contents:
 
-   background/background_file
+   1_background/0_background_file
+   2_rarelink/0_rarelink_file
    installation/install_file
    user_guide/guide_file
    examples/examples_file
