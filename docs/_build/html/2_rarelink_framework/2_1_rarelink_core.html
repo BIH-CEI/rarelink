@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RareLink Core &mdash; rarelink 0.0.1 documentation</title>
+  <title>2.1. RareLink Core &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -52,9 +52,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">1. Background</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="2_0_rarelink_file.html">2. RareLink Framework</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">RareLink Core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rarelink-and-hl7-fhir">RareLink and HL7 FHIR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rarelink-and-the-ga4gh-phenopacket-schema">RareLink and the GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. RareLink Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rarelink-and-the-rd-cdm">2.1.1. RareLink and the RD CDM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rarelink-and-hl7-fhir">2.1.1.1. RareLink and HL7 FHIR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rarelink-and-the-ga4gh-phenopacket-schema">2.1.1.2. RareLink and the GA4GH Phenopacket Schema</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">2.2. RareLink CDM Instruments</a></li>
@@ -85,7 +88,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="2_0_rarelink_file.html"><span class="section-number">2. </span>RareLink Framework</a></li>
-      <li class="breadcrumb-item active">RareLink Core</li>
+      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>RareLink Core</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/2_rarelink_framework/2_1_rarelink_core.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -96,7 +99,7 @@
            <div itemprop="articleBody">
              
   <section id="rarelink-core">
-<h1>RareLink Core<a class="headerlink" href="#rarelink-core" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2.1. </span>RareLink Core<a class="headerlink" href="#rarelink-core" title="Link to this heading"></a></h1>
 <p>RareLink maximizes the utility of REDCap by providing a comprehensive framework
 designed specifically for rare disease (RD) research and care. At the core of
 RareLink is the Rare Disease Common Data Model (RD CDM), which integrates
@@ -119,8 +122,27 @@ tool for rare disease data management. By leveraging the REDCap API and built-in
 tools, RareLink ensures that the data captured in REDCap can be seamlessly
 integrated into broader research ecosystems, maximizing its utility and
 interoperability for rare disease research and patient care.</p>
+<section id="rarelink-and-the-rd-cdm">
+<h2><span class="section-number">2.1.1. </span>RareLink and the RD CDM<a class="headerlink" href="#rarelink-and-the-rd-cdm" title="Link to this heading"></a></h2>
+<p>RareLink integrates this RD CDM v2.0 at its core, utilizing its REDCap sheets,
+instruments, and project setup to streamline data management processes. The
+native data processing pipelines within RareLink ensure that clinicians and
+researchers can generate Phenopackets and FHIR resources without needing
+additional coding or mapping. This seamless integration allows for immediate
+use of the system, saving time and effort while ensuring that data can be
+captured in a standard-compliant format from the start.</p>
+<p>By leveraging the RD CDM v2.0, RareLink provides a comprehensive platform for
+managing rare disease data. Its integration with FHIR and the GA4GH
+Phenopacket Schema allows for the processing and export of rare disease data
+into formats suitable for registry use and broader healthcare information
+systems. This makes RareLink a critical tool for ensuring that rare disease data
+is interoperable, reusable, and can be effectively utilized for research and
+clinical care. For disease-specific extensions around the RD CDM v2.0, RareLink
+provides a rule-based approach to customize REDCap instruments and
+ensure that the model can be adapted to meet the unique needs of different rare
+diseases.</p>
 <section id="rarelink-and-hl7-fhir">
-<h2>RareLink and HL7 FHIR<a class="headerlink" href="#rarelink-and-hl7-fhir" title="Link to this heading"></a></h2>
+<h3><span class="section-number">2.1.1.1. </span>RareLink and HL7 FHIR<a class="headerlink" href="#rarelink-and-hl7-fhir" title="Link to this heading"></a></h3>
 <p>RareLink incorporates FHIR to enhance its data processing capabilities, enabling
 the conversion of clinical and research data into FHIR-compatible formats. This
 allows data to be exported for use in registries, uploaded to FHIR servers, or
@@ -136,7 +158,7 @@ disease patients can be reused effectively across various platforms, thereby
 supporting both clinical care and bioinformatic research into rare conditions.</p>
 </section>
 <section id="rarelink-and-the-ga4gh-phenopacket-schema">
-<h2>RareLink and the GA4GH Phenopacket Schema<a class="headerlink" href="#rarelink-and-the-ga4gh-phenopacket-schema" title="Link to this heading"></a></h2>
+<h3><span class="section-number">2.1.1.2. </span>RareLink and the GA4GH Phenopacket Schema<a class="headerlink" href="#rarelink-and-the-ga4gh-phenopacket-schema" title="Link to this heading"></a></h3>
 <p>RareLink integrates the Phenopacket schema to streamline RD data management by
 ensuring that clinical and genomic data from patients are encoded in a
 standardized format. By adopting this schema, RareLink allows for more precise
@@ -147,6 +169,7 @@ the clinical characteristics of RD patients. In doing so, RareLink significantly
 enhances the bioinformatic output, making it easier to connect RD patient
 registries with broader genomic research databases, improving the potential for
 discovering new therapies.</p>
+</section>
 </section>
 </section>
 

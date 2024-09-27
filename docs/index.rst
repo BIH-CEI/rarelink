@@ -17,6 +17,7 @@ The documentation is structured as follows:
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :numbered:
 
    1_background/1_0_background_file
    2_rarelink_framework/2_0_rarelink_file
@@ -28,7 +29,7 @@ The documentation is structured as follows:
    8_glossary
    9_acknowledgements
    10_license
-   
+
 
 Indices and tables
 ==================

@@ -27,6 +27,28 @@ integrated into broader research ecosystems, maximizing its utility and
 interoperability for rare disease research and patient care.
 
 
+RareLink and the RD CDM
+------------------------
+
+RareLink integrates this RD CDM v2.0 at its core, utilizing its REDCap sheets,
+instruments, and project setup to streamline data management processes. The
+native data processing pipelines within RareLink ensure that clinicians and
+researchers can generate Phenopackets and FHIR resources without needing
+additional coding or mapping. This seamless integration allows for immediate
+use of the system, saving time and effort while ensuring that data can be
+captured in a standard-compliant format from the start.
+
+By leveraging the RD CDM v2.0, RareLink provides a comprehensive platform for
+managing rare disease data. Its integration with FHIR and the GA4GH
+Phenopacket Schema allows for the processing and export of rare disease data
+into formats suitable for registry use and broader healthcare information
+systems. This makes RareLink a critical tool for ensuring that rare disease data
+is interoperable, reusable, and can be effectively utilized for research and
+clinical care. For disease-specific extensions around the RD CDM v2.0, RareLink
+provides a rule-based approach to customize REDCap instruments and
+ensure that the model can be adapted to meet the unique needs of different rare
+diseases.
+
 
 RareLink and HL7 FHIR
 _____________________

@@ -13,6 +13,13 @@ involved overcoming challenges such as the lack of standardized terms for
 disease characteristics and the need to represent highly variable clinical data
 across different rare diseases.
 
+.. note::
+   The RD CDM v2.0 is not a balloted version, but it can serve as a template for
+   future standardization efforts in rare disease research.
+
+Key Success Factors of a Rare Disease Common Data Model
+-------------------------------------------------------
+
 Developing an RD CDM also requires balancing between complexity and
 usability. A successful model must be comprehensive enough to capture the
 nuances of each rare disease, yet simple enough to be adopted across various
@@ -35,24 +42,10 @@ rare disease research but also helps preserve the unique aspects of each
 condition. The RD CDM's flexibility allows it to evolve with the growing needs 
 of the rare disease community.
 
-RareLink integrates this RD CDM v2.0 at its core, utilizing its REDCap sheets,
-instruments, and project setup to streamline data management processes. The
-native data processing pipelines within RareLink ensure that clinicians and
-researchers can generate Phenopackets and FHIR resources without needing
-additional coding or mapping. This seamless integration allows for immediate
-use of the system, saving time and effort while ensuring that data can be
-captured in a standard-compliant format from the start.
+.. tip::
+   Read `Review of Key Elements in Developing a Common Data Model for Rare Diseases: Identifying Common Success Factors (Graefe ASL, et al. 2024) <https://ebooks.iospress.nl/doi/10.3233/SHTI240672>`_
 
-By leveraging the RD CDM v2.0, RareLink provides a comprehensive platform for
-managing rare disease data. Its integration with FHIR and the GA4GH
-Phenopacket Schema allows for the processing and export of rare disease data
-into formats suitable for registry use and broader healthcare information
-systems. This makes RareLink a critical tool for ensuring that rare disease data
-is interoperable, reusable, and can be effectively utilized for research and
-clinical care. For disease-specific extensions around the RD CDM v2.0, RareLink
-provides a rule-based approach to customize REDCap instruments and
-ensure that the model can be adapted to meet the unique needs of different rare
-diseases.
+
 
 .. image:: ../images/rd_cdm_v2.0_overview.png
    :alt: Overview RD CDM v2.0
