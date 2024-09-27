@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.6. REDCap &mdash; rarelink 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. RareLink Framework" href="../2_rarelink_framework/2_0_rarelink_file.html" />
+    <link rel="prev" title="1.5. Rare Disease Common Data Model v2.0" href="5_rd_cdm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rarelink
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="1_0_background_file.html">1. Background</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_rd_interoperability.html">1.1. Rare Diseases and Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_ontologies.html">1.2. Ontologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ga4gh_phenopacket_schema.html">1.3. GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_hl7_fhir.html">1.4. HL7 FHIR (Fast Healthcare Interoperability Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_rd_cdm.html">1.5. Rare Disease Common Data Model v2.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.6. REDCap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">1.6.1. Further Reading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_0_guide_file.html">4. RareLink User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_0_examples_file.html">5. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">6. RareLink Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">7. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">8. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">9. Acknowlegements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rarelink</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="1_0_background_file.html"><span class="section-number">1. </span>Background</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.6. </span>REDCap</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/1_background/6_redcap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="redcap">
+<h1><span class="section-number">1.6. </span>REDCap<a class="headerlink" href="#redcap" title="Link to this heading"></a></h1>
+<p>REDCap (Research Electronic Data Capture) is a web- and survey-based application
+designed to capture data and create databases and projects for clinical research
+by the Vanderbuilt University. As an open-source tool, REDCap has gained
+widespread adoption across university hospitals, research institutes, and other
+healthcare institutions due to its flexibility and cost-free availability. One
+of the primary advantages of REDCap is its ability to be hosted locally within
+the clinical information system of a hospital. This ensures that sensitive data
+captured through REDCap remains within the hospital’s infrastructure, enhancing
+data privacy and security.</p>
+<p>Although REDCap provides a highly flexible environment for data collection, it
+does not natively define or enforce standardized variables. This lack of native
+definitions for variables can lead to inconsistencies in data capture across
+different projects and institutions, potentially hindering data exchange and
+interoperability. To address these issues, a wide range of modules and add-ons
+have been designed and developed, allowing users to extend REDCap’s
+functionality and tailor it to specific research needs. The REDCap API also
+allows for seamless integration with external systems, enabling automated data
+transfers and further enhancing the platform’s utility in research environments.</p>
+<section id="further-reading">
+<h2><span class="section-number">1.6.1. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764586/">Research Electronic Data Capture (REDCap)</a></p></li>
+<li><p><a class="reference external" href="https://synapse.koreamed.org/articles/1147970">Research Development Using REDCap Software</a></p></li>
+<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1532046421002008">REDCap on FHIR: Clinical Data Interoperability Services</a></p></li>
+<li><p><a class="reference external" href="https://redcap.vanderbilt.edu/external_module_api.php">REDCap API Documentation</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/article/10.1186/s13023-023-02719-0">A systematic overview of rare disease patient registries: challenges in design, quality management, and maintenance</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_rd_cdm.html" class="btn btn-neutral float-left" title="1.5. Rare Disease Common Data Model v2.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../2_rarelink_framework/2_0_rarelink_file.html" class="btn btn-neutral float-right" title="2. RareLink Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
