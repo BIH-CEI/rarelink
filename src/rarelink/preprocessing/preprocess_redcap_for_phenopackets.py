@@ -7,7 +7,7 @@ from typing import List, Union
 from phenopacket_mapper.data_standards import DataSet
 from phenopacket_mapper.data_standards.code_system import CodeSystem
 from rarelink.preprocessing import preprocess_redcap_codes
-from rarelink.rarelink_cdm import rarelink_cdm_multiple_fields
+from rarelink.rarelink_cdm import RarelinkCdmMultipleFields
 
 def preprocess_redcap_for_phenopackets(
         data_set: DataSet,
@@ -89,7 +89,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.disease_icd11,
             data_model.disease_omim,
         ],
-        mapping=rarelink_cdm_multiple_fields.pref_code_disease,
+        mapping=RarelinkCdmMultipleFields.pref_code_disease,
         resources=resources,
     )
     
@@ -114,7 +114,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.date_of_onset,
             data_model.age_at_onset,
         ],
-        mapping=rarelink_cdm_multiple_fields.pref_disease_onset,
+        mapping=RarelinkCdmMultipleFields.pref_disease_onset,
         resources=resources,
     )
 
@@ -138,7 +138,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.c_HGVS,
             data_model.p_HGVS,
         ],
-        mapping=rarelink_cdm_multiple_fields.pref_hgvs_code,
+        mapping=RarelinkCdmMultipleFields.pref_hgvs_code,
         resources=resources,
     )
     # 6.1.11 Zygosity 
