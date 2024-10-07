@@ -1,13 +1,13 @@
 from pathlib import Path
 from phenopackets.schema.v2 import Phenopacket
 import phenopackets
-from phenopacket_mapper.data_standards import data_model
+from phenopacket_mapper.data_standards import data_model, DataSet
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper, PhenopacketElement
 from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.rarelink_cdm import RarelinkCdmMultipleFields
+from rarelink.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
 
 
-def rarelink_cdm_phenopackets_mapping():
+def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:
     data_set = load_rarelink_data(Path)
 
     return PhenopacketMapper(
@@ -60,7 +60,7 @@ def rarelink_cdm_phenopackets_mapping():
                                 variation_descriptor=PhenopacketElement(
                                     phenopacket_element=phenopackets.VariationDescriptor,
                                     vrs_ref_allele_seq=getattr(data_model, f"reference_genome_{i}", None),
-                                    allelic_state=RarelinkCdmMultipleFields.pref_zygosity_code([
+                                    allelic_state=pref_zygosity_code([
                                         getattr(data_model, f"zygosity_{i}", None),
                                         getattr(data_model, f"zygosity_other_{i}", None)
                                     ]),  # Call pref_zygosity_code function
@@ -72,7 +72,7 @@ def rarelink_cdm_phenopackets_mapping():
                                     expression=PhenopacketElement(
                                         phenopacket_element=phenopackets.Expression,
                                         syntax="hgvs",
-                                        value=RarelinkCdmMultipleFields.pref_hgvs_code([
+                                        value=pref_hgvs_code([
                                             getattr(data_model, f"genomic_dna_change_{i}", None),
                                             getattr(data_model, f"sequence_dna_change_{i}", None),
                                             getattr(data_model, f"amino_acid_dna_change_{i}", None)
@@ -96,14 +96,14 @@ def rarelink_cdm_phenopackets_mapping():
         diseases=[
             PhenopacketElement(
                 phenopacket_element=phenopackets.Disease,
-                term=RarelinkCdmMultipleFields.pref_code_disease([
+                term=pref_code_disease([
                     getattr(data_model, f"disease_mondo_{i}", None),
                     getattr(data_model, f"disease_ordo_{i}", None),
                     getattr(data_model, f"disease_omim_{i}", None),
                     getattr(data_model, f"disease_icd10cm_{i}", None),
                     getattr(data_model, f"disease_icd11_{i}", None)
                 ]),
-                onset=RarelinkCdmMultipleFields.pref_disease_onset([
+                onset=pref_disease_onset([
                     getattr(data_model, f"date_of_diagnosis_{i}", None),
                     getattr(data_model, f"date_of_onset_{i}", None),
                     getattr(data_model, f"age_at_onset_{i}", None),
