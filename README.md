@@ -72,7 +72,7 @@ Instructions on how to set up and run your project locally please read the docs
 here(tbc). To provide a short overview:
 1. Set up your local REDCap license and project, if desired using RareLink's 
 project set up
-2. Install packages necessary and activate REDCAp API for you project
+2. Install packages necessary and activate REDCap API for you project
 3. Run the installation packages defined for the specific functionalities
 you want to use linked to your local REDCap API.
 4. Run the functionalities you need to generate HL7 FHIR resources 
