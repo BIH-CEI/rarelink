@@ -1,13 +1,9 @@
-
-
-import pandas as pd
-from pathlib import Path
-from typing import List, Union
+from typing import List
 
 from phenopacket_mapper.data_standards import DataSet
 from phenopacket_mapper.data_standards.code_system import CodeSystem
 from rarelink.preprocessing import preprocess_redcap_codes
-from rarelink.rarelink_cdm import RarelinkCdmMultipleFields
+from rarelink.rarelink_cdm import pref_hgvs_code, pref_code_disease, pref_disease_onset
 
 def preprocess_redcap_for_phenopackets(
         data_set: DataSet,
@@ -15,7 +11,8 @@ def preprocess_redcap_for_phenopackets(
 ):
     """Preprocess REDCap data for the phenopacket pipeline.
 
-    :param ds: A pandas DataFrame with REDCap data loaded in the Rarelink data model.
+    :param data_set: A pandas DataFrame with REDCap data loaded in the Rarelink data model.
+    :param resources: A list of CodeSystem resources.
     """
     data_model = data_set.data_model
 
@@ -89,7 +86,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.disease_icd11,
             data_model.disease_omim,
         ],
-        mapping=RarelinkCdmMultipleFields.pref_code_disease,
+        mapping=pref_code_disease,
         resources=resources,
     )
     
@@ -114,7 +111,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.date_of_onset,
             data_model.age_at_onset,
         ],
-        mapping=RarelinkCdmMultipleFields.pref_disease_onset,
+        mapping=pref_disease_onset,
         resources=resources,
     )
 
@@ -138,7 +135,7 @@ def preprocess_redcap_for_phenopackets(
             data_model.c_HGVS,
             data_model.p_HGVS,
         ],
-        mapping=RarelinkCdmMultipleFields.pref_hgvs_code,
+        mapping=pref_hgvs_code,
         resources=resources,
     )
     # 6.1.11 Zygosity 
