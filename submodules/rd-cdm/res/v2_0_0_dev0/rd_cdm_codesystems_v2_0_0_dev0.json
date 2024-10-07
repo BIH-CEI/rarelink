@@ -1,0 +1,188 @@
+{
+  "version": "v2_0_0_dev0",
+  "CodeSystems": [
+    {
+      "codeSystemName": "NCBI organismal classification",
+      "namespace_prefix": "NCBITaxon",
+      "version": "2024-07-03",
+      "url": "https://www.ncbi.nlm.nih.gov/taxonomy",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "GENO: The Genotype Ontology",
+      "namespace_prefix": "GENO",
+      "version": "2023-10-08",
+      "url": "http://www.genoontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Sequence types and features ontology",
+      "namespace_prefix": "SO",
+      "version": "2.6",
+      "url": "http://www.sequenceontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Ninth Revision",
+      "namespace_prefix": "ICD9",
+      "version": "unknown",
+      "url": "https://www.cdc.gov/nchs/icd/icd9.htm",
+      "synonyms": [
+        "ICD-9",
+        "ICD_9"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Tenth Revision, German Modification",
+      "namespace_prefix": "ICD10GM",
+      "version": "unknown",
+      "url": "https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html",
+      "synonyms": [
+        "ICD10-GM",
+        "ICD-10-GM",
+        "ICD10_GM",
+        "ICD_10_GM"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Tenth Revision, Clinical Modification",
+      "namespace_prefix": "ICD10CM",
+      "version": "2024-09-01",
+      "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+      "synonyms": [
+        "ICD10-CM",
+        "ICD10_CM",
+        "ICD-10-CM",
+        "ICD_10_CM"
+      ]
+    },
+    {
+      "codeSystemName": "SNOMED",
+      "namespace_prefix": "SNOMED",
+      "version": "2024-09-01",
+      "url": "https://www.snomed.org/snomed-ct",
+      "synonyms": [
+        "SCT",
+        "SNOMED CT"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Eleventh Revision",
+      "namespace_prefix": "ICD11",
+      "version": "2024-09-01",
+      "url": "https://icd.who.int/en",
+      "synonyms": [
+        "ICD-11"
+      ]
+    },
+    {
+      "codeSystemName": "Health Level 7 Fast Healthcare Interoperability Resources",
+      "namespace_prefix": "HL7FHIR",
+      "version": "v4.0.1",
+      "url": "https://www.hl7.org/fhir/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Global Alliance for Genomics and Health Phenopacket Schema v2.0",
+      "namespace_prefix": "GA4GH",
+      "version": "v2.0",
+      "url": "https://www.ga4gh.org/product/phenopackets/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+      "namespace_prefix": "ISO3166",
+      "version": "2020(en)",
+      "url": "https://www.iso.org/iso-3166-country-codes.html",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "International Classification of Functioning, Disability and Health",
+      "namespace_prefix": "ICF",
+      "version": "1.0.2",
+      "url": "https://www.who.int/classifications/icf/en/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Monarch Disease Ontology",
+      "namespace_prefix": "MONDO",
+      "version": "2024-09-03",
+      "url": "http://purl.obolibrary.org/obo/mondo.owl",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Orphanet Rare Disease Ontology",
+      "namespace_prefix": "ORDO",
+      "version": "2024-09-12",
+      "url": "http://www.orpha.net/",
+      "synonyms": [
+        "ORPHA"
+      ]
+    },
+    {
+      "codeSystemName": "Online Mendelian Inheritance",
+      "namespace_prefix": "OMIM",
+      "version": "2024-09-12",
+      "url": "https://omim.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Logical Observation Identifiers Names and Codes",
+      "namespace_prefix": "LOINC",
+      "version": "2.78",
+      "url": "https://loinc.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Human Genome Variation Society",
+      "namespace_prefix": "HGVS",
+      "version": "21.0.0",
+      "url": "http://varnomen.hgvs.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "HUGO Gene Nomenclature Committee",
+      "namespace_prefix": "HGNC",
+      "version": "2024-08-23",
+      "url": "https://www.genenames.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Human Phenotype Ontology",
+      "namespace_prefix": "HP",
+      "version": "2024-08-13",
+      "url": "http://www.human-phenotype-ontology.org",
+      "synonyms": [
+        "HPO"
+      ]
+    },
+    {
+      "codeSystemName": "Units of Measurement Ontology",
+      "namespace_prefix": "UO",
+      "version": "2024-09-12",
+      "url": "http://www.ontobee.org/ontology/UO",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "NCI Thesaurus OBO Edition",
+      "namespace_prefix": "NCIT",
+      "version": "24.04e",
+      "url": "https://ncit.nci.nih.gov/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Evidence & Conclusion Ontology (ECO)",
+      "namespace_prefix": "ECO",
+      "version": "unknown",
+      "url": "https://www.evidenceontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Custom Code System RD CDM v2.0.0",
+      "namespace_prefix": "CustomCode",
+      "version": "unknown",
+      "url": "https://github.com/BIH-CEI/rd-cdm",
+      "synonyms": []
+    }
+  ]
+}

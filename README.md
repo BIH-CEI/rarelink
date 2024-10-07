@@ -4,7 +4,6 @@ Rare Disease Interoperability Framework in REDCap linking Registry Use, HL7 FHIR
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 
-
 [Stable Documentation](https://rarelink.readthedocs.io/en/stable/)  
 [Latest Documentation](https://rarelink.readthedocs.io/en/latest/) 
 
@@ -129,9 +128,10 @@ disease research and care.
 - NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
+- [RD-CDM](https://github.com/BIH-CEI/rd-cdm)
 - [toFHIR](https://github.com/srdc/tofhir?tab=readme-ov-file)
 - [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
-- [OntoBridge](https://github.com/InformaticaClinica/OntoBridge)
+
 
 ## License
 

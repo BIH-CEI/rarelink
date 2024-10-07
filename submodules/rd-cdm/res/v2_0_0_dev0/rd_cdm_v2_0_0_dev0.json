@@ -1,0 +1,3608 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Schema RD CDM Data Model",
+  "version": "v2_0_0_dev0",
+  "description": "The ontology-based Rare Disease Common Data Model (RD CDM) to enable international registry use, HL7 FHIR, and GA4GH Phenopackets.",
+  "metadata": {
+    "author": "Author Name",
+    "creationDate": "2024-10-03"
+  },
+  "codeSystems": [
+    {
+      "codeSystemName": "NCBI organismal classification",
+      "namespace_prefix": "NCBITaxon",
+      "version": "2024-07-03",
+      "url": "https://www.ncbi.nlm.nih.gov/taxonomy",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "GENO: The Genotype Ontology",
+      "namespace_prefix": "GENO",
+      "version": "2023-10-08",
+      "url": "http://www.genoontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Sequence types and features ontology",
+      "namespace_prefix": "SO",
+      "version": "2.6",
+      "url": "http://www.sequenceontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Ninth Revision",
+      "namespace_prefix": "ICD9",
+      "version": "unknown",
+      "url": "https://www.cdc.gov/nchs/icd/icd9.htm",
+      "synonyms": [
+        "ICD-9",
+        "ICD_9"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Tenth Revision, German Modification",
+      "namespace_prefix": "ICD10GM",
+      "version": "unknown",
+      "url": "https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html",
+      "synonyms": [
+        "ICD10-GM",
+        "ICD-10-GM",
+        "ICD10_GM",
+        "ICD_10_GM"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Tenth Revision, Clinical Modification",
+      "namespace_prefix": "ICD10CM",
+      "version": "2024-09-01",
+      "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+      "synonyms": [
+        "ICD10-CM",
+        "ICD10_CM",
+        "ICD-10-CM",
+        "ICD_10_CM"
+      ]
+    },
+    {
+      "codeSystemName": "SNOMED",
+      "namespace_prefix": "SNOMED",
+      "version": "2024-09-01",
+      "url": "https://www.snomed.org/snomed-ct",
+      "synonyms": [
+        "SCT",
+        "SNOMED CT"
+      ]
+    },
+    {
+      "codeSystemName": "International Classification of Diseases, Eleventh Revision",
+      "namespace_prefix": "ICD11",
+      "version": "2024-09-01",
+      "url": "https://icd.who.int/en",
+      "synonyms": [
+        "ICD-11"
+      ]
+    },
+    {
+      "codeSystemName": "Health Level 7 Fast Healthcare Interoperability Resources",
+      "namespace_prefix": "HL7FHIR",
+      "version": "v4.0.1",
+      "url": "https://www.hl7.org/fhir/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Global Alliance for Genomics and Health Phenopacket Schema v2.0",
+      "namespace_prefix": "GA4GH",
+      "version": "v2.0",
+      "url": "https://www.ga4gh.org/product/phenopackets/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+      "namespace_prefix": "ISO3166",
+      "version": "2020(en)",
+      "url": "https://www.iso.org/iso-3166-country-codes.html",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "International Classification of Functioning, Disability and Health",
+      "namespace_prefix": "ICF",
+      "version": "1.0.2",
+      "url": "https://www.who.int/classifications/icf/en/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Monarch Disease Ontology",
+      "namespace_prefix": "MONDO",
+      "version": "2024-09-03",
+      "url": "http://purl.obolibrary.org/obo/mondo.owl",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Orphanet Rare Disease Ontology",
+      "namespace_prefix": "ORDO",
+      "version": "2024-09-12",
+      "url": "http://www.orpha.net/",
+      "synonyms": [
+        "ORPHA"
+      ]
+    },
+    {
+      "codeSystemName": "Online Mendelian Inheritance",
+      "namespace_prefix": "OMIM",
+      "version": "2024-09-12",
+      "url": "https://omim.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Logical Observation Identifiers Names and Codes",
+      "namespace_prefix": "LOINC",
+      "version": "2.78",
+      "url": "https://loinc.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Human Genome Variation Society",
+      "namespace_prefix": "HGVS",
+      "version": "21.0.0",
+      "url": "http://varnomen.hgvs.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "HUGO Gene Nomenclature Committee",
+      "namespace_prefix": "HGNC",
+      "version": "2024-08-23",
+      "url": "https://www.genenames.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Human Phenotype Ontology",
+      "namespace_prefix": "HP",
+      "version": "2024-08-13",
+      "url": "http://www.human-phenotype-ontology.org",
+      "synonyms": [
+        "HPO"
+      ]
+    },
+    {
+      "codeSystemName": "Units of Measurement Ontology",
+      "namespace_prefix": "UO",
+      "version": "2024-09-12",
+      "url": "http://www.ontobee.org/ontology/UO",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "NCI Thesaurus OBO Edition",
+      "namespace_prefix": "NCIT",
+      "version": "24.04e",
+      "url": "https://ncit.nci.nih.gov/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Evidence & Conclusion Ontology (ECO)",
+      "namespace_prefix": "ECO",
+      "version": "unknown",
+      "url": "https://www.evidenceontology.org/",
+      "synonyms": []
+    },
+    {
+      "codeSystemName": "Custom Code System RD CDM v2.0.0",
+      "namespace_prefix": "CustomCode",
+      "version": "unknown",
+      "url": "https://github.com/BIH-CEI/rd-cdm",
+      "synonyms": []
+    }
+  ],
+  "dataElements": [
+    {
+      "ordinal": "1.1",
+      "section": "1. Formal Criteria",
+      "elementName": "Pseudonym",
+      "elementCode": "422549004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Identifier",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Patient.identifier.value",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Individual.id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The (local) patient-related identification code."
+    },
+    {
+      "ordinal": "1.2",
+      "section": "1. Formal Criteria",
+      "elementName": "Date of Admission",
+      "elementCode": "399423000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Encounter.period.start",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Individual.time_at_last_encounter",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The date of admission or data capture of the individual."
+    },
+    {
+      "ordinal": "2.1",
+      "section": "2. Personal Information",
+      "elementName": "Date of Birth",
+      "elementCode": "184099003",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY",
+        "YYYY-MM",
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Patient.birthDate",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Individual.date_of_birth",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The individual's date of birth."
+    },
+    {
+      "ordinal": "2.2",
+      "section": "2. Personal Information",
+      "elementName": "Sex at Birth",
+      "elementCode": "281053000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Sex at Birth Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Patient.extension:individual-recordedSexOrGender",
+      "recommendedDataSpec_fhir": "Recorded Sex Or Gender Type",
+      "phenopacketSchemaElement_v2_0": "Individual.sex",
+      "recommendedDataSpec_phenopackets": "Sex",
+      "description": "The individual's sex that was assigned at birth."
+    },
+    {
+      "ordinal": "2.3",
+      "section": "2. Personal Information",
+      "elementName": "Karyotypic Sex",
+      "elementCode": "1296886006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSc"
+      ],
+      "valueSet": "Karyotypic Sex Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.value",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Individual.karyotypic_sex",
+      "recommendedDataSpec_phenopackets": "Karyotypic Sex",
+      "description": "The chromosomal sex of an individual."
+    },
+    {
+      "ordinal": "2.4",
+      "section": "2. Personal Information",
+      "elementName": "Gender Identity",
+      "elementCode": "263495000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Gender Identity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Patient.extension:individual-genderIdentity",
+      "recommendedDataSpec_fhir": "Gender Identity",
+      "phenopacketSchemaElement_v2_0": "Individual.gender",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The self-assigned gender of the individual."
+    },
+    {
+      "ordinal": "2.5",
+      "section": "2. Personal Information",
+      "elementName": "Country of Birth",
+      "elementCode": "370159000",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Patient.extension:patient-birthPlace",
+      "recommendedDataSpec_fhir": "DataType: Address",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The individual's country of birth."
+    },
+    {
+      "ordinal": "3.1",
+      "section": "3. Patient Status",
+      "elementName": "Vital Status",
+      "elementCode": "278844005",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Vital Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Patient.deceased.deceasedBoolean|Observation.value",
+      "recommendedDataSpec_fhir": "Boolean|Code",
+      "phenopacketSchemaElement_v2_0": "Individual.VitalStatus.status",
+      "recommendedDataSpec_phenopackets": "Value Set: VitalStatus.Status",
+      "description": "The individual\u2019s general clinical status orvital status."
+    },
+    {
+      "ordinal": "3.2",
+      "section": "3. Patient Status",
+      "elementName": "Time of Death",
+      "elementCode": "398299004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY",
+        "YYYY-MM",
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Patient.deceasedDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "Individual.VitalStatus.time_of_death",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "If deceased, the individual\u2019s date of death."
+    },
+    {
+      "ordinal": "3.3",
+      "section": "3. Patient Status",
+      "elementName": "Cause of Death",
+      "elementCode": "184305005",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ICD-10CM"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Observation.value.coding.code",
+      "recommendedDataSpec_fhir": "Code|CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "Individual.VitalStatus.cause_of_death",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "If deceased, the individual\u2019s primary cause of death."
+    },
+    {
+      "ordinal": "3.4",
+      "section": "3. Patient Status",
+      "elementName": "Age Category",
+      "elementCode": "105727008",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Age Category Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.value.coding.code",
+      "recommendedDataSpec_fhir": "CodableConcept",
+      "phenopacketSchemaElement_v2_0": "Individual.time_at_last_encounter",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The individual's age category at thetime of data capture."
+    },
+    {
+      "ordinal": "3.5",
+      "section": "3. Patient Status",
+      "elementName": "Length of Gestation at Birth [weeks+days]",
+      "elementCode": "412726003",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "String",
+      "dataSpecification": [
+        "XX+X"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Observation.component:weeks.valueQuantity|Observation.component:days.valueQuantity",
+      "recommendedDataSpec_fhir": "Quantity",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The duration of the pregnancy in weeks and days,formatted as XX+X (weeks+days)."
+    },
+    {
+      "ordinal": "3.6",
+      "section": "3. Patient Status",
+      "elementName": "Undiagnosed RD Case",
+      "elementCode": "723663001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Undiagnosed RD Case Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "(Condition.code)",
+      "recommendedDataSpec_fhir": "Code(e.g. ORDO:616874 - Rare disorderwithout a determined diagnosis afterfull investigation)",
+      "phenopacketSchemaElement_v2_0": "(Disease.term)",
+      "recommendedDataSpec_phenopackets": "(OntologyClass (e.g. ORDO:616874 - Rare disorder without a determineddiagnosis after full investigation))",
+      "description": "Identifies cases where an RD diagnosis has notbeen established."
+    },
+    {
+      "ordinal": "4.1",
+      "section": "4. Care Pathway",
+      "elementName": "Encounter Start",
+      "elementCode": "encounter.period.start",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Encounter.period.start",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The beginning of an encounter of the individual."
+    },
+    {
+      "ordinal": "4.2",
+      "section": "4. Care Pathway",
+      "elementName": "Encounter End",
+      "elementCode": "encounter.period.end",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": null,
+      "fhirExpression_v4_0_1": "Encounter.period.end",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The end of an encounter of the individual."
+    },
+    {
+      "ordinal": "4.3",
+      "section": "4. Care Pathway",
+      "elementName": "Encounter Status",
+      "elementCode": "305058001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Encounter Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Encounter.status",
+      "recommendedDataSpec_fhir": "ValueSet: EncounterStatus",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The status of an encounter of the individual at thetime of data capture."
+    },
+    {
+      "ordinal": "4.4",
+      "section": "4. Care Pathway",
+      "elementName": "Encounter Class",
+      "elementCode": "encounter.class",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Encounter Class Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Encounter.class",
+      "recommendedDataSpec_fhir": "ValueSet: EncounterClass",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The class of an encounter of the individualat the time of data capture."
+    },
+    {
+      "ordinal": "5.1",
+      "section": "5. Disease",
+      "elementName": "Disease",
+      "elementCode": "64572001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "Ontology Class (MONDO, ORDO, ICD-10, ICD-11, OMIM_g, OMIM_p)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Condition.code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "Disease.term",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "A disease that the individual was affected by. If agenetic diagnosis or subtypes were diagnosed, pleasealso provide the respective OMIM_g and OMIM_p codes."
+    },
+    {
+      "ordinal": "5.2",
+      "section": "5. Disease",
+      "elementName": "Verification Status",
+      "elementCode": "99498-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Verification Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.verificationStatus",
+      "recommendedDataSpec_fhir": "ValueSet: Condition Verficication Status",
+      "phenopacketSchemaElement_v2_0": "(Disease.excluded)",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The verification status of the disease."
+    },
+    {
+      "ordinal": "5.3",
+      "section": "5. Disease",
+      "elementName": "Age at Onset",
+      "elementCode": "424850005",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Age at Onset Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.onsetString orObservation.valueCodeableConcept",
+      "recommendedDataSpec_fhir": "Disease.onset",
+      "phenopacketSchemaElement_v2_0": "Disease.onset",
+      "recommendedDataSpec_phenopackets": "Disease.onset",
+      "description": "The age at the onset of the first symptomsor signs of the disease."
+    },
+    {
+      "ordinal": "5.4",
+      "section": "5. Disease",
+      "elementName": "Date of Onset",
+      "elementCode": "298059007",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Condition.onset",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "Disease.onset",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The date at onset of first symptoms orsigns of the disease."
+    },
+    {
+      "ordinal": "5.5",
+      "section": "5. Disease",
+      "elementName": "Age at Diagnosis",
+      "elementCode": "423493009",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Age at Diagnosis Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.value",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "(Disease.onset)",
+      "recommendedDataSpec_phenopackets": "(TimeElement)",
+      "description": "The individual\u2019s age when the diagnosis was made."
+    },
+    {
+      "ordinal": "5.6",
+      "section": "5. Disease",
+      "elementName": "Date of Diagnosis",
+      "elementCode": "432213005",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Condition.recordedDate",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "(Disease.onset)",
+      "recommendedDataSpec_phenopackets": "(TimeElement)",
+      "description": "The date on which the disease was determined."
+    },
+    {
+      "ordinal": "5.7",
+      "section": "5. Disease",
+      "elementName": "Body Site",
+      "elementCode": "363698007",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Body Site Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.bodySite.coding:snomed-ct",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "Disease.primary_site",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The specific body site affected by disease is encodedusing all descendants of SCT Body Structure (123037004)."
+    },
+    {
+      "ordinal": "5.8",
+      "section": "5. Disease",
+      "elementName": "Clinical Status",
+      "elementCode": "263493007",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Clinical Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.clinicalStatus",
+      "recommendedDataSpec_fhir": "ValueSet: ClinicalStatus",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The clinical status of the disease indicates whetherit is active, inactive, or resolved."
+    },
+    {
+      "ordinal": "5.9",
+      "section": "5. Disease",
+      "elementName": "Severity",
+      "elementCode": "246112005",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Severity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.severity",
+      "recommendedDataSpec_fhir": "ValueSet: ConditionSeverity",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The severity of the disease is categorised byclinical evaluation."
+    },
+    {
+      "ordinal": "6.1.1",
+      "section": "6. Genetic Findings",
+      "elementName": "Genomic Diagnosis",
+      "elementCode": "106221001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OMIM_p",
+        "MONDO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Condition.code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "Interpretation.Diagnosis.disease",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The genomic diagnoses can correspond to the diagnoseddisease in (5.1) if the same OMIM codes are used."
+    },
+    {
+      "ordinal": "6.1.2",
+      "section": "6. Genetic Findings",
+      "elementName": "Progress Status of Interpretation",
+      "elementCode": "progress_status",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Progress Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.extension",
+      "recommendedDataSpec_fhir": "VS: GA4GH ProgressStatus",
+      "phenopacketSchemaElement_v2_0": "Interpretation.progress_status",
+      "recommendedDataSpec_phenopackets": "ValueSet: ProgressStatus",
+      "description": "The interpretation has a ProgressStatus that refers tothe status of the attempted diagnosis."
+    },
+    {
+      "ordinal": "6.1.3",
+      "section": "6. Genetic Findings",
+      "elementName": "Interpretation Status",
+      "elementCode": "interpretation_status",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Interpretation Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Condition.extension",
+      "recommendedDataSpec_fhir": "VS: GA4GH InterpretationStatus",
+      "phenopacketSchemaElement_v2_0": "GenomicInterpretation.interpretation_status",
+      "recommendedDataSpec_phenopackets": "ValueSet: InterpretationStatus",
+      "description": "An enumeration that describes the conclusion made about the genomic interpretation."
+    },
+    {
+      "ordinal": "6.1.4",
+      "section": "6. Genetic Findings",
+      "elementName": "Structural Variant Analysis Method",
+      "elementCode": "81304-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS",
+        "LOINC"
+      ],
+      "valueSet": "Structural Variant Analysis Method Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.method",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The method used to analyse structural variants in the genome."
+    },
+    {
+      "ordinal": "6.1.5",
+      "section": "6. Genetic Findings",
+      "elementName": "Reference Genome",
+      "elementCode": "62374-4",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Reference Genome Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "MolecularSequence.referenceSeqId",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.vrs_ref_allele_seq",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The reference genome used for analysing the genetic variant."
+    },
+    {
+      "ordinal": "6.1.6",
+      "section": "6. Genetic Findings",
+      "elementName": "Genetic Mutation String",
+      "elementCode": "LP7824-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "String",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.valueString",
+      "recommendedDataSpec_fhir": "string",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.Extension.value",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "An unvalidated (HGVS) string that describes the variant change"
+    },
+    {
+      "ordinal": "6.1.7",
+      "section": "6. Genetic Findings",
+      "elementName": "Genomic DNA Change",
+      "elementCode": "81290-9",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "g.HGVS"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.valueCode",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.Expression.value",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression."
+    },
+    {
+      "ordinal": "6.1.8",
+      "section": "6. Genetic Findings",
+      "elementName": "Sequence DNA Change",
+      "elementCode": "48004-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "c.HGVS"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.valueCode",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.Expression.value",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression."
+    },
+    {
+      "ordinal": "6.1.9",
+      "section": "6. Genetic Findings",
+      "elementName": "Amino Acid Change",
+      "elementCode": "48005-3",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "p.HGVS"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.valueCode",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.Expression.value",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The specific change in the amino acid sequence resulting from agenetic variant as a validated p.HGVS expression."
+    },
+    {
+      "ordinal": "6.1.10",
+      "section": "6. Genetic Findings",
+      "elementName": "Gene",
+      "elementCode": "48018-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "HGNC"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.component:Gene",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "GeneDescriptor.value_id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "The specific gene or genes that were analysed or identified in the study."
+    },
+    {
+      "ordinal": "6.1.11",
+      "section": "6. Genetic Findings",
+      "elementName": "Zygosity",
+      "elementCode": "53034-5",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc",
+        "LOINC"
+      ],
+      "valueSet": "Zygosity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.component:geneticsAllele.State",
+      "recommendedDataSpec_fhir": "VS: Allelic State",
+      "phenopacketSchemaElement_v2_0": "VariationDescriptor.allelic_state",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The zygosity of the genetic variant."
+    },
+    {
+      "ordinal": "6.1.12",
+      "section": "6. Genetic Findings",
+      "elementName": "Genomic Source Class",
+      "elementCode": "48002-0",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Genomic Source Class Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.component:GenomicSourceClass",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The classification of the genomic source, such as germline, somatic, or other origins."
+    },
+    {
+      "ordinal": "6.1.13",
+      "section": "6. Genetic Findings",
+      "elementName": "DNA Change Type",
+      "elementCode": "48019-4",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "DNA Change Type Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.Type",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The variant\u2019s type of DNA change, such as point mutation, deletion, insertion, or other types."
+    },
+    {
+      "ordinal": "6.1.14",
+      "section": "6. Genetic Findings",
+      "elementName": "Clinical Significance [ACMG]",
+      "elementCode": "53037-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Clinical Significance ACMG Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.component:Variant.Interpretation",
+      "recommendedDataSpec_fhir": "",
+      "phenopacketSchemaElement_v2_0": "VariantInterpretation.acmg_pathogenicity_classification",
+      "recommendedDataSpec_phenopackets": "ValueSet: AcmgPathogenicityClassification",
+      "description": "The clinical significance of the genetic variant, indicating its impact on health and disease."
+    },
+    {
+      "ordinal": "6.1.15",
+      "section": "6. Genetic Findings",
+      "elementName": "Therapeutic Actionability",
+      "elementCode": "therapeutic_actionability",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Therapeutic Actionability Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "VariantInterpretation.therapeutic_actionability",
+      "recommendedDataSpec_phenopackets": "ValueSet: TherapeuticActionability",
+      "description": "An enumeration flagging the variant as being a candidate for treatment or clinical intervention, which could improve the clinical outcome."
+    },
+    {
+      "ordinal": "6.1.16",
+      "section": "6. Genetic Findings",
+      "elementName": "Clinical Annotation Level Of Evidence",
+      "elementCode": "93044-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.extension:Variant.Interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The level of evidence supporting the clinical annotation of the genetic variant."
+    },
+    {
+      "ordinal": "6.2.1",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Phenotypic Feature",
+      "elementCode": "8116006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "HPO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.type",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "An observed physical and clinical characteristicencoded with HPO."
+    },
+    {
+      "ordinal": "6.2.2",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Status",
+      "elementCode": "363778006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Phenotype Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.status",
+      "recommendedDataSpec_fhir": "ValueSet: ObservationStatus",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.excluded",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The current status of the phenotypic feature, indicating whether it is confirmed or refuted."
+    },
+    {
+      "ordinal": "6.2.3",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Determination Date",
+      "elementCode": "439272007:704321009=363778006",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.onset",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "The date on which the phenotypic feature was observed or recorded. We recommend capturing the time acharacteristic was observed."
+    },
+    {
+      "ordinal": "6.2.4",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Resolution Date",
+      "elementCode": "0034382",
+      "elementCodeSystem": "HP",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.resolution",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "Time at which the feature resolved or abated."
+    },
+    {
+      "ordinal": "6.2.5",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Onset Category",
+      "elementCode": "0003674",
+      "elementCodeSystem": "HP",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Onset Category Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.category",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.onset",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "Time at which the feature was first observed within  HPO onset categories."
+    },
+    {
+      "ordinal": "6.2.6",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Temporal Pattern",
+      "elementCode": "0011008",
+      "elementCodeSystem": "HP",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Temporal Pattern Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.modifiers",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The speed at which disease manifestations appear and develop."
+    },
+    {
+      "ordinal": "6.2.7",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Severity",
+      "elementCode": "0012824",
+      "elementCodeSystem": "HP",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Severity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.severity",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "A description of the severity of the feature."
+    },
+    {
+      "ordinal": "6.2.8",
+      "section": "6. Phenotypic Feature",
+      "elementName": "Modifiers",
+      "elementCode": "phenotypicfeature.modifier",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (HPO, NCBITAXON, SCT)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Suggested: Observation.extension",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.modifiers",
+      "recommendedDataSpec_phenopackets": "list of OntologyClass",
+      "description": "Any number of additional modifiers describing a specific phenotypic feature further, such as severity (HP:0012824), clinical modifiers (HP:0012823), or linking causative infectious agents using the NCBITAXON Ontology."
+    },
+    {
+      "ordinal": "6.2.9",
+      "section": "6.2 Phenotypic Feature",
+      "elementName": "Evidence",
+      "elementCode": "phenotypicfeature.evidence",
+      "elementCodeSystem": "GA4GH",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ECO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.method",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "PhenotypicFeature.evidence",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The evidence for an assertion of the observation of a type defined within the Evidence & Conclusion Ontology (ECO)."
+    },
+    {
+      "ordinal": "6.3.1",
+      "section": "6.3 Measurement",
+      "elementName": "Assay",
+      "elementCode": "C60819",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (e.g. LOINC)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.code",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "Measurement.assay",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "A class that describes the assay used to producethe measurement."
+    },
+    {
+      "ordinal": "6.3.2",
+      "section": "6.3 Measurement",
+      "elementName": "Value",
+      "elementCode": "C25712",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Value",
+      "dataSpecification": [
+        "float"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.value[x]",
+      "recommendedDataSpec_fhir": "Quantity|integer",
+      "phenopacketSchemaElement_v2_0": "Measurement.measurement_value",
+      "recommendedDataSpec_phenopackets": "Quantity[double/float]",
+      "description": "The result of the measurement."
+    },
+    {
+      "ordinal": "6.3.3",
+      "section": "6.3 Measurement",
+      "elementName": "Value Unit",
+      "elementCode": "C92571",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "UO"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.value[x].unit",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "Measurement.measurement_value",
+      "recommendedDataSpec_phenopackets": "OntologyClass",
+      "description": "The unit of the result's measurement."
+    },
+    {
+      "ordinal": "6.3.4",
+      "section": "6.3 Measurement",
+      "elementName": "Interpretation",
+      "elementCode": "C41255",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Code",
+      "dataSpecification": [
+        "NCIT"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.interpretation",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "The interpretation of the measurement (e.g.: Below/Within/Above age-related reference range, Absent/Low/Normal, or Positive/Negative)."
+    },
+    {
+      "ordinal": "6.3.5",
+      "section": "6.3 Measurement",
+      "elementName": "Time Observed",
+      "elementCode": "C82577",
+      "elementCodeSystem": "NCIT",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Observation.effectiveDateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "Measurement.time_observed",
+      "recommendedDataSpec_phenopackets": "TimeElement",
+      "description": "Time at which the measurement was performed."
+    },
+    {
+      "ordinal": "6.3.6",
+      "section": "6.3 Measurement",
+      "elementName": "Procedure",
+      "elementCode": "122869004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "OntologyClass (e.g. NCIT, SNOMED)"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Procedure.code",
+      "recommendedDataSpec_fhir": "Measurement.procedure",
+      "phenopacketSchemaElement_v2_0": "Measurement.procedure",
+      "recommendedDataSpec_phenopackets": "Measurement.procedure",
+      "description": "Clinical procedure performed to acquire the sample used for the measurement."
+    },
+    {
+      "ordinal": "6.4.1",
+      "section": "6.4 Family History",
+      "elementName": "Family Member Pseudonym",
+      "elementCode": "family_member_id",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Identifier",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.identifier",
+      "recommendedDataSpec_fhir": "Identifier",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.individual_id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "A unique identifier or local pseudonym for the familymember."
+    },
+    {
+      "ordinal": "6.4.2",
+      "section": "6.4 Family History",
+      "elementName": "Propositus/-a",
+      "elementCode": "64245008",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Propositus Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members. Disclaimer: The SCT code for propositus (64245008) refers to any  gender."
+    },
+    {
+      "ordinal": "6.4.3",
+      "section": "6.4 Family History",
+      "elementName": "Relationship of the Individual to the Propositus",
+      "elementCode": "408732007",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "Family Relationship To Index Case Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Specifies the familial relationship of the individual being evaluated to the propositus. Disclaimer: The SNOMED code for propositus (64245008) refers to any gender."
+    },
+    {
+      "ordinal": "6.4.4",
+      "section": "6.4 Family History",
+      "elementName": "Consanguinity",
+      "elementCode": "842009",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Consanguinity Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "Family.consanguinous_parents",
+      "recommendedDataSpec_phenopackets": "boolean",
+      "description": "The presence of a biological relationship between parents who are related by blood, typically as first or second cousins."
+    },
+    {
+      "ordinal": "6.4.5",
+      "section": "6.4 Family History",
+      "elementName": "Family Member Relationship",
+      "elementCode": "444018008",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "FamilyMember Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.relationship.coding",
+      "recommendedDataSpec_fhir": "ValueSet: FamilyMember",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.individual_id",
+      "recommendedDataSpec_phenopackets": "string",
+      "description": "Specifies the relationship of the selected family member to the patient."
+    },
+    {
+      "ordinal": "6.4.6",
+      "section": "6.4 Family",
+      "elementName": "Family Member Record Status",
+      "elementCode": "familymemberhistory.status",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "FamilyHistoryStatus Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.status",
+      "recommendedDataSpec_fhir": null,
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Specifies the record\u2019s status of the family history of a specific family member."
+    },
+    {
+      "ordinal": "6.4.7",
+      "section": "6.4 Family",
+      "elementName": "Family Member Sex",
+      "elementCode": "54123-5",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe",
+        "VSc"
+      ],
+      "valueSet": "AdministrativeGender Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.sex",
+      "recommendedDataSpec_fhir": "ValueSet: AdministrativeGender",
+      "phenopacketSchemaElement_v2_0": "Family.Pedigree.Person.sex",
+      "recommendedDataSpec_phenopackets": "ValueSet: Sex",
+      "description": "Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected."
+    },
+    {
+      "ordinal": "6.4.8",
+      "section": "6.4 Family",
+      "elementName": "Family Member Age",
+      "elementCode": "54141-7",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Integer",
+      "dataSpecification": [
+        "Integer"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.ageAge",
+      "recommendedDataSpec_fhir": "Age",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the current age of the selected family member."
+    },
+    {
+      "ordinal": "6.4.9",
+      "section": "6.4 Family",
+      "elementName": "Family Member Date of Birth",
+      "elementCode": "54124-3",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.bornDate",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the date of birth of the selected family member."
+    },
+    {
+      "ordinal": "6.4.10",
+      "section": "6.4 Family",
+      "elementName": "Family Member Deceased",
+      "elementCode": "740604001",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Deceased Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.deceased.deceasedBoolean",
+      "recommendedDataSpec_fhir": "boolean",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Indicates whether the selected family member is deceased."
+    },
+    {
+      "ordinal": "6.4.11",
+      "section": "6.4 Family",
+      "elementName": "Family Member Cause of Death",
+      "elementCode": "54112-8",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ICD10CM"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath",
+      "recommendedDataSpec_fhir": "Code",
+      "phenopacketSchemaElement_v2_0": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "recommendedDataSpec_phenopackets": "(Family.relatives \u2192 1 Phenopacket per family member)",
+      "description": "Records the cause of death of the selected deceasedfamily member."
+    },
+    {
+      "ordinal": "6.4.12",
+      "section": "6.4 Family",
+      "elementName": "Family Member Deceased Age",
+      "elementCode": "92662-6",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Integer",
+      "dataSpecification": [
+        "Integer"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.deceasedAge",
+      "recommendedDataSpec_fhir": "Family.relatives",
+      "phenopacketSchemaElement_v2_0": "Family.relatives",
+      "recommendedDataSpec_phenopackets": "Family.relatives",
+      "description": "Records the age at which the selected family member died."
+    },
+    {
+      "ordinal": "6.4.13",
+      "section": "6.4 Family",
+      "elementName": "Family Member Disease",
+      "elementCode": "75315-2",
+      "elementCodeSystem": "LOINC",
+      "dataType": "Code",
+      "dataSpecification": [
+        "Ontology Class",
+        "ORDO",
+        "ICD-10-CM",
+        "ICD-11",
+        "MONDO",
+        "OMIM_p"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "FamilyMemberHistory.condition.code",
+      "recommendedDataSpec_fhir": "Family.relatives",
+      "phenopacketSchemaElement_v2_0": "Family.relatives",
+      "recommendedDataSpec_phenopackets": "Family.relatives",
+      "description": "Indicates whether the selected family member is affected by the same rare disease as the individual."
+    },
+    {
+      "ordinal": "7.1",
+      "section": "7. Consent",
+      "elementName": "Consent Status",
+      "elementCode": "309370004",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VS"
+      ],
+      "valueSet": "Consent Status Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.status",
+      "recommendedDataSpec_fhir": "ValueSet: ConsentStatus",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates the current status of the consent."
+    },
+    {
+      "ordinal": "7.2",
+      "section": "7. Consent",
+      "elementName": "Consent Date",
+      "elementCode": "consent.datetime",
+      "elementCodeSystem": "HL7FHIR",
+      "dataType": "Date",
+      "dataSpecification": [
+        "YYYY-MM-DD"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Consent.dateTime",
+      "recommendedDataSpec_fhir": "DateTime",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Records the date when the consent was given."
+    },
+    {
+      "ordinal": "7.3",
+      "section": "7. Consent",
+      "elementName": "Health Policy Monitoring",
+      "elementCode": "386318002",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "String",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "Consent.policy",
+      "recommendedDataSpec_fhir": "string",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "References to the policies that are included in thisconsent scope."
+    },
+    {
+      "ordinal": "7.4",
+      "section": "7. Consent",
+      "elementName": "Agreement to be Contacted for Research",
+      "elementCode": "consent_contact_research",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Contact for Research Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.scope.coding",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether the patient agrees to be contacted for research."
+    },
+    {
+      "ordinal": "7.5",
+      "section": "7. Consent",
+      "elementName": "Consent to the Reuse of Data",
+      "elementCode": "conset_data_reuse",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Data Reuse Consent Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "Consent.scope.coding",
+      "recommendedDataSpec_fhir": "CodeableConcept",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether the patient consents to the reuse of their data."
+    },
+    {
+      "ordinal": "7.6",
+      "section": "7. Consent",
+      "elementName": "Biological Sample",
+      "elementCode": "123038009",
+      "elementCodeSystem": "SNOMED",
+      "dataType": "Code",
+      "dataSpecification": [
+        "VSe"
+      ],
+      "valueSet": "Biological Sample Consent Value Set v2.0.0",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Indicates whether a patient's biological sample is available for research."
+    },
+    {
+      "ordinal": "7.7",
+      "section": "7. Consent",
+      "elementName": "Link to a Biobank",
+      "elementCode": "biobank_link",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "String",
+      "dataSpecification": [
+        "n/a"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "If there is a biological sample, this data element indicates the link to the biobank of the individual's biological sample."
+    },
+    {
+      "ordinal": "8.1",
+      "section": "8. Disability",
+      "elementName": "Classification of Functioning / Disability",
+      "elementCode": "icf_score",
+      "elementCodeSystem": "CustomCode",
+      "dataType": "Code",
+      "dataSpecification": [
+        "ICF"
+      ],
+      "valueSet": "n/a",
+      "fhirExpression_v4_0_1": "n/a",
+      "recommendedDataSpec_fhir": "n/a",
+      "phenopacketSchemaElement_v2_0": "n/a",
+      "recommendedDataSpec_phenopackets": "n/a",
+      "description": "Specifies the classification of the individualss functioning or disability according to the International Classification of Functioning, Disability and Health (ICF)."
+    }
+  ],
+  "valueSets": [
+    {
+      "valueSetName": "Sex at Birth Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Sex at Birth",
+      "valueSetCode": "281053000",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female",
+          "choiceCode": "248152002",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Male",
+          "choiceCode": "248153007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Patient sex unknown",
+          "choiceCode": "184115007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Intersex",
+          "choiceCode": "32570691000036108",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Karyotypic Sex Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Karyotypic Sex",
+      "valueSetCode": "1296886006",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "XX",
+          "choiceCode": "734875008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XY",
+          "choiceCode": "734876009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "X0",
+          "choiceCode": "80427008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXY",
+          "choiceCode": "65162001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXX",
+          "choiceCode": "35111009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXYY",
+          "choiceCode": "403760006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXXY",
+          "choiceCode": "78317008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XXXX",
+          "choiceCode": "10567003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "XYY",
+          "choiceCode": "48930007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Other",
+          "choiceCode": "74964007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Gender Identity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Gender Identity",
+      "valueSetCode": "263495000",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female gender identity",
+          "choiceCode": "446141000124107",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Male gender identity",
+          "choiceCode": "446151000124109",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Gender unknown",
+          "choiceCode": "394743007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Identifies as nonbinary gender",
+          "choiceCode": "33791000087105",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Vital Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Vital Status",
+      "valueSetCode": "278844005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Alive",
+          "choiceCode": "438949009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Lost in follow-up",
+          "choiceCode": "399307001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Opted-out",
+          "choiceCode": "185924006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Other Reason",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age Category Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Age Category",
+      "valueSetCode": "105727008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Infancy",
+          "choiceCode": "3658006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Toddler",
+          "choiceCode": "713153009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Childhood",
+          "choiceCode": "255398004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adolescence",
+          "choiceCode": "263659003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adulthood",
+          "choiceCode": "41847000",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Fetal period",
+          "choiceCode": "303112003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Vital Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Vital Status",
+      "valueSetCode": "278844005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Alive",
+          "choiceCode": "438949009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Lost in follow-up",
+          "choiceCode": "399307001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Opted-out",
+          "choiceCode": "185924006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown - Other Reason",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age Category Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Age Category",
+      "valueSetCode": "105727008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Infancy",
+          "choiceCode": "3658006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Toddler",
+          "choiceCode": "713153009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Childhood",
+          "choiceCode": "255398004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adolescence",
+          "choiceCode": "263659003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Adulthood",
+          "choiceCode": "41847000",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Fetal period",
+          "choiceCode": "303112003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Dead",
+          "choiceCode": "419099009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Undiagnosed RD Case Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Undiagnosed RD Case",
+      "valueSetCode": "723663001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Encounter Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Encounter Status",
+      "valueSetCode": "305058001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Planned",
+          "choiceCode": "planned",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Arrived",
+          "choiceCode": "arrived",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Triaged",
+          "choiceCode": "triaged",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "In Progress",
+          "choiceCode": "in-progress",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "On Leave",
+          "choiceCode": "onleave",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Finished",
+          "choiceCode": "finished",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Cancelled",
+          "choiceCode": "cancelled",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "unknown",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Encounter Class Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Encounter Class",
+      "valueSetCode": "encounter.class",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        },
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Ambulatory",
+          "choiceCode": "AMB",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Inpatient",
+          "choiceCode": "IMP",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Observation",
+          "choiceCode": "OBSENC",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Emergency",
+          "choiceCode": "EMER",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Virtual",
+          "choiceCode": "VR",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Home Health",
+          "choiceCode": "HH",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "RD Specialist Center",
+          "choiceCode": "RDC",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Verification Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Verification Status",
+      "valueSetCode": "99498-8",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Unconfirmed",
+          "choiceCode": "unconfirmed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Provisional",
+          "choiceCode": "provisional",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Differential",
+          "choiceCode": "differential",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Confirmed",
+          "choiceCode": "confirmed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Refuted",
+          "choiceCode": "refuted",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age at Onset Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Age at Onset",
+      "valueSetCode": "424850005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Prenatal",
+          "choiceCode": "118189007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Birth",
+          "choiceCode": "3950001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Date",
+          "choiceCode": "410672004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Age at Diagnosis Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Age at Diagnosis",
+      "valueSetCode": "423493009",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Prenatal",
+          "choiceCode": "118189007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Birth",
+          "choiceCode": "3950001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Date",
+          "choiceCode": "410672004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Body Site Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Body Site",
+      "valueSetCode": "363698007",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "<< 442083009 |Anatomical or acquired body structure|",
+          "choiceCode": "<< 442083009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Clinical Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Clinical Status",
+      "valueSetCode": "263493007",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Active",
+          "choiceCode": "active",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Recurrence",
+          "choiceCode": "recurrence",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Relapse",
+          "choiceCode": "relapse",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Inactive",
+          "choiceCode": "inactive",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Remission",
+          "choiceCode": "remission",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Resolved",
+          "choiceCode": "resolved",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Severity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Severity",
+      "valueSetCode": "246112005",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Severe",
+          "choiceCode": "24484000",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Moderate",
+          "choiceCode": "6736007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Mild",
+          "choiceCode": "255604002",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Progress Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Progress Status",
+      "valueSetCode": "progress_status",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "GA4GH",
+          "version": "v2.0"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "No information is available aboutthe diagnosis",
+          "choiceCode": "UNKNOWN_PROGRESS",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "No diagnosis has been found to date but additional differential diagnostic work is in progress.",
+          "choiceCode": "IN_PROGRESS",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The work on the interpretation is complete.",
+          "choiceCode": "COMPLETED",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The interpretation is complete and also considered to be a definitive diagnosis.",
+          "choiceCode": "SOLVED",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The interpretation is complete but no definitive diagnosiswas found.",
+          "choiceCode": "UNSOLVED",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Interpretation Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Interpretation Status",
+      "valueSetCode": "interpretation_status",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "GA4GH",
+          "version": "v2.0"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "No information is available about the status",
+          "choiceCode": "UNKNOWN_STATUS",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The variant or gene reported here is  interpreted not to be related to the diagnosis.",
+          "choiceCode": "REJECTED",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The variant or gene reported here is interpreted to possibly be related to the diagnosis.",
+          "choiceCode": "CANDIDATE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The variant or gene reported here is  interpreted to be related to the diagnosis.",
+          "choiceCode": "CONTRIBUTORY",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "The variant or gene reported here is  interpreted to be causative of the diagnosis.",
+          "choiceCode": "CAUSATIVE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Structural Variant Analysis Method Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Structural Variant Analysis Method",
+      "valueSetCode": "81304-8",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Karyotyping",
+          "choiceCode": "LA26406-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "FISH",
+          "choiceCode": "LA26404-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "PCR",
+          "choiceCode": "LA26418-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "qPCR (real-time PCR)",
+          "choiceCode": "LA26419-4",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "SNP array",
+          "choiceCode": "LA26400-4",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Restriction fragment length polymorphism (RFLP)",
+          "choiceCode": "LA26813-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "DNA hybridization",
+          "choiceCode": "LA26810-4",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Sequencing",
+          "choiceCode": "LA26398-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "MLPA",
+          "choiceCode": "LA26415-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Other",
+          "choiceCode": "LA46-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Reference Genome Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Reference Genome",
+      "valueSetCode": "62374-4",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "NCBI Build 34 (hg16)",
+          "choiceCode": "LA14032-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "GRCh37 (hg19)",
+          "choiceCode": "LA14029-5",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "NCBI Build 36.1 (hg18)",
+          "choiceCode": "LA14030-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "NCBI Build 35 (hg17)",
+          "choiceCode": "LA14031-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "GRCh38 (hg38)",
+          "choiceCode": "LA26806-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Zygosity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Zygosity",
+      "valueSetCode": "53034-5",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Homozygous",
+          "choiceCode": "LA6705-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "(Simple) Heterozygous",
+          "choiceCode": "LA6706-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Compound Heterozygous",
+          "choiceCode": "LA26217-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Double Heterozygous",
+          "choiceCode": "LA26220-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Hemizygous",
+          "choiceCode": "LA6707-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Heteroplasmic",
+          "choiceCode": "LA6703-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Homoplasmic",
+          "choiceCode": "LA6704-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Other",
+          "choiceCode": "LA46-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Genomic Source Class Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Genomic Source Class",
+      "valueSetCode": "48002-0",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Germline",
+          "choiceCode": "LA6683-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Somatic",
+          "choiceCode": "LA6684-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Fetal",
+          "choiceCode": "LA10429-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Likely Germline",
+          "choiceCode": "LA18194-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Likely Somatic",
+          "choiceCode": "LA18195-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Likely Fetal",
+          "choiceCode": "LA18196-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Unknown Genomic Origin",
+          "choiceCode": "LA18197-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "De Novo",
+          "choiceCode": "LA26807-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "DNA Change Type Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "DNA Change Type",
+      "valueSetCode": "48019-4",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Wild Type",
+          "choiceCode": "LA9658-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Deletion",
+          "choiceCode": "LA6692-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Duplication",
+          "choiceCode": "LA6686-5",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Insertion",
+          "choiceCode": "LA6687-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Insertion/Deletion",
+          "choiceCode": "LA6688-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Inversion",
+          "choiceCode": "LA6689-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Substitution",
+          "choiceCode": "LA6690-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Clinical Significance ACMG Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Clinical Significance [ACMG]",
+      "valueSetCode": "53037-8",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Pathogenic",
+          "choiceCode": "LA6668-3",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Likely Pathogenic",
+          "choiceCode": "LA26332-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Uncertain Significance",
+          "choiceCode": "LA26333-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Likely Benign",
+          "choiceCode": "LA26334-5",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Benign",
+          "choiceCode": "LA6675-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "LA4489-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Therapeutic Actionability Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Therapeutic Actionability",
+      "valueSetCode": "therapeutic_actionability",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "GA4GH",
+          "version": "v2.0"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "There is not enough information at this time to support any therapeutic actionability for this variant.",
+          "choiceCode": "UNKNOWN_ACTIONABILITY",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "This variant has no therapeutic actionability.",
+          "choiceCode": "NOT_ACTIONABLE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        },
+        {
+          "choiceDisplay": "This variant is known to be therapeuticallyactionalbe.",
+          "choiceCode": "ACTIONABLE",
+          "choiceCodeSystem": "GA4GH",
+          "choiceCodeSystemVersion": "v2.0"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Clinical Annotation Level Of Evidence Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Clinical Annotation Level Of Evidence",
+      "valueSetCode": "93044-6",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "LOINC",
+          "version": "2.78"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Very Strong Evidence Pathogenic",
+          "choiceCode": "LA30200-2",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Strong Evidence Pathogenic",
+          "choiceCode": "LA30201-0",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Moderate Evidence Pathogenic",
+          "choiceCode": "LA30202-8",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Supporting Evidence Pathogenic",
+          "choiceCode": "LA30203-6",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Supporting Evidence Benign",
+          "choiceCode": "LA30204-4",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Strong Evidence Benign",
+          "choiceCode": "LA30205-1",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Stand-alone Evidence Pathogenic",
+          "choiceCode": "LA30206-9",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Stand-alone Evidence Benign",
+          "choiceCode": "LA30207-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        },
+        {
+          "choiceDisplay": "Uncertain Significance",
+          "choiceCode": "LA26333-7",
+          "choiceCodeSystem": "LOINC",
+          "choiceCodeSystemVersion": "2.78"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Phenotype Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Phenotypic Findings Status",
+      "valueSetCode": "phenotypicfeature.excluded",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Confirmed Present",
+          "choiceCode": "410605003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Refuted",
+          "choiceCode": "723511001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Onset Category Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Onset Category",
+      "valueSetCode": "0003674",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Embryonal onset (0w-8w embryonal)",
+          "choiceCode": "0011460",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Fetal onset (8w embryonal - birth)",
+          "choiceCode": "0011461",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Congenital onset (at birth)",
+          "choiceCode": "0003577",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Neonatal onset (0d-28d)",
+          "choiceCode": "0003623",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Infantile onset (28d-1y)",
+          "choiceCode": "0003593",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Childhood onset (1y-5y)",
+          "choiceCode": "0011463",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Juvenile onset (5y-15y)",
+          "choiceCode": "0003621",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Young adult onset (16y-40y)",
+          "choiceCode": "0011462",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Middle age adult onset (40y-60y)",
+          "choiceCode": "0003596",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Late adult onset (60y+)",
+          "choiceCode": "0003584",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Temporal Pattern Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Temporal Pattern",
+      "valueSetCode": "0011008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Acute",
+          "choiceCode": "0011009",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Chronic",
+          "choiceCode": "0011010",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Fluctuating",
+          "choiceCode": "0031914",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Prolonged",
+          "choiceCode": "0025297",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Recurrent",
+          "choiceCode": "0031796",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Stable",
+          "choiceCode": "0031915",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Subacute",
+          "choiceCode": "0011011",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Transient",
+          "choiceCode": "0025153",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Severity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Severity",
+      "valueSetCode": "0012824",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HP",
+          "version": "2024-08-13"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Borderline",
+          "choiceCode": "0012827",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Mild",
+          "choiceCode": "0012825",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Moderate",
+          "choiceCode": "0012826",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Profound",
+          "choiceCode": "0012829",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        },
+        {
+          "choiceDisplay": "Severe",
+          "choiceCode": "0012828",
+          "choiceCodeSystem": "HP",
+          "choiceCodeSystemVersion": "2024-08-13"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Propositus Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Propositus/-a",
+      "valueSetCode": "64245008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Family Relationship To Index Case Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Relationship to Propositus",
+      "valueSetCode": "408732007",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Natural mother",
+          "choiceCode": "65656005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural father",
+          "choiceCode": "9947008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural daughter",
+          "choiceCode": "83420006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural son",
+          "choiceCode": "113160008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural brother",
+          "choiceCode": "60614009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural sister",
+          "choiceCode": "73678001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Twin sibling",
+          "choiceCode": "11286003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-brother",
+          "choiceCode": "45929001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-sister",
+          "choiceCode": "2272004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandfather",
+          "choiceCode": "62296006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandmother",
+          "choiceCode": "17945006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Consanguinity Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Consanguinity",
+      "valueSetCode": "842009",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "FamilyMember Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Family Member Relationship",
+      "valueSetCode": "444018008",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Natural mother",
+          "choiceCode": "65656005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural father",
+          "choiceCode": "9947008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural daughter",
+          "choiceCode": "83420006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural son",
+          "choiceCode": "113160008",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural brother",
+          "choiceCode": "60614009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural sister",
+          "choiceCode": "73678001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Twin sibling",
+          "choiceCode": "11286003",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-brother",
+          "choiceCode": "45929001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Half-sister",
+          "choiceCode": "2272004",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandfather",
+          "choiceCode": "62296006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Natural grandmother",
+          "choiceCode": "17945006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "FamilyHistoryStatus Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Family Member Record Status",
+      "valueSetCode": "familymemberhistory.status",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Partial",
+          "choiceCode": "partial",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Completed",
+          "choiceCode": "completed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Health Unknown",
+          "choiceCode": "health-unknown",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "AdministrativeGender Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Family Member Sex",
+      "valueSetCode": "54123-5",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Female",
+          "choiceCode": "248152002",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Male",
+          "choiceCode": "248153007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Patient sex unknown",
+          "choiceCode": "184115007",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Intersex",
+          "choiceCode": "32570691000036108",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Not recorded",
+          "choiceCode": "1220561009",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Deceased Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Family Member Deceased",
+      "valueSetCode": "740604001",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Consent Status Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Consent Status",
+      "valueSetCode": "309370004",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "HL7FHIR",
+          "version": "v4.0.1"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Pending",
+          "choiceCode": "draft",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Proposed",
+          "choiceCode": "proposed",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Active",
+          "choiceCode": "active",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Rejected",
+          "choiceCode": "rejected",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Inactive",
+          "choiceCode": "inactive",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        },
+        {
+          "choiceDisplay": "Entered in Error",
+          "choiceCode": "entered-in-error",
+          "choiceCodeSystem": "HL7FHIR",
+          "choiceCodeSystemVersion": "v4.0.1"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Contact for Research Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Agreement to be Contacted for Research",
+      "valueSetCode": "consent_contact_research",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Data Reuse Consent Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Consent to the Reuse of Data",
+      "valueSetCode": "conset_data_reuse",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    },
+    {
+      "valueSetName": "Biological Sample Consent Value Set v2.0.0",
+      "valueSetOrigin": "RD CDM v2.0.0",
+      "valueSetLink": "https://github.com/BIH-CEI/rd-cdm/blob/develop/res/v2_0_0_dev0/rd_cdm_value_sets_v2_0_0_dev0.json",
+      "display": "Biological Sample",
+      "valueSetCode": "123038009",
+      "valueSetCodeSystem": [
+        {
+          "codeSystem": "SNOMED",
+          "version": "2024-09-01"
+        }
+      ],
+      "valueSetChoices": [
+        {
+          "choiceDisplay": "Yes",
+          "choiceCode": "373066001",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "No",
+          "choiceCode": "373067005",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        },
+        {
+          "choiceDisplay": "Unknown",
+          "choiceCode": "261665006",
+          "choiceCodeSystem": "SNOMED",
+          "choiceCodeSystemVersion": "2024-09-01"
+        }
+      ]
+    }
+  ]
+}

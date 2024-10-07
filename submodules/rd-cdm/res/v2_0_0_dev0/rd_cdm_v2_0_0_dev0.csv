@@ -1,0 +1,143 @@
+Type,Name,CodeSystem,Version,Code,Description
+CodeSystem,NCBI organismal classification,NCBITaxon,2024-07-03,https://www.ncbi.nlm.nih.gov/taxonomy,Synonyms: 
+CodeSystem,GENO: The Genotype Ontology,GENO,2023-10-08,http://www.genoontology.org/,Synonyms: 
+CodeSystem,Sequence types and features ontology,SO,2.6,http://www.sequenceontology.org/,Synonyms: 
+CodeSystem,"International Classification of Diseases, Ninth Revision",ICD9,unknown,https://www.cdc.gov/nchs/icd/icd9.htm,"Synonyms: ICD-9,ICD_9"
+CodeSystem,"International Classification of Diseases, Tenth Revision, German Modification",ICD10GM,unknown,https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html,"Synonyms: ICD10-GM,ICD-10-GM,ICD10_GM,ICD_10_GM"
+CodeSystem,"International Classification of Diseases, Tenth Revision, Clinical Modification",ICD10CM,2024-09-01,https://www.cdc.gov/nchs/icd/icd10cm.htm,"Synonyms: ICD10-CM,ICD10_CM,ICD-10-CM,ICD_10_CM"
+CodeSystem,SNOMED,SNOMED,2024-09-01,https://www.snomed.org/snomed-ct,"Synonyms: SCT,SNOMED CT"
+CodeSystem,"International Classification of Diseases, Eleventh Revision",ICD11,2024-09-01,https://icd.who.int/en,Synonyms: ICD-11
+CodeSystem,Health Level 7 Fast Healthcare Interoperability Resources,HL7FHIR,v4.0.1,https://www.hl7.org/fhir/,Synonyms: 
+CodeSystem,Global Alliance for Genomics and Health Phenopacket Schema v2.0,GA4GH,v2.0,https://www.ga4gh.org/product/phenopackets/,Synonyms: 
+CodeSystem,ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes,ISO3166,2020(en),https://www.iso.org/iso-3166-country-codes.html,Synonyms: 
+CodeSystem,"International Classification of Functioning, Disability and Health",ICF,1.0.2,https://www.who.int/classifications/icf/en/,Synonyms: 
+CodeSystem,Monarch Disease Ontology,MONDO,2024-09-03,http://purl.obolibrary.org/obo/mondo.owl,Synonyms: 
+CodeSystem,Orphanet Rare Disease Ontology,ORDO,2024-09-12,http://www.orpha.net/,Synonyms: ORPHA
+CodeSystem,Online Mendelian Inheritance,OMIM,2024-09-12,https://omim.org/,Synonyms: 
+CodeSystem,Logical Observation Identifiers Names and Codes,LOINC,2.78,https://loinc.org/,Synonyms: 
+CodeSystem,Human Genome Variation Society,HGVS,21.0.0,http://varnomen.hgvs.org/,Synonyms: 
+CodeSystem,HUGO Gene Nomenclature Committee,HGNC,2024-08-23,https://www.genenames.org/,Synonyms: 
+CodeSystem,Human Phenotype Ontology,HP,2024-08-13,http://www.human-phenotype-ontology.org,Synonyms: HPO
+CodeSystem,Units of Measurement Ontology,UO,2024-09-12,http://www.ontobee.org/ontology/UO,Synonyms: 
+CodeSystem,NCI Thesaurus OBO Edition,NCIT,24.04e,https://ncit.nci.nih.gov/,Synonyms: 
+CodeSystem,Evidence & Conclusion Ontology (ECO),ECO,unknown,https://www.evidenceontology.org/,Synonyms: 
+CodeSystem,Custom Code System RD CDM v2.0.0,CustomCode,unknown,https://github.com/BIH-CEI/rd-cdm,Synonyms: 
+DataElement,Pseudonym,SNOMED,,422549004,DataType: Identifier
+DataElement,Date of Admission,SNOMED,,399423000,DataType: Date
+DataElement,Date of Birth,SNOMED,,184099003,DataType: Date
+DataElement,Sex at Birth,SNOMED,,281053000,DataType: Code
+DataElement,Karyotypic Sex,SNOMED,,1296886006,DataType: Code
+DataElement,Gender Identity,SNOMED,,263495000,DataType: Code
+DataElement,Country of Birth,SNOMED,,370159000,DataType: Code
+DataElement,Vital Status,SNOMED,,278844005,DataType: Code
+DataElement,Time of Death,SNOMED,,398299004,DataType: Date
+DataElement,Cause of Death,SNOMED,,184305005,DataType: Code
+DataElement,Age Category,SNOMED,,105727008,DataType: Code
+DataElement,Length of Gestation at Birth [weeks+days],SNOMED,,412726003,DataType: String
+DataElement,Undiagnosed RD Case,SNOMED,,723663001,DataType: Code
+DataElement,Encounter Start,HL7FHIR,,encounter.period.start,DataType: Date
+DataElement,Encounter End,HL7FHIR,,encounter.period.end,DataType: Date
+DataElement,Encounter Status,SNOMED,,305058001,DataType: Code
+DataElement,Encounter Class,HL7FHIR,,encounter.class,DataType: Code
+DataElement,Disease,SNOMED,,64572001,DataType: Code
+DataElement,Verification Status,LOINC,,99498-8,DataType: Code
+DataElement,Age at Onset,SNOMED,,424850005,DataType: Code
+DataElement,Date of Onset,SNOMED,,298059007,DataType: Date
+DataElement,Age at Diagnosis,SNOMED,,423493009,DataType: Code
+DataElement,Date of Diagnosis,SNOMED,,432213005,DataType: Date
+DataElement,Body Site,SNOMED,,363698007,DataType: Code
+DataElement,Clinical Status,SNOMED,,263493007,DataType: Code
+DataElement,Severity,SNOMED,,246112005,DataType: Code
+DataElement,Genomic Diagnosis,SNOMED,,106221001,DataType: Code
+DataElement,Progress Status of Interpretation,GA4GH,,progress_status,DataType: Code
+DataElement,Interpretation Status,GA4GH,,interpretation_status,DataType: Code
+DataElement,Structural Variant Analysis Method,LOINC,,81304-8,DataType: Code
+DataElement,Reference Genome,LOINC,,62374-4,DataType: Code
+DataElement,Genetic Mutation String,LOINC,,LP7824-8,DataType: String
+DataElement,Genomic DNA Change,LOINC,,81290-9,DataType: Code
+DataElement,Sequence DNA Change,LOINC,,48004-6,DataType: Code
+DataElement,Amino Acid Change,LOINC,,48005-3,DataType: Code
+DataElement,Gene,LOINC,,48018-6,DataType: Code
+DataElement,Zygosity,LOINC,,53034-5,DataType: Code
+DataElement,Genomic Source Class,LOINC,,48002-0,DataType: Code
+DataElement,DNA Change Type,LOINC,,48019-4,DataType: Code
+DataElement,Clinical Significance [ACMG],LOINC,,53037-8,DataType: Code
+DataElement,Therapeutic Actionability,GA4GH,,therapeutic_actionability,DataType: Code
+DataElement,Clinical Annotation Level Of Evidence,LOINC,,93044-6,DataType: Code
+DataElement,Phenotypic Feature,SNOMED,,8116006,DataType: Code
+DataElement,Status,SNOMED,,363778006,DataType: Code
+DataElement,Determination Date,SNOMED,,439272007:704321009=363778006,DataType: Date
+DataElement,Resolution Date,HP,,0034382,DataType: Date
+DataElement,Onset Category,HP,,0003674,DataType: Code
+DataElement,Temporal Pattern,HP,,0011008,DataType: Code
+DataElement,Severity,HP,,0012824,DataType: Code
+DataElement,Modifiers,GA4GH,,phenotypicfeature.modifier,DataType: Code
+DataElement,Evidence,GA4GH,,phenotypicfeature.evidence,DataType: Code
+DataElement,Assay,NCIT,,C60819,DataType: Code
+DataElement,Value,NCIT,,C25712,DataType: Value
+DataElement,Value Unit,NCIT,,C92571,DataType: Code
+DataElement,Interpretation,NCIT,,C41255,DataType: Code
+DataElement,Time Observed,NCIT,,C82577,DataType: Date
+DataElement,Procedure,SNOMED,,122869004,DataType: Code
+DataElement,Family Member Pseudonym,CustomCode,,family_member_id,DataType: Identifier
+DataElement,Propositus/-a,SNOMED,,64245008,DataType: Code
+DataElement,Relationship of the Individual to the Propositus,SNOMED,,408732007,DataType: Code
+DataElement,Consanguinity,SNOMED,,842009,DataType: Code
+DataElement,Family Member Relationship,SNOMED,,444018008,DataType: Code
+DataElement,Family Member Record Status,HL7FHIR,,familymemberhistory.status,DataType: Code
+DataElement,Family Member Sex,LOINC,,54123-5,DataType: Code
+DataElement,Family Member Age,LOINC,,54141-7,DataType: Integer
+DataElement,Family Member Date of Birth,LOINC,,54124-3,DataType: Date
+DataElement,Family Member Deceased,SNOMED,,740604001,DataType: Code
+DataElement,Family Member Cause of Death,LOINC,,54112-8,DataType: Code
+DataElement,Family Member Deceased Age,LOINC,,92662-6,DataType: Integer
+DataElement,Family Member Disease,LOINC,,75315-2,DataType: Code
+DataElement,Consent Status,SNOMED,,309370004,DataType: Code
+DataElement,Consent Date,HL7FHIR,,consent.datetime,DataType: Date
+DataElement,Health Policy Monitoring,SNOMED,,386318002,DataType: String
+DataElement,Agreement to be Contacted for Research,CustomCode,,consent_contact_research,DataType: Code
+DataElement,Consent to the Reuse of Data,CustomCode,,conset_data_reuse,DataType: Code
+DataElement,Biological Sample,SNOMED,,123038009,DataType: Code
+DataElement,Link to a Biobank,CustomCode,,biobank_link,DataType: String
+DataElement,Classification of Functioning / Disability,CustomCode,,icf_score,DataType: Code
+ValueSet,Sex at Birth Value Set v2.0.0,SNOMED (v2024-09-01),,281053000,Choices: Female (248152002);Male (248153007);Patient sex unknown (184115007);Intersex (32570691000036108);Not recorded (1220561009)
+ValueSet,Karyotypic Sex Value Set v2.0.0,SNOMED (v2024-09-01),,1296886006,Choices: XX (734875008);XY (734876009);X0 (80427008);XXY (65162001);XXX (35111009);XXYY (403760006);XXXY (78317008);XXXX (10567003);XYY (48930007);Other (74964007)
+ValueSet,Gender Identity Value Set v2.0.0,SNOMED (v2024-09-01),,263495000,Choices: Female gender identity (446141000124107);Male gender identity (446151000124109);Gender unknown (394743007);Identifies as nonbinary gender (33791000087105);Not recorded (1220561009)
+ValueSet,Vital Status Value Set v2.0.0,SNOMED (v2024-09-01),,278844005,Choices: Alive (438949009);Dead (419099009);Unknown - Lost in follow-up (399307001);Unknown - Opted-out (185924006);Unknown - Other Reason (261665006)
+ValueSet,Age Category Value Set v2.0.0,SNOMED (v2024-09-01),,105727008,Choices: Infancy (3658006);Toddler (713153009);Childhood (255398004);Adolescence (263659003);Adulthood (41847000);Fetal period (303112003);Dead (419099009);Unknown (261665006)
+ValueSet,Vital Status Value Set v2.0.0,SNOMED (v2024-09-01),,278844005,Choices: Alive (438949009);Dead (419099009);Unknown - Lost in follow-up (399307001);Unknown - Opted-out (185924006);Unknown - Other Reason (261665006)
+ValueSet,Age Category Value Set v2.0.0,SNOMED (v2024-09-01),,105727008,Choices: Infancy (3658006);Toddler (713153009);Childhood (255398004);Adolescence (263659003);Adulthood (41847000);Fetal period (303112003);Dead (419099009);Unknown (261665006)
+ValueSet,Undiagnosed RD Case Value Set v2.0.0,SNOMED (v2024-09-01),,723663001,Choices: Yes (373066001);No (373067005)
+ValueSet,Encounter Status Value Set v2.0.0,SNOMED (v2024-09-01),,305058001,Choices: Planned (planned);Arrived (arrived);Triaged (triaged);In Progress (in-progress);On Leave (onleave);Finished (finished);Cancelled (cancelled);Entered in Error (entered-in-error);Unknown (unknown)
+ValueSet,Encounter Class Value Set v2.0.0,HL7FHIR (vv4.0.1);SNOMED (v2024-09-01),,encounter.class,Choices: Ambulatory (AMB);Inpatient (IMP);Observation (OBSENC);Emergency (EMER);Virtual (VR);Home Health (HH);RD Specialist Center (RDC);Unknown (261665006)
+ValueSet,Verification Status Value Set v2.0.0,HL7FHIR (vv4.0.1),,99498-8,Choices: Unconfirmed (unconfirmed);Provisional (provisional);Differential (differential);Confirmed (confirmed);Refuted (refuted);Entered in Error (entered-in-error)
+ValueSet,Age at Onset Value Set v2.0.0,SNOMED (v2024-09-01),,424850005,Choices: Prenatal (118189007);Birth (3950001);Date (410672004);Unknown (261665006)
+ValueSet,Age at Diagnosis Value Set v2.0.0,SNOMED (v2024-09-01),,423493009,Choices: Prenatal (118189007);Birth (3950001);Date (410672004);Unknown (261665006)
+ValueSet,Body Site Value Set v2.0.0,SNOMED (v2024-09-01),,363698007,Choices: << 442083009 |Anatomical or acquired body structure| (<< 442083009)
+ValueSet,Clinical Status Value Set v2.0.0,HL7FHIR (vv4.0.1),,263493007,Choices: Active (active);Recurrence (recurrence);Relapse (relapse);Inactive (inactive);Remission (remission);Resolved (resolved)
+ValueSet,Severity Value Set v2.0.0,SNOMED (v2024-09-01),,246112005,Choices: Severe (24484000);Moderate (6736007);Mild (255604002)
+ValueSet,Progress Status Value Set v2.0.0,GA4GH (vv2.0),,progress_status,Choices: No information is available aboutthe diagnosis (UNKNOWN_PROGRESS);No diagnosis has been found to date but additional differential diagnostic work is in progress. (IN_PROGRESS);The work on the interpretation is complete. (COMPLETED);The interpretation is complete and also considered to be a definitive diagnosis. (SOLVED);The interpretation is complete but no definitive diagnosiswas found. (UNSOLVED)
+ValueSet,Interpretation Status Value Set v2.0.0,GA4GH (vv2.0),,interpretation_status,Choices: No information is available about the status (UNKNOWN_STATUS);The variant or gene reported here is  interpreted not to be related to the diagnosis. (REJECTED);The variant or gene reported here is interpreted to possibly be related to the diagnosis. (CANDIDATE);The variant or gene reported here is  interpreted to be related to the diagnosis. (CONTRIBUTORY);The variant or gene reported here is  interpreted to be causative of the diagnosis. (CAUSATIVE)
+ValueSet,Structural Variant Analysis Method Value Set v2.0.0,LOINC (v2.78),,81304-8,Choices: Karyotyping (LA26406-1);FISH (LA26404-6);PCR (LA26418-6);qPCR (real-time PCR) (LA26419-4);SNP array (LA26400-4);Restriction fragment length polymorphism (RFLP) (LA26813-8);DNA hybridization (LA26810-4);Sequencing (LA26398-0);MLPA (LA26415-2);Other (LA46-8)
+ValueSet,Reference Genome Value Set v2.0.0,LOINC (v2.78),,62374-4,Choices: NCBI Build 34 (hg16) (LA14032-9);GRCh37 (hg19) (LA14029-5);NCBI Build 36.1 (hg18) (LA14030-3);NCBI Build 35 (hg17) (LA14031-1);GRCh38 (hg38) (LA26806-2)
+ValueSet,Zygosity Value Set v2.0.0,LOINC (v2.78),,53034-5,Choices: Homozygous (LA6705-3);(Simple) Heterozygous (LA6706-1);Compound Heterozygous (LA26217-2);Double Heterozygous (LA26220-6);Hemizygous (LA6707-9);Heteroplasmic (LA6703-8);Homoplasmic (LA6704-6);Other (LA46-8)
+ValueSet,Genomic Source Class Value Set v2.0.0,LOINC (v2.78),,48002-0,Choices: Germline (LA6683-2);Somatic (LA6684-0);Fetal (LA10429-1);Likely Germline (LA18194-3);Likely Somatic (LA18195-0);Likely Fetal (LA18196-8);Unknown Genomic Origin (LA18197-6);De Novo (LA26807-0)
+ValueSet,DNA Change Type Value Set v2.0.0,LOINC (v2.78),,48019-4,Choices: Wild Type (LA9658-1);Deletion (LA6692-3);Duplication (LA6686-5);Insertion (LA6687-3);Insertion/Deletion (LA6688-1);Inversion (LA6689-9);Substitution (LA6690-7)
+ValueSet,Clinical Significance ACMG Value Set v2.0.0,LOINC (v2.78),,53037-8,Choices: Pathogenic (LA6668-3);Likely Pathogenic (LA26332-9);Uncertain Significance (LA26333-7);Likely Benign (LA26334-5);Benign (LA6675-8);Unknown (LA4489-6)
+ValueSet,Therapeutic Actionability Value Set v2.0.0,GA4GH (vv2.0),,therapeutic_actionability,Choices: There is not enough information at this time to support any therapeutic actionability for this variant. (UNKNOWN_ACTIONABILITY);This variant has no therapeutic actionability. (NOT_ACTIONABLE);This variant is known to be therapeuticallyactionalbe. (ACTIONABLE)
+ValueSet,Clinical Annotation Level Of Evidence Value Set v2.0.0,LOINC (v2.78),,93044-6,Choices: Very Strong Evidence Pathogenic (LA30200-2);Strong Evidence Pathogenic (LA30201-0);Moderate Evidence Pathogenic (LA30202-8);Supporting Evidence Pathogenic (LA30203-6);Supporting Evidence Benign (LA30204-4);Strong Evidence Benign (LA30205-1);Stand-alone Evidence Pathogenic (LA30206-9);Stand-alone Evidence Benign (LA30207-7);Uncertain Significance (LA26333-7)
+ValueSet,Phenotype Status Value Set v2.0.0,SNOMED (v2024-09-01),,phenotypicfeature.excluded,Choices: Confirmed Present (410605003);Refuted (723511001)
+ValueSet,Onset Category Value Set v2.0.0,HP (v2024-08-13),,0003674,Choices: Embryonal onset (0w-8w embryonal) (0011460);Fetal onset (8w embryonal - birth) (0011461);Congenital onset (at birth) (0003577);Neonatal onset (0d-28d) (0003623);Infantile onset (28d-1y) (0003593);Childhood onset (1y-5y) (0011463);Juvenile onset (5y-15y) (0003621);Young adult onset (16y-40y) (0011462);Middle age adult onset (40y-60y) (0003596);Late adult onset (60y+) (0003584)
+ValueSet,Temporal Pattern Value Set v2.0.0,HP (v2024-08-13),,0011008,Choices: Acute (0011009);Chronic (0011010);Fluctuating (0031914);Prolonged (0025297);Recurrent (0031796);Stable (0031915);Subacute (0011011);Transient (0025153)
+ValueSet,Severity Value Set v2.0.0,HP (v2024-08-13),,0012824,Choices: Borderline (0012827);Mild (0012825);Moderate (0012826);Profound (0012829);Severe (0012828)
+ValueSet,Propositus Value Set v2.0.0,SNOMED (v2024-09-01),,64245008,Choices: Yes (373066001);No (373067005);Unknown (261665006);Not recorded (1220561009)
+ValueSet,Family Relationship To Index Case Value Set v2.0.0,SNOMED (v2024-09-01),,408732007,Choices: Natural mother (65656005);Natural father (9947008);Natural daughter (83420006);Natural son (113160008);Natural brother (60614009);Natural sister (73678001);Twin sibling (11286003);Half-brother (45929001);Half-sister (2272004);Natural grandfather (62296006);Natural grandmother (17945006);Not recorded (1220561009)
+ValueSet,Consanguinity Value Set v2.0.0,SNOMED (v2024-09-01),,842009,Choices: Yes (373066001);No (373067005);Unknown (261665006);Not recorded (1220561009)
+ValueSet,FamilyMember Value Set v2.0.0,SNOMED (v2024-09-01),,444018008,Choices: Natural mother (65656005);Natural father (9947008);Natural daughter (83420006);Natural son (113160008);Natural brother (60614009);Natural sister (73678001);Twin sibling (11286003);Half-brother (45929001);Half-sister (2272004);Natural grandfather (62296006);Natural grandmother (17945006);Not recorded (1220561009)
+ValueSet,FamilyHistoryStatus Value Set v2.0.0,HL7FHIR (vv4.0.1),,familymemberhistory.status,Choices: Partial (partial);Completed (completed);Entered in Error (entered-in-error);Health Unknown (health-unknown)
+ValueSet,AdministrativeGender Value Set v2.0.0,SNOMED (v2024-09-01),,54123-5,Choices: Female (248152002);Male (248153007);Patient sex unknown (184115007);Intersex (32570691000036108);Not recorded (1220561009)
+ValueSet,Deceased Value Set v2.0.0,SNOMED (v2024-09-01),,740604001,Choices: Yes (373066001);No (373067005);Unknown (261665006)
+ValueSet,Consent Status Value Set v2.0.0,HL7FHIR (vv4.0.1),,309370004,Choices: Pending (draft);Proposed (proposed);Active (active);Rejected (rejected);Inactive (inactive);Entered in Error (entered-in-error)
+ValueSet,Contact for Research Value Set v2.0.0,SNOMED (v2024-09-01),,consent_contact_research,Choices: Yes (373066001);No (373067005);Unknown (261665006)
+ValueSet,Data Reuse Consent Value Set v2.0.0,SNOMED (v2024-09-01),,conset_data_reuse,Choices: Yes (373066001);No (373067005);Unknown (261665006)
+ValueSet,Biological Sample Consent Value Set v2.0.0,SNOMED (v2024-09-01),,123038009,Choices: Yes (373066001);No (373067005);Unknown (261665006)
