@@ -3,7 +3,8 @@
 Rare Disease Interoperability Framework in REDCap linking Registry Use, HL7 FHIR® and the GA4GH Phenopacket Schema©
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
-[![Documentation Status](https://readthedocs.org/projects/rd-cdm/badge/?version=latest)](https://rd-cdm.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
+
 
 [Stable Documentation](https://rarelink.readthedocs.io/en/stable/)  
 [Latest Documentation](https://rarelink.readthedocs.io/en/latest/) 
