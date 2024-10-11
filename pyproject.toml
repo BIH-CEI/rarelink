@@ -31,7 +31,11 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Rare Diseases"
 ]
 dependencies = [
-    "numpy", "jupyter", "pandas", "phenopackets"
+    "numpy", 
+    "jupyter", 
+    "pandas", 
+    "phenopackets", 
+    "pytest"
 ]
 dynamic = ["version"]
 
@@ -54,4 +58,4 @@ version = { attr = "rarelink.__version__" }
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
 [project.scripts]  # Optional
-sample = "sample:main"
+sample = "rarelink.pipelines.redcap_phenopacket_pipeline.phenopacket_pipeline:main"

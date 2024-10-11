@@ -3,6 +3,7 @@
 Rare Disease Interoperability Framework in REDCap linking Registry Use, HL7 FHIR® and the GA4GH Phenopacket Schema©
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
+[![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
 
 
 [Stable Documentation](https://rarelink.readthedocs.io/en/stable/)  
@@ -129,9 +130,10 @@ disease research and care.
 - NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
+- [RD-CDM](https://github.com/BIH-CEI/rd-cdm)
 - [toFHIR](https://github.com/srdc/tofhir?tab=readme-ov-file)
 - [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
-- [OntoBridge](https://github.com/InformaticaClinica/OntoBridge)
+
 
 ## License
 

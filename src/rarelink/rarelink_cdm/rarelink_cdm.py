@@ -1,7 +1,7 @@
 from importlib import resources
 from pathlib import Path
 from typing import Union
-from phenopacket_mapper.data_standards import DataModel, DataField
+from phenopacket_mapper.data_standards import DataModel, DataField, DataSet
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
 RARELINK_CDM_V2_0_0 = DataModel(
@@ -62,6 +62,7 @@ RARELINK_CDM_V2_0_0 = DataModel(
         DataField(section="8. Classification", ordinal="8.1", 
                   name="Classification of functioning / disability", 
                   specification=VS.vs_8_1), 
+
     ]
 )
 # repeating fields:
@@ -84,6 +85,7 @@ def append_care_pathway_fields(data_model, n=9999):
             DataField(section="4. Care Pathway", ordinal="4.4", 
                       name=f"Encounter Class_{i}", specification=VS.vs_4_4)
         )
+
 
 # 5. Disease
 def append_disease_fields(data_model, n=9999):
@@ -287,6 +289,11 @@ def append_phenotypic_features(data_model, n=9999):
             DataField(section="6.2 Phenotypic Feature", ordinal="6.2.9", 
                       name=f"Evidence_{i}", specification=VS.vs_6_2_9)
         )
+
+
+
+
+
         
 # 6.3 Mesaurments
 def append_measurements_fields(data_model, n=9999):
@@ -392,9 +399,12 @@ append_phenotypic_features(RARELINK_CDM_V2_0_0)
 append_family_history_fields(RARELINK_CDM_V2_0_0)
 
 
-
-def load_rarelink_data(path: Union[str, Path],
-                       data_model: DataModel = RARELINK_CDM_V2_0_0):
+def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0) -> DataSet:
+    """This loads data from a path using the latest version of the Rarelink CDM.
+    :param path: The path to the data file.
+    :param data_model: The data model to use for loading the data.
+    :return: The loaded data set.
+    """
     return data_model.load_data(
         path,
         pseudonym_column="snomed_422549004",
