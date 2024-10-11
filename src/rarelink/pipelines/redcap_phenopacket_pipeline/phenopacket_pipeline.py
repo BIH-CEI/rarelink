@@ -2,7 +2,6 @@ import argparse
 from pathlib import Path
 from typing import Union, List, Optional
 from phenopackets.schema.v2 import Phenopacket
-
 import phenopacket_mapper.pipeline
 from phenopacket_mapper.pipeline import write
 from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0

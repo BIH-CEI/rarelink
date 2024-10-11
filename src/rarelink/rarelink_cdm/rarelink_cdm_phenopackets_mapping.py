@@ -146,24 +146,24 @@ def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:
         # ]
     )
 
-       # family=[
-        #     PhenopacketElement(
-        #         phenopacket_element=Phenopacket.Family,
-        #         id=data_model.family_history_pseudonym,
-        #     #    proband=data_model.propositus_a,
-        #         consanguinous_parents=data_model.consanguinity,
-        #         pedigree=[
-        #             PhenopacketElement(
-        #                 phenopacket_element=Phenopacket.Pedigree,
-        #                 persons=PhenopacketElement(
-        #                     phenopacket_element=Phenopacket.Person,
-        #                     individual_id=data_model.family_member_pseudonym,
-        #                     paternal_id=data_model.family_member_relationship,
-        #                     maternal_id=data_model.family_member_relationship,
-        #                     sex=data_model.family_member_sex,
-        #                 )
-        #             )
-        #         ],
-        #     )
-        # ]
+    #    # family=[
+    #     #     PhenopacketElement(
+    #     #         phenopacket_element=Phenopacket.Family,
+    #     #         id=data_model.family_history_pseudonym,
+    #     #     #    proband=data_model.propositus_a,
+    #     #         consanguinous_parents=data_model.consanguinity,
+    #     #         pedigree=[
+    #     #             PhenopacketElement(
+    #     #                 phenopacket_element=Phenopacket.Pedigree,
+    #     #                 persons=PhenopacketElement(
+    #     #                     phenopacket_element=Phenopacket.Person,
+    #     #                     individual_id=data_model.family_member_pseudonym,
+    #     #                     paternal_id=data_model.family_member_relationship,
+    #     #                     maternal_id=data_model.family_member_relationship,
+    #     #                     sex=data_model.family_member_sex,
+    #     #                 )
+    #     #             )
+    #     #         ],
+    #     #     )
+    #     # ]
     
