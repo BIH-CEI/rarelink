@@ -10,58 +10,58 @@ RARELINK_CDM_V2_0_0 = DataModel(
     fields=[
         # 1. Formal Criteria
         DataField(section="1. Formal Criteria", ordinal="1.1", 
-                   name="Pseudonym", value_set=VS.vs_1_1),
+                   name="Pseudonym", specification=VS.vs_1_1),
         DataField(section="1. Formal Criteria", ordinal="1.2", 
-                   name="Date of Admission", value_set=VS.vs_1_2),
+                   name="Date of Admission", specification=VS.vs_1_2),
 
         # 2. Personal Information
         DataField(section="2. Personal Information", ordinal="2.1", 
-                   name="Date of Birth", value_set=VS.vs_2_1),
+                   name="Date of Birth", specification=VS.vs_2_1),
         DataField(section="2. Personal Information", ordinal="2.2", 
-                   name="Sex at Birth", value_set=VS.vs_2_2),
+                   name="Sex at Birth", specification=VS.vs_2_2),
         DataField(section="2. Personal Information", ordinal="2.3", 
-                   name="Karyotypic Sex", value_set=VS.vs_2_3),
+                   name="Karyotypic Sex", specification=VS.vs_2_3),
         DataField(section="2. Personal Information", ordinal="2.4", 
-                   name="Gender Identity", value_set=VS.vs_2_4),
+                   name="Gender Identity", specification=VS.vs_2_4),
         DataField(section="2. Personal Information", ordinal="2.5", 
-                   name="Country of Birth", value_set=VS.vs_2_5),
+                   name="Country of Birth", specification=VS.vs_2_5),
 
         # 3. Patient Status
         DataField(section="3. Patient Status", ordinal="3.1", 
-                   name="Vital Status", value_set=VS.vs_3_1),
+                   name="Vital Status", specification=VS.vs_3_1),
         DataField(section="3. Patient Status", ordinal="3.2", 
-                   name="Time of Death", value_set=VS.vs_3_2),
+                   name="Time of Death", specification=VS.vs_3_2),
         DataField(section="3. Patient Status", ordinal="3.3", 
-                   name="Cause of Death", value_set=VS.vs_3_3),
+                   name="Cause of Death", specification=VS.vs_3_3),
         DataField(section="3. Patient Status", ordinal="3.4", 
-                   name="Age Category", value_set=VS.vs_3_4),
+                   name="Age Category", specification=VS.vs_3_4),
         DataField(section="3. Patient Status", ordinal="3.5", 
-                   name="Length of Gestation at Birth", value_set=VS.vs_3_5),
+                   name="Length of Gestation at Birth", specification=VS.vs_3_5),
         DataField(section="3. Patient Status", ordinal="3.6", 
-                   name="Undiagnosed RD Case", value_set=VS.vs_3_6),
+                   name="Undiagnosed RD Case", specification=VS.vs_3_6),
 
         # 7. Consent
         DataField(section="7. Consent", ordinal="7.1", 
-                  name="Consent Status", value_set=VS.vs_7_1),
+                  name="Consent Status", specification=VS.vs_7_1),
         DataField(section="7. Consent", ordinal="7.2", 
-                  name="Consent Date", value_set=VS.vs_7_2),
+                  name="Consent Date", specification=VS.vs_7_2),
         DataField(section="7. Consent", ordinal="7.3", 
-                  name="Health Policy Monitoring", value_set=VS.vs_7_3),
-        DataField(section="7. Consent", ordinal="7.4", name="Agreement to be contacted for research purposes", value_set=VS.vs_7_4), 
+                  name="Health Policy Monitoring", specification=VS.vs_7_3),
+        DataField(section="7. Consent", ordinal="7.4", name="Agreement to be contacted for research purposes", specification=VS.vs_7_4), 
         DataField(section="7. Consent", ordinal="7.5", 
                   name="Consent to the reuse of data", 
-                  value_set=VS.vs_7_5),
+                  specification=VS.vs_7_5),
         DataField(section="7. Consent", ordinal="7.6", 
                   name="Biological sample", 
-                  value_set=VS.vs_7_6),
+                  specification=VS.vs_7_6),
         DataField(section="7. Consent", ordinal="7.7", 
                   name="Link to a biobank", 
-                  value_set=VS.vs_7_7),
+                  specification=VS.vs_7_7),
     
         # 8. Classification of functioning / disability
         DataField(section="8. Classification", ordinal="8.1", 
                   name="Classification of functioning / disability", 
-                  value_set=VS.vs_8_1), 
+                  specification=VS.vs_8_1), 
     ]
 )
 # repeating fields:
@@ -70,19 +70,19 @@ def append_care_pathway_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="4. Care Pathway", ordinal="4.1", 
-                      name=f"Encounter Start_{i}", value_set=VS.vs_4_1)
+                      name=f"Encounter Start_{i}", specification=VS.vs_4_1)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="4. Care Pathway", ordinal="4.2", 
-                      name=f"Encounter End_{i}", value_set=VS.vs_4_2)
+                      name=f"Encounter End_{i}", specification=VS.vs_4_2)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="4. Care Pathway", ordinal="4.3", 
-                      name=f"Encounter Status_{i}", value_set=VS.vs_4_3)
+                      name=f"Encounter Status_{i}", specification=VS.vs_4_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="4. Care Pathway", ordinal="4.4", 
-                      name=f"Encounter Class_{i}", value_set=VS.vs_4_4)
+                      name=f"Encounter Class_{i}", specification=VS.vs_4_4)
         )
 
 # 5. Disease
@@ -90,55 +90,55 @@ def append_disease_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.1A", 
-                      name=f"Disease MONDO_{i}", value_set=VS.vs_5_1a)
+                      name=f"Disease MONDO_{i}", specification=VS.vs_5_1a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.1B", 
-                      name=f"Disease ORDO_{i}", value_set=VS.vs_5_1b)
+                      name=f"Disease ORDO_{i}", specification=VS.vs_5_1b)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.1C", 
-                      name=f"Disease ICD10CM_{i}", value_set=VS.vs_5_1c)
+                      name=f"Disease ICD10CM_{i}", specification=VS.vs_5_1c)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.1D", 
-                      name=f"Disease ICD11_{i}", value_set=VS.vs_5_1d)
+                      name=f"Disease ICD11_{i}", specification=VS.vs_5_1d)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.1E", 
-                      name=f"Disease OMIM_P_{i}", value_set=VS.vs_5_1e)
+                      name=f"Disease OMIM_P_{i}", specification=VS.vs_5_1e)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.2", 
-                      name=f"Verification Status_{i}", value_set=VS.vs_5_2)
+                      name=f"Verification Status_{i}", specification=VS.vs_5_2)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.3", 
-                      name=f"Age at Onset_{i}", value_set=VS.vs_5_3)
+                      name=f"Age at Onset_{i}", specification=VS.vs_5_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.4", 
-                      name=f"Date of Onset_{i}", value_set=VS.vs_5_4)
+                      name=f"Date of Onset_{i}", specification=VS.vs_5_4)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.5", 
-                      name=f"Age at Diagnosis_{i}", value_set=VS.vs_5_5)
+                      name=f"Age at Diagnosis_{i}", specification=VS.vs_5_5)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.6", 
-                      name=f"Date of Diagnosis_{i}", value_set=VS.vs_5_6)
+                      name=f"Date of Diagnosis_{i}", specification=VS.vs_5_6)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.7", 
-                      name=f"Body Site_{i}", value_set=VS.vs_5_7)
+                      name=f"Body Site_{i}", specification=VS.vs_5_7)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.8", 
-                      name=f"Clinical Status_{i}", value_set=VS.vs_5_8)
+                      name=f"Clinical Status_{i}", specification=VS.vs_5_8)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="5. Disease", ordinal="5.9", 
-                      name=f"Severity_{i}", value_set=VS.vs_5_9)
+                      name=f"Disease Severity_{i}", specification=VS.vs_5_9)
         )
 
 # 6.1 Genetic Findings
@@ -146,87 +146,90 @@ def append_genetic_findings_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.1", 
-                      name=f"Genomic Diagnosis_MONDO_{i}", value_set=VS.vs_6_1_1a)
+                      name=f"Genomic Diagnosis_MONDO_{i}", specification=VS.vs_6_1_1a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.1", 
-                      name=f"Genomic Diagnosis_OMIM_P_{i}", value_set=VS.vs_6_1_1b)
+                      name=f"Genomic Diagnosis_OMIM_P_{i}", specification=VS.vs_6_1_1b)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.2", 
-                      name=f"Progress Status of Interpretation_{i}", value_set=VS.vs_6_1_2)
+                      name=f"Progress Status of Interpretation_{i}", specification=VS.vs_6_1_2)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.3", 
-                      name=f"Interpretation Status_{i}", value_set=VS.vs_6_1_3)
+                      name=f"Interpretation Status_{i}", specification=VS.vs_6_1_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.4", 
-                      name=f"Structural Variant Analysis Method_{i}", value_set=VS.vs_6_1_4)
+                      name=f"Structural Variant Analysis Method_{i}", specification=VS.vs_6_1_4)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.4a", 
-                      name=f"Structural Variant Analysis Method_other_{i}", value_set=VS.vs_6_1_4a)
+                      name=f"Structural Variant Analysis Method_other_{i}", specification=VS.vs_6_1_4a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.5", 
-                      name=f"Reference Genome_{i}", value_set=VS.vs_6_1_5)
+                      name=f"Reference Genome_{i}", specification=VS.vs_6_1_5)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.6", 
-                      name=f"Genetic Mutation String_{i}", value_set=VS.vs_6_1_6)
+                      name=f"Genetic Mutation String_{i}", specification=VS.vs_6_1_6)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.7", 
-                      name=f"Genomic DNA Change [g.HGVS]_{i}", value_set=VS.vs_6_1_7)
+                      name=f"Genomic DNA Change [g.HGVS]_{i}", specification=VS.vs_6_1_7)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.8", 
-                      name=f"Sequence DNA Change [c.HGVS]_{i}", value_set=VS.vs_6_1_8)
+                      name=f"Sequence DNA Change [c.HGVS]_{i}", specification=VS.vs_6_1_8)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.9", 
-                      name=f"Amino Acid Change [p.HGVS]_{i}", value_set=VS.vs_6_1_9)
+                      name=f"Amino Acid Change [p.HGVS]_{i}", specification=VS.vs_6_1_9)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.10", 
-                      name=f"Gene_{i}", value_set=VS.vs_6_1_10)
+                      name=f"Gene_{i}", specification=VS.vs_6_1_10)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.10a", 
-                      name=f"Gene Label_{i}", value_set=VS.vs_6_1_10a)
+                      name=f"Gene Label_{i}", specification=VS.vs_6_1_10a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.11", 
-                      name=f"Zygosity_{i}", value_set=VS.vs_6_1_11)
+                      name=f"Zygosity_{i}", specification=VS.vs_6_1_11)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.11a", 
-                      name=f"Zygosity_other_{i}", value_set=VS.vs_6_1_11a)
+                      name=f"Zygosity_other_{i}", specification=VS.vs_6_1_11a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.12", 
-                      name=f"Genomic Source Class_{i}", value_set=VS.vs_6_1_12)
+                      name=f"Genomic Source Class_{i}", specification=VS.vs_6_1_12)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.13", 
-                      name=f"DNA Change Type_{i}", value_set=VS.vs_6_1_13)
+                      name=f"DNA Change Type_{i}", specification=VS.vs_6_1_13)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.13a", 
-                      name=f"DNA Change Type_other_{i}", value_set=VS.vs_6_1_13a)
+                      name=f"DNA Change Type_other_{i}", specification=VS.vs_6_1_13a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.14", 
-                      name=f"Clinical Significance [ACMG]_{i}", value_set=VS.vs_6_1_14)
+                      name=f"Clinical Significance [ACMG]_{i}",
+                      specification=VS.vs_6_1_14)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.15", 
-                      name=f"Therapeutic Actionability_{i}", value_set=VS.vs_6_1_15)
+                      name=f"Therapeutic Actionability_{i}",
+                      specification=VS.vs_6_1_15)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.1 Genetic Findings", ordinal="6.1.16", 
-                      name=f"Clinical Annotation Level Of Evidence_{i}", value_set=VS.vs_6_1_16)
+                      name=f"Clinical Annotation Level Of Evidence_{i}",
+                      specification=VS.vs_6_1_16)
         )
 
 # 6.2 Phenotypic Feature
@@ -234,109 +237,153 @@ def append_phenotypic_features(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.2 Phenotypic Feature", ordinal="6.2.1", 
-                      name=f"Phenotypic Feature_{i}", value_set=VS.vs_6_2_1)
+                      name=f"Phenotypic Feature_{i}", specification=VS.vs_6_2_1)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.2 Phenotypic Feature", ordinal="6.2.2", 
-                      name=f"Determination Date_{i}", value_set=VS.vs_6_2_2)
+                      name=f"Status_{i}", specification=VS.vs_6_2_2)
         )
         RARELINK_CDM_V2_0_0.fields.append(
             DataField(section="6.2 Phenotypic Feature", ordinal="6.2.3", 
-                      name=f"Status_{i}", value_set=VS.vs_6_2_3)
+                      name=f"Determination Date_{i}", specification=VS.vs_6_2_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.1", 
-                      name=f"Modifier_HPO_1_{i}", value_set=VS.vs_6_2_4a_1)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4", 
+                      name=f"Resolution Date_{i}", specification=VS.vs_6_2_4)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.2", 
-                      name=f"Modifier_HPO_2_{i}", value_set=VS.vs_6_2_4a_2)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.5", 
+                      name=f"Onset Category_{i}", specification=VS.vs_6_2_5)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4a.3", 
-                      name=f"Modifier_HPO_3_{i}", value_set=VS.vs_6_2_4a_3)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.6", 
+                      name=f"Temporal Pattern_{i}", specification=VS.vs_6_2_6)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.1", 
-                      name=f"Modifier_NCBITaxon_1_{i}", value_set=VS.vs_6_2_4b_1)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.7", 
+                      name=f"Phenotype Severity_{i}", specification=VS.vs_6_2_7)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.2", 
-                      name=f"Modifier_NCBITaxon_2_{i}", value_set=VS.vs_6_2_4b_2)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8a", 
+                      name=f"Modifier_HPO_1_{i}", specification=VS.vs_6_2_8a)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4b.3", 
-                      name=f"Modifier_NCBITaxon_3_{i}", value_set=VS.vs_6_2_4b_3)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8b", 
+                      name=f"Modifier_HPO_2_{i}", specification=VS.vs_6_2_8b)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.1", 
-                      name=f"Modifier_SNOMED_CT_1_{i}", value_set=VS.vs_6_2_4c_1)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8c", 
+                      name=f"Modifier_HPO_3_{i}", specification=VS.vs_6_2_8c)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.2", 
-                      name=f"Modifier_SNOMED_CT_2_{i}", value_set=VS.vs_6_2_4c_2)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8d", 
+                      name=f"Modifier_NCBITaxon_{i}", specification=VS.vs_6_2_8d)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.4c.3", 
-                      name=f"Modifier_SNOMED_CT_3_{i}", value_set=VS.vs_6_2_4c_3)
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8e", 
+                      name=f"Modifier_SNOMED_CT_{i}", specification=VS.vs_6_2_8e)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.2 Phenotypic Feature", ordinal="6.2.9", 
+                      name=f"Evidence_{i}", specification=VS.vs_6_2_9)
         )
         
-# 6.3 Family History
+# 6.3 Mesaurments
+def append_measurements_fields(data_model, n=9999):
+    for i in range(n):
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.1",
+                      name=f"Assay_{i}", specification=VS.vs_6_3_1)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.2",
+                      name=f"Value_{i}", specification=VS.vs_6_3_2)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.3",
+                      name=f"Value Unit_{i}", specification=VS.vs_6_3_3)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.4",
+                      name=f"Interpretation_{i}", specification=VS.vs_6_3_4)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.5",
+                      name=f"Time Observed_{i}", specification=VS.vs_6_3_5)
+        )
+        RARELINK_CDM_V2_0_0.fields.append(
+            DataField(section="6.3 Measurements", ordinal="6.3.6",
+                      name=f"Procedure_{i}", specification=VS.vs_6_3_6)
+        )
+        
+        
+        
+# 6.4 Family History
 def append_family_history_fields(data_model, n=9999):
     for i in range(n):
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.0", 
-                      name=f"Family Member Pseudonym_{i}", value_set=VS.vs_6_3_0)
+            DataField(section="6.4 Family History", ordinal="6.4.1", 
+                      name=f"Family Member Pseudonym_{i}", specification=VS.vs_6_4_1)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.1", 
-                      name=f"Propositus/-a_{i}", value_set=VS.vs_6_3_1)
+            DataField(section="6.4 Family History", ordinal="6.4.2", 
+                      name=f"Propositus/-a_{i}", specification=VS.vs_6_4_2)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.2", 
-                      name=f"Relationship of the individual to the index case/propositus/a_{i}", 
-                      value_set=VS.vs_6_3_2)
+            DataField(section="6.4 Family History", ordinal="6.4.3", 
+                      name=f"Relationship of the individual to the index\
+                          case/propositus/a_{i}", 
+                      specification=VS.vs_6_4_3)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.3", 
-                      name=f"Consanguinity_{i}", value_set=VS.vs_6_3_3)
+            DataField(section="6.4 Family History", ordinal="6.4.4", 
+                      name=f"Consanguinity_{i}", specification=VS.vs_6_4_4)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.4", 
-                      name=f"Family Member Relationship_{i}", value_set=VS.vs_6_3_4)
+            DataField(section="6.4 Family History", ordinal="6.4.5", 
+                      name=f"Family Member Relationship_{i}",
+                      specification=VS.vs_6_4_5)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.5", 
-                      name=f"Family Member Record Status_{i}", value_set=VS.vs_6_3_5)
+            DataField(section="6.4 Family History", ordinal="6.4.6", 
+                      name=f"Family Member Record Status_{i}",
+                      specification=VS.vs_6_4_6)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.6", 
-                      name=f"Family Member Sex_{i}", value_set=VS.vs_6_3_6)
+            DataField(section="6.4 Family History", ordinal="6.4.7", 
+                      name=f"Family Member Sex_{i}",
+                      specification=VS.vs_6_4_7)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.7", 
-                      name=f"Family Member Age_{i}", value_set=VS.vs_6_3_7)
+            DataField(section="6.4 Family History", ordinal="6.4.8", 
+                      name=f"Family Member Age_{i}",
+                      specification=VS.vs_6_4_8)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.8", 
-                      name=f"Family Member Date of Birth_{i}", value_set=VS.vs_6_3_8)
+            DataField(section="6.4 Family History", ordinal="6.4.9", 
+                      name=f"Family Member Date of Birth_{i}",
+                      specification=VS.vs_6_4_9)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.9", 
-                      name=f"Family Member Deceased_{i}", value_set=VS.vs_6_3_9)
+            DataField(section="6.4 Family History", ordinal="6.4.10", 
+                      name=f"Family Member Deceased_{i}",
+                      specification=VS.vs_6_4_10)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.10", 
-                      name=f"Family Member Cause of Death_{i}", value_set=VS.vs_6_3_10)
+            DataField(section="6.4 Family History", ordinal="6.4.11", 
+                      name=f"Family Member Cause of Death_{i}",
+                      specification=VS.vs_6_4_11)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.11", 
-                      name=f"Family Member Deceased Age_{i}", value_set=VS.vs_6_3_11)
+            DataField(section="6.4 Family History", ordinal="6.4.12", 
+                      name=f"Family Member Deceased Age_{i}",
+                      specification=VS.vs_6_4_12)
         )
         RARELINK_CDM_V2_0_0.fields.append(
-            DataField(section="6.3 Family History", ordinal="6.3.12", 
-                      name=f"Family Member Disease_{i}", value_set=VS.vs_6_3_12)
+            DataField(section="6.4 Family History", ordinal="6.4.13", 
+                      name=f"Family Member Disease_{i}", specification=VS.vs_6_4_13)
         )
+
 
 append_care_pathway_fields(RARELINK_CDM_V2_0_0)
 append_disease_fields(RARELINK_CDM_V2_0_0)
@@ -346,7 +393,8 @@ append_family_history_fields(RARELINK_CDM_V2_0_0)
 
 
 
-def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0):
+def load_rarelink_data(path: Union[str, Path],
+                       data_model: DataModel = RARELINK_CDM_V2_0_0):
     return data_model.load_data(
         path,
         pseudonym_column="snomed_422549004",
@@ -378,7 +426,7 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         date_of_diagnosis_column="snomed_432213005",
         body_site_column="snomed_363698007",
         clinical_status_column="snomed_263493007",
-        severity_column="snomed_246112005",
+        disease_severity_column="snomed_246112005",
         genomic_diagnosis_mondo_column="snomed_106221001_mondo",
         genomic_diagnosis_omim_p="snomed_106221001_omim_p",
         progress_status_of_interpretation_column="ga4gh_progress_status",
@@ -401,17 +449,24 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         therapeutic_actionability_column="ga4gh_therap_action",
         clinical_annotation_level_of_evidence_column="loinc_93044_6",
         phenotypic_feature_column="snomed_8116006",
-        determination_date_column="snomed_8116006_date",
-        status_column="ga4gh_pheno_excluded",
-        modifier_hpo_1_column="ga4gh_pheno_mod_hp1", 
-        modifier_hpo_2_column="ga4gh_pheno_mod_hp2",
-        modifier_hpo_3_column="ga4gh_pheno_mod_hp3",
-        modifier_ncbitaxon_1_column="ga4gh_pheno_mod_ncbitax1",
-        modifier_ncbitaxon_2_column="ga4gh_pheno_mod_ncbitax2",
-        modifier_ncbitaxon_3_column="ga4gh_pheno_mod_ncbitax3",
-        modifier_snomed_ct_1_column="ga4gh_pheno_mod_snomed1",
-        modifier_snomed_ct_2_column="ga4gh_pheno_mod_snomed2",
-        modifier_snomed_ct_3_column="ga4gh_pheno_mod_snomed3",
+        status_column="snomed_363778006",
+        determination_date_column="snomed_8116006_onset",
+        resolution_date_column="snomed_8116006_resolution",
+        age_of_onset_column="hp_0003674",
+        temporal_pattern_column="hp_0011008",        
+        phenotype_severity_column="hp_0012824",
+        modifier_hpo_1_column="hp_0012823_hp1", 
+        modifier_hpo_2_column="hp_0012823_hp2",
+        modifier_hpo_3_column="hp_0012823_hp3",
+        modifier_ncbitaxon_column="hp_0012823_ncbitaxon",
+        modifier_snomed_ct_column="hp_0012823_snomed",
+        evidence_columnn="phenotypicfeature_evidence",
+        assay_column="ncit_c60819",
+        value_column="ncit_c25712",
+        value_unit_column="ncit_c92571",
+        interpretation_column="ncit_c41255",
+        time_observed_column="ncit_c82577",
+        procedure_column="snomed_122869004",
         family_member_pseudonym_column="family_history_pseudonym",
         propositus_a_column="snomed_64245008",
         relationship_of_the_individual_to_the_index_case_propositus_a_column=
@@ -436,4 +491,4 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         classification_of_functioning_disability_column="rarelink_icf_score",
     )
 
-    
+
