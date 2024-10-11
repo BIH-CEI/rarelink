@@ -36,7 +36,7 @@ dependencies = [
     "pandas", 
     "phenopackets", 
     "pytest", 
-    "phenopacket_mapper"
+    "https://github.com/BIH-CEI/phenopacket_mapper.git"
 ]
 dynamic = ["version"]
 
