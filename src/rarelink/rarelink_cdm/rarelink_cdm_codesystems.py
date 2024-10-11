@@ -1,10 +1,10 @@
 from phenopacket_mapper.data_standards.code import CodeSystem
-from phenopacket_mapper.data_standards.code_system import NCBITaxon, GENO, SO, ICD10CM, SNOMED_CT, ICD11, HL7FHIR, GA4GH, ISO3166, ICF, MONDO, ORDO, OMIM, LOINC, HGVS, HGNC, HPO
+from phenopacket_mapper.data_standards.code_system import NCBITaxon, GENO, SO, ICD10CM, SNOMED_CT, ICD11, HL7FHIR, GA4GH, ISO3166, ICF, MONDO, ORDO, OMIM, LOINC, HGVS, HGNC, HPO, UO, NCIT
 
 ECO = CodeSystem(
-        name='ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes', 
-        namespace_prefix='iso3166', 
-        url='https://www.iso.org/iso-3166-country-codes.html'
+        name='Evidence & Conclusion Ontology', 
+        namespace_prefix='ECO', 
+        url='https://www.evidenceontology.org/'
     )
 
 
@@ -70,6 +70,12 @@ class RareLink_CDM_v2_0_0_Resources:
     
     def ECO(self):
         return ECO.set_version("2024-07-19")
+    
+    def UO(self):
+        return UO.set_version("2024-09-12")
+    
+    def NCIT(self):
+        return NCIT.set_version("24.04e")
 
 
 RARELINK_CDM_V2_0_0_RESOURCES = RareLink_CDM_v2_0_0_Resources()

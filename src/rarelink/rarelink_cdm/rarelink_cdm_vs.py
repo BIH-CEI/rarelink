@@ -3,7 +3,8 @@ from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 
 class RareLink_CDM_v2_0_0_ValueSets:
        """
-       This class is a container for the value sets used in the RareLink CDM.
+       This class is a container for the value set and data specifications 
+       used in the RareLink CDM.
        ___version__ = '2.0.0'
        """
     
@@ -316,16 +317,18 @@ class RareLink_CDM_v2_0_0_ValueSets:
        vs_5_6 = ValueSet(
               elements=[Date],
               name="Value set for 5.6 Date of Diagnosis",
-              description=("If the specific month or day is not known, select the 1st "
-                            "day of the month or the 1st month of the year, respectively.")
+              description=("If the specific month or day is not known, select\
+                     the 1st day of the month or the 1st month of the year,\
+                            respectively.")
        )
 
        # 5.7 Body Site [SNOMED_CT CT]
        vs_5_7 = ValueSet(
               elements=[res.SNOMED_CT],
               name="Value set for 5.7 Body Site [SNOMED_CT CT]",
-              description=("The specific body site affected by disease is encoded using all "
-                            "descendants of SCT Body Structure (123037004).")
+              description=("The specific body site affected by disease is\
+                     encoded using all descendants of SCT Body Structure\
+                            (123037004).")
        )
 
        # 5.8 Clinical Status
@@ -700,25 +703,25 @@ class RareLink_CDM_v2_0_0_ValueSets:
        
        vs_6_2_5 = ValueSet(
               elements=[
-                     Coding(system=res.HP, code="0011460", 
+                     Coding(system=res.HPO, code="0011460", 
                             display="Embryonal onset (0w-8w embryonal)"),
-                     Coding(system=res.HP, code="0011461",
+                     Coding(system=res.HPO, code="0011461",
                             display="Fetal onset (8w embryonal - birth)"),
-                     Coding(system=res.HP, code="0003577", 
+                     Coding(system=res.HPO, code="0003577", 
                             display="Congenital onset (at birth)"),
-                     Coding(system=res.HP, code="0003623", 
+                     Coding(system=res.HPO, code="0003623", 
                             display="Neonatal onset (0d-28d)"),
-                     Coding(system=res.HP, code="0003593", 
+                     Coding(system=res.HPO, code="0003593", 
                             display="Infantile onset (28d-1y)"),
-                     Coding(system=res.HP, code="0011463", 
+                     Coding(system=res.HPO, code="0011463", 
                             display="Childhood onset (1y-5y)"),
-                     Coding(system=res.HP, code="0003621", 
+                     Coding(system=res.HPO, code="0003621", 
                             display="Juvenile onset (5y-15y)"),
-                     Coding(system=res.HP, code="0011462", 
+                     Coding(system=res.HPO, code="0011462", 
                             display="Young adult onset (16y-40y)"),
-                     Coding(system=res.HP, code="0003596", 
+                     Coding(system=res.HPO, code="0003596", 
                             display="Middle age adult onset (40y-60y)"),
-                     Coding(system=res.HP, code="0003584", 
+                     Coding(system=res.HPO, code="0003584", 
                             display="Late adult onset (60y+)"),
                      ],
               name="Value Set for 6.2.5 Onset Category",
@@ -727,14 +730,14 @@ class RareLink_CDM_v2_0_0_ValueSets:
        )
        vs_6_2_6 = ValueSet(
               elements=[
-                     Coding(system=res.HP, code="0011009", display="Acute"),
-                     Coding(system=res.HP, code="0011010", display="Chronic"),
-                     Coding(system=res.HP, code="0031914", display="Fluctuating"),
-                     Coding(system=res.HP, code="0025297", display="Prolonged"),
-                     Coding(system=res.HP, code="0031796", display="Recurrent"),
-                     Coding(system=res.HP, code="0031915", display="Stable"),
-                     Coding(system=res.HP, code="0011011", display="Subactue"),
-                     Coding(system=res.HP, code="0025153", display="Transient"),
+                     Coding(system=res.HPO, code="0011009", display="Acute"),
+                     Coding(system=res.HPO, code="0011010", display="Chronic"),
+                     Coding(system=res.HPO, code="0031914", display="Fluctuating"),
+                     Coding(system=res.HPO, code="0025297", display="Prolonged"),
+                     Coding(system=res.HPO, code="0031796", display="Recurrent"),
+                     Coding(system=res.HPO, code="0031915", display="Stable"),
+                     Coding(system=res.HPO, code="0011011", display="Subactue"),
+                     Coding(system=res.HPO, code="0025153", display="Transient"),
               ],
               name="Value Set for 6.2.6 Temporal Pattern",
               description=("The speed at which a disease manifestations appear and" 
@@ -742,11 +745,11 @@ class RareLink_CDM_v2_0_0_ValueSets:
        )
        vs_6_2_7 = ValueSet(
               elements=[
-                     Coding(system=res.HP, code="0012827", display="Borderline"),
-                     Coding(system=res.HP, code="0012825", display="Mild"),
-                     Coding(system=res.HP, code="0012826", display="Moderate"),
-                     Coding(system=res.HP, code="0012829", display="Profound"),
-                     Coding(system=res.HP, code="0012828", display="Severe"),
+                     Coding(system=res.HPO, code="0012827", display="Borderline"),
+                     Coding(system=res.HPO, code="0012825", display="Mild"),
+                     Coding(system=res.HPO, code="0012826", display="Moderate"),
+                     Coding(system=res.HPO, code="0012829", display="Profound"),
+                     Coding(system=res.HPO, code="0012828", display="Severe"),
               ],
               name="Value Set for 6.2.7 Severity",
               description=("A description of the severity of the feature described.")
