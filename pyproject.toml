@@ -31,7 +31,12 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Rare Diseases"
 ]
 dependencies = [
-    "numpy", "jupyter", "pandas", "phenopackets"
+    "numpy", 
+    "jupyter", 
+    "pandas", 
+    "phenopackets", 
+    "pytest", 
+    "phenopacket_mapper"
 ]
 dynamic = ["version"]
 
