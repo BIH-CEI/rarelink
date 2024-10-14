@@ -182,16 +182,6 @@ def preprocess_redcap_for_phenopackets(
 
     output_path = 'res/output/preprocessed_test_data'
     data_set.to_csv(output_path, index=False)
+    # add XML or whatever necessary too
     
     return output_path
-
-    # TODO @aslgrafe: handle ds.data_frame preprocessing
-    # 1. read csv file from inputpath
-    # 2. preprocess the data frame
-    # 3. save the preprocessed data frame to output path
-    # 4. return the output path
-    raise NotImplementedError
-
-
-# product of this function is the preprocessed data frame saved a csv or what ever to be used by the phenopaxcket pipeline.py 
-# upload data -> preprocess -> output locally -> output of this function: path of precprocessed data
