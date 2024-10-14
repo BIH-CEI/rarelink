@@ -75,7 +75,7 @@ def main():
 
 if __name__ == "__main__":
     rarelink_cdm_phenopacket_pipeline(
-        r"C:\Users\filip\OneDrive\Documents\dataspell\RareLink\res\rarelink_cdm_v2_0_0_test_data.csv",
-        r"C:\Users\filip\OneDrive\Documents\dataspell\RareLink\res\output",
+        r"res\rarelink_cdm_v2_0_0_test_data.csv",
+        r"res\output\phenopackets_test_data",
     )
 
