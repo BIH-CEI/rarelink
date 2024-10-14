@@ -419,8 +419,8 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
         cause_of_death_column="snomed_184305005",
         age_category_column="snomed_105727008",
         length_of_gestation_at_birth_column="snomed_412726003",
-        undiagnosed_rd_case_column="snomed_723663001"
-    )
+        undiagnosed_rd_case_column="snomed_723663001",
+    
     #     encounter_start_column="hl7fhir_enc_period_start",
     #     encounter_end_column="hl7fhir_enc_period_end",
     #     encounter_status_column="snomed_305058001",
@@ -492,14 +492,14 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
     #     family_member_cause_of_death_column="loinc_54112_8",
     #     family_member_deceased_age_column="loinc_92662_6",
     #     family_member_disease_column="loinc_75315_2",
-    #     consent_status_column="snomed_309370004",
-    #     consent_date_column="hl7fhir_consent_datetime",
-    #     health_policy_monitoring_column="snomed_386318002",
-    #     agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",
-    #     consent_to_the_reuse_of_data_column="rarelink_consent_data",
-    #     biological_sample_column="snomed_123038009",
-    #     link_to_a_biobank_column="rarelink_biobank_link", 
-    #     classification_of_functioning_disability_column="rarelink_icf_score",
-    # )
+        consent_status_column="snomed_309370004",
+        consent_date_column="hl7fhir_consent_datetime",
+        health_policy_monitoring_column="snomed_386318002",
+        agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",
+        consent_to_the_reuse_of_data_column="rarelink_consent_data",
+        biological_sample_column="snomed_123038009",
+        link_to_a_biobank_column="rarelink_biobank_link", 
+        classification_of_functioning_disability_column="rarelink_icf_score",
+    )
 
 
