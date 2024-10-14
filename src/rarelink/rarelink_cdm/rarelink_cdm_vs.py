@@ -1043,92 +1043,92 @@ class RareLink_CDM_v2_0_0_ValueSets:
 #                                    different rare disease.")
 #        )
 
-#        # 7.1 Consent Status
-#        vs_7_1 = ValueSet(
-#               elements=[
-#               Coding(system=res.HL7FHIR, code="draft", display="Pending"),
-#               Coding(system=res.HL7FHIR, code="proposed", display="Proposed"),
-#               Coding(system=res.HL7FHIR, code="active", display="Active"),
-#               Coding(system=res.HL7FHIR, code="rejected", display="Rejected"),
-#               Coding(system=res.HL7FHIR, code="inactive", display="Inactive"),
-#               Coding(system=res.HL7FHIR, code="entered-in-error", 
-#                      display="Entered in Error")
-#               ],
-#               name="Value set for 7.1 Consent Status",
-#               description=("Indicates the current status of the consent.")
-#        )
+       # 7.1 Consent Status
+       vs_7_1 = ValueSet(
+              elements=[
+              Coding(system=res.HL7FHIR, code="draft", display="Pending"),
+              Coding(system=res.HL7FHIR, code="proposed", display="Proposed"),
+              Coding(system=res.HL7FHIR, code="active", display="Active"),
+              Coding(system=res.HL7FHIR, code="rejected", display="Rejected"),
+              Coding(system=res.HL7FHIR, code="inactive", display="Inactive"),
+              Coding(system=res.HL7FHIR, code="entered-in-error", 
+                     display="Entered in Error")
+              ],
+              name="Value set for 7.1 Consent Status",
+              description=("Indicates the current status of the consent.")
+       )
 
-#        # 7.2 Consent Date
-#        vs_7_2 = ValueSet(
-#               elements=[Date],
-#               name="7.2 Consent Date",
-#               description=("Records the date when the consent was given.")
-#        )
+       # 7.2 Consent Date
+       vs_7_2 = ValueSet(
+              elements=[Date],
+              name="7.2 Consent Date",
+              description=("Records the date when the consent was given.")
+       )
 
-#        # 7.3 Health Policy Monitoring
-#        vs_7_3 = ValueSet(
-#               elements=[str],
-#               name="7.3 Health Policy Monitoring",
-#               description=("The references to the policies that are included in\
-#                      this consent scope. Policies may be organisational, but\
-#                             are often defined jurisdictionally, or in law.")
-#        )
+       # 7.3 Health Policy Monitoring
+       vs_7_3 = ValueSet(
+              elements=[str],
+              name="7.3 Health Policy Monitoring",
+              description=("The references to the policies that are included in\
+                     this consent scope. Policies may be organisational, but\
+                            are often defined jurisdictionally, or in law.")
+       )
 
-#        # 7.4 Agreement to be contacted for research purposes
-#        vs_7_4 = ValueSet(
-#               elements=[
-#               Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
-#               Coding(system=res.SNOMED_CT, code="373067005", display="No"),
-#               Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
-#               ],
-#               name="Value set for 7.4 Agreement to be contacted for research\
-#                      purposes",
-#               description=("Indicates whether the patient agrees to be contacted for "
-#                      "research purposes.")
-#        )
+       # 7.4 Agreement to be contacted for research purposes
+       vs_7_4 = ValueSet(
+              elements=[
+              Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+              Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+              Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
+              ],
+              name="Value set for 7.4 Agreement to be contacted for research\
+                     purposes",
+              description=("Indicates whether the patient agrees to be contacted for "
+                     "research purposes.")
+       )
 
-#        # 7.5 Consent to the reuse of data
-#        vs_7_5 = ValueSet(
-#               elements=[
-#               Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
-#               Coding(system=res.SNOMED_CT, code="373067005", display="No"),
-#               Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
-#               ],
-#               name="7.5 Consent to the reuse of data",
-#               description=("Indicates whether the patient consents to the reuse\
-#                      of their data.")
-#        )
+       # 7.5 Consent to the reuse of data
+       vs_7_5 = ValueSet(
+              elements=[
+              Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+              Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+              Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
+              ],
+              name="7.5 Consent to the reuse of data",
+              description=("Indicates whether the patient consents to the reuse\
+                     of their data.")
+       )
 
-#        # 7.6 Biological sample
-#        vs_7_6 = ValueSet(
-#               elements=[
-#               Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
-#               Coding(system=res.SNOMED_CT, code="373067005", display="No"),
-#               Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
-#               ],
-#               name="7.6 Biological sample",
-#               description=("Indicates whether a patient's biological sample is  "
-#                      "available for research.")
-#        )
+       # 7.6 Biological sample
+       vs_7_6 = ValueSet(
+              elements=[
+              Coding(system=res.SNOMED_CT, code="373066001", display="Yes"),
+              Coding(system=res.SNOMED_CT, code="373067005", display="No"),
+              Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
+              ],
+              name="7.6 Biological sample",
+              description=("Indicates whether a patient's biological sample is  "
+                     "available for research.")
+       )
 
-#        # 7.7 Link to a biobank
-#        vs_7_7 = ValueSet(
-#               elements=[str],
-#               name="7.7 Link to a biobank",
-#               description=("If there is a biological sample, this data element\
-#                             indicates the link to the biobank of the patient's\
-#                             biological sample.")
-#        )
+       # 7.7 Link to a biobank
+       vs_7_7 = ValueSet(
+              elements=[str],
+              name="7.7 Link to a biobank",
+              description=("If there is a biological sample, this data element\
+                            indicates the link to the biobank of the patient's\
+                            biological sample.")
+       )
 
-#        #8.1 Classification of functioning / disability
-#        vs_8_1 = ValueSet(
-#        elements=[res.ICF],
-#        name="Value set for 8.1 Classification of functioning / disability",
-#        description=("Classification of functioning and disability based on the "
-#                      "International Classification of Functioning, Disability and "
-#                      "Health (ICF)."
-#        )
-# )
+       #8.1 Classification of functioning / disability
+       vs_8_1 = ValueSet(
+       elements=[res.ICF],
+       name="Value set for 8.1 Classification of functioning / disability",
+       description=("Classification of functioning and disability based on the "
+                     "International Classification of Functioning, Disability and "
+                     "Health (ICF)."
+       )
+)
 
 
 RARELINK_CDM_V2_0_0_VS = RareLink_CDM_v2_0_0_ValueSets # Add the closing parenthesis
