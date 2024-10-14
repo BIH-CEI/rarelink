@@ -177,7 +177,7 @@ def preprocess_redcap_for_phenopackets(
         }
     )
 
-    # 6.3 Family History #TODO
+    # 6.4 Family History #TODO
 
 
     output_path = 'res/output/preprocessed_test_data'
