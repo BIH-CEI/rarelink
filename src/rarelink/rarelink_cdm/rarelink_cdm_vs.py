@@ -18,16 +18,18 @@ class RareLink_CDM_v2_0_0_ValueSets:
        vs_1_2 = ValueSet(
               elements=[Date],
               name="Value set for 1.2 Date of Admission",
-              description="The date of admission or data capture of the individual."
+              description="The date of admission or data capture of the\
+                     individual."
               )
        # 2. Personal Information
        # 2.1 Date of Birth
        vs_2_1 = ValueSet(
               elements=[Date],
               name="Value set for 2.1 Date of Birth",
-              description=("The individual's date of birth. If the exact month or day "
-                            "is allowed to be captured or not known, select the 1st day "
-                            "of the month or the 1st month of the year, respectively.")
+              description=("The individual's date of birth. If the exact month\
+                     or day is allowed to be captured or not known, select the\
+                     1st day of the month or the 1st month of the year,\
+                            respectively.")
        )
 
        # 2.2 Sex at Birth
@@ -107,16 +109,17 @@ class RareLink_CDM_v2_0_0_ValueSets:
                      display="Unknown - Other Reason")
               ],
               name="Value set for 3.1 Vital Status",
-              description=("The individual’s general clinical status or vital status.")
+              description=("The individual’s general clinical status or vital\
+                     status.")
        )
 
        # 3.2 Time of Death
        vs_3_2 = ValueSet(
               elements=[Date], 
               name="Value set for 3.2 Time of Death",
-              description=("If deceased, the individual’s date of death. If the specific "
-                            "month or day is not known, select the 1st day of the "
-                            "month or the 1st month of the year, respectively.")
+              description=("If deceased, the individual’s date of death. If the\
+                     specific month or day is not known, select the 1st day of\
+                     the month or the 1st month of the year, respectively.")
        )
 
        # 3.3 Cause of Death [ICD10CM]
@@ -146,7 +149,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
                      display="Unknown")
               ],
               name="Value set for 3.4 Age Category",
-              description=("The individual's age category at the time of data capture (1.2).")
+              description=("The individual's age category at the time of data\
+                     capture (1.2).")
        )
 
        # 3.5 Length of Gestation at Birth [weeks+days]
@@ -163,7 +167,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
               Coding(system=res.SNOMED_CT, code="373067005", display="No")
               ],
               name="Value set for 3.6 Undiagnosed RD Case",
-              description=("Identifies cases where an RD diagnosis has not been established.")
+              description=("Identifies cases where an RD diagnosis has not been\
+                     established.")
        )
 
        # 4. Care Pathway
@@ -204,8 +209,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
                      display="Unknown")
               ],
               name="Value set for 4.3 Encounter Status",
-              description=("The status of an encounter of the individual at the time of "
-                            "data capture.")
+              description=("The status of an encounter of the individual at the\
+                     time of data capture.")
        )
 
        # 4.4 Encounter Class
@@ -223,8 +228,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
               Coding(system=res.SNOMED_CT, code="261665006", display="Unknown")
               ],
               name="Value set for 4.4 Encounter Class",
-              description=("The class of an encounter of the individual at the time of "
-                            "data capture.")
+              description=("The class of an encounter of the individual at the\
+                     time of data capture.")
        )
 
 
@@ -233,27 +238,32 @@ class RareLink_CDM_v2_0_0_ValueSets:
        vs_5_1a = ValueSet(
               elements=[res.MONDO],
               name="Value set for 5.1a Disease [MONDO]",
-              description=("A disease that the individual was affected by as classified by MONDO.")
+              description=("A disease that the individual was affected by as\
+                     classified by MONDO.")
               )
        vs_5_1b = ValueSet(
               elements=[res.ORDO],
               name="Value set for 5.1b Disease [ORDO]",
-              description=("A disease that the individual was affected by as classified by ORDO.")
+              description=("A disease that the individual was affected by as\
+                     classified by ORDO.")
               )
        vs_5_1c = ValueSet(
               elements=[res.ICD10CM],
               name="Value set for 5.1c Disease [ICD-10-CM]",
-              description=("A disease that the individual was affected by as classified by ICD-10-CM.")
+              description=("A disease that the individual was affected by as\
+                     classified by ICD-10-CM.")
               )
        vs_5_1d = ValueSet(
               elements=[res.ICD11],
               name="Value set for 5.1d Disease [ICD-11]",
-              description=("A disease that the individual was affected by as classified by ICD-11.")
+              description=("A disease that the individual was affected by as\
+                     classified by ICD-11.")
               )
        vs_5_1e = ValueSet(
               elements=[res.OMIM],
               name="Value set for 5.1e Disease [OMIM]",
-              description=("A disease that the individual was affected by as classified by OMIM.")
+              description=("A disease that the individual was affected by as\
+                     classified by OMIM.")
               )
 
        # 5.2 Verification Status
@@ -421,8 +431,8 @@ class RareLink_CDM_v2_0_0_ValueSets:
                             to be causative of the diagnosis")
               ],
               name="Value set for 6.1.3 Interpretation Status",
-              description=("An enumeration that describes the conclusion made about "
-                     "the genomic interpretation.")
+              description=("An enumeration that describes the conclusion made\
+                     about the genomic interpretation.")
        )
 
        # 6.1.4 Structural Variant Analysis Method
