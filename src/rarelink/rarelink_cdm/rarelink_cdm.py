@@ -13,14 +13,12 @@ RARELINK_CDM_V2_0_0 = DataModel(
             fields=(
                 DataField(
                     name="Pseudonym",
-                    ordinal="1.1",
                     specification=str,
                     required=True,
                     description="The (local) patient-related Identification code."
                 ),
                 DataField(
                     name="Date of Admission",
-                    ordinal="1.2",
                     specification=Date,
                     required=True,
                     description="The date of admission or data capture of the individual."
@@ -33,7 +31,6 @@ RARELINK_CDM_V2_0_0 = DataModel(
             fields=(
                 DataField(
                     name="Phenotypic Feature",
-                    ordinal="6.2.1",
                     specification=Coding,
                     required=True,
                     description="An observed physical and clinical\
@@ -41,7 +38,6 @@ RARELINK_CDM_V2_0_0 = DataModel(
                 ),
                 DataField(
                     name="Status",
-                    ordinal="6.2.2",
                     specification=ValueSet(
                         name="Value set for 6.2.2 Phenotype Status",
                         elements=[
@@ -52,27 +48,24 @@ RARELINK_CDM_V2_0_0 = DataModel(
                         ]
                     ),
                     required=False,
-                    description="The current status of the phenotypic feature,\
-                            indicating whether it is confirmed or refuted."
+                    description="The current status of the phenotypic feature, indicating whether it is confirmed or "
+                                "refuted."
                 ),
                 DataField(
                     name="Determination Date",
-                    ordinal="6.2.3",
                     specification=Date,
                     required=False,
-                    description="The date on which the phenotypic feature was\
-                            observed or recorded."
+                    description="The date on which the phenotypic feature was observed or recorded."
                 ),
                 DataField(
                     name="Resolution Date",
-                    ordinal="6.2.4",
                     specification=Date,
                     required=False,
                     description="Time at which the feature resolved or abated."
                 ),
                 DataField(
                     name="Age of Onset",
-                    ordinal="6.2.5",
+                    required=False,
                     specification=ValueSet(
                         name="Value Set for 6.2.5 Onset Category",
                         elements=[
@@ -97,14 +90,13 @@ RARELINK_CDM_V2_0_0 = DataModel(
                             Coding(system=res.HPO, code="0003584", 
                                     display="Late adult onset (60y+)"),
                         ],
-                    required=False,
                     description="Time at which the feature was first observed\
                             within HPO onset categories"
                     )
                 ),
                 DataField(
                     name="Temporal Pattern",
-                    ordinal="6.2.6",
+                    required=False,
                     specification=ValueSet(
                         name="Value Set for 6.2.6 Temporal Pattern",
                         elements=[
@@ -125,13 +117,11 @@ RARELINK_CDM_V2_0_0 = DataModel(
                             Coding(system=res.HPO, code="0025153",
                                    display="Transient"),
                             ],
-                    required=False,
                     description="The temporal pattern of the phenotypic feature."
                     )
                 ),
                 DataField(
                     name="Phenotype Severity",
-                    ordinal="6.2.7",
                     specification=ValueSet(
                         name="Value Set for 6.2.7 Phenotype Severity",
                         elements=[
@@ -148,35 +138,28 @@ RARELINK_CDM_V2_0_0 = DataModel(
                         ]
                     ),
                     required=False,
-                    description="A description of the severity of the\
-                        feature described."
+                    description="A description of the severity of the feature described."
                 ),
                 DataField(
                     name="Modifier_HPO_1",
-                    ordinal="6.2.8a",
                     specification=Coding,
                     required=False,
-                    description="Further clinical modifiers to describe a\
-                        specific phenotypic feature, such as severity or linked\
-                        causative agents."
+                    description="Further clinical modifiers to describe a specific phenotypic feature, such as severity"
+                                " or linked causative agents."
                 ),
                 DataField(
                     name="Modifier_HPO_1",
-                    ordinal="6.2.8b",
                     specification=Coding,
                     required=False,
-                    description="Further clinical modifiers to describe a\
-                        specific phenotypic feature, such as severity or linked\
-                        causative agents."
+                    description="Further clinical modifiers to describe a specific phenotypic feature, such as severity"
+                                " or linked causative agents."
                 ),
                 DataField(
                     name="Modifier_HPO_3",
-                    ordinal="6.2.8c",
                     specification=Coding,
                     required=False,
-                    description="Further clinical modifiers to describe a\
-                        specific phenotypic feature, such as severity or linked\
-                        causative agents."
+                    description="Further clinical modifiers to describe a specific phenotypic feature, such as "
+                                "severity or linked causative agents."
                 )
             )
         )      
