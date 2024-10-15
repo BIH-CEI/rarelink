@@ -151,6 +151,33 @@ RARELINK_CDM_V2_0_0 = DataModel(
                     description="A description of the severity of the\
                         feature described."
                 ),
+                DataField(
+                    name="Modifier_HPO_1",
+                    ordinal="6.2.8a",
+                    specification=Coding,
+                    required=False,
+                    description="Further clinical modifiers to describe a\
+                        specific phenotypic feature, such as severity or linked\
+                        causative agents."
+                ),
+                DataField(
+                    name="Modifier_HPO_1",
+                    ordinal="6.2.8b",
+                    specification=Coding,
+                    required=False,
+                    description="Further clinical modifiers to describe a\
+                        specific phenotypic feature, such as severity or linked\
+                        causative agents."
+                ),
+                DataField(
+                    name="Modifier_HPO_3",
+                    ordinal="6.2.8c",
+                    specification=Coding,
+                    required=False,
+                    description="Further clinical modifiers to describe a\
+                        specific phenotypic feature, such as severity or linked\
+                        causative agents."
+                )
             )
         )      
     )
