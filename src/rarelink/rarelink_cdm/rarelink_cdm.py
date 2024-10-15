@@ -1,70 +1,238 @@
-from importlib import resources
 from pathlib import Path
 from typing import Union
-from phenopacket_mapper.data_standards import DataModel, DataField, DataSet
+from phenopacket_mapper.data_standards import DataModel, DataField, DataSet, OrGroup, ValueSet, DataSection
+from phenopacket_mapper.data_standards import Coding, CodeSystem, Date, ValueSet
+from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
 RARELINK_CDM_V2_0_0 = DataModel(
-    data_model_name="RareLink Common Data Model 2.0",
-    resources=resources,
-    fields=[
-        # 1. Formal Criteria
-        DataField(section="1. Formal Criteria", ordinal="1.1", 
-                   name="Pseudonym", specification=VS.vs_1_1),
-        DataField(section="1. Formal Criteria", ordinal="1.2", 
-                   name="Date of Admission", specification=VS.vs_1_2),
-
-        # 2. Personal Information
-        DataField(section="2. Personal Information", ordinal="2.1", 
-                   name="Date of Birth", specification=VS.vs_2_1),
-        DataField(section="2. Personal Information", ordinal="2.2", 
-                   name="Sex at Birth", specification=VS.vs_2_2),
-        DataField(section="2. Personal Information", ordinal="2.3", 
-                   name="Karyotypic Sex", specification=VS.vs_2_3),
-        DataField(section="2. Personal Information", ordinal="2.4", 
-                   name="Gender Identity", specification=VS.vs_2_4),
-        DataField(section="2. Personal Information", ordinal="2.5", 
-                   name="Country of Birth", specification=VS.vs_2_5),
-
-        # 3. Patient Status
-        DataField(section="3. Patient Status", ordinal="3.1", 
-                   name="Vital Status", specification=VS.vs_3_1),
-        DataField(section="3. Patient Status", ordinal="3.2", 
-                   name="Time of Death", specification=VS.vs_3_2),
-        DataField(section="3. Patient Status", ordinal="3.3", 
-                   name="Cause of Death", specification=VS.vs_3_3),
-        DataField(section="3. Patient Status", ordinal="3.4", 
-                   name="Age Category", specification=VS.vs_3_4),
-        DataField(section="3. Patient Status", ordinal="3.5", 
-                   name="Length of Gestation at Birth", specification=VS.vs_3_5),
-        DataField(section="3. Patient Status", ordinal="3.6", 
-                   name="Undiagnosed RD Case", specification=VS.vs_3_6),
-
-        # 7. Consent
-        DataField(section="7. Consent", ordinal="7.1", 
-                  name="Consent Status", specification=VS.vs_7_1),
-        DataField(section="7. Consent", ordinal="7.2", 
-                  name="Consent Date", specification=VS.vs_7_2),
-        DataField(section="7. Consent", ordinal="7.3", 
-                  name="Health Policy Monitoring", specification=VS.vs_7_3),
-        DataField(section="7. Consent", ordinal="7.4", name="Agreement to be contacted for research purposes", specification=VS.vs_7_4), 
-        DataField(section="7. Consent", ordinal="7.5", 
-                  name="Consent to the reuse of data", 
-                  specification=VS.vs_7_5),
-        DataField(section="7. Consent", ordinal="7.6", 
-                  name="Biological sample", 
-                  specification=VS.vs_7_6),
-        DataField(section="7. Consent", ordinal="7.7", 
-                  name="Link to a biobank", 
-                  specification=VS.vs_7_7),
+    data_model_name="RareLink Common Data Model 2.0.0",
+    fields=(
+        DataSection(
+            name="1. Formal Criteria",
+            fields=(
+                DataField(
+                    name="Pseudonym",
+                    ordinal="1.1",
+                    specification=str,
+                    required=True,
+                    description="The (local) patient-related Identification code."
+                ),
+                DataField(
+                    name="Date of Admission",
+                    ordinal="1.2",
+                    specification=Date,
+                    required=True,
+                    description="The date of admission or data capture of the individual."
+                ),   
+            )
+        ),
     
-        # 8. Classification of functioning / disability
-        DataField(section="8. Classification", ordinal="8.1", 
-                  name="Classification of functioning / disability", 
-                  specification=VS.vs_8_1), 
-
-    ]
+        DataSection(
+            name="6.2 Phenotypic Feature",
+            fields=(
+                DataField(
+                    name="Phenotypic Feature",
+                    ordinal="6.2.1",
+                    specification=Coding,
+                    required=True,
+                    description="An observed physical and clinical\
+                        characteristic encoded with HPO."
+                ),
+                DataField(
+                    name="Status",
+                    ordinal="6.2.2",
+                    specification=ValueSet(
+                        name="Value set for 6.2.2 Phenotype Status",
+                        elements=[
+                            Coding(system=res.SNOMED_CT, code="410605003", 
+                                    display="Confirmed present"),
+                            Coding(system=res.SNOMED_CT, code="723511001",
+                                   display="Refuted")
+                        ]
+                    ),
+                    required=False,
+                    description="The current status of the phenotypic feature,\
+                            indicating whether it is confirmed or refuted."
+                ),
+                DataField(
+                    name="Determination Date",
+                    ordinal="6.2.3",
+                    specification=Date,
+                    required=False,
+                    description="The date on which the phenotypic feature was\
+                            observed or recorded."
+                ),
+                DataField(
+                    name="Resolution Date",
+                    ordinal="6.2.4",
+                    specification=Date,
+                    required=False,
+                    description="Time at which the feature resolved or abated."
+                ),
+                DataField(
+                    name="Age of Onset",
+                    ordinal="6.2.5",
+                    specification=ValueSet(
+                        name="Value Set for 6.2.5 Onset Category",
+                        elements=[
+                            Coding(system=res.HPO, code="0011460", 
+                                    display="Embryonal onset (0w-8w embryonal)"),
+                            Coding(system=res.HPO, code="0011461",
+                                    display="Fetal onset (8w embryonal - birth)"),
+                            Coding(system=res.HPO, code="0003577", 
+                                    display="Congenital onset (at birth)"),
+                            Coding(system=res.HPO, code="0003623", 
+                                    display="Neonatal onset (0d-28d)"),
+                            Coding(system=res.HPO, code="0003593", 
+                                    display="Infantile onset (28d-1y)"),
+                            Coding(system=res.HPO, code="0011463", 
+                                    display="Childhood onset (1y-5y)"),
+                            Coding(system=res.HPO, code="0003621", 
+                                    display="Juvenile onset (5y-15y)"),
+                            Coding(system=res.HPO, code="0011462", 
+                                    display="Young adult onset (16y-40y)"),
+                            Coding(system=res.HPO, code="0003596", 
+                                    display="Middle age adult onset (40y-60y)"),
+                            Coding(system=res.HPO, code="0003584", 
+                                    display="Late adult onset (60y+)"),
+                        ],
+                    required=False,
+                    description="Time at which the feature was first observed\
+                            within HPO onset categories"
+                    )
+                ),
+                DataField(
+                    name="Temporal Pattern",
+                    ordinal="6.2.6",
+                    specification=ValueSet(
+                        name="Value Set for 6.2.6 Temporal Pattern",
+                        elements=[
+                            Coding(system=res.HPO, code="0011009",
+                                   display="Acute"),
+                            Coding(system=res.HPO, code="0011010",
+                                   display="Chronic"),
+                            Coding(system=res.HPO, code="0031914",
+                                   display="Fluctuating"),
+                            Coding(system=res.HPO, code="0025297",
+                                   display="Prolonged"),
+                            Coding(system=res.HPO, code="0031796",
+                                   display="Recurrent"),
+                            Coding(system=res.HPO, code="0031915",
+                                   display="Stable"),
+                            Coding(system=res.HPO, code="0011011",
+                                   display="Subactue"),
+                            Coding(system=res.HPO, code="0025153",
+                                   display="Transient"),
+                            ],
+                    required=False,
+                    description="The temporal pattern of the phenotypic feature."
+                    )
+                ),
+                DataField(
+                    name="Phenotype Severity",
+                    ordinal="6.2.7",
+                    specification=ValueSet(
+                        name="Value Set for 6.2.7 Phenotype Severity",
+                        elements=[
+                            Coding(system=res.HPO, code="0012827",
+                                   display="Borderline"),
+                            Coding(system=res.HPO, code="0012825",
+                                   display="Mild"),
+                            Coding(system=res.HPO, code="0012826",
+                                   display="Moderate"),
+                            Coding(system=res.HPO, code="0012829",
+                                   display="Profound"),
+                            Coding(system=res.HPO, code="0012828",
+                                   display="Severe"),
+                        ]
+                    ),
+                    required=False,
+                    description="A description of the severity of the\
+                        feature described."
+                ),
+            )
+        )      
+    )
 )
+    
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8a", 
+        #               name=f"Modifier_HPO_1_{i}", specification=VS.vs_6_2_8a)
+        # )
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8b", 
+        #               name=f"Modifier_HPO_2_{i}", specification=VS.vs_6_2_8b)
+        # )
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8c", 
+        #               name=f"Modifier_HPO_3_{i}", specification=VS.vs_6_2_8c)
+        # )
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8d", 
+        #               name=f"Modifier_NCBITaxon_{i}", specification=VS.vs_6_2_8d)
+        # )
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8e", 
+        #               name=f"Modifier_SNOMED_CT_{i}", specification=VS.vs_6_2_8e)
+        # )
+        # RARELINK_CDM_V2_0_0.fields.append(
+        #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.9", 
+        #               name=f"Evidence_{i}", specification=VS.vs_6_2_9)
+        # )
+
+
+#         # 2. Personal Information
+#         DataField(section="2. Personal Information", ordinal="2.1", 
+#                    name="Date of Birth", specification=VS.vs_2_1),
+#         DataField(section="2. Personal Information", ordinal="2.2", 
+#                    name="Sex at Birth", specification=VS.vs_2_2),
+#         DataField(section="2. Personal Information", ordinal="2.3", 
+#                    name="Karyotypic Sex", specification=VS.vs_2_3),
+#         DataField(section="2. Personal Information", ordinal="2.4", 
+#                    name="Gender Identity", specification=VS.vs_2_4),
+#         DataField(section="2. Personal Information", ordinal="2.5", 
+#                    name="Country of Birth", specification=VS.vs_2_5),
+
+#         # 3. Patient Status
+#         DataField(section="3. Patient Status", ordinal="3.1", 
+#                    name="Vital Status", specification=VS.vs_3_1),
+#         DataField(section="3. Patient Status", ordinal="3.2", 
+#                    name="Time of Death", specification=VS.vs_3_2),
+#         DataField(section="3. Patient Status", ordinal="3.3", 
+#                    name="Cause of Death", specification=VS.vs_3_3),
+#         DataField(section="3. Patient Status", ordinal="3.4", 
+#                    name="Age Category", specification=VS.vs_3_4),
+#         DataField(section="3. Patient Status", ordinal="3.5", 
+#                    name="Length of Gestation at Birth", specification=VS.vs_3_5),
+#         DataField(section="3. Patient Status", ordinal="3.6", 
+#                    name="Undiagnosed RD Case", specification=VS.vs_3_6),
+
+#         # 7. Consent
+#         DataField(section="7. Consent", ordinal="7.1", 
+#                   name="Consent Status", specification=VS.vs_7_1),
+#         DataField(section="7. Consent", ordinal="7.2", 
+#                   name="Consent Date", specification=VS.vs_7_2),
+#         DataField(section="7. Consent", ordinal="7.3", 
+#                   name="Health Policy Monitoring", specification=VS.vs_7_3),
+#         DataField(section="7. Consent", ordinal="7.4", name="Agreement to be contacted for research purposes", specification=VS.vs_7_4), 
+#         DataField(section="7. Consent", ordinal="7.5", 
+#                   name="Consent to the reuse of data", 
+#                   specification=VS.vs_7_5),
+#         DataField(section="7. Consent", ordinal="7.6", 
+#                   name="Biological sample", 
+#                   specification=VS.vs_7_6),
+#         DataField(section="7. Consent", ordinal="7.7", 
+#                   name="Link to a biobank", 
+#                   specification=VS.vs_7_7),
+    
+#         # 8. Classification of functioning / disability
+#         DataField(section="8. Classification", ordinal="8.1", 
+#                   name="Classification of functioning / disability", 
+#                   specification=VS.vs_8_1), 
+
+#     ]
+# )
 # repeating fields:
 # # 4. Care Pathway
 # def append_care_pathway_fields(data_model, n=9999):
