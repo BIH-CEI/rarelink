@@ -33,8 +33,7 @@ RARELINK_CDM_V2_0_0 = DataModel(
                     name="Phenotypic Feature",
                     specification=Coding,
                     required=True,
-                    description="An observed physical and clinical\
-                        characteristic encoded with HPO."
+                    description="An observed physical and clinical characteristic encoded with HPO."
                 ),
                 DataField(
                     name="Status",
@@ -90,8 +89,7 @@ RARELINK_CDM_V2_0_0 = DataModel(
                             Coding(system=res.HPO, code="0003584", 
                                     display="Late adult onset (60y+)"),
                         ],
-                    description="Time at which the feature was first observed\
-                            within HPO onset categories"
+                    description="Time at which the feature was first observed within HPO onset categories"
                     )
                 ),
                 DataField(
