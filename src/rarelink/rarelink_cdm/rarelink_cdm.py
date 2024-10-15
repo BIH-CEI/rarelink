@@ -9,160 +9,384 @@ RARELINK_CDM_V2_0_0 = DataModel(
     data_model_name="RareLink Common Data Model 2.0.0",
     fields=(
         DataSection(
-            name="1. Formal Criteria",
+            name="ODM",
             fields=(
                 DataField(
-                    name="Pseudonym",
+                    name="xmlns",
                     specification=str,
                     required=True,
-                    description="The (local) patient-related Identification code."
+                    description="Namespace for ODM v1.3,\
+                        e.g. http://www.cdisc.org/ns/odm/v1.3"
                 ),
                 DataField(
-                    name="Date of Admission",
+                    name="xmlns:ds",
+                    specification=str,
+                    required=True,
+                    description="Namespace for XML digital signature (e.g.,\
+                        http://www.w3.org/2000/09/xmldsig#)"
+                ),
+                DataField(
+                    name="xmlns:xsi",
+                    specification=str,
+                    required=True,
+                    description="Namespace for XML Schema instance (e.g.,\
+                        http://www.w3.org/2001/XMLSchema-instance)"
+                ),
+                DataField(
+                    name="xmlns:redcap",
+                    specification=str,
+                    required=True,
+                    description="Namespace for REDCap extension (e.g.,\
+                        https://projectredcap.org)"
+                ),
+                DataField(
+                    name="xsi:schemaLocation",
+                    specification=str,
+                    required=True,
+                    description="Location of the ODM schema file (e.g.,\
+                        http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd)"
+                ),
+                DataField(
+                    name="ODMVersion",
+                    specification=str,
+                    required=True,
+                    description="Version of the ODM format (e.g., 1.3.1)"
+                ),
+                DataField(
+                    name="FileOID",
+                    specification=str,
+                    required=True,
+                    description="Unique identifier for the ODM file (e.g.,\
+                            000-00-0000)"
+                ),
+                DataField(
+                    name="FileType",
+                    specification=str,
+                    required=True,
+                    description="Type of the file (e.g., Snapshot)"
+                ),
+                DataField(
+                    name="Description",
+                    specification=str,
+                    required=True,
+                    description="Description of the ODM file content (e.g., \
+                        the name of the local REDCap project)"
+                ),
+                DataField(
+                    name="AsOfDateTime",
                     specification=Date,
                     required=True,
-                    description="The date of admission or data capture of the individual."
-                ),   
-            )
-        ),
-    
-        DataSection(
-            name="6.2 Phenotypic Feature",
-            fields=(
+                    description="Date and time of the data snapshot"
+                ),
                 DataField(
-                    name="Phenotypic Feature",
-                    specification=Coding,
+                    name="CreationDateTime",
+                    specification=Date,
                     required=True,
-                    description="An observed physical and clinical characteristic encoded with HPO."
+                    description="Date and time when the ODM file was created"
                 ),
                 DataField(
-                    name="Status",
-                    specification=ValueSet(
-                        name="Value set for 6.2.2 Phenotype Status",
-                        elements=[
-                            Coding(system=res.SNOMED_CT, code="410605003", 
-                                    display="Confirmed present"),
-                            Coding(system=res.SNOMED_CT, code="723511001",
-                                   display="Refuted")
-                        ]
-                    ),
-                    required=False,
-                    description="The current status of the phenotypic feature, indicating whether it is confirmed or "
-                                "refuted."
+                    name="SourceSystem",
+                    specification=str,
+                    required=True,
+                    description="System that generated the ODM file (e.g.,\
+                        REDCap)"
                 ),
                 DataField(
-                    name="Determination Date",
-                    specification=Date,
-                    required=False,
-                    description="The date on which the phenotypic feature was observed or recorded."
+                    name="SourceSystemVersion",
+                    specification=str,
+                    required=True,
+                    description="Version of the source system (e.g. 14.6.9)"
                 ),
-                DataField(
-                    name="Resolution Date",
-                    specification=Date,
-                    required=False,
-                    description="Time at which the feature resolved or abated."
-                ),
-                DataField(
-                    name="Age of Onset",
-                    required=False,
-                    specification=ValueSet(
-                        name="Value Set for 6.2.5 Onset Category",
-                        elements=[
-                            Coding(system=res.HPO, code="0011460", 
-                                    display="Embryonal onset (0w-8w embryonal)"),
-                            Coding(system=res.HPO, code="0011461",
-                                    display="Fetal onset (8w embryonal - birth)"),
-                            Coding(system=res.HPO, code="0003577", 
-                                    display="Congenital onset (at birth)"),
-                            Coding(system=res.HPO, code="0003623", 
-                                    display="Neonatal onset (0d-28d)"),
-                            Coding(system=res.HPO, code="0003593", 
-                                    display="Infantile onset (28d-1y)"),
-                            Coding(system=res.HPO, code="0011463", 
-                                    display="Childhood onset (1y-5y)"),
-                            Coding(system=res.HPO, code="0003621", 
-                                    display="Juvenile onset (5y-15y)"),
-                            Coding(system=res.HPO, code="0011462", 
-                                    display="Young adult onset (16y-40y)"),
-                            Coding(system=res.HPO, code="0003596", 
-                                    display="Middle age adult onset (40y-60y)"),
-                            Coding(system=res.HPO, code="0003584", 
-                                    display="Late adult onset (60y+)"),
-                        ],
-                    description="Time at which the feature was first observed within HPO onset categories"
+                DataSection(
+                    name="ClinicalData",
+                    fields=(
+                        DataField(
+                            name="StudyOID",
+                            specification=str,
+                            required=True,
+                            description="Unique identifier for the study or\
+                                project (e.g., Project.ProjectName)"
+                        ),
+                        DataField(
+                            name="MetaDataVersionOID",
+                            specification=str,
+                            required=True,
+                            description="Version identifier for the metadata\
+                                structure of the project (e.g.\
+                                    'Project.ProjectName_2024-10-14_1145')."
+                        ),
+                        DataSection(
+                            name="SubjectData",
+                            fields=(
+                                DataField(
+                                    name="SubjectKey",
+                                    specification=str,
+                                    required=True,
+                                    description="Identifier for the subject\
+                                        or patient within the REDCap database."
+                                ),
+                                DataField(
+                                    name="redcap:RecordIdField",
+                                    specification=str,
+                                    required=True,
+                                    description="The primary record identifier\
+                                        field for REDCap (e.g. 'record_id')"
+                                ),
+                                DataSection(
+                                    name="FormData",
+                                    fields=(
+                                        DataField(
+                                            name="FormOID",
+                                            specification=str,
+                                            required=True,
+                                            description="Unique identifier for\
+                                                the form using the REDCap form\
+                                                    name (e.g., 'Form.form_name')"
+                                        ),
+                                        DataField(
+                                            name="FormRepeatKey",
+                                            specification=str,
+                                            required=True,
+                                            description="Unique identifier for\
+                                                the form repeat instance."
+                                        ),
+                                        DataSection(
+                                            name="ItemGroupData",
+                                            fields=(
+                                                DataField(
+                                                    name="ItemGroupOID",
+                                                    specification=str,
+                                                    required=True,
+                                                    description="Unique identifier\
+                                                        for the item group using the\
+                                                            REDCap field name (e.g.,\
+                                                                'form_name.variable_name')"
+                                                ),
+                                                DataField(
+                                                    name="ItemGroupRepeatKey",
+                                                    specification=str,
+                                                    required=True,
+                                                    description="Unique identifier\
+                                                        for the item group repeat instance."
+                                                ),
+                                                DataSection(
+                                                    name="ItemData",
+                                                    fields=(
+                                                        [DataField(
+                                                            name="ItemOID",
+                                                            specification=str,
+                                                            required=True,
+                                                            description="Unique identifier\
+                                                                within the REDCap project \
+                                                                (e.g., record_id)"
+                                                            ),
+                                                        DataField(
+                                                            name="Value",
+                                                            specification=str,
+                                                            required=True,
+                                                            description="Value of the record_id"
+                                                        )
+                                                        ],
+                                                        [
+                                                            
+                                                        ]
+                                                    )
+                                                )
+                                                
+                                        )
+                                )
+                            )
+                        )
                     )
-                ),
-                DataField(
-                    name="Temporal Pattern",
-                    required=False,
-                    specification=ValueSet(
-                        name="Value Set for 6.2.6 Temporal Pattern",
-                        elements=[
-                            Coding(system=res.HPO, code="0011009",
-                                   display="Acute"),
-                            Coding(system=res.HPO, code="0011010",
-                                   display="Chronic"),
-                            Coding(system=res.HPO, code="0031914",
-                                   display="Fluctuating"),
-                            Coding(system=res.HPO, code="0025297",
-                                   display="Prolonged"),
-                            Coding(system=res.HPO, code="0031796",
-                                   display="Recurrent"),
-                            Coding(system=res.HPO, code="0031915",
-                                   display="Stable"),
-                            Coding(system=res.HPO, code="0011011",
-                                   display="Subactue"),
-                            Coding(system=res.HPO, code="0025153",
-                                   display="Transient"),
-                            ],
-                    description="The temporal pattern of the phenotypic feature."
-                    )
-                ),
-                DataField(
-                    name="Phenotype Severity",
-                    specification=ValueSet(
-                        name="Value Set for 6.2.7 Phenotype Severity",
-                        elements=[
-                            Coding(system=res.HPO, code="0012827",
-                                   display="Borderline"),
-                            Coding(system=res.HPO, code="0012825",
-                                   display="Mild"),
-                            Coding(system=res.HPO, code="0012826",
-                                   display="Moderate"),
-                            Coding(system=res.HPO, code="0012829",
-                                   display="Profound"),
-                            Coding(system=res.HPO, code="0012828",
-                                   display="Severe"),
-                        ]
-                    ),
-                    required=False,
-                    description="A description of the severity of the feature described."
-                ),
-                DataField(
-                    name="Modifier_HPO_1",
-                    specification=Coding,
-                    required=False,
-                    description="Further clinical modifiers to describe a specific phenotypic feature, such as severity"
-                                " or linked causative agents."
-                ),
-                DataField(
-                    name="Modifier_HPO_1",
-                    specification=Coding,
-                    required=False,
-                    description="Further clinical modifiers to describe a specific phenotypic feature, such as severity"
-                                " or linked causative agents."
-                ),
-                DataField(
-                    name="Modifier_HPO_3",
-                    specification=Coding,
-                    required=False,
-                    description="Further clinical modifiers to describe a specific phenotypic feature, such as "
-                                "severity or linked causative agents."
                 )
             )
-        )      
+        )
     )
 )
+
+
+
+            
+            
+                
+                
+                
+#                 DataSection(
+#                     name="1. Formal Criteria",
+#                     fields=(
+#                         DataField(
+#                             name="Pseudonym",
+#                             ordinal="1.1",
+#                             specification=str,
+#                             required=True,
+#                             description="The (local) patient-related Identification code."
+#                         ),
+#                         DataField(
+#                             name="Date of Admission",
+#                             ordinal="1.2",
+#                             specification=Date,
+#                             required=True,
+#                             description="The date of admission or data capture of the individual."
+#                         ),   
+#                     )
+#                 ),
+            
+#                 DataSection(
+#                     name="6.2 Phenotypic Feature",
+#                     fields=(
+#                         DataField(
+#                             name="Phenotypic Feature",
+#                             ordinal="6.2.1",
+#                             specification=Coding,
+#                             required=True,
+#                             description="An observed physical and clinical\
+#                                 characteristic encoded with HPO."
+#                         ),
+#                         DataField(
+#                             name="Status",
+#                             ordinal="6.2.2",
+#                             specification=ValueSet(
+#                                 name="Value set for 6.2.2 Phenotype Status",
+#                                 elements=[
+#                                     Coding(system=res.SNOMED_CT, code="410605003", 
+#                                             display="Confirmed present"),
+#                                     Coding(system=res.SNOMED_CT, code="723511001",
+#                                         display="Refuted")
+#                                 ]
+#                             ),
+#                             required=False,
+#                             description="The current status of the phenotypic feature,\
+#                                     indicating whether it is confirmed or refuted."
+#                         ),
+#                         DataField(
+#                             name="Determination Date",
+#                             ordinal="6.2.3",
+#                             specification=Date,
+#                             required=False,
+#                             description="The date on which the phenotypic feature was\
+#                                     observed or recorded."
+#                         ),
+#                         DataField(
+#                             name="Resolution Date",
+#                             ordinal="6.2.4",
+#                             specification=Date,
+#                             required=False,
+#                             description="Time at which the feature resolved or abated."
+#                         ),
+#                         DataField(
+#                             name="Age of Onset",
+#                             ordinal="6.2.5",
+#                             specification=ValueSet(
+#                                 name="Value Set for 6.2.5 Onset Category",
+#                                 elements=[
+#                                     Coding(system=res.HPO, code="0011460", 
+#                                             display="Embryonal onset (0w-8w embryonal)"),
+#                                     Coding(system=res.HPO, code="0011461",
+#                                             display="Fetal onset (8w embryonal - birth)"),
+#                                     Coding(system=res.HPO, code="0003577", 
+#                                             display="Congenital onset (at birth)"),
+#                                     Coding(system=res.HPO, code="0003623", 
+#                                             display="Neonatal onset (0d-28d)"),
+#                                     Coding(system=res.HPO, code="0003593", 
+#                                             display="Infantile onset (28d-1y)"),
+#                                     Coding(system=res.HPO, code="0011463", 
+#                                             display="Childhood onset (1y-5y)"),
+#                                     Coding(system=res.HPO, code="0003621", 
+#                                             display="Juvenile onset (5y-15y)"),
+#                                     Coding(system=res.HPO, code="0011462", 
+#                                             display="Young adult onset (16y-40y)"),
+#                                     Coding(system=res.HPO, code="0003596", 
+#                                             display="Middle age adult onset (40y-60y)"),
+#                                     Coding(system=res.HPO, code="0003584", 
+#                                             display="Late adult onset (60y+)"),
+#                                 ],
+#                             required=False,
+#                             description="Time at which the feature was first observed\
+#                                     within HPO onset categories"
+#                             )
+#                         ),
+#                         DataField(
+#                             name="Temporal Pattern",
+#                             ordinal="6.2.6",
+#                             specification=ValueSet(
+#                                 name="Value Set for 6.2.6 Temporal Pattern",
+#                                 elements=[
+#                                     Coding(system=res.HPO, code="0011009",
+#                                         display="Acute"),
+#                                     Coding(system=res.HPO, code="0011010",
+#                                         display="Chronic"),
+#                                     Coding(system=res.HPO, code="0031914",
+#                                         display="Fluctuating"),
+#                                     Coding(system=res.HPO, code="0025297",
+#                                         display="Prolonged"),
+#                                     Coding(system=res.HPO, code="0031796",
+#                                         display="Recurrent"),
+#                                     Coding(system=res.HPO, code="0031915",
+#                                         display="Stable"),
+#                                     Coding(system=res.HPO, code="0011011",
+#                                         display="Subactue"),
+#                                     Coding(system=res.HPO, code="0025153",
+#                                         display="Transient"),
+#                                     ],
+#                             required=False,
+#                             description="The temporal pattern of the phenotypic feature."
+#                             )
+#                         ),
+#                         DataField(
+#                             name="Phenotype Severity",
+#                             ordinal="6.2.7",
+#                             specification=ValueSet(
+#                                 name="Value Set for 6.2.7 Phenotype Severity",
+#                                 elements=[
+#                                     Coding(system=res.HPO, code="0012827",
+#                                         display="Borderline"),
+#                                     Coding(system=res.HPO, code="0012825",
+#                                         display="Mild"),
+#                                     Coding(system=res.HPO, code="0012826",
+#                                         display="Moderate"),
+#                                     Coding(system=res.HPO, code="0012829",
+#                                         display="Profound"),
+#                                     Coding(system=res.HPO, code="0012828",
+#                                         display="Severe"),
+#                                 ]
+#                             ),
+#                             required=False,
+#                             description="A description of the severity of the\
+#                                 feature described."
+#                         ),
+#                         DataField(
+#                             name="Modifier_HPO_1",
+#                             ordinal="6.2.8a",
+#                             specification=Coding,
+#                             required=False,
+#                             description="Further clinical modifiers to describe a\
+#                                 specific phenotypic feature, such as severity or linked\
+#                                 causative agents."
+#                         ),
+#                         DataField(
+#                             name="Modifier_HPO_1",
+#                             ordinal="6.2.8b",
+#                             specification=Coding,
+#                             required=False,
+#                             description="Further clinical modifiers to describe a\
+#                                 specific phenotypic feature, such as severity or linked\
+#                                 causative agents."
+#                         ),
+#                         DataField(
+#                             name="Modifier_HPO_3",
+#                             ordinal="6.2.8c",
+#                             specification=Coding,
+#                             required=False,
+#                             description="Further clinical modifiers to describe a\
+#                                 specific phenotypic feature, such as severity or linked\
+#                                 causative agents."
+#                         )
+#                     )
+#                 )      
+#             )
+#         )   
+#     )
+# )
     
         # RARELINK_CDM_V2_0_0.fields.append(
         #     DataField(section="6.2 Phenotypic Feature", ordinal="6.2.8a", 
@@ -575,38 +799,36 @@ RARELINK_CDM_V2_0_0 = DataModel(
 # append_family_history_fields(RARELINK_CDM_V2_0_0)
 
 
-def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0) -> DataSet:
-    """This loads data from a path using the latest version of the Rarelink CDM.
-    :param path: The path to the data file.
-    :param data_model: The data model to use for loading the data.
-    :return: The loaded data set.
-    """
-    return data_model.load_data(
-        path,
-        pseudonym_column="snomed_422549004",
-        date_of_admission_column="snomed_399423000",
-        date_of_birth_column="snomed_184099003",
-        sex_at_birth_column="snomed_281053000",
-        karyotypic_sex_column="snomed_1296886006",
-        gender_identity_column="snomed_263495000",
-        country_of_birth_column="snomed_370159000",
-        vital_status_column="snomed_278844005",
-        time_of_death_column="snomed_398299004",
-        cause_of_death_column="snomed_184305005",
-        age_category_column="snomed_105727008",
-        length_of_gestation_at_birth_column="snomed_412726003",
-        undiagnosed_rd_case_column="snomed_723663001",
-    
-    #     encounter_start_column="hl7fhir_enc_period_start",
-    #     encounter_end_column="hl7fhir_enc_period_end",
-    #     encounter_status_column="snomed_305058001",
-    #     encounter_class_column="hl7fhir_encounter_class",
-    #     disease_mondo_column="snomed_64572001_mondo",
-    #     disease_ordo_column="snomed_64572001_ordo",
-    #     disease_icd10cm_column="snomed_64572001_icd10cm",
-    #     disease_icd11_column="snomed_64572001_icd11",
-    #     disease_omim_p_column="snomed_64572001_omim_p",
-    #     verification_status_column="loinc_99498_8",
+# def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0) -> DataSet:
+#     """This loads data from a path using the latest version of the Rarelink CDM.
+#     :param path: The path to the data file.
+#     :param data_model: The data model to use for loading the data.
+#     :return: The loaded data set.
+#     """
+#     return data_model.load_data(
+#         path,
+#         "snomed_422549004",
+#         "snomed_399423000",
+#         "snomed_184099003",
+#         "snomed_281053000",
+#         "snomed_1296886006",
+#         "snomed_263495000",
+#         "snomed_370159000",
+#         "snomed_278844005",
+#         "snomed_398299004",
+#         "snomed_184305005",
+#         "snomed_105727008",
+#         "snomed_412726003",
+#         "snomed_723663001",
+#         "snomed_309370004",
+#         "hl7fhir_consent_datetime",
+#         "snomed_386318002",
+#         "rarelink_consent_contact",
+#         "rarelink_consent_data",
+#         "snomed_123038009",
+#         "rarelink_biobank_link", 
+#         "rarelink_icf_score",
+    # )    #     verification_status_column="loinc_99498_8",
     #     age_at_onset_column="snomed_424850005",
     #     date_of_onset_column="snomed_298059007",
     #     age_at_diagnosis_column="snomed_423493009",
@@ -668,14 +890,14 @@ def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_
     #     family_member_cause_of_death_column="loinc_54112_8",
     #     family_member_deceased_age_column="loinc_92662_6",
     #     family_member_disease_column="loinc_75315_2",
-        consent_status_column="snomed_309370004",
-        consent_date_column="hl7fhir_consent_datetime",
-        health_policy_monitoring_column="snomed_386318002",
-        agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",
-        consent_to_the_reuse_of_data_column="rarelink_consent_data",
-        biological_sample_column="snomed_123038009",
-        link_to_a_biobank_column="rarelink_biobank_link", 
-        classification_of_functioning_disability_column="rarelink_icf_score",
-    )
+    #     consent_status_column="snomed_309370004",
+    #     consent_date_column="hl7fhir_consent_datetime",
+    #     health_policy_monitoring_column="snomed_386318002",
+    #     agreement_to_be_contacted_for_research_purposes_column="rarelink_consent_contact",
+    #     consent_to_the_reuse_of_data_column="rarelink_consent_data",
+    #     biological_sample_column="snomed_123038009",
+    #     link_to_a_biobank_column="rarelink_biobank_link", 
+    #     classification_of_functioning_disability_column="rarelink_icf_score",
+    # )
 
 
