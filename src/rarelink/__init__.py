@@ -7,10 +7,12 @@ from . import ontology_requests
 from . import preprocessing
 from . import pipelines
 from . import rarelink_cdm
+from . import redcap_api
 
 __all__ = [
     "ontology_requests",
     "pipelines",
     "preprocessing",
     "rarelink_cdm",
+    "redcap_api",
 ]
