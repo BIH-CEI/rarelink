@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from config import config
+from example_config import config
 import requests, json
 
 fields = {
