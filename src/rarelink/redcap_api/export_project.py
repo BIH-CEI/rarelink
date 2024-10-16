@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 
-from example_config import config
+from config import config
 import requests
 
 fields = {
     'token': config['api_token'],
-    'content': 'record',
-    'format': 'json',
-    'type': 'flat'
+    'content': 'project',
+    'format': 'json'
 }
 
 r = requests.post(config['api_url'],data=fields)
