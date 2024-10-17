@@ -6,7 +6,7 @@ from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
 RARELINK_CDM_V2_0_0 = DataModel(
-    data_model_name="RareLink Common Data Model 2.0.0",
+    name="RareLink Common Data Model 2.0.0",
     fields=(
         DataSection(
             name="ODM",
