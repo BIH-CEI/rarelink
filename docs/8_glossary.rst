@@ -1,2 +1,10 @@
 Glossary
 ====================
+
+
+
+.. glossary::  
+    Interoperability: definitions
+
+
+    

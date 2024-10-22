@@ -1,5 +1,7 @@
-GA4GH Phenopacket Schema
-========================
+.. _1_3:
+
+GA4GH Phenopackets
+===================
 
 The Phenopacket schema, developed by the Global Alliance for Genomics and Health
 (GA4GH), is an open standard designed to facilitate the exchange of detailed 

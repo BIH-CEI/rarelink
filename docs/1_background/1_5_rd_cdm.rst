@@ -1,7 +1,7 @@
-.. _rd_cdm_file: 
+.. _1_5: 
 
-Rare Disease Common Data Model v2.0.0
-=====================================
+RD-CDM
+=======
 
 .. attention::
    The RD CDM v2.0.0 is currently under review and will be published soon.

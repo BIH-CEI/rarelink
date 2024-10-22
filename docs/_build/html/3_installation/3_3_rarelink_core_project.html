@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3.3. RareLink Core REDCap Project &mdash; rarelink 0.0.1 documentation</title>
+  <title>RareLink REDCap Project &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. RareLink User Guide" href="../4_user_guide/4_0_guide_file.html" />
-    <link rel="prev" title="3.2. REDCap API" href="3_2_redcap_api.html" /> 
+    <link rel="next" title="RareLink Pipelines Installation" href="3_4_rarelink_pipelines.html" />
+    <link rel="prev" title="REDCap API" href="3_2_redcap_api.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,12 +48,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">1. Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="3_0_install_file.html">3. Installation Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="3_1_rarelink_instruments.html">3.1. RareLink REDCap Instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_2_redcap_api.html">3.2. REDCap API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3.3. RareLink Core REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="3_0_install_file.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="3_1_rarelink_instruments.html">REDCap Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_2_redcap_api.html">REDCap API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RareLink REDCap Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_4_rarelink_pipelines.html">RareLink Pipelines Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_0_guide_file.html">4. RareLink User Guide</a></li>
@@ -62,6 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../7_faq.html">7. FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">8. Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">9. Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
 </ul>
 
         </div>
@@ -78,8 +80,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="3_0_install_file.html"><span class="section-number">3. </span>Installation Guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">3.3. </span>RareLink Core REDCap Project</li>
+          <li class="breadcrumb-item"><a href="3_0_install_file.html">Installation Guide</a></li>
+      <li class="breadcrumb-item active">RareLink REDCap Project</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/3_installation/3_3_rarelink_core_project.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,16 +91,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rarelink-core-redcap-project">
-<h1><span class="section-number">3.3. </span>RareLink Core REDCap Project<a class="headerlink" href="#rarelink-core-redcap-project" title="Link to this heading"></a></h1>
+  <section id="rarelink-redcap-project">
+<span id="id1"></span><h1>RareLink REDCap Project<a class="headerlink" href="#rarelink-redcap-project" title="Link to this heading"></a></h1>
+<p>Core Project data structure download, and installation .</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="3_2_redcap_api.html" class="btn btn-neutral float-left" title="3.2. REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../4_user_guide/4_0_guide_file.html" class="btn btn-neutral float-right" title="4. RareLink User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="3_2_redcap_api.html" class="btn btn-neutral float-left" title="REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_4_rarelink_pipelines.html" class="btn btn-neutral float-right" title="RareLink Pipelines Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

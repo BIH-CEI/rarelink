@@ -1,5 +1,7 @@
-HL7 FHIR (Fast Healthcare Interoperability Resources)
-=====================================================
+.. _1_4: 
+
+HL7 FHIR
+==========
 
 .. image:: ../_static/res/fhir_release4_logo.jpg
     :alt: HL7 FHIR Logo
@@ -17,7 +19,7 @@ enabling the smooth exchange of healthcare data between different platforms
 and applications.
 
 .. note:: 
-    For our :ref:`rd_cdm_file` and RareLink we use the `HL7 FHIR v4.0.1 base resources <https://hl7.org/fhir/R4/resourcelist.html>`_ 
+    For our :ref:`1_5` and RareLink we use the `HL7 FHIR v4.0.1 base resources <https://hl7.org/fhir/R4/resourcelist.html>`_ 
     and the `International Patient Summary (IPS) <https://build.fhir.org/ig/HL7/fhir-ips/>`_.
 
 FHIR and Rare Diseases

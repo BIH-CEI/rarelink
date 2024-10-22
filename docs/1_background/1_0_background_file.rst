@@ -1,3 +1,5 @@
+.. _1_0:
+
 Background
 ==========
 
@@ -24,14 +26,14 @@ ontologies, the GA4GH Phenopacket Schema, the HL7 FHIR standard, the RD CDM,
 and the REDCap data collection platform.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents
 
-   1_rd_interoperability
-   2_ontologies
-   3_ga4gh_phenopacket_schema
-   4_hl7_fhir
-   5_rd_cdm
-   6_redcap
+   1_1_rd_interoperability
+   1_2_ontologies
+   1_3_ga4gh_phenopacket_schema
+   1_4_hl7_fhir
+   1_5_rd_cdm
+   1_6_redcap
 
 

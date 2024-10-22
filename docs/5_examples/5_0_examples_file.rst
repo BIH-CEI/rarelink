@@ -1,8 +1,11 @@
-Examples
+.. _5_0:
+
+Full Examples
 ====================
 
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents
 
    5_1_example_redcap_project

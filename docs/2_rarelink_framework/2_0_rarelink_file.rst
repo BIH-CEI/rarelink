@@ -1,3 +1,5 @@
+.. _2_0:
+
 RareLink Framework
 ==================
 
@@ -9,10 +11,10 @@ native REDCap sheets, the entire project set up, the supported ontologies, the
 GA4GH Phenopacket Schema and the HL7 FHIR standard.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents
 
-   2_1_rarelink_core
+   2_1_rarelink_overview
    2_2_rarelink_cdm_instruments
    2_3_rarelink_core_redcap_project
 

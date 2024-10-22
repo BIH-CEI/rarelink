@@ -1,3 +1,5 @@
+.. _1_1:
+
 Rare Diseases and Interoperability
 ===================================
 

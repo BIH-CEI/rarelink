@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.4. Generate FHIR Resources &mdash; rarelink 0.0.1 documentation</title>
+  <title>Generate FHIR Resources &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Examples" href="../5_examples/5_0_examples_file.html" />
-    <link rel="prev" title="4.3. Generate GA4GH Phenopackets" href="4_3_phenopacket_mapper.html" /> 
+    <link rel="next" title="Full Examples" href="../5_examples/5_0_examples_file.html" />
+    <link rel="prev" title="Generate GA4GH Phenopackets" href="4_3_phenopacket_mapper.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,23 +46,41 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">1. Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="4_0_guide_file.html">4. RareLink User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html">4.1. Manual Data Capture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_2_semiautomatic_import.html">4.2. Semi-Automatic Data Capture of Existing Databases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_3_phenopacket_mapper.html">4.3. Generate GA4GH Phenopackets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.4. Generate FHIR Resources</a></li>
+              <p class="caption" role="heading"><span class="caption-text">RareLink Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR (Fast Healthcare Interoperability Resources)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">Rare Disease Common Data Model v2.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap (Research Electronic Data Capture)</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_0_examples_file.html">5. Examples</a></li>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">RareLink Core REDCap Project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_extensional_instruments.html">Extensional REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_redcap_api.html">REDCap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_rarelink_core_project.html">RareLink REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_5_rarelink_pipelines.html">RareLink Pipelines Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_semiautomatic_data_capture.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_0_examples_file.html">Full Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">6. RareLink Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7_faq.html">7. FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">8. Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">9. Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
 </ul>
 
         </div>
@@ -79,8 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="4_0_guide_file.html"><span class="section-number">4. </span>RareLink User Guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.4. </span>Generate FHIR Resources</li>
+      <li class="breadcrumb-item active">Generate FHIR Resources</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/4_user_guide/4_4_tofhir_module.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,16 +108,17 @@
            <div itemprop="articleBody">
              
   <section id="generate-fhir-resources">
-<h1><span class="section-number">4.4. </span>Generate FHIR Resources<a class="headerlink" href="#generate-fhir-resources" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Generate FHIR Resources<a class="headerlink" href="#generate-fhir-resources" title="Link to this heading"></a></h1>
 <p>// The FHIR module in RareLink allows users to generate FHIR resources from REDCap data.</p>
+<p>dwadwa</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4_3_phenopacket_mapper.html" class="btn btn-neutral float-left" title="4.3. Generate GA4GH Phenopackets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../5_examples/5_0_examples_file.html" class="btn btn-neutral float-right" title="5. Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="4_3_phenopacket_mapper.html" class="btn btn-neutral float-left" title="Generate GA4GH Phenopackets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../5_examples/5_0_examples_file.html" class="btn btn-neutral float-right" title="Full Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

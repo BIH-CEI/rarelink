@@ -1,5 +1,7 @@
-Semi-Automatic Data Capture of Existing Databases
-==================================================
+.. _4_2:
+
+Semi-Automatic Data Capture
+===========================
 
 While there are many existing data bases in rare disease centres and hospitals, the data is often not in a structured format. 
 RareLink provides a semi-automatic data capture configuration using OntoBridge that allows users to capture data from existing 

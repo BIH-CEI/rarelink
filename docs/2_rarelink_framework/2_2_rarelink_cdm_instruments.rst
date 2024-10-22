@@ -1,5 +1,7 @@
-RareLink CDM Instruments
-=========================
+.. _2_2:
+
+Data Dictionary
+===============
 
 
 In this section, we provide an overview of the instruments that are part of the

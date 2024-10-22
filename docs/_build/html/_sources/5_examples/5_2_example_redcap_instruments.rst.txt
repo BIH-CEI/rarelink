@@ -1,2 +1,4 @@
-Complete Example: REDCap Instrument Setup
-=========================================
+Example - Manual Data Capture
+===============================
+
+example_redcap_instrument

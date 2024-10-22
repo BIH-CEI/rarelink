@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.3. Generate GA4GH Phenopackets &mdash; rarelink 0.0.1 documentation</title>
+  <title>Generate GA4GH Phenopackets &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.4. Generate FHIR Resources" href="4_4_tofhir_module.html" />
-    <link rel="prev" title="4.2. Semi-Automatic Data Capture of Existing Databases" href="4_2_semiautomatic_import.html" /> 
+    <link rel="prev" title="Semi-Automatic Data Capture" href="4_2_semiautomatic_import.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,24 +48,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">1. Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">2. RareLink Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">Installation Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="4_0_guide_file.html">4. RareLink User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html">4.1. Manual Data Capture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_2_semiautomatic_import.html">4.2. Semi-Automatic Data Capture of Existing Databases</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Generate GA4GH Phenopackets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#further-links-phenopacket-mapper">4.3.1. Further Links Phenopacket Mapper</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rarelink-phenopacket-mapper-configuration">4.3.1.1. RareLink Phenopacket Mapper Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_2_semiautomatic_import.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate GA4GH Phenopackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#further-links-phenopacket-mapper">Further Links Phenopacket Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rarelink-phenopacket-mapper-configuration">RareLink Phenopacket Mapper Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#rarelink-rd-cdm-v2-0">4.3.2. RareLink - RD CDM v2.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rarelink-data-extending-rd-cdm">4.3.3. RareLink - Data Extending RD CDM</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper">4.3.3.1. Definition REDCap variable suffixes for Phenopacket Mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rarelink-rd-cdm-v2-0">RareLink - RD CDM v2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rarelink-data-extending-rd-cdm">RareLink - Data Extending RD CDM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper">Definition REDCap variable suffixes for Phenopacket Mapper</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#disease-block">4.3.4. Disease Block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phenotypicfeature-block">4.3.5. PhenotypicFeature Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disease-block">Disease Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phenotypicfeature-block">PhenotypicFeature Block</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4_4_tofhir_module.html">4.4. Generate FHIR Resources</a></li>
@@ -76,6 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../7_faq.html">7. FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">8. Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">9. Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
 </ul>
 
         </div>
@@ -93,7 +94,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="4_0_guide_file.html"><span class="section-number">4. </span>RareLink User Guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.3. </span>Generate GA4GH Phenopackets</li>
+      <li class="breadcrumb-item active">Generate GA4GH Phenopackets</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/4_user_guide/4_3_phenopacket_mapper.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,24 +105,24 @@
            <div itemprop="articleBody">
              
   <section id="generate-ga4gh-phenopackets">
-<h1><span class="section-number">4.3. </span>Generate GA4GH Phenopackets<a class="headerlink" href="#generate-ga4gh-phenopackets" title="Link to this heading"></a></h1>
+<h1>Generate GA4GH Phenopackets<a class="headerlink" href="#generate-ga4gh-phenopackets" title="Link to this heading"></a></h1>
 <p>The Phenopacket Mapper allows users to generate validated GA4GH Phenopackets
 from any tabular data. Rarelink specifies the how the data should be formatted
 and coded and sheet should be built within REDCap to generate validated GA4GH
 Phenopackets. These specifications were preconfigured into the Phenopacket
 Mapper for seamless generation of GA4GH Phenopackets from REDCap data.</p>
 <section id="further-links-phenopacket-mapper">
-<h2><span class="section-number">4.3.1. </span>Further Links Phenopacket Mapper<a class="headerlink" href="#further-links-phenopacket-mapper" title="Link to this heading"></a></h2>
+<h2>Further Links Phenopacket Mapper<a class="headerlink" href="#further-links-phenopacket-mapper" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bih-cei.github.io/phenopacket_mapper/stable/">Phenopacket Mapper Documentation</a></p></li>
 <li><p><a class="reference external" href="https://github.com/BIH-CEI/phenopacket_mapper">Phenopacket Mapper GitHub</a></p></li>
 </ul>
 <section id="rarelink-phenopacket-mapper-configuration">
-<h3><span class="section-number">4.3.1.1. </span>RareLink Phenopacket Mapper Configuration<a class="headerlink" href="#rarelink-phenopacket-mapper-configuration" title="Link to this heading"></a></h3>
+<h3>RareLink Phenopacket Mapper Configuration<a class="headerlink" href="#rarelink-phenopacket-mapper-configuration" title="Link to this heading"></a></h3>
 </section>
 </section>
 <section id="rarelink-rd-cdm-v2-0">
-<h2><span class="section-number">4.3.2. </span>RareLink - RD CDM v2.0<a class="headerlink" href="#rarelink-rd-cdm-v2-0" title="Link to this heading"></a></h2>
+<h2>RareLink - RD CDM v2.0<a class="headerlink" href="#rarelink-rd-cdm-v2-0" title="Link to this heading"></a></h2>
 <p>RareLink provides all REDCap sheets that displa data in the Rare Disease
 Common Data Model v2.0 (RD CDM) with predefined mappings to generate GA4GH
 Phenopackets. These mappings are defined in a configuration file that is
@@ -131,7 +132,7 @@ exported to GA4GH Phenopackets using the Phenopacket Mapper module.</p>
 –&gt; validated GA4GH Phenopackets</p>
 </section>
 <section id="rarelink-data-extending-rd-cdm">
-<h2><span class="section-number">4.3.3. </span>RareLink - Data Extending RD CDM<a class="headerlink" href="#rarelink-data-extending-rd-cdm" title="Link to this heading"></a></h2>
+<h2>RareLink - Data Extending RD CDM<a class="headerlink" href="#rarelink-data-extending-rd-cdm" title="Link to this heading"></a></h2>
 <p>For all data extending the RD CDM, we predefined a set of rules that can be used
 to develop further REDCap forms. If these rules are followed, the sheet
 variables can be used to map the REDCap data to the GA4GH Phenopackets Schema.
@@ -141,7 +142,7 @@ CDM to capture specific Phenopacket Building Blocks.</p>
 download and use) -&gt; RareLink preconfiguration in Phenopacket Mapper
 –&gt; validated GA4GH Phenopackets</p>
 <section id="definition-redcap-variable-suffixes-for-phenopacket-mapper">
-<h3><span class="section-number">4.3.3.1. </span>Definition REDCap variable suffixes for Phenopacket Mapper<a class="headerlink" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper" title="Link to this heading"></a></h3>
+<h3>Definition REDCap variable suffixes for Phenopacket Mapper<a class="headerlink" href="#definition-redcap-variable-suffixes-for-phenopacket-mapper" title="Link to this heading"></a></h3>
 <p>The Phenopacket Mapper can prinicapally process any kind of data to generate GA4GH Phenopackets
 if mapped and processed correctly.
 As elaborated in the REDCap section, REDCap variables and choice codes have specific
@@ -160,10 +161,10 @@ limitations and requirements:</p>
 </section>
 </section>
 <section id="disease-block">
-<h2><span class="section-number">4.3.4. </span>Disease Block<a class="headerlink" href="#disease-block" title="Link to this heading"></a></h2>
+<h2>Disease Block<a class="headerlink" href="#disease-block" title="Link to this heading"></a></h2>
 </section>
 <section id="phenotypicfeature-block">
-<h2><span class="section-number">4.3.5. </span>PhenotypicFeature Block<a class="headerlink" href="#phenotypicfeature-block" title="Link to this heading"></a></h2>
+<h2>PhenotypicFeature Block<a class="headerlink" href="#phenotypicfeature-block" title="Link to this heading"></a></h2>
 </section>
 </section>
 
@@ -171,7 +172,7 @@ limitations and requirements:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4_2_semiautomatic_import.html" class="btn btn-neutral float-left" title="4.2. Semi-Automatic Data Capture of Existing Databases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_2_semiautomatic_import.html" class="btn btn-neutral float-left" title="Semi-Automatic Data Capture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="4_4_tofhir_module.html" class="btn btn-neutral float-right" title="4.4. Generate FHIR Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

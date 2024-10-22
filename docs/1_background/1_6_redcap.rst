@@ -1,7 +1,7 @@
-.. _redcap_file: 
+.. _1_6: 
 
-REDCap (Research Electronic Data Capture)
-=========================================
+REDCap
+======
 
 .. note:: 
     Read the REDCap Technical Overview `HERE <https://projectredcap.org/wp-content/resources/REDCapTechnicalOverview.pdf>`_
