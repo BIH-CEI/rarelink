@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HL7 FHIR &mdash; rarelink 0.0.1 documentation</title>
+  <title>HL7 FHIR &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rare Disease Common Data Model v2.0.0" href="1_5_rd_cdm.html" />
-    <link rel="prev" title="GA4GH Phenopacket Schema" href="1_3_ga4gh_phenopacket_schema.html" /> 
+    <link rel="next" title="RD-CDM" href="1_5_rd_cdm.html" />
+    <link rel="prev" title="GA4GH Phenopackets" href="1_3_ga4gh_phenopacket_schema.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,7 +36,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            rarelink
+            RareLink REDCap Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,11 +46,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">RareLink Background</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">HL7 FHIR</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fhir-and-rare-diseases">FHIR and Rare Diseases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fhir-overview-clinicians">FHIR Overview - Clinicians</a></li>
@@ -59,14 +59,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="1_5_rd_cdm.html">Rare Disease Common Data Model v2.0.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_6_redcap.html">REDCap (Research Electronic Data Capture)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_6_redcap.html">REDCap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">RareLink Core REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
 <ul>
@@ -85,11 +85,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">5.1. Complete Example: REDCap Project Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">5.2. Complete Example: REDCap Instrument Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">5.3. Complete Example: Import of retrospective data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">5.4. Complete Example: Phenopacket Mapper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">5.5. Complete Example: ToFHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">Example - REDCap Project Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">Example - Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">Example - Semi-Automatic Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">Example - Generating Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">Example - Generate FHIR Resources</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
@@ -106,7 +106,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">rarelink</a>
+          <a href="../index.html">RareLink REDCap Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -139,7 +139,7 @@ enabling the smooth exchange of healthcare data between different platforms
 and applications.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For our <a class="reference internal" href="1_5_rd_cdm.html#id1"><span class="std std-ref">Rare Disease Common Data Model v2.0.0</span></a> and RareLink we use the <a class="reference external" href="https://hl7.org/fhir/R4/resourcelist.html">HL7 FHIR v4.0.1 base resources</a>
+<p>For our <a class="reference internal" href="1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> and RareLink we use the <a class="reference external" href="https://hl7.org/fhir/R4/resourcelist.html">HL7 FHIR v4.0.1 base resources</a>
 and the <a class="reference external" href="https://build.fhir.org/ig/HL7/fhir-ips/">International Patient Summary (IPS)</a>.</p>
 </div>
 <section id="fhir-and-rare-diseases">
@@ -239,8 +239,8 @@ to diverse healthcare needs through Profiling Resources.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="1_3_ga4gh_phenopacket_schema.html" class="btn btn-neutral float-left" title="GA4GH Phenopacket Schema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="1_5_rd_cdm.html" class="btn btn-neutral float-right" title="Rare Disease Common Data Model v2.0.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="1_3_ga4gh_phenopacket_schema.html" class="btn btn-neutral float-left" title="GA4GH Phenopackets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1_5_rd_cdm.html" class="btn btn-neutral float-right" title="RD-CDM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

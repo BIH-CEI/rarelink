@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RareLink CDM Instruments &mdash; rarelink 0.0.1 documentation</title>
+  <title>RareLink CDM Instruments &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -36,7 +36,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            rarelink
+            RareLink REDCap Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,25 +57,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink Data Dictionary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RareLink CDM Instruments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">(1) Formal Criteria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">(2) Personal Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">(3) Patient Status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">(4) Care Pathway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">(5) Disease</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">(6.1) Genetic Findings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">(6.2) Phenotypic Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id22">(6.3) Family History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id25">(7) Consent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id28">(8) Disability</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RareLink CDM Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_2_extensional_instruments.html">Extensional REDCap Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_3_redcap_api.html">REDCap API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_4_rarelink_core_project.html">RareLink REDCap Project</a></li>
@@ -111,7 +99,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">rarelink</a>
+          <a href="../index.html">RareLink REDCap Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -131,105 +119,54 @@
              
   <section id="rarelink-cdm-instruments">
 <span id="id1"></span><h1>RareLink CDM Instruments<a class="headerlink" href="#rarelink-cdm-instruments" title="Link to this heading"></a></h1>
-<p>The RareLink REDCap Instruments are a collection of REDCap instruments designed
-to implement the <a class="reference external" href="rd_cdm.rst">Rare Disease Common Data Model (RD CDM)</a> within
-REDCap. These instruments mirror the exact structure of the RD CDM, which is
-based on the ERDRI-CDS standard. Each section of the model corresponds to a
-distinct instrument, ensuring consistency and comprehensive data capture.</p>
+<p>To install the RareLink CDM instruments, you will need to download the
+instruments from the RareLink REDCap project.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Read the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink Data Dictionary</span></a> section to learn more about the RareLink CDM Instruments.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Download the instruments from the RareLink REDCap project.</p></li>
+</ol>
 <ul class="simple">
-<li><p><a class="reference external" href="#formal-criteria">1. Formal Criteria</a></p></li>
-<li><p><a class="reference external" href="#personal-information">2. Personal Information</a></p></li>
-<li><p><a class="reference external" href="#patient-status">3. Patient Status</a></p></li>
-<li><p><a class="reference external" href="#care-pathway">4. Care Pathway</a></p></li>
-<li><p><a class="reference external" href="#disease">5. Disease</a></p></li>
-<li><p><a class="reference external" href="#genetic-findings">6.1 Genetic Findings</a></p></li>
-<li><p><a class="reference external" href="#phenotypic-features">6.2 Phenotypic Features</a></p></li>
-<li><p><a class="reference external" href="#family-history">6.3 Family History</a></p></li>
-<li><p><a class="reference external" href="#consent">7. Consent</a></p></li>
-<li><p><a class="reference external" href="#disability">8. Disability</a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/97061f8438c4a3bb907919a76a5ab2c6/rarelink_v2_0_0_datadictionary.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">RareLink</span> <span class="pre">CDM</span> <span class="pre">Data</span> <span class="pre">Dictionary</span> <span class="pre">v2.0.0</span></code></a></p></li>
+<li><p><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">seperate</span> <span class="pre">instruments</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">.zip</span> <span class="pre">file</span></code></p></li>
 </ul>
-<p>In the following, we will describe the structure of each instrument and the
-fields that are included in each one. Specifically, we will describe how the
-implementation of the RD CDM in REDCap is structured and how the data variables
-are organized in each instrument. The instruments are designed to be used in a
-REDCap project. To adhere to REDCap’s limitations on variable names and field
-types, we have made some modifications to the original RD CDM. These
-modifications are described in the following sections.</p>
-<div class="toctree-wrapper compound">
+<ol class="arabic simple" start="2">
+<li><p>Import the instruments into your REDCap project.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Go to your REDCap project.</p></li>
+<li><p>Click on the “Online Designer” tab.</p></li>
+<li><p>Click on the “Import” button.</p></li>
+<li><p>Select the downloaded instruments.</p></li>
+<li><p>Click on the “Import” button.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Verify that the instruments have been imported correctly.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Go to the “Online Designer” tab.</p></li>
+<li><p>Verify that the instruments have been imported correctly.</p></li>
+<li><p>Verify that the instruments are consistent with the RareLink CDM Data Dictionary.</p></li>
+<li><p>Verify that the fields with BioPortal connected properly.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> section to learn more about the general REDCap Setup,
+among others how to connect BioPortal to REDCap.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>REDCap recommends a maximum of 26 characters for variable names. We have
-shortened the variable names to adhere to this limitation.</p>
+<ol class="arabic simple" start="4">
+<li><p>Start capturing data with the RareLink CDM instruments.</p></li>
+</ol>
+<p>Check out the <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a> section to learn more about manual data capture.</p>
+<div class="admonition-continue-here admonition">
+<p class="admonition-title">Continue here…</p>
+<ul class="simple">
+<li><p>Guide to develop the <a class="reference internal" href="3_2_extensional_instruments.html#id1"><span class="std std-ref">Extensional REDCap Instruments</span></a></p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a></p></li>
+</ul>
 </div>
-<section id="id2">
-<span id="id3"></span><h2>(1) Formal Criteria<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<p>Content for Formal Criteria goes here.</p>
-<p id="go-back-top">Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id4">
-<span id="id5"></span><h2>(2) Personal Information<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
-<p>Content for Personal Information goes here.</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id7">
-<span id="id8"></span><h2>(3) Patient Status<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
-<p>Content for Patient Status goes here.</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id10">
-<span id="id11"></span><h2>(4) Care Pathway<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
-<p>Content for Care Pathway goes here.</p>
-<p>hl7fhir_encounter_period_start -&gt; hl7fhir_enc_period_start
-hl7fhir_encounter_period_end -&gt; hl7fhir_enc_period_end</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id13">
-<span id="id14"></span><h2>(5) Disease<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
-<p>Content for Disease goes here.</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id16">
-<span id="id17"></span><h2>(6.1) Genetic Findings<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
-<p>Content for Genetic Findings goes here.</p>
-<p>ga4gh_interpretation_status -&gt; ga4gh_interp_status
-ga4gh_therapeutic_actionability -&gt; ga4gh_therap_action</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id19">
-<span id="id20"></span><h2>(6.2) Phenotypic Features<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
-<p>Content for Phenotypic Features goes here.</p>
-<p>snomed_439272007_704321009_363778006 -&gt; snomed_8116006_date
-ga4gh_phenotypicfeature_excluded -&gt; ga4gh_pheno_excluded
-ga4gh_phenotypicfeature_modifier_hp_1 -&gt; ga4gh_pheno_mod_hp1
-ga4gh_phenotypicfeature_modifier_hp_2 -&gt; ga4gh_pheno_mod_hp2
-ga4gh_phenotypicfeature_modifier_hp_3 -&gt; ga4gh_pheno_mod_hp3
-ga4gh_phenotypicfeature_modifier_ncbitaxon_1 -&gt; ga4gh_pheno_mod_ncbitax1
-ga4gh_phenotypicfeature_modifier_ncbitaxon_2 -&gt; ga4gh_pheno_mod_ncbitax2
-ga4gh_phenotypicfeature_modifier_ncbitaxon_3 -&gt; ga4gh_pheno_mod_ncbitax3
-ga4gh_phenotypicfeature_modifier_snomed_1 -&gt; ga4gh_pheno_mod_snomed1
-ga4gh_phenotypicfeature_modifier_snomed_2 -&gt; ga4gh_pheno_mod_snomed2
-ga4gh_phenotypicfeature_modifier_snomed_3 -&gt; ga4gh_pheno_mod_snomed3</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id22">
-<span id="id23"></span><h2>(6.3) Family History<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
-<p>Content for Family History goes here.</p>
-<p>hl7fhir_familymemberhistory_status -&gt; hl7fhir_fmh_status</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id25">
-<span id="id26"></span><h2>(7) Consent<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
-<p>Content for Consent goes here.
-customcode_consent_contact_research -&gt; customcode_consent_contact
-customcode_conset_data_reuse -&gt; customcode_consent_data</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
-<section id="id28">
-<span id="id29"></span><h2>(8) Disability<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
-<p>Content for Disability goes here.</p>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
-</section>
 </section>
 
 

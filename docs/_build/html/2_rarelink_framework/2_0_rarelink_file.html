@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RareLink Framework &mdash; rarelink 0.0.1 documentation</title>
+  <title>RareLink Framework &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -34,7 +34,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            rarelink
+            RareLink REDCap Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,8 +55,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">RareLink Data Dictionary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
@@ -76,11 +76,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">5.1. Complete Example: REDCap Project Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">5.2. Complete Example: REDCap Instrument Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">5.3. Complete Example: Import of retrospective data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">5.4. Complete Example: Phenopacket Mapper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">5.5. Complete Example: ToFHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">Example - REDCap Project Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">Example - Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">Example - Semi-Automatic Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">Example - Generating Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">Example - Generate FHIR Resources</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
@@ -97,7 +97,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">rarelink</a>
+          <a href="../index.html">RareLink REDCap Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -126,14 +126,40 @@ GA4GH Phenopacket Schema and the HL7 FHIR standard.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">Overview</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">RareLink Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="2_1_rarelink_overview.html#rarelink-framework-components">RareLink Framework components</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#semi-automatic-import">Semi-Automatic Import:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#semi-automatic-import">Semi-Automatic Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#manual-data-capture">Manual Data Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#local-redcap-project-setup-and-api">Local REDCap Project Setup and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#rarelink-tofhir">RareLink &amp; toFHIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_1_rarelink_overview.html#rarelink-phenopackets">RareLink &amp; Phenopackets</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">RareLink Data Dictionary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#rarelink-cdm-data-dictionary">RareLink CDM Data Dictionary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#ruleset-for-codes-and-codesystems">RuleSet for Codes and Codesystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#download">Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#field-annotations">Field Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#rarelink-cdm-instruments">RareLink CDM Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id2">(1) Formal Criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id4">(2) Personal Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id7">(3) Patient Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id10">(4) Care Pathway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id13">(5) Disease</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id16">(6.1) Genetic Findings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id19">(6.2) Phenotypic Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id21">(6.3) Measurements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id23">(6.4) Family History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id26">(7) Consent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html#id29">(8) Disability</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 </ul>
 </div>

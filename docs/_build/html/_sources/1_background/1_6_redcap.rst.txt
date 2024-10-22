@@ -68,6 +68,20 @@ collection process.
 .. note::
     For more information on REDCap instruments, refer to the `REDCap User Guide <https://www.unmc.edu/vcr/_documents/unmc_redcap_usage.pdf>`_.
 
+REDCap Data Dictionary
+----------------------
+
+Based on the instruments, REDCap generates a data dictionary that defines the
+variables and their properties. The data dictionary serves as a reference for
+the project’s data structure, providing detailed information on each variable,
+such as its name, label, type, and validation rules. By defining variables in
+the data dictionary, users can ensure consistency in data collection and
+analysis, as well as facilitate data sharing and interoperability. The data
+dictionary can be exported in various formats, such as CSV or Excel, making it
+easy to share with collaborators or import into other systems.
+
+.. tip::
+    For more information, check out this `REDCap Data Dictionary User Guide <https://ws.engr.illinois.edu/sitemanager/getfile.asp?id=1365>`_.
 
 REDCap API
 ----------
