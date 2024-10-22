@@ -19,7 +19,7 @@ fields = {
 
 # fields['returnFormat'] = 'json';
 
-file_obj = open(file_path, 'rb')
+file_obj = open(file, 'rb')
 r = requests.post(config['api_url'],data=fields,files={'file':file_obj})
 file_obj.close()
 
