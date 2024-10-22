@@ -5,9 +5,9 @@ from phenopacket_mapper.data_standards import Coding, CodeSystem, Date, ValueSet
 from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
-RARELINK_CDM_V2_0_0 = DataModel(
-    name="RareLink Common Data Model 2.0.0"
-)
+# RARELINK_CDM_V2_0_0 = DataModel(
+#     name="RareLink Common Data Model 2.0.0"
+# )
 #     fields=(
 #         DataSection(
 #             name="ODM",
@@ -809,6 +809,7 @@ RARELINK_CDM_V2_0_0 = DataModel(
 #     return data_model.load_data(
 #         path,
 #         "snomed_422549004",
+#     )
 #         "snomed_399423000",
 #         "snomed_184099003",
 #         "snomed_281053000",
