@@ -5,9 +5,10 @@ from phenopacket_mapper.data_standards import Coding, CodeSystem, Date, ValueSet
 from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
-# RARELINK_CDM_V2_0_0 = DataModel(
-#     name="RareLink Common Data Model 2.0.0"
-# )
+RARELINK_CDM_V2_0_0 = DataModel(
+    name="RareLink Common Data Model 2.0.0",
+    fields=()
+)
 #     fields=(
 #         DataSection(
 #             name="ODM",
@@ -800,14 +801,15 @@ from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 # append_family_history_fields(RARELINK_CDM_V2_0_0)
 
 
-# def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0) -> DataSet:
-#     """This loads data from a path using the latest version of the Rarelink CDM.
-#     :param path: The path to the data file.
-#     :param data_model: The data model to use for loading the data.
-#     :return: The loaded data set.
-#     """
-#     return data_model.load_data(
-#         path,
+def load_rarelink_data(path: Union[str, Path], data_model: DataModel = RARELINK_CDM_V2_0_0) -> DataSet:
+    """This loads data from a path using the latest version of the Rarelink CDM.
+    :param path: The path to the data file.
+    :param data_model: The data model to use for loading the data.
+    :return: The loaded data set.
+    """
+    return data_model.load_data(
+        path,
+    )
 #         "snomed_422549004",
 #     )
 #         "snomed_399423000",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from config import config
+from .config import config
 import requests
 import json
 
