@@ -3,7 +3,7 @@ from phenopackets.schema.v2 import Phenopacket
 import phenopackets
 from phenopacket_mapper.data_standards import DataSet, CodeSystem
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper
-from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
+# from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
 from rarelink.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
 
 
