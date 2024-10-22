@@ -5,204 +5,204 @@ from phenopacket_mapper.data_standards import Coding, CodeSystem, Date, ValueSet
 from . import RARELINK_CDM_V2_0_0_RESOURCES as res
 from rarelink.rarelink_cdm.rarelink_cdm_vs import RARELINK_CDM_V2_0_0_VS as VS
 
-RARELINK_CDM_V2_0_0 = DataModel(
-    name="RareLink Common Data Model 2.0.0",
-    fields=(
-        DataSection(
-            name="ODM",
-            fields=(
-                DataField(
-                    name="xmlns",
-                    specification=str,
-                    required=True,
-                    description="Namespace for ODM v1.3,\
-                        e.g. http://www.cdisc.org/ns/odm/v1.3"
-                ),
-                DataField(
-                    name="xmlns:ds",
-                    specification=str,
-                    required=True,
-                    description="Namespace for XML digital signature (e.g.,\
-                        http://www.w3.org/2000/09/xmldsig#)"
-                ),
-                DataField(
-                    name="xmlns:xsi",
-                    specification=str,
-                    required=True,
-                    description="Namespace for XML Schema instance (e.g.,\
-                        http://www.w3.org/2001/XMLSchema-instance)"
-                ),
-                DataField(
-                    name="xmlns:redcap",
-                    specification=str,
-                    required=True,
-                    description="Namespace for REDCap extension (e.g.,\
-                        https://projectredcap.org)"
-                ),
-                DataField(
-                    name="xsi:schemaLocation",
-                    specification=str,
-                    required=True,
-                    description="Location of the ODM schema file (e.g.,\
-                        http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd)"
-                ),
-                DataField(
-                    name="ODMVersion",
-                    specification=str,
-                    required=True,
-                    description="Version of the ODM format (e.g., 1.3.1)"
-                ),
-                DataField(
-                    name="FileOID",
-                    specification=str,
-                    required=True,
-                    description="Unique identifier for the ODM file (e.g.,\
-                            000-00-0000)"
-                ),
-                DataField(
-                    name="FileType",
-                    specification=str,
-                    required=True,
-                    description="Type of the file (e.g., Snapshot)"
-                ),
-                DataField(
-                    name="Description",
-                    specification=str,
-                    required=True,
-                    description="Description of the ODM file content (e.g., \
-                        the name of the local REDCap project)"
-                ),
-                DataField(
-                    name="AsOfDateTime",
-                    specification=Date,
-                    required=True,
-                    description="Date and time of the data snapshot"
-                ),
-                DataField(
-                    name="CreationDateTime",
-                    specification=Date,
-                    required=True,
-                    description="Date and time when the ODM file was created"
-                ),
-                DataField(
-                    name="SourceSystem",
-                    specification=str,
-                    required=True,
-                    description="System that generated the ODM file (e.g.,\
-                        REDCap)"
-                ),
-                DataField(
-                    name="SourceSystemVersion",
-                    specification=str,
-                    required=True,
-                    description="Version of the source system (e.g. 14.6.9)"
-                ),
-                DataSection(
-                    name="ClinicalData",
-                    fields=(
-                        DataField(
-                            name="StudyOID",
-                            specification=str,
-                            required=True,
-                            description="Unique identifier for the study or\
-                                project (e.g., Project.ProjectName)"
-                        ),
-                        DataField(
-                            name="MetaDataVersionOID",
-                            specification=str,
-                            required=True,
-                            description="Version identifier for the metadata\
-                                structure of the project (e.g.\
-                                    'Project.ProjectName_2024-10-14_1145')."
-                        ),
-                        DataSection(
-                            name="SubjectData",
-                            fields=(
-                                DataField(
-                                    name="SubjectKey",
-                                    specification=str,
-                                    required=True,
-                                    description="Identifier for the subject\
-                                        or patient within the REDCap database."
-                                ),
-                                DataField(
-                                    name="redcap:RecordIdField",
-                                    specification=str,
-                                    required=True,
-                                    description="The primary record identifier\
-                                        field for REDCap (e.g. 'record_id')"
-                                ),
-                                DataSection(
-                                    name="FormData",
-                                    fields=(
-                                        DataField(
-                                            name="FormOID",
-                                            specification=str,
-                                            required=True,
-                                            description="Unique identifier for\
-                                                the form using the REDCap form\
-                                                    name (e.g., 'Form.form_name')"
-                                        ),
-                                        DataField(
-                                            name="FormRepeatKey",
-                                            specification=str,
-                                            required=True,
-                                            description="Unique identifier for\
-                                                the form repeat instance."
-                                        ),
-                                        DataSection(
-                                            name="ItemGroupData",
-                                            fields=(
-                                                DataField(
-                                                    name="ItemGroupOID",
-                                                    specification=str,
-                                                    required=True,
-                                                    description="Unique identifier\
-                                                        for the item group using the\
-                                                            REDCap field name (e.g.,\
-                                                                'form_name.variable_name')"
-                                                ),
-                                                DataField(
-                                                    name="ItemGroupRepeatKey",
-                                                    specification=str,
-                                                    required=True,
-                                                    description="Unique identifier\
-                                                        for the item group repeat instance."
-                                                ),
-                                                DataSection(
-                                                    name="ItemData",
-                                                    fields=(
-                                                        [DataField(
-                                                            name="ItemOID",
-                                                            specification=str,
-                                                            required=True,
-                                                            description="Unique identifier\
-                                                                within the REDCap project \
-                                                                (e.g., record_id)"
-                                                            ),
-                                                        DataField(
-                                                            name="Value",
-                                                            specification=str,
-                                                            required=True,
-                                                            description="Value of the record_id"
-                                                        )
-                                                        ],
-                                                        [
+# RARELINK_CDM_V2_0_0 = DataModel(
+#     name="RareLink Common Data Model 2.0.0",
+#     fields=(
+#         DataSection(
+#             name="ODM",
+#             fields=(
+#                 DataField(
+#                     name="xmlns",
+#                     specification=str,
+#                     required=True,
+#                     description="Namespace for ODM v1.3,\
+#                         e.g. http://www.cdisc.org/ns/odm/v1.3"
+#                 ),
+#                 DataField(
+#                     name="xmlns:ds",
+#                     specification=str,
+#                     required=True,
+#                     description="Namespace for XML digital signature (e.g.,\
+#                         http://www.w3.org/2000/09/xmldsig#)"
+#                 ),
+#                 DataField(
+#                     name="xmlns:xsi",
+#                     specification=str,
+#                     required=True,
+#                     description="Namespace for XML Schema instance (e.g.,\
+#                         http://www.w3.org/2001/XMLSchema-instance)"
+#                 ),
+#                 DataField(
+#                     name="xmlns:redcap",
+#                     specification=str,
+#                     required=True,
+#                     description="Namespace for REDCap extension (e.g.,\
+#                         https://projectredcap.org)"
+#                 ),
+#                 DataField(
+#                     name="xsi:schemaLocation",
+#                     specification=str,
+#                     required=True,
+#                     description="Location of the ODM schema file (e.g.,\
+#                         http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd)"
+#                 ),
+#                 DataField(
+#                     name="ODMVersion",
+#                     specification=str,
+#                     required=True,
+#                     description="Version of the ODM format (e.g., 1.3.1)"
+#                 ),
+#                 DataField(
+#                     name="FileOID",
+#                     specification=str,
+#                     required=True,
+#                     description="Unique identifier for the ODM file (e.g.,\
+#                             000-00-0000)"
+#                 ),
+#                 DataField(
+#                     name="FileType",
+#                     specification=str,
+#                     required=True,
+#                     description="Type of the file (e.g., Snapshot)"
+#                 ),
+#                 DataField(
+#                     name="Description",
+#                     specification=str,
+#                     required=True,
+#                     description="Description of the ODM file content (e.g., \
+#                         the name of the local REDCap project)"
+#                 ),
+#                 DataField(
+#                     name="AsOfDateTime",
+#                     specification=Date,
+#                     required=True,
+#                     description="Date and time of the data snapshot"
+#                 ),
+#                 DataField(
+#                     name="CreationDateTime",
+#                     specification=Date,
+#                     required=True,
+#                     description="Date and time when the ODM file was created"
+#                 ),
+#                 DataField(
+#                     name="SourceSystem",
+#                     specification=str,
+#                     required=True,
+#                     description="System that generated the ODM file (e.g.,\
+#                         REDCap)"
+#                 ),
+#                 DataField(
+#                     name="SourceSystemVersion",
+#                     specification=str,
+#                     required=True,
+#                     description="Version of the source system (e.g. 14.6.9)"
+#                 ),
+#                 DataSection(
+#                     name="ClinicalData",
+#                     fields=(
+#                         DataField(
+#                             name="StudyOID",
+#                             specification=str,
+#                             required=True,
+#                             description="Unique identifier for the study or\
+#                                 project (e.g., Project.ProjectName)"
+#                         ),
+#                         DataField(
+#                             name="MetaDataVersionOID",
+#                             specification=str,
+#                             required=True,
+#                             description="Version identifier for the metadata\
+#                                 structure of the project (e.g.\
+#                                     'Project.ProjectName_2024-10-14_1145')."
+#                         ),
+#                         DataSection(
+#                             name="SubjectData",
+#                             fields=(
+#                                 DataField(
+#                                     name="SubjectKey",
+#                                     specification=str,
+#                                     required=True,
+#                                     description="Identifier for the subject\
+#                                         or patient within the REDCap database."
+#                                 ),
+#                                 DataField(
+#                                     name="redcap:RecordIdField",
+#                                     specification=str,
+#                                     required=True,
+#                                     description="The primary record identifier\
+#                                         field for REDCap (e.g. 'record_id')"
+#                                 ),
+#                                 DataSection(
+#                                     name="FormData",
+#                                     fields=(
+#                                         DataField(
+#                                             name="FormOID",
+#                                             specification=str,
+#                                             required=True,
+#                                             description="Unique identifier for\
+#                                                 the form using the REDCap form\
+#                                                     name (e.g., 'Form.form_name')"
+#                                         ),
+#                                         DataField(
+#                                             name="FormRepeatKey",
+#                                             specification=str,
+#                                             required=True,
+#                                             description="Unique identifier for\
+#                                                 the form repeat instance."
+#                                         ),
+#                                         DataSection(
+#                                             name="ItemGroupData",
+#                                             fields=(
+#                                                 DataField(
+#                                                     name="ItemGroupOID",
+#                                                     specification=str,
+#                                                     required=True,
+#                                                     description="Unique identifier\
+#                                                         for the item group using the\
+#                                                             REDCap field name (e.g.,\
+#                                                                 'form_name.variable_name')"
+#                                                 ),
+#                                                 DataField(
+#                                                     name="ItemGroupRepeatKey",
+#                                                     specification=str,
+#                                                     required=True,
+#                                                     description="Unique identifier\
+#                                                         for the item group repeat instance."
+#                                                 ),
+#                                                 DataSection(
+#                                                     name="ItemData",
+#                                                     fields=(
+#                                                         [DataField(
+#                                                             name="ItemOID",
+#                                                             specification=str,
+#                                                             required=True,
+#                                                             description="Unique identifier\
+#                                                                 within the REDCap project \
+#                                                                 (e.g., record_id)"
+#                                                             ),
+#                                                         DataField(
+#                                                             name="Value",
+#                                                             specification=str,
+#                                                             required=True,
+#                                                             description="Value of the record_id"
+#                                                         )
+#                                                         ],
+#                                                         [
                                                             
-                                                        ]
-                                                    )
-                                                )
+#                                                         ]
+#                                                     )
+#                                                 )
                                                 
-                                        )
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        )
-    )
-)))
+#                                         )
+#                                 )
+#                             )
+#                         )
+#                     )
+#                 )
+#             )
+#         )
+#     )
+# )))
 
 
 
