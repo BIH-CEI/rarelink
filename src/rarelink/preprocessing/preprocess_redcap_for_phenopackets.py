@@ -1,4 +1,5 @@
 from typing import List
+import pandas as pd
 
 from phenopacket_mapper.data_standards import DataSet
 from phenopacket_mapper.data_standards.code_system import CodeSystem
@@ -7,15 +8,22 @@ from rarelink.rarelink_cdm import pref_hgvs_code, pref_code_disease, pref_diseas
 
 def preprocess_redcap_for_phenopackets(
         data_set: DataSet,
-        resources: List[CodeSystem]
-):
+        resources: List[CodeSystem],
+        input_path: str,
+        output_path: str
+) -> str:
     """Preprocess REDCap data for the phenopacket pipeline.
 
     :param data_set: A pandas DataFrame with REDCap data loaded in the Rarelink data model.
     :param resources: A list of CodeSystem resources.
+    :param input_path: Path to the input CSV file.
+    :param output_path: Path to save the preprocessed DataFrame.
+    :return: Path to the output file.
     """
+    data_set = pd.read_csv(input_path)
+    
     data_model = data_set.data_model
-
+    
     # (2) Personal Information
     # 2.1 Date of Birth
     # preprocess using dict
@@ -156,7 +164,6 @@ def preprocess_redcap_for_phenopackets(
             "loinc_la6675_8": "BENIGN",
             "loinc_la4489_6": "NOT_PROVIDED"
         }
-
     )
 
     # 6.2 Phenotypic Feature
@@ -170,17 +177,11 @@ def preprocess_redcap_for_phenopackets(
         }
     )
 
-    # 6.3 Family History
-    # TODO: check with Filip how to do this, perhaps leave it out for now 
+    # 6.4 Family History #TODO
 
 
-    # TODO @aslgrafe: handle ds.data_frame preprocessing
-    # 1. read csv file from inputpath
-    # 2. preprocess the data frame
-    # 3. save the preprocessed data frame to output path
-    # 4. return the output path
-    raise NotImplementedError
-
-
-# product of this function is the preprocessed data frame saved a csv or what ever to be used by the phenopaxcket pipeline.py 
-# upload data -> preprocess -> output locally -> output of this function: path of precprocessed data
+    output_path = 'res/output/preprocessed_test_data'
+    data_set.to_csv(output_path, index=False)
+    # add XML or whatever necessary too
+    
+    return output_path

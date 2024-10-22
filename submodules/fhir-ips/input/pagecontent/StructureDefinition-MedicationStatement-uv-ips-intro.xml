@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<blockquote class="stu-note">
+		<b>medicationCodeableConcept vs. medicationReference</b>
+		<p>In the previously balloted versions, medicationCodeableConcept was not allowed to represent
+			medications. To better support implementations, both options (medicationCodeableConcept and
+			medicationReference) are now allowed, recognizing that different jurisdictions may provide
+			different guidance worldwide and that future FHIR releases introduce <a
+				href="https://hl7.org/fhir/R5/references.html#CodeableReference">CodeableReference
+			</a>
+		</p>
+		<p>STU implementers are encouraged to provide their feedback about this design choice.</p>
+	</blockquote>
+</div>

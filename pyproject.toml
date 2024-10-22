@@ -35,7 +35,9 @@ dependencies = [
     "jupyter", 
     "pandas", 
     "phenopackets", 
-    "pytest"
+    "pytest",
+    "requests",
+    "config"
 ]
 dynamic = ["version"]
 

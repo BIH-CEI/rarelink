@@ -17,10 +17,10 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Encounter.period.start
 - GA4GH Phenopacket Schema v2.0 Element: Individual.time_at_last_encounter"
 personal_information_descr,rarelink_2_personal_information,RareLink - 2) Personal Information,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Personal Information sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Personal Information sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">Please search for the country code using the ISO 3166 list available at: <a href=""https://www.iso.org/obp/ui/#search/code/"">ISO 3166 Country Codes</a>. Enter only the two or three-letter ISO country code, such as 'CAN' or 'TUR'.</span></li>
-   <li><span style=""font-weight: normal;"">If information for a specific field is not known, you can leave the field empty.</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
   </ul>
 </div>
 ",,,,,,,,,,,,,
@@ -86,12 +86,13 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.extension:patient-birthPlace
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
 patient_status_descr,rarelink_3_patient_status,RareLink - 3) Patient Status,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Patient Status sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Patient Status sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">The form can be repeated to account for changes over time regarding the vital status, respective information, and undiagnosed rare disease cases.</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
     <li><span style=""font-weight: normal;"">For the time of death, follow the same instructions as above for when the exact month or day is unknown. (e.g., sometime in June 2022 --> 01.June.2022, sometime in 2014 --> 01.01.2014)</span></li>
     <li><span style=""font-weight: normal;"">For the item ""length of gestation at birth,"" please enter only the exact weeks and days in the format: e.g., '35+6'.</span></li>   
-    <li><span style=""font-weight: normal;"">If information for a specific field is not known, you can leave the field empty.</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
 patient_status_date,rarelink_3_patient_status,,text,Date of Completion for the Sheet,,,date_ymd,,,,,,,,,,
@@ -160,12 +161,12 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.code (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)"
 care_pathway_descr,rarelink_4_care_pathway,RareLink - 4) Care Pathway,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Care Pathway sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Care Pathway sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is also a repeated form, with one encounter per form.</span></li>
     <li><span style=""font-weight: normal;"">If possible, use the dates. In relation to the Disease sheet, you can create a comprehensive overview of a patient's disease history with encounters.</span></li>
     <li><span style=""font-weight: normal;"">If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively. (e.g., sometime in June 2022 --> 01.June.2022, sometime in 2014 --> 01.01.2014)</span></li>
-    <li><span style=""font-weight: normal;"">If information for a specific field is not known, you can leave the field empty.</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
 hl7fhir_enc_period_start,rarelink_4_care_pathway,,text,4.1 Encounter Start,,"The beginning of an encounter of the individual. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable:
@@ -219,9 +220,10 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Encounter.class
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
 disease_descr,rarelink_5_disease,RareLink - 5) Disease,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Disease sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Disease sheet - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form, you can enter as many diseases as you wish. Please only enter one disease per form, each encodable with multiple ontologies. We recommend using MONDO for disease encoding.</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
     <li><span style=""font-weight: bold;"">To link a disease to genetic variant(s) in Section 6.1 Genetic Findings, please also enter the same MONDO or OMIM_p codes here.</span></li>
     <li><span style=""font-weight: normal;"">OMIM_g codes refer to specific genes, while OMIM_p codes refer to phenotypes or clinical manifestations associated with genetic disorders (for more information see <a href=""https://www.omim.org/"">OMIM</a>).</span></li>
     <li><span style=""font-weight: normal;"">If information for a specific field is not known, you can leave the field empty.</span></li>
@@ -357,7 +359,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.clinicalStatus  
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.progress_status.ProgressStatus  "
-snomed_246112005,rarelink_5_disease,,dropdown,5.9 Severity,"snomed_24484000, Severe | snomed_6736007, Moderate | snomed_255604002, Mild",The severity of the disease is categorised by clinical evaluation.,,,,,,,,,,,"Variable: 
+snomed_246112005,rarelink_5_disease,,dropdown,5.9 Disease Severity,"snomed_24484000, Severe | snomed_6736007, Moderate | snomed_255604002, Mild",The severity of the disease is categorised by clinical evaluation.,,,,,,,,,,,"Variable: 
 SNOMED:246112005 | Severity  
 Choices: 
 - SNOMED:24484000 | Severe  
@@ -369,20 +371,21 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.severity  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  "
 genetic_findings_descr,rarelink_6_1_genetic_findings,RareLink - 6.1) Genetic Findings,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Genetic Findings sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Genetic Findings sheet - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form, you can enter as many variants as you wish, if desired linked with a genomic disease.</span></li>
-    <li><span style=""font-weight: normal;"">If you have no information about something, leave it blank.</span></li>
-    <li><span style=""font-weight: bold;"">If you want to link variants to a diagnosis entered in the Disease sheet, please use the same MONDO or OMIM_p code.</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
+    <li><span style=""font-weight: bold;"">To link a variant to a (genetic) IEI diagnosis, please select for the corresponding IEI disease. You can also link mulitple variants with varying interpretation statuses to a disease by repeating the form.</span></li>
     <li><span style=""font-weight: normal;"">OMIM_g codes refer to specific genes, while OMIM_p codes refer to phenotypes or clinical manifestations associated with genetic disorders (for more information see <a href=""https://www.omim.org/"">OMIM</a>).</span></li>
-    <li><span style=""font-weight: normal;"">To capture the genetic variants, please provide validated HGVS values (<a href=""https://hgvs-nomenclature.org/stable/"">HGVS Nomenclature</a>) for genomic changes (g.HGVS), DNA sequence changes (c.HGVS), or amino acid changes (p.HGVS). We recommend entering g.HGVS values before using c.HGVS or at least p.HGVS.</span></li>
+    <li><span style=""font-weight: normal;"">To capture the genetic variants, please provide validated HGVS values (<a href=""https://hgvs-nomenclature.org/stable/"">HGVS Nomenclature</a>) for genomic changes (g.HGVS), DNA sequence changes (c.HGVS), or amino acid changes (p.HGVS). We recommend entering c.HGVS before using g.HGVS or p.HGVS.</span></li>
     <li><span style=""font-weight: bold;"">To validate your mutations:</span>
       <ul>
         <li><span style=""font-weight: normal;"">You can search the mutation in ClinVar (<a href=""https://www.ncbi.nlm.nih.gov/clinvar/"">ClinVar</a>) or Varsome (<a href=""https://varsome.com/"">Varsome</a>).</span></li>
         <li><span style=""font-weight: bold;"">You must enter the expression into an HGVS expression validator, such as <a href=""https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/"">HGVS Validator</a>.</span></li>
       </ul>
     </li>
-    <li><span style=""font-weight: normal;"">If you cannot validate your variant expressions according to HGVS expressions, please use the text field 6.1.6 Genetic Mutation string to enter all information you have for subsequent validation.</span></li>
+    <li><span style=""font-weight: normal;"">If you cannot validate your variant expressions according to HGVS expressions, please use the text field ""Unvalidated Variant Text of the mutation"" to enter all information you have for subsequent validation.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
 genetic_diagnosis_code,rarelink_6_1_genetic_findings,,dropdown,Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.,"mondo, MONDO | omim, OMIM","If you want to link it to a specific Disease, please use the same code system.",,,,,,,,,,,
@@ -629,12 +632,13 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Observation.extension:Variant.Interpretation
 - GA4GH Phenopacket Schema v2.0 Elemen: n/a"
 phenotypic_feature_descr,rarelink_6_2_phenotypic_feature,RareLink - 6.2) Phenotypic Findings,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Phenotypic Feature sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Phenotypic Feature sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form, you can enter as many phenotypic features as needed.</span></li>
     <li><span style=""font-weight: normal;"">If the specific month or day is not known for the determination date, select the 1st day of the month or the 1st month of the year, respectively (e.g., sometime in June 2022 --> 01.June.2022, sometime in 2014 --> 01.01.2014).</span></li>
     <li><span style=""font-weight: normal;"">We recommend capturing the time a characteristic was observed.</span></li>
     <li><span style=""font-weight: normal;"">Please always enter the status as either confirmed or refuted.</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
     <li><span style=""font-weight: normal;"">Encode the modifiers for more complex deep phenotyping, for instance, one or more terms from HP:0012823 (<a href=""https://hpo.jax.org/browse/term/HP:0012823"">HP:0012823</a>), the infectious agent causing the phenotype encoded with NCBITAXON, or SNOMED for other modifiers.</span></li>
    <li><span style=""font-weight: normal;"">For more effective analysis with clinical modifiers, we recommend establishing consistent definitions for these modifiers within a specific cohort.</span></li>
   </ul>
@@ -648,17 +652,8 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.Code  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.type"
-snomed_8116006_date,rarelink_6_2_phenotypic_feature,,text,6.2.2 Determination Date,,"The date on which the phenotypic feature was observed or recorded (we the time it was observed). If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable: 
-SNOMED:439272007:704321009=363778006 | Determination Date  
-Choices: 
-n/a  
-Version(s): 
-- SNOMED CT Version 23.2.0  
-Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
-- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset  "
-ga4gh_pheno_excluded,rarelink_6_2_phenotypic_feature,,dropdown,6.2.3 Status,"snomed_410605003, Confirmed present | snomed_723511001, Refuted","The current status of the phenotypic feature, indicating whether it is confirmed or refuted.",,,,,,,,,,,"Variable: 
-GA4GH:phenotypicfeature.excluded | Status  
+snomed_363778006,rarelink_6_2_phenotypic_feature,,dropdown,6.2.2 Status,"snomed_410605003, Confirmed present | snomed_723511001, Refuted","The current status of the phenotypic feature, indicating whether it is confirmed or refuted.",,,,,,,,,,,"Variable: 
+SNOMED:363778006 | Status  
 Choices: 
 - SNOMED:410605003 | Confirmed present  
 - SNOMED:723511001 | Refuted  
@@ -668,7 +663,73 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.Status (Rec VS: observation.status)  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.excluded "
-ga4gh_pheno_mod_hp1,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,,,,,,,"Variable: 
+snomed_8116006_onset,rarelink_6_2_phenotypic_feature,,text,6.2.3 Determination Date,,"The date on which the phenotypic feature was observed or recorded (we the time it was observed). If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable: 
+SNOMED:439272007:704321009=363778006 | Determination Date  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT Version 23.2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset  "
+snomed_8116006_resolution,rarelink_6_2_phenotypic_feature,,text,6.2.4 Resolution Date,,Time at which the feature resolved or abated.,date_ymd,,,,,,,,,,"Variable: 
+HPO:0034382 | Resolution Date  
+Choices: 
+n/a  
+Version(s): 
+- HPO Version 2024-08-13  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.resolution"
+hp_0003674,rarelink_6_2_phenotypic_feature,,dropdown,6.2.5 Age of Onset,"hp_0011460, Embryonal onset (0w-8w embryonal) | hp_0011461, Fetal onset (8w embryonal - birth) | hp_0003577, Congenital onset (at birth) | hp_0003623, Neonatal onset (0d-28d) | hp_0003593, Infantile onset (28d-1y) | hp_0011463, Childhood onset (1y-5y) | hp_0003621, Juvenile onset (5y-15y) | hp_0011462, Young adult onset (16y-40y) | hp_0003596, Middle age adult onset (40y-60y) | hp_0003584, Late adult onset (60y+)",,,,,,,,,,,,"Variable: 
+HP:0003674 | Onset Category  
+Choices: 
+- HP:0011460 | Embryonal onset (0w-8w embryonal)  
+- HP:0011461 | Fetal onset (8w embryonal - birth)  
+- HP:0003577 | Congenital onset (at birth)  
+- HP:0003623 | Neonatal onset (0d-28d)  
+- HP:0003593 | Infantile onset (28d-1y)  
+- HP:0011463 | Childhood onset (1y-5y)  
+- HP:0003621 | Juvenile onset (5y-15y)  
+- HP:0011462 | Young adult onset (16y-40y)  
+- HP:0003596 | Middle age adult onset (40y-60y)  
+- HP:0003584 | Late adult onset (60y+)  
+Version(s): 
+- HPO Version 2024-08-13  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.category  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset"
+hp_0011008,rarelink_6_2_phenotypic_feature,,dropdown,6.2.6 Temporal Pattern,"hp_0011009, Acute | hp_0011010, Chronic | hp_0031914, Fluctuating | hp_0025297, Prolonged | hp_0031796, Recurrent | hp_0031915, Stable | hp_0011011, Subactue | hp_0025153, Transient",,,,,,,,,,,,"Variable: 
+HP:0011008 | Temporal Pattern  
+Choices: 
+- HP:0011009 | Acute  
+- HP:0011010 | Chronic  
+- HP:0031914 | Fluctuating  
+- HP:0025297 | Prolonged  
+- HP:0031796 | Recurrent  
+- HP:0031915 | Stable  
+- HP:0011011 | Subactue  
+- HP:0025153 | Transient  
+Version(s): 
+- HPO Version 2024-08-13  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.interpretation  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers"
+hp_0012824,rarelink_6_2_phenotypic_feature,,dropdown,6.2.7 Phenotype Severity,"hp_0012827, Borderline | hp_0012825, Mild | hp_0012826, Moderate | hp_0012829, Profound | hp_0012828, Severe",,,,,,,,,,,,"Variable: 
+HP:0012824 | Severity  
+Choices: 
+- HP:0012827 | Borderline  
+- HP:0012825 | Mild  
+- HP:0012826 | Moderate  
+- HP:0012829 | Profound  
+- HP:0012828 | Severe  
+Version(s): 
+- HPO Version 2024-08-13  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.interpretation  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
+"
+hp_0012823_hp1,rarelink_6_2_phenotypic_feature,,text,6.2.8A Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -677,7 +738,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_hp2,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[ga4gh_pheno_mod_hp1] <> """"",,,,,,"Variable: 
+hp_0012823_hp2,rarelink_6_2_phenotypic_feature,,text,6.2.8B Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[hp_0012823_hp1] <> """"",,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -686,7 +747,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_hp3,rarelink_6_2_phenotypic_feature,,text,6.2.4 Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[ga4gh_pheno_mod_hp2] <> """"",,,,,,"Variable: 
+hp_0012823_hp3,rarelink_6_2_phenotypic_feature,,text,6.2.8C Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[hp_0012823_hp2] <> """"",,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -695,7 +756,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_ncbitax,rarelink_6_2_phenotypic_feature,,text,"6.2.4 If applicable, what was the causing organism? [NCBITAXON]",BIOPORTAL:NCBITAXON,"If applicable, select the causing organism. To search more easily, consider searching in https://www.ebi.ac.uk/ols4/ontologies. It is recommended to select a common set of choices if capturing phenotypes for a cohort. ",,,,,,,,,,,"Variable: 
+hp_0012823_ncbitaxon,rarelink_6_2_phenotypic_feature,,text,"6.2.8D If applicable, what was the causing organism? [NCBITAXON]",BIOPORTAL:NCBITAXON,"If applicable, select the causing organism in NCBITaxon and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort. ",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -704,7 +765,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-ga4gh_pheno_mod_snomed,rarelink_6_2_phenotypic_feature,,text,"6.2.4I If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite. To search more easily, consider searching in https://www.ebi.ac.uk/ols4/ontologies. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
+hp_0012823_snomed,rarelink_6_2_phenotypic_feature,,text,"6.2.8E If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite in SNOMED and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -713,11 +774,75 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+phenotypicfeature_evidence,rarelink_6_2_phenotypic_feature,,text,6.2.9 Evidence for the phenotype [ECO],BIOPORTAL:ECO,The evidence for an assertion of the observation of a type defined within the Evidence & Conclusion Ontology (ECO).,,,,,,,,,,,
+measurements_descr,rarelink_6_3_measurements,RareLink - 6.3) Measurements,descriptive,"<div class=""rich-text-field-label"">
+  <p><span style=""font-weight: bold;"">Notes and Tips for entering information into the Measurements sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
+  <ul>
+    <li><span style=""font-weight: normal;"">It is a repeated form; capture information for one measurement and repeat as many times as necessary</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
+    <li><span style=""font-weight: normal;"">It is recommended to define a set of rules for capturing measurements within a cohort to improve subsequent analyses</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
+    <li><span style=""font-weight: normal;"">To search in LOINC, we recommend searching here: https://loinc.org/search/ (you may have to create an account to access Loinc Search).</span></li>
+  </ul>
+</div>",,,,,,,,,,,,,
+ncit_c60819,rarelink_6_3_measurements,,text,6.3.1 Assay,BIOPORTAL:LOINC,Please search the assay in LOINC and see tips above.,,,,,,,,,,,"Variable: NCIT:C60819 | Assay
+Choices: n/a
+Version(s):
+- NCIT v24.04e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.assay"
+ncit_c25712,rarelink_6_3_measurements,,text,6.3.2 Value,,Please enter a two decimal number,number_2dp,0.00,999999.99,,,,,,,,"Variable: NCIT:C25712 | Value
+Choices: n/a
+Version(s):
+- NCIT v24.04e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x]
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c92571,rarelink_6_3_measurements,,text,6.3.3 Value Unit,BIOPORTAL:UO,"Please search the unit in the Unit Ontology (UO). Tip: Search for the official abbreviations (e.g. dl, kg, l, etc.)",,,,,,,,,,,"Variable: NCIT:C92571 | Measurement Unit Description
+Choices: n/a
+Version(s):
+- NCIT v24.04e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x].unit
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c41255,rarelink_6_3_measurements,,text,6.3.4 Interpretation,BIOPORTAL:NCIT,"Please search for an interpretation in NCIT, e.g. positive / negative, below/above reference range, etc. ",,,,,,,,,,,"Variable: NCIT:C41255 | Interpretation
+Choices: n/a
+Version(s):
+- NCIT v24.04e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.interpretation
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c82577,rarelink_6_3_measurements,,text,6.3.5 Time Observed,,YYYY-MM-DD,date_ymd,,,,,,,,,,"Variable: NCIT:C82577 | Test Time
+Choices:
+- n/a
+Version(s):
+- NCIT v24.04e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed"
+snomed_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],BIOPORTAL:NCIT,Please search for the procedure in NCIT and see tips above.,,,,,,,,,,,"Variable: SNOMED:122869004 | Procedure
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT v2024-09-01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
+snomed_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMED],BIOPORTAL:SNOMED,Please search for the procedure in SNOMED and see tips above.,,,,,,,,,,,"Variable: SNOMED:122869004 | Procedure
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT v2024-09-01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
 family_history_descr,rarelink_6_3_family_history,RareLink - 6.3) Family History,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Family History sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Family History sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form; capture information for as many family members as needed, with one family member per sheet.</span></li>
-    <li><span style=""font-weight: normal;"">If information is not known, leave it blank.</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
+    <li><span style=""font-weight: bold;"">Not all fields must be entered - If information is not known or not required, leave it blank.</span></li>
     <li><span style=""font-weight: normal;"">If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
@@ -868,7 +993,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
 consent_descr,rarelink_7_consent,RareLink - 7) Consent,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Consent sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Consent sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">Specifies consent-specific data for a patient, e.g., for registry use.</span></li>
     <li><span style=""font-weight: normal;"">Provide a link to the BioBank if applicable.</span></li>
@@ -958,9 +1083,10 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: n/a  
 - GA4GH Phenopacket Schema v2.0 Element: n/a "
 disability_descr,rarelink_8_disability,RareLink - 8) Disability,descriptive,"<div class=""rich-text-field-label"">
-  <p><span style=""font-weight: bold;"">Notes for entering information into the Disability sheet</span></p>
+  <p><span style=""font-weight: bold;"">Notes for entering information into the Disability sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">Enter the disability code of the ICF (International Classification of Functioning, Disability, and Health).</span></li>
+    <li><span style=""font-weight: normal;"">These RareLink sheets are integrated with BioPortal for ontology-specific searches. For a smoother experience when looking up terms in these fields, we recommend using the OLS platform (https://www.ebi.ac.uk/ols4/ontologies) to locate the appropriate terms for your search.</span></li>
     <li><span style=""font-weight: normal;"">The data entered corresponds to the date of admission or data entry (element 1.2).</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
