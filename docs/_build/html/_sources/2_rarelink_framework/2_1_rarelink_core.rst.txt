@@ -20,11 +20,6 @@ Phenopackets enables rare disease data to be shared across institutions,
 facilitating collaboration and improving the potential for meaningful research 
 and clinical advancements in RD care.
 
-RareLink enhances the functionality of REDCap by transforming it into a powerful 
-tool for rare disease data management. By leveraging the REDCap API and built-in 
-tools, RareLink ensures that the data captured in REDCap can be seamlessly 
-integrated into broader research ecosystems, maximizing its utility and 
-interoperability for rare disease research and patient care.
 
 
 RareLink and the RD CDM

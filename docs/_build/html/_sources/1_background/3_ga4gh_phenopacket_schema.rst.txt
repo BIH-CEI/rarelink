@@ -1,7 +1,6 @@
 GA4GH Phenopacket Schema
 ========================
 
-
 The Phenopacket schema, developed by the Global Alliance for Genomics and Health
 (GA4GH), is an open standard designed to facilitate the exchange of detailed 
 phenotypic and genomic data. It is particularly useful for capturing rich 
@@ -52,7 +51,6 @@ clinical information.
 
 .. note::
    `Here you find the GA4GH Phenopacket Schema Documentation <https://phenopacket-schema.readthedocs.io/en/latest/index.html>`_
-
 
 
 Phenopacket Tools

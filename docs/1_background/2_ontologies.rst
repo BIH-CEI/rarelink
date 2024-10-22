@@ -1,5 +1,5 @@
-Ontologies
-===========
+Ontologies & Terminologies
+==========================
 
 RareLink uses a variety of ontologies and terminologies to standardise the 
 representation of data and facilitate interoperability between different data 

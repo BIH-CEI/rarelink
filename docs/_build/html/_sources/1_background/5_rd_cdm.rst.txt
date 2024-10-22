@@ -1,7 +1,16 @@
-Rare Disease Common Data Model v2.0
-===================================
+.. _rd_cdm_file: 
 
-The Rare Diseases Common Data Model (RD CDM) v2.0 was developed to address
+Rare Disease Common Data Model v2.0.0
+=====================================
+
+.. attention::
+   The RD CDM v2.0.0 is currently under review and will be published soon.
+
+
+RD-CDM v2.0.0 Overview
+-----------------------
+
+The ontology-based Rare Diseases Common Data Model (RD CDM) v2.0 was developed to address
 the complexity and variability inherent in rare diseases, which number over
 6,000 and often require unique approaches to research and clinical care. This
 model is based on the Common Data Elements (CDEs) from the European Rare
@@ -13,9 +22,18 @@ involved overcoming challenges such as the lack of standardized terms for
 disease characteristics and the need to represent highly variable clinical data
 across different rare diseases.
 
-.. note::
-   The RD CDM v2.0 is not a balloted version, but it can serve as a template for
-   future standardization efforts in rare disease research.
+.. image:: ../_static/res/rd_cdm_v2_0_0.jpeg
+   :alt: Overview RD CDM v2.0
+   :width: 800px
+   :height: 500px
+   :align: center
+
+.. tip:: 
+   Further Links: 
+
+   - `RD-CDM GitHub Repository <https://github.com/BIH-CEI/rd-cdm>`_
+   - `RD-CDM Documentation <https://rd-cdm.readthedocs.io/en/latest/>`_
+   - `RD-CDM Resources and Downloads <https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html>`_
 
 Key Success Factors of a Rare Disease Common Data Model
 -------------------------------------------------------
@@ -47,11 +65,6 @@ of the rare disease community.
 
 
 
-.. image:: ../images/rd_cdm_v2.0_overview.png
-   :alt: Overview RD CDM v2.0
-   :width: 700px
-   :height: 500px
-   :align: center
 
 
 Further Reading
