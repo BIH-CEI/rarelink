@@ -77,7 +77,9 @@ Sections
 - :doc:`3_installation/3_2_extensional_instruments`
 - :doc:`3_installation/3_3_redcap_api`
 - :doc:`3_installation/3_4_rarelink_core_project`
-- :doc:`3_installation/3_5_rarelink_pipelines`
+- :doc:`3_installation/3_5_import_mapper`
+- :doc:`3_installation/3_6_phenopacket_pipeline`
+- :doc:`3_installation/3_7_fhir_pipeline`
 
 4) User Guide
 ----------
@@ -135,7 +137,9 @@ Additional Information
    3_installation/3_2_extensional_instruments
    3_installation/3_3_redcap_api
    3_installation/3_4_rarelink_core_project
-   3_installation/3_5_rarelink_pipelines
+   3_installation/3_5_import_mapper
+   3_installation/3_6_phenopacket_pipeline
+   3_installation/3_7_fhir_pipeline
 
 .. toctree::
    :caption: User Guide

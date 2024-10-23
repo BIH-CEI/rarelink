@@ -17,9 +17,12 @@ rare disease data seamlessly within the REDCap environment.
    :alt: RareLink Overview
    :align: center
 
+_____________________________________________________________________________________
+
 RareLink Framework components
 -----------------------------
 
+_____________________________________________________________________________________
 
 Semi-Automatic Import
 ______________________
@@ -33,6 +36,8 @@ ______________________
 
         - Guide for the :ref:`3_4`
         - User guide for :ref:`4_2`
+
+_____________________________________________________________________________________
 
 Manual Data Capture
 ___________________
@@ -48,6 +53,7 @@ ___________________
         - Guide to develop the :ref:`3_2`
         - User guide for :ref:`4_1`
 
+_____________________________________________________________________________________
 
 Local REDCap Project Setup and API
 __________________________________
@@ -61,6 +67,8 @@ __________________________________
         - How to set up the :ref:`3_3`
         - How to deploy the :ref:`3_4`
     
+_____________________________________________________________________________________
+
 RareLink & toFHIR
 __________________
     RareLink utilises toFHIR from SRDC to convert the data captured
@@ -77,6 +85,8 @@ __________________
         - Guide to :ref:`4_4`
         - toFHIR Repository: https://github.com/srdc/tofhirs
         - Website: https://onfhir.io/tofhir/
+
+_____________________________________________________________________________________
 
 RareLink & Phenopackets
 _______________________
