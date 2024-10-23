@@ -13,7 +13,7 @@ instruments from the RareLink REDCap project.
 
 
 - :download:`Download RareLink CDM Data Dictionary v2.0.0 <../_static/res/rarelink_v2_0_0_datadictionary.csv>`
-- :download:`Download all seperate instruments as a .zip file <../../assets/rarelink_cdm_instruments.zip>`
+- :download:`Download all RareLink CDM instruments seperately as a .zip file <../_static/res/rarelink_cdm_redcap_instruments.zip>`
 
 2. Import the instruments into your REDCap project.
 
