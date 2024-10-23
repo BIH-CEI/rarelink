@@ -18,7 +18,17 @@ instruments from the RareLink REDCap project.
 2. Import the instruments into your REDCap project.
 
 - Go to your REDCap project.
-- Click on the "Designer" tab.
+- Click on the "Designer" tab on the left side of the screen.
+
+.. image:: ../_static/res/redcap_gui_screenshots/Designer.jpg
+  :alt: Designer tab
+  :align: center
+
+- Click on the "Data Dictionary" tab on the top of the screen.
+
+.. image:: ../_static/res/redcap_gui_screenshots/DataDictionary.jpg
+  :alt: Data Dictionary tab
+  :align: left
 
 
 - Click on the "Import" button.
