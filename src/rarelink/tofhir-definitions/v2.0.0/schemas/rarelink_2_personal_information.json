@@ -1,0 +1,125 @@
+{
+  "id": "Rarelink_2_personal_information",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+  "version": "latest",
+  "name": "rarelink_2_personal_information",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "rarelink_2_personal_information",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "rarelink_2_personal_information",
+        "path": "rarelink_2_personal_information",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_422549004",
+        "path": "rarelink_2_personal_information.snomed_422549004",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "2.0 Pseudonym",
+        "short": "2.0 Pseudonym"
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_184099003",
+        "path": "rarelink_2_personal_information.snomed_184099003",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "2.1 Date of birth",
+        "short": "2.1 Date of birth"
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_281053000",
+        "path": "rarelink_2_personal_information.snomed_281053000",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "2.2 Sex at birth",
+        "short": "2.2 Sex at birth"
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_1296886006",
+        "path": "rarelink_2_personal_information.snomed_1296886006",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "2.3 Karyotypic Sex",
+        "short": "2.3 Karyotypic Sex"
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_263495000",
+        "path": "rarelink_2_personal_information.snomed_263495000",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "2.4 Gender Identity",
+        "short": "2.4 Gender Identity"
+      },
+      {
+        "id": "rarelink_2_personal_information.snomed_370159000",
+        "path": "rarelink_2_personal_information.snomed_370159000",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "2.5 Country of Birth",
+        "short": "2.5 Country of Birth"
+      }
+    ]
+  }
+}

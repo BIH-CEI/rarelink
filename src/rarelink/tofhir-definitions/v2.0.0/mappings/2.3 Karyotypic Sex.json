@@ -1,0 +1,52 @@
+{
+  "id": "2.3 karyotypic sex",
+  "url": "rarelink/2.3KaryotypicSex",
+  "name": "2.3 Karyotypic Sex",
+  "title": "RareLink CDM ",
+  "source": [
+    {
+      "alias": "personalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observationr401",
+        "language": "application/fhir-template+json",
+        "value": {
+          "status": "registered",
+          "code": {
+            "coding": "{{snomed_1296886006}}",
+            "text": "{{'Karyotypic Sex'}}"
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{mpp:getConcept(<%karyotypicSexConceptMap>, <snomed_1296886006>, <rarelinkv2.0_code>)}}",
+                "display": "{{mpp:getConcept(<%karyotypicSexConceptMap>, <snomed_1296886006>, <rarelink2.0_display>)}}"
+              }
+            ]
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation"
+        }
+      },
+      "description": "RareLink CDM 2.3 Karyotypic Sex - Observation Resource"
+    }
+  ],
+  "context": {
+    "karyotypicSexConceptMap": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/2.3 Karyotypic_Sex.csv"
+    }
+  }
+}
