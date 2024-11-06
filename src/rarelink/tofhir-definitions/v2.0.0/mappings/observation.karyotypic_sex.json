@@ -1,7 +1,7 @@
 {
-  "id": "2.3 karyotypic sex",
-  "url": "rarelink/2.3KaryotypicSex",
-  "name": "2.3 Karyotypic Sex",
+  "id": "observation.karyotypic_sex",
+  "url": "rarelink/karyotypic_sex",
+  "name": "observation.karyotypic_sex",
   "title": "RareLink CDM ",
   "source": [
     {
@@ -19,16 +19,23 @@
         "value": {
           "status": "registered",
           "code": {
-            "coding": "{{snomed_1296886006}}",
-            "text": "{{'Karyotypic Sex'}}"
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{'1296886006'}}",
+                "display": "{{'Karyotypic Sex'}}"
+              }
+            ]
           },
           "valueCodeableConcept": {
             "coding": [
               {
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "code": "{{mpp:getConcept(<%karyotypicSexConceptMap>, <snomed_1296886006>, <rarelinkv2.0_code>)}}",
-                "display": "{{mpp:getConcept(<%karyotypicSexConceptMap>, <snomed_1296886006>, <rarelink2.0_display>)}}"
+                "code": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomed_1296886006, 'source_code')}}",
+                "display": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomed_1296886006, 'target_display')}}",
+                "userSelected": "none_selected"
               }
             ]
           },

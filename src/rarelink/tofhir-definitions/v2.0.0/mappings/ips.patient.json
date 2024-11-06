@@ -1,0 +1,67 @@
+{
+  "id": "ips.patient",
+  "url": "rarelink/ips.patient",
+  "name": "ips.patient",
+  "title": "IPS Patient",
+  "source": [
+    {
+      "alias": "rarelinkpatient",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+      "joinOn": [
+        "snomed_422549004"
+      ]
+    },
+    {
+      "alias": "rarelinkpersonalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": [
+        "null"
+      ]
+    },
+    {
+      "alias": "rarelinkpatientstatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": [
+        "null"
+      ]
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "ips.patient",
+        "language": "application/fhir-template+json",
+        "value": {
+          "identifier": "{{snomed_422549004}}",
+          "name": "no_name",
+          "gender": "{{? mpp:getConcept(%gender, snomed_263495000, 'target_code')}}",
+          "birthDate": "{{snomed_184099003}}",
+          "deceasedDateTime": "{{snomed_398299004}}",
+          "deceasedBoolean": "{{? mpp:getConcept(%vitalstatus, snomed_278844005, 'target_code'>)}}",
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
+            ]
+          },
+          "resourceType": "Patient"
+        }
+      },
+      "description": "RareLink CDM to IPS Patient profiles"
+    }
+  ],
+  "context": {
+    "gender": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/2.4 Gender_Identity.csv"
+    },
+    "vitalstatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/3.1 Vital_Status.csv"
+    },
+    "sexatbirth": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/2.2 Sex_at_Birth.csv"
+    }
+  }
+}

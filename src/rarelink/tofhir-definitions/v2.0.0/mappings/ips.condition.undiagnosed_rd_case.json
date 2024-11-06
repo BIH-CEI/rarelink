@@ -1,0 +1,45 @@
+{
+  "id": "ips.condition.undiagnosed_rd_case",
+  "url": "rarelink/ips.condition.undiagnosed_rd_case",
+  "name": "ips.condition.undiagnosed_rd_case",
+  "title": "Condition RareLink CDM Undiagnosed RD Case",
+  "source": [
+    {
+      "alias": "RareLinkPatientStatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "condition.undiagnosed_rd_case",
+        "language": "application/fhir-template+json",
+        "value": {
+          "code": {
+            "coding": [
+              {
+                "system": "{{'http://www.orpha.net/'}}",
+                "code": "{{? mpp:getConcept(%condition.undiagnosed_rd_case, snomed_723663001, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%condition.undiagnosed_rd_case, snomed_723663001, 'target_display')}}",
+                "version": "{{'2024-09-12'}}"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "{{'ips.patient'}}"
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+            ]
+          },
+          "resourceType": "Condition"
+        }
+      },
+      "description": "Condition RareLink CDM Undiagnosed RD Case"
+    }
+  ],
+  "context": {}
+}

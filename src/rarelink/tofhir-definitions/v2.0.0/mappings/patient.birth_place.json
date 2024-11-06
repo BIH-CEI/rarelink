@@ -1,0 +1,32 @@
+{
+  "id": "patient.birth_place",
+  "url": "rarelink/patient.birth_place",
+  "name": "patient.birth_place",
+  "title": "Patient Resource - Birth Place",
+  "source": [
+    {
+      "alias": "personalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "patient.birth_place",
+        "language": "application/fhir-template+json",
+        "value": {
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient|4.0.1"
+            ]
+          },
+          "resourceType": "Patient"
+        }
+      },
+      "description": "RareLink CDM Birth Place element to FHIRv4.0.1 Base Resource Patient "
+    }
+  ],
+  "context": {}
+}
