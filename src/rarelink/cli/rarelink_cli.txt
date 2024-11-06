@@ -1,0 +1,78 @@
+$ rarelink -overview
+
+RareLink CLI - Overview of Functionalities
+
+1. **Semi-Automatic Import**
+   Import data stored in tabular databases (e.g., Excel) into REDCap using 
+   RareLink’s Import Mapper, powered by the Phenopacket Mapper API. Convert and 
+   integrate data directly into your local REDCap RareLink format.
+   
+   ➔ Command:
+      - rarelink import -file <path_to_excel_file> -map <mapping_config>
+   
+   ➔ Guides:
+      - Guide for the RareLink REDCap Project
+      - User guide for Semi-Automatic Data Capture
+      - More info: [Continue here...]
+
+2. **Manual Data Capture**
+   Use preconfigured data collection sheets based on the RD-CDM for accurate 
+   manual data entry. Follow RareLink guidelines to develop specialized REDCap
+   sheets, ensuring data compatibility for FHIR and Phenopacket generation.
+   
+   ➔ Command:
+      - rarelink sheets -list
+      - rarelink sheets -install <sheet_name>
+   
+   ➔ Guides:
+      - Guide to install RareLink CDM Instruments
+      - Guide to develop Extensional REDCap Instruments
+      - User guide for Manual Data Capture
+      - More info: [Continue here...]
+
+3. **Local REDCap Project Setup and API**
+   Deploy and install RareLink in a local REDCap instance, ensuring API 
+   compliance for FHIR and Phenopacket generation.
+   
+   ➔ Command:
+      - rarelink setup -redcap <path_to_redcap_instance>
+      - rarelink setup -api enable
+      - rarelink setup -api test
+   
+   ➔ Guides:
+      - How to set up the REDCap API
+      - How to deploy the RareLink REDCap Project
+      - More info: [Continue here...]
+
+4. **RareLink & toFHIR**
+   Convert data captured in REDCap into FHIR resources using toFHIR. Set up and 
+   run the RareLink API and pipelines to automatically generate FHIR v4.0.1
+    resources and International Patient Summary (IPS).
+   
+   ➔ Command:
+      - rarelink pipeline -run toFHIR
+   
+   ➔ Guides:
+      - How to set up the REDCap API and RareLink Pipelines Installation
+      - Guide to Generate FHIR Resources
+      - toFHIR Repository: https://github.com/srdc/tofhirs
+      - Website: https://onfhir.io/tofhir/
+      - More info: [Continue here...]
+
+5. **RareLink & Phenopackets**
+   Convert REDCap data into GA4GH Phenopackets with the Phenopacket Mapper, 
+   preconfigured within the RareLink framework.
+   
+   ➔ Command:
+      - rarelink pipeline -run phenopackets
+   
+   ➔ Guides:
+      - How to set up the REDCap API and RareLink Pipelines Installation
+      - Guide to Generate GA4GH Phenopackets
+      - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper
+      - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/
+      - More info: [Continue here...]
+
+For more information on each functionality, use:
+   rarelink -help <command>
+
