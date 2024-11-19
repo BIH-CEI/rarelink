@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RD-CDM &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="REDCap" href="1_6_redcap.html" />
+    <link rel="prev" title="HL7 FHIR" href="1_4_hl7_fhir.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RD-CDM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rd-cdm-v2-0-0-overview">RD-CDM v2.0.0 Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-success-factors-of-a-rare-disease-common-data-model">Key Success Factors of a Rare Disease Common Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_extensional_instruments.html">Extensional REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_redcap_api.html">REDCap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_rarelink_core_project.html">RareLink REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_5_rarelink_pipelines.html">RareLink Pipelines Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_semiautomatic_data_capture.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">Example - REDCap Project Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">Example - Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">Example - Semi-Automatic Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">Example - Generating Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">Example - Generate FHIR Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">RareLink Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RD-CDM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/1_background/1_5_rd_cdm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rd-cdm">
+<span id="id1"></span><h1>RD-CDM<a class="headerlink" href="#rd-cdm" title="Link to this heading"></a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The RD CDM v2.0.0 is currently under review and will be published soon.</p>
+</div>
+<section id="rd-cdm-v2-0-0-overview">
+<h2>RD-CDM v2.0.0 Overview<a class="headerlink" href="#rd-cdm-v2-0-0-overview" title="Link to this heading"></a></h2>
+<p>The ontology-based Rare Diseases Common Data Model (RD CDM) v2.0 was developed to address
+the complexity and variability inherent in rare diseases, which number over
+6,000 and often require unique approaches to research and clinical care. This
+model is based on the Common Data Elements (CDEs) from the European Rare
+Disease Registry Infrastructure (ERDRI-CDS), providing a standardized structure
+for data capture and analysis. We expanded on these elements to meet the
+needs of international interoperability standards, aligning with both HL7 FHIR
+and the GA4GH Phenopacket Schema. The development of this model
+involved overcoming challenges such as the lack of standardized terms for
+disease characteristics and the need to represent highly variable clinical data
+across different rare diseases.</p>
+<a class="reference internal image-reference" href="../_images/rd_cdm_v2_0_0.jpeg"><img alt="Overview RD CDM v2.0" class="align-center" src="../_images/rd_cdm_v2_0_0.jpeg" style="width: 800px; height: 500px;" />
+</a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Further Links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/BIH-CEI/rd-cdm">RD-CDM GitHub Repository</a></p></li>
+<li><p><a class="reference external" href="https://rd-cdm.readthedocs.io/en/latest/">RD-CDM Documentation</a></p></li>
+<li><p><a class="reference external" href="https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html">RD-CDM Resources and Downloads</a></p></li>
+</ul>
+</div>
+</section>
+<section id="key-success-factors-of-a-rare-disease-common-data-model">
+<h2>Key Success Factors of a Rare Disease Common Data Model<a class="headerlink" href="#key-success-factors-of-a-rare-disease-common-data-model" title="Link to this heading"></a></h2>
+<p>Developing an RD CDM also requires balancing between complexity and
+usability. A successful model must be comprehensive enough to capture the
+nuances of each rare disease, yet simple enough to be adopted across various
+healthcare systems. One key difficulty is finding a common denominator for the
+unique clinical requirements of diverse rare diseases while maintaining
+flexibility for future expansions. Additionally, ensuring that the data can be
+seamlessly integrated into existing healthcare systems without exceeding the
+avaliable resources is also essential. Addressing these complexities, the
+RD CDM v2.0 provides a framework that enhances the consistency of rare disease
+data, enabling better comparative analysis across research institutions and
+healthcare settings. While the RD CDM v2.0 is not a balloted version, it can
+serve as a template for future standardization efforts in rare disease research.</p>
+<p>Key success factors for the RD CDM include its ability to support secondary
+uses of data, such as transferring data to central registries or enabling
+federated analyses. By adhering to international interoperability standards, the
+model ensures that data captured locally can be reused in broader contexts,
+such as global research initiatives. This not only improves the efficiency of
+rare disease research but also helps preserve the unique aspects of each
+condition. The RD CDM’s flexibility allows it to evolve with the growing needs
+of the rare disease community.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Read <a class="reference external" href="https://ebooks.iospress.nl/doi/10.3233/SHTI240672">Review of Key Elements in Developing a Common Data Model for Rare Diseases: Identifying Common Success Factors (Graefe ASL, et al. 2024)</a></p>
+</div>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.erdri-cds.eu">European Rare Disease Infrastructure Common Data Set (ERDRI-CDS)</a></p></li>
+<li><p><a class="reference external" href="https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150">A Common Data Model for Rare Diseases based on the ERDRI-CDS, HL7 FHIR, and the GA4GH Phenopackets Schema v2.0</a></p></li>
+<li><p><a class="reference external" href="https://ebooks.iospress.nl/doi/10.3233/SHTI240672">Review of Key Elements in Developing a Common Data Model for Rare Diseases: Identifying Common Success Factors</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_4_hl7_fhir.html" class="btn btn-neutral float-left" title="HL7 FHIR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1_6_redcap.html" class="btn btn-neutral float-right" title="REDCap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

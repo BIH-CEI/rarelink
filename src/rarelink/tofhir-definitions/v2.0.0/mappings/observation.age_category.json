@@ -1,0 +1,58 @@
+{
+  "id": "observation.age_category",
+  "url": "rarelink/observation.age_category",
+  "name": "observation.age_category",
+  "title": "Observation RareLink CDM Age Category",
+  "source": [
+    {
+      "alias": "RareLinkPatientStatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.age_category",
+        "language": "application/fhir-template+json",
+        "value": {
+          "status": "registered",
+          "code": {
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{'105727008'}}",
+                "display": "{{'Age Category'}}"
+              }
+            ]
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{? mpp:getConcept(%ageCategory, snomed_105727008, 'target_code')}}",
+                "display": "{{? mpp:getConcept(<%conceptMap>, <source_code>, 'target_display')}}"
+              }
+            ]
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation"
+        }
+      },
+      "description": "Observation RareLink CDM Age Category"
+    }
+  ],
+  "context": {
+    "ageCategory": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/3.4 Age_Category.csv"
+    }
+  }
+}

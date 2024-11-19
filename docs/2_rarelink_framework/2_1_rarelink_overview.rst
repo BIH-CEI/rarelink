@@ -1,0 +1,103 @@
+.. _2_1: 
+
+RareLink Overview
+=================
+
+RareLink aims to maximise the utility of REDCap by providing a comprehensive 
+framework designed specifically for rare disease (RD) research and care. 
+At the core of RareLink is this documentation, the RareLink instruments that are 
+based on the :ref:`1_5`, its user guides and the 
+surrounding preconfigured pipelines and software architecture. This framework 
+ensures that data capture is both consistent and compliant with HL7 FHIR and 
+GA4GH Phenopackets, without the need for additional coding or mapping. 
+As a result, RareLink allows researchers and clinicians to collect and process
+rare disease data seamlessly within the REDCap environment.
+
+.. image:: ../_static/res/rarelink_overview.jpeg
+   :alt: RareLink Overview
+   :align: center
+
+_____________________________________________________________________________________
+
+RareLink Framework components
+-----------------------------
+
+_____________________________________________________________________________________
+
+Semi-Automatic Import
+______________________
+    In many Rare Disease specialised centres, registries or hospitals, data is 
+    stored in tabular databases (e.g. Excel). RareLink's Import Mapper that is 
+    utilising the `Phenopacket Mapper <https://bih-cei.github.io/phenopacket_mapper/latest/index.html>`_ 
+    API can be used to convert and import data from these databases into the 
+    REDCap RareLink format and your local REDCap project.
+
+    .. admonition:: Continue here...
+
+        - Guide for the :ref:`3_4`
+        - User guide for :ref:`4_2`
+
+_____________________________________________________________________________________
+
+Manual Data Capture
+___________________
+    RareLink provides a preconfigured data collection sheets based on the :ref:`1_5`
+    and user guides for manual data capture to ensure precision and correctness
+    of data captured. Further, RareLink defines guidelines for developing more 
+    specialised REDCap sheets around the RD-CDM so that the data captured can 
+    also be processed by our framework to generate FHIR resources and Phenopackets. 
+
+    .. admonition:: Continue here...
+
+        - Guide to install the :ref:`3_1`
+        - Guide to develop the :ref:`3_2`
+        - User guide for :ref:`4_1`
+
+_____________________________________________________________________________________
+
+Local REDCap Project Setup and API
+__________________________________
+    RareLink is designed to be deployed and installed in a local REDCap instance. 
+    Using the guidelines provided, or using our preconfigured RareLink-REDCap and 
+    setting up the RareLink API, you can ensure that the data captured is compliant
+    with the our framework to generate FHIR resources and Phenopackets.
+
+    .. admonition:: Continue here...
+        
+        - How to set up the :ref:`3_3`
+        - How to deploy the :ref:`3_4`
+    
+_____________________________________________________________________________________
+
+RareLink & toFHIR
+__________________
+    RareLink utilises toFHIR from SRDC to convert the data captured
+    in REDCap into FHIR resources. The RD-CDM and the corresponding RareLink
+    instruments are preconfigured within our GitHub repository to generate 
+    International Patient Summary (IPS) FHIR resources and FHIR v4.0.1 resources
+    automatically. HERE you can find more information on how to set up the 
+    RareLink API and toFHIR module in your local REDCap project to generate 
+    FHIR resources.
+    
+    .. admonition:: Continue here...
+
+        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - Guide to :ref:`4_4`
+        - toFHIR Repository: https://github.com/srdc/tofhirs
+        - Website: https://onfhir.io/tofhir/
+
+_____________________________________________________________________________________
+
+RareLink & Phenopackets
+_______________________
+    RareLink utilises the Phenopacket Mapper to convert the data captured in
+    REDCap into Phenopackets. The RD-CDM and the corresponding RareLink
+    instruments are preconfigured within our GitHub repository to generate
+    Phenopackets automatically.
+
+    .. admonition:: Continue here...
+
+        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - Guide to :ref:`4_3`
+        - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
+        - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 

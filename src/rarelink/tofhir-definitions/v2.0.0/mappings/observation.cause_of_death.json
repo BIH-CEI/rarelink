@@ -1,0 +1,52 @@
+{
+  "id": "observation.cause_of_death",
+  "url": "rarelink/observation.cause_of_death",
+  "name": "observation.cause_of_death",
+  "title": "Observation RareLink CDM Cause of Death",
+  "source": [
+    {
+      "alias": "RareLinkPatientStatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.cause_of_death",
+        "language": "application/fhir-template+json",
+        "value": {
+          "status": "registered",
+          "code": {
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{'184305005'}}",
+                "display": "{{'Cause Of Death'}}"
+              }
+            ]
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "{{'https://icd.who.int/browse10/2019/en'}}",
+                "version": "{{'2019'}}",
+                "code": "{{snomed_184305005}}"
+              }
+            ]
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation"
+        }
+      },
+      "description": "Observation RareLink CDM Cause of Death"
+    }
+  ],
+  "context": {}
+}

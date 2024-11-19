@@ -1,4 +1,6 @@
-RareLink REDCap Instruments
+.. _3_1:
+
+RareLink CDM Instruments
 ============================
 
 The RareLink REDCap Instruments are a collection of REDCap instruments designed 

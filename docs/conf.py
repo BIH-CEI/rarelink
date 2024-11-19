@@ -13,7 +13,7 @@ import sys
 src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
-project = 'rarelink'
+project = 'RareLink REDCap Documentation'
 copyright = '2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin'
 author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
             Daniel Danis, Ana Grönke, Miriam R Hübner, Steffen Sander, \

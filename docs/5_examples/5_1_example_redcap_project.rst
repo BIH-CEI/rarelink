@@ -1,2 +1,5 @@
-Complete Example: REDCap Project Setup
+Example - REDCap Project Setup
 =======================================
+
+example_redcap_project
+

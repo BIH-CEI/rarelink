@@ -1,0 +1,54 @@
+{
+  "id": "encounter.care_pathway",
+  "url": "rarelink/encounter",
+  "name": "encounter.care_pathway",
+  "title": "RareLink CDM - Encounter IPS Resource",
+  "source": [
+    {
+      "alias": "rarelinkencounter",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_4_care_pathway",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "rarelink",
+        "language": "application/fhir-template+json",
+        "value": {
+          "status": "{{? mpp:getConcept(%encounterstatus, snomed_305058001, 'target_code')}}",
+          "class": {
+            "system": "{{'https://hl7.org/fhir/R4/', 'https://www.snomed.org/snomed-ct', 'https://github.com/BIH-CEI/RareLink'}}",
+            "version": "{{'R4', '2024-09-01', 'v2.0.0'}}",
+            "code": "{{? mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_code')}}",
+            "display": "{{? mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_display')}}",
+            "userSelected": "none_selected"
+          },
+          "type": "{{m}}",
+          "period": {
+            "start": "{{hl7fhir_enc_period_start}}",
+            "end": "{{hl7fhir_enc_period_end}}"
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+            ]
+          },
+          "resourceType": "Encounter"
+        }
+      },
+      "description": "rarelink encounter"
+    }
+  ],
+  "context": {
+    "encounterclass": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/4.4_Encounter_Class.csv"
+    },
+    "encounterstatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/4.3_Encounter_Status.csv"
+    }
+  }
+}

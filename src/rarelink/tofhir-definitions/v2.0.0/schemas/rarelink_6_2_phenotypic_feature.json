@@ -1,0 +1,29 @@
+{
+  "id": "Rarelink_6_2_phenotypic_feature",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_2_phenotypic_feature",
+  "version": "latest",
+  "name": "rarelink_6_2_phenotypic_feature",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "rarelink_6_2_phenotypic_feature",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "rarelink_6_2_phenotypic_feature",
+        "path": "rarelink_6_2_phenotypic_feature",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,2 +1,222 @@
+.. _2_2:
+
+RareLink Data Dictionary
+========================
+
+
+In this section, we provide an overview of the instruments that are part of the
+RareLink Common Data Model (CDM), which is based on the :ref:`1_5`. 
+We have implemented the :ref:`1_5`'s definitions, codes, and mappins 
+into the REDCap instruments by encoding the variables and value sets in the
+REDCap data dictionary. Each section of the model corresponds to a distinct
+instrument, ensuring consistency and comprehensive data capture.
+
+.. hint:: 
+    - Read the :ref:`1_6` page to understand how REDCap instruments data dictionaries work.
+    - Read the :ref:`1_5` page for more information on the Rare Disease Common Data Model.
+
+
+RareLink CDM Data Dictionary
+----------------------------
+
+
+RuleSet for Codes and Codesystems
+__________________________________
+REDCap variables and choice codes have specific limitations and requirements:
+
+- REDCap recommends a maximum of 26 characters for variable names. We have shortened the variable names to adhere to this limitation.
+- REDCap variables must be unique and must not contain spaces or special characters, i.e. only alphanumeric characters and underscores.
+- REDCap choice codes must be unique and must not contain spaces or special characters, i.e. only alphanumeric characters and underscores.
+
+To address these, we have defined a set of rules for the REDCap variables and
+choice codes in the RareLink CDM Data Dictionary. The rules are as follows:
+
+1) The REDCap variable names are based on the :ref:`1_5` codes and display names.
+2) The REDCap choices are based on the :ref:`1_5` codes and display names.
+3) The REDCap variable names are shortened to adhere to the 26-character limit.
+4) The REDCap variable names are unique and do not contain spaces or special characters.
+5) The REDCap choice codes are unique and do not contain spaces or special characters.
+6) All codes begin with the official codesystem prefix (e.g. HP, SNOMED, etc.) as a lower case string followed by an underscore and the code.
+7) All codes are defined in the Field Annotations of each data element.
+
+Download
+________
+
+The RareLink CDM Data Dictionary is available for download as a CSV file:
+
+:download:`Download RareLink CDM Data Dictionary v2.0.0 <../_static/res/rarelink_v2_0_0_datadictionary.csv>`
+
+.. tip::
+    Read :ref:`3_1` for more information on how to import the RareLink CDM Data Dictionary into your local REDCap project.
+
+Field Annotations
+_________________
+
+Witin the Field Annotation field of each REDCap element, we have defined each 
+element's metadata according to the :ref:`1_5` standard, including the following:
+
+- **Variable**: Corresponding to the data element code, codesystem, and display name.
+- **Choices**: If applicable, the corresponding choices codesystem, and display name.
+- **Version(s)**: If applicable, the corresponding codesystem versions used in the REDCap data element
+- **Mapping**: If applicable, the corresponding mapping to the :ref:`1_4` or :ref:`1_3` standard.
+
+Example Field Annotation of 6.2.6 Temporal Pattern:
+
+.. code-block:: text
+
+    Variable: 
+    HP:0011008 | Temporal Pattern  
+    Choices: 
+    - HP:0011009 | Acute  
+    - HP:0011010 | Chronic  
+    - HP:0031914 | Fluctuating  
+    - HP:0025297 | Prolonged  
+    - HP:0031796 | Recurrent  
+    - HP:0031915 | Stable  
+    - HP:0011011 | Subactue  
+    - HP:0025153 | Transient  
+    Version(s): 
+    - HPO Version 2024-08-13  
+    Mapping: 
+    - HL7 FHIR Expression v4.0.1: Observation.interpretation  
+    - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers
+
+
 RareLink CDM Instruments
-=========================
+------------------------
+
+The RareLink CDM instruments are based on the :ref:`1_5` and are designed to
+capture the data elements of the RD-CDM. Each instrument corresponds to a
+section of the model, ensuring consistency and comprehensive data capture.
+
+- `1. Formal Criteria <#formal-criteria>`_
+- `2. Personal Information <#personal-information>`_
+- `3. Patient Status <#patient-status>`_
+- `4. Care Pathway <#care-pathway>`_
+- `5. Disease <#disease>`_
+- `6.1 Genetic Findings <#genetic-findings>`_
+- `6.2 Phenotypic Features <#phenotypic-features>`_
+- `6.3 Measurements <#measurements>`_
+- `6.4 Family History <#family-history>`_
+- `7. Consent <#consent>`_
+- `8. Disability <#disability>`_
+
+.. _formal-criteria:
+
+(1) Formal Criteria
+____________________
+Content for Formal Criteria goes here.
+
+.. _go-back-top:
+
+Return to `Top <#top>`_.
+
+.. _personal-information:
+
+(2) Personal Information
+__________________________ 
+Content for Personal Information goes here.
+
+Return to `Top <#top>`_.
+
+.. _patient-status:
+
+(3) Patient Status
+___________________
+Content for Patient Status goes here.
+
+Return to `Top <#top>`_.
+
+.. _care-pathway:
+
+(4) Care Pathway
+_________________
+Content for Care Pathway goes here.
+
+hl7fhir_encounter_period_start -> hl7fhir_enc_period_start
+hl7fhir_encounter_period_end -> hl7fhir_enc_period_end
+
+Return to `Top <#top>`_.
+
+
+
+.. _disease:
+
+(5) Disease
+____________
+Content for Disease goes here.
+
+Return to `Top <#top>`_.
+
+.. _genetic-findings:
+
+(6.1) Genetic Findings
+________________________
+Content for Genetic Findings goes here.
+
+
+ga4gh_interpretation_status -> ga4gh_interp_status
+ga4gh_therapeutic_actionability -> ga4gh_therap_action
+
+
+Return to `Top <#top>`_.
+
+
+.. _phenotypic-features:
+
+(6.2) Phenotypic Features
+__________________________
+Content for Phenotypic Features goes here.
+
+snomed_439272007_704321009_363778006 -> snomed_8116006_date
+ga4gh_phenotypicfeature_excluded -> ga4gh_pheno_excluded
+ga4gh_phenotypicfeature_modifier_hp_1 -> ga4gh_pheno_mod_hp1
+ga4gh_phenotypicfeature_modifier_hp_2 -> ga4gh_pheno_mod_hp2
+ga4gh_phenotypicfeature_modifier_hp_3 -> ga4gh_pheno_mod_hp3
+ga4gh_phenotypicfeature_modifier_ncbitaxon_1 -> ga4gh_pheno_mod_ncbitax1
+ga4gh_phenotypicfeature_modifier_ncbitaxon_2 -> ga4gh_pheno_mod_ncbitax2
+ga4gh_phenotypicfeature_modifier_ncbitaxon_3 -> ga4gh_pheno_mod_ncbitax3
+ga4gh_phenotypicfeature_modifier_snomed_1 -> ga4gh_pheno_mod_snomed1
+ga4gh_phenotypicfeature_modifier_snomed_2 -> ga4gh_pheno_mod_snomed2
+ga4gh_phenotypicfeature_modifier_snomed_3 -> ga4gh_pheno_mod_snomed3
+
+
+(6.3) Measurements
+____________________
+
+
+Return to `Top <#top>`_.
+
+.. _family-history:
+
+(6.4) Family History
+______________________
+Content for Family History goes here.
+
+hl7fhir_familymemberhistory_status -> hl7fhir_fmh_status
+
+Return to `Top <#top>`_.
+
+
+.. _consent:
+
+(7) Consent
+____________
+Content for Consent goes here.
+customcode_consent_contact_research -> customcode_consent_contact
+customcode_conset_data_reuse -> customcode_consent_data
+
+Return to `Top <#top>`_.
+
+
+.. _disability:
+
+(8) Disability
+______________
+Content for Disability goes here.
+
+Return to `Top <#top>`_.
+
+
+
+

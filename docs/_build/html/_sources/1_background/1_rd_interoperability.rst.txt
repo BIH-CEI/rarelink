@@ -45,6 +45,7 @@ treatments.
      `Why Digital Medicine depends on Interoperability (Lehne M et al., 2019) <https://www.nature.com/articles/s41746-019-0158-1>`_
 
 
+
 Definitons
 ----------
 
@@ -67,6 +68,17 @@ Definitons
     Ensures a shared and precise interpretation of medical data. Uniform data 
     structuring and codification enhance machine-to-machine communication, 
     improving accuracy and outcomes.
+
+- Ontologies: 
+    Formal and explicit representations of the concepts and relationships within
+    an area of healthcare designed to facilitate the organisation, integration, 
+    and exchange of knowledge across healthcare systems and applications.
+
+- Terminologies:
+    Encompass the vocabulary used in all healthcare communication and 
+    documentation aspects, including terms for conditions, procedures, and 
+    equipment, facilitating precise communication and supporting electronic 
+    health information exchange.
 
 
 Further Reading

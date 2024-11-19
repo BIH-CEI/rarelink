@@ -1,32 +1,30 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2.1. RareLink Core &mdash; rarelink 0.0.1 documentation</title>
+  <title>RareLink Overview &mdash; rarelink 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. RareLink CDM Instruments" href="2_2_rarelink_cdm_instruments.html" />
-    <link rel="prev" title="2. RareLink Framework" href="2_0_rarelink_file.html" /> 
+    <link rel="next" title="RareLink CDM Instruments" href="2_2_rarelink_cdm_instruments.html" />
+    <link rel="prev" title="RareLink Framework" href="2_0_rarelink_file.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,18 +48,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">1. Background</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="2_0_rarelink_file.html">2. RareLink Framework</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. RareLink Core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rarelink-and-the-rd-cdm">2.1.1. RareLink and the RD CDM</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rarelink-and-hl7-fhir">2.1.1.1. RareLink and HL7 FHIR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rarelink-and-the-ga4gh-phenopacket-schema">2.1.1.2. RareLink and the GA4GH Phenopacket Schema</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">2.2. RareLink CDM Instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_3_rarelink_core_redcap_project.html">2.3. RareLink Core REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">Background</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="2_0_rarelink_file.html">RareLink Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RareLink Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_3_rarelink_core_redcap_project.html">RareLink Core REDCap Project</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">3. Installation Guide</a></li>
@@ -71,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../7_faq.html">7. FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">8. Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">9. Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
 </ul>
 
         </div>
@@ -87,8 +79,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="2_0_rarelink_file.html"><span class="section-number">2. </span>RareLink Framework</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>RareLink Core</li>
+          <li class="breadcrumb-item"><a href="2_0_rarelink_file.html">RareLink Framework</a></li>
+      <li class="breadcrumb-item active">RareLink Overview</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/2_rarelink_framework/2_1_rarelink_core.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,87 +90,85 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rarelink-core">
-<h1><span class="section-number">2.1. </span>RareLink Core<a class="headerlink" href="#rarelink-core" title="Link to this heading"></a></h1>
-<p>RareLink maximizes the utility of REDCap by providing a comprehensive framework
-designed specifically for rare disease (RD) research and care. At the core of
-RareLink is the Rare Disease Common Data Model (RD CDM), which integrates
-pre-configured REDCap sheets, instruments, and project setups. This framework
-ensures that data capture is both consistent and compliant with international
-standards, such as HL7 FHIR and GA4GH Phenopackets, without the need for
-additional coding or mapping. As a result, RareLink allows researchers and
-clinicians to collect and process rare disease data seamlessly within the REDCap
-environment.</p>
-<p>By embedding standardized data collection instruments and native data processing
-pipelines, RareLink addresses one of the primary limitations of REDCap—its lack
-of native variable definitions. With RareLink, data can be captured, processed,
-and exported in interoperable formats suitable for rare disease registries and
-healthcare information systems. The integration of FHIR resources and
-Phenopackets enables rare disease data to be shared across institutions,
-facilitating collaboration and improving the potential for meaningful research
-and clinical advancements in RD care.</p>
-<p>RareLink enhances the functionality of REDCap by transforming it into a powerful
-tool for rare disease data management. By leveraging the REDCap API and built-in
-tools, RareLink ensures that the data captured in REDCap can be seamlessly
-integrated into broader research ecosystems, maximizing its utility and
-interoperability for rare disease research and patient care.</p>
-<section id="rarelink-and-the-rd-cdm">
-<h2><span class="section-number">2.1.1. </span>RareLink and the RD CDM<a class="headerlink" href="#rarelink-and-the-rd-cdm" title="Link to this heading"></a></h2>
-<p>RareLink integrates this RD CDM v2.0 at its core, utilizing its REDCap sheets,
-instruments, and project setup to streamline data management processes. The
-native data processing pipelines within RareLink ensure that clinicians and
-researchers can generate Phenopackets and FHIR resources without needing
-additional coding or mapping. This seamless integration allows for immediate
-use of the system, saving time and effort while ensuring that data can be
-captured in a standard-compliant format from the start.</p>
-<p>By leveraging the RD CDM v2.0, RareLink provides a comprehensive platform for
-managing rare disease data. Its integration with FHIR and the GA4GH
-Phenopacket Schema allows for the processing and export of rare disease data
-into formats suitable for registry use and broader healthcare information
-systems. This makes RareLink a critical tool for ensuring that rare disease data
-is interoperable, reusable, and can be effectively utilized for research and
-clinical care. For disease-specific extensions around the RD CDM v2.0, RareLink
-provides a rule-based approach to customize REDCap instruments and
-ensure that the model can be adapted to meet the unique needs of different rare
-diseases.</p>
-<section id="rarelink-and-hl7-fhir">
-<h3><span class="section-number">2.1.1.1. </span>RareLink and HL7 FHIR<a class="headerlink" href="#rarelink-and-hl7-fhir" title="Link to this heading"></a></h3>
-<p>RareLink incorporates FHIR to enhance its data processing capabilities, enabling
-the conversion of clinical and research data into FHIR-compatible formats. This
-allows data to be exported for use in registries, uploaded to FHIR servers, or
-adopted by other healthcare systems. By supporting FHIR, RareLink ensures
-that rare disease data can enrich routine healthcare datasets, helping to bridge
-the gap between clinical care and research. Additionally, the ability to process
-and export data into FHIR enables RD researchers to leverage existing FHIR
-tools, thereby expanding the utility of their data across different applications.</p>
-<p>Although FHIR may not cover all the nuanced aspects required for in-depth RD
-analysis, it is indispensable for achieving interoperability within healthcare
-systems. Its integration in RareLink ensures that data collected from rare
-disease patients can be reused effectively across various platforms, thereby
-supporting both clinical care and bioinformatic research into rare conditions.</p>
-</section>
-<section id="rarelink-and-the-ga4gh-phenopacket-schema">
-<h3><span class="section-number">2.1.1.2. </span>RareLink and the GA4GH Phenopacket Schema<a class="headerlink" href="#rarelink-and-the-ga4gh-phenopacket-schema" title="Link to this heading"></a></h3>
-<p>RareLink integrates the Phenopacket schema to streamline RD data management by
-ensuring that clinical and genomic data from patients are encoded in a
-standardized format. By adopting this schema, RareLink allows for more precise
-and seamless sharing of patient data across different healthcare institutions
-and research projects. This integration helps overcome the challenge of
-fragmented RD data, as Phenopackets offer a universal language for describing
-the clinical characteristics of RD patients. In doing so, RareLink significantly
-enhances the bioinformatic output, making it easier to connect RD patient
-registries with broader genomic research databases, improving the potential for
-discovering new therapies.</p>
-</section>
-</section>
+  <section id="rarelink-overview">
+<h1>RareLink Overview<a class="headerlink" href="#rarelink-overview" title="Link to this heading"></a></h1>
+<p>RareLink aims to maximise the utility of REDCap by providing a comprehensive
+framework designed specifically for rare disease (RD) research and care.
+At the core of RareLink is this documentation, the RareLink instruments that are
+based on the Rare Disease Common Data Model (RD-CDM), its user guides and the
+surrounding preconfigured pipelines and software architecture. This framework
+ensures that data capture is both consistent and compliant with HL7 FHIR and
+GA4GH Phenopackets, without the need for additional coding or mapping.
+As a result, RareLink allows researchers and clinicians to collect and process
+rare disease data seamlessly within the REDCap environment.</p>
+<img alt="RareLink Overview" class="align-center" src="../_images/rarelink_overview.jpeg" />
+<ul>
+<li><dl class="simple">
+<dt>Retrospective (tabular) Databases:</dt><dd><p>in many Rare Disease specialised centres, registries or hospitals, data is
+stored in tabular databases (e.g. Excel). RareLink’s Import Mapper that is
+(based on the API of the Phenopacket Mapper) can be used to convert and
+import data from these databases into the REDCap RareLink format and your
+local REDCap project.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Prospective Rare Disease Data Collection:</dt><dd><p>RareLink provides a preconfigured data collection sheets based on the RD-CDM
+and user guides for manual data capture to ensure precision and correctness
+of data captures. Further, RareLink defines guidelines for developing more
+specialised REDCap sheets around the RD-CDM so that the data captured can
+also be processed by our framework to generate FHIR resources and Phenopackets.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Local REDCap Project and API:</dt><dd><ul class="simple">
+<li><p>HERE you can find more information on how to create a local REDCap instance</p></li>
+</ul>
+<p>in your institution, a new project, or activate your local API.</p>
+<ul class="simple">
+<li><p>HERE you can find more information on how to set up the RareLink API in</p></li>
+</ul>
+<p>your local REDCap project.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RareLink &amp; toFHIR:</dt><dd><p>RareLink utilises toFHIR from SRDC to convert the data captured
+in REDCap into FHIR resources. The RD-CDM and the corresponding RareLink
+instruments are preconfigured within our GitHub repository to generate
+International Patient Summary (IPS) FHIR resources and FHIR v4.0.1 resources
+automatically. HERE you can find more information on how to set up the
+RareLink API and toFHIR module in your local REDCap project to generate
+FHIR resources.</p>
+<ul class="simple">
+<li><p>Repository: <a class="reference external" href="https://github.com/srdc/tofhirs">https://github.com/srdc/tofhirs</a></p></li>
+<li><p>Website: <a class="reference external" href="https://onfhir.io/tofhir/">https://onfhir.io/tofhir/</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RareLink &amp; Phenopackets:</dt><dd><p>RareLink utilises the Phenopacket Mapper to convert the data captured in
+REDCap into Phenopackets. The RD-CDM and the corresponding RareLink
+instruments are preconfigured within our GitHub repository to generate
+Phenopackets automatically.</p>
+<ul class="simple">
+<li><p>Repository: <a class="reference external" href="https://github.com/BIH-CEI/phenopacket_mapper">https://github.com/BIH-CEI/phenopacket_mapper</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://bih-cei.github.io/phenopacket_mapper/latest/">https://bih-cei.github.io/phenopacket_mapper/latest/</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="2_0_rarelink_file.html" class="btn btn-neutral float-left" title="2. RareLink Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2_2_rarelink_cdm_instruments.html" class="btn btn-neutral float-right" title="2.2. RareLink CDM Instruments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2_0_rarelink_file.html" class="btn btn-neutral float-left" title="RareLink Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_2_rarelink_cdm_instruments.html" class="btn btn-neutral float-right" title="RareLink CDM Instruments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

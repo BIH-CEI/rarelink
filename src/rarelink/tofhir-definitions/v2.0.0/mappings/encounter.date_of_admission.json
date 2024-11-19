@@ -1,0 +1,42 @@
+{
+  "id": "encounter.date_of_admission",
+  "url": "rarelink/encounter.date_of_admission",
+  "name": "encounter.date_of_admission",
+  "title": "Encounter RareLink CDM Date of Admission",
+  "source": [
+    {
+      "alias": "RarelinkFormalCriteria",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "encounter.date_of_admission",
+        "language": "application/fhir-template+json",
+        "value": {
+          "status": "{{'in-progress'}}",
+          "class": {
+            "system": "{{'https://www.snomed.org/snomed-ct'}}",
+            "version": "{{'2024-09-01'}}",
+            "code": "{{'399423000'}}",
+            "display": "{{'Date of Admission'}}"
+          },
+          "period": {
+            "start": "{{snomed_399423000}}"
+          },
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+            ]
+          },
+          "resourceType": "Encounter"
+        }
+      },
+      "description": "Encounter for RareLink CDM  - 1.2 Date of Admission"
+    }
+  ],
+  "context": {}
+}
