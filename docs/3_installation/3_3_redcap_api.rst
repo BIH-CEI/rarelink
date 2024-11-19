@@ -3,6 +3,11 @@
 REDCap API
 ================
 
+.. attention::
+   To use your local REDCap project, you will need to set up a local REDCap 
+   instance. For this please contact your local REDCap administratior. A project
+   name could for example be "RareLink - Your local REDCap location". 
+
 The REDCap API for RareLink is a RESTful web service that allows users to 
 interact with REDCap programmatically. The API is designed to provide a simple 
 and secure way to access REDCap data and metadata. The API is built on top of 
@@ -43,7 +48,7 @@ In your terminal write...
         rarelink -help <command>
 
     to get more help on all commands.
-    
+
 
 API Endpoints
 -------------
