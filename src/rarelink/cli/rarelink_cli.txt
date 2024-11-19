@@ -2,6 +2,22 @@ $ rarelink -overview
 
 RareLink CLI - Overview of Functionalities
 
+
+0. **RareLink Setup**  
+   Use the preconfigured RareLink setup to interact with your REDCap project, 
+   including API setup, RareLink project installation, and uploading the 
+   RareLink CDM sheets.  
+   **Disclaimer**: You **must** contact your local REDCap administrator to have 
+   a project set up, grant you API access, and generate your API token.  
+
+   ➔ **Command**:  
+      - `rarelink setup -api`  
+      - `rarelink setup -project`  
+      - `rarelink setup -sheets`  
+
+   ➔ **Guides**:  
+      - See documentation for more details.  
+
 1. **Semi-Automatic Import**
    Import data stored in tabular databases (e.g., Excel) into REDCap using 
    RareLink’s Import Mapper, powered by the Phenopacket Mapper API. Convert and 
