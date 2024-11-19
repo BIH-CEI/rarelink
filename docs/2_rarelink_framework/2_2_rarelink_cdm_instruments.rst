@@ -62,22 +62,24 @@ element's metadata according to the :ref:`1_5` standard, including the following
 
 Example Field Annotation of 6.2.6 Temporal Pattern:
 
->>> Variable: 
->>> HP:0011008 | Temporal Pattern  
->>> Choices: 
->>> - HP:0011009 | Acute  
->>> - HP:0011010 | Chronic  
->>> - HP:0031914 | Fluctuating  
->>> - HP:0025297 | Prolonged  
->>> - HP:0031796 | Recurrent  
->>> - HP:0031915 | Stable  
->>> - HP:0011011 | Subactue  
->>> - HP:0025153 | Transient  
->>> Version(s): 
->>> - HPO Version 2024-08-13  
->>> Mapping: 
->>> - HL7 FHIR Expression v4.0.1: Observation.interpretation  
->>> - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers
+.. code-block:: text
+
+    Variable: 
+    HP:0011008 | Temporal Pattern  
+    Choices: 
+    - HP:0011009 | Acute  
+    - HP:0011010 | Chronic  
+    - HP:0031914 | Fluctuating  
+    - HP:0025297 | Prolonged  
+    - HP:0031796 | Recurrent  
+    - HP:0031915 | Stable  
+    - HP:0011011 | Subactue  
+    - HP:0025153 | Transient  
+    Version(s): 
+    - HPO Version 2024-08-13  
+    Mapping: 
+    - HL7 FHIR Expression v4.0.1: Observation.interpretation  
+    - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers
 
 
 RareLink CDM Instruments
