@@ -29,6 +29,22 @@ In your terminal write...
 
    rarelink setup -api
 
+
+.. code-block:: bash
+
+    rarelink setup -api enable
+    rarelink setup -api test
+
+
+.. tip:: 
+    run 
+    .. code-block:: bash
+        
+        rarelink -help <command>
+
+    to get more help on all commands.
+    
+
 API Endpoints
 -------------
 
