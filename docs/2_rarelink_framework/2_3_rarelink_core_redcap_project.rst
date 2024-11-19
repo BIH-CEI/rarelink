@@ -3,6 +3,11 @@
 Core REDCap Project
 ====================
 
+.. attention::
+   To use your local REDCap project, you will need to set up a local REDCap 
+   instance. For this please contact your local REDCap administratior. A project
+   name could for example be "RareLink - Your local REDCap location". 
+
 The core REDCap project is an entire REDCap project that can be used to set up
 a new project in REDCap. The core REDCap project is a template project that
 contains all the necessary instruments and fields to collect the RareLink CDM 
