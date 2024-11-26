@@ -837,7 +837,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
-family_history_descr,rarelink_6_3_family_history,RareLink - 6.3) Family History,descriptive,"<div class=""rich-text-field-label"">
+family_history_descr,rarelink_6_4_family_history,RareLink - 6.3) Family History,descriptive,"<div class=""rich-text-field-label"">
   <p><span style=""font-weight: bold;"">Notes for entering information into the Family History sheet  - for more detail please read our <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_0_guide_file.html"">comprehensive User Guide</a></span></p>
   <ul>
     <li><span style=""font-weight: normal;"">It is a repeated form; capture information for as many family members as needed, with one family member per sheet.</span></li>
@@ -846,8 +846,8 @@ family_history_descr,rarelink_6_3_family_history,RareLink - 6.3) Family History,
     <li><span style=""font-weight: normal;"">If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
-family_history_pseudonym,rarelink_6_3_family_history,,text,6.3.0 Pseudonym,,"If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.",,,,,,,,,,,
-snomed_64245008,rarelink_6_3_family_history,,dropdown,6.3.1 Propositus/-a,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown | snomed_1220561009, Not recorded","Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members.",,,,,,,,,,,"SNOMED:64245008 | Propositus/-a  
+family_history_pseudonym,rarelink_6_4_family_history,,text,6.4.0 Pseudonym,,"If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.",,,,,,,,,,,
+snomed_64245008,rarelink_6_4_family_history,,dropdown,6.4.1 Propositus/-a,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown | snomed_1220561009, Not recorded","Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members.",,,,,,,,,,,"SNOMED:64245008 | Propositus/-a  
 Choices: 
 - SNOMED:373066001 | Yes  
 - SNOMED:373067005 | No  
@@ -858,7 +858,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: n/a
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member) "
-snomed_408732007,rarelink_6_3_family_history,,dropdown,6.3.2 Relationship of the individual to the index case / propositus/a,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded","Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
+snomed_408732007,rarelink_6_4_family_history,,dropdown,6.4.2 Relationship of the individual to the index case / propositus/a,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded","Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
 Disclaimer:",,,,,,,,,,,"SNOMED:408732007 | Relationship of the individual to the index case / propositus/a  
 Choices: 
 - SNOMED:65656005 | Natural mother  
@@ -878,7 +878,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: n/a  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member)  "
-snomed_842009,rarelink_6_3_family_history,,dropdown,6.3.3 Consanguinity,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown | snomed_1220561009, Not recorded","The presence of a biological relationship between parents who are related by blood, typically as first or second cousins.",,,,,,,,,,,"Variable: 
+snomed_842009,rarelink_6_4_family_history,,dropdown,6.4.3 Consanguinity,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown | snomed_1220561009, Not recorded","The presence of a biological relationship between parents who are related by blood, typically as first or second cousins.",,,,,,,,,,,"Variable: 
 SNOMED:842009 | Consanguinity  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -890,7 +890,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Family.consanguinous_parents  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.consanguinous_parents)  "
-snomed_444018008,rarelink_6_3_family_history,,dropdown,6.3.4 Family Member Relationship,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded",Specifies the relationship of the selected family member to the patient.,,,,,,,,,,,"Variable: 
+snomed_444018008,rarelink_6_4_family_history,,dropdown,6.4.4 Family Member Relationship,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded",Specifies the relationship of the selected family member to the patient.,,,,,,,,,,,"Variable: 
 SNOMED:444018008 | Family Member Relationship  
 Choices: 
 - SNOMED:65656005 | Natural mother  
@@ -910,7 +910,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.relationship.coding (VS: FamilyMember)  
 - GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.individual_id  "
-hl7fhir_fmh_status,rarelink_6_3_family_history,,dropdown,6.3.5 Family Member Record Status,"hl7fhir_partial, Partial | hl7fhir_completed, Completed | hl7fhir_entered-in-error, Entered in Error | hl7fhir_health-unknown, Health Unknown",Specifies the record’s status of the family history of a specific family member.,,,,,,,,,,,"Variable: 
+hl7fhir_fmh_status,rarelink_6_4_family_history,,dropdown,6.4.5 Family Member Record Status,"hl7fhir_partial, Partial | hl7fhir_completed, Completed | hl7fhir_entered-in-error, Entered in Error | hl7fhir_health-unknown, Health Unknown",Specifies the record’s status of the family history of a specific family member.,,,,,,,,,,,"Variable: 
 HL7 FHIR:familymemberhistory.status | Family Member Record Status  
 Choices: 
 - HL7 FHIR:partial | Partial  
@@ -922,7 +922,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.status (VS: FamilyHistoryStatus)  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-loinc_54123_5,rarelink_6_3_family_history,,dropdown,6.3.6 Family Member Sex,"snomed_248152002, Female | snomed_248153007, Male | snomed_184115007, Patient sex unknown | snomed_32570691000036108, Intersex | snomed_1220561009, Not recorded","Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected.",,,,,,,,,,,"Variable: 
+loinc_54123_5,rarelink_6_4_family_history,,dropdown,6.4.6 Family Member Sex,"snomed_248152002, Female | snomed_248153007, Male | snomed_184115007, Patient sex unknown | snomed_32570691000036108, Intersex | snomed_1220561009, Not recorded","Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected.",,,,,,,,,,,"Variable: 
 LOINC:54123-5 | Family Member Sex  
 Choices: 
 - SNOMED:248152002 | Female  
@@ -936,7 +936,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.sex (VS: AdministrativeGender)  
 - GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.sex  "
-loinc_54141_7,rarelink_6_3_family_history,,text,6.3.7 Family Member Age,,Records the current age in full years of the selected family member.,integer,0,200,,,,,,,,"Variable: 
+loinc_54141_7,rarelink_6_4_family_history,,text,6.4.7 Family Member Age,,Records the current age in full years of the selected family member.,integer,0,200,,,,,,,,"Variable: 
 LOINC:54141-7 | Family Member Age  
 Choices: 
 n/a  
@@ -945,7 +945,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.ageAge  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-loinc_54124_3,rarelink_6_3_family_history,,text,6.3.8 Family Member Date of Birth,,Records the date of birth of the selected family member.,date_ymd,,,,,,,,,,"Variable: 
+loinc_54124_3,rarelink_6_4_family_history,,text,6.4.8 Family Member Date of Birth,,Records the date of birth of the selected family member.,date_ymd,,,,,,,,,,"Variable: 
 LOINC:54124-3 | Family Member Date of Birth  
 Choices: 
 n/a  
@@ -954,7 +954,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.bornDate  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-snomed_740604001,rarelink_6_3_family_history,,dropdown,6.3.9 Family Member Deceased,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown",Indicates whether the selected family member is deceased.,,,,,,,,,,,"Variable: 
+snomed_740604001,rarelink_6_4_family_history,,dropdown,6.4.9 Family Member Deceased,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown",Indicates whether the selected family member is deceased.,,,,,,,,,,,"Variable: 
 SNOMED:740604001 | Family Member Deceased  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -965,7 +965,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceased.deceasedBoolean  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-loinc_54112_8,rarelink_6_3_family_history,,text,6.3.10 Family Member Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,Records the cause of death of the selected deceased family member.,,,,,[snomed_740604001] = 'snomed_373066001',,,,,,"Variable: 
+loinc_54112_8,rarelink_6_4_family_history,,text,6.4.10 Family Member Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,Records the cause of death of the selected deceased family member.,,,,,[snomed_740604001] = 'snomed_373066001',,,,,,"Variable: 
 LOINC:54112-8 | Family Member Cause of Death  
 Choices: 
 n/a  
@@ -974,7 +974,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-loinc_92662_6,rarelink_6_3_family_history,,text,6.3.11 Family Member Deceased Age,,Records the current age in full years of the selected family member. ,integer,0,200,,[snomed_740604001] = 'snomed_373066001',,,,,,"Variable: 
+loinc_92662_6,rarelink_6_4_family_history,,text,6.4.11 Family Member Deceased Age,,Records the current age in full years of the selected family member. ,integer,0,200,,[snomed_740604001] = 'snomed_373066001',,,,,,"Variable: 
 LOINC:92662-6 | Family Member Deceased Age  
 Choices: 
 n/a  
@@ -983,7 +983,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceasedAge  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
-loinc_75315_2,rarelink_6_3_family_history,,text,6.3.12 Family Member Disease [MONDO],BIOPORTAL:MONDO,Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.,,,,,,,,,,,"Variable: 
+loinc_75315_2,rarelink_6_4_family_history,,text,6.4.12 Family Member Disease [MONDO],BIOPORTAL:MONDO,Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.,,,,,,,,,,,"Variable: 
 LOINC:75315-2 | Family Member Disease  
 Choices: 
 n/a  
