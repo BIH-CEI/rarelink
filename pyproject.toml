@@ -84,11 +84,6 @@ package-dir = { "" = "src" }
 [tool.setuptools.dynamic]
 rarelink = ["data/*.json", "config/*.yaml"]
 version = { attr = "rarelink.__version__" }
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
 
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
