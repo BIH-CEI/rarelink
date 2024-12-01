@@ -82,7 +82,6 @@ packages = ["rarelink"]
 package-dir = { "" = "src" }
 
 [tool.setuptools.dynamic]
-rarelink = ["data/*.json", "config/*.yaml"]
 version = { attr = "rarelink.__version__" }
 
 # The following would provide a command line executable called `sample`
