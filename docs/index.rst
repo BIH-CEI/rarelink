@@ -73,9 +73,9 @@ Sections
 ------------
 
 - :doc:`3_installation/3_0_install_file`
-- :doc:`3_installation/3_1_setup_redcap_project`
-- :doc:`3_installation/3_2_rarelink_cdm_instruments`
-- :doc:`3_installation/3_3_extensional_instruments`
+- :doc:`3_installation/3_1_setup_rarelink_framework`
+- :doc:`3_installation/3_2_setup_redcap_project`
+- :doc:`3_installation/3_3_setup_rarelink_instruments`
 - :doc:`3_installation/3_4_redcap_api`
 - :doc:`3_installation/3_5_import_mapper`
 - :doc:`3_installation/3_6_phenopacket_pipeline`
@@ -88,6 +88,8 @@ Sections
 - :doc:`4_user_guide/4_2_semiautomatic_data_capture`
 - :doc:`4_user_guide/4_3_phenopacket_mapper`
 - :doc:`4_user_guide/4_4_tofhir_module`
+- :doc:`4_user_guide/4_5_develop_redcap_instruments`
+- :doc:`4_user_guide/4_6_redcap_project_interaction`
 
 5) Full Examples
 -------------
@@ -133,9 +135,9 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
-   3_installation/3_1_setup_redcap_project
-   3_installation/3_2_rarelink_cdm_instruments
-   3_installation/3_3_extensional_instruments
+   3_installation/3_1_setup_rarelink_framework
+   3_installation/3_2_setup_redcap_project
+   3_installation/3_3_setup_rarelink_instruments
    3_installation/3_4_redcap_api
    3_installation/3_5_import_mapper
    3_installation/3_6_phenopacket_pipeline
@@ -150,6 +152,8 @@ Additional Information
    4_user_guide/4_2_semiautomatic_data_capture
    4_user_guide/4_3_phenopacket_mapper
    4_user_guide/4_4_tofhir_module
+   4_user_guide/4_5_develop_redcap_instruments
+   4_user_guide/4_6_redcap_project_interaction
 
 .. toctree::
    :caption: Full Examples

@@ -1,4 +1,4 @@
-.. _3_1:
+.. _3_3:
 
 RareLink CDM Instruments
 ============================
@@ -24,7 +24,7 @@ Via the RareLink CLI type:
 
 .. code-block:: bash
 
-  rarelink setup -sheets
+  ...to be implemented
 _____________________________________________________________________________________
 
 2. **Import the instruments into your REDCap project.**
@@ -74,4 +74,24 @@ Check out the :ref:`4_1` section to learn more about manual data capture.
 
     - Guide to develop the :ref:`3_2`
     - User guide for :ref:`4_1`
+
+
+
+.. attention::
+   To use your local REDCap project, you will need to set up a local REDCap 
+   instance. For this please contact your local REDCap administratior. A project
+   name could for example be "RareLink - Your local REDCap location". 
+
+This section provides a guide for developing REDCap instruments around the
+RareLink CDM that can also be processed by the Phenopacket and FHIR pipeline.
+If the rules are followd upon development of the REDCap sheets, another 
+subsequent mapping step will be required to convert the data into the
+Phenopackets or FHIR format. For this second step guides are given below, too. 
+
+.. note::
+    This section is still to be implemented in the docuemntation.
+
+Example CIEINR. 
+
+Rule Sets. 
 
