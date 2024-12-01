@@ -22,7 +22,7 @@ def start():
             "👉 Please follow the instructions in our documentation to create a REDCap project first.",
             fg=typer.colors.YELLOW,
         )
-        typer.echo("📖 Documentation: https://your-documentation-link/redcap-project-setup")
+        typer.echo("📖 Documentation: https://rarelink.readthedocs.io/en/latest/3_installation/3_0_install_file.html")
         raise typer.Exit()
 
     typer.secho("Great! Let's set up the REDCap API access.", fg=typer.colors.GREEN)
@@ -30,15 +30,17 @@ def start():
     # Gather inputs
     api_url = typer.prompt("Enter the URL of your local REDCap instance")
     api_token = typer.prompt("Enter your API token (will not be shown)", hide_input=True)
-    api_super_token = typer.prompt(
-        "Enter your super API token (if applicable, or press Enter to skip)", hide_input=True, default=""
-    )
+    # api_super_token = typer.prompt(
+    #     "Enter your super API token (if applicable, or press Enter to skip. \
+    #         The API super token is usually only owned by the REDCap administrator)",
+    #           hide_input=True, default=""
+    # )
 
     # Save the configuration
     config = {
         "api_url": api_url,
-        "api_token": api_token,
-        "api_super_token": api_super_token,
+        "api_token": api_token
+        # "api_super_token": api_super_token,
     }
     CONFIG_FILE.write_text(typer.style(str(config), fg=typer.colors.BRIGHT_WHITE))
     typer.secho(f"✅ REDCap API configuration saved locally at {CONFIG_FILE}", fg=typer.colors.GREEN)
