@@ -84,8 +84,6 @@ package-dir = { "" = "src" }
 [tool.setuptools.dynamic]
 rarelink = ["data/*.json", "config/*.yaml"]
 version = { attr = "rarelink.__version__" }
-
-[tool.setuptools.dynamic]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
