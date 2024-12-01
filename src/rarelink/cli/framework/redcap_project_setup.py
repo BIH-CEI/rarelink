@@ -29,10 +29,10 @@ def start():
     typer.echo("3. Once the project is created, ask your local REDCap administrator\
                 to add your institutional accound and provide you API access for\
                     the project.")
-    typer.echo("4. Follow the instructions given to you by your REDCap \
+    typer.echo("4. Follow the instructions given to you by your REDCap\
         administator to further set up your project.")
-    typer.secho("👉 Important: Be aware that there are development and \
-        production mode. Read the docs and discuss with your REDCap admin for \
+    typer.secho("👉 Important: Be aware that there are development and\
+        production mode. Read the docs and discuss with your REDCap admin for\
             more info!", fg=typer.colors.RED, bold=True)
     typer.echo("5. Copy the API token for the project and keep it secure.")
 
