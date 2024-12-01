@@ -61,7 +61,9 @@ dependencies = [
     "config",
     "sphinx-autobuild",
     "sphinx-copybutton",
-    "sphinx-rtd-theme"
+    "sphinx-rtd-theme",
+    "click", 
+    "typer"
 ]
 dynamic = ["version"]
 
