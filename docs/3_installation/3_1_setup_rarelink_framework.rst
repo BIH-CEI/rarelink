@@ -11,7 +11,7 @@ Clone the repository and install the dependencies:
 
 .. code-block:: bash
 
-    pip install .
+    pip install -e .
 
 Via the RareLink CLI, type:
 
