@@ -13,22 +13,27 @@ def start():
     """
     typer.echo("🚀 Welcome to the RareLink REDCap API Setup!")
 
+    typer.secho("=" * 44, fg=typer.colors.BLACK) 
+    
     # Check if a REDCap project is already created
     project_created = typer.confirm(
-        "Have you already created a REDCap project with your local administrator?"
+        "Have you already created a REDCap project with your local administrator with API access for you?"
     )
+    
+    typer.secho("-" * 120, fg=typer.colors.BRIGHT_BLACK) 
+    
     if not project_created:
         typer.secho(
-            "👉 Please follow the instructions in our documentation to create a REDCap project first.",
+            "👉 Please run 'redcap-project-setup start' or follow the instructions in our documentation to create a REDCap project first",
             fg=typer.colors.YELLOW,
         )
-        typer.echo("📖 Documentation: https://rarelink.readthedocs.io/en/latest/3_installation/3_0_install_file.html")
+        typer.echo("📖 Documentation: https://rarelink.readthedocs.io/en/latest/3_installation/3_1_setup_redcap_project.html")
         raise typer.Exit()
 
     typer.secho("Great! Let's set up the REDCap API access.", fg=typer.colors.GREEN)
 
     # Gather inputs
-    api_url = typer.prompt("Enter the URL of your local REDCap instance")
+    api_url = typer.prompt("Enter the URL of your local REDCap instance (you can find this in the REDCap project URL)")
     api_token = typer.prompt("Enter your API token (will not be shown)", hide_input=True)
     # api_super_token = typer.prompt(
     #     "Enter your super API token (if applicable, or press Enter to skip. \
@@ -53,11 +58,10 @@ def view():
     """
     if not CONFIG_FILE.exists():
         typer.secho("❌ No REDCap configuration found. Please run `redcap-api-setup start` first.", fg=typer.colors.RED)
-        raise typer.Exit()
+        raise typer.Exit(code=1)  # Exit with a non-zero code
 
     config = CONFIG_FILE.read_text()
-    typer.secho(f"📄 Current REDCap Configuration:\n{config}", fg=typer.colors.BRIGHT_WHITE)
-
+    typer.secho(f"📄 Current REDCap Configuration:\n{config}", fg=typer.colors.GREEN)
 
 @app.command()
 def reset():

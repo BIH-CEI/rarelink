@@ -1,5 +1,5 @@
 import pytest
-from rarelink.preprocessing import parse_redcap_code
+from rarelink.utils.preprocessing import parse_redcap_code
 from phenopacket_mapper.data_standards import CodeSystem, Coding
 
 @pytest.fixture

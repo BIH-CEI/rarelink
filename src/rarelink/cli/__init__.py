@@ -8,4 +8,3 @@ app.add_typer(framework_setup, name="framework-setup")
 
 if __name__ == "__main__":
     app()
-    

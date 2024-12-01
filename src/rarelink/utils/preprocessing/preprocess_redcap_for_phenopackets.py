@@ -3,8 +3,8 @@ import pandas as pd
 
 from phenopacket_mapper.data_standards import DataSet
 from phenopacket_mapper.data_standards.code_system import CodeSystem
-from rarelink.preprocessing import preprocess_redcap_codes
-from rarelink.rarelink_cdm import pref_hgvs_code, pref_code_disease, pref_disease_onset
+from rarelink.utils.preprocessing import preprocess_redcap_codes
+from rarelink.utils.rarelink_cdm import pref_hgvs_code, pref_code_disease, pref_disease_onset
 
 def preprocess_redcap_for_phenopackets(
         data_set: DataSet,
