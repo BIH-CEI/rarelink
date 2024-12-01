@@ -1,7 +1,7 @@
 .. _3_4:
 
-RareLink REDCap Project
-============================
+Setup a REDCap Project
+========================
 
 .. attention::
    To use your local REDCap project, you will need to set up a local REDCap 

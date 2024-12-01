@@ -73,10 +73,10 @@ Sections
 ------------
 
 - :doc:`3_installation/3_0_install_file`
-- :doc:`3_installation/3_1_rarelink_cdm_instruments`
-- :doc:`3_installation/3_2_extensional_instruments`
-- :doc:`3_installation/3_3_redcap_api`
-- :doc:`3_installation/3_4_rarelink_core_project`
+- :doc:`3_installation/3_1_setup_redcap_project`
+- :doc:`3_installation/3_2_rarelink_cdm_instruments`
+- :doc:`3_installation/3_3_extensional_instruments`
+- :doc:`3_installation/3_4_redcap_api`
 - :doc:`3_installation/3_5_import_mapper`
 - :doc:`3_installation/3_6_phenopacket_pipeline`
 - :doc:`3_installation/3_7_fhir_pipeline`
@@ -133,10 +133,10 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
-   3_installation/3_1_rarelink_cdm_instruments
-   3_installation/3_2_extensional_instruments
-   3_installation/3_3_redcap_api
-   3_installation/3_4_rarelink_core_project
+   3_installation/3_1_setup_redcap_project
+   3_installation/3_2_rarelink_cdm_instruments
+   3_installation/3_3_extensional_instruments
+   3_installation/3_4_redcap_api
    3_installation/3_5_import_mapper
    3_installation/3_6_phenopacket_pipeline
    3_installation/3_7_fhir_pipeline
