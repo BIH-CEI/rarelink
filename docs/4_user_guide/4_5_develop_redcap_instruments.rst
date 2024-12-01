@@ -1,7 +1,10 @@
-.. _3_2:
+.. _4_5:
 
-Extensional REDCap Instruments
-===============================
+Develop REDCap Instruments  
+===========================
+
+.. note::
+    This section is still to be implemented in the docuemntation.
 
 .. attention::
    To use your local REDCap project, you will need to set up a local REDCap 
@@ -14,10 +17,6 @@ If the rules are followd upon development of the REDCap sheets, another
 subsequent mapping step will be required to convert the data into the
 Phenopackets or FHIR format. For this second step guides are given below, too. 
 
-.. note::
-    This section is still to be implemented in the docuemntation.
-
 Example CIEINR. 
 
 Rule Sets. 
-

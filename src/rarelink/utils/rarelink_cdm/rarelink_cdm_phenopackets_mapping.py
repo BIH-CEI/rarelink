@@ -4,7 +4,7 @@ import phenopackets
 from phenopacket_mapper.data_standards import DataSet, CodeSystem
 from phenopacket_mapper.mapping.mapper import PhenopacketMapper
 # from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
+from rarelink.utils.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
 
 
 def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:

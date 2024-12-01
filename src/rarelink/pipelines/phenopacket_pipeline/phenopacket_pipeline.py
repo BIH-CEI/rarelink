@@ -5,8 +5,8 @@ from phenopackets.schema.v2 import Phenopacket
 
 #from phenopacket_mapper import write
 #from rarelink.rarelink_cdm import RARELINK_CDM_V2_0_0
-from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.rarelink_cdm import rarelink_cdm_phenopackets_mapping
+from rarelink.utils.rarelink_cdm.rarelink_cdm import load_rarelink_data
+from rarelink.utils.rarelink_cdm import rarelink_cdm_phenopackets_mapping
 
 # TODO: implement functions from processing and preferencing for multiple values
 # TODO: create another class for the Mapping Definition 

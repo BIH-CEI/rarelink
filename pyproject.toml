@@ -61,7 +61,9 @@ dependencies = [
     "config",
     "sphinx-autobuild",
     "sphinx-copybutton",
-    "sphinx-rtd-theme"
+    "sphinx-rtd-theme",
+    "click", 
+    "typer"
 ]
 dynamic = ["version"]
 
@@ -72,10 +74,11 @@ docs = ["sphinx>=7.0.0", "sphinx-rtd-theme>=1.3.0", "sphinx-copybutton>=0.5.0"]
 [project.urls]
 homepage = "https://github.com/BIH-CEI/RareLink"
 repository = "https://github.com/BIH-CEI/RareLink.git"
-documentation = "https://BIH-CEI.github.io/RareLink/stable"
+documentation = "https://rarelink.readthedocs.io/en/latest/"
 bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [tool.setuptools]
+packages = ["rarelink"]
 package-dir = { "" = "src" }
 
 [tool.setuptools.dynamic]
