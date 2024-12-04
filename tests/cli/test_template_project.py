@@ -1,5 +1,5 @@
 from typer.testing import CliRunner
-from rarelink.cli.redcap_setup.rarelink_template_project import app
+from rarelink.cli.redcap_setup.template_project import app
 from unittest.mock import patch, mock_open
 
 runner = CliRunner()
