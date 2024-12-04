@@ -31,17 +31,17 @@ To install the core REDCap project, follow these steps:
 
 .. admonition:: Continue here...
     
-        - Guide to install the :ref:`3_1`
-        - Guide to develop the :ref:`3_2`
+
+        - How to set up the :ref:`3_1`
+        - How to set up the :ref:`3_2`
+        - How to set up the :ref:`3_3`
+        - How to set up the :ref:`3_4`
         - User guide for :ref:`4_1`
         - User guide for :ref:`4_2`
+        - User guide for :ref:`4_3`
         - User guide for :ref:`4_4`
-        - How to set up the :ref:`3_3`
-        - How to deploy the :ref:`3_4`
-        - How to set up the :ref:`3_5`
-        - How to set up the :ref:`3_3` and the :ref:`3_5`
-        - Guide to :ref:`4_4`
-        - toFHIR Repository:
+        - User guide for :ref:`4_5`
+        - User guide for :ref:`4_6`
 
 
 

@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Semi-Automatic Data Capture" href="4_2_semiautomatic_data_capture.html" />
-    <link rel="prev" title="RareLink Pipelines Installation" href="../3_installation/3_5_rarelink_pipelines.html" /> 
+    <link rel="next" title="Semi-Automatic Data Capture" href="4_2_import_mapper.html" />
+    <link rel="prev" title="Set up the REDCap API" href="../3_installation/3_4_redcap_api.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,24 +57,26 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Data Dictionary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_4_rarelink_cli.html">RareLink CLI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_extensional_instruments.html">Extensional REDCap Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_redcap_api.html">REDCap API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_rarelink_core_project.html">RareLink REDCap Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_5_rarelink_pipelines.html">RareLink Pipelines Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Manual Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_semiautomatic_data_capture.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_project_interaction.html">REDCap Project Interaction</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
 <ul>
@@ -119,14 +121,24 @@
              
   <section id="manual-data-capture">
 <span id="id1"></span><h1>Manual Data Capture<a class="headerlink" href="#manual-data-capture" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is still to be implemented in the docuemntation and the RareLink
+command line interface.</p>
+</div>
+<p>Via the RareLink CLI type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>-project
+rarelink<span class="w"> </span>setup<span class="w"> </span>-sheets
+</pre></div>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../3_installation/3_5_rarelink_pipelines.html" class="btn btn-neutral float-left" title="RareLink Pipelines Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="4_2_semiautomatic_data_capture.html" class="btn btn-neutral float-right" title="Semi-Automatic Data Capture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../3_installation/3_4_redcap_api.html" class="btn btn-neutral float-left" title="Set up the REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_2_import_mapper.html" class="btn btn-neutral float-right" title="Semi-Automatic Data Capture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
