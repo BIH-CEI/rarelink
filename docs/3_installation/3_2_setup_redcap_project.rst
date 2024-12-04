@@ -1,37 +1,10 @@
 .. _3_3:
 
-Setup a REDCap Project
+Set up a REDCap Project
 ========================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
-
-.. note::
-    This section is still to be implemented in the docuemntation and the RareLink
-    command line interface.
-
-Via the RareLink CLI type:
-
-.. code-block:: bash
-
-    rarelink framework-setup redcap-project-setup start
-
-
-This command guides you through the steps to set up your REDCap project, 
-including contacting your local REDCap administrator and ensuring API access for your project.
-
-_____________________________________________________________________________________
-
-.. tip:: 
-  Read the :ref:`1_6` section to learn more about the REDCap API access.
-
-.. attention::
-    The REDCap API token is a sensitive information. Keep it secure and do not share it with others.
-
-👉 For more information on REDCap, read :ref:`1_6`. 
-_____________________________________________________________________________________
+How to set up a REDCap project:
+-------------------------------
 
 To create a REDCap project, please follow these steps:
 
@@ -43,3 +16,52 @@ To create a REDCap project, please follow these steps:
 👉 Be aware of development and production mode. Read the docs and discuss this with your REDCap admin!
 5. Copy the API token for the project and keep it secure.
 6. Run 'rarelink redcap-api-setup start' to set up the REDCap API access.
+
+.. tip:: 
+  Read the :ref:`1_6` section to learn more about the REDCap API access.
+
+.. tip::
+    Read :ref:`2_4` to learn more about the RareLink Command Line Interface (CLI)
+
+RareLink CLI Command:
+_____________________
+
+.. code-block:: bash
+
+    rarelink redcap-setup redcap-project-setup start
+
+This command guides you through the same steps as above to set up your REDCap
+project, including contacting your local REDCap administrator and ensuring API
+access for your project.
+
+RareLink REDCap Project:
+________________________
+
+The core RareLink project is an entire REDCap project that can be used to set up
+a new project in REDCap. The core REDCap project is a template project that
+contains all the necessary instruments and fields to collect the RareLink CDM 
+data and preconfigurations for FHIR and Phenopckets export. 
+
+You can download the REDCap project XML file here: 
+
+- :download:`Download RareLink Core REDCap Project <../../assets/rarelink_core_redcap_project.xml>`
+
+.. note::
+    This section is still to be implemented in the docuemntation and the RareLink
+    command line interface.
+
+To install the core REDCap project, follow these steps:
+1. Download the core REDCap project XML file.
+2. Contact your local REDCap administrator to import the core REDCap project XML file.
+3. Activate the API for the REDCap project to enable the FHIR and Phenopacket export.
+4. Generate the API token for the REDCap project.
+5. Verify that the core REDCap project has been imported correctly.
+
+_____________________________________________________________________________________
+
+.. attention::
+    The REDCap API token is a sensitive information. Keep it secure and do not share it with others.
+
+👉 For more information on REDCap, read :ref:`1_6`. 
+_____________________________________________________________________________________
+

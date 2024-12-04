@@ -1,6 +1,6 @@
 Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
 record_id,rarelink_1_formal_criteria,RareLink - 1) Formal Criteria,text,Registry ID the of Individual,,,,,,,,,,,,,
-snomed_422549004,rarelink_1_formal_criteria,,text,1.1 Pseudonym,,The (local) patient-related Identification code,,,,,,,,,,,"Variable:
+snomed_422549004,rarelink_1_formal_criteria,,text,1.1 Pseudonym,,The (local) patient-related Identification code,,,,,,y,,,,,"Variable:
 SNOMED:422549004 | Pseudonym |
 Choices: n/a
 Version(s): 
@@ -8,7 +8,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.identifier.value
 - GA4GH Phenopacket Schema v2.0 Element: Individual.id"
-snomed_399423000,rarelink_1_formal_criteria,,text,1.2 Date of Admission,,The date of admission or data capture of the individual,date_ymd,,,,,,,,,,"Variable:
+snomed_399423000,rarelink_1_formal_criteria,,text,1.2 Date of Admission,,The date of admission or data capture of the individual,date_ymd,,,,,y,,,,,"Variable:
 SNOMED:399423000 | Date of admission (observable entity) |
 Choices: n/a
 Version(s): 
@@ -109,7 +109,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.deceased.deceasedBoolean or Observation.value
 - GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.status"
-snomed_398299004,rarelink_3_patient_status,,text,3.2 Time of Death,,"If deceased, the individual’s date of death. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,[snomed_278844005] <> 'snomed_419099009',,,,,,"Variable:
+snomed_398299004,rarelink_3_patient_status,,text,3.2 Time of Death,,"If deceased, the individual’s date of death. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,[snomed_278844005] = 'snomed_419099009',,,,,,"Variable:
 SNOMED:398299004 | Time of Death |
 Choices: n/a
 Version(s): 
@@ -117,7 +117,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.deceasedDateTime
 - GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.time_of_death"
-snomed_184305005,rarelink_3_patient_status,,text,3.3 Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,"If deceased, the individual’s primary cause of death (i.e. according to the death certificate).",,,,,[snomed_278844005] <> 'snomed_419099009',,,,,,"Variable:
+snomed_184305005,rarelink_3_patient_status,,text,3.3 Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,"If deceased, the individual’s primary cause of death (i.e. according to the death certificate).",,,,,[snomed_278844005] = 'snomed_419099009',,,,,,"Variable:
 SNOMED:184305005 | Cause of Death |
 Choices: n/a
 Version(s): 
@@ -185,7 +185,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Encounter.period.end
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-snomed_305058001,rarelink_4_care_pathway,,dropdown,4.3 Encounter Status,"hl7fhir_planned, Planned | hl7fhir_arrived, Arrived | hl7fhir_triaged, Triaged | hl7fhir_in-progress, In Progress | hl7fhir_onleave, On Leave | hl7fhir_finished, Finished | hl7fhir_cancelled, Cancelled | hl7fhir_entered-in-error, Entered in Error | hl7fhir_unknown, Unknown",The status of an encounter of the individual at the time of data capture.,,,,,,,,,,,"Variable:
+snomed_305058001,rarelink_4_care_pathway,,dropdown,4.3 Encounter Status,"hl7fhir_planned, Planned | hl7fhir_arrived, Arrived | hl7fhir_triaged, Triaged | hl7fhir_in-progress, In Progress | hl7fhir_onleave, On Leave | hl7fhir_finished, Finished | hl7fhir_cancelled, Cancelled | hl7fhir_entered-in-error, Entered in Error | hl7fhir_unknown, Unknown",The status of an encounter of the individual at the time of data capture.,,,,,,y,,,,,"Variable:
 SNOMED:305058001 | Encounter Status |
 Choices: 
 - SNOMED:planned | Planned
@@ -202,7 +202,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Encounter.status
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-hl7fhir_encounter_class,rarelink_4_care_pathway,,dropdown,4.4 Encounter Class,"hl7fhir_amb, Ambulatory | hl7fhir_imp, Inpatient | hl7fhir_obsenc, Observation | hl7fhir_emer, Emergency | hl7fhir_vr, Virtual | hl7fhir_hh, Home Health | hl7fhir_rdc, RD Specialist Center | snomed_261665006, Unknown",The class of an encounter of the individual at the time of data capture.,,,,,,,,,,,"Variable:
+hl7fhir_encounter_class,rarelink_4_care_pathway,,dropdown,4.4 Encounter Class,"hl7fhir_amb, Ambulatory | hl7fhir_imp, Inpatient | hl7fhir_obsenc, Observation | hl7fhir_emer, Emergency | hl7fhir_vr, Virtual | hl7fhir_hh, Home Health | rarelink_rdc, RD Specialist Center | snomed_261665006, Unknown",The class of an encounter of the individual at the time of data capture.,,,,,,y,,,,,"Variable:
 HL7 FHIR:encounter.class | Encounter Class |
 Choices: 
 - HL7 FHIR:AMB | Ambulatory
@@ -233,7 +233,7 @@ disease_descr,rarelink_5_disease,RareLink - 5) Disease,descriptive,"<div class="
   </ul>
 </div>",,,,,,,,,,,,,
 disease_coding,rarelink_5_disease,,dropdown,Please choose the encoding of the disease to be captured,"mondo, MONDO | ordo, ORDO | icd10cm, ICD10CM | icd11, ICD11 | omim, OMIM",We recommend using MONDO to capture diseases with,,,,,,,,,,,
-snomed_64572001_mondo,rarelink_5_disease,,text,5.1 Disease [MONDO],BIOPORTAL:MONDO,"Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'mondo',,,,,,"Variable: 
+snomed_64572001_mondo,rarelink_5_disease,,text,5.1 Disease [MONDO],BIOPORTAL:MONDO,"Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'mondo',y,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -242,7 +242,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_ordo,rarelink_5_disease,,text,5.1 Disease [ORDO],BIOPORTAL:ORDO,Please look up the ORDO code for the disease that the individual was affected by.,,,,,[disease_coding] = 'ordo',,,,,,"Variable: 
+snomed_64572001_ordo,rarelink_5_disease,,text,5.1 Disease [ORDO],BIOPORTAL:ORDO,Please look up the ORDO code for the disease that the individual was affected by.,,,,,[disease_coding] = 'ordo',y,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -251,7 +251,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_icd10cm,rarelink_5_disease,,text,5.1 Disease [ICD10CM],BIOPORTAL:ICD10CM,Please look up the ICD10CM code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd10cm',,,,,,"Variable: 
+snomed_64572001_icd10cm,rarelink_5_disease,,text,5.1 Disease [ICD10CM],BIOPORTAL:ICD10CM,Please look up the ICD10CM code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd10cm',y,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -260,7 +260,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_icd11,rarelink_5_disease,,text,5.1 Disease [ICD11],,Please enter the ICD11 code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd11',,,,,,"Variable: 
+snomed_64572001_icd11,rarelink_5_disease,,text,5.1 Disease [ICD11],,Please enter the ICD11 code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd11',y,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -269,7 +269,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
-snomed_64572001_omim_p,rarelink_5_disease,,text,5.1 Disease [OMIM_P],BIOPORTAL:OMIM,"A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'omim',,,,,,"Variable: 
+snomed_64572001_omim_p,rarelink_5_disease,,text,5.1 Disease [OMIM_P],BIOPORTAL:OMIM,"A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'omim',y,,,,,"Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -514,7 +514,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Gene
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.GeneDescriptor.value_id"
-loinc_48018_6_label,rarelink_6_1_genetic_findings,,text,6.1.10A Gene Label,,"Please enter the respective Gene label, e.g. 'BRAF'",,,,,[loinc_48018_6] <> '',y,,,,,
+loinc_48018_6_label,rarelink_6_1_genetic_findings,,text,6.1.10A Gene Label,,"Please enter the respective Gene label, e.g. 'BRAF'",,,,,[loinc_48018_6] <> '',,,,,,
 loinc_53034_5,rarelink_6_1_genetic_findings,,dropdown,6.1.11 Zygosity,"loinc_la6705-3, Homozygous | loinc_la6706-1, (simple) Heterozygous | loinc_la26217-2, Compound heterozygous | loinc_la26220-6, Double heterozygous | loinc_la6707-9, Hemizygous | loinc_la6703-8, Heteroplasmic | loinc_la6704-6, Homoplasmic | loinc_53034_5_other, Other",The zygosity of the genetic variant.,,,,,,,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
 Choices: 
@@ -846,7 +846,7 @@ family_history_descr,rarelink_6_4_family_history,RareLink - 6.3) Family History,
     <li><span style=""font-weight: normal;"">If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.</span></li>
   </ul>
 </div>",,,,,,,,,,,,,
-family_history_pseudonym,rarelink_6_4_family_history,,text,6.4.0 Pseudonym,,"If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.",,,,,,,,,,,
+family_history_pseudonym,rarelink_6_4_family_history,,text,6.4.0 Pseudonym,,"If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.",,,,,,y,,,,,
 snomed_64245008,rarelink_6_4_family_history,,dropdown,6.4.1 Propositus/-a,"snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown | snomed_1220561009, Not recorded","Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members.",,,,,,,,,,,"SNOMED:64245008 | Propositus/-a  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -890,7 +890,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Family.consanguinous_parents  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.consanguinous_parents)  "
-snomed_444018008,rarelink_6_4_family_history,,dropdown,6.4.4 Family Member Relationship,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded",Specifies the relationship of the selected family member to the patient.,,,,,,,,,,,"Variable: 
+snomed_444018008,rarelink_6_4_family_history,,dropdown,6.4.4 Family Member Relationship,"snomed_65656005, Natural mother | snomed_9947008, Natural father | snomed_83420006, Natural daughter | snomed_113160008, Natural son | snomed_60614009, Natural brother | snomed_73678001, Natural sister | snomed_11286003, Twin sibling | snomed_45929001, Half-brother | snomed_2272004, Half-sister | snomed_62296006, Natural grandfather | snomed_17945006, Natural grandmother | snomed_1220561009, Not recorded",Specifies the relationship of the selected family member to the patient.,,,,,,y,,,,,"Variable: 
 SNOMED:444018008 | Family Member Relationship  
 Choices: 
 - SNOMED:65656005 | Natural mother  
@@ -910,7 +910,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.relationship.coding (VS: FamilyMember)  
 - GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.individual_id  "
-hl7fhir_fmh_status,rarelink_6_4_family_history,,dropdown,6.4.5 Family Member Record Status,"hl7fhir_partial, Partial | hl7fhir_completed, Completed | hl7fhir_entered-in-error, Entered in Error | hl7fhir_health-unknown, Health Unknown",Specifies the record’s status of the family history of a specific family member.,,,,,,,,,,,"Variable: 
+hl7fhir_fmh_status,rarelink_6_4_family_history,,dropdown,6.4.5 Family Member Record Status,"hl7fhir_partial, Partial | hl7fhir_completed, Completed | hl7fhir_entered-in-error, Entered in Error | hl7fhir_health-unknown, Health Unknown",Specifies the record’s status of the family history of a specific family member.,,,,,,y,,,,,"Variable: 
 HL7 FHIR:familymemberhistory.status | Family Member Record Status  
 Choices: 
 - HL7 FHIR:partial | Partial  
@@ -1000,7 +1000,7 @@ consent_descr,rarelink_7_consent,RareLink - 7) Consent,descriptive,"<div class="
   </ul>
 </div>
 ",,,,,,,,,,,,,
-snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error",Indicates the current status of the consent.,,,,,,,,,,,"Variable: 
+snomed_309370004,rarelink_7_consent,,dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error",Indicates the current status of the consent.,,,,,,y,,,,,"Variable: 
 SNOMED:309370004 | Consent Status  
 Choices: 
 - HL7FHIR:draft | Pending  
@@ -1035,7 +1035,7 @@ Mapping:
 rarelink_consent_contact,rarelink_7_consent,,dropdown,"7.4 Agreement to be
 contacted for
 research purposes","snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown
-",Indicates whether the patient agrees to be contacted for research purposes.,,,,,,,,,,,"Variable: 
+",Indicates whether the patient agrees to be contacted for research purposes.,,,,,,y,,,,,"Variable: 
 RareLinkCode:consent_contact_research | Agreement to be contacted for research purposes  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -1049,7 +1049,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: n/a  "
 rarelink_consent_data,rarelink_7_consent,,dropdown,"7.5 Consent to the reuse
 of data","snomed_373066001, Yes | snomed_373067005, No | snomed_261665006, Unknown
-",Indicates whether the patient consents to the reuse of their data.,,,,,,,,,,,"Variable: 
+",Indicates whether the patient consents to the reuse of their data.,,,,,,y,,,,,"Variable: 
 RareLinkCode:conset_data_reuse | Consent to the reuse of data  
 Choices: 
 - SNOMED:373066001 | Yes  

@@ -1,7 +1,7 @@
 .. _3_3:
 
-REDCap API
-==========
+Set up the REDCap API
+======================
 
 .. attention::
    To use your local REDCap project, you will need to set up a local REDCap 

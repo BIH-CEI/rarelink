@@ -1,6 +1,6 @@
 
 
-Setup the RareLink Framework
+Set up the RareLink Framework
 =============================
 
 To set up the RareLink framework, follow these steps:

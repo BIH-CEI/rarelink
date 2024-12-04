@@ -1,7 +1,7 @@
 .. _2_2:
 
-RareLink Data Dictionary
-========================
+RareLink CDM Data Dictionary
+=============================
 
 .. attention::
    To use your local REDCap project, you will need to set up a local REDCap 
@@ -22,6 +22,10 @@ instrument, ensuring consistency and comprehensive data capture.
 
 RareLink CDM Data Dictionary
 ----------------------------
+
+
+- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../../res/rarelink_cdm_v2_0_0_dev0_datadictionary.csv>`
+- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_0_dev0_single_instruments.zip>`
 
 
 RuleSet for Codes and Codesystems
