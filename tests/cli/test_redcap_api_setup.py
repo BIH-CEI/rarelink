@@ -1,5 +1,5 @@
 from typer.testing import CliRunner
-from rarelink.cli.framework.redcap_api_setup import app as redcap_api_setup_app
+from rarelink.cli.redcap_setup.redcap_api_setup import app as redcap_api_setup_app
 from pathlib import Path
 import pytest
 
