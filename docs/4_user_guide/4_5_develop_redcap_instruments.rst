@@ -3,7 +3,7 @@
 Develop REDCap Instruments  
 ===========================
 
-.. note::
+.. attention::
     This section is still to be implemented in the docuemntation.
 
 .. attention::

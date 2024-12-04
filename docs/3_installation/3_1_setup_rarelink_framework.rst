@@ -1,11 +1,12 @@
-
+.. _3_1:
 
 Set up the RareLink Framework
 =============================
 
 To set up the RareLink framework, follow these steps:
 
-1. **Install the RareLink framework dependencies.**
+**Install the RareLink framework dependencies.**
+-------------------------------------------------
 
 Clone the repository and install the dependencies:
 
@@ -19,7 +20,7 @@ Via the RareLink CLI, type:
 
     rarelink framework-setup install
 
-This command installs all necessary RareLink framework dependencies.
+This command installs all necessary RareLink framework dependencies and functionalities.
 
 To update the RareLink framework:
 
@@ -44,3 +45,45 @@ To reset the framework to its initial state:
     rarelink framework-setup reset
 
 This command clears all framework configurations and reverts it to its initial setup state.
+
+
+Import Mapper Configuration
+___________________________
+
+Via the RareLink CLI type:
+
+.. code-block:: bash
+
+    rarelink setup -pipeline import_mapper
+
+This command guides you through setting up the Import Mapper pipeline for RareLink.
+You will be prompted to enter:
+- Your location of your local (tabular) database.
+- Your REDCap project URL and API token.
+- Your location where to store the Import Mapper configurations.
+
+Phenopacket Pipeline Configuration
+________________________________
+
+Via the RareLink CLI type:
+
+.. code-block:: bash
+
+    rarelink setup -pipeline phenopackets
+
+This command guides you through setting up the Phenopacket pipeline for RareLink.
+You will be prompted to enter:
+- Your location where to store the Phenopackets.
+
+FHIR Pipeline Configuration
+___________________________
+
+.. code-block:: bash
+
+    rarelink setup -pipeline fhir
+
+This command guides you through setting up the FHIR pipeline for RareLink. 
+You will be prompted to enter:
+- Your FHIR server URL.
+- If required, your FHIR server username & password.
+

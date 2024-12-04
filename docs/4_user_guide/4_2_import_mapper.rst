@@ -8,7 +8,7 @@ RareLink provides a semi-automatic data capture configuration using OntoBridge t
 databases and convert it into a structured format. The tool is designed to be user-friendly and can be used by non-technical users.
 The tool can be used to capture data from multiple sources and convert it into a structured format that can be used for analysis and research.
 
-.. note::
+.. attention::
     This section is still to be implemented in the docuemntation and the RareLink
     command line interface.
 

@@ -6,7 +6,7 @@ REDCap Project Interaction
 Once you have your API access set up, you can interact with your REDCap project: 
 
 .. attention::
-    NOT IMPLEMENTED YET.
+    This section is still to be implemented in the docuemntation.
 
 
 AAPI Endpoints
