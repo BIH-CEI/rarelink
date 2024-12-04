@@ -47,6 +47,7 @@ ________________________________
 Commands focused on configuring REDCap, setting up projects, and initializing 
 API access:
 
+_____________________________________________________________________________________
 
 >>> rarelink redcap-setup redcap-project-setup
 
@@ -58,16 +59,19 @@ ________________________________________________________________________________
 
 - API token configuration and management, see :ref:`3_4` for more details and functionalities, and instructions.
 
-_____________________________________________________________________________________ 
+_____________________________________________________________________________________
 
+>>> rarelink redcap-setup download
 
->>> rarelink redcap-setup download-data-dictionary
+- Download the most current RareLink-CDM data dictionary, the RareLink-CDM instruments, and the RareLink Template REDCap project. See :ref:`3_2`and :ref:`3_3` for more details and functionalities, and instructions.
 
-- Download the most current RareLink-CDM REDCap data dictionary.
+_____________________________________________________________________________________
 
 >>> rarelink redcap-setup upload-data-dictionary
 
 Upload the most current custom data dictionary
+
+_____________________________________________________________________________________
 
 REDCap Tools (``redcap-tools``)
 _____________________________

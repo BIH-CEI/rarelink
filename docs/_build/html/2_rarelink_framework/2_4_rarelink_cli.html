@@ -172,6 +172,7 @@ version installed.</p>
 <h3>REDCap Setup (<code class="docutils literal notranslate"><span class="pre">redcap-setup</span></code>)<a class="headerlink" href="#redcap-setup-redcap-setup" title="Link to this heading"></a></h3>
 <p>Commands focused on configuring REDCap, setting up projects, and initializing
 API access:</p>
+<hr class="docutils" />
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rarelink</span> <span class="n">redcap</span><span class="o">-</span><span class="n">setup</span> <span class="n">redcap</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">setup</span>
 </pre></div>
 </div>
@@ -184,17 +185,19 @@ API access:</p>
 <li><p>API token configuration and management, see <a class="reference internal" href="../3_installation/3_4_redcap_api.html#id1"><span class="std std-ref">Set up the REDCap API</span></a> for more details and functionalities, and instructions.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rarelink</span> <span class="n">redcap</span><span class="o">-</span><span class="n">setup</span> <span class="n">download</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">dictionary</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rarelink</span> <span class="n">redcap</span><span class="o">-</span><span class="n">setup</span> <span class="n">download</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Download the most current RareLink-CDM REDCap data dictionary.</p></li>
+<li><p>Download the most current RareLink-CDM data dictionary, the RareLink-CDM instruments, and the RareLink Template REDCap project. See <span class="xref std std-ref">3_2`and :ref:`3_3</span> for more details and functionalities, and instructions.</p></li>
 </ul>
+<hr class="docutils" />
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rarelink</span> <span class="n">redcap</span><span class="o">-</span><span class="n">setup</span> <span class="n">upload</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">dictionary</span>
 </pre></div>
 </div>
 <p>Upload the most current custom data dictionary</p>
 </section>
+<hr class="docutils" />
 <section id="redcap-tools-redcap-tools">
 <h3>REDCap Tools (<code class="docutils literal notranslate"><span class="pre">redcap-tools</span></code>)<a class="headerlink" href="#redcap-tools-redcap-tools" title="Link to this heading"></a></h3>
 <p>Commands for interacting with an already-configured REDCap instance, i.e. your
