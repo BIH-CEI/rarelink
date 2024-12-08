@@ -1,0 +1,36 @@
+{
+  "name": "6_1_3_interpretation_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "ga4gh_unknown_status",
+      "source_display": "No information is available about the status",
+      "target_code": "UNKNOWN_STATUS",
+      "target_display": "No information is available about the status"
+    },
+    {
+      "source_code": "ga4gh_rejected",
+      "source_display": "The variant or gene reported here is interpreted not to be related to the diagnosis",
+      "target_code": "REJECTED",
+      "target_display": "The variant or gene reported here is interpreted not to be related to the diagnosis"
+    },
+    {
+      "source_code": "ga4gh_candidate",
+      "source_display": "The variant or gene reported here is interpreted to possibly be related to the diagnosis",
+      "target_code": "CANDIDATE",
+      "target_display": "The variant or gene reported here is interpreted to possibly be related to the diagnosis"
+    },
+    {
+      "source_code": "ga4gh_contributory",
+      "source_display": "The variant or gene reported here is interpreted to be related to the diagnosis",
+      "target_code": "CONTRIBUTORY",
+      "target_display": "The variant or gene reported here is interpreted to be related to the diagnosis"
+    },
+    {
+      "source_code": "ga4gh_causative",
+      "source_display": "The variant or gene reported here is interpreted to be causative of the diagnosis",
+      "target_code": "CAUSATIVE",
+      "target_display": "The variant or gene reported here is interpreted to be causative of the diagnosis"
+    }
+  ]
+}

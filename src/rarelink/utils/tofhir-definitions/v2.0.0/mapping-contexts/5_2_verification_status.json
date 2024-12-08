@@ -1,0 +1,42 @@
+{
+  "name": "5_2_verification_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "hl7fhir_unconfirmed",
+      "source_display": "Unconfirmed",
+      "target_code": "unconfirmed",
+      "target_display": "Unconfirmed"
+    },
+    {
+      "source_code": "hl7fhir_provisional",
+      "source_display": "Provisional",
+      "target_code": "provisional",
+      "target_display": "Provisional"
+    },
+    {
+      "source_code": "hl7fhir_differential",
+      "source_display": "Differential",
+      "target_code": "differential",
+      "target_display": "Differential"
+    },
+    {
+      "source_code": "hl7fhir_confirmed",
+      "source_display": "Confirmed",
+      "target_code": "confirmed",
+      "target_display": "Confirmed"
+    },
+    {
+      "source_code": "hl7fhir_refuted",
+      "source_display": "Refuted",
+      "target_code": "refuted",
+      "target_display": "Refuted"
+    },
+    {
+      "source_code": "hl7fhir_entered-in-error",
+      "source_display": "Entered in Error",
+      "target_code": "entered-in-error",
+      "target_display": "Entered in Error"
+    }
+  ]
+}
