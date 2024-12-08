@@ -63,7 +63,8 @@ dependencies = [
     "sphinx-copybutton",
     "sphinx-rtd-theme",
     "click", 
-    "typer"
+    "typer",
+    "pytest-mock"
 ]
 dynamic = ["version"]
 

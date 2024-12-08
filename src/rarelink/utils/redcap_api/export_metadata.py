@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from example_config import config
+from .config import config
 import requests
 
 fields = {

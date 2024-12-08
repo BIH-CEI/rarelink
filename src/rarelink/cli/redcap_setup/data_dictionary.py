@@ -13,6 +13,7 @@ CONFIG_FILE = Path.home() / ".rarelink_redcap_config.json"
 DOCS_REDCAP_PROJECT_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html"
 DOCS_REDCAP_API_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_4_redcap_api.html"
 DOCS_MANUAL_UPLOAD_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_3_setup_rarelink_instruments.html"
+CHANGELOG_URL = "https://rarelink.readthedocs.io/en/latest/6_changelog.html"
 
 @app.command()
 def upload():
@@ -29,7 +30,7 @@ def upload():
             f"or follow the documentation: {DOCS_REDCAP_API_URL}",
             fg=typer.colors.RED,
         )
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=2)
 
     # Load API configuration
     config = json.loads(CONFIG_FILE.read_text())
@@ -40,7 +41,7 @@ def upload():
             "❌ Incomplete REDCap API configuration. Please reset and run `rarelink redcap-setup api-setup` again.",
             fg=typer.colors.RED,
         )
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=2)
 
     typer.secho("REDCap API configuration loaded successfully.", fg=typer.colors.GREEN)
 
@@ -80,3 +81,4 @@ def upload():
     typer.echo("1. View the uploaded dictionary in REDCap.")
     typer.echo(f"2. Learn more about manual uploads here: {DOCS_MANUAL_UPLOAD_URL}")
     typer.echo(f"3. Explore REDCap project setup documentation here: {DOCS_REDCAP_PROJECT_URL}")
+    typer.echo(f"4. View the changelog for updates and changes here: {CHANGELOG_URL}")
