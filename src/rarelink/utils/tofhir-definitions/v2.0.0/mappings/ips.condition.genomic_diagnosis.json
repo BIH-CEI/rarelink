@@ -1,0 +1,92 @@
+{
+  "id": "ips.condition.genomic_diagnosis",
+  "url": "rarelink/ips.condition.genomic_diagnosis",
+  "name": "ips.condition.genomic_diagnosis",
+  "title": "RareLink Genomic Diagnosis",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkGeneticFindings",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_1_genetic_findings",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "ips.condition.genomic_diagnosis",
+        "language": "application/fhir-template+json",
+        "value": {
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+            ]
+          },
+          "resourceType": "Condition",
+          "code": {
+            "coding": [
+              {
+                "code": "{{? snomed_106221001_mondo}}",
+                "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
+                "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03'}}"
+              },
+              {
+                "code": "{{? snomed_106221001_omim_p}}",
+                "system": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                "version": "{{? iif(snomed_106221001_omim_p.empty().not(), '2024-09-12'}}"
+              }
+            ],
+            "text": "{{'Genomic Diagnosis - The genetic finding of a variant can be linked to a disease (condition.code) and/or a variant (observation.genetic_findings)''}}"
+          },
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "subject": {
+            "reference": "Patient/{id}"
+          },
+          "extension": [
+            {
+              "url": "{{'https://www.ga4gh.org/product/phenopackets/'}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsProgressStatus, ga4gh_progress_status, 'target_code')}}",
+                    "system": "{{? iif(ga4gh_progress_status.empty().not(), 'https://www.ga4gh.org/product/phenopackets/')}}",
+                    "version": "{{? iif(ga4gh_progress_status.empty().not(), '2.0')}}",
+                    "display": "{{? mpp:getConcept(%geneticsProgressStatus, ga4gh_progress_status, 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "{{? iif(ga4gh_interp_status.empty().not(), 'https://www.ga4gh.org/product/phenopackets/'}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsInterpretationStatus, ga4gh_interp_status, 'target_code')}}",
+                    "system": "{{? iif(ga4gh_interp_status.empty().not(), 'https://www.ga4gh.org/product/phenopackets/')}}",
+                    "version": "{{? iif(ga4gh_interp_status.empty().not(), '2.0')}}",
+                    "display": "{{? mpp:getConcept(%geneticsInterpretationStatus, ga4gh_interp_status, 'target_display')}}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "description": "RareLink Genomic Diagnosis"
+    }
+  ],
+  "context": {
+    "geneticsProgressStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6.1.2_Progress_Status_of_Interpretation.csv"
+    },
+    "geneticsInterpretationStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6.1.3_Interpretation_Status.csv"
+    }
+  }
+}

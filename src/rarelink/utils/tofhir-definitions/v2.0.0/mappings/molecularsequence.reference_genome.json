@@ -1,13 +1,13 @@
 {
-  "id": "encounter.date_of_admission",
-  "url": "rarelink/encounter.date_of_admission",
-  "name": "encounter.date_of_admission",
-  "title": "Encounter RareLink CDM Date of Admission",
+  "id": "molecularsequence.reference_genome",
+  "url": "rarelink/molecularsequence.reference_genome",
+  "name": "molecularsequence.reference_genome",
+  "title": "RareLink Reference Genome",
   "isDraft": false,
   "source": [
     {
-      "alias": "RarelinkFormalCriteria",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+      "alias": "rarelinkGeneticFindings",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_1_genetic_findings",
       "joinOn": []
     }
   ],
@@ -15,24 +15,27 @@
   "mapping": [
     {
       "expression": {
-        "name": "encounter.date_of_admission",
+        "name": "molecularsequence.reference_genome",
         "language": "application/fhir-template+json",
         "value": {
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+              "http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1"
             ]
           },
-          "resourceType": "Encounter",
-          "status": "{{'in-progress'}}",
-          "class": {
-            "system": "{{'https://www.snomed.org/snomed-ct'}}",
-            "version": "{{'2024-09-01'}}",
-            "code": "{{'399423000'}}",
-            "display": "{{'Date of Admission'}}"
-          },
-          "period": {
-            "start": "{{snomed_399423000}}"
+          "resourceType": "MolecularSequence",
+          "coordinateSystem": 0,
+          "referenceSeq": {
+            "referenceSeqId": {
+              "coding": [
+                {
+                  "system": "{{'https://loinc.org'}}",
+                  "version": "{{'2.78'}}",
+                  "code": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_display')}}"
+                }
+              ]
+            }
           },
           "text": {
             "status": "{{'generated'}}",
@@ -40,8 +43,13 @@
           }
         }
       },
-      "description": "Encounter for RareLink CDM  - 1.2 Date of Admission"
+      "description": "RareLink Reference Genome"
     }
   ],
-  "context": {}
+  "context": {
+    "geneticsReferenceGenome": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6.1.5_Reference_Genome.csv"
+    }
+  }
 }

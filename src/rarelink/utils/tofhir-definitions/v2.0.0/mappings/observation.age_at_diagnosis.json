@@ -1,13 +1,13 @@
 {
-  "id": "observation.cause_of_death",
-  "url": "rarelink/observation.cause_of_death",
-  "name": "observation.cause_of_death",
-  "title": "Observation RareLink CDM Cause of Death",
+  "id": "observation.age_at_diagnosis",
+  "url": "rarelink/observation.age_at_diagnosis",
+  "name": "observation.age_at_diagnosis",
+  "title": "Observation Age at Diagnosis",
   "isDraft": false,
   "source": [
     {
-      "alias": "RareLinkPatientStatus",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "alias": "RareLinkDisease",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_5_disease",
       "joinOn": []
     }
   ],
@@ -15,7 +15,7 @@
   "mapping": [
     {
       "expression": {
-        "name": "observation.cause_of_death",
+        "name": "observation.age_at_diagnosis",
         "language": "application/fhir-template+json",
         "value": {
           "meta": {
@@ -28,19 +28,20 @@
           "code": {
             "coding": [
               {
-                "code": "{{'184305005'}}",
+                "code": "{{'423493009'}}",
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "display": "{{'Cause Of Death'}}"
+                "display": "{{'Age at Diagnosis'}}"
               }
             ]
           },
           "valueCodeableConcept": {
             "coding": [
               {
-                "code": "{{? snomed_184305005}}",
-                "system": "{{'https://icd.who.int/browse10/2019/en'}}",
-                "version": "{{'2019'}}"
+                "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_code')}}",
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_display')}}"
               }
             ]
           },
@@ -50,13 +51,18 @@
           }
         }
       },
-      "description": "Observation RareLink CDM Cause of Death",
+      "description": "Observation Age at Diagnosis",
       "precondition": {
-        "name": "deathDiagnosisExists",
+        "name": "ageDiagnosisExists",
         "language": "text/fhirpath",
-        "expression": "snomed_184305005.empty().not()"
+        "expression": "snomed_423493009.empty().not()"
       }
     }
   ],
-  "context": {}
+  "context": {
+    "rarelinkAgeAtDiagnosis": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/5.5_Age_at_Diagnosis.csv"
+    }
+  }
 }

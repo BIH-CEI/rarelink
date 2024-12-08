@@ -3,6 +3,7 @@
   "url": "rarelink/patient.birth_place",
   "name": "patient.birth_place",
   "title": "Patient Resource - Birth Place",
+  "isDraft": false,
   "source": [
     {
       "alias": "personalinformation",
@@ -22,10 +23,35 @@
               "http://hl7.org/fhir/StructureDefinition/Patient|4.0.1"
             ]
           },
-          "resourceType": "Patient"
+          "resourceType": "Patient",
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "extension": [
+            {
+              "id": "Country of Birth: The individual's country of birth.",
+              "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-patient-birthPlace.html",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://www.iso.org/iso-3166-country-codes.html",
+                    "version": "ISO 3166-1:2020(en)",
+                    "code": "{{snomed_370159000}}",
+                    "display": "{{snomed_370159000}}"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
-      "description": "RareLink CDM Birth Place element to FHIRv4.0.1 Base Resource Patient "
+      "description": "RareLink CDM Birth Place element to FHIRv4.0.1 Base Resource Patient ",
+      "precondition": {
+        "name": "birthPlaceExists",
+        "language": "text/fhirpath",
+        "expression": "snomed_370159000.empty().not()"
+      }
     }
   ],
   "context": {}
