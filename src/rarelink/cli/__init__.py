@@ -7,9 +7,9 @@ app = typer.Typer()
 
 # Add command groups
 app.add_typer(framework, name="framework", help="Setup and manage the\
-    RareLink framework: `rarelink framework-setup --help` for more information.")
+ RareLink framework: `rarelink framework --help` for more information.")
 app.add_typer(redcap_setup_app, name="redcap-setup", help="Setup and manage your\
-    local REDCap project: `rarelink redcap-setup --help` for more information.")
+ local REDCap project: `rarelink redcap-setup --help` for more information.")
 
 def version_callback(value: bool):
     """

@@ -1,4 +1,5 @@
 import typer
+import subprocess
 
 app = typer.Typer(name="framework-setup", help="Setup and manage the RareLink framework.")
 
@@ -7,18 +8,52 @@ def status():
     """
     Display the current version and installation details of RareLink.
     """
-    typer.echo("To check the RareLink framework status, run:")
-    typer.secho("    pip show rarelink", fg=typer.colors.CYAN)
-    typer.secho("or:", fg=typer.colors.BRIGHT_BLACK)
-    typer.secho("    python -m rarelink --version", fg=typer.colors.CYAN)
+    typer.echo("Checking RareLink framework status...")
+    try:
+        # Execute `pip show rarelink`
+        subprocess.run(["pip", "show", "rarelink"], check=True)
+    except subprocess.CalledProcessError as e:
+        typer.secho("❌ Error executing pip show rarelink.", fg=typer.colors.RED)
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(code=1)
 
 @app.command()
 def update():
     """
     Update RareLink to the latest version.
     """
-    typer.echo("To update the RareLink framework, run:")
-    typer.secho("    pip install --upgrade rarelink", fg=typer.colors.CYAN)
+    typer.echo("Updating RareLink to the latest version...")
+    try:
+        # Execute `pip install --upgrade rarelink`
+        subprocess.run(["pip", "install", "--upgrade", "rarelink"], check=True)
+        typer.secho("✅ RareLink has been successfully updated.", fg=typer.colors.GREEN)
+    except subprocess.CalledProcessError as e:
+        typer.secho("❌ Error updating RareLink.", fg=typer.colors.RED)
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(code=1)
+
+@app.command()
+def version():
+    """
+    Display only the installed version of RareLink.
+    """
+    typer.echo("Fetching RareLink version...")
+    try:
+        # Execute `pip show rarelink` and filter the version line
+        result = subprocess.run(
+            ["pip", "show", "rarelink"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        for line in result.stdout.splitlines():
+            if line.startswith("Version:"):
+                typer.secho(line, fg=typer.colors.GREEN)
+                break
+    except subprocess.CalledProcessError as e:
+        typer.secho("❌ Error fetching RareLink version.", fg=typer.colors.RED)
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(code=1)
 
 @app.command()
 def reset():
@@ -53,5 +88,6 @@ def reset():
         subprocess.run(["pip", "install", "-e", str(project_path)], check=True)
         typer.echo("✅ RareLink has been reinstalled from the local source.")
     except subprocess.CalledProcessError as e:
-        typer.secho(f"❌ An error occurred during the reset process: {e}", fg=typer.colors.RED)
+        typer.secho(f"❌ An error occurred during the reset process: {e}",
+                    fg=typer.colors.RED)
         raise typer.Exit(1)
