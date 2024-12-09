@@ -5,9 +5,9 @@ runner = CliRunner()
 
 def test_redcap_project_setup_start():
     """
-    Test the `framework-setup redcap-project-setup start` command.
+    Test the `framework-setup redcap-setup start` command.
     """
-    result = runner.invoke(cli_app, ["framework-setup", "redcap-project-setup", "start"])
+    result = runner.invoke(cli_app, ["framework-setup", "redcap-setup", "start"])
     print(result.stdout)  # Debug the output
     assert result.exit_code == 0
     assert "🚀 Welcome to the REDCap Project Setup!" in result.stdout
