@@ -21,25 +21,34 @@ _________________________________
 
 Commands related to setting up and managing the overall RareLink framework:
 
-
->>> rarelink framework-setup install
+.. code-block:: console
+    
+    rarelink framework-setup install
 
 This command installs all necessary RareLink framework dependencies and 
 functionalities.
 
->>> rarelink framework-setup reset
+.. code-block:: console
+
+    rarelink framework-setup reset
 
 This command clears all framework configurations and reverts it to its initial
 setup state.
 
->>> rarelink framework-setup status
+.. code-block:: console
+
+    rarelink framework-setup status
 
 This command provides a summary of the framework's current status and 
 version installed.
    
->>> rarelink framework-setup update
+
+.. code-block:: console
+
+    rarelink framework-setup update
 
 This command updates the framework to the latest version.
+
 
 REDCap Setup (``redcap-setup``)
 ________________________________
@@ -49,32 +58,40 @@ API access:
 
 _____________________________________________________________________________________
 
->>> rarelink redcap-setup redcap-project-setup
+.. code-block:: console
+
+    rarelink redcap-setup redcap-project-setup
 
 guided project setup, documentation links, admin instructions
 
 _____________________________________________________________________________________
 
->>> rarelink redcap-setup redcap-api-setup 
+.. code-block:: console
+
+    rarelink redcap-setup redcap-api-setup 
 
 - API token configuration and management, see :ref:`3_4` for more details and functionalities, and instructions.
 
 _____________________________________________________________________________________
 
->>> rarelink redcap-setup download
+.. code-block:: console
+
+    rarelink redcap-setup download
 
 - Download the most current RareLink-CDM data dictionary, the RareLink-CDM instruments, and the RareLink Template REDCap project. See :ref:`3_2`and :ref:`3_3` for more details and functionalities, and instructions.
 
 _____________________________________________________________________________________
 
->>> rarelink redcap-setup upload-data-dictionary
+.. code-block:: console
+
+    rarelink redcap-setup upload-data-dictionary
 
 Upload the most current custom data dictionary
 
 _____________________________________________________________________________________
 
 REDCap Tools (``redcap-tools``)
-_____________________________
+________________________________
 
 Commands for interacting with an already-configured REDCap instance, i.e. your
 local REDCap project. 

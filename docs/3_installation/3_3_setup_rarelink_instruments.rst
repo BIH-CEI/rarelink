@@ -22,7 +22,9 @@ instruments from the RareLink REDCap project.
 
 Via the RareLink CLI type:
 
->>> rarelink redcap-setup download-data-dictionary
+.. code-block:: console
+
+    rarelink redcap-setup download-data-dictionary
 
 _____________________________________________________________________________________
 
