@@ -8,7 +8,7 @@ def status():
     """
     Display the current version and installation details of RareLink.
     """
-    typer.echo("Checking RareLink framework status...")
+    typer.secho("Checking RareLink framework status...", fg=typer.colors.BRIGHT_MAGENTA)
     try:
         # Execute `pip show rarelink`
         subprocess.run(["pip", "show", "rarelink"], check=True)
@@ -22,7 +22,7 @@ def update():
     """
     Update RareLink to the latest version.
     """
-    typer.echo("Updating RareLink to the latest version...")
+    typer.secho("Updating RareLink to the latest version...", fg=typer.colors.BRIGHT_MAGENTA)
     try:
         # Execute `pip install --upgrade rarelink`
         subprocess.run(["pip", "install", "--upgrade", "rarelink"], check=True)
@@ -37,7 +37,7 @@ def version():
     """
     Display only the installed version of RareLink.
     """
-    typer.echo("Fetching RareLink version...")
+    typer.secho("Fetching RareLink version...", fg=typer.colors.BRIGHT_MAGENTA)
     try:
         # Execute `pip show rarelink` and filter the version line
         result = subprocess.run(
@@ -64,7 +64,7 @@ def reset():
     import subprocess
     from pathlib import Path
 
-    typer.echo("Resetting the RareLink framework...")
+    typer.secho("Resetting the RareLink framework...", fg=typer.colors.BRIGHT_MAGENTA)
 
     # Start searching for the project root
     current_path = Path(__file__).resolve().parent
@@ -80,13 +80,13 @@ def reset():
         )
         raise typer.Exit(1)
 
-    typer.echo(f"Detected project directory: {project_path}")
+    typer.secho(f"Detected project directory: {project_path}", fg=typer.colors.BRIGHT_YELLOW)
 
     try:
         subprocess.run(["pip", "uninstall", "rarelink", "-y"], check=True)
-        typer.echo("✅ RareLink has been uninstalled.")
+        typer.secho("✅ RareLink has been uninstalled.", fg=typer.colors.GREEN)
         subprocess.run(["pip", "install", "-e", str(project_path)], check=True)
-        typer.echo("✅ RareLink has been reinstalled from the local source.")
+        typer.secho("✅ RareLink has been reinstalled from the local source.", fg=typer.colors.GREEN)
     except subprocess.CalledProcessError as e:
         typer.secho(f"❌ An error occurred during the reset process: {e}",
                     fg=typer.colors.RED)
