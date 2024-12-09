@@ -4,11 +4,6 @@ from rarelink.cli import app
 
 runner = CliRunner()
 
-def test_install():
-    result = runner.invoke(app, ["framework-setup", "install"])
-    assert result.exit_code == 0
-    assert "Installing RareLink framework dependencies..." in result.stdout
-
 def test_update():
     result = runner.invoke(app, ["framework-setup", "update"])
     assert result.exit_code == 0

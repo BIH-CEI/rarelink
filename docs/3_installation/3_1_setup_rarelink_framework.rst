@@ -18,7 +18,7 @@ Via the RareLink CLI, type:
 
 .. code-block:: bash
 
-    rarelink framework-setup install
+    pip install rarelink
 
 This command installs all necessary RareLink framework dependencies and functionalities.
 
@@ -26,7 +26,7 @@ To update the RareLink framework:
 
 .. code-block:: bash
 
-    rarelink framework-setup update
+    pip install --upgrade rarelink
 
 This command updates the framework to the latest version.
 
@@ -34,7 +34,11 @@ To check the current framework status:
 
 .. code-block:: bash
 
-    rarelink framework-setup status
+    pip show rarelink
+
+    or
+
+    python -m rarelink --version
 
 This command provides a summary of the framework's current status.
 
@@ -42,7 +46,7 @@ To reset the framework to its initial state:
 
 .. code-block:: bash
 
-    rarelink framework-setup reset
+    pip uninstall rarelink -y && pip install rarelink
 
 This command clears all framework configurations and reverts it to its initial setup state.
 
