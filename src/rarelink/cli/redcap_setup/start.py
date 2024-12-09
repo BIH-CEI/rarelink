@@ -2,7 +2,7 @@ import typer
 
 def app():
     """
-    Start the REDCap Project Setup process.
+    Start here if you want to set up your local REDCap Project for RareLink.
     """
     typer.echo("🚀 Welcome to the REDCap Project Setup!")
     
