@@ -3,7 +3,7 @@ import requests
 import json
 from pathlib import Path
 
-app = typer.Typer()
+app = typer.Typer(name="template-project") 
 
 # Configuration file path (for storing tokens and URLs)
 CONFIG_FILE = Path.home() / ".rarelink_redcap_config.json"
@@ -16,13 +16,21 @@ def load_config():
     Load REDCap API configuration from the config file.
     """
     if not CONFIG_FILE.exists():
-        typer.secho("❌ Configuration file not found. Please run `rarelink redcap-setup api` to configure your REDCap API.", fg=typer.colors.RED)
-        raise typer.Exit()
-    return json.loads(CONFIG_FILE.read_text())
+        typer.secho("❌ Configuration file not found. Please configure your REDCap API.", fg=typer.colors.RED)
+        raise typer.Exit(code=2)  # Exit with code 2 for missing config
 
+    try:
+        config = json.loads(CONFIG_FILE.read_text())
+        if "api_super_token" not in config or not config["api_super_token"]:
+            typer.secho("❌ API super token not found in your configuration.", fg=typer.colors.RED)
+            raise typer.Exit(code=2)  # Exit with code 2 for missing token
+        return config
+    except json.JSONDecodeError:
+        typer.secho("❌ Configuration file is not valid JSON.", fg=typer.colors.RED)
+        raise typer.Exit(code=2)
 
 @app.command()
-def rarelink_template_project():
+def upload():
     """
     Set up a RareLink template project in REDCap.
     """
@@ -38,7 +46,7 @@ def rarelink_template_project():
         typer.echo("👉 Please follow the instructions with your local REDCap administrator.")
         typer.echo("👉 To download the RareLink template XML, run:")
         typer.secho("rarelink redcap-setup download rarelink_template_project", fg=typer.colors.CYAN)
-        raise typer.Exit()
+        raise typer.Exit(code=2)  # Exit with code 2 for "no" response
 
     typer.secho("🔑 API Super Token detected. Proceeding with project creation...", fg=typer.colors.GREEN)
 
@@ -46,7 +54,7 @@ def rarelink_template_project():
     config = load_config()
     if "api_super_token" not in config or not config["api_super_token"]:
         typer.secho("❌ API super token not found in your configuration. Please update it.", fg=typer.colors.RED)
-        raise typer.Exit()
+        raise typer.Exit(code=2)
 
     # Example project details
     record = {
@@ -75,6 +83,8 @@ def rarelink_template_project():
             typer.secho("✅ RareLink template project created successfully.", fg=typer.colors.GREEN)
         else:
             typer.secho("❌ Failed to create the RareLink template project. Check your configuration and API permissions.", fg=typer.colors.RED)
+            raise typer.Exit(code=2)
 
     except requests.RequestException as e:
         typer.secho(f"❌ Error during API request: {e}", fg=typer.colors.RED)
+        raise typer.Exit(code=2)  # Exit with code 2 for exceptions
