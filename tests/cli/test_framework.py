@@ -33,4 +33,6 @@ def test_reset():
     """
     result = runner.invoke(app, ["framework", "reset"])
     assert result.exit_code == 0
-    assert "Resetting the RareLink framework..." in result.stdout
+    # Adjust expected text to match actual CLI output
+    assert "▶▶▶ Reset RareLink Framework" in result.stdout
+

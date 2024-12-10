@@ -95,8 +95,6 @@ def view():
                 "❌ No REDCap configuration found. Please run `redcap-setup api-config start` first."
             )
         )
-        print(f"Debug: CONFIG_FILE.exists() = {CONFIG_FILE.exists()}")  # Debug print
-        print(f"Debug: CONFIG_FILE path = {CONFIG_FILE}")  # Debug print
         raise typer.Exit(code=1)
 
     config = CONFIG_FILE.read_text()

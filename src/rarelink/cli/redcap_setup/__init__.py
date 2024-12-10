@@ -12,7 +12,7 @@ app = typer.Typer()
 app.add_typer(download_app, name="download", help="+ `--help`: Download the\
  current RareLink-CDM data dictionary, instruments, or the REDCap template\
  project.")
-app.add_typer(api_config_app, name="api", help="+ `--help`: Set up and view the REDCap\
+app.add_typer(api_config_app, name="api-config", help="+ `--help`: Set up and view the REDCap\
 API configuration for your local REDCap project.")
 app.command(name="start")(start_app) 
 app.add_typer(data_dictionary_app, name="data-dictionary", help="+ `upload`:\

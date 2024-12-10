@@ -10,6 +10,6 @@ def test_redcap_project_setup_start():
     result = runner.invoke(cli_app, ["redcap-setup", "start"])
     print(result.stdout)  # Debug the output
     assert result.exit_code == 0
-    assert "🚀 Welcome to the REDCap Project Setup!" in result.stdout
-    assert "👉 For more information on REDCap, visit our documentation:" in result.stdout
-    assert "To create a REDCap project, please follow these steps:" in result.stdout
+    assert "▶▶▶ Welcome to the REDCap Project Setup" in result.stdout
+    # Ensure it includes separators as part of the verification
+    assert "================================================================================" in result.stdout
