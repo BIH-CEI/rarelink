@@ -17,6 +17,6 @@ API configuration for your local REDCap project.")
 app.command(name="start")(start_app) 
 app.add_typer(data_dictionary_app, name="data-dictionary", help="+ `upload`:\
  Upload the most current RareLink-CDM Data Dictionary into an existing REDCap project.")
-app.add_typer(template_project_app, name="template-project", help="+ `--help`:\
- Setup the RareLink template project in your local REDCap instance. This\
- is only possible for REDCap administrators.")
+app.add_typer(template_project_app, name="template-project", help="+ `info`:\
+  The setup is currently unavailable via the CLI. \
+  Manual upload is ONLY possible for REDCap administrators.")

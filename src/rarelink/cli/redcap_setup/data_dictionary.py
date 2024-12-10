@@ -9,7 +9,6 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
     hyperlink,
     format_header,
-    format_command,
 )
 from rarelink.cli.utils.terminal_utils import end_of_section_separator, confirm_action
 
@@ -23,11 +22,15 @@ CHANGELOG_URL = "https://rarelink.readthedocs.io/en/latest/6_changelog.html"
 
 
 @app.command()
-def upload(config_file: Path = typer.Argument(..., help="Path to the REDCap API configuration file")):
+def upload():
     """
-    Upload the most current RareLink-CDM Data Dictionary into an existing REDCap project.
+    Upload the most current RareLink-CDM Data Dictionary into an existing
+    REDCap project.
     """
     format_header("RareLink-CDM Data Dictionary Upload")
+
+    # Prompt user for the configuration file path
+    config_file = Path(typer.prompt("Enter the path to your REDCap API configuration file"))
 
     # Check if the provided config file exists
     if not config_file.exists():
@@ -37,7 +40,8 @@ def upload(config_file: Path = typer.Argument(..., help="Path to the REDCap API 
                 f"`rarelink redcap-setup api-setup` or follow the documentation."
             )
         )
-        typer.echo(f"📖 Documentation: {hyperlink('Setup REDCap API', DOCS_REDCAP_API_URL)}")
+        typer.echo(f"📖 Documentation: {hyperlink('Setup REDCap API', 
+                   DOCS_REDCAP_API_URL)}")
         raise typer.Exit(code=2)
 
     # Load API configuration
@@ -69,7 +73,8 @@ def upload(config_file: Path = typer.Argument(..., help="Path to the REDCap API 
     ):
         typer.secho(
             error_text(
-                f"Upload canceled. Refer to the manual upload instructions here: {hyperlink('Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}"
+                f"Upload canceled. Refer to the manual upload instructions here: {
+                    hyperlink('Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}"
             )
         )
         raise typer.Exit()
@@ -97,7 +102,10 @@ def upload(config_file: Path = typer.Argument(..., help="Path to the REDCap API 
     # Next steps
     typer.secho(hint_text("\n👉 Next steps:"))
     typer.echo("1. View the uploaded dictionary in REDCap.")
-    typer.echo(f"2. Learn more about manual uploads here: {hyperlink('Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}")
-    typer.echo(f"3. Explore REDCap project setup documentation here: {hyperlink('Setup REDCap Project', DOCS_REDCAP_PROJECT_URL)}")
-    typer.echo(f"4. View the changelog for updates and changes here: {hyperlink('Changelog', CHANGELOG_URL)}")
+    typer.echo(f"2. Learn more about manual uploads here: {hyperlink(
+        'Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}")
+    typer.echo(f"3. Explore REDCap project setup documentation here: {hyperlink(
+        'Setup REDCap Project', DOCS_REDCAP_PROJECT_URL)}")
+    typer.echo(f"4. View the changelog for updates and changes here: {hyperlink(
+        'Changelog', CHANGELOG_URL)}")
     end_of_section_separator()
