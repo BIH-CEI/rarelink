@@ -59,9 +59,11 @@ def rarelink_cdm_datadictionary():
     typer.echo(f"1. Use {format_command('rarelink redcap-setup upload-data-dictionary')} "
                "to upload the data dictionary to your REDCap project.")
     typer.echo(
-        f"2. For more information or manual setup, check the {hyperlink('Installation guide - REDCap Instruments', DOCS_UPLOAD_DATA_DICTIONARY_URL)}")
+        f"2. For more information or manual setup, check the {hyperlink(
+            'Installation guide - REDCap Instruments', DOCS_UPLOAD_DATA_DICTIONARY_URL)}")
     typer.secho(
-        f"3. Please view the changelog for important updates or changes: {hyperlink('View Changelog', CHANGELOG_URL)}"),
+        f"3. Please view the changelog for important updates or changes: {hyperlink(
+            'View Changelog', CHANGELOG_URL)}"),
     end_of_section_separator()
 
 
@@ -72,9 +74,11 @@ def rarelink_cdm_instruments():
     """
     format_header("RareLink-CDM - Single Instruments Download")
     typer.echo(
-        f"📖 Learn more about the underlying CDM here: {hyperlink('RD-CDM Documentation', DOCS_RD_CDM_URL)}")
+        f"📖 Learn more about the underlying CDM here: {hyperlink(
+            'RD-CDM Documentation', DOCS_RD_CDM_URL)}")
     typer.echo(
-        f"📖 Learn more about the single RareLink-CDM Instruments here: {hyperlink('RareLink Instruments', DOCS_RARELINK_INSTRUMENTS_URL)}")
+        f"📖 Learn more about the single RareLink-CDM Instruments here: {hyperlink(
+            'RareLink Instruments', DOCS_RARELINK_INSTRUMENTS_URL)}")
 
     current_version = get_current_version()
     proceed = typer.confirm(
@@ -95,9 +99,11 @@ def rarelink_cdm_instruments():
         f"2. Use {format_command('rarelink redcap-setup upload-data-dictionary')} "
         "to upload the data dictionary to your REDCap project.")
     typer.echo(
-        f"3. For more information or manual setup check the {hyperlink('Installation guide - REDCap Instruments', DOCS_UPLOAD_DATA_DICTIONARY_URL)}")
+        f"3. For more information or manual setup check the {hyperlink(
+            'Installation guide - REDCap Instruments', DOCS_UPLOAD_DATA_DICTIONARY_URL)}")
     typer.secho(
-        f"4. Please view the changelog for important updates or changes: {hyperlink('View Changelog', CHANGELOG_URL)}"),
+        f"4. Please view the changelog for important updates or changes: {hyperlink(
+            'View Changelog', CHANGELOG_URL)}"),
     end_of_section_separator()
     
 @app.command()
@@ -109,11 +115,14 @@ def rarelink_template_project():
     """
     format_header("RareLink REDCap Project Download")
     typer.echo(
-        f"📖 Learn more about the underlying CDM here: {hyperlink('RD-CDM Documentation', DOCS_RD_CDM_URL)}")
+        f"📖 Learn more about the underlying CDM here: {hyperlink(
+            'RD-CDM Documentation', DOCS_RD_CDM_URL)}")
     typer.echo(
-        f"📖 Learn more about the RareLink-CDM in REDCap here: {hyperlink('RareLink-CDM Documentation', DOCS_RARELINK_CDM_URL)}")
+        f"📖 Learn more about the RareLink-CDM in REDCap here: {hyperlink(
+            'RareLink-CDM Documentation', DOCS_RARELINK_CDM_URL)}")
     typer.echo(
-        f"📖 Learn more about the REDCap Template Project here: {hyperlink('RareLink Core REDCap Project', RARELINK_TEMPLATE_PROJECT)}")
+        f"📖 Learn more about the REDCap Template Project here: {hyperlink(
+            'RareLink Core REDCap Project', RARELINK_TEMPLATE_PROJECT)}")
 
     current_version = get_current_version()
     proceed = typer.confirm(
@@ -133,11 +142,14 @@ def rarelink_template_project():
         "Note: You can only continue if you are a REDCap administrator. "
         "Otherwise, reach out to your REDCap admin to install the template project.")
     typer.echo(
-        f"For more information check the documentation: {hyperlink('RareLink Core REDCap Project', RARELINK_TEMPLATE_PROJECT)}")
+        f"For more information check the documentation: {hyperlink(
+            'RareLink Core REDCap Project', RARELINK_TEMPLATE_PROJECT)}")
     typer.echo(
-        f"If you're a REDCap admin, you can run {format_command('rarelink redcap-setup upload-project-template')}")
+        f"If you're a REDCap admin, you can run {format_command(
+            'rarelink redcap-setup upload-project-template')}")
     typer.secho(
-        f"-> Please view the changelog for important updates or changes: {hyperlink('View Changelog', CHANGELOG_URL)}"),
+        f"-> Please view the changelog for important updates or changes: {hyperlink(
+            'View Changelog', CHANGELOG_URL)}"),
     end_of_section_separator()
 
     

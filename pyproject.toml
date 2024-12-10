@@ -49,7 +49,10 @@ dependencies = [
     "sphinx-rtd-theme",
     "click", 
     "typer",
-    "pytest-mock"
+    "pytest-mock",
+    "getpass",
+    "tty",
+    "termios"
 ]
 dynamic = ["version"]
 

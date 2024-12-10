@@ -12,13 +12,13 @@ def error_text(text: str) -> str:
     """
     Format text to indicate an error in terminal output.
     """
-    return typer.style(text, fg=typer.colors.RED)
+    return typer.secho(text, fg=typer.colors.RED)
 
 def success_text(text: str) -> str:
     """
     Format text to indicate success in terminal output.
     """
-    return typer.style(text, fg=typer.colors.GREEN)
+    return typer.secho(text, fg=typer.colors.GREEN)
 
 def hint_text(text: str) -> str:
     """

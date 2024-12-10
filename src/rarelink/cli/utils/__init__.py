@@ -5,7 +5,8 @@ from .terminal_utils import (
     end_of_section_separator,
     display_progress_bar, 
     confirm_action,
-    display_banner
+    display_banner,
+    masked_input,
 )
 from .string_utils import (
     format_command,
@@ -44,6 +45,7 @@ __all__ = [
     "display_progress_bar",
     "confirm_action",
     "display_banner",
+    "masked_input",
     # String utils
     "format_command",
     "error_text",
