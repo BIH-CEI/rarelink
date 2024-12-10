@@ -72,8 +72,7 @@ def upload():
     ):
         typer.secho(
             error_text(
-                f"Upload canceled. Refer to the manual upload instructions here: {
-                    hyperlink('Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}"
+                f"Upload canceled. Refer to the manual upload instructions here: {hyperlink('Manual Upload Instructions', DOCS_MANUAL_UPLOAD_URL)}"
             )
         )
         raise typer.Exit()
