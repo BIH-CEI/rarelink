@@ -4,9 +4,10 @@ def app():
     """
     Start here if you want to set up your local REDCap Project for RareLink.
     """
-    typer.echo("🚀 Welcome to the REDCap Project Setup!")
+    typer.secho("▶▶️▶️ Welcome to the REDCap Project Setup!", 
+                    fg=typer.colors.BRIGHT_MAGENTA, bold=True)
     
-    typer.secho("=" * 120, fg=typer.colors.BRIGHT_BLACK) 
+    typer.secho("-" * 80, fg=typer.colors.BRIGHT_CYAN)
     
     typer.secho(
         "👉 For more information on REDCap, visit our documentation:",
