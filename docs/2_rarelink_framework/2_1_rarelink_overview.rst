@@ -3,10 +3,14 @@
 RareLink Overview
 =================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
+.. attention:: 
+    You will need your own REDCap instance to deploy the RareLink framework.
+    See the :ref:`3_2` for more information.
 
 RareLink aims to maximise the utility of REDCap by providing a comprehensive 
 framework designed specifically for rare disease (RD) research and care. 

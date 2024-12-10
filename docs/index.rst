@@ -5,6 +5,11 @@ Welcome to the RareLink REDCap Documentation!
     :target: https://rarelink.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
 RareLink is a novel framework designed for managing and processing rare disease 
 (RD) data within the REDCap. Rare diseases affect over 260 million individuals 
 worldwide, yet data quality and scarcity pose significant challenges in research 
