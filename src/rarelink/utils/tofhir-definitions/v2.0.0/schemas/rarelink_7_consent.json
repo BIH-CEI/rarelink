@@ -3,7 +3,7 @@
   "resourceType": "StructureDefinition",
   "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_7_consent",
   "version": "latest",
-  "name": "rarelink_7_consent",
+  "name": "Rarelink_7_consent",
   "status": "draft",
   "fhirVersion": "4.0.1",
   "kind": "logical",
@@ -25,9 +25,25 @@
         ]
       },
       {
+        "id": "Rarelink_7_consent.record_id",
+        "path": "Rarelink_7_consent.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "7.0 Record ID",
+        "short": "7.0 Record ID"
+      },
+      {
         "id": "Rarelink_7_consent.snomed_309370004",
         "path": "Rarelink_7_consent.snomed_309370004",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -59,7 +75,7 @@
       {
         "id": "Rarelink_7_consent.snomed_386318002",
         "path": "Rarelink_7_consent.snomed_386318002",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -75,7 +91,7 @@
       {
         "id": "Rarelink_7_consent.rarelink_consent_contact",
         "path": "Rarelink_7_consent.rarelink_consent_contact",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "type": [
           {
@@ -91,7 +107,7 @@
       {
         "id": "Rarelink_7_consent.rarelink_consent_data",
         "path": "Rarelink_7_consent.rarelink_consent_data",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "type": [
           {

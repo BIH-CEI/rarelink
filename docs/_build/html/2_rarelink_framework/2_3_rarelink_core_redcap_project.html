@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="RareLink CDM Instruments" href="../3_installation/3_1_rarelink_cdm_instruments.html" />
-    <link rel="prev" title="RareLink Data Dictionary" href="2_2_rarelink_cdm_instruments.html" /> 
+    <link rel="next" title="RareLink CLI" href="2_4_rarelink_cli.html" />
+    <link rel="prev" title="RareLink CDM Data Dictionary" href="2_2_rarelink_cdm_instruments.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,25 +58,25 @@
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">RareLink Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_rarelink_cdm_instruments.html">RareLink CDM Data Dictionary</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Core REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_4_rarelink_cli.html">RareLink CLI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_rarelink_cdm_instruments.html">RareLink CDM Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_extensional_instruments.html">Extensional REDCap Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_redcap_api.html">REDCap API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_rarelink_core_project.html">RareLink REDCap Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_5_import_mapper.html">Import Mapper Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_6_phenopacket_pipeline.html">Phenopacket Pipeline Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_7_fhir_pipeline.html">FHIR Pipeline Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_semiautomatic_data_capture.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_project_interaction.html">REDCap Project Interaction</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
 <ul>
@@ -121,7 +121,13 @@
              
   <section id="core-redcap-project">
 <span id="id1"></span><h1>Core REDCap Project<a class="headerlink" href="#core-redcap-project" title="Link to this heading"></a></h1>
-<p>The core REDCap project is an entire REDCap project that can be used to set up
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>To use your local REDCap project, you will need to set up a local REDCap
+instance. For this please contact your local REDCap administratior. A project
+name could for example be “RareLink - Your local REDCap location”.</p>
+</div>
+<p>The core RareLink project is an entire REDCap project that can be used to set up
 a new project in REDCap. The core REDCap project is a template project that
 contains all the necessary instruments and fields to collect the RareLink CDM
 data and preconfigurations for FHIR and Phenopckets export.</p>
@@ -129,6 +135,11 @@ data and preconfigurations for FHIR and Phenopckets export.</p>
 <ul class="simple">
 <li><p><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">RareLink</span> <span class="pre">Core</span> <span class="pre">REDCap</span> <span class="pre">Project</span></code></p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is still to be implemented in the docuemntation and the RareLink
+command line interface.</p>
+</div>
 <p>To install the core REDCap project, follow these steps:
 1. Download the core REDCap project XML file.
 2. Contact your local REDCap administrator to import the core REDCap project XML file.
@@ -138,17 +149,16 @@ data and preconfigurations for FHIR and Phenopckets export.</p>
 <div class="admonition-continue-here admonition">
 <p class="admonition-title">Continue here…</p>
 <ul class="simple">
-<li><p>Guide to install the <a class="reference internal" href="../3_installation/3_1_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink CDM Instruments</span></a></p></li>
-<li><p>Guide to develop the <a class="reference internal" href="../3_installation/3_2_extensional_instruments.html#id1"><span class="std std-ref">Extensional REDCap Instruments</span></a></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html#id1"><span class="std std-ref">Set up a REDCap Project</span></a></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html#id1"><span class="std std-ref">RareLink CDM Instruments</span></a></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_4_redcap_api.html#id1"><span class="std std-ref">Set up the REDCap API</span></a></p></li>
 <li><p>User guide for <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a></p></li>
-<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_2_semiautomatic_data_capture.html#id1"><span class="std std-ref">Semi-Automatic Data Capture</span></a></p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_2_import_mapper.html#id1"><span class="std std-ref">Semi-Automatic Data Capture</span></a></p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html#id1"><span class="std std-ref">Generate GA4GH Phenopackets</span></a></p></li>
 <li><p>User guide for <a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html#id1"><span class="std std-ref">Generate FHIR Resources</span></a></p></li>
-<li><p>How to set up the <a class="reference internal" href="../3_installation/3_3_redcap_api.html#id1"><span class="std std-ref">REDCap API</span></a></p></li>
-<li><p>How to deploy the <a class="reference internal" href="../3_installation/3_4_rarelink_core_project.html#id1"><span class="std std-ref">RareLink REDCap Project</span></a></p></li>
-<li><p>How to set up the <a class="reference internal" href="../3_installation/3_5_import_mapper.html#id1"><span class="std std-ref">Import Mapper Installation</span></a></p></li>
-<li><p>How to set up the <a class="reference internal" href="../3_installation/3_3_redcap_api.html#id1"><span class="std std-ref">REDCap API</span></a> and the <a class="reference internal" href="../3_installation/3_5_import_mapper.html#id1"><span class="std std-ref">Import Mapper Installation</span></a></p></li>
-<li><p>Guide to <a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html#id1"><span class="std std-ref">Generate FHIR Resources</span></a></p></li>
-<li><p>toFHIR Repository:</p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html#id1"><span class="std std-ref">Develop REDCap Instruments</span></a></p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_6_redcap_project_interaction.html#id1"><span class="std std-ref">REDCap Project Interaction</span></a></p></li>
 </ul>
 </div>
 </section>
@@ -157,8 +167,8 @@ data and preconfigurations for FHIR and Phenopckets export.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="2_2_rarelink_cdm_instruments.html" class="btn btn-neutral float-left" title="RareLink Data Dictionary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../3_installation/3_1_rarelink_cdm_instruments.html" class="btn btn-neutral float-right" title="RareLink CDM Instruments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2_2_rarelink_cdm_instruments.html" class="btn btn-neutral float-left" title="RareLink CDM Data Dictionary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_4_rarelink_cli.html" class="btn btn-neutral float-right" title="RareLink CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

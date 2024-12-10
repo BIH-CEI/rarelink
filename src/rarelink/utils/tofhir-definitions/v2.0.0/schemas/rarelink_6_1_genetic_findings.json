@@ -3,7 +3,7 @@
   "resourceType": "StructureDefinition",
   "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_1_genetic_findings",
   "version": "latest",
-  "name": "rarelink_6_1_genetic_findings",
+  "name": "Rarelink_6_1_genetic_findings",
   "status": "draft",
   "fhirVersion": "4.0.1",
   "kind": "logical",
@@ -23,6 +23,22 @@
             "code": "Element"
           }
         ]
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.record_id",
+        "path": "Rarelink_6_1_genetic_findings.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "6.1.0 Record ID",
+        "short": "6.1.0 Record ID"
       },
       {
         "id": "Rarelink_6_1_genetic_findings.genetic_diagnosis_code",
@@ -219,7 +235,7 @@
       {
         "id": "Rarelink_6_1_genetic_findings.variant_validation",
         "path": "Rarelink_6_1_genetic_findings.variant_validation",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -247,22 +263,6 @@
         ],
         "definition": "6.1.10 Gene [HGNC-NR]",
         "short": "6.1.10 Gene [HGNC-NR]"
-      },
-      {
-        "id": "Rarelink_6_1_genetic_findings.loinc_48018_6_label",
-        "path": "Rarelink_6_1_genetic_findings.loinc_48018_6_label",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/string"
-            ]
-          }
-        ],
-        "definition": "6.1.10A Gene Label",
-        "short": "6.1.10A Gene Label"
       },
       {
         "id": "Rarelink_6_1_genetic_findings.loinc_53034_5",

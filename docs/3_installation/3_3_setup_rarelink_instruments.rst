@@ -3,10 +3,10 @@
 RareLink CDM Instruments
 ============================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
 
 To install the RareLink CDM instruments, you will need to download the 
 instruments from the RareLink REDCap project.
@@ -17,35 +17,41 @@ instruments from the RareLink REDCap project.
 1. **Download the instruments from the RareLink REDCap project.**
 
 
-- :download:`Download RareLink CDM Data Dictionary v2.0.0 <../_static/res/rarelink_v2_0_0_datadictionary.csv>`
-- :download:`Download all RareLink CDM instruments seperately as a .zip file <../_static/res/rarelink_cdm_single_instruments.zip>`
+- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../../res/rarelink_cdm_v2_0_0_dev0_datadictionary.csv>`
+- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_0_dev0_single_instruments.zip>`
 
 Via the RareLink CLI type:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ...to be implemented
+    rarelink redcap-setup download --help
+
 _____________________________________________________________________________________
 
 2. **Import the instruments into your REDCap project.**
-
-.. image:: ../_static/res/redcap_gui_screenshots/DesignerTab.jpg
-  :alt: Designer tab
-  :align: right
-  :width: 400px
-  :height: 250px
-
-
-.. image:: ../_static/res/redcap_gui_screenshots/DataDictionary.jpg
-  :alt: Data Dictionary tab
-  :align: right
-  :width: 600px
 
 - Go to your REDCap project.
 - Click on the "Designer" tab on the left side of the screen.
 - Click on the "Data Dictionary" tab on the top of the screen.
 - Select the RareLink CDM Data Dictionary CSV file, or the separate instrument csv files.
 - Click on the "Import" button.
+
+_____________________________________________________________________________________
+
+.. image:: ../_static/res/redcap_gui_screenshots/DesignerTab.jpg
+  :alt: Designer tab
+  :align: center
+  :width: 400px
+  :height: 250px
+
+_____________________________________________________________________________________
+
+.. image:: ../_static/res/redcap_gui_screenshots/DataDictionary.jpg
+  :alt: Data Dictionary tab
+  :align: center
+  :width: 600px
+
+_____________________________________________________________________________________
 
 .. tip:: 
   Read pages 25 & 26 of the `Comprehensive Guide to REDCap <https://www.unmc.edu/vcr/_documents/unmc_redcap_usage.pdf>`_ for more information. 

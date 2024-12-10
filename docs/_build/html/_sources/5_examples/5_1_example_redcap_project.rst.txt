@@ -1,5 +1,7 @@
 Example - REDCap Project Setup
 =======================================
 
-example_redcap_project
 
+.. note::
+    This section is still to be implemented in the docuemntation and the RareLink
+    command line interface.

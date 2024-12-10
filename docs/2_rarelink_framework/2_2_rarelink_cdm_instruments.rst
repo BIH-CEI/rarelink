@@ -1,12 +1,12 @@
 .. _2_2:
 
-RareLink Data Dictionary
-========================
+RareLink CDM Data Dictionary
+=============================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
 
 In this section, we provide an overview of the instruments that are part of the
 RareLink Common Data Model (CDM), which is based on the :ref:`1_5`. 
@@ -22,6 +22,10 @@ instrument, ensuring consistency and comprehensive data capture.
 
 RareLink CDM Data Dictionary
 ----------------------------
+
+
+- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../../res/rarelink_cdm_v2_0_0_dev0_datadictionary.csv>`
+- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_0_dev0_instruments.zip>`
 
 
 RuleSet for Codes and Codesystems
@@ -48,7 +52,7 @@ ________
 
 The RareLink CDM Data Dictionary is available for download as a CSV file:
 
-:download:`Download RareLink CDM Data Dictionary v2.0.0 <../_static/res/rarelink_v2_0_0_datadictionary.csv>`
+:download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../_static/res/rarelink_v2_0_0_dev0_datadictionary.csv>`
 
 .. tip::
     Read :ref:`3_1` for more information on how to import the RareLink CDM Data Dictionary into your local REDCap project.

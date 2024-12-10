@@ -1,0 +1,199 @@
+{
+  "id": "observation.phenotypic_fetaure",
+  "url": "rarelink/observation.phenotypic_fetaure",
+  "name": "observation.phenotypic_fetaure",
+  "title": "RareLink Observation Phenotyic Feature",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkPhenotypicFeature",
+      "url": "rarelink//StructureDefinition/Rarelink_6_2_phenotypic_feature",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.phenotypic_fetaure",
+        "language": "application/fhir-template+json",
+        "value": {
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "registered",
+          "_status": {
+            "extension": [
+              {
+                "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                      "version": "{{'2024-09-01'}}",
+                      "code": "{{? mpp:getConcept(%phenotypeStatus, snomed_363778006, 'target_code')}}",
+                      "display": "{{? mpp:getConcept(%phenotypeStatus, snomed_363778006 , 'target_display')}}"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                "version": "{{'2024-08-13'}}",
+                "code": "{{? snomed_8116006}}"
+              }
+            ]
+          },
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                  "version": "{{'2024-08-13'}}",
+                  "code": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_display')}}"
+                }
+              ]
+            }
+          ],
+          "effectiveDateTime": "{{? snomed_8116006_onset}}",
+          "_effectiveDateTime": {
+            "extension": [
+              {
+                "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                      "version": "{{'2024-08-13'}}",
+                      "code": "{{'0034382'}}",
+                      "display": "{{'Resolution Date'}}"
+                    }
+                  ]
+                },
+                "valueDateTime": "{{? snomed_8116006_resolution}}"
+              }
+            ]
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                  "version": "{{'2024-08-13'}}",
+                  "code": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_display')}}"
+                }
+              ],
+              "text": "{{'Phenotypic Finding - Temporal Pattern'}}"
+            },
+            {
+              "coding": [
+                {
+                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                  "version": "{{'2024-08-13'}}",
+                  "code": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_display')}}"
+                }
+              ],
+              "text": "{{'Phenotypic Finding - Severity'}}"
+            }
+          ],
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "code": "{{? hp_0012823_snomed}}"
+              }
+            ],
+            "text": "{{'Phenotypic Finding - Body Site'}}"
+          },
+          "method": {
+            "coding": [
+              {
+                "system": "{{'https://www.evidenceontology.org/'}}",
+                "version": "{{'unknown'}}",
+                "code": "{{? phenotypicfeature_evidence}}"
+              }
+            ],
+            "text": "{{'Phenotypic Feature - Evidence'}}"
+          },
+          "component": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{'https://www.ncbi.nlm.nih.gov/taxonomy'}}",
+                    "version": "{{'2024-07-03'}}",
+                    "code": "{{? hp_0012823_ncbitaxon}}"
+                  }
+                ]
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+                    "version": "{{'2.0.0'}}",
+                    "code": "{{'hp_0012823_ncbitaxon'}}",
+                    "display": "{{'Phenotypic Feature - Causing Organism'}}"
+                  }
+                ]
+              }
+            }
+          ],
+          "extension": [
+            {
+              "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0'}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                    "version": "{{'2024-08-13'}}",
+                    "code": "{{? hp_0012823_hp1, hp_0012823_hp2, hp_0012823_hp3}}"
+                  }
+                ]
+              },
+              "valueCoding": {
+                "system": "{{'http://www.human-phenotype-ontology.org'}}",
+                "version": "{{'2024-08-13'}}",
+                "code": "{{'0012823'}}",
+                "display": "{{'Phenotypic Finding - Modifier'}}"
+              }
+            }
+          ]
+        }
+      },
+      "description": "RareLink Observation Phenotyic Feature"
+    }
+  ],
+  "context": {
+    "phenotypeStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6_2_2_status_phenotype.csv"
+    },
+    "phenotypeAgeOfOnset": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6_2_5_age_of_onset.csv"
+    },
+    "phenotypeTemporalPattern": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6_2_6_temporal_pattern.csv"
+    },
+    "phenotypeSeverity": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/6_2_7_phenotype_severity.csv"
+    }
+  }
+}

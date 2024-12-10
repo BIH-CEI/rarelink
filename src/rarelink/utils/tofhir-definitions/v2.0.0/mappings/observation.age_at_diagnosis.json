@@ -1,0 +1,68 @@
+{
+  "id": "observation.age_at_diagnosis",
+  "url": "rarelink/observation.age_at_diagnosis",
+  "name": "observation.age_at_diagnosis",
+  "title": "Observation Age at Diagnosis",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "RareLinkDisease",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_5_disease",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.age_at_diagnosis",
+        "language": "application/fhir-template+json",
+        "value": {
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "registered",
+          "code": {
+            "coding": [
+              {
+                "code": "{{'423493009'}}",
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "display": "{{'Age at Diagnosis'}}"
+              }
+            ]
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_code')}}",
+                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "version": "{{'2024-09-01'}}",
+                "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_display')}}"
+              }
+            ]
+          },
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "Observation Age at Diagnosis",
+      "precondition": {
+        "name": "ageDiagnosisExists",
+        "language": "text/fhirpath",
+        "expression": "snomed_423493009.empty().not()"
+      }
+    }
+  ],
+  "context": {
+    "rarelinkAgeAtDiagnosis": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/rarelink/5_5_age_at_diagnosis.csv"
+    }
+  }
+}

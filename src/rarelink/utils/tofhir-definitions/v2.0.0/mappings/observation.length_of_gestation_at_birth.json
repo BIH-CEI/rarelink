@@ -3,6 +3,7 @@
   "url": "rarelink/observation.length_of_gestation_at_birth",
   "name": "observation.length_of_gestation_at_birth",
   "title": "Observation RareLink CDM Gestation at Birth",
+  "isDraft": false,
   "source": [
     {
       "alias": "RareLinkPatientStatus",
@@ -17,31 +18,73 @@
         "name": "observation.length_of_gestation_at_birth",
         "language": "application/fhir-template+json",
         "value": {
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation",
           "status": "registered",
           "code": {
             "coding": [
               {
+                "code": "{{'412726003'}}",
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "code": "{{'412726003'}}",
                 "display": "{{'Length of Gestation at Birth [weeks+days]'}}"
               }
             ]
           },
           "component": [
             {
-              "code": ""
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{'412726003'}}",
+                    "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                    "version": "{{'2024-09-01'}}",
+                    "display": "{{'Length of Gestation at Birth [weeks]'}}"
+                  }
+                ]
+              },
+              "valueQuantity": {
+                "code": "{{'UO:0000034'}}",
+                "system": "{{'http://www.ontobee.org/ontology/UO'}}",
+                "value": "{{? snomed_412726003.utl:split('+').[0].toDecimal()}}",
+                "unit": "{{'week'}}"
+              }
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{'412726003'}}",
+                    "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                    "version": "{{'2024-09-01'}}",
+                    "display": "{{'Length of Gestation at Birth [days]'}}"
+                  }
+                ]
+              },
+              "valueQuantity": {
+                "code": "{{'UO:0000033'}}",
+                "system": "{{'http://www.ontobee.org/ontology/UO'}}",
+                "value": "{{? snomed_412726003.utl:split('+').[1].toDecimal()}}",
+                "unit": "{{'day'}}"
+              }
             }
           ],
-          "meta": {
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
-            ]
-          },
-          "resourceType": "Observation"
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
         }
       },
-      "description": "Observation of RareLink CDM Gestation at Birth"
+      "description": "Observation of RareLink CDM Gestation at Birth",
+      "precondition": {
+        "name": "gestationLengthExists",
+        "language": "text/fhirpath",
+        "expression": "snomed_412726003.empty().not()"
+      }
     }
   ],
   "context": {}

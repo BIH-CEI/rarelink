@@ -3,11 +3,22 @@
 Generate GA4GH Phenopackets
 ============================
 
+.. attention::
+    This section is still to be implemented in the docuemntation and the RareLink
+    command line interface.
+
 The Phenopacket Mapper allows users to generate validated GA4GH Phenopackets 
 from any tabular data. Rarelink specifies the how the data should be formatted 
 and coded and sheet should be built within REDCap to generate validated GA4GH
 Phenopackets. These specifications were preconfigured into the Phenopacket 
 Mapper for seamless generation of GA4GH Phenopackets from REDCap data. 
+
+Via the RareLink CLI type:
+
+.. code-block:: bash
+
+    rarelink setup -pipeline Phenopacket
+    rarelink pipeline -run Phenopacket
 
 Further Links Phenopacket Mapper
 ---------------------------------

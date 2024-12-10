@@ -3,19 +3,19 @@
   "resourceType": "StructureDefinition",
   "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
   "version": "latest",
-  "name": "rarelink_3_patient_status",
+  "name": "Rarelink_3_patient_status",
   "status": "draft",
   "fhirVersion": "4.0.1",
   "kind": "logical",
   "abstract": false,
-  "type": "rarelink_3_patient_status",
+  "type": "Rarelink_3_patient_status",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
   "derivation": "specialization",
   "differential": {
     "element": [
       {
-        "id": "rarelink_3_patient_status",
-        "path": "rarelink_3_patient_status",
+        "id": "Rarelink_3_patient_status",
+        "path": "Rarelink_3_patient_status",
         "min": 0,
         "max": "*",
         "type": [
@@ -25,8 +25,24 @@
         ]
       },
       {
-        "id": "rarelink_3_patient_status.patient_status_date",
-        "path": "rarelink_3_patient_status.patient_status_date",
+        "id": "Rarelink_3_patient_status.record_id",
+        "path": "Rarelink_3_patient_status.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "3.0 Record ID the of Individual",
+        "short": "3.0 Registry ID "
+      },
+      {
+        "id": "Rarelink_3_patient_status.patient_status_date",
+        "path": "Rarelink_3_patient_status.patient_status_date",
         "min": 0,
         "max": "1",
         "type": [
@@ -41,8 +57,8 @@
         "short": "Date of Completion for the Sheet"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_278844005",
-        "path": "rarelink_3_patient_status.snomed_278844005",
+        "id": "Rarelink_3_patient_status.snomed_278844005",
+        "path": "Rarelink_3_patient_status.snomed_278844005",
         "min": 0,
         "max": "1",
         "type": [
@@ -57,8 +73,8 @@
         "short": "3.1 Vital Status"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_398299004",
-        "path": "rarelink_3_patient_status.snomed_398299004",
+        "id": "Rarelink_3_patient_status.snomed_398299004",
+        "path": "Rarelink_3_patient_status.snomed_398299004",
         "min": 0,
         "max": "1",
         "type": [
@@ -73,8 +89,8 @@
         "short": "3.2 Time of Death"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_184305005",
-        "path": "rarelink_3_patient_status.snomed_184305005",
+        "id": "Rarelink_3_patient_status.snomed_184305005",
+        "path": "Rarelink_3_patient_status.snomed_184305005",
         "min": 0,
         "max": "1",
         "type": [
@@ -89,8 +105,8 @@
         "short": "3.3 Cause of Death [ICD10CM]"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_105727008",
-        "path": "rarelink_3_patient_status.snomed_105727008",
+        "id": "Rarelink_3_patient_status.snomed_105727008",
+        "path": "Rarelink_3_patient_status.snomed_105727008",
         "min": 0,
         "max": "1",
         "type": [
@@ -105,8 +121,8 @@
         "short": "3.4 Age Category"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_412726003",
-        "path": "rarelink_3_patient_status.snomed_412726003",
+        "id": "Rarelink_3_patient_status.snomed_412726003",
+        "path": "Rarelink_3_patient_status.snomed_412726003",
         "min": 0,
         "max": "1",
         "type": [
@@ -121,8 +137,8 @@
         "short": "3.5 Length of Gestation at Birth [weeks+days]"
       },
       {
-        "id": "rarelink_3_patient_status.snomed_723663001",
-        "path": "rarelink_3_patient_status.snomed_723663001",
+        "id": "Rarelink_3_patient_status.snomed_723663001",
+        "path": "Rarelink_3_patient_status.snomed_723663001",
         "min": 0,
         "max": "1",
         "type": [

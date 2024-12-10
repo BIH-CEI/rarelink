@@ -5,6 +5,11 @@ Welcome to the RareLink REDCap Documentation!
     :target: https://rarelink.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
 RareLink is a novel framework designed for managing and processing rare disease 
 (RD) data within the REDCap. Rare diseases affect over 260 million individuals 
 worldwide, yet data quality and scarcity pose significant challenges in research 
@@ -68,6 +73,7 @@ Sections
 - :doc:`2_rarelink_framework/2_1_rarelink_overview`
 - :doc:`2_rarelink_framework/2_2_rarelink_cdm_instruments`
 - :doc:`2_rarelink_framework/2_3_rarelink_core_redcap_project`
+- :doc:`2_rarelink_framework/2_4_rarelink_cli`
 
 3) Installation
 ------------
@@ -77,15 +83,12 @@ Sections
 - :doc:`3_installation/3_2_setup_redcap_project`
 - :doc:`3_installation/3_3_setup_rarelink_instruments`
 - :doc:`3_installation/3_4_redcap_api`
-- :doc:`3_installation/3_5_import_mapper`
-- :doc:`3_installation/3_6_phenopacket_pipeline`
-- :doc:`3_installation/3_7_fhir_pipeline`
 
 4) User Guide
 ----------
 - :doc:`4_user_guide/4_0_guide_file`
 - :doc:`4_user_guide/4_1_manual_data_capture`
-- :doc:`4_user_guide/4_2_semiautomatic_data_capture`
+- :doc:`4_user_guide/4_2_import_mapper`
 - :doc:`4_user_guide/4_3_phenopacket_mapper`
 - :doc:`4_user_guide/4_4_tofhir_module`
 - :doc:`4_user_guide/4_5_develop_redcap_instruments`
@@ -129,6 +132,7 @@ Additional Information
    2_rarelink_framework/2_1_rarelink_overview
    2_rarelink_framework/2_2_rarelink_cdm_instruments
    2_rarelink_framework/2_3_rarelink_core_redcap_project
+   2_rarelink_framework/2_4_rarelink_cli
 
 .. toctree::
    :caption: Installation & Development
@@ -139,9 +143,6 @@ Additional Information
    3_installation/3_2_setup_redcap_project
    3_installation/3_3_setup_rarelink_instruments
    3_installation/3_4_redcap_api
-   3_installation/3_5_import_mapper
-   3_installation/3_6_phenopacket_pipeline
-   3_installation/3_7_fhir_pipeline
 
 .. toctree::
    :caption: User Guide
@@ -149,7 +150,7 @@ Additional Information
    :hidden:
 
    4_user_guide/4_1_manual_data_capture
-   4_user_guide/4_2_semiautomatic_data_capture
+   4_user_guide/4_2_import_mapper
    4_user_guide/4_3_phenopacket_mapper
    4_user_guide/4_4_tofhir_module
    4_user_guide/4_5_develop_redcap_instruments
