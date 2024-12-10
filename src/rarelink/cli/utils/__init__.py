@@ -13,6 +13,7 @@ from .string_utils import (
     success_text,
     hint_text,
     hyperlink,
+    format_header
 )
 from .file_utils import (
     download_file,
@@ -49,6 +50,7 @@ __all__ = [
     "success_text",
     "hint_text",
     "hyperlink",
+    "format_header",
     # File utils
     "download_file",
     "ensure_directory_exists",

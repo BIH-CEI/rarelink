@@ -24,7 +24,7 @@ def hint_text(text: str) -> str:
     """
     Format text to indicate a warning in terminal output.
     """
-    return typer.style(text, fg=typer.colors.YELLOW, bold=True)
+    return typer.secho(text, fg=typer.colors.YELLOW)
 
 def hyperlink(text: str, url: str) -> str:
     """
@@ -36,7 +36,7 @@ def hyperlink(text: str, url: str) -> str:
     else:
         return f"{text} ({url})"
     
-def command_header(title: str, separator_length: int = 80):
+def format_header(title: str, separator_length: int = 80):
     """
     Print a styled header for a CLI command.
 
@@ -45,5 +45,5 @@ def command_header(title: str, separator_length: int = 80):
         separator_length (int): The length of the separator line (default: 80).
     """
     before_header_separator(separator_length)
-    typer.secho(title, fg=typer.colors.BRIGHT_MAGENTA, bold=True)
+    typer.secho(f"▶▶▶ {title}", fg=typer.colors.BRIGHT_MAGENTA, bold=True)
     after_header_separator(separator_length)
