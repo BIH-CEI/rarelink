@@ -3,10 +3,10 @@
 Set up the REDCap API
 ======================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this, please contact your local REDCap administrator. A project
-   name could, for example, be "RareLink - Your Local REDCap Location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
 
 The REDCap API for RareLink is a RESTful web service that allows users to 
 interact with REDCap programmatically. The API is designed to provide a simple 
@@ -26,7 +26,7 @@ In your terminal, write:
 
 .. code-block:: bash
 
-    rarelink framework-setup redcap-api-setup start
+    rarelink redcap-setup api-config start
 
 This command guides you through setting up the REDCap API for RareLink. You will be prompted to enter:
 - Your REDCap instance URL.
@@ -36,13 +36,13 @@ To view your current configuration:
 
 .. code-block:: bash
 
-    rarelink framework-setup redcap-api-setup view
+    rarelink redcap-setup api-config view
 
 To reset your REDCap API configuration:
 
 .. code-block:: bash
 
-    rarelink framework-setup redcap-api-setup reset
+    rarelink redcap-setup api-config reset
 
 .. tip:: 
    For help on any command, run:

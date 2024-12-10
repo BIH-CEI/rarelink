@@ -3,6 +3,11 @@
 RareLink CLI
 =============
 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
 The RareLink Command Line Interface (CLI) is a tool that allows you to interact
  with the RareLink framework. The CLI provides a set of commands that allow you
   to set up and manage the RareLink framework, as well as to interact with the 
@@ -11,33 +16,25 @@ The RareLink Command Line Interface (CLI) is a tool that allows you to interact
     RareLink framework.
 
 
-
 General CLI Command Groups
 --------------------------
 
 
-Framework Setup (``framework-setup``)
+Framework Setup (``framework``)
 _________________________________
 
 Commands related to setting up and managing the overall RareLink framework:
 
 .. code-block:: console
-    
-    rarelink framework-setup install
 
-This command installs all necessary RareLink framework dependencies and 
-functionalities.
-
-.. code-block:: console
-
-    rarelink framework-setup reset
+    rarelink framework reset
 
 This command clears all framework configurations and reverts it to its initial
 setup state.
 
 .. code-block:: console
 
-    rarelink framework-setup status
+    rarelink framework status
 
 This command provides a summary of the framework's current status and 
 version installed.
@@ -45,7 +42,7 @@ version installed.
 
 .. code-block:: console
 
-    rarelink framework-setup update
+    rarelink framework update
 
 This command updates the framework to the latest version.
 
@@ -60,7 +57,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup redcap-project-setup
+    rarelink redcap-setup --help
 
 guided project setup, documentation links, admin instructions
 
@@ -68,7 +65,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup redcap-api-setup 
+    rarelink redcap-setup api-config 
 
 - API token configuration and management, see :ref:`3_4` for more details and functionalities, and instructions.
 
@@ -76,7 +73,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup download
+    rarelink redcap-setup download --help
 
 - Download the most current RareLink-CDM data dictionary, the RareLink-CDM instruments, and the RareLink Template REDCap project. See :ref:`3_2`and :ref:`3_3` for more details and functionalities, and instructions.
 
@@ -84,7 +81,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup upload-data-dictionary
+    rarelink redcap-setup data-dictionary upload
 
 Upload the most current custom data dictionary
 

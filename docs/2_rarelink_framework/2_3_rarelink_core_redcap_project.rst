@@ -3,10 +3,10 @@
 Core REDCap Project
 ====================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
 
 The core RareLink project is an entire REDCap project that can be used to set up
 a new project in REDCap. The core REDCap project is a template project that

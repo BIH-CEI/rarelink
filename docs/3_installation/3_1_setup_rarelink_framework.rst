@@ -3,6 +3,11 @@
 Set up the RareLink Framework
 =============================
 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
 To set up the RareLink framework, follow these steps:
 
 **Install the RareLink framework dependencies.**
