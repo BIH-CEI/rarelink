@@ -37,6 +37,8 @@ def download_file(url: str, output_file: Path):
     except Exception as e:
         typer.secho(f"❌ Failed to download the file: {e}", fg=typer.colors.RED)
         raise typer.Exit(code=1)
+    
+downloads_folder = Path.home() / "Downloads"
 
 @app.command()
 def rarelink_cdm_datadictionary():
@@ -72,7 +74,7 @@ def rarelink_cdm_instruments():
     """
     Download the RareLink RD-CDM separate instruments as a .zip file.
     """
-    typer.secho("🚀 RareLink RD-CDM Instruments Download", fg=typer.colors.BRIGHT_BLUE, bold=True)
+    typer.secho("🚀 RareLink-CDM - Single Instruments Download", fg=typer.colors.BRIGHT_BLUE, bold=True)
     typer.echo(f"📖 Learn more about the RD-CDM here: {DOCS_RD_CDM_URL}")
     typer.echo(f"📖 Learn more about the single RareLink-CDM Instruments here: {DOCS_RARELINK_INSTRUMENTS_URL}")
     
@@ -80,9 +82,9 @@ def rarelink_cdm_instruments():
 
     current_version = get_current_version()
        
-    output_file = Path.home() / f"rarelink_rd_cdm_{current_version}_instruments.zip"
+    output_file = downloads_folder / f"rarelink_rd_cdm_{current_version}_instruments.zip"
     download_file(INSTRUMENTS_DOWNLOAD_URL, output_file)
-    typer.echo(f"3. View the changelog for important updates and changes here: {CHANGELOG_URL}")
+    typer.secho(f"Please also view the changelog for important updates and changes here: {CHANGELOG_URL}", fg=typer.colors.BRIGHT_YELLOW)
 
 @app.command()
 def rarelink_template_project():
@@ -97,4 +99,4 @@ def rarelink_template_project():
 
     output_file = Path.home() / "rarelink_redcap_project.xml"
     download_file(XML_PROJECT_DOWNLOAD_URL, output_file)
-    typer.echo(f"3. View the changelog for important updates and changes here: {CHANGELOG_URL}")
+    typer.secho(f"Please also view the changelog for important updates and changes here: {CHANGELOG_URL}", fg=typer.colors.BRIGHT_YELLOW)
