@@ -1,5 +1,5 @@
 Profile: IPSCondition
-Parent: https://build.fhir.org/ig/HL7/fhir-ips/StructureDefinition-Condition-uv-ips.html
+Parent: https://build.fhir.org/ig/HL7/fhir-ips/StructureDefinition-Condition-uv-ips.profile.json.html
 Id: ips.condition
 Title: "IPS Condition"
 Description: "RareLink IPS Condition profile based on the IPS 2.0.0-ballot specification."
@@ -7,10 +7,10 @@ Description: "RareLink IPS Condition profile based on the IPS 2.0.0-ballot speci
 * meta.profile[0] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
 * clinicalStatus 1..1
 * clinicalStatus.coding 1..1
-* clinicalStatus.coding[0].system = "http://terminology.hl7.org/CodeSystem/condition-clinical" (required)
+* clinicalStatus.coding[0].system from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
 * verificationStatus 1..1
 * verificationStatus.coding 1..1
-* verificationStatus.coding[0].system = "http://terminology.hl7.org/CodeSystem/condition-ver-status" (required)
+* verificationStatus.coding[0].system = http://terminology.hl7.org/CodeSystem/condition-ver-status (required)
 * subject 1..1
 * severity 0..1
 * severity.coding 0..1
