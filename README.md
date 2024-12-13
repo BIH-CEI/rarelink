@@ -171,9 +171,9 @@ the RareLink framework:
 ## Contributing
 
 Please write an issue or exchange with other users in the discussions if you
-encounter any problems or wish to give feedback. Feel free to reach out to us, 
-if you are interested in collaborating and improve the use of REDCap for rare 
-disease research and care.
+encounter any problems or wish to give feedback. Feel free to reach out to 
+adam.graefe@charite.de, if you are interested in collaborating and improve the
+use of REDCap for rare disease research and care.
 
 ## Resources 
 
@@ -208,7 +208,7 @@ We would like to extend our thanks to everyone in the last three years for their
 ---
 
 - Authors:
-  - [Adam Graefe](https://github.com/aslgraefe)
+  - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg)
   - Daniel Danis, PhD
   - Prof. Peter N. Robinson
