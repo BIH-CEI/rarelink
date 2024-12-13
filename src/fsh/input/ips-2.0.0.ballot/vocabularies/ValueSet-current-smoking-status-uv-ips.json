@@ -1,0 +1,117 @@
+{
+    "resourceType": "ValueSet",
+    "id": "current-smoking-status-uv-ips",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet current-smoking-status-uv-ips</b></p><a name=\"current-smoking-status-uv-ips\"> </a><a name=\"hccurrent-smoking-status-uv-ips\"> </a><a name=\"current-smoking-status-uv-ips-en-US\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/449868002\">449868002</a></td><td>Smokes tobacco daily (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/428041000124106\">428041000124106</a></td><td>Occasional tobacco smoker (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/8517006\">8517006</a></td><td>Ex-smoker (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/266919005\">266919005</a></td><td>Never smoked tobacco (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/77176002\">77176002</a></td><td>Smoker (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/266927001\">266927001</a></td><td>Tobacco smoking consumption unknown (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/230063004\">230063004</a></td><td>Heavy cigarette smoker (finding)</td></tr><tr><td><a href=\"http://snomed.info/id/230060001\">230060001</a></td><td>Light cigarette smoker (finding)</td></tr></table></li></ul></div>"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        },
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+            "valueInteger": 2,
+            "_valueInteger": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom",
+                        "valueCanonical": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips"
+                    }
+                ]
+            }
+        },
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "trial-use",
+            "_valueCode": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom",
+                        "valueCanonical": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips"
+                    }
+                ]
+            }
+        }
+    ],
+    "url": "http://hl7.org/fhir/uv/ips/ValueSet/current-smoking-status-uv-ips",
+    "version": "2.0.0",
+    "name": "CurrentSmokingStatusUvIps",
+    "title": "Current Smoking Status - IPS",
+    "status": "active",
+    "experimental": false,
+    "date": "2024-11-25T21:26:17+00:00",
+    "publisher": "HL7 International / Patient Care",
+    "contact": [
+        {
+            "name": "HL7 International / Patient Care",
+            "telecom": [
+                {
+                    "system": "url",
+                    "value": "http://www.hl7.org/Special/committees/patientcare"
+                }
+            ]
+        }
+    ],
+    "description": "HL7 IPS SNOMED value set for smoking status.  This value set includes a set of specific SNOMED CT codes (no subtypes included) that may be used to represent smoking status.\n\nSNOMED CT® ECL definition:\\\n449868002 |Smokes tobacco daily (finding)| OR 428041000124106 |Occasional tobacco smoker (finding)| OR 8517006 |Ex-smoker (finding)| OR 266919005 |Never smoked tobacco (finding)| OR 77176002 |Smoker (finding)| OR 266927001 |Tobacco smoking consumption unknown (finding)| OR 230063004 |Heavy cigarette smoker (finding)| OR 230060001 |Light cigarette smoker (finding)|",
+    "jurisdiction": [
+        {
+            "coding": [
+                {
+                    "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                    "code": "001",
+                    "display": "World"
+                }
+            ]
+        }
+    ],
+    "immutable": false,
+    "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement",
+    "compose": {
+        "include": [
+            {
+                "system": "http://snomed.info/sct",
+                "concept": [
+                    {
+                        "code": "449868002",
+                        "display": "Smokes tobacco daily (finding)"
+                    },
+                    {
+                        "code": "428041000124106",
+                        "display": "Occasional tobacco smoker (finding)"
+                    },
+                    {
+                        "code": "8517006",
+                        "display": "Ex-smoker (finding)"
+                    },
+                    {
+                        "code": "266919005",
+                        "display": "Never smoked tobacco (finding)"
+                    },
+                    {
+                        "code": "77176002",
+                        "display": "Smoker (finding)"
+                    },
+                    {
+                        "code": "266927001",
+                        "display": "Tobacco smoking consumption unknown (finding)"
+                    },
+                    {
+                        "code": "230063004",
+                        "display": "Heavy cigarette smoker (finding)"
+                    },
+                    {
+                        "code": "230060001",
+                        "display": "Light cigarette smoker (finding)"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "rarelink-ig",
+  "url": "https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig",
+  "version": "2.0.0-dev0",
+  "name": "RareLinkImplementationGuide",
+  "title": "RareLink Implementation Guide",
+  "status": "active",
+  "description": "An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR and the IPS 2.0.0 profiles, harmonizing international rare disease registries.\n",
+  "packageId": "rarelink-ig",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "uri": "http://hl7.org/fhir/R4/",
+      "version": "4.0.1",
+      "id": "hl7_fhir_r4_core"
+    },
+    {
+      "packageId": "hl7.fhir.uv.ips",
+      "uri": "https://build.fhir.org/ig/HL7/fhir-ips/",
+      "version": "1.1.0",
+      "id": "hl7_fhir_uv_ips"
+    },
+    {
+      "packageId": "ips-2.0.0",
+      "uri": "https://build.fhir.org/ig/HL7/fhir-ips/",
+      "version": "2.0.0",
+      "id": "ips_2_0_0"
+    }
+  ],
+  "definition": {
+    "resource": [],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": []
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024"
+      },
+      {
+        "code": "releaselabel",
+        "value": "dev0"
+      }
+    ]
+  }
+}

@@ -9,11 +9,11 @@ RareLink CLI
     software to ensure you have the latest updates and guidance.
 
 The RareLink Command Line Interface (CLI) is a tool that allows you to interact
- with the RareLink framework. The CLI provides a set of commands that allow you
-  to set up and manage the RareLink framework, as well as to interact with the 
-  data stored in the framework. The CLI is designed to be user-friendly and
-   intuitive, and it provides a simple and efficient way to work with the
-    RareLink framework.
+with the RareLink framework. The CLI provides a set of commands that allow you
+to set up and manage the RareLink framework, as well as to interact with the 
+data stored in the framework. The CLI is designed to be user-friendly and
+intuitive, and it provides a simple and efficient way to work with the RareLink
+framework.
 
 
 General CLI Command Groups
