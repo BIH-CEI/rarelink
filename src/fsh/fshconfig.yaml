@@ -1,0 +1,12 @@
+canonical: http://example.org/fhir
+id: rarelink-ig
+name: RareLinkImplementationGuide
+version: 0.1.0
+status: active
+dependencies:
+  hl7.fhir.uv.ips: # Reference for official IPS repository (1.1.0)
+    uri: https://build.fhir.org/ig/HL7/fhir-ips/
+    version: 1.1.0
+  ips-2.0.0: # Local reference for IPS 2.0.0 (manually integrated)
+    uri: https://build.fhir.org/ig/HL7/fhir-ips/
+    version: 2.0.0
