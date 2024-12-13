@@ -17,7 +17,7 @@ Clone the repository and install the dependencies:
 
 .. code-block:: bash
 
-    pip install -e .
+    pip install .
 
 Via the RareLink CLI, type:
 
@@ -31,7 +31,7 @@ To update the RareLink framework:
 
 .. code-block:: bash
 
-    pip install --upgrade rarelink
+    rarelink framework update
 
 This command updates the framework to the latest version.
 
@@ -39,11 +39,7 @@ To check the current framework status:
 
 .. code-block:: bash
 
-    pip show rarelink
-
-    or
-
-    python -m rarelink --version
+    rarelink framework status
 
 This command provides a summary of the framework's current status.
 
@@ -51,7 +47,7 @@ To reset the framework to its initial state:
 
 .. code-block:: bash
 
-    pip uninstall rarelink -y && pip install rarelink
+    rarelink framework reset
 
 This command clears all framework configurations and reverts it to its initial setup state.
 
@@ -63,7 +59,7 @@ Via the RareLink CLI type:
 
 .. code-block:: bash
 
-    rarelink setup -pipeline import_mapper
+    to be implemented
 
 This command guides you through setting up the Import Mapper pipeline for RareLink.
 You will be prompted to enter:
@@ -78,7 +74,7 @@ Via the RareLink CLI type:
 
 .. code-block:: bash
 
-    rarelink setup -pipeline phenopackets
+    to be implemented
 
 This command guides you through setting up the Phenopacket pipeline for RareLink.
 You will be prompted to enter:
@@ -89,7 +85,7 @@ ___________________________
 
 .. code-block:: bash
 
-    rarelink setup -pipeline fhir
+    to be implemented
 
 This command guides you through setting up the FHIR pipeline for RareLink. 
 You will be prompted to enter:
