@@ -1,12 +1,16 @@
-# RareLink
+# RareLink REDCap
 
 Rare Disease Interoperability Framework in REDCap linking international
  registries, FHIR and Phenopackets.
 
 > ⚠️ **Note:** RareLink v2.0.0.dev0 is currently under development, and many things are subject to change. Please reach out before implementing or using the software to ensure you have the latest updates and guidance.
 
+
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
+![CLI Tests](https://img.shields.io/github/actions/workflow/status/BIH-CEI/rarelink/cli_tests.yml?label=CLI%20Tests&color=purple)
+![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+
 
 [Stable Documentation](https://rarelink.readthedocs.io/en/stable/)  
 [Latest Documentation](https://rarelink.readthedocs.io/en/latest/) 
@@ -25,91 +29,144 @@ Rare Disease Interoperability Framework in REDCap linking international
 
 ## Project Description
 
-RareLink - A Rare Disease Interoperability Framework in REDCap to enable 
-Registry Use, HL7 FHIR® and the GA4GH Phenopacket Schema© including 
-comprehensive documentation for data management and user guides.
-This includes data capture, import, export, project set up and and is ready for 
-clinical use management in clinical care or research.
+RareLink - A Rare Disease Framework in REDCap that connects international 
+registries, FHIR standards, and Phenopackets. It provides comprehensive 
+documentation and user guides to enable sustainable data management for your 
+local rare disease REDCap project.
+
+Built on the [RD-CDM](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html), 
+all RareLink-CDM pipelines are preconfigured to generate FHIR resources compliant
+with the [HL7 International Patient Summary](https://build.fhir.org/ig/HL7/fhir-ips/) 
+or validated GA4GH Phenopackets. For disease-specific extensions, detailed guides  
+are available to help you develop sheets that integrate seamlessly with the 
+RareLink framework.
+
+If you are familiar with REDCap but lack coding experience, you can still set up 
+your local RareLink REDCap project and begin capturing data. However, some coding 
+experience is recommended for accessing advanced functionalities.
 
 ## Features
 
 REDCap is a widely-used clinical electronic data capture system, licensed by 
-numerous university hospitals and institutions worldwide. RareLink provides 
-detailed specifications on how REDCap sheets and data should be structured and 
-encoded to ensure seamless integration with both the HL7 FHIR and GA4GH 
-Phenopacket pipelines. RareLink is built upon the [Rare Disease Common Data 
-Model v2.0](https://figshare.com/articles/dataset/_b_Common_Data_Model_for_Rare_Diseases_b_based_on_the_ERDRI-CDS_HL7_FHIR_and_the_GA4GH_Phenopackets_Schema_v2_0_/26509150), with all functionalities preconfigured for ease of use. 
-For disease-specific extensions, such as [Domain Specific Data Elements](https://pubmed.ncbi.nlm.nih.gov/35594066/), we offer clear rules and specifications to facilitate the 
-development of additional REDCap sheets, ensuring their seamless integration 
-into RareLink's preconfigured data pipelines.
+institutions worldwide. RareLink enhances REDCap by providing detailed 
+guidelines for structuring and encoding data to ensure seamless integration 
+with its preconfigured FHIR and Phenopacket pipelines. Built on the 
+[Rare Disease Common Data Model v2.0 (RD-CDM)](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html)
+RareLink is ready-to-use and extensible for disease-specific requirements.
 
 ![RareLink](https://github.com/user-attachments/assets/b5a09b05-68c8-43ef-b624-e11bd8bda475)
 
-RareLink integrates the following features for Rare Disease data management in 
+RareLink integrates the following features for rare disease data management in 
 REDCap: 
-1. *Native REDCap usage*: downloadable REDCap forms of all RD CDM sections 
-including documentation and manuals for installing and setting up your local 
-REDCap project, manual data capture guides, connecting BioPortal.
-2. *Semi-Automated Data Capture (from Tabluar Data) with [OntoBridge](https://github.com/InformaticaClinica/OntoBridge)*: Our RD CDM is defined as an SQL-based common 
-data model for OntoBridge usage. This allows the syntactic mapping of 
-existing tabular data bases with our RD CDM. While the semantinc mapping and 
-encoding must be done locally, we provide guidelines on how to process your 
-local data according to our specifications. This enables the subsequent 
-validation, upload to your local REDCap project, and the usage of the HL7 FHIR 
-and GA4GH Phenopacket pipelines. 
-3. *GA4GH Phenopacket Mapper*: RareLink utilises the [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper) and predefines its configuration for all native RareLink 
-REDCap instruments that allow the procesing of the entire RD CDM viable for 
-Phenopacket export. To allow for data capture around the RD CDM, we provide
-precise guidelines on how to develop REDCap instruments and sheets, specifically 
-the encoding of all variables and data elements, to also enable the data export 
-to validated Phenopackets.
-4. *Automated Export to local HL7 FHIR Resources or HL7 FHIR server*: utilising 
-the integrated [_toFHIR_ Module](https://github.com/srdc/tofhir), RareLink
-provides the preconfiguration for all native RareLink REDCap instruments that
-allow the procesing of the entire RD CDM viable for HL7 FHIR v4.0.1 export. 
 
+1. **RareLink CLI**: Set up and manage your project via the 
+   [Command Line Interface](https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_4_rarelink_cli.html), 
+   including API setup, instrument configuration, and running FHIR or Phenopacket 
+   pipelines.
+2. **Native REDCap Usage**: Downloadable REDCap forms for all [RD-CDM sections](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html), 
+   complete with installation guides and manuals for manual data capture and 
+   BioPortal connection.
+3. **Semi-Automated Data Capture**: Use a template script to map your tabular
+   data to the RareLink-CDM, which is in [LinkML](https://github.com/linkml/).
+   This process includes syntactic mapping, local semantic encoding, validation,
+   and data upload to REDCap for FHIR or Phenopacket export.
+4. **Phenopacket Export**: Predefined configurations enable seamless export of 
+   the RD-CDM data to validated Phenopackets utilising the [Phenopacket Mapper]((https://github.com/BIH-CEI/phenopacket_mapper)).
+   RareLink guides ensure compatibility for developing custom REDCap instruments
+   and [LinkML-based](https://github.com/linkml/) extensions.
+5. **HL7 FHIR Export**: RareLink uses the open-source 
+   [_toFHIR_ Engine](https://github.com/srdc/tofhir) to export data to any FHIR 
+   server, supporting profiles based on the 
+   [International Patient Summary v2.0.0.ballot](https://build.fhir.org/ig/HL7/fhir-ips/) 
+   or FHIR Base Resources (v4.0.1).
+6. **RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
+   extensions ensure compatibility with the RareLink framework and its pipelines.
 
 ## Getting Started
 
-Instructions on how to set up and run your project locally please read the docs 
-here(tbc). To provide a short overview:
-1. Set up your local REDCap license and project, if desired using RareLink's 
-project set up
-2. Install packages necessary and activate REDCap API for you project
-3. Run the installation packages defined for the specific functionalities
-you want to use linked to your local REDCap API.
-4. Run the functionalities you need to generate HL7 FHIR resources 
-or GA4GH Phenopackets. 
+Begin by exploring the RareLink [Background section](https://rarelink.readthedocs.io/en/latest/1_background/1_0_background_file.html) 
+to understand the framework's scope and components.
 
-### Prerequisites
+To start using RareLink, ensure you have access to a local REDCap license and a 
+running REDCap server. For more information, visit the official REDCap site: 
+[https://projectredcap.org/partners/join/](https://projectredcap.org/partners/join/). 
+If your institution already provides a REDCap instance, proceed to the RareLink 
+Documentation on [Setting Up a REDCap Project](https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html#).
 
-You need a local REDCap license and REDCap server running. For more information
-please see: https://projectredcap.org/partners/join/
+## Installation
 
-### Installation
+RareLink can be set up using various Python project management approaches. One 
+common method is to use a virtual environment. Below is an example where the 
+virtual environment is named `rarelink-venv`, but you can name it as you prefer:
 
+```bash
+python3 -m venv rarelink-venv
+source rarelink-venv/bin/activate
+pip install --upgrade pip
+```
 
+Next, clone the RareLink repository, navigate to its root directory, and install RareLink using:
+```bash
+pip install rarelink
+```
 
-#### RareLink REDCap Project
+### Framework setup 
 
-RareLink provides an entire REDCap project structure that can be downloaded
-here. For more information please see our documenation here.
+To ensure you have the latest version of RareLink installed and to check the current version, run:
+```bash
+rarelink framework update
+rarelink framework status
+```
 
-#### Semi-Automated Import from existing tabular data bases
+### REDCap setup
 
-To process and capture existing local tabular data bases of rare disease data
-using OntoBridge please see our detailed user guide [here](https://rarelink.readthedocs.io/en/latest/user_guide/ontobridge.html)
+To set up your local REDCap project, run:
+```bash
+rarelink redcap-setup start
+```
 
-#### Generation of HL7 FHIR v4.0.1 Resources
+For additional setup guidance, use:
+```bash
+rarelink redcap-setup --help
+```
 
-To generate HL7 FHIR Resources, please find more information in our
-documentation [here](https://rarelink.readthedocs.io/en/latest/user_guide/tofhir_module.html)
+This will provide details about available commands, such as:
 
-#### Phenopackets Pipeline
+- `rarelink redcap-setup api-config --help` for configuring, viewing, or 
+  reseting your local API config file.
+- `rarelink redcap-setup download --help` for downloading RareLink REDCap sheets.
+- `rarelink redcap-setup data-dictionary upload` to upload the RareLink-CDM sheets 
+  to your REDCap project.
 
-To utilise the RareLink configuration of the Phenopacket Pipeline for 
-the native RareLink sheets, or other REDCap data, please find detailed 
-information [here](https://rarelink.readthedocs.io/en/latest/user_guide/phenopacket_mapper.html).
+> **Note**: Ensure that your local REDCap administrator has granted you API 
+  access to your REDCap project. Remember that the API token is sensitive 
+  information, so store it securely!
+
+### Semi-Automated Import to REDCap
+
+To process and import your local (tabular) rare disease datasets into your 
+RareLink REDCap project, refer to the user guide on 
+[Semi-Automatic Data Capture](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_2_import_mapper.html).
+
+### Export REDCap Data to FHIR
+
+To export [IPS](https://build.fhir.org/ig/HL7/fhir-ips/)-based FHIR resources to 
+your local FHIR server, refer to the user guide on the 
+[IPS RareLink FHIR Export](https://rarelink.readthedocs.io/en/latest/user_guide/tofhir_module.html).
+
+### Export REDCap Data to Phenopackets
+
+To export your REDCap RareLink data to validated Phenopackets, refer to the user 
+guide on the 
+[RareLink Phenopacket Export](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_3_phenopacket_mapper.html).
+
+### Extensional Data Modeling in REDCap
+
+To develop your local REDCap database for disease-specific extensions around the 
+[RD-CDM](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html), 
+refer to the guide on how to develop and model REDCap sheets for processing by 
+the RareLink framework: 
+[RD-CDM RareLink Extension Guide](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html).
 
 ## Contributing
 
@@ -133,9 +190,11 @@ disease research and care.
 
 ### Submodules
 - [RD-CDM](https://github.com/BIH-CEI/rd-cdm)
-- [toFHIR](https://github.com/srdc/tofhir?tab=readme-ov-file)
+- [toFHIR](https://github.com/srdc/tofhir)
+- [toFHIR-redcap](https://github.com/srdc/tofhir-redcap)
 - [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
-
+- [HL7 FHIR-IPS](https://github.com/HL7/fhir-ips)
+- [LinkML](https://github.com/linkml/linkml)
 
 ## License
 
@@ -143,7 +202,8 @@ This project is licensed under the terms of the [MIT License](https://github.com
 
 ## Acknowledgements
 
-We would like to extend our thanks to ... for his support in the development of this project.
+We would like to extend our thanks to everyone in the last three years for their
+ support in the development of this project.
 
 ---
 
