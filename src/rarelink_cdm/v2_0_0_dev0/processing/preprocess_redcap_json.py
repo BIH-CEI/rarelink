@@ -1,5 +1,6 @@
 import json
-from ..helpers.field_mappings import FIELD_MAPPINGS
+
+from . import FIELD_MAPPINGS
 
 
 def preprocess_redcap_data(flat_data):
