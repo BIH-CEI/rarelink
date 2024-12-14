@@ -1,0 +1,44 @@
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0.dev0/linkml/rarelink_1_formal_criteria.yaml
+name: rarelink_1_formal_criteria
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+default_range: string
+default_prefix: rarelink_1_formal_criteria
+
+classes:
+  formalCriteria:
+    description: Section containing the RareLink (1) Formal Criteria Sheet
+    slots:
+      - snomed_422549004
+      - snomed_399423000
+      - rarelink_1_formal_criteria_complete
+
+  # Container:
+  #   description: >
+  #     The container for the section (1) Formal Criteria 
+  #     instances of the RareLink CDM.
+  #     Allows managing multiple formal criteria instances.
+  #   attributes:
+  #     formalCriteriaInstances:
+  #       multivalued: true
+  #       inlined_as_list: true
+  #       range: formalCriteria
+
+slots:
+  snomed_422549004:
+    description: The (local) patient-related identification code
+    range: string
+    required: true
+    identifier: true
+
+  snomed_399423000:
+    description: The date of admission or data capture of the individual
+    range: date
+    required: true
+
+  rarelink_1_formal_criteria_complete:
+    description: Completion status of this section
+    range: string
+    required: false

@@ -1,0 +1,33 @@
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2.0.0.dev0/linkml/rarelink_repeated_elements.yaml
+name: rarelink_repeated_elements
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
+default_range: string
+default_prefix: rarelink_repeated_elements
+
+classes:
+  RepeatedElement:
+    description: >
+      A generic container for repeated elements such as instruments and their 
+      instances used to define repeating data structures across the RareLink-CDM.
+    slots:
+      - redcap_repeat_instrument
+      - redcap_repeat_instance
+    attributes:
+      patientStatus:
+        range: PatientStatus
+        required: false
+
+slots:
+  redcap_repeat_instrument:
+    description: If applicable, the repeated REDCap instrument name
+    range: string
+    required: false
+
+  redcap_repeat_instance:
+    description: If applicable, the REDCap instrument's repetition instance
+    range: integer
+    required: false

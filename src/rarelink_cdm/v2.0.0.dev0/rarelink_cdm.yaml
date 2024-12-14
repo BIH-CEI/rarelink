@@ -1,0 +1,61 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_cdm.yaml
+name: rarelink_cdm
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
+  - rarelink_1_formal_criteria
+  - rarelink_2_personal_information
+  - rarelink_3_patient_status
+default_prefix: rarelink_cdm
+default_range: string
+
+classes:
+  Record:
+    description: >
+      Base class for all records, containing nested data for formal criteria,
+      personal information, patient status, and other sections. The record ID uniquely identifies a record.
+    slots:
+      - record_id
+      - formalCriteria
+      - personalInformation
+      - repeatedElements
+    tree_root: true
+
+  RepeatedElement:
+    description: >
+      A container for repeating forms (e.g., patient status, encounters).
+    attributes:
+      redcap_repeat_instrument:
+        range: string
+        required: true
+      redcap_repeat_instance:
+        range: integer
+        required: false
+      patientStatus:
+        range: PatientStatus
+        required: false
+
+slots:
+  record_id:
+    description: The unique record identifier assigned by the local REDCap project
+    range: string
+    required: true
+    identifier: true
+
+  formalCriteria:
+    description: Nested section containing formal criteria data
+    range: FormalCriteria
+    required: false
+
+  personalInformation:
+    description: Nested section containing personal information data
+    range: PersonalInformation
+    required: false
+
+  repeatedElements:
+    description: Container for repeated elements
+    multivalued: true
+    inlined_as_list: true
+    range: RepeatedElement
