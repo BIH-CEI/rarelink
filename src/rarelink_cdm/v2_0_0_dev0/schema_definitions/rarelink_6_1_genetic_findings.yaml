@@ -49,7 +49,7 @@ classes:
 slots:
   genetic_diagnosis_code:
     description: The encoding system used for the genetic diagnosis (e.g., MONDO, OMIM)
-    range: GeneticDiagnosisCode
+    range: string
     required: true
 
   snomed_106221001_mondo:
@@ -168,15 +168,6 @@ slots:
     required: true
 
 enums:
-  GeneticDiagnosisCode:
-    permissible_values:
-      mondo:
-        description: MONDO ontology
-        meaning: MONDO:
-      omim:
-        description: Online Mendelian Inheritance in Man
-        meaning: OMIM:
-
   InterpretationProgressStatus:
     permissible_values:
       ga4gh_unknown_progress:

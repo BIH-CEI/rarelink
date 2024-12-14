@@ -5,9 +5,9 @@ prefixes:
   rarelink: https://github.com/BIH-CEI/rarelink/
   SNOMED: http://snomed.info/sct/
   LOINC: https://loinc.org/
-  MONDO: http://purl.obolibrary.org/obo/MONDO_
-  HL7FHIR: https://hl7.org/fhir/
-  ICD10CM: https://bioportal.bioontology.org/ontologies/ICD10CM
+  MONDO: https://purl.obolibrary.org/obo/MONDO_
+  HL7FHIR: http://hl7.org/fhir/
+  ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
   - linkml:types
   - rarelink_types
@@ -117,8 +117,8 @@ slots:
   family_member_disease:
     description: >
       Indicates whether the selected family member is affected by the same RD 
-      as the individual or a different rare disease.
-    range: MONDOCode
+      as the individual or a different rare disease, encoded with MONDO
+    range: string
     required: false
 
   rarelink_6_4_family_history_complete:

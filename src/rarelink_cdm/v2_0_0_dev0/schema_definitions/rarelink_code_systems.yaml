@@ -22,17 +22,17 @@ enums:
 
   MONDO:
     description: Monarch Disease Ontology
-    code_set: https://purl.obolibrary.org/obo/mondo.owl
+    code_set: https://purl.obolibrary.org/obo/MONDO/
     code_set_version: "2024-09-03"
 
-  HPO:
+  HP:
     description: Human Phenotype Ontology
     code_set: https://www.human-phenotype-ontology.org
     code_set_version: "2024-08-13"
 
   LOINC:
     description: Logical Observation Identifiers Names and Codes
-    code_set: https://loinc.org/
+    code_set: http://loinc.org
     code_set_version: "2.78"
 
   OMIM:
@@ -72,7 +72,7 @@ enums:
 
   HL7FHIR:
     description: Health Level 7 Fast Healthcare Interoperability Resources
-    code_set: https://www.hl7.org/fhir/
+    code_set: https://www.hl7.org/fhir
     code_set_version: "v4.0.1"
 
   ICD11:
@@ -82,7 +82,7 @@ enums:
 
   ICD10CM:
     description: International Classification of Diseases, Tenth Revision, Clinical Modification
-    code_set: https://www.cdc.gov/nchs/icd/icd10cm.htm
+    code_set: https://icd10cmtool.cdc.gov/
     code_set_version: "2024-09-01"
 
   ICD10GM:
@@ -134,7 +134,7 @@ classes:
         required: true
       hpo:
         description: Human Phenotype Ontology
-        range: HPO
+        range: HP
         required: true
       loinc:
         description: Logical Observation Identifiers Names and Codes

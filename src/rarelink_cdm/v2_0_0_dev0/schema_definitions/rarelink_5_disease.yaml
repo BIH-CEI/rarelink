@@ -5,7 +5,7 @@ prefixes:
   rarelink: https://github.com/BIH-CEI/rarelink/
   MONDO: https://purl.obolibrary.org/obo/MONDO_
   ORDO: http://www.orpha.net/ORDO/
-  ICD10CM: https://bioportal.bioontology.org/ontologies/ICD10CM/
+  ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
   ICD11: https://id.who.int/icd/release/11/
   OMIM: https://omim.org/entry/
 imports:
@@ -40,7 +40,7 @@ classes:
 slots:
   disease_coding:
     description: The encoding system used for the disease (e.g., MONDO, ORDO, ICD10CM, etc.)
-    range: DiseaseCoding
+    range: string
     required: true
 
   snomed_64572001_mondo:

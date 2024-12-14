@@ -1,4 +1,4 @@
-id: https://github.com/BIH-CEI/RareLink/rarelink_6_2_phenotypic_feature.yaml
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_0_dev0/linkml/rarelink_6_2_phenotypic_feature.yaml
 name: rarelink_6_2_phenotypic_feature
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -18,96 +18,96 @@ classes:
     description: >
       The section Phenotypic Feature (6.2) of the RareLink CDM.
     slots:
-      - phenotypic_feature
-      - status
-      - determination_date
-      - resolution_date
-      - age_of_onset
-      - temporal_pattern
-      - severity
-      - clinical_modifier_hp1
-      - clinical_modifier_hp2
-      - clinical_modifier_hp3
-      - causing_organism
-      - primary_body_site
-      - evidence
+      - snomed_8116006
+      - snomed_363778006
+      - snomed_8116006_onset
+      - snomed_8116006_resolution
+      - hp_0003674
+      - hp_0011008
+      - hp_0012824
+      - hp_0012823_hp1
+      - hp_0012823_hp2
+      - hp_0012823_hp3
+      - hp_0012823_ncbitaxon
+      - hp_0012823_snomed
+      - phenotypicfeature_evidence
       - rarelink_6_2_phenotypic_feature_complete
 
 slots:
-  phenotypic_feature:
+  snomed_8116006:
     description: >
       An observed physical and clinical characteristic encoded with HPO.
     range: string
     required: true
 
-  status:
+  snomed_363778006:
     description: >
       The current status of the phenotypic feature, indicating whether it is confirmed or refuted.
     range: PhenotypicFeatureStatus
     required: false
 
-  determination_date:
+  snomed_8116006_onset:
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
     range: date
     required: false
 
-  resolution_date:
+  snomed_8116006_resolution:
     description: >
       Time at which the feature resolved or abated.
     range: date
     required: false
 
-  age_of_onset:
+  hp_0003674:
     description: >
       The age of onset of the phenotypic feature, encoded with HPO.
     range: AgeOfOnset
     required: false
 
-  temporal_pattern:
+  hp_0011008:
     description: >
       The temporal pattern of the phenotypic feature, encoded with HPO.
     range: TemporalPattern
     required: false
 
-  severity:
+  hp_0012824:
     description: >
       The severity of the phenotypic feature, encoded with HPO.
     range: PhenotypeSeverity
     required: false
 
-  clinical_modifier_hp1:
+  hp_0012823_hp1:
     description: >
       Further clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
-  clinical_modifier_hp2:
+  hp_0012823_hp2:
     description: >
       Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
-  clinical_modifier_hp3:
+  hp_0012823_hp3:
     description: >
       Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
-  causing_organism:
+  hp_0012823_ncbitaxon:
     description: >
       The causing organism, if applicable, encoded with NCBITaxon.
     range: string
     required: false
 
-  primary_body_site:
+  hp_0012823_snomed:
     description: >
       The primary body site affected by the phenotypic feature, encoded with SNOMED.
     range: string
     required: false
 
-  evidence:
+  phenotypicfeature_evidence:
     description: >
       The evidence for an assertion of the observation of a type, defined within the
       Evidence & Conclusion Ontology (ECO).

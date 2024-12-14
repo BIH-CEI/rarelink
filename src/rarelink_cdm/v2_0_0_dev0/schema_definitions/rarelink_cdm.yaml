@@ -11,7 +11,15 @@ imports:
   - rarelink_1_formal_criteria
   - rarelink_2_personal_information
   - rarelink_3_patient_status
-  
+  - rarelink_4_care_pathway
+  - rarelink_5_disease
+  - rarelink_6_1_genetic_findings
+  - rarelink_6_2_phenotypic_feature
+  - rarelink_6_3_measurements
+  - rarelink_6_4_family_history
+  - rarelink_7_consent
+  - rarelink_8_disability
+
 default_prefix: rarelink_cdm
 default_range: string
 
@@ -25,6 +33,8 @@ classes:
       - formal_criteria
       - personal_information
       - repeated_elements
+      - consent
+      - disability
     tree_root: true
 
 slots:
@@ -51,3 +61,15 @@ slots:
     multivalued: true
     inlined_as_list: true
     range: RepeatedElement
+
+  consent:
+    description: Nested section containing consent data
+    range: Consent
+    required: false
+    inlined: true
+
+  disability:
+    description: Nested section containing disability data
+    range: Disability
+    required: false
+    inlined: true

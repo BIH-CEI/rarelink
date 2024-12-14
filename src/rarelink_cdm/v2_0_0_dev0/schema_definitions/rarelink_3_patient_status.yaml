@@ -4,7 +4,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
   SNOMED: http://snomed.info/sct/
-  ICD10CM: https://bioportal.bioontology.org/ontologies/ICD10CM/
+  ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
   - linkml:types
   - rarelink_types
