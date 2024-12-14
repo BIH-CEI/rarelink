@@ -1,22 +1,27 @@
 id: https://w3id.org/linkml/rarelink_meta
 name: rarelink_meta
-description: Meta-schema for RareLink-specific attributes
+description: "Meta-schema for RareLink-specific attributes"
 prefixes:
   linkml: https://w3id.org/linkml/
-  rarelink_meta: https://w3id.org/linkml/rarelink_meta/
+  rarelink: https://w3id.org/linkml/rarelink_meta/
 imports:
   - linkml:meta
+default_range: string
+
 classes:
   SlotDefinition:
     attributes:
       redcap_variable:
         description: "Variable code from REDCap"
         range: string
+      display:
+        description: "Field display label"
+        range: string
       code:
-        description: "Standardized code (e.g., SNOMED)"
+        description: "Standardized code for the concept (e.g., SNOMED)"
         range: string
       value_set:
-        description: "Value set linked to the field"
+        description: "Value set associated with the field"
         range: string
       fhir_expression:
         description: "FHIR mapping expression"
