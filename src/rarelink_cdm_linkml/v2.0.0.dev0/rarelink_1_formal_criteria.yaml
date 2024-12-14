@@ -1,0 +1,37 @@
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0.dev0/linkml/rarelink_1_formal_criteria.yaml
+name: rarelink_1_formal_criteria
+prefixes:
+  linkml: https://w3id.org/linkml/
+  fhir: http://hl7.org/fhir/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
+default_range: string
+
+classes:
+  Rarelink_1_formal_criteria:
+    description: A formal criteria for RareLink data model
+    attributes:
+      record_id:
+        identifier: true
+        required: true
+        description: Registry ID of the Individual
+        range: id
+        profile: fhir:StructureDefinition/id
+      snomed_422549004:
+        required: true
+        description: 1.1 Pseudonym
+        range: string
+        profile: fhir:StructureDefinition/string
+      snomed_399423000:
+        required: true
+        description: 1.2 Date of Admission
+        range: date
+        profile: fhir:StructureDefinition/date
+
+  Container:
+    attributes:
+      criteria:
+        multivalued: true
+        inlined_as_list: true
+        range: Rarelink_1_formal_criteria
