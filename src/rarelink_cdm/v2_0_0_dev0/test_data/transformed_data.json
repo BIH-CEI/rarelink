@@ -1,12 +1,12 @@
 [
   {
     "record_id": "101",
-    "formalCriteria": {
+    "formal_criteria": {
       "snomed_422549004": "CDE456",
       "snomed_399423000": "2024-09-09",
       "rarelink_1_formal_criteria_complete": "0"
     },
-    "personalInformation": {
+    "personal_information": {
       "snomed_184099003": "2020-01-01",
       "snomed_281053000": "snomed_248152002",
       "snomed_1296886006": "snomed_80427008",
@@ -14,11 +14,11 @@
       "snomed_370159000": "GER",
       "rarelink_2_personal_information_complete": "2"
     },
-    "repeatedElements": [
+    "repeated_elements": [
       {
         "redcap_repeat_instrument": "rarelink_3_patient_status",
         "redcap_repeat_instance": 1,
-        "patientStatus": {
+        "patient_status": {
           "patient_status_date": "2024-09-09",
           "snomed_278844005": "snomed_438949009",
           "snomed_398299004": "",
@@ -32,7 +32,7 @@
       {
         "redcap_repeat_instrument": "rarelink_3_patient_status",
         "redcap_repeat_instance": 2,
-        "patientStatus": {
+        "patient_status": {
           "patient_status_date": "2024-12-09",
           "snomed_278844005": "snomed_419099009",
           "snomed_398299004": "2024-12-09",
@@ -47,12 +47,12 @@
   },
   {
     "record_id": "102",
-    "formalCriteria": {
+    "formal_criteria": {
       "snomed_422549004": "DEF567",
       "snomed_399423000": "2024-09-09",
       "rarelink_1_formal_criteria_complete": "2"
     },
-    "personalInformation": {
+    "personal_information": {
       "snomed_184099003": "2010-01-01",
       "snomed_281053000": "snomed_248152002",
       "snomed_1296886006": "snomed_65162001",
@@ -60,11 +60,11 @@
       "snomed_370159000": "GER",
       "rarelink_2_personal_information_complete": "2"
     },
-    "repeatedElements": [
+    "repeated_elements": [
       {
         "redcap_repeat_instrument": "rarelink_3_patient_status",
-        "redcap_repeat_instance": 1,
-        "patientStatus": {
+        "redcap_repeat_instance": 0,
+        "patient_status": {
           "patient_status_date": "2024-09-09",
           "snomed_278844005": "snomed_438949009",
           "snomed_398299004": "",

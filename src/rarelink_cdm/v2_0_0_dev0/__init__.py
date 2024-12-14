@@ -20,11 +20,9 @@ Exports:
     - load_schema (from helpers.schema_loader)
 """
 
-from .helpers.field_mappings import FIELD_MAPPINGS
 from .helpers.schema_loader import load_schema
 
 __all__ = [
-    "FIELD_MAPPINGS",
     "load_schema",
 ]
 

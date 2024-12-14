@@ -38,11 +38,13 @@ slots:
     description: Nested section containing formal criteria data
     range: FormalCriteria
     required: false
+    inlined: true
 
   personal_information:
     description: Nested section containing personal information data
     range: PersonalInformation
     required: false
+    inlined: true
 
   repeated_elements:
     description: Container for repeated elements
