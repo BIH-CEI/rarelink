@@ -4,25 +4,28 @@ prefixes:
   linkml: https://w3id.org/linkml/
   fhir: http://hl7.org/fhir/
   rarelink: https://github.com/BIH-CEI/rarelink/
+  phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/schema.html
 imports:
   - linkml:types
 default_range: string
 
 classes:
   Rarelink_1_formal_criteria:
-    description: A formal criteria for RareLink data model
+    description: The section Formal Criteria (1) of the RareLink CDM
     attributes:
       record_id:
         identifier: true
         required: true
         description: Registry ID of the Individual
         range: id
-        profile: fhir:StructureDefinition/id
+        fhir_mapping: fhir:StructureDefinition/id
       snomed_422549004:
+        label: 1.1 Pseudonym
         required: true
         description: 1.1 Pseudonym
         range: string
         profile: fhir:StructureDefinition/string
+        phenopackets: phenopacket:Individual.id
       snomed_399423000:
         required: true
         description: 1.2 Date of Admission
