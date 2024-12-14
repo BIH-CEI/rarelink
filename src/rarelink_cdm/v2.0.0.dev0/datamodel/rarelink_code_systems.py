@@ -1,5 +1,5 @@
 # Auto generated from rarelink_code_systems.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T22:34:03
+# Generation date: 2024-12-14T23:21:16
 # Schema: rarelink_code_systems
 #
 # id: https://github.com/BIH-CEI/RareLink/code_systems
@@ -68,20 +68,51 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RARELINK = CurieNamespace('rarelink', 'https://github.com/BIH-CEI/rarelink/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = RARELINK
 
 
 # Types
+class UnionDateString(String):
+    """ A field that allows both dates and empty strings. """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "union_date_string"
+    type_model_uri = RARELINK.UnionDateString
+
 
 # Class references
 
 
 
 @dataclass(repr=False)
+class CodeSystems(YAMLRoot):
+    """
+    A container for all code systems used in RareLink CDM. Each entry is a `CodeSystem` object that defines the
+    metadata of the code system.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = RARELINK["CodeSystems"]
+    class_class_curie: ClassVar[str] = "rarelink:CodeSystems"
+    class_name: ClassVar[str] = "CodeSystems"
+    class_model_uri: ClassVar[URIRef] = RARELINK.CodeSystems
+
+    code_systems: Union[Union[dict, "CodeSystem"], List[Union[dict, "CodeSystem"]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.code_systems):
+            self.MissingRequiredField("code_systems")
+        self._normalize_inlined_as_dict(slot_name="code_systems", slot_type=CodeSystem, key_name="name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class CodeSystem(YAMLRoot):
     """
-    A resource that defines a set of codes and their meanings. Examples include SNOMED CT, HPO, MONDO, OMIM, ORDO,
-    LOINC, etc.
+    A class representing a CodeSystem, with fields for name, prefix, URL, version, and synonyms. This structure is
+    reusable for defining and referencing code systems.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -92,9 +123,9 @@ class CodeSystem(YAMLRoot):
 
     name: str = None
     prefix: str = None
+    version: str = None
     url: Optional[str] = None
     iri_prefix: Optional[str] = None
-    version: Optional[str] = None
     synonyms: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -108,14 +139,16 @@ class CodeSystem(YAMLRoot):
         if not isinstance(self.prefix, str):
             self.prefix = str(self.prefix)
 
+        if self._is_empty(self.version):
+            self.MissingRequiredField("version")
+        if not isinstance(self.version, str):
+            self.version = str(self.version)
+
         if self.url is not None and not isinstance(self.url, str):
             self.url = str(self.url)
 
         if self.iri_prefix is not None and not isinstance(self.iri_prefix, str):
             self.iri_prefix = str(self.iri_prefix)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
 
         if not isinstance(self.synonyms, list):
             self.synonyms = [self.synonyms] if self.synonyms is not None else []
@@ -131,20 +164,23 @@ class CodeSystem(YAMLRoot):
 class slots:
     pass
 
-slots.name = Slot(uri=RARELINK.name, name="name", curie=RARELINK.curie('name'),
-                   model_uri=RARELINK.name, domain=None, range=str)
+slots.codeSystems__code_systems = Slot(uri=RARELINK.code_systems, name="codeSystems__code_systems", curie=RARELINK.curie('code_systems'),
+                   model_uri=RARELINK.codeSystems__code_systems, domain=None, range=Union[Union[dict, CodeSystem], List[Union[dict, CodeSystem]]])
 
-slots.prefix = Slot(uri=RARELINK.prefix, name="prefix", curie=RARELINK.curie('prefix'),
-                   model_uri=RARELINK.prefix, domain=None, range=str)
+slots.codeSystem__name = Slot(uri=RARELINK.name, name="codeSystem__name", curie=RARELINK.curie('name'),
+                   model_uri=RARELINK.codeSystem__name, domain=None, range=str)
 
-slots.url = Slot(uri=RARELINK.url, name="url", curie=RARELINK.curie('url'),
-                   model_uri=RARELINK.url, domain=None, range=Optional[str])
+slots.codeSystem__prefix = Slot(uri=RARELINK.prefix, name="codeSystem__prefix", curie=RARELINK.curie('prefix'),
+                   model_uri=RARELINK.codeSystem__prefix, domain=None, range=str)
 
-slots.iri_prefix = Slot(uri=RARELINK.iri_prefix, name="iri_prefix", curie=RARELINK.curie('iri_prefix'),
-                   model_uri=RARELINK.iri_prefix, domain=None, range=Optional[str])
+slots.codeSystem__url = Slot(uri=RARELINK.url, name="codeSystem__url", curie=RARELINK.curie('url'),
+                   model_uri=RARELINK.codeSystem__url, domain=None, range=Optional[str])
 
-slots.version = Slot(uri=RARELINK.version, name="version", curie=RARELINK.curie('version'),
-                   model_uri=RARELINK.version, domain=None, range=Optional[str])
+slots.codeSystem__version = Slot(uri=RARELINK.version, name="codeSystem__version", curie=RARELINK.curie('version'),
+                   model_uri=RARELINK.codeSystem__version, domain=None, range=str)
 
-slots.synonyms = Slot(uri=RARELINK.synonyms, name="synonyms", curie=RARELINK.curie('synonyms'),
-                   model_uri=RARELINK.synonyms, domain=None, range=Optional[Union[str, List[str]]])
+slots.codeSystem__iri_prefix = Slot(uri=RARELINK.iri_prefix, name="codeSystem__iri_prefix", curie=RARELINK.curie('iri_prefix'),
+                   model_uri=RARELINK.codeSystem__iri_prefix, domain=None, range=Optional[str])
+
+slots.codeSystem__synonyms = Slot(uri=RARELINK.synonyms, name="codeSystem__synonyms", curie=RARELINK.curie('synonyms'),
+                   model_uri=RARELINK.codeSystem__synonyms, domain=None, range=Optional[Union[str, List[str]]])

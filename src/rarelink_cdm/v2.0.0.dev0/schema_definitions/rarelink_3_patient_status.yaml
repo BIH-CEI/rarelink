@@ -8,6 +8,8 @@ prefixes:
 imports:
   - linkml:types
   - rarelink_types
+  - rarelink_code_systems
+  - code_systems_data
 default_range: string
 default_prefix: rarelink
 
@@ -72,52 +74,52 @@ enums:
     permissible_values:
       snomed_438949009:
         description: Alive
-        meaning: "SNOMED:438949009"
+        meaning: SNOMED:438949009
       snomed_419099009:
         description: Dead
-        meaning: "SNOMED:419099009"
+        meaning: SNOMED:419099009
       snomed_399307001:
         description: Unknown - Lost in follow-up
-        meaning: "SNOMED:399307001"
+        meaning: SNOMED:399307001
       snomed_185924006:
         description: Unknown - Opted-out
-        meaning: "SNOMED:185924006"
+        meaning: SNOMED:185924006
       snomed_261665006:
         description: Unknown - Other Reason
-        meaning: "SNOMED:261665006"
+        meaning: SNOMED:261665006
 
   AgeCategory:
     permissible_values:
       snomed_3658006:
         description: Infancy
-        meaning: "SNOMED:3658006"
+        meaning: SNOMED:3658006
       snomed_713153009:
         description: Toddler
-        meaning: "SNOMED:713153009"
+        meaning: SNOMED:713153009
       snomed_255398004:
         description: Childhood
-        meaning: "SNOMED:255398004"
+        meaning: SNOMED:255398004
       snomed_263659003:
         description: Adolescence
-        meaning: "SNOMED:263659003"
+        meaning: SNOMED:263659003
       snomed_41847000:
         description: Adulthood
-        meaning: "SNOMED:41847000"
+        meaning: SNOMED:41847000
       snomed_303112003:
         description: Fetal period
-        meaning: "SNOMED:303112003"
+        meaning: SNOMED:303112003
       snomed_419099009:
         description: Dead
-        meaning: "SNOMED:419099009"
+        meaning: SNOMED:419099009
       snomed_261665006:
         description: Unknown
-        meaning: "SNOMED:261665006"
+        meaning: SNOMED:261665006
 
   YesNo:
     permissible_values:
       snomed_373066001:
         description: Yes
-        meaning: "SNOMED:373066001"
+        meaning: SNOMED:373066001
       snomed_373067005:
         description: No
-        meaning: "SNOMED:373067005"
+        meaning: SNOMED:373067005

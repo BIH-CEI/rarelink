@@ -1,5 +1,5 @@
 # Auto generated from rarelink_types.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T22:28:19
+# Generation date: 2024-12-14T23:18:44
 # Schema: rarelink_types
 #
 # id: https://github.com/BIH-CEI/RareLink/types
@@ -85,6 +85,54 @@ class UnionDateString(String):
 
 
 
+@dataclass(repr=False)
+class CodeSystem(YAMLRoot):
+    """
+    A class representing a CodeSystem, with fields for name, prefix, URL, version, and synonyms. This structure is
+    reusable for defining and referencing code systems.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = RARELINK["CodeSystem"]
+    class_class_curie: ClassVar[str] = "rarelink:CodeSystem"
+    class_name: ClassVar[str] = "CodeSystem"
+    class_model_uri: ClassVar[URIRef] = RARELINK.CodeSystem
+
+    name: str = None
+    prefix: str = None
+    version: str = None
+    url: Optional[str] = None
+    iri_prefix: Optional[str] = None
+    synonyms: Optional[Union[str, List[str]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self._is_empty(self.prefix):
+            self.MissingRequiredField("prefix")
+        if not isinstance(self.prefix, str):
+            self.prefix = str(self.prefix)
+
+        if self._is_empty(self.version):
+            self.MissingRequiredField("version")
+        if not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        if self.iri_prefix is not None and not isinstance(self.iri_prefix, str):
+            self.iri_prefix = str(self.iri_prefix)
+
+        if not isinstance(self.synonyms, list):
+            self.synonyms = [self.synonyms] if self.synonyms is not None else []
+        self.synonyms = [v if isinstance(v, str) else str(v) for v in self.synonyms]
+
+        super().__post_init__(**kwargs)
+
 
 # Enumerations
 
@@ -93,4 +141,20 @@ class UnionDateString(String):
 class slots:
     pass
 
+slots.codeSystem__name = Slot(uri=RARELINK.name, name="codeSystem__name", curie=RARELINK.curie('name'),
+                   model_uri=RARELINK.codeSystem__name, domain=None, range=str)
 
+slots.codeSystem__prefix = Slot(uri=RARELINK.prefix, name="codeSystem__prefix", curie=RARELINK.curie('prefix'),
+                   model_uri=RARELINK.codeSystem__prefix, domain=None, range=str)
+
+slots.codeSystem__url = Slot(uri=RARELINK.url, name="codeSystem__url", curie=RARELINK.curie('url'),
+                   model_uri=RARELINK.codeSystem__url, domain=None, range=Optional[str])
+
+slots.codeSystem__version = Slot(uri=RARELINK.version, name="codeSystem__version", curie=RARELINK.curie('version'),
+                   model_uri=RARELINK.codeSystem__version, domain=None, range=str)
+
+slots.codeSystem__iri_prefix = Slot(uri=RARELINK.iri_prefix, name="codeSystem__iri_prefix", curie=RARELINK.curie('iri_prefix'),
+                   model_uri=RARELINK.codeSystem__iri_prefix, domain=None, range=Optional[str])
+
+slots.codeSystem__synonyms = Slot(uri=RARELINK.synonyms, name="codeSystem__synonyms", curie=RARELINK.curie('synonyms'),
+                   model_uri=RARELINK.codeSystem__synonyms, domain=None, range=Optional[Union[str, List[str]]])
