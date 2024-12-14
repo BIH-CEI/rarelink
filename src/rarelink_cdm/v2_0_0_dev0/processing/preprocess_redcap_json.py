@@ -44,18 +44,32 @@ def map_patient_status(entry):
     }
 
 
+def map_care_pathway(entry):
+    """
+    Maps a flat REDCap entry to the CarePathway schema.
+    """
+    return {
+        "hl7fhir_enc_period_start": entry.get("hl7fhir_enc_period_start", ""),
+        "hl7fhir_enc_period_end": entry.get("hl7fhir_enc_period_end", ""),
+        "snomed_305058001": entry.get("snomed_305058001", ""),
+        "hl7fhir_encounter_class": entry.get("hl7fhir_encounter_class", "")
+    }
+
+
 # Modular mapping dispatcher
 MAPPING_FUNCTIONS = {
     "formal_criteria": map_formal_criteria,
     "personal_information": map_personal_information,
-    "patient_status": map_patient_status
+    "patient_status": map_patient_status,
+    "care_pathway": map_care_pathway
 }
 
 
 def preprocess_flat_data(flat_data, mapping_functions):
     """
-    Transforms flat REDCap data into structured JSON format compatible with the RareLink schema.
-    Allows modular addition of schemas via mapping_functions.
+    Transforms flat REDCap data into structured JSON format compatible with the 
+    RareLink-CDM LinkML schema. Allows modular addition of schemas via
+    mapping_functions.
 
     Args:
         flat_data (list): Flat JSON data from REDCap.
@@ -86,21 +100,17 @@ def preprocess_flat_data(flat_data, mapping_functions):
                 for schema_name, mapper in mapping_functions.items():
                     if schema_name in ["formal_criteria", "personal_information"] and not record[schema_name]:
                         record[schema_name] = mapper(entry)
-
-                # Handle patient status if present but not repeated
-                if "patient_status_date" in entry and entry["patient_status_date"]:
-                    record["repeated_elements"].append({
-                        "redcap_repeat_instrument": "rarelink_3_patient_status",
-                        "redcap_repeat_instance": 0,  # Default for non-repeating
-                        "patient_status": mapping_functions["patient_status"](entry)
-                    })
             else:
                 # Handle repeating data
-                record["repeated_elements"].append({
+                repeated_element = {
                     "redcap_repeat_instrument": entry["redcap_repeat_instrument"],
-                    "redcap_repeat_instance": int(entry["redcap_repeat_instance"]),
-                    "patient_status": mapping_functions["patient_status"](entry)
-                })
+                    "redcap_repeat_instance": int(entry["redcap_repeat_instance"])
+                }
+                if entry["redcap_repeat_instrument"] == "rarelink_3_patient_status":
+                    repeated_element["patient_status"] = mapping_functions["patient_status"](entry)
+                elif entry["redcap_repeat_instrument"] == "rarelink_4_care_pathway":
+                    repeated_element["care_pathway"] = mapping_functions["care_pathway"](entry)
+                record["repeated_elements"].append(repeated_element)
 
         transformed_data.append(record)
 

@@ -42,6 +42,16 @@
           "snomed_723663001": "snomed_373067005",
           "rarelink_3_patient_status_complete": "0"
         }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 1,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2023-09-09",
+          "hl7fhir_enc_period_end": "2023-09-29",
+          "snomed_305058001": "hl7fhir_finished",
+          "hl7fhir_encounter_class": "hl7fhir_imp"
+        }
       }
     ]
   },
@@ -62,17 +72,23 @@
     },
     "repeated_elements": [
       {
-        "redcap_repeat_instrument": "rarelink_3_patient_status",
-        "redcap_repeat_instance": 0,
-        "patient_status": {
-          "patient_status_date": "2024-09-09",
-          "snomed_278844005": "snomed_438949009",
-          "snomed_398299004": "",
-          "snomed_184305005": "Q78.3",
-          "snomed_105727008": "snomed_263659003",
-          "snomed_412726003": "37+1",
-          "snomed_723663001": "snomed_373067005",
-          "rarelink_3_patient_status_complete": "2"
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 1,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2022-09-09",
+          "hl7fhir_enc_period_end": "",
+          "snomed_305058001": "hl7fhir_in-progress",
+          "hl7fhir_encounter_class": "hl7fhir_amb"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 2,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2023-09-09",
+          "hl7fhir_enc_period_end": "2023-09-30",
+          "snomed_305058001": "hl7fhir_finished",
+          "hl7fhir_encounter_class": "hl7fhir_imp"
         }
       }
     ]

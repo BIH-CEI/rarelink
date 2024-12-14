@@ -7,6 +7,7 @@ imports:
   - linkml:types
   - rarelink_code_systems
   - rarelink_3_patient_status
+  - rarelink_4_care_pathway
 default_range: string
 default_prefix: rarelink
 
@@ -19,19 +20,27 @@ classes:
       - redcap_repeat_instrument
       - redcap_repeat_instance
       - patient_status
+      - care_pathway
 
 slots:
+  redcap_repeat_instrument:
+    description: If applicable, the repeated REDCap instrument name.
+    range: string
+    required: false
+
+  redcap_repeat_instance:
+    description: If applicable, the REDCap instrument's repetition instance.
+    range: integer
+    required: false
+
   patient_status:
     description: >
       The patient status data for the repeated element.
     range: PatientStatus
     required: false
-  redcap_repeat_instrument:
-    description: If applicable, the repeated REDCap instrument name
-    range: string
-    required: false
 
-  redcap_repeat_instance:
-    description: If applicable, the REDCap instrument's repetition instance
-    range: integer
+  care_pathway:
+    description: >
+      The care pathway data for the repeated element.
+    range: CarePathway
     required: false
