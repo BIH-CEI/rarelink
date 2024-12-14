@@ -2,47 +2,62 @@ id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0.dev0/li
 name: rarelink_1_formal_criteria
 prefixes:
   linkml: https://w3id.org/linkml/
-  fhir: http://hl7.org/fhir/
-  rarelink: https://github.com/BIH-CEI/rarelink/
-  phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/schema.html
 imports:
   - linkml:types
-  - ./rarelink_meta.yaml:meta  # Correctly reference the meta-schema
 default_range: string
+default_prefix: rarelink_1_formal_criteria
 
 classes:
-  Rarelink_1_formal_criteria:
+  formalCriteria:
     description: >
-      The section Formal Criteria (1) of the RareLink CDM, containing individual formal
-      criteria records including pseudonym and date of admission.
-    attributes:
-      record_id:
-        identifier: true
-        required: true
-        description: The REDCap record ID of the individual
-        range: id
-        code: null
-        value_set: null
-      snomed_422549004:
-        label: 1.1 Pseudonym
-        required: true
-        description: The (local) patient-related Identification code
-        range: string
-        code: SNOMED:422549004
-        value_set: null
-      snomed_399423000:
-        label: 1.2 Date of Admission
-        required: true
-        description: The date of admission or data capture of the individual
-        range: date
-        code: SNOMED:399423000
-        value_set: null
+      Root container class grouping formal criteria and repeating forms for a single record.
+    slots:
+      - record_id
+      - redcap_repeat_instrument
+      - redcap_repeat_instance
+      - snomed_422549004
+      - snomed_399423000
+      - rarelink_1_formal_criteria_complete
 
   Container:
-    description: Container class to encapsulate multiple Formal Criteria records
+    description: >
+      The container for the section (1) Formal Criteria 
+      instances of the RareLink CDM.
+      Allows managing multiple formal criteria instances.
     attributes:
-      formalCriteria:
-        description: "A list of formal criteria entries"
+      formalCriteriaInstances:
         multivalued: true
         inlined_as_list: true
-        range: Rarelink_1_formal_criteria
+        range: formalCriteria
+
+
+slots:
+  record_id:
+    description: The unique record identifier assigned by the local REDCap project
+    range: string
+    required: true
+    identifier: true
+
+  redcap_repeat_instrument:
+    description: If applicable, the repeated REDCap instrument name
+    required: false
+
+  redcap_repeat_instance:
+    description: If applicable, the REDCap instrument's repetition instance
+    required: false
+
+  snomed_422549004:
+    description: The (local) patient-related identification code
+    range: string
+    required: true
+    identifier: true
+
+  snomed_399423000:
+    description: The date of admission or data capture of the individual
+    range: date
+    required: true
+
+  rarelink_1_formal_criteria_complete:
+    description: Completion status of this section
+    range: string
+    required: false

@@ -1,13 +1,13 @@
-formalCriteria:
+formalCriteriaInstances:
   - record_id: '1'
-    snomed_422549004: ABCD1234
+    redcap_repeat_instrument: ''
+    redcap_repeat_instance: ''
+    snomed_422549004: 'ABCD1234'
     snomed_399423000: '2022-01-01'
+    rarelink_1_formal_criteria_complete: '2'
   - record_id: '2'
-    snomed_422549004: EFGH5678
-    snomed_399423000: '2022-01-02'
-  - record_id: '3'
-    snomed_422549004: IJKL9012
-    snomed_399423000: '2022-01-03'
-  - record_id: '4' 
-    snomed_422549004: MNOP3456
-    snomed_399423000: '2022-01-04'
+    redcap_repeat_instrument: ''
+    redcap_repeat_instance: ''
+    snomed_422549004: 'EFGH5678'
+    snomed_399423000: '2022-02-02'
+    rarelink_1_formal_criteria_complete: '2'
