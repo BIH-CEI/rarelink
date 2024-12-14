@@ -1,0 +1,199 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_5_disease.yaml
+name: rarelink_5_disease
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  MONDO: https://purl.obolibrary.org/obo/MONDO_
+  ORDO: http://www.orpha.net/ORDO/
+  ICD10CM: https://bioportal.bioontology.org/ontologies/ICD10CM/
+  ICD11: https://id.who.int/icd/release/11/
+  OMIM: https://omim.org/entry/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Disease:
+    description: >
+      Captures details of diseases encoded using various terminologies and
+      provides relevant metadata such as age at onset, verification status, etc.
+    slots:
+      - disease_coding
+      - snomed_64572001_mondo
+      - snomed_64572001_ordo
+      - snomed_64572001_icd10cm
+      - snomed_64572001_icd11
+      - snomed_64572001_omim_p
+      - loinc_99498_8
+      - snomed_424850005
+      - snomed_298059007
+      - snomed_423493009
+      - snomed_432213005
+      - snomed_363698007
+      - snomed_263493007
+      - snomed_246112005
+      - rarelink_5_disease_complete
+
+slots:
+  disease_coding:
+    description: The encoding system used for the disease (e.g., MONDO, ORDO, ICD10CM, etc.)
+    range: DiseaseCoding
+    required: true
+
+  snomed_64572001_mondo:
+    description: The disease code using MONDO terminology
+    range: string
+    required: false
+
+  snomed_64572001_ordo:
+    description: The disease code using ORDO terminology
+    range: string
+    required: false
+
+  snomed_64572001_icd10cm:
+    description: The disease code using ICD-10-CM terminology
+    range: string
+    required: false
+
+  snomed_64572001_icd11:
+    description: The disease code using ICD-11 terminology
+    range: string
+    required: false
+
+  snomed_64572001_omim_p:
+    description: The disease code using OMIM terminology
+    range: string
+    required: false
+
+  loinc_99498_8:
+    description: Verification status of the disease
+    range: VerificationStatus
+    required: true
+
+  snomed_424850005:
+    description: Age at onset of the disease
+    range: AgeCategory
+    required: false
+
+  snomed_298059007:
+    description: Date of onset of the disease
+    range: date
+    required: false
+
+  snomed_423493009:
+    description: Age at diagnosis
+    range: AgeCategory
+    required: false
+
+  snomed_432213005:
+    description: Date of diagnosis
+    range: date
+    required: false
+
+  snomed_363698007:
+    description: Body site affected by the disease (SNOMED-CT codes)
+    range: string
+    required: false
+
+  snomed_263493007:
+    description: Clinical status of the disease
+    range: ClinicalStatus
+    required: false
+
+  snomed_246112005:
+    description: Disease severity
+    range: DiseaseSeverity
+    required: false
+
+  rarelink_5_disease_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  VerificationStatus:
+    permissible_values:
+      hl7fhir_unconfirmed:
+        description: Unconfirmed
+        meaning: HL7FHIR:unconfirmed
+      hl7fhir_provisional:
+        description: Provisional
+        meaning: HL7FHIR:provisional
+      hl7fhir_differential:
+        description: Differential
+        meaning: HL7FHIR:differential
+      hl7fhir_confirmed:
+        description: Confirmed
+        meaning: HL7FHIR:confirmed
+      hl7fhir_refuted:
+        description: Refuted
+        meaning: HL7FHIR:refuted
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: HL7FHIR:entered-in-error
+
+  AgeAtOnset:
+    permissible_values:
+      snomed_118189007:
+        description: Prenatal
+        meaning: SNOMED:118189007
+      snomed_3950001:
+        description: Birth
+        meaning: SNOMED:3950001
+      snomed_410672004:
+        description: Date
+        meaning: SNOMED:410672004
+      snomed_261665006:
+        description: Unknown
+        meaning: SNOMED:261665006
+
+  AgeAtDiagnosis:
+    permissible_values:
+      snomed_118189007:
+        description: Prenatal
+        meaning: SNOMED:118189007
+      snomed_3950001:
+        description: Birth
+        meaning: SNOMED:3950001
+      snomed_410672004:
+        description: Date
+        meaning: SNOMED:410672004
+      snomed_261665006:
+        description: Unknown
+        meaning: SNOMED:261665006
+
+  ClinicalStatus:
+    permissible_values:
+      hl7fhir_active:
+        description: Active
+        meaning: HL7FHIR:active
+      hl7fhir_recurrence:
+        description: Recurrence
+        meaning: HL7FHIR:recurrence
+      hl7fhir_relapse:
+        description: Relapse
+        meaning: HL7FHIR:relapse
+      hl7fhir_inactive:
+        description: Inactive
+        meaning: HL7FHIR:inactive
+      hl7fhir_remission:
+        description: Remission
+        meaning: HL7FHIR:remission
+      hl7fhir_resolved:
+        description: Resolved
+        meaning: HL7FHIR:resolved
+
+  DiseaseSeverity:
+    permissible_values:
+      snomed_24484000:
+        description: Severe
+        meaning: SNOMED:24484000
+      snomed_6736007:
+        description: Moderate
+        meaning: SNOMED:6736007
+      snomed_255604002:
+        description: Mild
+        meaning: SNOMED:255604002

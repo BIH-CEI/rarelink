@@ -22,6 +22,7 @@ classes:
       - hl7fhir_enc_period_end
       - snomed_305058001
       - hl7fhir_encounter_class
+      - rarelink_4_care_pathway_complete
 
 slots:
   hl7fhir_enc_period_start:
@@ -50,6 +51,11 @@ slots:
     range: EncounterClass
     required: true
 
+  rarelink_4_care_pathway_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+    
 enums:
   EncounterStatus:
     permissible_values:

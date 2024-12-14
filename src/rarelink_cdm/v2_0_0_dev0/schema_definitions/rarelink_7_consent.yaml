@@ -1,0 +1,113 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_7_consent.yaml
+name: rarelink_7_consent
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  hl7fhir: http://hl7.org/fhir/
+  snomed: http://snomed.info/sct/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Consent:
+    description: >
+      The section Consent (7) of the RareLink CDM.
+    slots:
+      - consent_status
+      - consent_date
+      - health_policy_monitoring
+      - agreement_to_contact
+      - consent_to_reuse_data
+      - biological_sample
+      - biobank_link
+      - rarelink_7_consent_complete
+
+slots:
+  consent_status:
+    description: >
+      The status of the consent provided.
+    range: ConsentStatus
+    required: true
+
+  consent_date:
+    description: >
+      The date when the consent was provided.
+    range: date
+    required: false
+
+  health_policy_monitoring:
+    description: >
+      Indicates consent for health policy monitoring.
+    range: string
+    required: true
+
+  agreement_to_contact:
+    description: >
+      Indicates agreement to be contacted for research purposes.
+    range: YesNoUnknown
+    required: true
+
+  consent_to_reuse_data:
+    description: >
+      Indicates consent for the reuse of data for research.
+    range: YesNoUnknown
+    required: true
+
+  biological_sample:
+    description: >
+      Indicates whether consent includes biological samples.
+    range: YesNoUnknown
+    required: false
+
+  biobank_link:
+    description: >
+      Link to a biobank where biological samples are stored.
+    range: string
+    required: false
+
+  rarelink_7_consent_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  ConsentStatus:
+    description: >
+      The status of the consent provided.
+    permissible_values:
+      hl7fhir_draft:
+        description: Pending
+        meaning: hl7fhir:draft
+      hl7fhir_proposed:
+        description: Proposed
+        meaning: hl7fhir:proposed
+      hl7fhir_active:
+        description: Active
+        meaning: hl7fhir:active
+      hl7fhir_rejected:
+        description: Rejected
+        meaning: hl7fhir:rejected
+      hl7fhir_inactive:
+        description: Inactive
+        meaning: hl7fhir:inactive
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: hl7fhir:entered-in-error
+
+  YesNoUnknown:
+    description: >
+      Indicates yes, no, or unknown status.
+    permissible_values:
+      snomed_373066001:
+        description: Yes
+        meaning: snomed:373066001
+      snomed_373067005:
+        description: No
+        meaning: snomed:373067005
+      snomed_261665006:
+        description: Unknown
+        meaning: snomed:261665006
