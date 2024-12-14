@@ -2,13 +2,14 @@ id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0.dev0/li
 name: rarelink_1_formal_criteria
 prefixes:
   linkml: https://w3id.org/linkml/
+  rarelink: src/rarelink_cdm
 imports:
   - linkml:types
 default_range: string
-default_prefix: rarelink_1_formal_criteria
+default_prefix: rarelink
 
 classes:
-  formalCriteria:
+  FormalCriteria:
     description: Section containing the RareLink (1) Formal Criteria Sheet
     slots:
       - snomed_422549004

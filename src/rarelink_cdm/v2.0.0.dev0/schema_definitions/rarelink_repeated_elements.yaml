@@ -5,8 +5,9 @@ prefixes:
   rarelink: https://github.com/BIH-CEI/rarelink/
 imports:
   - linkml:types
+  - rarelink_3_patient_status
 default_range: string
-default_prefix: rarelink_repeated_elements
+default_prefix: rarelink
 
 classes:
   RepeatedElement:
@@ -16,12 +17,14 @@ classes:
     slots:
       - redcap_repeat_instrument
       - redcap_repeat_instance
-    attributes:
-      patientStatus:
-        range: PatientStatus
-        required: false
+      - patient_status
 
 slots:
+  patient_status:
+    description: >
+      The patient status data for the repeated element.
+    range: PatientStatus
+    required: false
   redcap_repeat_instrument:
     description: If applicable, the repeated REDCap instrument name
     range: string

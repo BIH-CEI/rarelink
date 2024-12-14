@@ -3,8 +3,10 @@ name: rarelink_cdm
 prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
+  rarelink_cdm: https://github.com/BIH-CEI/RareLink/rarelink_cdm/
 imports:
   - linkml:types
+  - rarelink_repeated_elements
   - rarelink_1_formal_criteria
   - rarelink_2_personal_information
   - rarelink_3_patient_status
@@ -18,24 +20,10 @@ classes:
       personal information, patient status, and other sections. The record ID uniquely identifies a record.
     slots:
       - record_id
-      - formalCriteria
-      - personalInformation
-      - repeatedElements
+      - formal_criteria
+      - personal_information
+      - repeated_elements
     tree_root: true
-
-  RepeatedElement:
-    description: >
-      A container for repeating forms (e.g., patient status, encounters).
-    attributes:
-      redcap_repeat_instrument:
-        range: string
-        required: true
-      redcap_repeat_instance:
-        range: integer
-        required: false
-      patientStatus:
-        range: PatientStatus
-        required: false
 
 slots:
   record_id:
@@ -44,17 +32,17 @@ slots:
     required: true
     identifier: true
 
-  formalCriteria:
+  formal_criteria:
     description: Nested section containing formal criteria data
     range: FormalCriteria
     required: false
 
-  personalInformation:
+  personal_information:
     description: Nested section containing personal information data
     range: PersonalInformation
     required: false
 
-  repeatedElements:
+  repeated_elements:
     description: Container for repeated elements
     multivalued: true
     inlined_as_list: true

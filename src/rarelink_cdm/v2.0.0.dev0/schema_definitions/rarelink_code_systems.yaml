@@ -1,0 +1,213 @@
+id: https://github.com/BIH-CEI/RareLink/code_systems
+name: rarelink_code_systems
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  SNOMED: http://snomed.info/sct/
+  MONDO: https://purl.obolibrary.org/obo/mondo.owl
+  HPO: https://purl.obolibrary.org/obo/HP_
+  LOINC: https://loinc.org/
+  HGVS: https://varnomen.hgvs.org/
+  HGNC: https://www.genenames.org/
+  UO: https://www.ontobee.org/ontology/UO
+  NCIT: https://ncit.nci.nih.gov/
+  ICD10CM: https://www.cdc.gov/nchs/icd/icd10cm.htm
+  ICD11: https://icd.who.int/en
+default_prefix: rarelink
+imports:
+  - linkml:types
+  - rarelink_types
+default_range: string
+
+types:
+  version_string:
+    typeof: string
+    description: A semantic version string (e.g., 2024-09-01 or 2.78).
+
+classes:
+  CodeSystem:
+    description: >
+      A class representing a code system, including metadata such as name, namespace prefix, URL, and version.
+    slots:
+      - name
+      - namespace_prefix
+      - url
+      - version
+      - iri_prefix
+      - synonyms
+
+  RareLinkCodeSystems:
+    description: >
+      A container for all code systems used in RareLink CDM.
+    slots:
+      - code_systems
+
+slots:
+  name:
+    description: The human-readable name of the code system.
+    range: string
+    required: true
+
+  namespace_prefix:
+    description: >
+      The unique namespace prefix identifying a code system (e.g., SNOMED, MONDO, HPO).
+    range: string
+    required: true
+
+  url:
+    description: The URL of the code system for additional information.
+    range: string
+    required: false
+
+  version:
+    description: The version of the code system.
+    range: version_string
+    required: true
+
+  iri_prefix:
+    description: >
+      The IRI prefix used to resolve codes within this code system, if applicable.
+    range: string
+    required: false
+
+  synonyms:
+    description: Alternative abbreviations or names for the code system.
+    range: string
+    multivalued: true
+
+  code_systems:
+    description: A list of all code systems used in RareLink CDM.
+    range: CodeSystem
+    multivalued: true
+    inlined: true
+
+instances:
+  NCBITaxon:
+    class: CodeSystem
+    name: "NCBI organismal classification"
+    namespace_prefix: "NCBITaxon"
+    url: "https://www.ncbi.nlm.nih.gov/taxonomy"
+    version: "2024-07-03"
+
+  GENO:
+    class: CodeSystem
+    name: "GENO: The Genotype Ontology"
+    namespace_prefix: "GENO"
+    url: "https://www.genoontology.org/"
+    version: "2023-10-08"
+
+  SO:
+    class: CodeSystem
+    name: "Sequence types and features ontology"
+    namespace_prefix: "SO"
+    url: "https://www.sequenceontology.org/"
+    version: "2.6"
+
+  ICD10CM:
+    class: CodeSystem
+    name: "International Classification of Diseases, Tenth Revision, Clinical Modification"
+    namespace_prefix: "ICD10CM"
+    url: "https://www.cdc.gov/nchs/icd/icd10cm.htm"
+    version: "2024-09-01"
+
+  SNOMED_CT:
+    class: CodeSystem
+    name: "SNOMED CT"
+    namespace_prefix: "SNOMED"
+    url: "https://www.snomed.org/snomed-ct"
+    version: "2024-09-01"
+
+  ICD11:
+    class: CodeSystem
+    name: "International Classification of Diseases, Eleventh Revision"
+    namespace_prefix: "ICD11"
+    url: "https://icd.who.int/en"
+    version: "2024-09-01"
+
+  HL7FHIR:
+    class: CodeSystem
+    name: "Health Level 7 Fast Healthcare Interoperability Resources"
+    namespace_prefix: "HL7FHIR"
+    url: "https://www.hl7.org/fhir/"
+    version: "v4.0.1"
+
+  GA4GH:
+    class: CodeSystem
+    name: "Global Alliance for Genomics and Health"
+    namespace_prefix: "GA4GH"
+    url: "https://www.ga4gh.org/"
+    version: "v2.0"
+
+  ISO3166:
+    class: CodeSystem
+    name: "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes"
+    namespace_prefix: "ISO3166"
+    url: "https://www.iso.org/iso-3166-country-codes.html"
+    version: "2020(en)"
+
+  MONDO:
+    class: CodeSystem
+    name: "Monarch Disease Ontology"
+    namespace_prefix: "MONDO"
+    url: "https://purl.obolibrary.org/obo/mondo.owl"
+    version: "2024-09-03"
+
+  ORDO:
+    class: CodeSystem
+    name: "Orphanet Rare Disease Ontology"
+    namespace_prefix: "ORPHA"
+    url: "https://www.orpha.net/"
+    version: "2024-09-12"
+
+  OMIM:
+    class: CodeSystem
+    name: "Online Mendelian Inheritance"
+    namespace_prefix: "OMIM"
+    url: "https://omim.org/"
+    version: "2024-09-12"
+
+  LOINC:
+    class: CodeSystem
+    name: "Logical Observation Identifiers Names and Codes"
+    namespace_prefix: "LOINC"
+    url: "https://loinc.org/"
+    version: "2.78"
+
+  HGVS:
+    class: CodeSystem
+    name: "Human Genome Variation Society"
+    namespace_prefix: "HGVS"
+    url: "https://varnomen.hgvs.org/"
+    version: "21.0.0"
+
+  HGNC:
+    class: CodeSystem
+    name: "HUGO Gene Nomenclature Committee"
+    namespace_prefix: "HGNC"
+    url: "https://www.genenames.org/"
+    version: "2024-08-23"
+
+  HPO:
+    class: CodeSystem
+    name: "Human Phenotype Ontology"
+    namespace_prefix: "HP"
+    url: "https://www.human-phenotype-ontology.org"
+    iri_prefix: "https://purl.obolibrary.org/obo/HP_"
+    synonyms:
+      - "HPO"
+    version: "2024-08-13"
+
+  NCIT:
+    class: CodeSystem
+    name: "NCI Thesaurus OBO Edition"
+    namespace_prefix: "NCIT"
+    url: "https://ncit.nci.nih.gov/"
+    version: "24.04e"
+
+  UO:
+    class: CodeSystem
+    name: "Units of Measurement Ontology"
+    namespace_prefix: "UO"
+    url: "https://www.ontobee.org/ontology/UO"
+    version: "2024-09-12"
+
