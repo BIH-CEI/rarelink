@@ -3,6 +3,8 @@ name: rarelink_types
 prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
 default_prefix: rarelink
 default_range: string
 
@@ -11,51 +13,3 @@ types:
     typeof: string
     description: A field that allows both dates and empty strings.
     pattern: ^(\d{4}-\d{2}-\d{2}|)$
-
-classes:
-  CodeSystem:
-    description: >
-      A class that represents a CodeSystem, including metadata such as name, prefix,
-      URL, version, and synonyms. This is reusable across schemas that involve 
-      code system definitions.
-    slots:
-      - name
-      - prefix
-      - url
-      - version
-      - iri_prefix
-      - synonyms
-
-slots:
-  name:
-    description: The human-readable name of the code system.
-    range: string
-    required: true
-
-  prefix:
-    description: >
-      The unique namespace prefix identifying a code system (e.g., SNOMED, MONDO, HPO).
-    range: string
-    required: true
-
-  url:
-    description: The URL of the code system for additional information.
-    range: string
-    required: false
-
-  version:
-    description: The version of the code system.
-    range: string
-    required: true
-
-  iri_prefix:
-    description: >
-      The IRI prefix used to resolve codes within this code system, if applicable.
-    range: string
-    required: false
-
-  synonyms:
-    description: Alternative abbreviations or names for the code system.
-    range: string
-    multivalued: true
-    required: false

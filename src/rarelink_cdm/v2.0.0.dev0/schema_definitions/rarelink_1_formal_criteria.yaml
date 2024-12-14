@@ -16,17 +16,6 @@ classes:
       - snomed_399423000
       - rarelink_1_formal_criteria_complete
 
-  # Container:
-  #   description: >
-  #     The container for the section (1) Formal Criteria 
-  #     instances of the RareLink CDM.
-  #     Allows managing multiple formal criteria instances.
-  #   attributes:
-  #     formalCriteriaInstances:
-  #       multivalued: true
-  #       inlined_as_list: true
-  #       range: formalCriteria
-
 slots:
   snomed_422549004:
     description: The (local) patient-related identification code

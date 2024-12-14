@@ -8,7 +8,6 @@ imports:
   - linkml:types
   - rarelink_types
   - rarelink_code_systems
-  - code_systems_data
 default_range: string
 default_prefix: rarelink
 
@@ -55,19 +54,19 @@ enums:
     permissible_values:
       snomed_248152002:
         description: Female
-        meaning: "SNOMED:248152002"
+        meaning: SNOMED:248152002
       snomed_248153007:
         description: Male
-        meaning: "SNOMED:248153007"
+        meaning: SNOMED:248153007
       snomed_184115007:
         description: Patient sex unknown
-        meaning: "SNOMED:184115007"
+        meaning: SNOMED:184115007
       snomed_32570691000036108:
         description: Intersex
         meaning: "SNOMED:32570691000036108"
       snomed_1220561009:
         description: Not recorded
-        meaning: "SNOMED:1220561009"
+        meaning: SNOMED:1220561009
       '':
         description: No value provided
         meaning: null
@@ -75,37 +74,37 @@ enums:
     permissible_values:
       snomed_261665006:
         description: Unknown
-        meaning: "SNOMED:261665006"
+        meaning: SNOMED:261665006
       snomed_734875008:
         description: XX
-        meaning: "SNOMED:734875008"
+        meaning: SNOMED:734875008
       snomed_734876009:
         description: XY
-        meaning: "SNOMED:734876009"
+        meaning: SNOMED:734876009
       snomed_80427008:
         description: X0
-        meaning: "SNOMED:80427008"
+        meaning: SNOMED:80427008
       snomed_65162001:
         description: XXY
-        meaning: "SNOMED:65162001"
+        meaning: SNOMED:65162001
       snomed_35111009:
         description: XXX
-        meaning: "SNOMED:35111009"
+        meaning: SNOMED:35111009
       snomed_403760006:
         description: XXYY
-        meaning: "SNOMED:403760006"
+        meaning: SNOMED:403760006
       snomed_78317008:
         description: XXXY
-        meaning: "SNOMED:78317008"
+        meaning: SNOMED:78317008
       snomed_10567003:
         description: XXXX
-        meaning: "SNOMED:10567003"
+        meaning: SNOMED:10567003
       snomed_48930007:
         description: XYY
-        meaning: "SNOMED:48930007"
+        meaning: SNOMED:48930007
       snomed_74964007:
         description: Other
-        meaning: "SNOMED:74964007"
+        meaning: SNOMED:74964007
       '':
         description: No value provided
         meaning: null
@@ -113,19 +112,19 @@ enums:
     permissible_values:
       snomed_446141000124107:
         description: Female gender identity
-        meaning: "SNOMED:446141000124107"
+        meaning: SNOMED:446141000124107
       snomed_446151000124109:
         description: Male gender identity
-        meaning: "SNOMED:446151000124109"
+        meaning: SNOMED:446151000124109
       snomed_394743007:
         description: Gender unknown
-        meaning: "SNOMED:394743007"
+        meaning: SNOMED:394743007
       snomed_33791000087105:
         description: Identifies as nonbinary gender
-        meaning: "SNOMED:33791000087105"
+        meaning: SNOMED:33791000087105
       snomed_1220561009:
         description: Not recorded
-        meaning: "SNOMED:1220561009"
+        meaning: SNOMED:1220561009
       '':
         description: No value provided
         meaning: null

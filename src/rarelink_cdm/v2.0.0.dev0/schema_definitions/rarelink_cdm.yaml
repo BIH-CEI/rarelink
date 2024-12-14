@@ -6,11 +6,12 @@ prefixes:
   rarelink_cdm: https://github.com/BIH-CEI/RareLink/rarelink_cdm/
 imports:
   - linkml:types
+  - rarelink_code_systems
   - rarelink_repeated_elements
   - rarelink_1_formal_criteria
   - rarelink_2_personal_information
   - rarelink_3_patient_status
-  - rarelink_code_systems
+  
 default_prefix: rarelink_cdm
 default_range: string
 

@@ -1,10 +1,16 @@
 import json
 from ..helpers.field_mappings import FIELD_MAPPINGS
-from ..helpers.schema_loader import load_schema
 
-def preprocess_flat_data(flat_data):
+
+def preprocess_redcap_data(flat_data):
     """
-    Preprocess flat REDCap data into hierarchical LinkML-compatible data.
+    Preprocess flat REDCap JSON data into hierarchical LinkML-compatible data.
+    
+    Args:
+        flat_data (list): A list of dictionaries representing flat REDCap JSON data.
+
+    Returns:
+        list: A list of hierarchical JSON objects.
     """
     hierarchical_data = {}
 
@@ -18,7 +24,6 @@ def preprocess_flat_data(flat_data):
                 "repeatedElements": []
             }
 
-        # Process each schema section
         for schema, config in FIELD_MAPPINGS.items():
             section_data = {field: row[field] for field in config["fields"] if field in row}
 
@@ -45,7 +50,7 @@ def main(flat_file, hierarchical_file):
         flat_data = json.load(infile)
 
     # Transform flat data
-    hierarchical_data = preprocess_flat_data(flat_data)
+    hierarchical_data = preprocess_redcap_data(flat_data)
 
     # Save hierarchical JSON data
     with open(hierarchical_file, "w") as outfile:

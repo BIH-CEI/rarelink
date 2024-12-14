@@ -5,95 +5,202 @@ prefixes:
   rarelink: https://github.com/BIH-CEI/rarelink/
 imports:
   - linkml:types
+  - rarelink_types
 default_prefix: rarelink
 default_range: string
 
 enums:
-  CodeSystems:
+  NCBITaxon:
+    description: NCBI organismal classification
+    code_set: https://www.ncbi.nlm.nih.gov/taxonomy
+    code_set_version: "2024-07-03"
+
+  SNOMED:
+    description: SNOMED CT
+    code_set: https://www.snomed.org/snomed-ct
+    code_set_version: "2024-09-01"
+
+  MONDO:
+    description: Monarch Disease Ontology
+    code_set: https://purl.obolibrary.org/obo/mondo.owl
+    code_set_version: "2024-09-03"
+
+  HPO:
+    description: Human Phenotype Ontology
+    code_set: https://www.human-phenotype-ontology.org
+    code_set_version: "2024-08-13"
+
+  LOINC:
+    description: Logical Observation Identifiers Names and Codes
+    code_set: https://loinc.org/
+    code_set_version: "2.78"
+
+  OMIM:
+    description: Online Mendelian Inheritance
+    code_set: https://omim.org/
+    code_set_version: "2024-09-12"
+
+  ORPHA:
+    description: Orphanet Rare Disease Ontology
+    code_set: https://www.orpha.net/
+    code_set_version: "2024-09-12"
+
+  NCIT:
+    description: NCI Thesaurus OBO Edition
+    code_set: https://ncit.nci.nih.gov/
+    code_set_version: "24.04e"
+
+  UO:
+    description: Units of Measurement Ontology
+    code_set: https://www.ontobee.org/ontology/UO
+    code_set_version: "2024-09-12"
+
+  HGNC:
+    description: HUGO Gene Nomenclature Committee
+    code_set: https://www.genenames.org/
+    code_set_version: "2024-08-23"
+
+  HGVS:
+    description: Human Genome Variation Society
+    code_set: https://varnomen.hgvs.org/
+    code_set_version: "21.0.0"
+
+  GA4GH:
+    description: Global Alliance for Genomics and Health
+    code_set: https://www.ga4gh.org/
+    code_set_version: "v2.0"
+
+  HL7FHIR:
+    description: Health Level 7 Fast Healthcare Interoperability Resources
+    code_set: https://www.hl7.org/fhir/
+    code_set_version: "v4.0.1"
+
+  ICD11:
+    description: International Classification of Diseases, Eleventh Revision
+    code_set: https://icd.who.int/en
+    code_set_version: "2024-09-01"
+
+  ICD10CM:
+    description: International Classification of Diseases, Tenth Revision, Clinical Modification
+    code_set: https://www.cdc.gov/nchs/icd/icd10cm.htm
+    code_set_version: "2024-09-01"
+
+  ICD10GM:
+    description: International Classification of Diseases, Tenth Revision, German Modification
+    code_set: https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html
+    code_set_version: "2024-09-01"
+
+  SO:
+    description: Sequence types and features ontology
+    code_set: https://www.sequenceontology.org/
+    code_set_version: "2.6"
+
+  GENO:
+    description: GENO - The Genotype Ontology
+    code_set: https://www.genoontology.org/
+    code_set_version: "2023-10-08"
+
+  ICD9:
+    description: International Classification of Diseases, Ninth Revision
+    code_set: https://www.cdc.gov/nchs/icd/icd9.htm
+    code_set_version: "2024-09-01"
+
+  ISO3166:
+    description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
+    code_set: https://www.iso.org/iso-3166-country-codes.html
+    code_set_version: "2020(en)"
+
+  ICF:
+    description: International Classification of Functioning, Disability and Health
+    code_set: https://www.who.int/classifications/icf/en/
+    code_set_version: "1.0.2"
+
+classes:
+  CodeSystemsContainer:
     description: >
-      Enumeration of all code systems used in RareLink, along with metadata.
-    permissible_values:
-      NCBITaxon:
+      A container class for all code systems used in RareLink.
+    attributes:
+      ncbi_taxon:
         description: NCBI organismal classification
-        text: "NCBITaxon"
-        meaning: https://www.ncbi.nlm.nih.gov/taxonomy
-      SNOMED:
+        range: NCBITaxon
+        required: true
+      snomed:
         description: SNOMED CT
-        text: "SNOMED"
-        meaning: https://www.snomed.org/snomed-ct
-      MONDO:
+        range: SNOMED
+        required: true
+      mondo:
         description: Monarch Disease Ontology
-        text: "MONDO"
-        meaning: https://purl.obolibrary.org/obo/mondo.owl
-      HPO:
+        range: MONDO
+        required: true
+      hpo:
         description: Human Phenotype Ontology
-        text: "HPO"
-        meaning: https://www.human-phenotype-ontology.org
-      LOINC:
+        range: HPO
+        required: true
+      loinc:
         description: Logical Observation Identifiers Names and Codes
-        text: "LOINC"
-        meaning: https://loinc.org/
-      OMIM:
+        range: LOINC
+        required: true
+      omim:
         description: Online Mendelian Inheritance
-        text: "OMIM"
-        meaning: https://omim.org/
-      ORPHA:
+        range: OMIM
+        required: true
+      orpha:
         description: Orphanet Rare Disease Ontology
-        text: "ORPHA"
-        meaning: https://www.orpha.net/
-      NCIT:
+        range: ORPHA
+        required: true
+      ncit:
         description: NCI Thesaurus OBO Edition
-        text: "NCIT"
-        meaning: https://ncit.nci.nih.gov/
-      UO:
+        range: NCIT
+        required: true
+      uo:
         description: Units of Measurement Ontology
-        text: "UO"
-        meaning: https://www.ontobee.org/ontology/UO
-      HGNC:
+        range: UO
+        required: true
+      hgnc:
         description: HUGO Gene Nomenclature Committee
-        text: "HGNC"
-        meaning: https://www.genenames.org/
-      HGVS:
+        range: HGNC
+        required: true
+      hgvs:
         description: Human Genome Variation Society
-        text: "HGVS"
-        meaning: https://varnomen.hgvs.org/
-      GA4GH:
+        range: HGVS
+        required: true
+      ga4gh:
         description: Global Alliance for Genomics and Health
-        text: "GA4GH"
-        meaning: https://www.ga4gh.org/
-      HL7FHIR:
+        range: GA4GH
+        required: true
+      hl7fhir:
         description: Health Level 7 Fast Healthcare Interoperability Resources
-        text: "HL7FHIR"
-        meaning: https://www.hl7.org/fhir/
-      ICD11:
+        range: HL7FHIR
+        required: true
+      icd11:
         description: International Classification of Diseases, Eleventh Revision
-        text: "ICD11"
-        meaning: https://icd.who.int/en
-      ICD10CM:
+        range: ICD11
+        required: true
+      icd10cm:
         description: International Classification of Diseases, Tenth Revision, Clinical Modification
-        text: "ICD10CM"
-        meaning: https://www.cdc.gov/nchs/icd/icd10cm.htm
-      ICD10GM:
+        range: ICD10CM
+        required: true
+      icd10gm:
         description: International Classification of Diseases, Tenth Revision, German Modification
-        text: "ICD10GM"
-        meaning: https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html
-      SO:
+        range: ICD10GM
+        required: true
+      so:
         description: Sequence types and features ontology
-        text: "SO"
-        meaning: https://www.sequenceontology.org/
-      GENO:
-        description: GENO: The Genotype Ontology
-        text: "GENO"
-        meaning: https://www.genoontology.org/
-      ICD9:
+        range: SO
+        required: true
+      geno:
+        description: GENO - The Genotype Ontology
+        range: GENO
+        required: true
+      icd9:
         description: International Classification of Diseases, Ninth Revision
-        text: "ICD9"
-        meaning: https://www.cdc.gov/nchs/icd/icd9.htm
-      ISO3166:
+        range: ICD9
+        required: true
+      iso3166:
         description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
-        text: "ISO3166"
-        meaning: https://www.iso.org/iso-3166-country-codes.html
-      ICF:
+        range: ISO3166
+        required: true
+      icf:
         description: International Classification of Functioning, Disability and Health
-        text: "ICF"
-        meaning: https://www.who.int/classifications/icf/en/
+        range: ICF
+        required: true
