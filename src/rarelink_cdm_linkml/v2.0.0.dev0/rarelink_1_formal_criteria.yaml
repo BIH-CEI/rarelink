@@ -7,7 +7,7 @@ prefixes:
   phenopackets: https://phenopacket-schema.readthedocs.io/en/latest/schema.html
 imports:
   - linkml:types
-  - rarelink_meta.yaml
+  - ./rarelink_meta.yaml:meta  # Correctly reference the meta-schema
 default_range: string
 
 classes:
@@ -45,4 +45,4 @@ classes:
         description: "A list of formal criteria entries"
         multivalued: true
         inlined_as_list: true
-        range: rarelink_1_formal_criteria
+        range: Rarelink_1_formal_criteria

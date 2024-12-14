@@ -1,7 +1,8 @@
-id: https://github.com/BIH-CEI/RareLink/meta
+id: https://github.com/BIH-CEI/RareLink/
 name: rarelink_meta
 prefixes:
   linkml: https://w3id.org/linkml/
+  rarelink_meta: https://github.com/BIH-CEI/RareLink/
 imports:
   - linkml:meta
 default_range: string
@@ -12,6 +13,8 @@ classes:
       code:
         description: "Standardized code for the attribute (e.g., SNOMED code)"
         range: string
+        required: false
       value_set:
         description: "The value set linked to the attribute"
         range: string
+        required: false
