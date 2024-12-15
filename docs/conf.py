@@ -36,6 +36,11 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_copybutton'
 ]
+html_logo = '_static/res/RareLink SpinxDocs Logo.png'
+
+html_css_files = [
+    'custom.css',
+]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

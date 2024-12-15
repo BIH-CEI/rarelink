@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=fc914832" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -37,6 +37,7 @@
           
           <a href="../index.html" class="icon icon-home">
             RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -124,11 +125,11 @@
              
   <section id="set-up-the-redcap-api">
 <span id="id1"></span><h1>Set up the REDCap API<a class="headerlink" href="#set-up-the-redcap-api" title="Link to this heading"></a></h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>To use your local REDCap project, you will need to set up a local REDCap
-instance. For this, please contact your local REDCap administrator. A project
-name could, for example, be “RareLink - Your Local REDCap Location”.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RareLink v2.0.0.dev0 is currently under development, and many things are
+subject to change. Please reach out before implementing or using the
+software to ensure you have the latest updates and guidance.</p>
 </div>
 <p>The REDCap API for RareLink is a RESTful web service that allows users to
 interact with REDCap programmatically. The API is designed to provide a simple
@@ -144,18 +145,18 @@ with these topics, seek help from someone who is.</p>
 <section id="api-set-up">
 <h2>API Set Up<a class="headerlink" href="#api-set-up" title="Link to this heading"></a></h2>
 <p>In your terminal, write:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>redcap-api-setup<span class="w"> </span>start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap-setup<span class="w"> </span>api-config<span class="w"> </span>start
 </pre></div>
 </div>
 <p>This command guides you through setting up the REDCap API for RareLink. You will be prompted to enter:
 - Your REDCap instance URL.
 - Your REDCap API token.</p>
 <p>To view your current configuration:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>redcap-api-setup<span class="w"> </span>view
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap-setup<span class="w"> </span>api-config<span class="w"> </span>view
 </pre></div>
 </div>
 <p>To reset your REDCap API configuration:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>redcap-api-setup<span class="w"> </span>reset
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap-setup<span class="w"> </span>api-config<span class="w"> </span>reset
 </pre></div>
 </div>
 <div class="admonition tip">

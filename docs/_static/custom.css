@@ -2,3 +2,38 @@
     max-width: 100px; /* Adjust as needed */
     width: 50%;      /* Make it responsive */
 }
+
+/* Adjust the logo size and alignment */
+.wy-side-nav-search {
+    background-image: url("../res/RareLink SpinxDocs Logo.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding-top: 100px; /* Adjust as needed to ensure no overlap */
+}
+
+.logo {
+    max-width: auto; /* Set the maximum width (adjust as needed) */
+    height: auto;     /* Maintain the aspect ratio */
+    margin: auto;   /* Center the logo if necessary */
+    display: block;   /* Ensures proper centering and layout */
+}
+
+/* Prevent unnecessary scrolling by restricting parent container height */
+.wy-side-nav-search {
+    padding-top: 0; /* Remove unnecessary padding */
+}
+
+.wy-nav-side {
+    margin-top: 0; /* Remove unnecessary margins */
+    overflow: hidden; /* Prevent extra scrolling */
+}
+
+.rst-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Control the overall layout to remove extra space */
+body {
+    overflow-y: auto; /* Ensure vertical scrolling only when needed */
+}

@@ -3,10 +3,10 @@
 RareLink CDM Instruments
 ============================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
 
 To install the RareLink CDM instruments, you will need to download the 
 instruments from the RareLink REDCap project.
@@ -22,7 +22,9 @@ instruments from the RareLink REDCap project.
 
 Via the RareLink CLI type:
 
->>> rarelink redcap-setup download-data-dictionary
+.. code-block:: console
+
+    rarelink redcap-setup download --help
 
 _____________________________________________________________________________________
 

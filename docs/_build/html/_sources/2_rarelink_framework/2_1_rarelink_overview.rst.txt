@@ -3,10 +3,14 @@
 RareLink Overview
 =================
 
-.. attention::
-   To use your local REDCap project, you will need to set up a local REDCap 
-   instance. For this please contact your local REDCap administratior. A project
-   name could for example be "RareLink - Your local REDCap location". 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
+.. attention:: 
+    You will need your own REDCap instance to deploy the RareLink framework.
+    See the :ref:`3_2` for more information.
 
 RareLink aims to maximise the utility of REDCap by providing a comprehensive 
 framework designed specifically for rare disease (RD) research and care. 
@@ -18,7 +22,7 @@ GA4GH Phenopackets, without the need for additional coding or mapping.
 As a result, RareLink allows researchers and clinicians to collect and process
 rare disease data seamlessly within the REDCap environment.
 
-.. image:: ../_static/res/rarelink_overview.jpeg
+.. image:: ../_static/res/rarelink_overview.png
    :alt: RareLink Overview
    :align: center
 
@@ -86,7 +90,7 @@ __________________
     
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - How to set up the :ref:`3_1` and the :ref:`3_4` 
         - Guide to :ref:`4_4`
         - toFHIR Repository: https://github.com/srdc/tofhirs
         - Website: https://onfhir.io/tofhir/
@@ -102,7 +106,7 @@ _______________________
 
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - How to set up the :ref:`3_1` and the :ref:`3_4`
         - Guide to :ref:`4_3`
         - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
         - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 

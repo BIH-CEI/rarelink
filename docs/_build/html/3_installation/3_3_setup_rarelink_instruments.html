@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=eb2ed336" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -37,6 +37,7 @@
           
           <a href="../index.html" class="icon icon-home">
             RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -121,11 +122,11 @@
              
   <section id="rarelink-cdm-instruments">
 <span id="id1"></span><h1>RareLink CDM Instruments<a class="headerlink" href="#rarelink-cdm-instruments" title="Link to this heading"></a></h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>To use your local REDCap project, you will need to set up a local REDCap
-instance. For this please contact your local REDCap administratior. A project
-name could for example be “RareLink - Your local REDCap location”.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RareLink v2.0.0.dev0 is currently under development, and many things are
+subject to change. Please reach out before implementing or using the
+software to ensure you have the latest updates and guidance.</p>
 </div>
 <p>To install the RareLink CDM instruments, you will need to download the
 instruments from the RareLink REDCap project.</p>
@@ -141,7 +142,7 @@ instruments from the RareLink REDCap project.</p>
 <li><p><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">RareLink</span> <span class="pre">CDM</span> <span class="pre">instruments</span> <span class="pre">seperately</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">.zip</span> <span class="pre">file</span></code></p></li>
 </ul>
 <p>Via the RareLink CLI type:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rarelink</span> <span class="n">redcap</span><span class="o">-</span><span class="n">setup</span> <span class="n">download</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">dictionary</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rarelink redcap-setup download --help</span>
 </pre></div>
 </div>
 <hr class="docutils" />

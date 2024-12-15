@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=fc914832" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -37,6 +37,7 @@
           
           <a href="../index.html" class="icon icon-home">
             RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -129,37 +130,43 @@
              
   <section id="set-up-the-rarelink-framework">
 <span id="id1"></span><h1>Set up the RareLink Framework<a class="headerlink" href="#set-up-the-rarelink-framework" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RareLink v2.0.0.dev0 is currently under development, and many things are
+subject to change. Please reach out before implementing or using the
+software to ensure you have the latest updates and guidance.</p>
+</div>
 <p>To set up the RareLink framework, follow these steps:</p>
 <section id="install-the-rarelink-framework-dependencies">
 <h2><strong>Install the RareLink framework dependencies.</strong><a class="headerlink" href="#install-the-rarelink-framework-dependencies" title="Link to this heading"></a></h2>
 <p>Clone the repository and install the dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 <p>Via the RareLink CLI, type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>rarelink
 </pre></div>
 </div>
 <p>This command installs all necessary RareLink framework dependencies and functionalities.</p>
 <p>To update the RareLink framework:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>update
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework<span class="w"> </span>update
 </pre></div>
 </div>
 <p>This command updates the framework to the latest version.</p>
 <p>To check the current framework status:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>status
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework<span class="w"> </span>status
 </pre></div>
 </div>
 <p>This command provides a summary of the framework’s current status.</p>
 <p>To reset the framework to its initial state:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework-setup<span class="w"> </span>reset
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework<span class="w"> </span>reset
 </pre></div>
 </div>
 <p>This command clears all framework configurations and reverts it to its initial setup state.</p>
 <section id="import-mapper-configuration">
 <h3>Import Mapper Configuration<a class="headerlink" href="#import-mapper-configuration" title="Link to this heading"></a></h3>
 <p>Via the RareLink CLI type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>-pipeline<span class="w"> </span>import_mapper
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>to<span class="w"> </span>be<span class="w"> </span>implemented
 </pre></div>
 </div>
 <p>This command guides you through setting up the Import Mapper pipeline for RareLink.
@@ -171,7 +178,7 @@ You will be prompted to enter:
 <section id="phenopacket-pipeline-configuration">
 <h3>Phenopacket Pipeline Configuration<a class="headerlink" href="#phenopacket-pipeline-configuration" title="Link to this heading"></a></h3>
 <p>Via the RareLink CLI type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>-pipeline<span class="w"> </span>phenopackets
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>to<span class="w"> </span>be<span class="w"> </span>implemented
 </pre></div>
 </div>
 <p>This command guides you through setting up the Phenopacket pipeline for RareLink.
@@ -180,7 +187,7 @@ You will be prompted to enter:
 </section>
 <section id="fhir-pipeline-configuration">
 <h3>FHIR Pipeline Configuration<a class="headerlink" href="#fhir-pipeline-configuration" title="Link to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>-pipeline<span class="w"> </span>fhir
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>to<span class="w"> </span>be<span class="w"> </span>implemented
 </pre></div>
 </div>
 <p>This command guides you through setting up the FHIR pipeline for RareLink.
