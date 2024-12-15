@@ -3,10 +3,12 @@ name: CLI
 on:
   push:
     branches:
-      - develop, main
+      - develop
+      - main
   pull_request:
     branches:
-      - develop, main
+      - develop
+      - main
 
 permissions:
   contents: write # Ensures GitHub Actions can commit to the repository
