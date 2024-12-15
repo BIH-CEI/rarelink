@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=fc914832" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4dc0b079" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -49,6 +49,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Background</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
@@ -58,6 +59,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Data Dictionary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
@@ -65,6 +67,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="3_0_install_file.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Set up a REDCap Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-set-up-a-redcap-project">How to set up a REDCap project:</a><ul>
@@ -80,6 +83,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_0_guide_file.html">RareLink User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
@@ -89,6 +93,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_0_examples_file.html">Full Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">Example - REDCap Project Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">Example - Manual Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">Example - Semi-Automatic Data Import</a></li>
@@ -118,6 +123,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="3_0_install_file.html">Installation Guide</a></li>
       <li class="breadcrumb-item active">Set up a REDCap Project</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/3_installation/3_2_setup_redcap_project.rst.txt" rel="nofollow"> View page source</a>
@@ -144,11 +150,14 @@ software to ensure you have the latest updates and guidance.</p>
 <li><p>Contact your local REDCap administrator to create your REDCap project.</p></li>
 <li><p>Name your REDCap project, e.g.: ‘RareLink - NameofyourInstitution’.</p></li>
 <li><p>Let your institutional account be added and provide you API access for the project.</p></li>
+<li><dl class="simple">
+<dt>Follow the instructions given to you by your REDCap administator to further set up your project.</dt><dd><p>👉 Be aware of development and production mode. Read the docs and discuss this with your REDCap admin!</p>
+</dd>
+</dl>
+</li>
+<li><p>Copy the API token for the project and keep it secure.</p></li>
+<li><p>Run ‘rarelink redcap-api-setup start’ to set up the REDCap API access.</p></li>
 </ol>
-<p>4. Follow the instructions given to you by your REDCap administator to further set up your project.
-👉 Be aware of development and production mode. Read the docs and discuss this with your REDCap admin!
-5. Copy the API token for the project and keep it secure.
-6. Run ‘rarelink redcap-api-setup start’ to set up the REDCap API access.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> section to learn more about the REDCap API access.</p>
@@ -174,8 +183,13 @@ contains all the necessary instruments and fields to collect the RareLink CDM
 data and preconfigurations for FHIR and Phenopckets export.</p>
 <p>You can download the REDCap project XML file here:</p>
 <ul class="simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/25122ebc11409a8a4420e1a9dbd69fd8/rarelink_v2_0_0_redcap_project.xml"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">RareLink</span> <span class="pre">Core</span> <span class="pre">REDCap</span> <span class="pre">Project</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/99408edf976b9d46455ecc9d39262261/rarelink_v2_0_0_dev0_redcap_project.xml"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">RareLink</span> <span class="pre">Core</span> <span class="pre">REDCap</span> <span class="pre">Project</span></code></a></p></li>
 </ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>You can only import the template RareLink REDCap project if you are a REDCap administrator
+or in contact with your local REDCap administrator.</p>
+</div>
 <p>To install the core REDCap project, follow these steps:</p>
 <ol class="arabic simple">
 <li><p>Download the core REDCap project XML file.</p></li>
