@@ -22,31 +22,13 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: Update Badge Status to Running
+      - name: Run CLI Tests and Update Badge
         run: |
-          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
+          pytest tests/cli/ && \
+          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json || \
+          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "offline", "color": "orange"}' > status.json
 
-      - name: Push "Running" Badge Status
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions
-          author_email: actions@github.com
-          message: "Update badge status to running"
-          add: status.json
-
-      - name: Run CLI Tests
-        run: |
-          pytest tests/cli/ || echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "not running", "color": "red"}' > status.json
-
-      - name: Update Badge Status to Final State
-        if: always()
-        run: |
-          if [ -f status.json ] && [ "$(cat status.json | jq -r .message)" != "not running" ]; then
-            echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
-          fi
-
-      - name: Push Final Badge Status
-        if: always()
+      - name: Push Badge Status
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions
