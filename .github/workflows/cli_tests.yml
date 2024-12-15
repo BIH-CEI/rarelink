@@ -7,30 +7,41 @@ on:
   pull_request:
     branches:
       - main
-      
+
 permissions:
-  contents: write
+  contents: write # Ensures GitHub Actions can commit to the repository
 
 jobs:
   test-cli:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
+      # Step 3: Install dependencies from requirements.txt
       - name: Install Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run CLI Tests and Update Badge
         run: |
-          pytest tests/cli/ && \
-          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json || \
-          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "offline", "color": "orange"}' > status.json
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
+      # Step 4: Run CLI tests and generate badge
+      - name: Run CLI Tests and Generate Badge
+        run: |
+          if pytest tests/cli/; then
+            echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
+          else
+            echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "offline", "color": "orange"}' > status.json
+          fi
+
+      # Step 5: Commit and push the badge status
       - name: Push Badge Status
         uses: EndBug/add-and-commit@v9
         with:
@@ -38,4 +49,3 @@ jobs:
           author_email: actions@github.com
           message: "Update badge status"
           add: status.json
-        
