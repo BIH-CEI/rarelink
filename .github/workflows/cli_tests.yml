@@ -47,7 +47,6 @@ jobs:
             echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "offline", "color": "orange"}' > rarelink/tests/cli/status.json
           fi
 
-
       # Step 5: Commit and push the badge status
       - name: Push Badge Status
         uses: EndBug/add-and-commit@v9
