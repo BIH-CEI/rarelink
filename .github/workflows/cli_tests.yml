@@ -40,11 +40,13 @@ jobs:
       # Step 4: Run CLI tests and generate badge
       - name: Run CLI Tests and Generate Badge
         run: |
+          mkdir -p rarelink/tests/cli/  # Ensure the directory exists
           if pytest tests/cli/; then
             echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > rarelink/tests/cli/status.json
           else
             echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "offline", "color": "orange"}' > rarelink/tests/cli/status.json
           fi
+
 
       # Step 5: Commit and push the badge status
       - name: Push Badge Status
