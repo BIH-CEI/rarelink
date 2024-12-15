@@ -15,9 +15,7 @@ Exports:
 
 # Importing functions and constants from individual modules
 from .schema_loader import load_schema
-from .field_mappings import FIELD_MAPPINGS
 
 __all__ = [
     "load_schema",
-    "FIELD_MAPPINGS"
 ]

@@ -14,12 +14,11 @@ Exports:
 """
 
 # Importing functions from individual modules
-from .preprocess_redcap_json import preprocess_redcap_data
+from .preprocess_redcap_json import preprocess_flat_data, MAPPING_FUNCTIONS
 from .transform_to_redcap_json import transform_to_redcap_json
-from .field_mappings import FIELD_MAPPINGS
 
 __all__ = [
-    "preprocess_redcap_data",
+    "preprocess_flat_data",
     "transform_to_redcap_json",
-    "FIELD_MAPPINGS"
+    "MAPPING_FUNCTIONS"
 ]

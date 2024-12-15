@@ -21,9 +21,12 @@ Exports:
 """
 
 from .helpers.schema_loader import load_schema
+from .processing import preprocess_flat_data, MAPPING_FUNCTIONS
 
 __all__ = [
     "load_schema",
+    "preprocess_flat_data",
+    "MAPPING_FUNCTIONS"
 ]
 
 __version__ = "2.0.0.dev0"

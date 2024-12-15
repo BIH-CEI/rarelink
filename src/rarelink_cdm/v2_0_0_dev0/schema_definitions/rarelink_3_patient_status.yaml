@@ -59,7 +59,7 @@ slots:
 
   snomed_723663001:
     description: Identifies cases where an RD diagnosis has not been established
-    range: YesNoChoice
+    range: Boolean
     required: false
     
   rarelink_3_patient_status_complete:
@@ -116,18 +116,6 @@ enums:
       snomed_261665006:
         description: Unknown
         meaning: SNOMED:261665006
-      '':
-        description: No value provided
-        meaning: null
-
-  YesNoChoice:
-    permissible_values:
-      snomed_373066001:
-        description: Yes
-        meaning: SNOMED:373066001
-      snomed_373067005:
-        description: No
-        meaning: SNOMED:373067005
       '':
         description: No value provided
         meaning: null

@@ -32,6 +32,16 @@ def map_patient_status(entry):
     """
     Maps a flat REDCap entry to the PatientStatus schema.
     """
+    def convert_to_boolean(value):
+        """
+        Convert SNOMED codes for yes/no to Boolean values.
+        """
+        yes_no_mapping = {
+            "snomed_373066001": True,  # Yes
+            "snomed_373067005": False  # No
+        }
+        return yes_no_mapping.get(value, None)
+
     return {
         "patient_status_date": entry.get("patient_status_date", ""),
         "snomed_278844005": entry.get("snomed_278844005", ""),
@@ -39,7 +49,7 @@ def map_patient_status(entry):
         "snomed_184305005": entry.get("snomed_184305005", ""),
         "snomed_105727008": entry.get("snomed_105727008", ""),
         "snomed_412726003": entry.get("snomed_412726003", ""),
-        "snomed_723663001": entry.get("snomed_723663001", ""),
+        "snomed_723663001": convert_to_boolean(entry.get("snomed_723663001", "")),
         "rarelink_3_patient_status_complete": entry.get("rarelink_3_patient_status_complete", "")
     }
 
@@ -82,6 +92,17 @@ def map_genetic_findings(entry):
     """
     Maps a flat REDCap entry to the GeneticFindings schema.
     """
+    
+    def convert_to_boolean(value):
+        """
+        Convert SNOMED codes for yes/no to Boolean values.
+        """
+        yes_no_mapping = {
+            "yes": True,  # Yes
+            "no": False  # No
+        }
+        return yes_no_mapping.get(value, None)
+
     return {
         "genetic_diagnosis_code": entry.get("genetic_diagnosis_code", ""),
         "snomed_106221001_mondo": entry.get("snomed_106221001_mondo", ""),
@@ -95,7 +116,7 @@ def map_genetic_findings(entry):
         "loinc_81290_9": entry.get("loinc_81290_9", ""),
         "loinc_48004_6": entry.get("loinc_48004_6", ""),
         "loinc_48005_3": entry.get("loinc_48005_3", ""),
-        "variant_validation": entry.get("variant_validation", ""),
+        "variant_validation": convert_to_boolean(entry.get("variant_validation", "")),
         "loinc_48018_6": entry.get("loinc_48018_6", ""),
         "loinc_48018_6_label": entry.get("loinc_48018_6_label", ""),
         "loinc_53034_5": entry.get("loinc_53034_5", ""),
