@@ -21,7 +21,7 @@ GA4GH Phenopacket Schema. In the following you will find detailed information on
 including its background, components, installation instructions, user guide,
 and full examples. 
 
-.. image:: ../_static/res/rarelink_overview.png
+.. image:: _static/res/rarelink_overview.png
    :alt: RareLink Overview
    :align: center
 
@@ -60,7 +60,7 @@ Sections
 10) :doc:`10_license`
 
 1) Background
-----------
+---------------
 
 - :doc:`1_background/1_1_rd_interoperability`
 - :doc:`1_background/1_2_ontologies`
@@ -71,7 +71,7 @@ Sections
 
 
 2) RareLink Framework
-------------------
+----------------------
 
 - :doc:`2_rarelink_framework/2_0_rarelink_file`
 - :doc:`2_rarelink_framework/2_1_rarelink_overview`
@@ -80,7 +80,7 @@ Sections
 - :doc:`2_rarelink_framework/2_4_rarelink_cli`
 
 3) Installation
-------------
+-----------------
 
 - :doc:`3_installation/3_0_install_file`
 - :doc:`3_installation/3_1_setup_rarelink_framework`
@@ -89,7 +89,7 @@ Sections
 - :doc:`3_installation/3_4_redcap_api`
 
 4) User Guide
-----------
+--------------
 - :doc:`4_user_guide/4_0_guide_file`
 - :doc:`4_user_guide/4_1_manual_data_capture`
 - :doc:`4_user_guide/4_2_import_mapper`
@@ -99,7 +99,7 @@ Sections
 - :doc:`4_user_guide/4_6_redcap_project_interaction`
 
 5) Full Examples
--------------
+-----------------
 - :doc:`5_examples/5_0_examples_file`
 - :doc:`5_examples/5_1_example_redcap_project`
 - :doc:`5_examples/5_2_example_redcap_instruments`
@@ -108,7 +108,7 @@ Sections
 - :doc:`5_examples/5_5_example_tofhir_module`
 
 Additional Information
-----------------------
+-----------------------
 - :doc:`6_changelog`
 - :doc:`7_faq`
 - :doc:`8_glossary`
@@ -121,6 +121,7 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
+   1_background/1_0_background_file
    1_background/1_1_rd_interoperability
    1_background/1_2_ontologies
    1_background/1_3_ga4gh_phenopacket_schema
@@ -133,6 +134,7 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
+   2_rarelink_framework/2_0_rarelink_file
    2_rarelink_framework/2_1_rarelink_overview
    2_rarelink_framework/2_2_rarelink_cdm_instruments
    2_rarelink_framework/2_3_rarelink_core_redcap_project
@@ -143,6 +145,7 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
+   3_installation/3_0_install_file
    3_installation/3_1_setup_rarelink_framework
    3_installation/3_2_setup_redcap_project
    3_installation/3_3_setup_rarelink_instruments
@@ -153,6 +156,7 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
+   4_user_guide/4_0_guide_file
    4_user_guide/4_1_manual_data_capture
    4_user_guide/4_2_import_mapper
    4_user_guide/4_3_phenopacket_mapper
@@ -165,6 +169,7 @@ Additional Information
    :maxdepth: 4
    :hidden:
 
+   5_examples/5_0_examples_file
    5_examples/5_1_example_redcap_project
    5_examples/5_2_example_redcap_instruments
    5_examples/5_3_example_semiaut_import

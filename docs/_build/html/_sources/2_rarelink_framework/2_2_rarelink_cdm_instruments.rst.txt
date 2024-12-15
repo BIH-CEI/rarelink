@@ -52,7 +52,7 @@ ________
 
 The RareLink CDM Data Dictionary is available for download as a CSV file:
 
-:download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../_static/res/rarelink_v2_0_0_dev0_datadictionary.csv>`
+:download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../..//res/rarelink_v2_0_0_dev0_datadictionary.csv>`
 
 .. tip::
     Read :ref:`3_1` for more information on how to import the RareLink CDM Data Dictionary into your local REDCap project.

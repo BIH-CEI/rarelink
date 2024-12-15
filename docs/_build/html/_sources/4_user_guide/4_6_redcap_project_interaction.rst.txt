@@ -10,7 +10,7 @@ Once you have your API access set up, you can interact with your REDCap project:
 
 
 AAPI Endpoints
--------------
+----------------
 
 **Export Records**
 

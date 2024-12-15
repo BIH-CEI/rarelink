@@ -68,7 +68,7 @@ You will be prompted to enter:
 - Your location where to store the Import Mapper configurations.
 
 Phenopacket Pipeline Configuration
-________________________________
+___________________________________
 
 Via the RareLink CLI type:
 

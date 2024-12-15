@@ -18,7 +18,7 @@ To create a REDCap project, please follow these steps:
 2. Name your REDCap project, e.g.: 'RareLink - NameofyourInstitution'.
 3. Let your institutional account be added and provide you API access for the project.
 4. Follow the instructions given to you by your REDCap administator to further set up your project.
-👉 Be aware of development and production mode. Read the docs and discuss this with your REDCap admin!
+    👉 Be aware of development and production mode. Read the docs and discuss this with your REDCap admin!
 5. Copy the API token for the project and keep it secure.
 6. Run 'rarelink redcap-api-setup start' to set up the REDCap API access.
 
@@ -49,10 +49,11 @@ data and preconfigurations for FHIR and Phenopckets export.
 
 You can download the REDCap project XML file here: 
 
-- :download:`Download RareLink Core REDCap Project <../../res/rarelink_v2_0_0_redcap_project.xml>`
+- :download:`Download RareLink Core REDCap Project <../../res/rarelink_v2_0_0_dev0_redcap_project.xml>`
 
 .. attention::
-    
+    You can only import the template RareLink REDCap project if you are a REDCap administrator
+    or in contact with your local REDCap administrator.
 
 To install the core REDCap project, follow these steps:
 
