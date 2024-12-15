@@ -1,19 +1,19 @@
-from pathlib import Path
-from phenopackets.schema.v2 import Phenopacket
-import phenopackets
-from phenopacket_mapper.data_standards import DataSet, CodeSystem
-from phenopacket_mapper.mapping.mapper import PhenopacketMapper
-# from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
-from rarelink.utils.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
+# from pathlib import Path
+# from phenopackets.schema.v2 import Phenopacket
+# import phenopackets
+# from phenopacket_mapper.data_standards import DataSet, CodeSystem
+# from phenopacket_mapper.mapping.mapper import PhenopacketMapper
+# # from rarelink.rarelink_cdm.rarelink_cdm import load_rarelink_data
+# # from rarelink.utils.rarelink_cdm import pref_code_disease, pref_disease_onset, pref_hgvs_code, pref_zygosity_code
 
 
-def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:
+# def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:
 
-    data_model = data_set.data_model
+#     data_model = data_set.data_model
 
-    return PhenopacketMapper(
-        data_model=data_model,
-        id=data_model.pseudonym,
+#     return PhenopacketMapper(
+#         data_model=data_model,
+#         id=data_model.pseudonym,
         # subject=PhenopacketElement(
         #     phenopacket_element=phenopackets.Individual,
         #     # (1) Formal Criteria
@@ -144,7 +144,7 @@ def rarelink_cdm_phenopackets_mapping(data_set: DataSet) -> PhenopacketMapper:
         #     for i in range(9999)
         #     if getattr(data_model, f"phenotypic_feature_{i}", None)
         # ]
-    )
+    # )
 
     #    # family=[
     #     #     PhenopacketElement(
