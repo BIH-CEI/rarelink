@@ -22,7 +22,7 @@ GA4GH Phenopackets, without the need for additional coding or mapping.
 As a result, RareLink allows researchers and clinicians to collect and process
 rare disease data seamlessly within the REDCap environment.
 
-.. image:: ../_static/res/rarelink_overview.jpeg
+.. image:: ../_static/res/rarelink_overview.png
    :alt: RareLink Overview
    :align: center
 

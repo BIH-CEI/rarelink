@@ -21,6 +21,10 @@ GA4GH Phenopacket Schema. In the following you will find detailed information on
 including its background, components, installation instructions, user guide,
 and full examples. 
 
+.. image:: ../_static/res/rarelink_overview.png
+   :alt: RareLink Overview
+   :align: center
+
 .. tip::
     GitHub Repository: https://github.com/BIH-CEI/RareLink
 
