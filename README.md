@@ -8,7 +8,7 @@ Rare Disease Interoperability Framework in REDCap linking international
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
-![RareLink CLI](https://raw.githubusercontent.com/BIH-CEI/RareLink/main/status.json)
+![RareLink CLI](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/BIH-CEI/RareLink/main/status.json)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 
 
