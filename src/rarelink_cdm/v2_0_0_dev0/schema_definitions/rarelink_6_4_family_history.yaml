@@ -144,6 +144,9 @@ enums:
       snomed_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
+      '':
+        description: No value provided
+        meaning: null
 
   RelationshipToIndexCase:
     description: >
@@ -185,6 +188,9 @@ enums:
       snomed_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
+      '':
+        description: No value provided
+        meaning: null
 
   FamilyRelationship:
     description: >
@@ -226,6 +232,9 @@ enums:
       snomed_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
+      '':
+        description: No value provided
+        meaning: null
 
   FamilyRecordStatus:
     description: >
@@ -243,6 +252,9 @@ enums:
       hl7fhir_health-unknown:
         description: Health Unknown
         meaning: HL7FHIR:health-unknown
+      '':
+        description: No value provided
+        meaning: null
 
   FamilyMemberSex:
     description: >
@@ -263,3 +275,6 @@ enums:
       snomed_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
+      '':
+        description: No value provided
+        meaning: null

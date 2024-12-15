@@ -185,6 +185,9 @@ enums:
       ga4gh_unsolved:
         description: The interpretation is complete but no definitive diagnosis
         meaning: GA4GH:unsolved
+      '':
+        description: No value provided
+        meaning: null
 
   InterpretationStatus:
     permissible_values:
@@ -203,6 +206,9 @@ enums:
       ga4gh_causative:
         description: Variant causative of the diagnosis
         meaning: GA4GH:causative
+      '':
+        description: No value provided
+        meaning: null
 
   StructuralVariantMethod:
     permissible_values:
@@ -236,6 +242,9 @@ enums:
       loinc_la46-8:
         description: Other
         meaning: LOINC:LA46-8
+      '':
+        description: No value provided
+        meaning: null
 
   ReferenceGenome:
     permissible_values:
@@ -254,6 +263,9 @@ enums:
       loinc_la26806-2:
         description: GRCh38 (hg38)
         meaning: LOINC:LA26806-2
+      '':
+        description: No value provided
+        meaning: null
 
   VariantExpressionType:
     permissible_values:
@@ -266,6 +278,16 @@ enums:
       phgvs:
         description: Amino Acid Change [p.HGVS]
         meaning: p.HGVS
+      '':
+        description: No value provided
+        meaning: null
+
+  YesNo:
+    permissible_values:
+      Yes:
+        description: Yes - I'm sure
+      No:
+        description: No, I need to check again
 
   Zygosity:
     permissible_values:
@@ -293,6 +315,9 @@ enums:
       loinc_53034_5_other:
         description: Other
         meaning: LOINC:53034-5
+      '':
+        description: No value provided
+        meaning: null
 
   GenomicSourceClass:
     permissible_values:
@@ -320,6 +345,9 @@ enums:
       loinc_la26807-0:
         description: De novo
         meaning: LOINC:LA26807-0
+      '':
+        description: No value provided
+        meaning: null
 
   DNAChangeType:
     permissible_values:
@@ -347,6 +375,9 @@ enums:
       loinc_48019_4_other:
         description: Other
         meaning: LOINC:48019-4
+      '':
+        description: No value provided
+        meaning: null
 
   ClinicalSignificance:
     permissible_values:
@@ -368,6 +399,9 @@ enums:
       loinc_la4489-6:
         description: Unknown
         meaning: LOINC:LA4489-6
+      '':
+        description: No value provided
+        meaning: null
 
   TherapeuticActionability:
     permissible_values:
@@ -380,6 +414,9 @@ enums:
       ga4gh_actionable:
         description: Therapeutically actionable
         meaning: GA4GH:actionable
+      '':
+        description: No value provided
+        meaning: null
 
   LevelOfEvidence:
     permissible_values:
@@ -404,3 +441,6 @@ enums:
       loinc_la30206-9:
         description: Stand-alone evidence pathogenic
         meaning: LOINC:LA30206-9
+      '':
+        description: No value provided
+        meaning: null

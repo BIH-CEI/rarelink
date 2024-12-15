@@ -161,6 +161,9 @@ enums:
       hp_0003584:
         description: Late adult onset (60y+)
         meaning: HP:0003584
+      '':
+        description: No value provided
+        meaning: null
 
   TemporalPattern:
     permissible_values:
@@ -188,6 +191,9 @@ enums:
       hp_0025153:
         description: Transient
         meaning: HP:0025153
+      '':
+        description: No value provided
+        meaning: null
 
   PhenotypeSeverity:
     permissible_values:
@@ -206,3 +212,6 @@ enums:
       hp_0012828:
         description: Severe
         meaning: HP:0012828
+      '':
+        description: No value provided
+        meaning: null

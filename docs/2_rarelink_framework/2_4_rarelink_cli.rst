@@ -93,6 +93,29 @@ ________________________________
 Commands for interacting with an already-configured REDCap instance, i.e. your
 local REDCap project. 
 
+.. code-block:: console
+
+    rarelink redcap-tools --help
+
+The overview of all redcap-tools functionalities and commands.
+
+_____________________________________________________________________________________
+
+.. code-block:: console
+
+    rarelink redcap-tools download-records
+
+Download records from your REDCap project as JSON files and save them locally.
+
+.. attention::
+    If your project is in PRODUCTION mode, the downloaded data might be sensitive.
+    It must only be stored within your organisational site's approved storage.
+    Read here more about the REDCap project modes :ref:`1_6` and discuss this
+    with your REDCap administrator.
+_____________________________________________________________________________________
+
+
+
 .. note::
     For this you need your REDCap project running and API access configured.
     Run `rarelink redcap-setup redcap-project-setup` and `rarelink redcap-setup 

@@ -75,22 +75,22 @@ slots:
 
   snomed_424850005:
     description: Age at onset of the disease
-    range: AgeCategory
+    range: AgeAtOnset
     required: false
 
   snomed_298059007:
     description: Date of onset of the disease
-    range: date
+    range: union_date_string
     required: false
 
   snomed_423493009:
     description: Age at diagnosis
-    range: AgeCategory
+    range: AgeAtDiagnosis
     required: false
 
   snomed_432213005:
     description: Date of diagnosis
-    range: date
+    range: union_date_string
     required: false
 
   snomed_363698007:
@@ -134,6 +134,10 @@ enums:
       hl7fhir_entered-in-error:
         description: Entered in Error
         meaning: HL7FHIR:entered-in-error
+      '':
+        description: No value provided
+        meaning: null
+      
 
   AgeAtOnset:
     permissible_values:
@@ -149,6 +153,9 @@ enums:
       snomed_261665006:
         description: Unknown
         meaning: SNOMED:261665006
+      '':
+        description: No value provided
+        meaning: null
 
   AgeAtDiagnosis:
     permissible_values:
@@ -164,6 +171,9 @@ enums:
       snomed_261665006:
         description: Unknown
         meaning: SNOMED:261665006
+      '':
+        description: No value provided
+        meaning: null
 
   ClinicalStatus:
     permissible_values:
@@ -185,6 +195,9 @@ enums:
       hl7fhir_resolved:
         description: Resolved
         meaning: HL7FHIR:resolved
+      '':
+        description: No value provided
+        meaning: null
 
   DiseaseSeverity:
     permissible_values:
@@ -197,3 +210,6 @@ enums:
       snomed_255604002:
         description: Mild
         meaning: SNOMED:255604002
+      '':
+        description: No value provided
+        meaning: null

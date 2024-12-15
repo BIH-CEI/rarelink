@@ -36,7 +36,7 @@ slots:
   consent_date:
     description: >
       The date when the consent was provided.
-    range: date
+    range: union_date_string
     required: false
 
   health_policy_monitoring:
@@ -111,3 +111,6 @@ enums:
       snomed_261665006:
         description: Unknown
         meaning: snomed:261665006
+      '':
+        description: No value provided
+        meaning: null
