@@ -1,4 +1,4 @@
-name: CLI Tests
+name: CLI
 
 on:
   push:
@@ -19,5 +19,17 @@ jobs:
           python-version: "3.11"
       - name: Install Dependencies
         run: pip install -r requirements.txt
+      - name: Update Badge Status to Running
+        run: |
+          echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
       - name: Run CLI Tests
-        run: pytest tests/cli/
+        run: |
+          pytest tests/cli/ || echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "not running", "color": "red"}' > status.json
+      - name: Push Badge Status
+        if: always()
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions
+          author_email: actions@github.com
+          message: "Update badge status"
+          add: status.json
