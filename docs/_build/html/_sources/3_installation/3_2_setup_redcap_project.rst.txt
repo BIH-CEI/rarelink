@@ -3,6 +3,11 @@
 Set up a REDCap Project
 ========================
 
+.. warning:: 
+    RareLink v2.0.0.dev0 is currently under development, and many things are 
+    subject to change. Please reach out before implementing or using the 
+    software to ensure you have the latest updates and guidance.
+
 How to set up a REDCap project:
 -------------------------------
 
@@ -28,7 +33,7 @@ _____________________
 
 .. code-block:: bash
 
-    rarelink redcap-setup redcap-project-setup start
+    rarelink redcap-setup template-project --help
 
 This command guides you through the same steps as above to set up your REDCap
 project, including contacting your local REDCap administrator and ensuring API

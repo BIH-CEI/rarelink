@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=fc914832" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -37,6 +37,7 @@
           
           <a href="../index.html" class="icon icon-home">
             RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -131,11 +132,16 @@
              
   <section id="rarelink-overview">
 <span id="id1"></span><h1>RareLink Overview<a class="headerlink" href="#rarelink-overview" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RareLink v2.0.0.dev0 is currently under development, and many things are
+subject to change. Please reach out before implementing or using the
+software to ensure you have the latest updates and guidance.</p>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>To use your local REDCap project, you will need to set up a local REDCap
-instance. For this please contact your local REDCap administratior. A project
-name could for example be “RareLink - Your local REDCap location”.</p>
+<p>You will need your own REDCap instance to deploy the RareLink framework.
+See the <a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html#id1"><span class="std std-ref">Set up a REDCap Project</span></a> for more information.</p>
 </div>
 <p>RareLink aims to maximise the utility of REDCap by providing a comprehensive
 framework designed specifically for rare disease (RD) research and care.
@@ -146,7 +152,7 @@ ensures that data capture is both consistent and compliant with HL7 FHIR and
 GA4GH Phenopackets, without the need for additional coding or mapping.
 As a result, RareLink allows researchers and clinicians to collect and process
 rare disease data seamlessly within the REDCap environment.</p>
-<img alt="RareLink Overview" class="align-center" src="../_images/rarelink_overview.jpeg" />
+<img alt="RareLink Overview" class="align-center" src="../_images/rarelink_overview.png" />
 <hr class="docutils" />
 <section id="rarelink-framework-components">
 <h2>RareLink Framework components<a class="headerlink" href="#rarelink-framework-components" title="Link to this heading"></a></h2>
@@ -218,7 +224,7 @@ FHIR resources.</p>
 <div class="admonition-continue-here admonition">
 <p class="admonition-title">Continue here…</p>
 <ul class="simple">
-<li><p>How to set up the <a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html#id1"><span class="std std-ref">RareLink CDM Instruments</span></a> and the <span class="xref std std-ref">3_5</span></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a> and the <a class="reference internal" href="../3_installation/3_4_redcap_api.html#id1"><span class="std std-ref">Set up the REDCap API</span></a></p></li>
 <li><p>Guide to <a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html#id1"><span class="std std-ref">Generate FHIR Resources</span></a></p></li>
 <li><p>toFHIR Repository: <a class="reference external" href="https://github.com/srdc/tofhirs">https://github.com/srdc/tofhirs</a></p></li>
 <li><p>Website: <a class="reference external" href="https://onfhir.io/tofhir/">https://onfhir.io/tofhir/</a></p></li>
@@ -237,7 +243,7 @@ Phenopackets automatically.</p>
 <div class="admonition-continue-here admonition">
 <p class="admonition-title">Continue here…</p>
 <ul class="simple">
-<li><p>How to set up the <a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html#id1"><span class="std std-ref">RareLink CDM Instruments</span></a> and the <span class="xref std std-ref">3_5</span></p></li>
+<li><p>How to set up the <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a> and the <a class="reference internal" href="../3_installation/3_4_redcap_api.html#id1"><span class="std std-ref">Set up the REDCap API</span></a></p></li>
 <li><p>Guide to <a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html#id1"><span class="std std-ref">Generate GA4GH Phenopackets</span></a></p></li>
 <li><p>Phenopacket Mapper Repository: <a class="reference external" href="https://github.com/BIH-CEI/phenopacket_mapper">https://github.com/BIH-CEI/phenopacket_mapper</a></p></li>
 <li><p>Documentation: <a class="reference external" href="https://bih-cei.github.io/phenopacket_mapper/latest/">https://bih-cei.github.io/phenopacket_mapper/latest/</a></p></li>

@@ -90,7 +90,7 @@ __________________
     
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - How to set up the :ref:`3_1` and the :ref:`3_4` 
         - Guide to :ref:`4_4`
         - toFHIR Repository: https://github.com/srdc/tofhirs
         - Website: https://onfhir.io/tofhir/
@@ -106,7 +106,7 @@ _______________________
 
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_3` and the :ref:`3_5`
+        - How to set up the :ref:`3_1` and the :ref:`3_4`
         - Guide to :ref:`4_3`
         - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
         - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 
