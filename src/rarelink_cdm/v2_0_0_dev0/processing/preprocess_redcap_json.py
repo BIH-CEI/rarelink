@@ -114,21 +114,22 @@ def map_phenotypic_feature(entry):
     Maps a flat REDCap entry to the PhenotypicFeature schema.
     """
     return {
-        "phenotypic_feature": entry.get("snomed_8116006", ""),
-        "status": entry.get("snomed_363778006", ""),
-        "determination_date": entry.get("snomed_8116006_onset", ""),
-        "resolution_date": entry.get("snomed_8116006_resolution", ""),
-        "age_of_onset": entry.get("hp_0003674", ""),
-        "temporal_pattern": entry.get("hp_0011008", ""),
-        "severity": entry.get("hp_0012824", ""),
-        "clinical_modifier_hp1": entry.get("hp_0012823_hp1", ""),
-        "clinical_modifier_hp2": entry.get("hp_0012823_hp2", ""),
-        "clinical_modifier_hp3": entry.get("hp_0012823_hp3", ""),
-        "causing_organism": entry.get("hp_0012823_ncbitaxon", ""),
-        "primary_body_site": entry.get("hp_0012823_snomed", ""),
-        "evidence": entry.get("phenotypicfeature_evidence", ""),
+        "snomed_8116006": entry.get("phenotypic_feature", ""),
+        "snomed_363778006": entry.get("status", ""),
+        "snomed_8116006_onset": entry.get("determination_date", ""),
+        "snomed_8116006_resolution": entry.get("resolution_date", ""),
+        "hp_0003674": entry.get("age_of_onset", ""),
+        "hp_0011008": entry.get("temporal_pattern", ""),
+        "hp_0012824": entry.get("severity", ""),
+        "hp_0012823_hp1": entry.get("clinical_modifier_hp1", ""),
+        "hp_0012823_hp2": entry.get("clinical_modifier_hp2", ""),
+        "hp_0012823_hp3": entry.get("clinical_modifier_hp3", ""),
+        "hp_0012823_ncbitaxon": entry.get("causing_organism", ""),
+        "hp_0012823_snomed": entry.get("primary_body_site", ""),
+        "phenotypicfeature_evidence": entry.get("evidence", ""),
         "rarelink_6_2_phenotypic_feature_complete": entry.get("rarelink_6_2_phenotypic_feature_complete", "")
     }
+
 
 def map_measurement(entry):
     """

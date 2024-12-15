@@ -50,13 +50,13 @@ slots:
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
-    range: date
+    range: untion_date_string
     required: false
 
   snomed_8116006_resolution:
     description: >
       Time at which the feature resolved or abated.
-    range: date
+    range: union_date_string
     required: false
 
   hp_0003674:

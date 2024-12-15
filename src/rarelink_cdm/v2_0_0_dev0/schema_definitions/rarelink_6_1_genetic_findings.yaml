@@ -109,7 +109,7 @@ slots:
 
   variant_validation:
     description: Whether the HGVS expression was validated
-    range: YesNo
+    range: YesNoChoice
     required: false
 
   loinc_48018_6:
@@ -282,11 +282,11 @@ enums:
         description: No value provided
         meaning: null
 
-  YesNo:
+  YesNoChoice:
     permissible_values:
-      Yes:
+      yes:
         description: Yes - I'm sure
-      No:
+      no:
         description: No, I need to check again
 
   Zygosity:
