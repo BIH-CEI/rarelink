@@ -13,19 +13,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+
       - name: Install Dependencies
         run: pip install -r requirements.txt
+
       - name: Update Badge Status to Running
         run: |
           echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
+
+      - name: Push "Running" Badge Status
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions
+          author_email: actions@github.com
+          message: "Update badge status to running"
+          add: status.json
+
       - name: Run CLI Tests
         run: |
           pytest tests/cli/ || echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "not running", "color": "red"}' > status.json
-      - name: Push Badge Status
+
+      - name: Update Badge Status to Final State
+        if: always()
+        run: |
+          if [ -f status.json ] && [ "$(cat status.json | jq -r .message)" != "not running" ]; then
+            echo '{"schemaVersion": 1, "label": "RareLink CLI", "message": "running", "color": "blue"}' > status.json
+          fi
+
+      - name: Push Final Badge Status
         if: always()
         uses: EndBug/add-and-commit@v9
         with:
