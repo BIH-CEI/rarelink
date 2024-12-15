@@ -7,6 +7,9 @@ on:
   pull_request:
     branches:
       - main
+      
+permissions:
+  contents: write
 
 jobs:
   test-cli:
@@ -35,3 +38,4 @@ jobs:
           author_email: actions@github.com
           message: "Update badge status"
           add: status.json
+        
