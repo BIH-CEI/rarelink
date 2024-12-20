@@ -1,4 +1,4 @@
-Profile: IPSCondition
+Profile: RareLinkIPSCondition
 Parent: https://build.fhir.org/ig/HL7/fhir-ips/StructureDefinition-Condition-uv-ips.profile.json.html
 Id: ips.condition
 Title: "IPS Condition"
@@ -19,6 +19,7 @@ Description: "RareLink IPS Condition profile based on the IPS 2.0.0-ballot speci
 * text.div = """
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p><strong>RareLink IPS Condition</strong></p>
-  <p>This profile is based on the RareLink CDM Section 5 - Disease and the IPS v2.0.0.ballot profile. It defines conditions with standardized clinical, verification, and severity information.</p>
+  <p>This profile is based on the RareLink CDM Section 5 - Disease and the IPS v2.0.0.ballot profile. 
+  It defines conditions with standardized clinical, verification, and severity information.</p>
 </div>
 """
