@@ -1,53 +1,93 @@
 .. _4_1:
 
-Manual Data Capture
-====================
+Guide for Manual Data Capture
+===============================
 
-.. note::
+.. hint::
     This section offers detailed guidance for manually entering data into
-    RareLink CDM forms. For more information about the RareLink CDM, visit
-    :ref:`2_2`. Instructions for installing the RareLink CDM instruments in
-    REDCap are available at :ref:`3_1`.
+    RareLink CDM forms:
+    
+    - For more information about the RareLink CDM, visit :ref:`2_2`. 
 
-General Information
----------------------
+    - Instructions for installing the RareLink CDM instruments in REDCap are available at :ref:`3_1`.
+
+
+General Information (please read!)
+-------------------------------------
 
 This section provides general information about the manual data capture
 process:
-- **Purpose**: The manual data capture process is designed to facilitate the
-  entry of patient data into the RareLink CDM. This process is essential for
-  capturing patient information that is not available in electronic health
-  records (EHRs) or other data sources.
-- **Scope**: The manual data capture process covers the entry of patient data
-    into the RareLink CDM forms. This process is crucial for capturing detailed
-    patient information that is not available in EHRs or other data sources.
+
+- **Purpose**: The manual data capture guide is designed to facilitate the
+  entry of patient data into the :ref:`2_2`. It provides detailed instructions
+  for completing each section of the RareLink CDM forms.
 - **Feedback**: If you encounter any issues or have suggestions for improving
-    the manual data capture process, please contact us. This is a collaborative
-    effort, and we welcome your feedback.
+  the manual data capture process, please find more information in the :ref:`7`
+  section or `write a GitHub issue <https://github.com/BIH-CEI/rarelink/issues>`_.
+  RareLink is a collaborative effort, and we welcome your feedback.
 - **Data Security**: Ensure your local REDCap project is set up, and everything
-    is sorted with your local REDCap administrator. When capturing real patient
-    data, ensure that the REDCap project is in **Production Mode**! Read here
-    :ref:`1_6` for more information and discuss with your local REDCap
-    administrator.
-- **Searching Terminologies with BioPortal**: Many RareLink sheets feature 
-    integrated BioPortal search functionality. When searching, consider using 
-    synonyms or abbreviations, as these are also indexed in BioPortal. If you 
-    cannot find the desired term, try searching for broader or related terms. 
-    Alternatively, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ 
-    to identify the correct code and display for the concept you are looking for.
+  is sorted with your local REDCap administrator. When capturing real patient
+  data, ensure that the REDCap project is in **Production Mode**! Read the 
+  :ref:`1_6`-Background section for more information and discuss this with your
+  local REDCap administrator.
+- **Searching Terminologies with** `BioPortal <https://bioportal.bioontology.org/>`_: Many RareLink sheets feature 
+  integrated BioPortal search functionality. When searching, consider using 
+  synonyms or abbreviations, as these are also indexed in BioPortal. If you 
+  cannot find the desired term, try searching for broader or related terms.
+  Alternatively, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ 
+  to identify the correct code and display for the concept you are looking for.
+
+Types of Fields: 
+""""""""""""""""""
+- **Mandatory Fields**: Mandatory fields are marked within this guide with a red
+  asterisk (``*``). Ensure that all mandatory fields are completed before saving the form.
+- **Optional Fields**: Fields that are not mandatory can be left blank if the 
+  information is unknown or not required. This flexibility allows for partial 
+  data entry while maintaining focus on required fields.
+
+Types of Instruments:
+"""""""""""""""""""""""
+- **Single-Entry Forms**: These forms are designed for one-time data entry and
+  capture information that is not expected to change over time.
+- **Repeated Forms**: These forms are designed for capturing information that
+  may change over time, such as patient status, care pathway, and disease 
+  history. You can repeat these forms to reflect changes over time.
+
+  - If you are within the form, you can use the "Save and Add New Instance" button
+    to create a new instance of the form directly.
+  - To repeat a new instance of a form, click the **"+" button next to the form
+    name**. This action will create a new instance of the form, allowing you to
+    capture additional data points for the same individual.
+
+.. image:: ../docs/_static/res/redcap_gui_screenshots/repeating_buttons_2.jpg
+    :alt: Repeating Buttons
+    :align: center
+    
+.. image:: docs/_static/res/redcap_gui_screenshots/repeating_buttons.jpg
+    :alt: Repeating Buttons
+    :align: top
+
+
+
 
 _________________________________________________________________________________
 
 (1) Formal Criteria
 -----------------------------
 
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+
+
 This section contains information related to the formal criteria of
 individuals:
 
-- **Registry ID**: Unique identifier for the individual.
-- **Pseudonym (SNOMED:422549004)**: A pseudonym for the individual, often
-  used as a local patient-related identification code.
-- **Date of Admission (SNOMED:399423000)**: The date of admission or data
+- **Record ID**: Unique identifier for the record automatically assigned by the
+  local REDCap project. It is not editable, but can be used for reference within
+  your REDCap project, study, or registry.
+- **1.1 - Pseudonym** (``*``): Unique identifier for the individual, often used as a local
+  patient-related identification code or registry ID
+- **1.2 - Date of Admission** (``*``): The date of admission or data
   capture. Ensure the format is YYYY-MM-DD.
 
 _________________________________________________________________________________
@@ -55,33 +95,42 @@ ________________________________________________________________________________
 (2) Personal Information
 ----------------------------------
 
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+
+
 This section captures personal details about the individual:
 
-- Notes for entering data:
-  - Refer to the `ISO 3166 Country Codes <https://www.iso.org/obp/ui/#search/
-    code/>`_ to search for the country code. Enter only the three- letter ISO 
-    code (e.g., ``CAN``, ``TUR``).
-  - Fields that are not mandatory can be left blank if the information is
-    unknown or not required.
+- **2.1 - Date of Birth** (``*``): The individual's date of birth.
+  If exact dates are not allowed to be entered, enter approximate dates in the
+  format ``01.MM.YYYY`` or ``01.01.YYYY``.
+- **2.5 - Country of Birth**: Refer to the `ISO 3166 Country Codes <https://www.iso.org/obp/ui/#search/
+  code/>`_ to search for the country code. Enter only the three- letter ISO 
+  code (e.g., ``CAN``, ``TUR``).
+- Fields that are not mandatory can be left blank if the information is
+  unknown or not required.
 
 _________________________________________________________________________________
 
 (3) Patient Status
 -----------------------------
 
++-------------------+
+| **Repeated Form** |
++-------------------+
+
 This section tracks the status of the patient over time:
 
-- Notes for entering data:
-  - Forms can be repeated to reflect changes over time (e.g., vital status,
-    rare disease cases).
-  - For ontology-specific searches, use `OLS Platform <https://www.ebi.ac.uk/
-    ols4/ontologies>`_ for a smoother experience.
-  - If exact dates are unknown, enter approximate dates in the format
-    ``01.MM.YYYY`` or ``01.01.YYYY``.
-  - For "Length of Gestation at Birth," specify exact weeks and days in the
-    format ``35+6``.
-  - Fields that are not mandatory can be left blank if the information is
-    unknown or not required.
+- Forms can be **repeated** to reflect changes over time (e.g., vital status,
+  rare disease cases).
+- For ontology-specific searches, use `OLS Platform <https://www.ebi.ac.uk/
+  ols4/ontologies>`_ for a smoother experience.
+- If exact dates are unknown, enter approximate dates in the format
+  ``01.MM.YYYY`` or ``01.01.YYYY``.
+- For "Length of Gestation at Birth," specify exact weeks and days in the
+  format ``35+6``.
+- Fields that are not mandatory can be left blank if the information is
+  unknown or not required.
 
 _________________________________________________________________________________
 

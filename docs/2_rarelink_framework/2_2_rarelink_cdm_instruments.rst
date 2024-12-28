@@ -1,6 +1,6 @@
 .. _2_2:
 
-RareLink CDM Data Dictionary
+RareLink-CDM
 =============================
 
 .. warning:: 
