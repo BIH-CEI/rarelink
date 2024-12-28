@@ -13,7 +13,7 @@ app.add_typer(framework, name="framework", help=f"Setup and manage the\
 app.add_typer(redcap_setup_app, name="redcap-setup", help=f"Setup and manage a\
  local REDCap project: {format_command('rarelink redcap-setup --help')} for more information.")
 app.add_typer(redcap_tools_app, name="redcap-tools", help=f"Interact with a\
- REDCap project: {format_command('rarelink redcap-tools --help')}for more information.")
+ REDCap project: {format_command('rarelink redcap-tools --help')} for more information.")
 
 def version_callback(value: bool):
     """
