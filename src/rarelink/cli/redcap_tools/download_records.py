@@ -19,7 +19,7 @@ from rarelink_cdm.v2_0_0_dev0.processing import preprocess_flat_data, MAPPING_FU
 
 app = typer.Typer()
 
-DEFAULT_CONFIG_FILE = Path.home() / "Downloads" / "rarelink_redcap_config.json"
+DEFAULT_CONFIG_FILE = Path.home() / "Downloads" / "rarelink_apiconfig.json"
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 
 

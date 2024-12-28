@@ -14,7 +14,7 @@ from rarelink.cli.utils.terminal_utils import end_of_section_separator, between_
 
 app = typer.Typer()
 
-CONFIG_FILE = Path.home() / "Downloads" / "rarelink_redcap_config.json"
+CONFIG_FILE = Path.home() / "Downloads" / "rarelink_apiconfig.json"
 
 
 @app.command()
@@ -67,7 +67,7 @@ def start():
         "api_token": api_token,
         "api_super_token": api_super_token,
     }
-    CONFIG_FILE.write_text(json.dumps(config, indent=4))  # Write valid JSON
+    CONFIG_FILE.write_text(json.dumps(config, indent=4))
     typer.secho(
         success_text(f"✅ REDCap API configuration saved locally at {CONFIG_FILE}")
     )
