@@ -26,11 +26,11 @@ DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 @app.callback(invoke_without_command=True)
 def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     """
-    Fetch records from the configured REDCap project, save them locally as a JSON file,
-    process them into the RareLink-CDM schema, and validate the output.
+    Fetch records from the configured REDCap project, save them locally as a\n
+    JSON file, process them into the RareLink-CDM schema, and validate the output.
 
     Args:
-        output_dir (Path): Directory to save the fetched and processed records. Defaults to ~/Downloads/rarelink_records.
+        output_dir (Path): Directory to save the fetched and processed records.\n Defaults to ~/Downloads/rarelink_records.
     """
     format_header("Fetch REDCap Records")
 
@@ -67,7 +67,8 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
         config = config_file.read_text()
         config_data = json.loads(config)
     except Exception as e:
-        typer.secho(error_text(f"❌ Failed to load configuration: {e}"), fg=typer.colors.RED)
+        typer.secho(error_text(f"❌ Failed to load configuration: {e}"), 
+                    fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
     # Ensure output directory exists
@@ -126,12 +127,14 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
                 )
         except FileNotFoundError:
             typer.secho(
-                error_text("❌ Validation tool not found. Ensure 'linkml-validate' is installed."),
+                error_text(
+                    "❌ Validation tool not found. Ensure 'linkml-validate' is installed."),
                 fg=typer.colors.RED,
             )
     except requests.exceptions.RequestException as e:
         log_info(logger, f"❌ Failed to fetch records: {e}")
-        typer.secho(error_text(f"❌ Failed to fetch records: {e}"), fg=typer.colors.RED)
+        typer.secho(error_text(f"❌ Failed to fetch records: {e}"), 
+                    fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
     end_of_section_separator()
