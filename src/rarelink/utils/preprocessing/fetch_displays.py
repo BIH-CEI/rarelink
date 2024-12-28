@@ -7,6 +7,9 @@ def fetch_display_for_code(code: str, bioportal_token: str) -> str:
     try:
         print(f"Fetching label for code: {code}")
 
+        if code.startswith("RARELINK:"):
+            return None
+        
         # Initialize the adapter
         adapter = get_adapter(f"bioportal:{bioportal_token}")
 
@@ -36,23 +39,23 @@ if __name__ == "__main__":
     print(f"Code: {code}, Label: {label}")
 
 
-# def fetch_displays_for_records(records: list, bioportal_token: str) -> list:
-#     """
-#     Fetch display names for all ontology codes in a list of records.
+def fetch_displays_for_records(records: list, bioportal_token: str) -> list:
+    """
+    Fetch display names for all ontology codes in a list of records.
 
-#     Args:
-#         records (list): List of records containing ontology codes.
-#         bioportal_token (str): BioPortal API token.
+    Args:
+        records (list): List of records containing ontology codes.
+        bioportal_token (str): BioPortal API token.
 
-#     Returns:
-#         list: Records enriched with display names.
-#     """
-#     enriched_records = []
-#     for record in records:
-#         enriched_record = record.copy()
-#         for key, value in record.items():
-#             if isinstance(value, str) and ':' in value:
-#                 display = fetch_display_for_code(value, bioportal_token)
-#                 enriched_record[f"{key}_display"] = display
-#         enriched_records.append(enriched_record)
-#     return enriched_records
+    Returns:
+        list: Records enriched with display names.
+    """
+    enriched_records = []
+    for record in records:
+        enriched_record = record.copy()
+        for key, value in record.items():
+            if isinstance(value, str) and ':' in value:
+                display = fetch_display_for_code(value, bioportal_token)
+                enriched_record[f"{key}_display"] = display
+        enriched_records.append(enriched_record)
+    return enriched_records
