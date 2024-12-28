@@ -1,3 +1,5 @@
+.. _6:
+
 RareLink Changelog
 ==================
 

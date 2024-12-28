@@ -38,3 +38,14 @@
 body {
     overflow-y: auto; /* Ensure vertical scrolling only when needed */
 }
+
+
+.literal-custom {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #007ACC;           /* Dark blue text color */
+    font-weight: bold;        /* Bold text */
+    padding: 2px 4px;         /* Padding for better readability */
+    border-radius: 3px;       /* Rounded corners */
+    font-family: "Courier New", Courier, monospace; /* Monospace font */
+}
+

@@ -64,7 +64,7 @@ def app():
 
     typer.echo("👉 For detailed instructions, visit our documentation:"),
     typer.echo(
-        f"📖 Documentation: {hyperlink('Setup REDCap Project', 'https://rarelink.readthedocs.io/en/latest/3_installation/3_1_setup_redcap_project.html')}"
+        f"📖 Documentation: {hyperlink('Setup REDCap Project', 'https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html')}"
     )
     end_of_section_separator()
     

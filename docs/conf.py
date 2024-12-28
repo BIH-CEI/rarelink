@@ -21,7 +21,7 @@ author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
                     Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
                         Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
           
-release = '0.0.1'
+release = '2.0.0.dev0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -83,6 +83,16 @@ intersphinx_mapping = {
 
 html_theme = 'sphinx_rtd_theme'  # experiment with this
 html_static_path = ['_static']
-html_css_files = [
-    'custom.css',  # Include your custom CSS
-]
+
+
+from docutils import nodes
+from docutils.parsers.rst import roles
+
+def custom_literal_role(name, rawtext, text, lineno, inliner, options=None, content=None):
+    """Custom role for styled literals."""
+    node = nodes.literal(text, text)
+    node['classes'].append('literal-custom')
+    return [node], []
+
+roles.register_local_role('literal_custom', custom_literal_role)
+

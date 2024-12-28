@@ -21,9 +21,9 @@ DOCS_RD_CDM_URL = "https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd
 DOCS_RARELINK_CDM_URL = "https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm_instruments.html"
 DOCS_RARELINK_INSTRUMENTS_URL = "https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm_instruments.html#rarelink-cdm-instruments"
 DOCS_UPLOAD_DATA_DICTIONARY_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_3_setup_rarelink_instruments.html"
-DATA_DICTIONARY_DOWNLOAD_URL = "https://rarelink.readthedocs.io/en/latest/_downloads/97061f8438c4a3bb907919a76a5ab2c6/rarelink_v2_0_0_datadictionary.csv"
-INSTRUMENTS_DOWNLOAD_URL = "https://rarelink.readthedocs.io/en/latest/_downloads/8bb7dfc55de14eb8984091463842254e/rarelink_cdm_single_instruments.zip"
-XML_PROJECT_DOWNLOAD_URL = "to be added!..."
+DATA_DICTIONARY_DOWNLOAD_URL = "https://rarelink.readthedocs.io/en/latest/_downloads/f734b286306ee9c7f574d3330e8b0a6a/rarelink_cdm_v2_0_0_dev0_datadictionary.csv"
+INSTRUMENTS_DOWNLOAD_URL = "https://rarelink.readthedocs.io/en/latest/_downloads/418a358bee84578db6fcab6a51f3ce59/rarelink_cdm_v2_0_0_dev0_instruments.zip"
+XML_PROJECT_DOWNLOAD_URL = "https://rarelink.readthedocs.io/en/latest/_downloads/99408edf976b9d46455ecc9d39262261/rarelink_v2_0_0_dev0_redcap_project.xml"
 RARELINK_TEMPLATE_PROJECT = "https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_3_rarelink_core_redcap_project.html"
 CHANGELOG_URL = "https://rarelink.readthedocs.io/en/latest/6_changelog.html"
 
@@ -49,7 +49,7 @@ def rarelink_cdm_datadictionary():
         typer.secho(error_text("❌ Download canceled."))
         raise typer.Exit()
 
-    output_file = downloads_folder / f"rarelink_rd_cdm_{current_version}_data_dictionary.csv"
+    output_file = downloads_folder / f"rarelink_rd_cdm_{current_version}_datadictionary.csv"
     download_file(DATA_DICTIONARY_DOWNLOAD_URL, output_file)
     between_section_separator()
 
@@ -122,7 +122,7 @@ def rarelink_template_project():
         typer.secho(error_text("❌ Download canceled."))
         raise typer.Exit()
 
-    output_file = downloads_folder / "rarelink_redcap_project.xml"
+    output_file = downloads_folder / f"rarelink_template_project_{current_version}.xml"
     download_file(XML_PROJECT_DOWNLOAD_URL, output_file)
     between_section_separator()
 

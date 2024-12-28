@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RareLink CDM Instruments &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
+  <title>RareLink CDM Instruments &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4dc0b079" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd1a9fbe" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/documentation_options.js?v=25d36582"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -61,7 +61,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink-CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_4_rarelink_cli.html">RareLink CLI</a></li>
 </ul>
@@ -76,7 +76,7 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_0_guide_file.html">RareLink User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Guide for Manual Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">Generate FHIR Resources</a></li>
@@ -95,7 +95,7 @@
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">RareLink Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
@@ -138,7 +138,7 @@ software to ensure you have the latest updates and guidance.</p>
 instruments from the RareLink REDCap project.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Read the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink CDM Data Dictionary</span></a> section to learn more about the RareLink CDM Instruments.</p>
+<p>Read the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink-CDM</span></a> section to learn more about the RareLink CDM Instruments.</p>
 </div>
 <ol class="arabic simple">
 <li><p><strong>Download the instruments from the RareLink REDCap project.</strong></p></li>
@@ -180,7 +180,7 @@ instruments from the RareLink REDCap project.</p>
 <ul class="simple">
 <li><p>Go to the “Online Designer” tab and check the data elements in each instrument.</p></li>
 <li><dl class="simple">
-<dt>check with the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink CDM Data Dictionary</span></a> page to verify that</dt><dd><ul>
+<dt>check with the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink-CDM</span></a> page to verify that</dt><dd><ul>
 <li><p>the instruments have been imported correctly.</p></li>
 <li><p>the instruments are consistent with the RareLink CDM Data Dictionary.</p></li>
 <li><p>the fields with BioPortal are connected properly.</p></li>
@@ -198,12 +198,12 @@ among others how to connect BioPortal to REDCap.</p>
 <ol class="arabic simple" start="4">
 <li><p><strong>Start capturing data with the RareLink CDM instruments.</strong></p></li>
 </ol>
-<p>Check out the <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a> section to learn more about manual data capture.</p>
+<p>Check out the <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Guide for Manual Data Capture</span></a> section to learn more about manual data capture.</p>
 <div class="admonition-continue-here admonition">
 <p class="admonition-title">Continue here…</p>
 <ul class="simple">
 <li><p>Guide to develop the <a class="reference internal" href="3_2_setup_redcap_project.html#id1"><span class="std std-ref">Set up a REDCap Project</span></a></p></li>
-<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a></p></li>
+<li><p>User guide for <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Guide for Manual Data Capture</span></a></p></li>
 </ul>
 </div>
 <div class="admonition attention">

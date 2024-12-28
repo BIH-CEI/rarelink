@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RareLink User Guide &mdash; RareLink REDCap Documentation 0.0.1 documentation</title>
+  <title>RareLink User Guide &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4dc0b079" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a33df711" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/documentation_options.js?v=25d36582"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Manual Data Capture" href="4_1_manual_data_capture.html" />
+    <link rel="next" title="Guide for Manual Data Capture" href="4_1_manual_data_capture.html" />
     <link rel="prev" title="Set up the REDCap API" href="../3_installation/3_4_redcap_api.html" /> 
 </head>
 
@@ -61,7 +61,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink CDM Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink-CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_4_rarelink_cli.html">RareLink CLI</a></li>
 </ul>
@@ -76,7 +76,7 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RareLink User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html">Guide for Manual Data Capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
@@ -84,7 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="4_6_redcap_project_interaction.html">REDCap Project Interaction</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Guide for Manual Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
@@ -103,7 +103,7 @@
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">RareLink Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
@@ -138,7 +138,25 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Guide for Manual Data Capture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#general-information-please-read">General Information (please read!)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_1_manual_data_capture.html#types-of-fields">Types of Fields:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_1_manual_data_capture.html#types-of-instruments">Types of Instruments:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#formal-criteria">(1) Formal Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#personal-information">(2) Personal Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#patient-status">(3) Patient Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#care-pathway">(4) Care Pathway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#disease">(5) Disease</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#genetic-findings">(6.1) Genetic Findings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#phenotypic-features">(6.2) Phenotypic Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#measurements">(6.3) Measurements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#family-history">(6.4) Family History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#consent">(7) Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#disability">(8) Disability</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="4_3_phenopacket_mapper.html#further-links-phenopacket-mapper">Further Links Phenopacket Mapper</a><ul>
@@ -169,7 +187,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../3_installation/3_4_redcap_api.html" class="btn btn-neutral float-left" title="Set up the REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="4_1_manual_data_capture.html" class="btn btn-neutral float-right" title="Manual Data Capture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="4_1_manual_data_capture.html" class="btn btn-neutral float-right" title="Guide for Manual Data Capture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
