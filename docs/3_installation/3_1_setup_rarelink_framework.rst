@@ -50,9 +50,8 @@ Follow these steps to set up the project locally and run tests.
 
       pytest
 
-
 .. note:: 
-    
+    You can create your free BioPortal account here: `BioPortal <https://bioportal.bioontology.org/>`_
 
 _____________________________________________________________________________________
 

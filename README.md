@@ -130,8 +130,8 @@ Create a `.env` file in the project root directory to store your BioPortal API
 BIOPORTAL_API_TOKEN=your_api_token_here
 ```
 
-Replace `your_api_token_here` with your actual BioPortal API token. 
-You can create your free BioPortal account here: [https://bioportal.bioontology.org/](https://bioportal.bioontology.org/)
+> You can create your free BioPortal account here: [https://bioportal.bioontology.org/](https://bioportal.bioontology.org/)
+ Then replace `your_api_token_here` with your actual BioPortal API token. 
 
 ### Running Tests
 
