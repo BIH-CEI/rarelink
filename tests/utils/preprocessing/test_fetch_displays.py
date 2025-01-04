@@ -10,6 +10,11 @@ bioportal_token = os.getenv("BIOPORTAL_API_TOKEN")
     ("MONDO:0019391", "Fanconi anemia"),  
     ("SNOMEDCT:106221001", "Genetic finding"), 
     ("HP:0000118", "Phenotypic abnormality"), 
+    ("LOINC:62374-4", "Human reference sequence assembly release number:ID:Pt:Bld/Tiss:Nom:Molgen"), 
+    ("NCIT:C3262", "Genetic Marker"), 
+    ("OMIM:601622", "TWIST FAMILY bHLH TRANSCRIPTION FACTOR 1"), 
+    ("ORDO:84", "Fanconi anemia"), 
+    ("NCBITAXON:9606", "Homo sapiens"), 
 ])
 def test_fetch_display_for_code(code, expected_label):
     """
