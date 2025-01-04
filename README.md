@@ -3,7 +3,9 @@
 Rare Disease Interoperability Framework in REDCap linking international
  registries, FHIR and Phenopackets.
 
-> ⚠️ **Note:** RareLink v2.0.0.dev0 is currently under development, and many things are subject to change. Please reach out before implementing or using the software to ensure you have the latest updates and guidance.
+> ⚠️ **Note:** RareLink v2.0.0.dev0 is currently under development, and many 
+things are subject to change. Please reach out before implementing or using the 
+software to ensure you have the latest updates and guidance.
 
 
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
@@ -91,11 +93,12 @@ running REDCap server. For more information, visit the official REDCap site:
 If your institution already provides a REDCap instance, proceed to the RareLink 
 Documentation on [Setting Up a REDCap Project](https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html#).
 
+
 ## Installation
 
-RareLink can be set up using various Python project management approaches. One 
-common method is to use a virtual environment. Below is an example where the 
-virtual environment is named `rarelink-venv`, but you can name it as you prefer:
+RareLink can be set up using various Python project management approaches. One
+ common method is to use a virtual environment. Below is an example where the
+  virtual environment is named `rarelink-venv`, but you can name it as you prefer:
 
 ```bash
 python3 -m venv rarelink-venv
@@ -103,10 +106,49 @@ source rarelink-venv/bin/activate
 pip install --upgrade pip
 ```
 
-Next, clone the RareLink repository, navigate to its root directory, and install RareLink using:
+Next, clone the RareLink repository, navigate to its root directory, and
+ install RareLink using:
+
 ```bash
-pip install rarelink
+git clone https://github.com/BIH-CEI/rarelink.git
+cd rarelink
+pip install .
 ```
+
+If you want to install development dependencies (e.g., `pytest`), use:
+
+```bash
+pip install .[dev]
+```
+
+### Setting Up the `.env` File
+
+Create a `.env` file in the project root directory to store your BioPortal API
+ token securely. Add the following line:
+
+```plaintext
+BIOPORTAL_API_TOKEN=your_api_token_here
+```
+
+Replace `your_api_token_here` with your actual BioPortal API token. 
+You can create your free BioPortal account here: [https://bioportal.bioontology.org/](https://bioportal.bioontology.org/)
+
+### Running Tests
+
+To ensure everything is set up correctly, run the test suite using `pytest`:
+
+```bash
+pytest
+```
+
+---
+
+### Notes
+
+- Ensure that your `.env` file is not committed to version control by adding
+ it to `.gitignore`.
+- If you encounter issues, verify you are using the correct Python version and
+ have installed all dependencies properly.
 
 ### Framework setup 
 
@@ -208,7 +250,9 @@ We would like to extend our thanks to everyone in the last three years for their
 - Authors:
   - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg)
-  - Daniel Danis, PhD
-  - Prof. Peter N. Robinson
-  - Prof. Sylvia Thun
-  - Prof. Oya Beyan
+  - [Samer Alkarkoukly](https://github.com/alkarkoukly)
+  - [Daniel R Korn](https://github.com/DnlRKorn)
+  - [Daniel Danis](https://github.com/ielis)
+  - [Peter N. Robinson](https://github.com/pnrobinson)
+  - Sylvia Thun
+  - [Oya Beyan](https://github.com/oyadenizbeyan)
