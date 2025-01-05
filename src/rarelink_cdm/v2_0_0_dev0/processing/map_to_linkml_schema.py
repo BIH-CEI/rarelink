@@ -8,7 +8,8 @@ def map_formal_criteria(entry):
     return {
         "snomed_422549004": entry.get("snomed_422549004", ""),
         "snomed_399423000": entry.get("snomed_399423000", ""),
-        "rarelink_1_formal_criteria_complete": entry.get("rarelink_1_formal_criteria_complete", "")
+        "rarelink_1_formal_criteria_complete": entry.get(
+            "rarelink_1_formal_criteria_complete", "")
     }
 
 
@@ -22,7 +23,8 @@ def map_personal_information(entry):
         "snomed_1296886006": entry.get("snomed_1296886006", ""),
         "snomed_263495000": entry.get("snomed_263495000", ""),
         "snomed_370159000": entry.get("snomed_370159000", ""),
-        "rarelink_2_personal_information_complete": entry.get("rarelink_2_personal_information_complete", "")
+        "rarelink_2_personal_information_complete": entry.get(
+            "rarelink_2_personal_information_complete", "")
     }
 
 
@@ -44,11 +46,14 @@ def map_patient_status(entry):
         "patient_status_date": entry.get("patient_status_date", ""),
         "snomed_278844005": entry.get("snomed_278844005", ""),
         "snomed_398299004": entry.get("snomed_398299004", ""),
-        "snomed_184305005": add_prefix_to_code(entry.get("snomed_184305005", ""), "ICD10CM"),
+        "snomed_184305005": add_prefix_to_code(entry.get(
+            "snomed_184305005", ""), "ICD10CM"),
         "snomed_105727008": entry.get("snomed_105727008", ""),
         "snomed_412726003": entry.get("snomed_412726003", ""),
-        "snomed_723663001": convert_to_boolean(entry.get("snomed_723663001", "")),
-        "rarelink_3_patient_status_complete": entry.get("rarelink_3_patient_status_complete", "")
+        "snomed_723663001": convert_to_boolean(entry.get(
+            "snomed_723663001", "")),
+        "rarelink_3_patient_status_complete": entry.get(
+            "rarelink_3_patient_status_complete", "")
     }
 
 
@@ -61,7 +66,8 @@ def map_care_pathway(entry):
         "hl7fhir_enc_period_end": entry.get("hl7fhir_enc_period_end", ""),
         "snomed_305058001": entry.get("snomed_305058001", ""),
         "hl7fhir_encounter_class": entry.get("hl7fhir_encounter_class", ""),
-        "rarelink_4_care_pathway_complete": entry.get("rarelink_4_care_pathway_complete", "")
+        "rarelink_4_care_pathway_complete": entry.get(
+            "rarelink_4_care_pathway_complete", "")
     }
 
 def map_disease(entry):
@@ -72,15 +78,19 @@ def map_disease(entry):
         "disease_coding": entry.get("disease_coding", ""),
         "snomed_64572001_mondo": entry.get("snomed_64572001_mondo", ""),
         "snomed_64572001_ordo": entry.get("snomed_64572001_ordo", ""),
-        "snomed_64572001_icd10cm": add_prefix_to_code(entry.get("snomed_64572001_icd10cm", ""), "ICD10CM"),
-        "snomed_64572001_icd11": add_prefix_to_code(entry.get("snomed_64572001_icd11", ""), "ICD11"),
-        "snomed_64572001_omim_p": add_prefix_to_code(entry.get("snomed_64572001_omim_p", ""), "OMIM"),
+        "snomed_64572001_icd10cm": add_prefix_to_code(entry.get(
+            "snomed_64572001_icd10cm", ""), "ICD10CM"),
+        "snomed_64572001_icd11": add_prefix_to_code(entry.get(
+            "snomed_64572001_icd11", ""), "ICD11"),
+        "snomed_64572001_omim_p": add_prefix_to_code(entry.get(
+            "snomed_64572001_omim_p", ""), "OMIM"),
         "loinc_99498_8": entry.get("loinc_99498_8", ""),
         "snomed_424850005": entry.get("snomed_424850005", ""),
         "snomed_298059007": entry.get("snomed_298059007", ""),
         "snomed_423493009": entry.get("snomed_423493009", ""),
         "snomed_432213005": entry.get("snomed_432213005", ""),
-        "snomed_363698007": add_prefix_to_code(entry.get("snomed_363698007", ""), "SNOMEDCT"),
+        "snomed_363698007": add_prefix_to_code(entry.get("snomed_363698007", ""),
+                                               "SNOMEDCT"),
         "snomed_263493007": entry.get("snomed_263493007", ""),
         "snomed_246112005": entry.get("snomed_246112005", ""),
         "rarelink_5_disease_complete": entry.get("rarelink_5_disease_complete", "")
@@ -104,7 +114,8 @@ def map_genetic_findings(entry):
     return {
         "genetic_diagnosis_code": entry.get("genetic_diagnosis_code", ""),
         "snomed_106221001_mondo": entry.get("snomed_106221001_mondo", ""),
-        "snomed_106221001_omim_p": add_prefix_to_code(entry.get("snomed_106221001_omim_p", ""), "OMIM"),
+        "snomed_106221001_omim_p": add_prefix_to_code(entry.get(
+            "snomed_106221001_omim_p", ""), "OMIM"),
         "ga4gh_progress_status": entry.get("ga4gh_progress_status", ""),
         "ga4gh_interp_status": entry.get("ga4gh_interp_status", ""),
         "loinc_81304_8": entry.get("loinc_81304_8", ""),
@@ -114,18 +125,22 @@ def map_genetic_findings(entry):
         "loinc_81290_9": entry.get("loinc_81290_9", ""),
         "loinc_48004_6": entry.get("loinc_48004_6", ""),
         "loinc_48005_3": entry.get("loinc_48005_3", ""),
-        "variant_validation": convert_to_boolean(entry.get("variant_validation", "")),
+        "variant_validation": convert_to_boolean(entry.get(
+            "variant_validation", "")),
         "loinc_48018_6": entry.get("loinc_48018_6", ""),
         "loinc_48018_6_label": entry.get("loinc_48018_6_label", ""),
         "loinc_53034_5": entry.get("loinc_53034_5", ""),
-        "loinc_53034_5_other": add_prefix_to_code(entry.get("loinc_53034_5_other", ""), "LOINC"),
+        "loinc_53034_5_other": add_prefix_to_code(entry.get(
+            "loinc_53034_5_other", ""), "LOINC"),
         "loinc_48002_0": entry.get("loinc_48002_0", ""),
         "loinc_48019_4": entry.get("loinc_48019_4", ""),
-        "loinc_48019_4_other": add_prefix_to_code(entry.get("loinc_48019_4_other", ""), "LOINC"),
+        "loinc_48019_4_other": add_prefix_to_code(entry.get(
+            "loinc_48019_4_other", ""), "LOINC"),
         "loinc_53037_8": entry.get("loinc_53037_8", ""),
         "ga4gh_therap_action": entry.get("ga4gh_therap_action", ""),
         "loinc_93044_6": entry.get("loinc_93044_6", ""),
-        "rarelink_6_1_genetic_findings_complete": entry.get("rarelink_6_1_genetic_findings_complete", "")
+        "rarelink_6_1_genetic_findings_complete": entry.get(
+            "rarelink_6_1_genetic_findings_complete", "")
     }
 
 def map_phenotypic_feature(entry):
@@ -152,18 +167,26 @@ def map_phenotypic_feature(entry):
 
 def map_measurement(entry):
     """
-    Maps a flat REDCap entry to the Measurement schema.
+    Maps a flat REDCap entry to the Measurement schema with appropriate prefixes
+    and additional fields.
     """
     return {
-        "assay": entry.get("ncit_c60819", ""),
+        "measurement_category": entry.get("rarelink_6_3_measurements_category", ""),
+        "measurement_status": entry.get("rarelink_6_3_measurements_status", ""),
+        "assay": add_prefix_to_code(entry.get("ncit_c60819", ""), "LOINC"),
+        "vital_signs_panel": add_prefix_to_code(entry.get("ln_85353_1", ""), "LOINC"),
+        "vital_signs_panel_other": entry.get("ln_85353_1_other", ""),
         "value": float(entry.get("ncit_c25712", 0)) if entry.get("ncit_c25712") else None,
-        "value_unit": process_prefix(entry.get("ncit_c92571", ""), "UO"),
-        "interpretation": entry.get("ncit_c41255", ""),
+        "value_unit": add_prefix_to_code(entry.get("ncit_c92571", ""), "UO"),
+        "interpretation": add_prefix_to_code(entry.get("ncit_c41255", ""), "NCIT"),
         "time_observed": entry.get("ncit_c82577", ""),
-        "procedure_ncit": entry.get("snomed_122869004_ncit", ""),
+        "procedure_ncit": add_prefix_to_code(entry.get("snomed_122869004_ncit", ""), "NCIT"),
         "procedure_snomed": add_prefix_to_code(entry.get("snomed_122869004_snomed", ""), "SNOMEDCT"),
-        "rarelink_6_3_measurements_complete": entry.get("rarelink_6_3_measurements_complete", "")
+        "body_site_snomed": add_prefix_to_code(entry.get("snomed_122869004_bodysite", ""), "SNOMEDCT"),
+        "procedure_status": entry.get("snomed_122869004_status", ""),
+        "rarelink_6_3_measurements_complete": entry.get("rarelink_6_3_measurements_complete", ""),
     }
+
 
 def map_family_history(entry):
     """

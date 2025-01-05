@@ -17,23 +17,55 @@ classes:
   Measurement:
     description: >
       The section Measurements (6.3) of the RareLink CDM. This section captures
-      assay-related measurements and their corresponding values, units, interpretations, and procedures.
+      assay-related measurements and their corresponding values, units, 
+      interpretations, and procedures.
     slots:
+      - measurement_category
+      - measurement_status
       - assay
+      - vital_signs_panel
+      - vital_signs_panel_other
       - value
       - value_unit
       - interpretation
       - time_observed
       - procedure_ncit
       - procedure_snomed
+      - procedure_status
+      - body_site_snomed
       - rarelink_6_3_measurements_complete
 
 slots:
+  measurement_category:
+    description: >
+      Category of the measurement (e.g., social history, vital signs, imaging).
+      Refer to the RareLink documentation for guidance.
+    range: string
+    required: true
+
+  measurement_status:
+    description: >
+      The status of the measurement (e.g., registered, preliminary, final).
+    range: string
+    required: false
+
   assay:
     description: >
       The assay used in the measurement, encoded with LOINC.
     range: string
     required: true
+
+  vital_signs_panel:
+    description: >
+      Specific vital sign measurement, encoded with LOINC.
+    range: string
+    required: false
+
+  vital_signs_panel_other:
+    description: >
+      Additional vital signs information if "Other" is selected.
+    range: string
+    required: false
 
   value:
     description: >
@@ -71,7 +103,19 @@ slots:
     range: string
     required: false
 
+  body_site_snomed:
+    description: >
+      The anatomical site of the procedure, encoded with SNOMED.
+    range: string
+    required: false
+
+  procedure_status:
+    description: >
+      The status of the procedure (e.g., preparation, in-progress, completed).
+    range: string
+    required: false
+
   rarelink_6_3_measurements_complete:
-    description: Completion status of this section
+    description: Completion status of this section.
     range: string
     required: true

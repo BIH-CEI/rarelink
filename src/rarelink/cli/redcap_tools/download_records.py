@@ -26,8 +26,9 @@ DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 @app.callback(invoke_without_command=True)
 def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     """
-    Fetch records from the configured REDCap project, save them locally as a\n
-    JSON file, process them into the RareLink-CDM schema, and validate the output.
+    Fetch records from the configured REDCap project, save them locally as a
+    JSON file, process them into the RareLink-CDM schema, and validate the 
+    output.
 
     Args:
         output_dir (Path): Directory to save the fetched and processed records.
@@ -37,21 +38,21 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
 
     # Display alert about production mode
     hint_text(
-        "⚠️ IMPORTANT: If your project is in PRODUCTION mode, the downloaded\
-            data might be sensitive.\n"
-        "It must only be stored within your organisational site's \
-            approved storage."
+        "⚠️ IMPORTANT: If your project is in PRODUCTION mode, the downloaded"
+            " data might be sensitive. \n"
+            "It must only be stored within your organisational site's "
+            "approved storage."
     )
     between_section_separator()
 
     # Check if the API configuration has been set up
-    api_config_done = typer.confirm("Have you already set up an API\
-        configuration file?")
+    api_config_done = typer.confirm("Have you already set up an API "
+        "configuration file?")
     if not api_config_done:
         typer.echo(
             f"👉 Please run the following command to set up your REDCap \
-                API configuration: {format_command('rarelink redcap-setup \
-                    api-config start')}",
+API configuration: {format_command('rarelink redcap-setup \
+api-config start')}",
         )
         raise typer.Exit(code=1)
 
@@ -131,7 +132,8 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
         success_text(f"✅ Processed data saved to {processed_file}")
 
         # Validate the processed data against the LinkML schema
-        schema_path = "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
+        schema_path =\
+            "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 
         try:
             import subprocess
