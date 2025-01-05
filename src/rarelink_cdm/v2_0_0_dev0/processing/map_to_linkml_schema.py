@@ -158,10 +158,13 @@ def map_phenotypic_feature(entry):
         "hp_0012823_hp1": entry.get("clinical_modifier_hp1", ""),
         "hp_0012823_hp2": entry.get("clinical_modifier_hp2", ""),
         "hp_0012823_hp3": entry.get("clinical_modifier_hp3", ""),
-        "hp_0012823_ncbitaxon": add_prefix_to_code(entry.get("causing_organism", ""), "NCBITAXON"),
-        "hp_0012823_snomed": add_prefix_to_code(entry.get("primary_body_site", ""), "SNOMEDCT"),
+        "hp_0012823_ncbitaxon": add_prefix_to_code(
+            entry.get("causing_organism", ""), "NCBITAXON"),
+        "hp_0012823_snomed": add_prefix_to_code(
+            entry.get("primary_body_site", ""), "SNOMEDCT"),
         "phenotypicfeature_evidence": entry.get("evidence", ""),
-        "rarelink_6_2_phenotypic_feature_complete": entry.get("rarelink_6_2_phenotypic_feature_complete", "")
+        "rarelink_6_2_phenotypic_feature_complete": entry.get(
+            "rarelink_6_2_phenotypic_feature_complete", "")
     }
 
 
