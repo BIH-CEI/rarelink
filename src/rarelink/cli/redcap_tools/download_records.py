@@ -81,6 +81,21 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
 
     # Ensure output directory exists
     ensure_directory_exists(output_dir)
+    
+
+    output_file = output_dir / "records.json"
+    processed_file = output_dir / "processed_records.json"
+
+    # Check for existing files and ask for confirmation to overwrite
+    if output_file.exists() or processed_file.exists():
+        typer.secho(
+            f"⚠️ Files already exist in the output directory: {output_dir}",
+            fg=typer.colors.YELLOW
+        )
+        if not typer.confirm("Do you want to overwrite these files?"):
+            typer.secho("❌ Operation canceled by the user.", fg=typer.colors.RED)
+            raise typer.Exit(code=0)
+
 
     # Set up logger
     log_file = output_dir / "download_records.log"
