@@ -1,3 +1,6 @@
+from src.rarelink.utils.preprocessing.add_prefixes import add_prefix_to_code
+
+
 def map_formal_criteria(entry):
     """
     Maps a flat REDCap entry to the FormalCriteria schema.
@@ -41,7 +44,7 @@ def map_patient_status(entry):
         "patient_status_date": entry.get("patient_status_date", ""),
         "snomed_278844005": entry.get("snomed_278844005", ""),
         "snomed_398299004": entry.get("snomed_398299004", ""),
-        "snomed_184305005": entry.get("snomed_184305005", ""),
+        "snomed_184305005": add_prefix_to_code(entry.get("snomed_184305005", ""), "ICD10CM"),
         "snomed_105727008": entry.get("snomed_105727008", ""),
         "snomed_412726003": entry.get("snomed_412726003", ""),
         "snomed_723663001": convert_to_boolean(entry.get("snomed_723663001", "")),

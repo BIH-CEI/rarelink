@@ -1,6 +1,6 @@
 def add_prefix_to_code(code: str, prefix: str = "") -> str:
     """
-    Adds a specific prefix to the code if not already present.
+    Adds a specific prefix to the REDCap code if not already present.
 
     Args:
         code (str): The original code (e.g., "G46.4", "62374-4").
