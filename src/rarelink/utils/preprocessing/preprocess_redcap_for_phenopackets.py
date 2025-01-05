@@ -1,3 +1,8 @@
+"""
+for now not necessary, all codes are processed to the LinkML schema automatically.
+only mapping will be needed between linkml schema and phenopacket schema
+"""
+
 # from typing import List
 # import pandas as pd
 
