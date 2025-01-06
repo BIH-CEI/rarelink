@@ -65,8 +65,7 @@ api-config start')}",
 
     if not config_file.exists():
         typer.secho(
-            error_text(f"❌ Configuration file not found at \
-                {config_file_path}."),
+            error_text(f"❌ Configuration file not found at {config_file_path}."),
             fg=typer.colors.RED,
         )
         raise typer.Exit(code=1)
@@ -124,14 +123,15 @@ api-config start')}",
         success_text(f"✅ Records successfully downloaded to {output_file}")
 
         # Process the records into the RareLink-CDM schema
-        success_text("🔄 Processing records into the RareLink-CDM schema...")
+        typer.echo("🔄 Processing records into the RareLink-CDM LinkML schema...")
         transformed_data = preprocess_flat_data(records, MAPPING_FUNCTIONS)
         processed_file = output_dir / "processed_records.json"
         write_json(transformed_data, processed_file)
 
-        success_text(f"✅ Processed data saved to {processed_file}")
-
+        typer.echo(f"✅ Processed data saved to {processed_file}")
+        
         # Validate the processed data against the LinkML schema
+        typer.echo("🔄 Validating processed records against the RareLink-CDM LinkML schema...")
         schema_path =\
             "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 
@@ -154,8 +154,8 @@ api-config start')}",
         except FileNotFoundError:
             typer.secho(
                 error_text(
-                    "❌ Validation tool not found. Ensure 'linkml-validate'\
-                        is installed."),
+                    "❌ Validation tool not found. Ensure 'linkml-validate' \
+is installed."),
                 fg=typer.colors.RED,
             )
     except requests.exceptions.RequestException as e:

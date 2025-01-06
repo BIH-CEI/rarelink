@@ -128,7 +128,6 @@ def map_genetic_findings(entry):
         "variant_validation": convert_to_boolean(entry.get(
             "variant_validation", "")),
         "loinc_48018_6": entry.get("loinc_48018_6", ""),
-        "loinc_48018_6_label": entry.get("loinc_48018_6_label", ""),
         "loinc_53034_5": entry.get("loinc_53034_5", ""),
         "loinc_53034_5_other": add_prefix_to_code(entry.get(
             "loinc_53034_5_other", ""), "LOINC"),
@@ -148,48 +147,56 @@ def map_phenotypic_feature(entry):
     Maps a flat REDCap entry to the PhenotypicFeature schema.
     """
     return {
-        "snomed_8116006": entry.get("phenotypic_feature", ""),
-        "snomed_363778006": entry.get("status", ""),
-        "snomed_8116006_onset": entry.get("determination_date", ""),
-        "snomed_8116006_resolution": entry.get("resolution_date", ""),
-        "hp_0003674": entry.get("age_of_onset", ""),
-        "hp_0011008": entry.get("temporal_pattern", ""),
-        "hp_0012824": entry.get("severity", ""),
-        "hp_0012823_hp1": entry.get("clinical_modifier_hp1", ""),
-        "hp_0012823_hp2": entry.get("clinical_modifier_hp2", ""),
-        "hp_0012823_hp3": entry.get("clinical_modifier_hp3", ""),
+        "snomed_8116006": entry.get("snomed_8116006", ""),
+        "snomed_363778006": entry.get("snomed_363778006", ""),
+        "snomed_8116006_onset": entry.get("snomed_8116006_onset", ""),
+        "snomed_8116006_resolution": entry.get("snomed_8116006_resolution", ""),
+        "hp_0003674": entry.get("hp_0003674", ""),
+        "hp_0011008": entry.get("hp_0011008", ""),
+        "hp_0012824": entry.get("hp_0012824", ""),
+        "hp_0012823_hp1": entry.get("hp_0012823_hp1", ""),
+        "hp_0012823_hp2": entry.get("hp_0012823_hp2", ""),
+        "hp_0012823_hp3": entry.get("hp_0012823_hp3", ""),
         "hp_0012823_ncbitaxon": add_prefix_to_code(
-            entry.get("causing_organism", ""), "NCBITAXON"),
+            entry.get("hp_0012823_ncbitaxon", ""), "NCBITAXON"),
         "hp_0012823_snomed": add_prefix_to_code(
-            entry.get("primary_body_site", ""), "SNOMEDCT"),
-        "phenotypicfeature_evidence": entry.get("evidence", ""),
+            entry.get("hp_0012823_snomed", ""), "SNOMEDCT"),
+        "phenotypicfeature_evidence": entry.get("phenotypicfeature_evidence", ""),
         "rarelink_6_2_phenotypic_feature_complete": entry.get(
             "rarelink_6_2_phenotypic_feature_complete", "")
     }
 
 
-def map_measurement(entry):
+def map_measurements(entry):
     """
     Maps a flat REDCap entry to the Measurement schema with appropriate prefixes
     and additional fields.
     """
     return {
-        "measurement_category": entry.get("rarelink_6_3_measurements_category", ""),
-        "measurement_status": entry.get("rarelink_6_3_measurements_status", ""),
-        "assay": add_prefix_to_code(entry.get("ncit_c60819", ""), "LOINC"),
-        "vital_signs_panel": add_prefix_to_code(entry.get("ln_85353_1", ""), "LOINC"),
-        "vital_signs_panel_other": entry.get("ln_85353_1_other", ""),
-        "value": float(entry.get("ncit_c25712", 0)) if entry.get("ncit_c25712") else None,
-        "value_unit": add_prefix_to_code(entry.get("ncit_c92571", ""), "UO"),
-        "interpretation": add_prefix_to_code(entry.get("ncit_c41255", ""), "NCIT"),
-        "time_observed": entry.get("ncit_c82577", ""),
-        "procedure_ncit": add_prefix_to_code(entry.get("snomed_122869004_ncit", ""), "NCIT"),
-        "procedure_snomed": add_prefix_to_code(entry.get("snomed_122869004_snomed", ""), "SNOMEDCT"),
-        "body_site_snomed": add_prefix_to_code(entry.get("snomed_122869004_bodysite", ""), "SNOMEDCT"),
-        "procedure_status": entry.get("snomed_122869004_status", ""),
-        "rarelink_6_3_measurements_complete": entry.get("rarelink_6_3_measurements_complete", ""),
+        "measurement_category": entry.get("measurement_category", ""),
+        "measurement_status": entry.get("measurement_status", ""),
+        "ncit_c60819": add_prefix_to_code(entry.get("ncit_c60819", ""), "LOINC"),
+        "ln_85353_1": add_prefix_to_code(entry.get(
+            "ln_85353_1", ""), "LOINC"),
+        "ln_85353_1_other": entry.get(
+            "ln_85353_1_other", ""),
+        "ncit_c25712": float(entry.get(
+            "ncit_c25712", 0)) if entry.get("ncit_c25712") else None,
+        "ncit_c92571": process_prefix(entry.get("ncit_c92571", ""), "UO"),
+        "ncit_c41255": entry.get( "ncit_c41255", ""),
+        "ncit_c82577": entry.get("ncit_c82577", ""),
+        "snomed_122869004_ncit": entry.get(
+            "snomed_122869004_ncit", ""),
+        "snomed_122869004_snomed": add_prefix_to_code(entry.get(
+            "snomed_122869004_snomed", ""), "SNOMEDCT"),
+        "snomed_122869004": add_prefix_to_code(entry.get(
+            "snomed_122869004", ""), "SNOMEDCT"),
+        "snomed_122869004_bodysite": add_prefix_to_code(entry.get(
+            "snomed_122869004_bodysite", ""), "SNOMEDCT"),
+        "snomed_122869004_status": entry.get("snomed_122869004_status", ""),
+        "rarelink_6_3_measurements_complete": entry.get(
+            "rarelink_6_3_measurements_complete", ""),
     }
-
 
 def map_family_history(entry):
     """
@@ -203,13 +210,17 @@ def map_family_history(entry):
         "family_member_relationship": entry.get("snomed_444018008", ""),
         "family_member_record_status": entry.get("hl7fhir_fmh_status", ""),
         "family_member_sex": entry.get("loinc_54123_5", ""),
-        "family_member_age": int(entry.get("loinc_54141_7", 0)) if entry.get("loinc_54141_7") else None,
+        "family_member_age": int(entry.get("loinc_54141_7", 0)) if entry.get(
+            "loinc_54141_7") else None,
         "family_member_dob": entry.get("loinc_54124_3", ""),
         "family_member_deceased": entry.get("snomed_740604001", ""),
-        "family_member_cause_of_death": add_prefix_to_code(entry.get("loinc_54112_8", ""), "ICD10CM"),
-        "family_member_deceased_age": int(entry.get("loinc_92662_6", 0)) if entry.get("loinc_92662_6") else None,
+        "family_member_cause_of_death": add_prefix_to_code(entry.get(
+            "loinc_54112_8", ""), "ICD10CM"),
+        "family_member_deceased_age": int(entry.get(
+            "loinc_92662_6", 0)) if entry.get("loinc_92662_6") else None,
         "family_member_disease": entry.get("loinc_75315_2", ""),
-        "rarelink_6_4_family_history_complete": entry.get("rarelink_6_4_family_history_complete", "")
+        "rarelink_6_4_family_history_complete": entry.get(
+            "rarelink_6_4_family_history_complete", "")
     }
 
 def map_consent(entry):
@@ -224,7 +235,8 @@ def map_consent(entry):
         "consent_to_reuse_data": entry.get("rarelink_consent_data", ""),
         "biological_sample": entry.get("snomed_123038009", ""),
         "biobank_link": entry.get("rarelink_biobank_link", ""),
-        "rarelink_7_consent_complete": entry.get("rarelink_7_consent_complete", "")
+        "rarelink_7_consent_complete": entry.get(
+            "rarelink_7_consent_complete", "")
     }
 
 def map_disability(entry):
@@ -233,7 +245,8 @@ def map_disability(entry):
     """
     return {
         "icf_score": entry.get("rarelink_icf_score", ""),
-        "rarelink_8_disability_complete": entry.get("rarelink_8_disability_complete", "")
+        "rarelink_8_disability_complete": entry.get(
+            "rarelink_8_disability_complete", "")
     }
 
 
@@ -245,7 +258,7 @@ MAPPING_FUNCTIONS = {
     "disease": map_disease,
     "genetic_findings": map_genetic_findings,
     "phenotypic_feature": map_phenotypic_feature,
-    "measurement": map_measurement,
+    "measurements": map_measurements,
     "family_history": map_family_history,
     "consent": map_consent,
     "disability": map_disability

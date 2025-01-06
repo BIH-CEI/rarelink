@@ -55,8 +55,8 @@ def preprocess_flat_data(flat_data, mapping_functions):
                     repeated_element["genetic_findings"] = mapping_functions["genetic_findings"](entry)
                 elif entry["redcap_repeat_instrument"] == "rarelink_6_2_phenotypic_feature":
                     repeated_element["phenotypic_feature"] = mapping_functions["phenotypic_feature"](entry)
-                elif entry["redcap_repeat_instrument"] == "rarelink_6_3_measurement":
-                    repeated_element["measurement"] = mapping_functions["measurement"](entry)
+                elif entry["redcap_repeat_instrument"] == "rarelink_6_3_measurements":
+                    repeated_element["measurements"] = mapping_functions["measurements"](entry)
                 elif entry["redcap_repeat_instrument"] == "rarelink_6_4_family_history":
                     repeated_element["family_history"] = mapping_functions["family_history"](entry)
                 record["repeated_elements"].append(repeated_element)

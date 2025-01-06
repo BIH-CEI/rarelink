@@ -22,18 +22,21 @@ classes:
     slots:
       - measurement_category
       - measurement_status
-      - assay
-      - vital_signs_panel
-      - vital_signs_panel_other
-      - value
-      - value_unit
-      - interpretation
-      - time_observed
-      - procedure_ncit
-      - procedure_snomed
-      - procedure_status
-      - body_site_snomed
+      - ncit_c60819
+      - ln_85353_1
+      - ln_85353_1_other
+      - ncit_c25712
+      - ncit_c92571
+      - ncit_c41255
+      - ncit_c82577
+      - snomed_122869004_ncit
+      - snomed_122869004_snomed
+      - snomed_122869004
+      - snomed_122869004_bodysite
+      - snomed_122869004_status
       - rarelink_6_3_measurements_complete
+
+
 
 slots:
   measurement_category:
@@ -49,67 +52,73 @@ slots:
     range: string
     required: false
 
-  assay:
+  ncit_c60819:
     description: >
       The assay used in the measurement, encoded with LOINC.
     range: string
     required: true
 
-  vital_signs_panel:
+  ln_85353_1:
     description: >
       Specific vital sign measurement, encoded with LOINC.
     range: string
     required: false
 
-  vital_signs_panel_other:
+  ln_85353_1_other:
     description: >
       Additional vital signs information if "Other" is selected.
     range: string
     required: false
 
-  value:
+  ncit_c25712:
     description: >
       The measurement value, entered as a two-decimal number.
     range: double
     required: true
 
-  value_unit:
+  ncit_c92571:
     description: >
       The unit of the measurement, encoded with Unit Ontology (UO).
     range: string
     required: true
 
-  interpretation:
+  ncit_c41255:
     description: >
       The interpretation of the measurement, encoded with NCIT.
     range: string
     required: false
 
-  time_observed:
+  ncit_c82577:
     description: >
       The time when the measurement was observed, in YYYY-MM-DD format.
     range: date
     required: false
 
-  procedure_ncit:
+  snomed_122869004_ncit:
     description: >
       The procedure related to the measurement, encoded with NCIT.
     range: string
     required: false
 
-  procedure_snomed:
+  snomed_122869004_snomed:
     description: >
-      The procedure related to the measurement, encoded with SNOMED.
+      The procedure related to the measurement, encoded with SNOMEDCT.
     range: string
     required: false
 
-  body_site_snomed:
+  snomed_122869004:
+    description: >
+      The procedure related to the measurement, encoded with SNOMEDCT
+    range: string
+    required: false
+
+  snomed_122869004_bodysite:
     description: >
       The anatomical site of the procedure, encoded with SNOMED.
     range: string
     required: false
 
-  procedure_status:
+  snomed_122869004_status:
     description: >
       The status of the procedure (e.g., preparation, in-progress, completed).
     range: string
