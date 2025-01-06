@@ -34,9 +34,7 @@ def start():
             "instructions in our documentation to create a REDCap project first."
         )
         typer.echo(
-            f"📖 Documentation: {hyperlink('Setup REDCap Project',\
-                'https://rarelink.readthedocs.io/en/latest/3_installation/3_1_setup_redcap_project.html')}"
-        )
+            f"📖 Documentation: {hyperlink('Setup REDCap Project', 'https://rarelink.readthedocs.io/en/latest/3_installation/3_1_setup_redcap_project.html')}")
         raise typer.Exit()
 
     success_text("Great! Let's set up the REDCap API access.")
