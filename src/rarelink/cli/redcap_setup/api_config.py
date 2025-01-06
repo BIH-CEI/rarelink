@@ -78,11 +78,11 @@ def start():
     between_section_separator()
 
     typer.echo(f"▶ Run {format_command('rarelink redcap-setup api-config view')}\
-        to see the current configuration.")
-    typer.echo(f"▶ If you had a typo, you can run {format_command(
-        'rarelink redcap-setup api-config start')} again.")
+ to see the current configuration.")
+    typer.echo(f"▶ If you had a typo, you can run \
+{format_command('rarelink redcap-setup api-config start')} again.")
     typer.echo(f"▶ Run {format_command('rarelink redcap-setup api-config reset')}\
-        to reset the configuration.")
+ to reset the configuration.")
     hint_text(
         "⚠️ API token is sensitive information! Please save it securely where "
         "only you have access."
