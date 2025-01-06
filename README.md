@@ -238,7 +238,7 @@ use of REDCap for rare disease research and care.
 
 ## License
 
-This project is licensed under the terms of the [MIT License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
+This project is licensed under the terms of the [BSD 3-Clause License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
 
 ## Acknowledgements
 
