@@ -47,3 +47,7 @@ jobs:
         with:
           name: cli-status
           path: rarelink/tests/cli/status.json
+
+
+env:
+  BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }}

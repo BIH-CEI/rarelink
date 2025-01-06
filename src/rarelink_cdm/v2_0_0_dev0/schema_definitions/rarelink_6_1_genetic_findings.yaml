@@ -35,7 +35,6 @@ classes:
       - loinc_48005_3
       - variant_validation
       - loinc_48018_6
-      - loinc_48018_6_label
       - loinc_53034_5
       - loinc_53034_5_other
       - loinc_48002_0
@@ -114,11 +113,6 @@ slots:
 
   loinc_48018_6:
     description: Gene identifier (HGNC-NR)
-    range: string
-    required: false
-
-  loinc_48018_6_label:
-    description: Gene label
     range: string
     required: false
 

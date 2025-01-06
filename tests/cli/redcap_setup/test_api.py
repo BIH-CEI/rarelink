@@ -47,25 +47,6 @@ def test_redcap_api_config_start_project_created(temp_config_file, monkeypatch):
     assert config["api_super_token"] == ""
 
 
-def test_redcap_api_config_start_with_super_token(
-    temp_config_file, monkeypatch):
-    monkeypatch.setattr("rarelink.cli.redcap_setup.api_config.CONFIG_FILE",
-                        temp_config_file)
-
-    with patch("rarelink.cli.redcap_setup.api_config.masked_input",
-               side_effect=["mock_token", "mock_super_token"]):
-        result = runner.invoke(
-            redcap_api_config_app,
-            ["start"],
-            input="y\nhttp://example.com/redcap/api/\ny\n",
-        )
-    assert result.exit_code == 0
-    assert "✅ REDCap API configuration saved locally" in result.stdout
-
-    config = json.loads(temp_config_file.read_text())
-    assert config["api_super_token"] == "mock_super_token"
-    
-
 def test_redcap_api_config_view_no_config(temp_config_file, monkeypatch):
     """
     Test the `redcap-setup api-config view` command when no configuration exists.

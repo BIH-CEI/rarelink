@@ -53,7 +53,11 @@ dependencies = [
     "tqdm",
     "node",
     "npm",
-    "linkml"
+    "linkml",
+    "schema-automator",
+    "oak",
+    "oaklib",
+    "python-dotenv"
 ]
 dynamic = ["version"]
 

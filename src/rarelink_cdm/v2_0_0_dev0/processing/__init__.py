@@ -14,8 +14,9 @@ Exports:
 """
 
 # Importing functions from individual modules
-from .preprocess_redcap_json import preprocess_flat_data, MAPPING_FUNCTIONS
+from .preprocess_redcap_json import preprocess_flat_data
 from .transform_to_redcap_json import transform_to_redcap_json
+from .map_to_linkml_schema import MAPPING_FUNCTIONS
 
 __all__ = [
     "preprocess_flat_data",

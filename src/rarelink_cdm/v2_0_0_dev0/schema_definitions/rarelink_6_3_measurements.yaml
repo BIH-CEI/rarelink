@@ -17,61 +17,114 @@ classes:
   Measurement:
     description: >
       The section Measurements (6.3) of the RareLink CDM. This section captures
-      assay-related measurements and their corresponding values, units, interpretations, and procedures.
+      assay-related measurements and their corresponding values, units, 
+      interpretations, and procedures.
     slots:
-      - assay
-      - value
-      - value_unit
-      - interpretation
-      - time_observed
-      - procedure_ncit
-      - procedure_snomed
+      - measurement_category
+      - measurement_status
+      - ncit_c60819
+      - ln_85353_1
+      - ln_85353_1_other
+      - ncit_c25712
+      - ncit_c92571
+      - ncit_c41255
+      - ncit_c82577
+      - snomed_122869004_ncit
+      - snomed_122869004_snomed
+      - snomed_122869004
+      - snomed_122869004_bodysite
+      - snomed_122869004_status
       - rarelink_6_3_measurements_complete
 
+
+
 slots:
-  assay:
+  measurement_category:
+    description: >
+      Category of the measurement (e.g., social history, vital signs, imaging).
+      Refer to the RareLink documentation for guidance.
+    range: string
+    required: true
+
+  measurement_status:
+    description: >
+      The status of the measurement (e.g., registered, preliminary, final).
+    range: string
+    required: false
+
+  ncit_c60819:
     description: >
       The assay used in the measurement, encoded with LOINC.
     range: string
     required: true
 
-  value:
+  ln_85353_1:
+    description: >
+      Specific vital sign measurement, encoded with LOINC.
+    range: string
+    required: false
+
+  ln_85353_1_other:
+    description: >
+      Additional vital signs information if "Other" is selected.
+    range: string
+    required: false
+
+  ncit_c25712:
     description: >
       The measurement value, entered as a two-decimal number.
     range: double
     required: true
 
-  value_unit:
+  ncit_c92571:
     description: >
       The unit of the measurement, encoded with Unit Ontology (UO).
     range: string
     required: true
 
-  interpretation:
+  ncit_c41255:
     description: >
       The interpretation of the measurement, encoded with NCIT.
     range: string
     required: false
 
-  time_observed:
+  ncit_c82577:
     description: >
       The time when the measurement was observed, in YYYY-MM-DD format.
     range: date
     required: false
 
-  procedure_ncit:
+  snomed_122869004_ncit:
     description: >
       The procedure related to the measurement, encoded with NCIT.
     range: string
     required: false
 
-  procedure_snomed:
+  snomed_122869004_snomed:
     description: >
-      The procedure related to the measurement, encoded with SNOMED.
+      The procedure related to the measurement, encoded with SNOMEDCT.
+    range: string
+    required: false
+
+  snomed_122869004:
+    description: >
+      The procedure related to the measurement, encoded with SNOMEDCT
+    range: string
+    required: false
+
+  snomed_122869004_bodysite:
+    description: >
+      The anatomical site of the procedure, encoded with SNOMED.
+    range: string
+    required: false
+
+  snomed_122869004_status:
+    description: >
+      The status of the procedure (e.g., preparation, in-progress, completed).
     range: string
     required: false
 
   rarelink_6_3_measurements_complete:
-    description: Completion status of this section
+    description: Completion status of this section.
     range: string
     required: true

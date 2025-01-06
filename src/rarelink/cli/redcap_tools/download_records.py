@@ -19,39 +19,45 @@ from rarelink_cdm.v2_0_0_dev0.processing import preprocess_flat_data, MAPPING_FU
 
 app = typer.Typer()
 
-DEFAULT_CONFIG_FILE = Path.home() / "Downloads" / "rarelink_redcap_config.json"
+DEFAULT_CONFIG_FILE = Path.home() / "Downloads" / "rarelink_apiconfig.json"
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 
 
 @app.callback(invoke_without_command=True)
 def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     """
-    Fetch records from the configured REDCap project, save them locally as a JSON file,
-    process them into the RareLink-CDM schema, and validate the output.
+    Fetch records from the configured REDCap project, save them locally as a
+    JSON file, process them into the RareLink-CDM schema, and validate the 
+    output.
 
     Args:
-        output_dir (Path): Directory to save the fetched and processed records. Defaults to ~/Downloads/rarelink_records.
+        output_dir (Path): Directory to save the fetched and processed records.
+        \n Defaults to ~/Downloads/rarelink_records.
     """
     format_header("Fetch REDCap Records")
 
     # Display alert about production mode
     hint_text(
-        "⚠️ IMPORTANT: If your project is in PRODUCTION mode, the downloaded data might be sensitive.\n"
-        "It must only be stored within your organisational site's approved storage."
+        "⚠️ IMPORTANT: If your project is in PRODUCTION mode, the downloaded"
+            " data might be sensitive. \n"
+            "It must only be stored within your organisational site's "
+            "approved storage."
     )
     between_section_separator()
 
     # Check if the API configuration has been set up
-    api_config_done = typer.confirm("Have you already set up an API configuration file?")
+    api_config_done = typer.confirm("Have you already set up an API "
+        "configuration file?")
     if not api_config_done:
         typer.echo(
-            f"👉 Please run the following command to set up your REDCap API configuration: {format_command('rarelink redcap-setup api-config start')}",
-        )
+            f"👉 Please run the following command to set up your REDCap \
+API configuration: {format_command('rarelink redcap-setup api-config start')}",)
         raise typer.Exit(code=1)
 
     # Prompt for the path to the API configuration file
     config_file_path = typer.prompt(
-        "Enter the path to your API configuration file", default=str(DEFAULT_CONFIG_FILE)
+        "Enter the path to your API configuration file", 
+        default=str(DEFAULT_CONFIG_FILE)
     )
     config_file = Path(config_file_path)
 
@@ -67,11 +73,27 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
         config = config_file.read_text()
         config_data = json.loads(config)
     except Exception as e:
-        typer.secho(error_text(f"❌ Failed to load configuration: {e}"), fg=typer.colors.RED)
+        typer.secho(error_text(f"❌ Failed to load configuration: {e}"), 
+                    fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
     # Ensure output directory exists
     ensure_directory_exists(output_dir)
+    
+
+    output_file = output_dir / "records.json"
+    processed_file = output_dir / "processed_records.json"
+
+    # Check for existing files and ask for confirmation to overwrite
+    if output_file.exists() or processed_file.exists():
+        typer.secho(
+            f"⚠️ Files already exist in the output directory: {output_dir}",
+            fg=typer.colors.YELLOW
+        )
+        if not typer.confirm("Do you want to overwrite these files?"):
+            typer.secho("❌ Operation canceled by the user.", fg=typer.colors.RED)
+            raise typer.Exit(code=0)
+
 
     # Set up logger
     log_file = output_dir / "download_records.log"
@@ -99,21 +121,24 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
         success_text(f"✅ Records successfully downloaded to {output_file}")
 
         # Process the records into the RareLink-CDM schema
-        success_text("🔄 Processing records into the RareLink-CDM schema...")
+        typer.echo("🔄 Processing records into the RareLink-CDM LinkML schema...")
         transformed_data = preprocess_flat_data(records, MAPPING_FUNCTIONS)
         processed_file = output_dir / "processed_records.json"
         write_json(transformed_data, processed_file)
 
-        success_text(f"✅ Processed data saved to {processed_file}")
-
+        typer.echo(f"✅ Processed data saved to {processed_file}")
+        
         # Validate the processed data against the LinkML schema
-        schema_path = "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
+        typer.echo("🔄 Validating processed records against the RareLink-CDM LinkML schema...")
+        schema_path =\
+            "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 
         try:
             import subprocess
 
             result = subprocess.run(
-                ["linkml-validate", "--schema", str(schema_path), str(processed_file)],
+                ["linkml-validate", "--schema", str(schema_path),
+                 str(processed_file)],
                 capture_output=True,
                 text=True,
             )
@@ -126,12 +151,15 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
                 )
         except FileNotFoundError:
             typer.secho(
-                error_text("❌ Validation tool not found. Ensure 'linkml-validate' is installed."),
+                error_text(
+                    "❌ Validation tool not found. Ensure 'linkml-validate' \
+is installed."),
                 fg=typer.colors.RED,
             )
     except requests.exceptions.RequestException as e:
         log_info(logger, f"❌ Failed to fetch records: {e}")
-        typer.secho(error_text(f"❌ Failed to fetch records: {e}"), fg=typer.colors.RED)
+        typer.secho(error_text(f"❌ Failed to fetch records: {e}"), 
+                    fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
     end_of_section_separator()
