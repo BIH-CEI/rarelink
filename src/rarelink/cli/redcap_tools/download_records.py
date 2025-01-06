@@ -51,9 +51,7 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     if not api_config_done:
         typer.echo(
             f"👉 Please run the following command to set up your REDCap \
-API configuration: {format_command('rarelink redcap-setup \
-api-config start')}",
-        )
+API configuration: {format_command('rarelink redcap-setup api-config start')}",)
         raise typer.Exit(code=1)
 
     # Prompt for the path to the API configuration file
