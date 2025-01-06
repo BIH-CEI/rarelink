@@ -52,8 +52,7 @@ def fetch_label_directly(code):
 
     # Correctly encode the IRI for URL construction
     encoded_iri = quote(iri, safe="")  # Encodes special characters
-    url = f"{base_url}/{ontology}/classes/{encoded_iri}?apikey={
-        BIOPORTAL_API_TOKEN}"
+    url = f"{base_url}/{ontology}/classes/{encoded_iri}?apikey={BIOPORTAL_API_TOKEN}"
     
     # Debugging: Print constructed URL
     print(f"Constructed URL: {url}")
