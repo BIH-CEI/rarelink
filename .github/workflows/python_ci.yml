@@ -33,3 +33,6 @@ jobs:
       - name: Run tests with pytest
         run: |
           pytest
+
+env:
+  BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }}
