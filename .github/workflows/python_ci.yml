@@ -17,8 +17,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          submodules: true   # This ensures submodules are checked out      - name: Checkout code
-        
+          submodules: true
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -29,10 +29,14 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install --editable .[test,docs]
           python3 -m pip install --editable ./submodules/phenopacket_mapper  # Install the submodule package
-          
+
+      - name: Configure BioPortal API Key for Oaklib
+        run: |
+          mkdir -p ~/.config/ontology-access-kit
+          echo "${{ secrets.BIOPORTAL_API_TOKEN }}" > ~/.config/ontology-access-kit/bioportal-apikey.txt
+
       - name: Run tests with pytest
+        env:
+          BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }}
         run: |
           pytest
-
-env:
-  BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }}
