@@ -1,0 +1,39 @@
+{
+  "id": "carepathway",
+  "name": "carePathway",
+  "description": "RareLink Care Pathway Test",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "asStream": true,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "encounter",
+      "mappingRef": "rarelink/encounter",
+      "sourceBinding": {
+        "rarelinkencounter": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_4_care_pathway"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}
