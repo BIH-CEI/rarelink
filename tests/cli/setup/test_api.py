@@ -27,11 +27,11 @@ def temp_config_file():
         temp_file_path.unlink()
     yield temp_file_path
 
-def test_redcap_api_config_start_project_created(temp_config_file, monkeypatch):
-    monkeypatch.setattr("rarelink.cli.redcap_setup.api_config.CONFIG_FILE",
+def test_redcap_api_keys_start_project_created(temp_config_file, monkeypatch):
+    monkeypatch.setattr("rarelink.cli.api_keys.setup.CONFIG_FILE",
                         temp_config_file)
 
-    with patch("rarelink.cli.redcap_setup.api_config.masked_input",
+    with patch("rarelink.cli.setup.api_keys.masked_input",
                return_value="mock_token"):
         result = runner.invoke(
             api_keys,
@@ -47,11 +47,11 @@ def test_redcap_api_config_start_project_created(temp_config_file, monkeypatch):
     assert config["api_super_token"] == ""
 
 
-def test_redcap_api_config_view_no_config(temp_config_file, monkeypatch):
+def test_redcap_api_keys_view_no_config(temp_config_file, monkeypatch):
     """
     Test the `redcap-setup api-config view` command when no configuration exists.
     """
-    monkeypatch.setattr("rarelink.cli.redcap_setup.api_config.CONFIG_FILE", 
+    monkeypatch.setattr("rarelink.cli.setup.api_keys.CONFIG_FILE", 
                         temp_config_file)
 
     assert not temp_config_file.exists(), "Temporary config file should not\
@@ -63,8 +63,8 @@ def test_redcap_api_config_view_no_config(temp_config_file, monkeypatch):
     assert "❌ No REDCap configuration found" in result.stdout
 
 
-def test_redcap_api_config_view_with_config(temp_config_file, monkeypatch):
-    monkeypatch.setattr("rarelink.cli.redcap_setup.api_config.CONFIG_FILE",
+def test_redcap_api_keys_view_with_config(temp_config_file, monkeypatch):
+    monkeypatch.setattr("rarelink.cli.setup.api_keys.CONFIG_FILE",
                         temp_config_file)
 
     temp_config_file.write_text(json.dumps(MOCK_CONFIG))
@@ -76,8 +76,8 @@ def test_redcap_api_config_view_with_config(temp_config_file, monkeypatch):
     assert MOCK_CONFIG["api_super_token"] in result.stdout
 
 
-def test_redcap_api_config_reset(temp_config_file, monkeypatch):
-    monkeypatch.setattr("rarelink.cli.redcap_setup.api_config.CONFIG_FILE",
+def test_redcap_api_keys_reset(temp_config_file, monkeypatch):
+    monkeypatch.setattr("rarelink.cli.setup.api_keys.CONFIG_FILE",
                         temp_config_file)
 
     temp_config_file.write_text(json.dumps(MOCK_CONFIG))

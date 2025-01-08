@@ -38,7 +38,6 @@ services:
       kafka-2:
         condition: service_healthy
 
-
   kafka-1:
     image: bitnami/kafka:latest
     container_name: kafka-1

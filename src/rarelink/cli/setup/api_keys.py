@@ -64,7 +64,7 @@ def app():
     # Step 1: BioPortal API Key
     typer.echo("BioPortal API key is required for the RareLink functionalities."
         " It is free and you can find it in your BioPortal account settings.")
-    bioportal_api_key = masked_input(
+    bioportal_api_token = masked_input(
         "Step 1: Enter your BioPortal API key (input will be masked): ", mask="#"
     )
     typer.echo()
@@ -112,7 +112,7 @@ project. You can find it in your project's `API` settings.")
         ENV_PATH.touch()
 
     try:
-        set_key(str(ENV_PATH), "BIOPORTAL_API_KEY", bioportal_api_key)
+        set_key(str(ENV_PATH), "BIOPORTAL_API_TOKEN", bioportal_api_token)
         set_key(str(ENV_PATH), "REDCAP_PROJECT_URL", redcap_url)
         set_key(str(ENV_PATH), "REDCAP_PROJECT_ID", redcap_project_id)
         set_key(str(ENV_PATH), "REDCAP_API_TOKEN", redcap_api_token)
@@ -122,7 +122,7 @@ project. You can find it in your project's `API` settings.")
             "redcap-url": redcap_url,
             "id": redcap_project_id,
             "token": redcap_api_token,
-            "bioportal_api_key": bioportal_api_key,
+            "bioportal_api_token": bioportal_api_token,
         }
         CONFIG_FILE_ROOT.write_text(json.dumps(config, indent=4))
 
@@ -152,8 +152,8 @@ project. You can find it in your project's `API` settings.")
     # Automatically validate the generated .env file and JSON config
     typer.echo("🔄 Validating configurations...")
     try:
-        validate_env(["BIOPORTAL_API_KEY", "REDCAP_PROJECT_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
-        validate_config(["redcap-url", "id", "token", "bioportal_api_key"])
+        validate_env(["bioportal_api_token", "REDCAP_PROJECT_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
+        validate_config(["redcap-url", "id", "token", "bioportal_api_token"])
         success_text("✅ Validation successful! Your configurations are complete.")
     except typer.Exit:
         typer.secho(
@@ -177,3 +177,4 @@ project. You can find it in your project's `API` settings.")
         "proper local backup if saved locally."
     )
     end_of_section_separator()
+    
