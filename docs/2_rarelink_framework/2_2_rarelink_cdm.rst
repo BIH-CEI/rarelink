@@ -23,8 +23,7 @@ instrument, ensuring consistency and comprehensive data capture.
 RareLink-CDM Data Dictionary
 ----------------------------
 
-
-- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../../res/rarelink_cdm_datadictionary - v2_0_0_dev0.csv>`
+- :download:`RareLink-CDM Data Dictionary (v2.0.0.dev0) <../../res/rarelink_cdm_datadictionary - v2_0_0_dev0.csv>`
 
 
 RuleSet for Codes and Codesystems
