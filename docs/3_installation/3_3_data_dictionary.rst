@@ -1,7 +1,8 @@
 .. _3_3:
 
-RareLink CDM Instruments
-============================
+
+Data Dictionary
+================
 
 .. warning:: 
     RareLink v2.0.0.dev0 is currently under development, and many things are 
@@ -16,15 +17,13 @@ instruments from the RareLink REDCap project.
 
 1. **Download the instruments from the RareLink REDCap project.**
 
-
 - :download:`Download RareLink CDM Data Dictionary v2.0.0.dev0 <../../res/rarelink_cdm_v2_0_0_dev0_datadictionary.csv>`
-- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_0_dev0_instruments.zip>`
 
-Via the RareLink CLI type:
+To upload your data dictionary to your REDCap project, type:
 
 .. code-block:: console
 
-    rarelink redcap-setup download --help
+    rarelink setup data-dictionary
 
 _____________________________________________________________________________________
 

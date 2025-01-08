@@ -58,6 +58,7 @@ Sections
 8) :doc:`8_glossary`
 9) :doc:`9_acknowledgements`
 10) :doc:`10_license`
+11) :doc:`11_download_manifest`
 
 1) Background
 ---------------
@@ -85,7 +86,7 @@ Sections
 - :doc:`3_installation/3_0_install_file`
 - :doc:`3_installation/3_1_setup_rarelink_framework`
 - :doc:`3_installation/3_2_setup_redcap_project`
-- :doc:`3_installation/3_3_setup_rarelink_instruments`
+- :doc:`3_installation/3_3_data_dictionary`
 - :doc:`3_installation/3_4_redcap_api`
 
 4) User Guide
@@ -114,6 +115,7 @@ Additional Information
 - :doc:`8_glossary`
 - :doc:`9_acknowledgements`
 - :doc:`10_license`
+- :doc:`11_download_manifest`
 
 
 .. toctree::
@@ -148,7 +150,7 @@ Additional Information
    3_installation/3_0_install_file
    3_installation/3_1_setup_rarelink_framework
    3_installation/3_2_setup_redcap_project
-   3_installation/3_3_setup_rarelink_instruments
+   3_installation/3_3_data_dictionary
    3_installation/3_4_redcap_api
 
 .. toctree::

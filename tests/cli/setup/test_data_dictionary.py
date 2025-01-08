@@ -1,5 +1,5 @@
 from typer.testing import CliRunner
-from rarelink.cli.redcap_setup.data_dictionary import app as data_dictionary_app
+from rarelink.cli.setup.data_dictionary import app as data_dictionary_app
 
 runner = CliRunner()
 

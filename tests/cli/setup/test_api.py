@@ -1,6 +1,6 @@
 import json
 from typer.testing import CliRunner
-from rarelink.cli.redcap_setup.api_config import app as redcap_api_config_app
+from rarelink.cli.setup.api_keys import app as api_keys
 from pathlib import Path
 import pytest
 import tempfile
@@ -34,7 +34,7 @@ def test_redcap_api_config_start_project_created(temp_config_file, monkeypatch):
     with patch("rarelink.cli.redcap_setup.api_config.masked_input",
                return_value="mock_token"):
         result = runner.invoke(
-            redcap_api_config_app,
+            api_keys,
             ["start"],
             input="y\nhttp://example.com/redcap/api/\nn\n",
         )
@@ -57,7 +57,7 @@ def test_redcap_api_config_view_no_config(temp_config_file, monkeypatch):
     assert not temp_config_file.exists(), "Temporary config file should not\
         exist before the test."
 
-    result = runner.invoke(redcap_api_config_app, ["view"])
+    result = runner.invoke(api_keys, ["view"])
     
     assert result.exit_code == 1
     assert "❌ No REDCap configuration found" in result.stdout
@@ -69,7 +69,7 @@ def test_redcap_api_config_view_with_config(temp_config_file, monkeypatch):
 
     temp_config_file.write_text(json.dumps(MOCK_CONFIG))
 
-    result = runner.invoke(redcap_api_config_app, ["view"])
+    result = runner.invoke(api_keys, ["view"])
     assert result.exit_code == 0
     assert MOCK_CONFIG["api_url"] in result.stdout
     assert MOCK_CONFIG["api_token"] in result.stdout
@@ -82,7 +82,7 @@ def test_redcap_api_config_reset(temp_config_file, monkeypatch):
 
     temp_config_file.write_text(json.dumps(MOCK_CONFIG))
 
-    result = runner.invoke(redcap_api_config_app, ["reset"])
+    result = runner.invoke(api_keys, ["reset"])
     assert result.exit_code == 0
     assert "🔄 REDCap configuration has been reset." in result.stdout
     assert not temp_config_file.exists()
