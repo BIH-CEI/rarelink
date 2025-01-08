@@ -8,8 +8,8 @@ services:
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
     command: [""] # CLI: run --job path.json
     volumes:
-      - ./tofhir-redcap-application.conf:/usr/local/tofhir/conf/application.conf
-      - ./redcap-projects.json:/usr/local/tofhir/conf/redcap-projects.json
+      - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
     depends_on:
       tofhir-redcap:
         condition: service_started
@@ -24,8 +24,10 @@ services:
       - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
       - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
     volumes:
-      - ./tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
+      - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
+
+    
     restart: always
     depends_on:
       kafka-1:
