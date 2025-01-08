@@ -1,6 +1,6 @@
-version: '3.3'
 services:
   tofhir:
+    platform: linux/amd64
     image: srdc/tofhir-engine:latest
     container_name: tofhir
     environment:
@@ -8,27 +8,31 @@ services:
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
     command: [""] # CLI: run --job path.json
     volumes:
-      - ./:/usr/local/tofhir/conf
+      - ./tofhir-redcap-application.conf:/usr/local/tofhir/conf/application.conf
+      - ./redcap-projects.json:/usr/local/tofhir/conf/redcap-projects.json
     depends_on:
       tofhir-redcap:
         condition: service_started
+
   tofhir-redcap:
+    platform: linux/amd64
     image: srdc/tofhir-redcap:latest
     container_name: tofhir-redcap
     ports:
       - 8095:8095
     environment:
-      - APP_CONF_FILE=application.conf
-      - REDCAP_PROJECTS_FILEPATH=redcap-projects.json
+      - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
+      - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
     volumes:
-      - ./tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
+      - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./src/rarelink/tofhir/v2.0.0.dev0/redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
     restart: always
     depends_on:
       kafka-1:
         condition: service_healthy
       kafka-2:
         condition: service_healthy
+
   kafka-1:
     image: bitnami/kafka:latest
     container_name: kafka-1
@@ -52,6 +56,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 20s
+
   kafka-2:
     image: bitnami/kafka:latest
     container_name: kafka-2

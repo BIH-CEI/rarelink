@@ -57,7 +57,10 @@ dependencies = [
     "schema-automator",
     "oak",
     "oaklib",
-    "python-dotenv"
+    "python-dotenv",
+    "docker",
+    "docker-compose",
+    "colima"
 ]
 dynamic = ["version"]
 
