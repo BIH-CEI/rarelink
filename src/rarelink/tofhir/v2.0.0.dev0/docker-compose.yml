@@ -8,13 +8,16 @@ services:
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
     command: [""] # CLI: run --job path.json
     volumes:
-      - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
+      - ./:/usr/local/tofhir/conf
     depends_on:
       tofhir-redcap:
         condition: service_started
+    deploy:
+      resources:
+        limits:
+          memory: 4g
 
-  tofhir-redcap:
+    tofhir-redcap:
     platform: linux/amd64
     image: srdc/tofhir-redcap:latest
     container_name: tofhir-redcap
@@ -23,15 +26,18 @@ services:
     environment:
       - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
       - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
+    env_file:
+      - .env
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json    
-    restart: on-failure
+      - ./src/rarelink/tofhir/v2.0.0.dev0/rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
+    restart: always
     depends_on:
       kafka-1:
         condition: service_healthy
       kafka-2:
         condition: service_healthy
+
 
   kafka-1:
     image: bitnami/kafka:latest

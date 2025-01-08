@@ -6,7 +6,7 @@
   "sourceSettings": {
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
-      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "sourceUri": "https://redcap.charite.de/demo/api/",
       "asStream": true,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,
@@ -14,9 +14,10 @@
     }
   },
   "sinkSettings": {
-    "jsonClass": "FhirRepositorySinkSettings",
-    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
-    "returnMinimal": false
+    "jsonClass": "FileSinkSettings",
+    "outputDirectory": "/usr/local/tofhir/mapping-output",
+    "fileName": "carepathway-result.json",
+    "overwriteIfExists": true
   },
   "mappings": [
     {
@@ -27,7 +28,7 @@
           "sourceRef": "redcap-kafka-source",
           "jsonClass": "KafkaSource",
           "options": {},
-          "topicName": "51-rarelink_4_care_pathway"
+          "topicName": "805-rarelink_4_care_pathway"
         }
       }
     }
