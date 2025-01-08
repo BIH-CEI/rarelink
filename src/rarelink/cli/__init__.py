@@ -1,19 +1,24 @@
 import typer
 from rarelink.cli.framework import app as framework
-from rarelink.cli.redcap_setup import app as redcap_setup_app
+from rarelink.cli.setup import app as redcap_setup_app
 from rarelink.cli.redcap_tools import app as redcap_tools_app
+from rarelink.cli.fhir import app as fhir_app
 from rarelink.cli.utils.string_utils import format_command
 
 # Main Typer application
 app = typer.Typer()
 
 # Add command groups
-app.add_typer(framework, name="framework", help=f"Setup and manage the\
- RareLink framework: {format_command('rarelink framework --help')} for more information.")
-app.add_typer(redcap_setup_app, name="redcap-setup", help=f"Setup and manage a\
- local REDCap project: {format_command('rarelink redcap-setup --help')} for more information.")
+app.add_typer(framework, name="framework", help=f"Configure global settings\
+ of the RareLink framework - {format_command('rarelink framework --help')}")
+app.add_typer(redcap_setup_app, name="setup", help=f"Setup the RareLink\
+ framework locally - {format_command('rarelink setup --help')}")
 app.add_typer(redcap_tools_app, name="redcap-tools", help=f"Interact with a\
- REDCap project: {format_command('rarelink redcap-tools --help')} for more information.")
+ REDCap project: {format_command('rarelink redcap-tools --help')}\
+ for more information.")
+app.add_typer(fhir_app, name="fhir", help=f"Setup and manage toFHIR parts of the\
+ RareLink framework: {format_command('rarelink fhir --help')}\
+ for more information.")
 
 def version_callback(value: bool):
     """
@@ -34,7 +39,9 @@ def main(
     )
 ):
     """
-    RareLink CLI.
+    Welcome to the RareLink CLI! This tool is designed to help you setup and 
+    manage the RareLink framework around your local REDCap project,
+    interact with your REDCap project, and perform various tasks.
     """
     pass
 

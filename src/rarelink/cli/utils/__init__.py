@@ -36,6 +36,11 @@ from .logging_utils import (
     log_exception
 )
 
+from .config_utils import (
+    validate_env,
+    validate_config
+)
+
 __all__ = [
     # Terminal utils
     "before_header_separator",
@@ -70,4 +75,7 @@ __all__ = [
     "log_warning",
     "log_error",
     "log_exception",
+    # config utils
+    "validate_env",
+    "validate_config"
 ]

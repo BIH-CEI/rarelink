@@ -22,7 +22,7 @@ CHANGELOG_URL = "https://rarelink.readthedocs.io/en/latest/6_changelog.html"
 
 
 @app.command()
-def upload():
+def app():
     """
     Upload the most current RareLink-CDM Data Dictionary into an existing
     REDCap project.
