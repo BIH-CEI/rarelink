@@ -25,10 +25,8 @@ services:
       - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
-
-    
-    restart: always
+      - ./rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json    
+    restart: on-failure
     depends_on:
       kafka-1:
         condition: service_healthy
