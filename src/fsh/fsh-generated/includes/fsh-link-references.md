@@ -24,7 +24,9 @@
 [InterpretationStatusVS]: ValueSet-interpretation-status-vs.html
 [KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [PatientStatusDate]: StructureDefinition-patient-status-date.html
+[PhenotypeModifier]: StructureDefinition-phenotype-modifier.html
 [PhenotypeSeverityVS]: ValueSet-phenotypie-severity-vs.html
+[PhenotypeStatus]: StructureDefinition-phenotype-status.html
 [PhenotypeStatusVS]: ValueSet-phenotype-status-vs.html
 [ProgressStatusInterpretationVS]: ValueSet-progress-status-interpretation-vs.html
 [Propositus]: StructureDefinition-propositus.html
@@ -47,6 +49,7 @@
 [RareLinkPhenotypicFeature]: StructureDefinition-rarelink-phenotypic-feature.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [ReferenceGenomeVS]: ValueSet-reference-genome-vs.html
+[ResolutionDate]: StructureDefinition-resolution-date.html
 [SeverityVS]: ValueSet-severity-vs.html
 [SexAtBirthVS]: ValueSet-sex-at-birth-vs.html
 [StructuralVariantAnalysisMethodVS]: ValueSet-structural-variant-analysis-method-vs.html

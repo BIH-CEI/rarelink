@@ -51,16 +51,36 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 // * component[causing_organism].code.coding.system = "https://www.ncbi.nlm.nih.gov/taxonomy"
 // * component[causing_organism].code.coding.version = "2024-07-03"
 
-// * extension contains PhenotypeStatus named phenotype_status 0..1
-// * extension[phenotype_status].valueCodeableConcept.coding.system from SNOMEDCT
-// * extension[phenotype_status].valueCodeableConcept.coding.code from PhenotypeStatusVS (required)
+* extension contains PhenotypeStatus named phenotype_status 0..1
+* extension contains ResolutionDate named resolution_date 0..1
+* extension contains PhenotypeModifier named phenotype_modifier 0..1
 
-// * extension contains ResolutionDate named resolution_date 0..1
-// * extension[resolution_date].valueDateTime MS
+* extension[PhenotypeStatus]
+Extension: PhenotypeStatus
+Id: phenotype-status
+Title: "Phenotype Status"
+Description: "Captures the status of a phenotypic feature, such as confirmed present or refuted."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system from SNOMEDCT (required)
+* valueCodeableConcept.coding.code from PhenotypeStatusVS (required)
 
-// * extension contains PhenotypeModifier named phenotype_modifier 0..1
-// * extension[phenotype_modifier].valueCodeableConcept.coding.system from HP (required)
-// * extension[phenotype_modifier].valueCodeableConcept.coding.code MS
+* extension[ResolutionDate]
+Extension: ResolutionDate
+Id: resolution-date
+Title: "Resolution Date"
+Description: "The date when the phenotypic feature resolved."
+* value[x] only dateTime
+
+* extension[PhenotypeModifier]
+Extension: PhenotypeModifier
+Id: phenotype-modifier
+Title: "Phenotype Modifier"
+Description: "Captures modifiers for the phenotypic feature, such as severity or specific classifications."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system from HP (required)
+* valueCodeableConcept.coding.code MS
 
 
 ValueSet: PhenotypeStatusVS

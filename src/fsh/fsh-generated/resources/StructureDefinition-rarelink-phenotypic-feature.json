@@ -25,6 +25,65 @@
         "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Phenotypic Feature</strong></p><p>This profile is based on the RareLink-CDM Section (6.2) Phenotypic Features and the Observation resource.</p></div>"
       },
       {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.extension:phenotype_status",
+        "path": "Observation.extension",
+        "sliceName": "phenotype_status",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:resolution_date",
+        "path": "Observation.extension",
+        "sliceName": "resolution_date",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:phenotype_modifier",
+        "path": "Observation.extension",
+        "sliceName": "phenotype_modifier",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-modifier"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Observation.status",
         "path": "Observation.status",
         "patternCode": "registered"

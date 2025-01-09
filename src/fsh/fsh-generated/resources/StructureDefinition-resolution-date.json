@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "resolution-date",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date",
+  "name": "ResolutionDate",
+  "title": "Resolution Date",
+  "status": "draft",
+  "description": "The date when the phenotypic feature resolved.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Resolution Date",
+        "definition": "The date when the phenotypic feature resolved."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}
