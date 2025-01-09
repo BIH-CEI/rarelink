@@ -124,6 +124,22 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/clinical-annotation-evidence-vs"
+        },
+        "name": "Clinical Annotation Level of Evidence Value Set",
+        "description": "Value set for clinical annotation levels of evidence.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/clinical-significance-acmg-vs"
+        },
+        "name": "Clinical Significance ACMG Value Set",
+        "description": "Value set for ACMG clinical significance levels.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/consanguinity"
         },
         "name": "Consanguinity",
@@ -164,6 +180,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/dna-change-type-vs"
+        },
+        "name": "DNA Change Type Value Set",
+        "description": "Value set for capturing DNA change types.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/encounter-class-vs"
         },
         "name": "Encounter Class Value Set",
@@ -196,10 +220,34 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/genomic-source-class-vs"
+        },
+        "name": "Genomic Source Class Value Set",
+        "description": "Value set for capturing genomic source classes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/interpretation-status-vs"
+        },
+        "name": "Interpretation Status Value Set",
+        "description": "Value set for interpretation statuses.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/patient-status-date"
         },
         "name": "Patient Status Date",
         "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/progress-status-interpretation-vs"
+        },
+        "name": "Progress Status of Interpretation Value Set",
+        "description": "Value set for capturing the progress status of interpretation.",
         "exampleBoolean": false
       },
       {
@@ -308,10 +356,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-observation-genetic-findings"
+        },
+        "name": "RareLink Observation Genetic Findings",
+        "description": "A RareLink-specific profile for capturing genetic findings.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/recorded-sex-at-birth"
         },
         "name": "Recorded Sex at Birth",
         "description": "The sex assigned to the patient at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/reference-genome-vs"
+        },
+        "name": "Reference Genome Value Set",
+        "description": "Value set for reference sequence assemblies.",
         "exampleBoolean": false
       },
       {
@@ -332,6 +396,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/structural-variant-analysis-method-vs"
+        },
+        "name": "Structural Variant Analysis Method Value Set",
+        "description": "Value set for capturing structural variant analysis methods.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/undiagnosed-rd-case-vs"
         },
         "name": "Undiagnosed Rare Disease Case Value Set",
@@ -344,6 +416,14 @@
         },
         "name": "Vital Status Value Set",
         "description": "Value set for capturing the vital status of the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/zygosity-vs"
+        },
+        "name": "Zygosity Value Set",
+        "description": "Value set for capturing zygosity.",
         "exampleBoolean": false
       }
     ],

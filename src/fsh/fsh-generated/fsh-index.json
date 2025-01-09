@@ -168,6 +168,14 @@
     "endLine": 33
   },
   {
+    "outputFile": "StructureDefinition-rarelink-observation-genetic-findings.json",
+    "fshName": "RareLinkGeneticFindings",
+    "fshType": "Profile",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 6,
+    "endLine": 42
+  },
+  {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
     "fshName": "RecordedSexAtBirth",
     "fshType": "Extension",
@@ -208,6 +216,22 @@
     "endLine": 61
   },
   {
+    "outputFile": "ValueSet-clinical-annotation-evidence-vs.json",
+    "fshName": "ClinicalAnnotationEvidenceVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 195,
+    "endLine": 205
+  },
+  {
+    "outputFile": "ValueSet-clinical-significance-acmg-vs.json",
+    "fshName": "ClinicalSignificanceACMGVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 184,
+    "endLine": 193
+  },
+  {
     "outputFile": "ValueSet-consanguinity-vs.json",
     "fshName": "ConsanguinityVS",
     "fshType": "ValueSet",
@@ -222,6 +246,14 @@
     "fshFile": "consent.fsh",
     "startLine": 47,
     "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-dna-change-type-vs.json",
+    "fshName": "DNAChangeTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 171,
+    "endLine": 182
   },
   {
     "outputFile": "ValueSet-encounter-class-vs.json",
@@ -256,12 +288,44 @@
     "endLine": 72
   },
   {
+    "outputFile": "ValueSet-genomic-source-class-vs.json",
+    "fshName": "GenomicSourceClassVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 158,
+    "endLine": 169
+  },
+  {
+    "outputFile": "ValueSet-interpretation-status-vs.json",
+    "fshName": "InterpretationStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 100,
+    "endLine": 108
+  },
+  {
+    "outputFile": "ValueSet-progress-status-interpretation-vs.json",
+    "fshName": "ProgressStatusInterpretationVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 110,
+    "endLine": 118
+  },
+  {
     "outputFile": "ValueSet-propositus-vs.json",
     "fshName": "PropositusVS",
     "fshType": "ValueSet",
     "fshFile": "family_history.fsh",
     "startLine": 62,
     "endLine": 69
+  },
+  {
+    "outputFile": "ValueSet-reference-genome-vs.json",
+    "fshName": "ReferenceGenomeVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 148,
+    "endLine": 156
   },
   {
     "outputFile": "ValueSet-severity-vs.json",
@@ -280,6 +344,14 @@
     "endLine": 82
   },
   {
+    "outputFile": "ValueSet-structural-variant-analysis-method-vs.json",
+    "fshName": "StructuralVariantAnalysisMethodVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 120,
+    "endLine": 133
+  },
+  {
     "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",
     "fshName": "UndiagnosedRDCaseVS",
     "fshType": "ValueSet",
@@ -294,5 +366,13 @@
     "fshFile": "patient_vitalstatus.fsh",
     "startLine": 48,
     "endLine": 56
+  },
+  {
+    "outputFile": "ValueSet-zygosity-vs.json",
+    "fshName": "ZygosityVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 135,
+    "endLine": 146
   }
 ]
