@@ -18,5 +18,6 @@
 [RareLinkEncounter]: StructureDefinition-rarelink-encounter.html
 [RareLinkFamilyHistory]: StructureDefinition-rarelink-familyhistory.html
 [RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html
+[RareLinkIPSMeasurementLaboratory]: StructureDefinition-rarelink-ips-measurement-laboratory.html
 [SeverityVS]: ValueSet-severity-vs.html
 [UndiagnosedRDCaseVS]: ValueSet-undiagnosed-rd-case-vs.html

@@ -212,6 +212,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-ips-measurement-laboratory"
+        },
+        "name": "RareLink IPS Measurement Laboratory",
+        "description": "A RareLink-specific profile for laboratory measurements based on the IPS Observation profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/severity-vs"
         },
         "name": "Severity Value Set",
