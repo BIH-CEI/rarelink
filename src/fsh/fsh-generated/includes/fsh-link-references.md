@@ -3,6 +3,7 @@
 [AgeAtOnset]: StructureDefinition-age-at-onset.html
 [AgeAtOnsetVS]: ValueSet-age-at-onset-vs.html
 [AgeCategoryVS]: ValueSet-age-category-vs.html
+[AgeOfOnsetVS]: ValueSet-age-of-onset-vs.html
 [AgreementToBeContacted]: StructureDefinition-agreement-to-be-contacted.html
 [AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
 [BirthPlace]: StructureDefinition-birthplace.html
@@ -23,6 +24,8 @@
 [InterpretationStatusVS]: ValueSet-interpretation-status-vs.html
 [KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [PatientStatusDate]: StructureDefinition-patient-status-date.html
+[PhenotypeSeverityVS]: ValueSet-phenotypie-severity-vs.html
+[PhenotypeStatusVS]: ValueSet-phenotype-status-vs.html
 [ProgressStatusInterpretationVS]: ValueSet-progress-status-interpretation-vs.html
 [Propositus]: StructureDefinition-propositus.html
 [PropositusVS]: ValueSet-propositus-vs.html
@@ -41,11 +44,13 @@
 [RareLinkGestationAtBirth]: StructureDefinition-rarelink-observation-gestation-at-birth.html
 [RareLinkKaryotypicSex]: StructureDefinition-rarelink-karyotypic-sex.html
 [RareLinkIPSMeasurementsOthers]: StructureDefinition-rarelink-observation-measurements-others.html
+[RareLinkPhenotypicFeature]: StructureDefinition-rarelink-phenotypic-feature.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [ReferenceGenomeVS]: ValueSet-reference-genome-vs.html
 [SeverityVS]: ValueSet-severity-vs.html
 [SexAtBirthVS]: ValueSet-sex-at-birth-vs.html
 [StructuralVariantAnalysisMethodVS]: ValueSet-structural-variant-analysis-method-vs.html
+[TemporalPatternVS]: ValueSet-temporal-pattern-vs.html
 [UndiagnosedRDCaseVS]: ValueSet-undiagnosed-rd-case-vs.html
 [VitalStatusVS]: ValueSet-vital-status-vs.html
 [ZygosityVS]: ValueSet-zygosity-vs.html

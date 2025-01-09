@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "TemporalPatternVS",
+  "id": "temporal-pattern-vs",
+  "title": "Temporal Pattern Value Set",
+  "description": "Value set for capturing the temporal pattern of phenotypic features.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.human-phenotype-ontology.org",
+        "concept": [
+          {
+            "code": "0011009",
+            "display": "Acute"
+          },
+          {
+            "code": "0011010",
+            "display": "Chronic"
+          },
+          {
+            "code": "0031914",
+            "display": "Fluctuating"
+          },
+          {
+            "code": "0025297",
+            "display": "Prolonged"
+          },
+          {
+            "code": "0031796",
+            "display": "Recurrent"
+          },
+          {
+            "code": "0031915",
+            "display": "Stable"
+          },
+          {
+            "code": "0011011",
+            "display": "Subacute"
+          },
+          {
+            "code": "0025153",
+            "display": "Transient"
+          }
+        ]
+      }
+    ]
+  }
+}

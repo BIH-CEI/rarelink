@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "PhenotypeSeverityVS",
+  "id": "phenotypie-severity-vs",
+  "title": "Phenotype Severity Value Set",
+  "description": "Value set for capturing phenotype severity.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/phenotypie-severity-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.human-phenotype-ontology.org",
+        "concept": [
+          {
+            "code": "0012827",
+            "display": "Borderline"
+          },
+          {
+            "code": "0012825",
+            "display": "Mild"
+          },
+          {
+            "code": "0012826",
+            "display": "Moderate"
+          },
+          {
+            "code": "0012829",
+            "display": "Profound"
+          },
+          {
+            "code": "0012828",
+            "display": "Severe"
+          }
+        ]
+      }
+    ]
+  }
+}

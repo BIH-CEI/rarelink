@@ -1,0 +1,26 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "PhenotypeStatusVS",
+  "id": "phenotype-status-vs",
+  "title": "Phenotype Status Value Set",
+  "description": "Value set for capturing phenotype status.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/phenotype-status-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "410605003",
+            "display": "Confirmed present"
+          },
+          {
+            "code": "723511001",
+            "display": "Refuted"
+          }
+        ]
+      }
+    ]
+  }
+}

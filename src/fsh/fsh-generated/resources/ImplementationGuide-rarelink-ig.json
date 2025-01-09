@@ -92,6 +92,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/age-of-onset-vs"
+        },
+        "name": "Age of Onset Value Set",
+        "description": "Value set for capturing the age of onset for phenotypes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/agreement-to-be-contacted"
         },
         "name": "Agreement to Be Contacted",
@@ -252,6 +260,22 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/phenotypie-severity-vs"
+        },
+        "name": "Phenotype Severity Value Set",
+        "description": "Value set for capturing phenotype severity.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/phenotype-status-vs"
+        },
+        "name": "Phenotype Status Value Set",
+        "description": "Value set for capturing phenotype status.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/progress-status-interpretation-vs"
         },
         "name": "Progress Status of Interpretation Value Set",
@@ -396,6 +420,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-phenotypic-feature"
+        },
+        "name": "RareLink Observation Phenotypic Feature",
+        "description": "A RareLink-specific profile for capturing phenotypic features.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/recorded-sex-at-birth"
         },
         "name": "Recorded Sex at Birth",
@@ -432,6 +464,14 @@
         },
         "name": "Structural Variant Analysis Method Value Set",
         "description": "Value set for capturing structural variant analysis methods.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/temporal-pattern-vs"
+        },
+        "name": "Temporal Pattern Value Set",
+        "description": "Value set for capturing the temporal pattern of phenotypic features.",
         "exampleBoolean": false
       },
       {

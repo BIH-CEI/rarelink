@@ -200,6 +200,14 @@
     "endLine": 48
   },
   {
+    "outputFile": "StructureDefinition-rarelink-phenotypic-feature.json",
+    "fshName": "RareLinkPhenotypicFeature",
+    "fshType": "Profile",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 4,
+    "endLine": 33
+  },
+  {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
     "fshName": "RecordedSexAtBirth",
     "fshType": "Extension",
@@ -230,6 +238,14 @@
     "fshFile": "observation_age_category.fsh",
     "startLine": 42,
     "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-age-of-onset-vs.json",
+    "fshName": "AgeOfOnsetVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 73,
+    "endLine": 86
   },
   {
     "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",
@@ -336,6 +352,22 @@
     "endLine": 50
   },
   {
+    "outputFile": "ValueSet-phenotype-status-vs.json",
+    "fshName": "PhenotypeStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 66,
+    "endLine": 71
+  },
+  {
+    "outputFile": "ValueSet-phenotypie-severity-vs.json",
+    "fshName": "PhenotypeSeverityVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 101,
+    "endLine": 109
+  },
+  {
     "outputFile": "ValueSet-progress-status-interpretation-vs.json",
     "fshName": "ProgressStatusInterpretationVS",
     "fshType": "ValueSet",
@@ -382,6 +414,14 @@
     "fshFile": "genetic_findings.fsh",
     "startLine": 120,
     "endLine": 133
+  },
+  {
+    "outputFile": "ValueSet-temporal-pattern-vs.json",
+    "fshName": "TemporalPatternVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 88,
+    "endLine": 99
   },
   {
     "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",
