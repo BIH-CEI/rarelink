@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "VitalStatusVS",
+  "id": "vital-status-vs",
+  "title": "Vital Status Value Set",
+  "description": "Value set for capturing the vital status of the patient.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "438949009",
+            "display": "Not Deceased"
+          },
+          {
+            "code": "419099009",
+            "display": "Deceased"
+          },
+          {
+            "code": "399307001",
+            "display": "Unknown - Lost in follow-up"
+          },
+          {
+            "code": "185924006",
+            "display": "Unknown - Opted-out"
+          },
+          {
+            "code": "261665006",
+            "display": "Unknown - Other Reason"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -24,6 +24,22 @@
     "endLine": 45
   },
   {
+    "outputFile": "StructureDefinition-birthplace.json",
+    "fshName": "BirthPlace",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 40,
+    "endLine": 48
+  },
+  {
+    "outputFile": "StructureDefinition-cause-of-death.json",
+    "fshName": "CauseOfDeath",
+    "fshType": "Extension",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 33,
+    "endLine": 41
+  },
+  {
     "outputFile": "StructureDefinition-consanguinity.json",
     "fshName": "Consanguinity",
     "fshType": "Extension",
@@ -38,6 +54,22 @@
     "fshFile": "consent.fsh",
     "startLine": 28,
     "endLine": 37
+  },
+  {
+    "outputFile": "StructureDefinition-date-of-admission.json",
+    "fshName": "DateOfAdmission",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 49,
+    "endLine": 55
+  },
+  {
+    "outputFile": "StructureDefinition-patient-status-date.json",
+    "fshName": "PatientStatusDate",
+    "fshType": "Extension",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 42,
+    "endLine": 46
   },
   {
     "outputFile": "StructureDefinition-propositus.json",
@@ -94,6 +126,38 @@
     "fshFile": "measurements_laboratory.fsh",
     "startLine": 8,
     "endLine": 45
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-measurement-radiology.json",
+    "fshName": "RareLinkIPSMeasurementRadiology",
+    "fshType": "Profile",
+    "fshFile": "measurements_radiology.fsh",
+    "startLine": 8,
+    "endLine": 45
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-patient-vital-status.json",
+    "fshName": "RareLinkIPSPatientVitalStatus",
+    "fshType": "Profile",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 4,
+    "endLine": 32
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-patient.json",
+    "fshName": "RareLinkIPSPatient",
+    "fshType": "Profile",
+    "fshFile": "patient.fsh",
+    "startLine": 4,
+    "endLine": 39
+  },
+  {
+    "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
+    "fshName": "RecordedSexAtBirth",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 56,
+    "endLine": 62
   },
   {
     "outputFile": "ValueSet-age-at-diagnosis-vs.json",
@@ -160,6 +224,14 @@
     "endLine": 105
   },
   {
+    "outputFile": "ValueSet-gender-identity-vs.json",
+    "fshName": "GenderIdentityVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient.fsh",
+    "startLine": 64,
+    "endLine": 72
+  },
+  {
     "outputFile": "ValueSet-propositus-vs.json",
     "fshName": "PropositusVS",
     "fshType": "ValueSet",
@@ -176,11 +248,27 @@
     "endLine": 65
   },
   {
+    "outputFile": "ValueSet-sex-at-birth-vs.json",
+    "fshName": "SexAtBirthVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient.fsh",
+    "startLine": 74,
+    "endLine": 82
+  },
+  {
     "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",
     "fshName": "UndiagnosedRDCaseVS",
     "fshType": "ValueSet",
     "fshFile": "condition_undiagnosed_rd.fsh",
     "startLine": 28,
     "endLine": 33
+  },
+  {
+    "outputFile": "ValueSet-vital-status-vs.json",
+    "fshName": "VitalStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 48,
+    "endLine": 56
   }
 ]

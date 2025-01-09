@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "patient-status-date",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/patient-status-date",
+  "name": "PatientStatusDate",
+  "title": "Patient Status Date",
+  "status": "draft",
+  "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Patient Status Date",
+        "definition": "The date of completion for the RareLink-CDM Patient Status sheet."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/patient-status-date"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

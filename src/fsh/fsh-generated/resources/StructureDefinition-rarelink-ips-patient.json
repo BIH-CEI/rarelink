@@ -1,0 +1,129 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-ips-patient",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient",
+  "name": "RareLinkIPSPatient",
+  "title": "RareLink IPS Patient",
+  "status": "draft",
+  "description": "A RareLink-specific profile for the IPS Patient resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.meta.profile",
+        "path": "Patient.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
+      },
+      {
+        "id": "Patient.text.div",
+        "path": "Patient.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Patient</strong></p><p>This profile is based on the RareLink-CDM Section (1) Formal Criteria and (2) Personal Information, integrated with the IPS Patient profile.</p></div>"
+      },
+      {
+        "id": "Patient.extension",
+        "path": "Patient.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Patient.extension:birthplace",
+        "path": "Patient.extension",
+        "sliceName": "birthplace",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/birthplace"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:date_of_admission",
+        "path": "Patient.extension",
+        "sliceName": "date_of_admission",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:recorded_sex_at_birth",
+        "path": "Patient.extension",
+        "sliceName": "recorded_sex_at_birth",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier.use",
+        "path": "Patient.identifier.use",
+        "patternCode": "official"
+      },
+      {
+        "id": "Patient.identifier.type.coding.system",
+        "path": "Patient.identifier.type.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://snomed.info/sct"
+        }
+      },
+      {
+        "id": "Patient.identifier.type.coding.code",
+        "path": "Patient.identifier.type.coding.code",
+        "patternCode": "422549004"
+      },
+      {
+        "id": "Patient.identifier.type.coding.display",
+        "path": "Patient.identifier.type.coding.display",
+        "patternString": "Patient-related Identification code (observable entity)"
+      },
+      {
+        "id": "Patient.identifier.value",
+        "path": "Patient.identifier.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.name.text",
+        "path": "Patient.name.text",
+        "patternString": "anonymous"
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/gender-identity-vs"
+        }
+      }
+    ]
+  }
+}

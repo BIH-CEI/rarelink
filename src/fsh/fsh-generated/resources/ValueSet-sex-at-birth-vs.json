@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "SexAtBirthVS",
+  "id": "sex-at-birth-vs",
+  "title": "Sex at Birth Value Set",
+  "description": "Value set for capturing the sex assigned at birth.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/sex-at-birth-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "248152002",
+            "display": "Female"
+          },
+          {
+            "code": "248153007",
+            "display": "Male"
+          },
+          {
+            "code": "184115007",
+            "display": "Patient sex unknown"
+          },
+          {
+            "code": "32570691000036108",
+            "display": "Intersex"
+          },
+          {
+            "code": "1220561009",
+            "display": "Not recorded"
+          }
+        ]
+      }
+    ]
+  }
+}

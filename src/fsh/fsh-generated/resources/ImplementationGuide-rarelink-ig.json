@@ -100,6 +100,22 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/birthplace"
+        },
+        "name": "Birth Place",
+        "description": "The patient's place of birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cause-of-death"
+        },
+        "name": "Cause of Death",
+        "description": "The cause of death for the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/consanguinity"
         },
         "name": "Consanguinity",
@@ -132,6 +148,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/date-of-admission"
+        },
+        "name": "Date of Admission",
+        "description": "The date of the patient's admission.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/encounter-class-vs"
         },
         "name": "Encounter Class Value Set",
@@ -152,6 +176,22 @@
         },
         "name": "Family Relationship Value Set",
         "description": "Value set for capturing family member relationships.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/gender-identity-vs"
+        },
+        "name": "Gender Identity Value Set",
+        "description": "Value set for gender identity.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-status-date"
+        },
+        "name": "Patient Status Date",
+        "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
         "exampleBoolean": false
       },
       {
@@ -220,6 +260,38 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-ips-measurement-radiology"
+        },
+        "name": "RareLink IPS Measurement Radiology",
+        "description": "A RareLink-specific profile for radiology measurements based on the IPS Observation profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-patient"
+        },
+        "name": "RareLink IPS Patient",
+        "description": "A RareLink-specific profile for the IPS Patient resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-patient-vital-status"
+        },
+        "name": "RareLink IPS Patient Vital Status",
+        "description": "A RareLink-specific profile for the IPS Patient resource with vital status extensions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/recorded-sex-at-birth"
+        },
+        "name": "Recorded Sex at Birth",
+        "description": "The sex assigned to the patient at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/severity-vs"
         },
         "name": "Severity Value Set",
@@ -228,10 +300,26 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/sex-at-birth-vs"
+        },
+        "name": "Sex at Birth Value Set",
+        "description": "Value set for capturing the sex assigned at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/undiagnosed-rd-case-vs"
         },
         "name": "Undiagnosed Rare Disease Case Value Set",
         "description": "Value set for capturing undiagnosed rare disease cases.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/vital-status-vs"
+        },
+        "name": "Vital Status Value Set",
+        "description": "Value set for capturing the vital status of the patient.",
         "exampleBoolean": false
       }
     ],
