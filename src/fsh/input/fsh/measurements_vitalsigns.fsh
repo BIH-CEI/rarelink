@@ -19,9 +19,7 @@ Description: "A RareLink-specific profile for vital signs measurements."
 * category.coding.code = #vital-signs
 
 * code 1..1
-* code.coding 1..*
-* code.coding.system = "https://hl7.org/fhir/valueset-observation-vitalsignresult.html"
-* code.coding.code MS
+* code.coding from http://hl7.org/fhir/ValueSet/observation-vitalsignresult
 
 * subject 1..1
 * subject.reference = "Patient/{id}"
