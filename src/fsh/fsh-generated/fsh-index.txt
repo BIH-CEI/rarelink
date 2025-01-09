@@ -1,2 +1,7 @@
-Output File                                      Name                  Type     FSH File       Lines
-StructureDefinition-rarelink-ips-condition.json  RareLinkIPSCondition  Profile  condition.fsh  1 - 17
+Output File                                      Name                  Type       FSH File       Lines
+StructureDefinition-age-at-diagnosis.json        AgeAtDiagnosis        Extension  condition.fsh  47 - 54
+StructureDefinition-age-at-onset.json            AgeAtOnset            Extension  condition.fsh  55 - 60
+StructureDefinition-rarelink-ips-condition.json  RareLinkIPSCondition  Profile    condition.fsh  2 - 46
+ValueSet-age-at-diagnosis-vs.json                AgeAtDiagnosisVS      ValueSet   condition.fsh  71 - 78
+ValueSet-age-at-onset-vs.json                    AgeAtOnsetVS          ValueSet   condition.fsh  80 - 87
+ValueSet-severity-vs.json                        SeverityVS            ValueSet   condition.fsh  63 - 69

@@ -1,0 +1,54 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "age-at-diagnosis",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis",
+  "name": "AgeAtDiagnosis",
+  "title": "Age at Diagnosis",
+  "status": "draft",
+  "description": "ERDRI-CDS - The age at which the condition was diagnosed.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Age at Diagnosis",
+        "definition": "ERDRI-CDS - The age at which the condition was diagnosed."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-diagnosis-vs"
+        }
+      }
+    ]
+  }
+}

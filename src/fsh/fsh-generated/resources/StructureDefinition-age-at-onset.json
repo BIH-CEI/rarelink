@@ -1,0 +1,54 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "age-at-onset",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset",
+  "name": "AgeAtOnset",
+  "title": "Age at Onset",
+  "status": "draft",
+  "description": "ERDRI-CDS - The age at which the condition first appeared.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Age at Onset",
+        "definition": "ERDRI-CDS - The age at which the condition first appeared."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-onset-vs"
+        }
+      }
+    ]
+  }
+}

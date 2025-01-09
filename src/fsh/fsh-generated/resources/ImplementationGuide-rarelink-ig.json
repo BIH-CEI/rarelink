@@ -52,10 +52,50 @@
     "resource": [
       {
         "reference": {
+          "reference": "StructureDefinition/age-at-diagnosis"
+        },
+        "name": "Age at Diagnosis",
+        "description": "ERDRI-CDS - The age at which the condition was diagnosed.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-at-diagnosis-vs"
+        },
+        "name": "Age at Diagnosis Value Set",
+        "description": "Value set for capturing age at diagnosis.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/age-at-onset"
+        },
+        "name": "Age at Onset",
+        "description": "ERDRI-CDS - The age at which the condition first appeared.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-at-onset-vs"
+        },
+        "name": "Age at Onset Value Set",
+        "description": "Value set for capturing age at onset.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-ips-condition"
         },
         "name": "RareLink IPS Condition",
         "description": "A RareLink-specific Condition profile based on the IPS Condition profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/severity-vs"
+        },
+        "name": "Severity Value Set",
+        "description": "Value set for severity levels of conditions.",
         "exampleBoolean": false
       }
     ],

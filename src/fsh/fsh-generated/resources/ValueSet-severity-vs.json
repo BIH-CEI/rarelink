@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "SeverityVS",
+  "id": "severity-vs",
+  "title": "Severity Value Set",
+  "description": "Value set for severity levels of conditions.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "24484000",
+            "display": "Severe"
+          },
+          {
+            "code": "6736007",
+            "display": "Moderate"
+          },
+          {
+            "code": "255604002",
+            "display": "Mild"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,10 +1,50 @@
 [
   {
+    "outputFile": "StructureDefinition-age-at-diagnosis.json",
+    "fshName": "AgeAtDiagnosis",
+    "fshType": "Extension",
+    "fshFile": "condition.fsh",
+    "startLine": 47,
+    "endLine": 54
+  },
+  {
+    "outputFile": "StructureDefinition-age-at-onset.json",
+    "fshName": "AgeAtOnset",
+    "fshType": "Extension",
+    "fshFile": "condition.fsh",
+    "startLine": 55,
+    "endLine": 60
+  },
+  {
     "outputFile": "StructureDefinition-rarelink-ips-condition.json",
     "fshName": "RareLinkIPSCondition",
     "fshType": "Profile",
     "fshFile": "condition.fsh",
-    "startLine": 1,
-    "endLine": 17
+    "startLine": 2,
+    "endLine": 46
+  },
+  {
+    "outputFile": "ValueSet-age-at-diagnosis-vs.json",
+    "fshName": "AgeAtDiagnosisVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 71,
+    "endLine": 78
+  },
+  {
+    "outputFile": "ValueSet-age-at-onset-vs.json",
+    "fshName": "AgeAtOnsetVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 80,
+    "endLine": 87
+  },
+  {
+    "outputFile": "ValueSet-severity-vs.json",
+    "fshName": "SeverityVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 63,
+    "endLine": 69
   }
 ]
