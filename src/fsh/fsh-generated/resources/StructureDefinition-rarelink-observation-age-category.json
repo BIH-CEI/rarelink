@@ -1,0 +1,139 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-observation-age-category",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-age-category",
+  "name": "RareLinkAgeCategory",
+  "title": "RareLink Observation Age Category",
+  "status": "draft",
+  "description": "A RareLink-specific profile for capturing the age category of\n a patient as an observation, based on the ERDRI-CDS value set.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.meta.profile",
+        "path": "Observation.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      },
+      {
+        "id": "Observation.text.div",
+        "path": "Observation.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Observation Age Category</strong></p><p>This profile is based on the RareLink-CDM Section (3) Patient Status, capturing the age category as an observation, based on the ERDRI-CDS value set</p></div>"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "patternCode": "final"
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "patternUri": "https://www.snomed.org/snomed-ct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "patternCode": "105727008"
+      },
+      {
+        "id": "Observation.code.coding.display",
+        "path": "Observation.code.coding.display",
+        "patternString": "Age Category"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1
+      },
+      {
+        "id": "Observation.subject.reference",
+        "path": "Observation.subject.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.effective[x]:effectiveDateTime",
+        "path": "Observation.effective[x]",
+        "sliceName": "effectiveDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.value[x]:valueCodeableConcept",
+        "path": "Observation.value[x]",
+        "sliceName": "valueCodeableConcept",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]:valueCodeableConcept.coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x]:valueCodeableConcept.coding.system",
+        "path": "Observation.value[x].coding.system",
+        "patternUri": "https://www.snomed.org/snomed-ct"
+      },
+      {
+        "id": "Observation.value[x]:valueCodeableConcept.coding.code",
+        "path": "Observation.value[x].coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-category-vs"
+        }
+      }
+    ]
+  }
+}

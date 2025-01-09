@@ -152,6 +152,22 @@
     "endLine": 39
   },
   {
+    "outputFile": "StructureDefinition-rarelink-ips-procedure.json",
+    "fshName": "RareLinkIPSProcedure",
+    "fshType": "Profile",
+    "fshFile": "procedure.fsh",
+    "startLine": 4,
+    "endLine": 31
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-age-category.json",
+    "fshName": "RareLinkAgeCategory",
+    "fshType": "Profile",
+    "fshFile": "observation_age_category.fsh",
+    "startLine": 4,
+    "endLine": 33
+  },
+  {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
     "fshName": "RecordedSexAtBirth",
     "fshType": "Extension",
@@ -174,6 +190,14 @@
     "fshFile": "condition.fsh",
     "startLine": 76,
     "endLine": 83
+  },
+  {
+    "outputFile": "ValueSet-age-category-vs.json",
+    "fshName": "AgeCategoryVS",
+    "fshType": "ValueSet",
+    "fshFile": "observation_age_category.fsh",
+    "startLine": 42,
+    "endLine": 53
   },
   {
     "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",

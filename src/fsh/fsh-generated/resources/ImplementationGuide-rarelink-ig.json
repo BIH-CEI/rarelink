@@ -84,6 +84,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/age-category-vs"
+        },
+        "name": "Age Category Value Set",
+        "description": "Value set for capturing the age category of a patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/agreement-to-be-contacted"
         },
         "name": "Agreement to Be Contacted",
@@ -280,6 +288,22 @@
         },
         "name": "RareLink IPS Patient Vital Status",
         "description": "A RareLink-specific profile for the IPS Patient resource with vital status extensions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-procedure"
+        },
+        "name": "RareLink IPS Procedure",
+        "description": "A RareLink-specific profile for the IPS Procedure resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-age-category"
+        },
+        "name": "RareLink Observation Age Category",
+        "description": "A RareLink-specific profile for capturing the age category of\n a patient as an observation, based on the ERDRI-CDS value set.",
         "exampleBoolean": false
       },
       {

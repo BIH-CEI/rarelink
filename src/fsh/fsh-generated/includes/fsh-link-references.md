@@ -2,6 +2,7 @@
 [AgeAtDiagnosisVS]: ValueSet-age-at-diagnosis-vs.html
 [AgeAtOnset]: StructureDefinition-age-at-onset.html
 [AgeAtOnsetVS]: ValueSet-age-at-onset-vs.html
+[AgeCategoryVS]: ValueSet-age-category-vs.html
 [AgreementToBeContacted]: StructureDefinition-agreement-to-be-contacted.html
 [AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
 [BirthPlace]: StructureDefinition-birthplace.html
@@ -27,6 +28,8 @@
 [RareLinkIPSMeasurementRadiology]: StructureDefinition-rarelink-ips-measurement-radiology.html
 [RareLinkIPSPatient]: StructureDefinition-rarelink-ips-patient.html
 [RareLinkIPSPatientVitalStatus]: StructureDefinition-rarelink-ips-patient-vital-status.html
+[RareLinkIPSProcedure]: StructureDefinition-rarelink-ips-procedure.html
+[RareLinkAgeCategory]: StructureDefinition-rarelink-observation-age-category.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [SeverityVS]: ValueSet-severity-vs.html
 [SexAtBirthVS]: ValueSet-sex-at-birth-vs.html
