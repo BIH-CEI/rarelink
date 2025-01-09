@@ -10,30 +10,29 @@
 {% endcomment %} -->
 
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">0
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifacts
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="Home">name</a>
+        <a href="artifacts.html#2">Profiles</a>
       </li>
       <li>
-        <a href="index.html">url</a>
+        <a href="artifacts.html#3">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Value Sets</a>
       </li>
     </ul>
   </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">1
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="Profiles">name</a>
-      </li>
-      <li>
-        <a href="profiles.html">url</a>
-      </li>
-    </ul>
+  <li>
+    <a href="downloads.html">Downloads</a>
+  </li>
+  <li>
+    <a href="https://rarelink.readthedocs.io/en/latest/6_changelog.html">History</a>
   </li>
 </ul>

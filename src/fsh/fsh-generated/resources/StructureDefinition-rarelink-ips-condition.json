@@ -4,7 +4,7 @@
   "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-condition",
   "name": "RareLinkIPSCondition",
   "title": "RareLink IPS Condition",
-  "status": "active",
+  "status": "draft",
   "description": "A RareLink-specific Condition profile based on the IPS Condition profile.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
@@ -14,6 +14,11 @@
   "derivation": "constraint",
   "differential": {
     "element": [
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+      },
       {
         "id": "Condition.text.div",
         "path": "Condition.text.div",
@@ -31,6 +36,14 @@
         "max": "1"
       },
       {
+        "id": "Condition.clinicalStatus.coding.system",
+        "path": "Condition.clinicalStatus.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+        }
+      },
+      {
         "id": "Condition.verificationStatus",
         "path": "Condition.verificationStatus",
         "min": 1
@@ -42,9 +55,25 @@
         "max": "1"
       },
       {
+        "id": "Condition.verificationStatus.coding.system",
+        "path": "Condition.verificationStatus.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+        }
+      },
+      {
         "id": "Condition.severity.coding",
         "path": "Condition.severity.coding",
         "max": "1"
+      },
+      {
+        "id": "Condition.severity.coding.system",
+        "path": "Condition.severity.coding.system",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://snomed.info/sct"
+        }
       }
     ]
   }

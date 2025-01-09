@@ -5,9 +5,26 @@
   "version": "2.0.0-dev0",
   "name": "RareLinkImplementationGuide",
   "title": "RareLink Implementation Guide",
-  "status": "active",
+  "status": "draft",
+  "publisher": "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact": [
+    {
+      "name": "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://github.com/BIH-CEI/RareLink"
+        },
+        {
+          "system": "email",
+          "value": "adam.graefe@charite.de"
+        }
+      ]
+    }
+  ],
   "description": "An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR and the IPS 2.0.0 profiles, harmonizing international rare disease registries.\n",
   "packageId": "rarelink-ig",
+  "license": "BSD 3-Clause License",
   "fhirVersion": [
     "4.0.1"
   ],

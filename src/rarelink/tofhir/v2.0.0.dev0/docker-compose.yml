@@ -8,7 +8,7 @@ services:
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
     command: [""] # CLI: run --job path.json
     volumes:
-      - ./:/usr/local/tofhir/conf
+      - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
     depends_on:
       tofhir-redcap:
         condition: service_started
