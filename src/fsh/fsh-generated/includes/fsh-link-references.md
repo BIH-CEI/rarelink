@@ -13,8 +13,10 @@
 [FamilyRelationshipVS]: ValueSet-family-relationship-vs.html
 [Propositus]: StructureDefinition-propositus.html
 [PropositusVS]: ValueSet-propositus-vs.html
+[RareLinkConditionUndiagnosedRDCase]: StructureDefinition-rarelink-condition-undiagnosed-rd-case.html
 [RareLinkConsent]: StructureDefinition-rarelink-consent.html
 [RareLinkEncounter]: StructureDefinition-rarelink-encounter.html
 [RareLinkFamilyHistory]: StructureDefinition-rarelink-familyhistory.html
 [RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html
 [SeverityVS]: ValueSet-severity-vs.html
+[UndiagnosedRDCaseVS]: ValueSet-undiagnosed-rd-case-vs.html

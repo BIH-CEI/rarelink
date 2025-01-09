@@ -172,6 +172,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-condition-undiagnosed-rd-case"
+        },
+        "name": "RareLink Condition for Undiagnosed RD Case",
+        "description": "A RareLink-specific Condition profile for documenting undiagnosed rare disease cases based on the IPS Condition profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-consent"
         },
         "name": "RareLink Consent",
@@ -208,6 +216,14 @@
         },
         "name": "Severity Value Set",
         "description": "Value set for severity levels of conditions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/undiagnosed-rd-case-vs"
+        },
+        "name": "Undiagnosed Rare Disease Case Value Set",
+        "description": "Value set for capturing undiagnosed rare disease cases.",
         "exampleBoolean": false
       }
     ],

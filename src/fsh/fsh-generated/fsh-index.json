@@ -48,6 +48,14 @@
     "endLine": 52
   },
   {
+    "outputFile": "StructureDefinition-rarelink-condition-undiagnosed-rd-case.json",
+    "fshName": "RareLinkConditionUndiagnosedRDCase",
+    "fshType": "Profile",
+    "fshFile": "condition_undiagnosed_rd.fsh",
+    "startLine": 4,
+    "endLine": 21
+  },
+  {
     "outputFile": "StructureDefinition-rarelink-consent.json",
     "fshName": "RareLinkConsent",
     "fshType": "Profile",
@@ -158,5 +166,13 @@
     "fshFile": "condition.fsh",
     "startLine": 59,
     "endLine": 65
+  },
+  {
+    "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",
+    "fshName": "UndiagnosedRDCaseVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition_undiagnosed_rd.fsh",
+    "startLine": 28,
+    "endLine": 33
   }
 ]
