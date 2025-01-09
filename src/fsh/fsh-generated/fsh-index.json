@@ -76,16 +76,16 @@
     "fshName": "PhenotypeModifier",
     "fshType": "Extension",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 77,
-    "endLine": 84
+    "startLine": 76,
+    "endLine": 83
   },
   {
     "outputFile": "StructureDefinition-phenotype-status.json",
     "fshName": "PhenotypeStatus",
     "fshType": "Extension",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 60,
-    "endLine": 69
+    "startLine": 59,
+    "endLine": 68
   },
   {
     "outputFile": "StructureDefinition-propositus.json",
@@ -216,12 +216,20 @@
     "endLine": 48
   },
   {
+    "outputFile": "StructureDefinition-rarelink-observation-vital-signs.json",
+    "fshName": "RareLinkIPSMeasurementsVitalSigns",
+    "fshType": "Profile",
+    "fshFile": "measurements_vitalsigns.fsh",
+    "startLine": 5,
+    "endLine": 51
+  },
+  {
     "outputFile": "StructureDefinition-rarelink-phenotypic-feature.json",
     "fshName": "RareLinkPhenotypicFeature",
     "fshType": "Profile",
     "fshFile": "phenotypic_feature.fsh",
     "startLine": 4,
-    "endLine": 59
+    "endLine": 58
   },
   {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
@@ -236,8 +244,8 @@
     "fshName": "ResolutionDate",
     "fshType": "Extension",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 70,
-    "endLine": 76
+    "startLine": 69,
+    "endLine": 75
   },
   {
     "outputFile": "ValueSet-age-at-diagnosis-vs.json",
@@ -268,8 +276,8 @@
     "fshName": "AgeOfOnsetVS",
     "fshType": "ValueSet",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 94,
-    "endLine": 107
+    "startLine": 93,
+    "endLine": 106
   },
   {
     "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",
@@ -380,16 +388,16 @@
     "fshName": "PhenotypeStatusVS",
     "fshType": "ValueSet",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 87,
-    "endLine": 92
+    "startLine": 86,
+    "endLine": 91
   },
   {
     "outputFile": "ValueSet-phenotypie-severity-vs.json",
     "fshName": "PhenotypeSeverityVS",
     "fshType": "ValueSet",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 122,
-    "endLine": 130
+    "startLine": 121,
+    "endLine": 129
   },
   {
     "outputFile": "ValueSet-progress-status-interpretation-vs.json",
@@ -444,8 +452,8 @@
     "fshName": "TemporalPatternVS",
     "fshType": "ValueSet",
     "fshFile": "phenotypic_feature.fsh",
-    "startLine": 109,
-    "endLine": 120
+    "startLine": 108,
+    "endLine": 119
   },
   {
     "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",

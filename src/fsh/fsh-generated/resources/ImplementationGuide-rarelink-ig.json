@@ -444,6 +444,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-observation-vital-signs"
+        },
+        "name": "RareLink Vital Signs Measurements",
+        "description": "A RareLink-specific profile for vital signs measurements.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/recorded-sex-at-birth"
         },
         "name": "Recorded Sex at Birth",

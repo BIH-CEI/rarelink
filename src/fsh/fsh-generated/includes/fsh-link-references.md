@@ -47,6 +47,7 @@
 [RareLinkKaryotypicSex]: StructureDefinition-rarelink-karyotypic-sex.html
 [RareLinkIPSMeasurementsOthers]: StructureDefinition-rarelink-observation-measurements-others.html
 [RareLinkPhenotypicFeature]: StructureDefinition-rarelink-phenotypic-feature.html
+[RareLinkIPSMeasurementsVitalSigns]: StructureDefinition-rarelink-observation-vital-signs.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [ReferenceGenomeVS]: ValueSet-reference-genome-vs.html
 [ResolutionDate]: StructureDefinition-resolution-date.html
