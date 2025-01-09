@@ -24,7 +24,7 @@ def validate_env(required_keys):
         raise typer.Exit(1)
 
     # Validate API key lengths
-    for key in ["BIOPORTAL_API_KEY", "REDCAP_API_TOKEN"]:
+    for key in ["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN"]:
         if len(env_values.get(key, "")) < 32:
             invalid_keys.append(key)
     if invalid_keys:
@@ -82,7 +82,7 @@ def validate_config(required_keys):
         raise typer.Exit(1)
 
     # Validate API key lengths
-    for key in ["bioportal_api_key", "token"]:
+    for key in ["bioportal_api_token", "token"]:
         if len(config.get(key, "")) < 32:
             typer.secho(
                 f"❌ Invalid key in configuration file: {key} (must be at least 32 characters).",

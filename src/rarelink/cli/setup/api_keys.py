@@ -152,7 +152,7 @@ project. You can find it in your project's `API` settings.")
     # Automatically validate the generated .env file and JSON config
     typer.echo("🔄 Validating configurations...")
     try:
-        validate_env(["bioportal_api_token", "REDCAP_PROJECT_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
+        validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_PROJECT_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
         validate_config(["redcap-url", "id", "token", "bioportal_api_token"])
         success_text("✅ Validation successful! Your configurations are complete.")
     except typer.Exit:
