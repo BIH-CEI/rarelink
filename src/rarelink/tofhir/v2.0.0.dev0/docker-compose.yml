@@ -17,7 +17,7 @@ services:
         limits:
           memory: 4g
 
-    tofhir-redcap:
+  tofhir-redcap:
     platform: linux/amd64
     image: srdc/tofhir-redcap:latest
     container_name: tofhir-redcap
@@ -26,6 +26,7 @@ services:
     environment:
       - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
       - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
+      - REDCAP_URL=/usr/local/tofhir-redcap/rarelink_apiconfig.json.redcap_url
     env_file:
       - .env
     volumes:
