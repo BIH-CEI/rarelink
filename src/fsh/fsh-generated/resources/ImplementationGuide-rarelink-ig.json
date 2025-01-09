@@ -100,6 +100,22 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/consanguinity"
+        },
+        "name": "Consanguinity",
+        "description": "Indicates whether there is consanguinity in the family relationship.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/consanguinity-vs"
+        },
+        "name": "Consanguinity Value Set",
+        "description": "Value set for indicating whether there is consanguinity in the family relationship.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/consent-to-reuse-data"
         },
         "name": "Consent to Reuse Data",
@@ -124,6 +140,38 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/family-sex-vs"
+        },
+        "name": "Family Member Sex Value Set",
+        "description": "Value set for capturing the sex of a family member.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/family-relationship-vs"
+        },
+        "name": "Family Relationship Value Set",
+        "description": "Value set for capturing family member relationships.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/propositus"
+        },
+        "name": "Propositus",
+        "description": "Indicates whether the family member is the propositus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/propositus-vs"
+        },
+        "name": "Propositus Value Set",
+        "description": "Value set for indicating whether the family member is the propositus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-consent"
         },
         "name": "RareLink Consent",
@@ -136,6 +184,14 @@
         },
         "name": "RareLink Encounter",
         "description": "A RareLink-specific Encounter profile based on the Encounter resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-familyhistory"
+        },
+        "name": "RareLink Family History",
+        "description": "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource.",
         "exampleBoolean": false
       },
       {

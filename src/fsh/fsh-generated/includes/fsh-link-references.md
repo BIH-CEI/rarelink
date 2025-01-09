@@ -4,10 +4,17 @@
 [AgeAtOnsetVS]: ValueSet-age-at-onset-vs.html
 [AgreementToBeContacted]: StructureDefinition-agreement-to-be-contacted.html
 [AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
+[Consanguinity]: StructureDefinition-consanguinity.html
+[ConsanguinityVS]: ValueSet-consanguinity-vs.html
 [ConsentToReuseData]: StructureDefinition-consent-to-reuse-data.html
 [ConsentToReuseVS]: ValueSet-consent-to-reuse-vs.html
 [EncounterClassVS]: ValueSet-encounter-class-vs.html
+[FamilySexVS]: ValueSet-family-sex-vs.html
+[FamilyRelationshipVS]: ValueSet-family-relationship-vs.html
+[Propositus]: StructureDefinition-propositus.html
+[PropositusVS]: ValueSet-propositus-vs.html
 [RareLinkConsent]: StructureDefinition-rarelink-consent.html
 [RareLinkEncounter]: StructureDefinition-rarelink-encounter.html
+[RareLinkFamilyHistory]: StructureDefinition-rarelink-familyhistory.html
 [RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html
 [SeverityVS]: ValueSet-severity-vs.html
