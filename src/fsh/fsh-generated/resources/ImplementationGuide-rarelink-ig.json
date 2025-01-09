@@ -236,6 +236,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/karyotypic-sex-vs"
+        },
+        "name": "Karyotypic Sex Value Set",
+        "description": "Value set for capturing karyotypic sex.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/patient-status-date"
         },
         "name": "Patient Status Date",
@@ -360,6 +368,22 @@
         },
         "name": "RareLink Observation Genetic Findings",
         "description": "A RareLink-specific profile for capturing genetic findings.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-gestation-at-birth"
+        },
+        "name": "RareLink Observation Gestation at Birth",
+        "description": "A RareLink-specific profile for capturing gestation length at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-karyotypic-sex"
+        },
+        "name": "RareLink Observation Karyotypic Sex",
+        "description": "A RareLink-specific profile for capturing karyotypic sex information.",
         "exampleBoolean": false
       },
       {

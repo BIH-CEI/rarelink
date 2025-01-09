@@ -1,0 +1,94 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-karyotypic-sex",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-karyotypic-sex",
+  "name": "RareLinkKaryotypicSex",
+  "title": "RareLink Observation Karyotypic Sex",
+  "status": "draft",
+  "description": "A RareLink-specific profile for capturing karyotypic sex information.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.meta.profile",
+        "path": "Observation.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      },
+      {
+        "id": "Observation.text.div",
+        "path": "Observation.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Karyotypic Sex</strong></p><p>This profile is based on the RareLink-CDM Section (2.3) Personal Information and the Observation resource.</p></div>"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "patternCode": "final"
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "patternCode": "1296886006"
+      },
+      {
+        "id": "Observation.code.coding.display",
+        "path": "Observation.code.coding.display",
+        "patternString": "Karyotypic Sex"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1
+      },
+      {
+        "id": "Observation.subject.reference",
+        "path": "Observation.subject.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x].coding",
+        "path": "Observation.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.value[x].coding.system",
+        "path": "Observation.value[x].coding.system",
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Observation.value[x].coding.code",
+        "path": "Observation.value[x].coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/karyotypic-sex-vs"
+        }
+      }
+    ]
+  }
+}

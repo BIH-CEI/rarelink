@@ -160,6 +160,14 @@
     "endLine": 31
   },
   {
+    "outputFile": "StructureDefinition-rarelink-karyotypic-sex.json",
+    "fshName": "RareLinkKaryotypicSex",
+    "fshType": "Profile",
+    "fshFile": "observation_karyotypic_sex.fsh",
+    "startLine": 3,
+    "endLine": 29
+  },
+  {
     "outputFile": "StructureDefinition-rarelink-observation-age-category.json",
     "fshName": "RareLinkAgeCategory",
     "fshType": "Profile",
@@ -174,6 +182,14 @@
     "fshFile": "genetic_findings.fsh",
     "startLine": 6,
     "endLine": 42
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-gestation-at-birth.json",
+    "fshName": "RareLinkGestationAtBirth",
+    "fshType": "Profile",
+    "fshFile": "observation_gestation_length.fsh",
+    "startLine": 1,
+    "endLine": 25
   },
   {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
@@ -302,6 +318,14 @@
     "fshFile": "genetic_findings.fsh",
     "startLine": 100,
     "endLine": 108
+  },
+  {
+    "outputFile": "ValueSet-karyotypic-sex-vs.json",
+    "fshName": "KaryotypicSexVS",
+    "fshType": "ValueSet",
+    "fshFile": "observation_karyotypic_sex.fsh",
+    "startLine": 36,
+    "endLine": 50
   },
   {
     "outputFile": "ValueSet-progress-status-interpretation-vs.json",

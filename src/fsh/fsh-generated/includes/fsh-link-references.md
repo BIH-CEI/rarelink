@@ -21,6 +21,7 @@
 [GenderIdentityVS]: ValueSet-gender-identity-vs.html
 [GenomicSourceClassVS]: ValueSet-genomic-source-class-vs.html
 [InterpretationStatusVS]: ValueSet-interpretation-status-vs.html
+[KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [PatientStatusDate]: StructureDefinition-patient-status-date.html
 [ProgressStatusInterpretationVS]: ValueSet-progress-status-interpretation-vs.html
 [Propositus]: StructureDefinition-propositus.html
@@ -37,6 +38,8 @@
 [RareLinkIPSProcedure]: StructureDefinition-rarelink-ips-procedure.html
 [RareLinkAgeCategory]: StructureDefinition-rarelink-observation-age-category.html
 [RareLinkGeneticFindings]: StructureDefinition-rarelink-observation-genetic-findings.html
+[RareLinkGestationAtBirth]: StructureDefinition-rarelink-observation-gestation-at-birth.html
+[RareLinkKaryotypicSex]: StructureDefinition-rarelink-karyotypic-sex.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [ReferenceGenomeVS]: ValueSet-reference-genome-vs.html
 [SeverityVS]: ValueSet-severity-vs.html
