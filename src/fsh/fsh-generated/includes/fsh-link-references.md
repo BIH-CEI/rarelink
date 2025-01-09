@@ -1,0 +1,1 @@
+[RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html

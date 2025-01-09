@@ -14,25 +14,34 @@
   "dependsOn": [
     {
       "packageId": "hl7.fhir.r4.core",
-      "uri": "http://hl7.org/fhir/R4/",
+      "uri": "http://hl7.org/fhir/StructureDefinition/uri",
       "version": "4.0.1",
       "id": "hl7_fhir_r4_core"
     },
     {
       "packageId": "hl7.fhir.uv.ips",
-      "uri": "https://build.fhir.org/ig/HL7/fhir-ips/",
-      "version": "1.1.0",
+      "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
+      "version": "2.0.0",
       "id": "hl7_fhir_uv_ips"
     },
     {
-      "packageId": "ips-2.0.0",
-      "uri": "https://build.fhir.org/ig/HL7/fhir-ips/",
-      "version": "2.0.0",
-      "id": "ips_2_0_0"
+      "packageId": "hl7.fhir.uv.genomics-reporting",
+      "uri": "http://hl7.org/fhir/uv/genomics-reporting/ImplementationGuide/hl7.fhir.uv.genomics-reporting",
+      "version": "3.0.0",
+      "id": "hl7_fhir_uv_genomics_reporting"
     }
   ],
   "definition": {
-    "resource": [],
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-condition"
+        },
+        "name": "RareLink IPS Condition",
+        "description": "A RareLink-specific Condition profile based on the IPS Condition profile.",
+        "exampleBoolean": false
+      }
+    ],
     "page": {
       "nameUrl": "toc.html",
       "title": "Table of Contents",
@@ -42,11 +51,11 @@
     "parameter": [
       {
         "code": "copyrightyear",
-        "value": "2024"
+        "value": "2025"
       },
       {
         "code": "releaselabel",
-        "value": "dev0"
+        "value": "2.0.0.dev0"
       }
     ]
   }
