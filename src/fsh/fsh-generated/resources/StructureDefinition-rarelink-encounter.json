@@ -31,6 +31,14 @@
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/ValueSet/encounter-status"
         }
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/encounter-class-vs"
+        }
       }
     ]
   }

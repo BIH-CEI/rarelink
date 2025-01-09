@@ -12,7 +12,7 @@ Description: "A RareLink-specific Encounter profile based on the Encounter resou
 * status from http://hl7.org/fhir/ValueSet/encounter-status (required)
 
 * class 1..1
-* class.coding.code from EncounterClassVS (required)
+* class from EncounterClassVS (required)
 
 * period 0..1
 * period.start 0..1
