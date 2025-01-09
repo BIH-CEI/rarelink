@@ -9,17 +9,20 @@ version: 2.0.0-dev0
 status: active
 copyrightYear: 2024
 releaseLabel: dev0
-fhirVersion: 4.0.1 # Specify the FHIR version you are using
+fhirVersion: 4.0.1 
 dependencies:
-  hl7.fhir.r4.core: # Core FHIR package
+  hl7.fhir.r4.core:
     uri: http://hl7.org/fhir/R4/
     version: 4.0.1
-  hl7.fhir.uv.ips: # Reference for official IPS repository (1.1.0)
+  hl7.fhir.uv.ips:
     uri: https://build.fhir.org/ig/HL7/fhir-ips/
     version: 1.1.0
-  ips-2.0.0: # Local reference for IPS 2.0.0 (manually integrated)
+  ips-2.0.0:
     uri: https://build.fhir.org/ig/HL7/fhir-ips/
     version: 2.0.0
+  hl7.fhir.uv.genomics-reporting:
+    uri: https://build.fhir.org/ig/HL7/genomics-reporting/
+    version: 3.0.0
 menu:
   - name: Home
     url: index.html
