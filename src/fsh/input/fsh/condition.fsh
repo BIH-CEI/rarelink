@@ -7,14 +7,10 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 
 * meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot" (exactly)
 * clinicalStatus 1..1
-* clinicalStatus.coding 1..1
-* clinicalStatus.coding.system from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
-* clinicalStatus.coding.code from http://terminology.hl7.org/CodeSystem/condition-clinical
+* clinicalStatus from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
 
 * verificationStatus 1..1
-* verificationStatus.coding 1..1
-* verificationStatus.coding.system from http://terminology.hl7.org/CodeSystem/condition-ver-status (required)
-* verificationStatus.coding.code from http://terminology.hl7.org/CodeSystem/condition-ver-status (required)
+* verificationStatus from http://terminology.hl7.org/CodeSystem/condition-ver-status (required)
 
 * severity 0..1
 * severity.coding 0..1

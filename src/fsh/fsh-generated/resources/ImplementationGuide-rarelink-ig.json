@@ -84,6 +84,46 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/agreement-to-be-contacted"
+        },
+        "name": "Agreement to Be Contacted",
+        "description": "ERDRI-CDS - Agreement to be contacted for research purposes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/agreement-to-be-contacted-vs"
+        },
+        "name": "Agreement to Be Contacted Value Set",
+        "description": "Value set for capturing agreement to be contacted for research.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/consent-to-reuse-data"
+        },
+        "name": "Consent to Reuse Data",
+        "description": "ERDRI-CDS - Consent to the reuse of data.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/consent-to-reuse-vs"
+        },
+        "name": "Consent to Reuse Data Value Set",
+        "description": "Value set for capturing consent to reuse data.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-consent"
+        },
+        "name": "RareLink Consent",
+        "description": "A RareLink-specific Consent profile based on the Consent resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-ips-condition"
         },
         "name": "RareLink IPS Condition",

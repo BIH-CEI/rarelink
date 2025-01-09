@@ -4,16 +4,40 @@
     "fshName": "AgeAtDiagnosis",
     "fshType": "Extension",
     "fshFile": "condition.fsh",
-    "startLine": 47,
-    "endLine": 54
+    "startLine": 43,
+    "endLine": 50
   },
   {
     "outputFile": "StructureDefinition-age-at-onset.json",
     "fshName": "AgeAtOnset",
     "fshType": "Extension",
     "fshFile": "condition.fsh",
-    "startLine": 55,
-    "endLine": 60
+    "startLine": 51,
+    "endLine": 56
+  },
+  {
+    "outputFile": "StructureDefinition-agreement-to-be-contacted.json",
+    "fshName": "AgreementToBeContacted",
+    "fshType": "Extension",
+    "fshFile": "consent.fsh",
+    "startLine": 40,
+    "endLine": 47
+  },
+  {
+    "outputFile": "StructureDefinition-consent-to-reuse-data.json",
+    "fshName": "ConsentToReuseData",
+    "fshType": "Extension",
+    "fshFile": "consent.fsh",
+    "startLine": 30,
+    "endLine": 39
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-consent.json",
+    "fshName": "RareLinkConsent",
+    "fshType": "Profile",
+    "fshFile": "consent.fsh",
+    "startLine": 3,
+    "endLine": 29
   },
   {
     "outputFile": "StructureDefinition-rarelink-ips-condition.json",
@@ -21,30 +45,46 @@
     "fshType": "Profile",
     "fshFile": "condition.fsh",
     "startLine": 2,
-    "endLine": 46
+    "endLine": 42
   },
   {
     "outputFile": "ValueSet-age-at-diagnosis-vs.json",
     "fshName": "AgeAtDiagnosisVS",
     "fshType": "ValueSet",
     "fshFile": "condition.fsh",
-    "startLine": 71,
-    "endLine": 78
+    "startLine": 67,
+    "endLine": 74
   },
   {
     "outputFile": "ValueSet-age-at-onset-vs.json",
     "fshName": "AgeAtOnsetVS",
     "fshType": "ValueSet",
     "fshFile": "condition.fsh",
-    "startLine": 80,
-    "endLine": 87
+    "startLine": 76,
+    "endLine": 83
+  },
+  {
+    "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",
+    "fshName": "AgreementToBeContactedVS",
+    "fshType": "ValueSet",
+    "fshFile": "consent.fsh",
+    "startLine": 57,
+    "endLine": 63
+  },
+  {
+    "outputFile": "ValueSet-consent-to-reuse-vs.json",
+    "fshName": "ConsentToReuseVS",
+    "fshType": "ValueSet",
+    "fshFile": "consent.fsh",
+    "startLine": 49,
+    "endLine": 55
   },
   {
     "outputFile": "ValueSet-severity-vs.json",
     "fshName": "SeverityVS",
     "fshType": "ValueSet",
     "fshFile": "condition.fsh",
-    "startLine": 63,
-    "endLine": 69
+    "startLine": 59,
+    "endLine": 65
   }
 ]

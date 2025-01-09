@@ -2,5 +2,10 @@
 [AgeAtDiagnosisVS]: ValueSet-age-at-diagnosis-vs.html
 [AgeAtOnset]: StructureDefinition-age-at-onset.html
 [AgeAtOnsetVS]: ValueSet-age-at-onset-vs.html
+[AgreementToBeContacted]: StructureDefinition-agreement-to-be-contacted.html
+[AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
+[ConsentToReuseData]: StructureDefinition-consent-to-reuse-data.html
+[ConsentToReuseVS]: ValueSet-consent-to-reuse-vs.html
+[RareLinkConsent]: StructureDefinition-rarelink-consent.html
 [RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html
 [SeverityVS]: ValueSet-severity-vs.html

@@ -71,25 +71,7 @@
       {
         "id": "Condition.clinicalStatus",
         "path": "Condition.clinicalStatus",
-        "min": 1
-      },
-      {
-        "id": "Condition.clinicalStatus.coding",
-        "path": "Condition.clinicalStatus.coding",
         "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Condition.clinicalStatus.coding.system",
-        "path": "Condition.clinicalStatus.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-clinical"
-        }
-      },
-      {
-        "id": "Condition.clinicalStatus.coding.code",
-        "path": "Condition.clinicalStatus.coding.code",
         "binding": {
           "strength": "required",
           "valueSet": "http://terminology.hl7.org/CodeSystem/condition-clinical"
@@ -98,25 +80,7 @@
       {
         "id": "Condition.verificationStatus",
         "path": "Condition.verificationStatus",
-        "min": 1
-      },
-      {
-        "id": "Condition.verificationStatus.coding",
-        "path": "Condition.verificationStatus.coding",
         "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Condition.verificationStatus.coding.system",
-        "path": "Condition.verificationStatus.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
-        }
-      },
-      {
-        "id": "Condition.verificationStatus.coding.code",
-        "path": "Condition.verificationStatus.coding.code",
         "binding": {
           "strength": "required",
           "valueSet": "http://terminology.hl7.org/CodeSystem/condition-ver-status"

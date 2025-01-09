@@ -1,0 +1,69 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "consent-to-reuse-data",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data",
+  "name": "ConsentToReuseData",
+  "title": "Consent to Reuse Data",
+  "status": "draft",
+  "description": "ERDRI-CDS - Consent to the reuse of data.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Consent to Reuse Data",
+        "definition": "ERDRI-CDS - Consent to the reuse of data."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].coding",
+        "path": "Extension.value[x].coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding.system",
+        "path": "Extension.value[x].coding.system",
+        "patternUri": "https://www.snomed.org/snomed-ct"
+      },
+      {
+        "id": "Extension.value[x].coding.code",
+        "path": "Extension.value[x].coding.code",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/consent-to-reuse-vs"
+        }
+      }
+    ]
+  }
+}

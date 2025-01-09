@@ -1,0 +1,118 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-consent",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-consent",
+  "name": "RareLinkConsent",
+  "title": "RareLink Consent",
+  "status": "draft",
+  "description": "A RareLink-specific Consent profile based on the Consent resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Consent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Consent",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Consent.meta.profile",
+        "path": "Consent.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Consent|4.0.1"
+      },
+      {
+        "id": "Consent.extension",
+        "path": "Consent.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Consent.extension:consent_to_reuse_data",
+        "path": "Consent.extension",
+        "sliceName": "consent_to_reuse_data",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:agreement_to_be_contacted",
+        "path": "Consent.extension",
+        "sliceName": "agreement_to_be_contacted",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Consent.status",
+        "path": "Consent.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/consent-status"
+        }
+      },
+      {
+        "id": "Consent.scope.coding",
+        "path": "Consent.scope.coding",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/consentscope"
+        }
+      },
+      {
+        "id": "Consent.scope.coding.code",
+        "path": "Consent.scope.coding.code",
+        "patternCode": "research"
+      },
+      {
+        "id": "Consent.category",
+        "path": "Consent.category",
+        "max": "1"
+      },
+      {
+        "id": "Consent.category.coding",
+        "path": "Consent.category.coding",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/consentcategorycodes"
+        }
+      },
+      {
+        "id": "Consent.category.coding.code",
+        "path": "Consent.category.coding.code",
+        "patternCode": "research"
+      },
+      {
+        "id": "Consent.policy",
+        "path": "Consent.policy",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Consent.policy.authority",
+        "path": "Consent.policy.authority",
+        "patternUri": "https://hl7.org/fhir/R4/"
+      }
+    ]
+  }
+}
