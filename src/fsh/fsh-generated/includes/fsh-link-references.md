@@ -6,6 +6,8 @@
 [AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
 [ConsentToReuseData]: StructureDefinition-consent-to-reuse-data.html
 [ConsentToReuseVS]: ValueSet-consent-to-reuse-vs.html
+[EncounterClassVS]: ValueSet-encounter-class-vs.html
 [RareLinkConsent]: StructureDefinition-rarelink-consent.html
+[RareLinkEncounter]: StructureDefinition-rarelink-encounter.html
 [RareLinkIPSCondition]: StructureDefinition-rarelink-ips-condition.html
 [SeverityVS]: ValueSet-severity-vs.html

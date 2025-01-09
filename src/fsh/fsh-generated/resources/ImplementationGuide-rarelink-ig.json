@@ -116,10 +116,26 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/encounter-class-vs"
+        },
+        "name": "Encounter Class Value Set",
+        "description": "Value set for encounter classes, including custom RareLink-specific codes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-consent"
         },
         "name": "RareLink Consent",
         "description": "A RareLink-specific Consent profile based on the Consent resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-encounter"
+        },
+        "name": "RareLink Encounter",
+        "description": "A RareLink-specific Encounter profile based on the Encounter resource.",
         "exampleBoolean": false
       },
       {

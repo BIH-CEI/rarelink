@@ -19,9 +19,7 @@ Description: "A RareLink-specific Consent profile based on the Consent resource.
 * category.coding.code = #research
 
 * dateTime 0..1
-
 * policy 1..1
-* policy.authority = "https://hl7.org/fhir/R4/"
 
 * extension contains ConsentToReuseData named consent_to_reuse_data 0..1
 * extension contains AgreementToBeContacted named agreement_to_be_contacted 0..1

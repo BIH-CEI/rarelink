@@ -20,16 +20,16 @@
     "fshName": "AgreementToBeContacted",
     "fshType": "Extension",
     "fshFile": "consent.fsh",
-    "startLine": 40,
-    "endLine": 47
+    "startLine": 38,
+    "endLine": 45
   },
   {
     "outputFile": "StructureDefinition-consent-to-reuse-data.json",
     "fshName": "ConsentToReuseData",
     "fshType": "Extension",
     "fshFile": "consent.fsh",
-    "startLine": 30,
-    "endLine": 39
+    "startLine": 28,
+    "endLine": 37
   },
   {
     "outputFile": "StructureDefinition-rarelink-consent.json",
@@ -37,7 +37,15 @@
     "fshType": "Profile",
     "fshFile": "consent.fsh",
     "startLine": 3,
-    "endLine": 29
+    "endLine": 27
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-encounter.json",
+    "fshName": "RareLinkEncounter",
+    "fshType": "Profile",
+    "fshFile": "care_pathway.fsh",
+    "startLine": 4,
+    "endLine": 21
   },
   {
     "outputFile": "StructureDefinition-rarelink-ips-condition.json",
@@ -68,16 +76,24 @@
     "fshName": "AgreementToBeContactedVS",
     "fshType": "ValueSet",
     "fshFile": "consent.fsh",
-    "startLine": 57,
-    "endLine": 63
+    "startLine": 55,
+    "endLine": 61
   },
   {
     "outputFile": "ValueSet-consent-to-reuse-vs.json",
     "fshName": "ConsentToReuseVS",
     "fshType": "ValueSet",
     "fshFile": "consent.fsh",
-    "startLine": 49,
-    "endLine": 55
+    "startLine": 47,
+    "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-encounter-class-vs.json",
+    "fshName": "EncounterClassVS",
+    "fshType": "ValueSet",
+    "fshFile": "care_pathway.fsh",
+    "startLine": 28,
+    "endLine": 39
   },
   {
     "outputFile": "ValueSet-severity-vs.json",
