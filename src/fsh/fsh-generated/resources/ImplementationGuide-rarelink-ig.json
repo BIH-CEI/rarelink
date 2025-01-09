@@ -388,6 +388,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-observation-measurements-others"
+        },
+        "name": "RareLink Observation Measurements (Others)",
+        "description": "A RareLink-specific profile for measurements that do not fall under IPS laboratory, radiology, procedures, or vital signs.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/recorded-sex-at-birth"
         },
         "name": "Recorded Sex at Birth",

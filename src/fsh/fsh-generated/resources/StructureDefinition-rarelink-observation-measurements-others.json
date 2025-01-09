@@ -1,0 +1,185 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-observation-measurements-others",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-measurements-others",
+  "name": "RareLinkIPSMeasurementsOthers",
+  "title": "RareLink Observation Measurements (Others)",
+  "status": "draft",
+  "description": "A RareLink-specific profile for measurements that do not fall under IPS laboratory, radiology, procedures, or vital signs.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.meta.profile",
+        "path": "Observation.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      },
+      {
+        "id": "Observation.text.div",
+        "path": "Observation.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Measurements (Others)</strong></p><p>This profile captures measurements not categorized as laboratory, radiology, procedures, or vital signs, within the RareLink-CDM framework.</p></div>"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category.coding",
+        "path": "Observation.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category.coding.system",
+        "path": "Observation.category.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/R4/"
+        }
+      },
+      {
+        "id": "Observation.category.coding.version",
+        "path": "Observation.category.coding.version",
+        "patternString": "R4"
+      },
+      {
+        "id": "Observation.category.coding.code",
+        "path": "Observation.category.coding.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://ncit.nci.nih.gov/"
+        }
+      },
+      {
+        "id": "Observation.code.coding.version",
+        "path": "Observation.code.coding.version",
+        "patternString": "24.04e"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "patternCode": "C60819"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1
+      },
+      {
+        "id": "Observation.subject.reference",
+        "path": "Observation.subject.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.effective[x]:effectiveDateTime",
+        "path": "Observation.effective[x]",
+        "sliceName": "effectiveDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.value[x]:valueQuantity",
+        "path": "Observation.value[x]",
+        "sliceName": "valueQuantity",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]:valueQuantity.value",
+        "path": "Observation.value[x].value",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]:valueQuantity.system",
+        "path": "Observation.value[x].system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://www.ontobee.org/ontology/UO"
+        }
+      },
+      {
+        "id": "Observation.value[x]:valueQuantity.code",
+        "path": "Observation.value[x].code",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://ncit.nci.nih.gov/"
+        }
+      },
+      {
+        "id": "Observation.method.coding.system",
+        "path": "Observation.method.coding.system",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://snomed.info/sct"
+        }
+      }
+    ]
+  }
+}

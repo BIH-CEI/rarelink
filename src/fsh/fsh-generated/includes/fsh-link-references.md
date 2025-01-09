@@ -40,6 +40,7 @@
 [RareLinkGeneticFindings]: StructureDefinition-rarelink-observation-genetic-findings.html
 [RareLinkGestationAtBirth]: StructureDefinition-rarelink-observation-gestation-at-birth.html
 [RareLinkKaryotypicSex]: StructureDefinition-rarelink-karyotypic-sex.html
+[RareLinkIPSMeasurementsOthers]: StructureDefinition-rarelink-observation-measurements-others.html
 [RecordedSexAtBirth]: StructureDefinition-recorded-sex-at-birth.html
 [ReferenceGenomeVS]: ValueSet-reference-genome-vs.html
 [SeverityVS]: ValueSet-severity-vs.html
