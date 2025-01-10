@@ -1,6 +1,6 @@
 .. _4_4:
 
-Generate FHIR Ressources
+FHIR Module
 ================
 
 .. attention::
