@@ -6,7 +6,7 @@ services:
     environment:
       - CONTEXT_PATH=conf
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
-    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/ips_patient.json"] # CLI: run --job path.json
+    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/ips.patient.json"] # CLI: run --job path.json
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
     depends_on:

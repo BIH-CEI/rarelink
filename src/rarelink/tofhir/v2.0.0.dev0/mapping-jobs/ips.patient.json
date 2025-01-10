@@ -21,7 +21,7 @@
   "mappings": [
     {
       "name": "ips.patient",
-      "mappingRef": "rarelink/ips_patient",
+      "mappingRef": "rarelink/ips.patient",
       "sourceBinding": {
         "rarelinkpatient": {
           "sourceRef": "redcap-kafka-source",
