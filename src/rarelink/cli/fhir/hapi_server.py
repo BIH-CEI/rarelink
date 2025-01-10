@@ -2,13 +2,13 @@ import typer
 import subprocess
 from pathlib import Path
 from rarelink.cli.utils.terminal_utils import (
-    end_of_section_separator,
-    between_section_separator,
+    end_of_section_separator
 )
 from rarelink.cli.utils.string_utils import (
     success_text,
     error_text,
     format_header,
+    hint_text
 )
 
 app = typer.Typer()
@@ -38,21 +38,19 @@ def hapi_server():
         )
         raise typer.Exit(1)
 
-    between_section_separator()
-
-    # Create a dedicated Docker network
+    # Create a shared Docker network
     network_name = "hapi-fhir-net"
     typer.echo(f"Ensuring Docker network '{network_name}' exists...")
     subprocess.run(["docker", "network", "create", network_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Check if the container exists
+    container_name = "hapi-fhir"
     typer.echo("Checking for existing HAPI FHIR server...")
     result = subprocess.run(
-        ["docker", "ps", "-a", "--filter", "name=hapi-fhir", "--format", "{{.Names}}"],
+        ["docker", "ps", "-a", "--filter", f"name={container_name}", "--format", "{{.Names}}"],
         stdout=subprocess.PIPE,
         text=True,
     )
-    container_name = "hapi-fhir"
     if container_name in result.stdout:
         typer.echo("A HAPI FHIR server container already exists.")
         # Check if the container is running
@@ -62,7 +60,7 @@ def hapi_server():
             text=True,
         )
         if container_name in running.stdout:
-            success_text("✅ HAPI FHIR server is already running.")
+            success_text("✅ HAPI FHIR server is already running on port 8081.")
             return
         else:
             typer.echo("Restarting the existing HAPI FHIR server container...")
@@ -70,31 +68,21 @@ def hapi_server():
             success_text("✅ HAPI FHIR server is running.")
             return
 
-    between_section_separator()
-
-    # Use a dynamic port if 8080 is in use
-    typer.echo("Checking if port 8080 is available...")
-    port_check = subprocess.run(
-        ["lsof", "-i", ":8080"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
-    )
-    if port_check.returncode == 0:
-        typer.echo("Port 8080 is in use. Using a different port...")
-        port = typer.prompt("Enter an alternative port for HAPI FHIR server", default="8081")
-    else:
-        port = "8080"
-
-    # Run the HAPI FHIR container
+    # Start a new HAPI FHIR server on port 8081
     try:
-        typer.echo(f"Starting a HAPI FHIR server on port {port}...")
+        typer.echo("Starting a new HAPI FHIR server on port 8081...")
         subprocess.run(
             [
-                "docker", "run", "-d", "-p", f"{port}:8080", "--name", container_name,
+                "docker", "run", "-d", "-p", "8081:8080", "--name", container_name,
                 "--network", network_name,
                 "hapiproject/hapi:v6.4.0"
             ],
             check=True,
         )
-        success_text(f"✅ HAPI FHIR server is running at http://localhost:{port}.")
+        success_text("✅ HAPI FHIR server is running at http://localhost:8081.")
+        hint_text(
+            "⚠️ Data is stored inside the Docker container. Ensure the container is not removed to preserve data."
+        )
     except subprocess.CalledProcessError as e:
         typer.secho(
             error_text(f"❌ Failed to start the HAPI FHIR server: {str(e)}"),
