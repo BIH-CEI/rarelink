@@ -6,7 +6,7 @@
   "sourceSettings": {
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
-      "sourceUri": "https://redcap.charite.de/demo/api/",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
       "asStream": true,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,

@@ -15,7 +15,7 @@
   },
   "sinkSettings": {
     "jsonClass": "FhirRepositorySinkSettings",
-    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
     "returnMinimal": false
   },
   "mappings": [
