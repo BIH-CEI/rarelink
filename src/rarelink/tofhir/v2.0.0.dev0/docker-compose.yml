@@ -11,7 +11,7 @@ services:
       - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
     depends_on:
       tofhir-redcap:
-        condition: service_started
+        condition: service_healthy
     deploy:
       resources:
         limits:
@@ -26,13 +26,19 @@ services:
     environment:
       - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
       - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
-      - REDCAP_URL=/usr/local/tofhir-redcap/rarelink_apiconfig.json.redcap_url
+      - REDCAP_URL=http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/
     env_file:
       - .env
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
       - ./src/rarelink/tofhir/v2.0.0.dev0/rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8095/tofhir-redcap/notification"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
     depends_on:
       kafka-1:
         condition: service_healthy
