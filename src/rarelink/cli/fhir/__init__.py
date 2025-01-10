@@ -1,13 +1,13 @@
 import typer
 from .setup import setup
-# from .execute_pipeline import execute_pipeline
-# from .write_resources import write_resources
+from .hapi_server import hapi_server
+from .restart_dockers import restart_dockers
 
 app = typer.Typer()
 
 app.command()(setup)
-# app.command()(execute_pipeline)
-# app.command()(write_resources)
+app.command()(hapi_server)
+app.command()(restart_dockers)
 
 @app.callback(invoke_without_command=True)
 def fhir_group():
