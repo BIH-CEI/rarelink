@@ -30,7 +30,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
       - ./src/rarelink/tofhir/v2.0.0.dev0/rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
     restart: always

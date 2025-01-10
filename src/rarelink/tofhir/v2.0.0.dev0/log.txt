@@ -1,0 +1,45 @@
+[+] Running 5/5fka-1              Healthy                                                                                                                                      6.8s
+ ✔ Network tofhir-redcap_default  Created                                                                                                                                     0.0s 
+ ✔ Container kafka-2              Healthy                                                                                                                                     6.8s 
+ ✔ Container kafka-1              Healthy                                                                                                                                     6.8s 
+ ✘ Container tofhir-redcap        Error                                                                                                                                     148.4s 
+ ✔ Container tofhir               Created                                                                                                                                     0.0s 
+dependency failed to start: container tofhir-redcap is unhealthy
+(.venv) adam@Adams-MacBook-Pro RareLink % docker ps -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED         STATUS                     PORTS                                                 NAMES
+64075acbd001   srdc/tofhir-engine:latest   "./docker-entrypoint…"   5 minutes ago   Created                                                                          tofhir
+b7a9030d972c   srdc/tofhir-redcap:latest   "./docker-entrypoint…"   5 minutes ago   Up 5 minutes (unhealthy)   0.0.0.0:8095->8095/tcp, :::8095->8095/tcp             tofhir-redcap
+163b9df3734b   bitnami/kafka:latest        "/opt/bitnami/script…"   5 minutes ago   Up 5 minutes (healthy)     0.0.0.0:9092->9092/tcp, :::9092->9092/tcp             kafka-1
+58c86d050260   bitnami/kafka:latest        "/opt/bitnami/script…"   5 minutes ago   Up 5 minutes (healthy)     9092/tcp, 0.0.0.0:9192->9192/tcp, :::9192->9192/tcp   kafka-2
+(.venv) adam@Adams-MacBook-Pro RareLink % docker logs -f tofhir-redcap
+07:42:10,302 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+07:42:10,303 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [jar:file:/usr/local/tofhir-redcap/tofhir-redcap-standalone.jar!/logback.xml]
+07:42:10,403 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@3a5fdb - URL [jar:file:/usr/local/tofhir-redcap/tofhir-redcap-standalone.jar!/logback.xml] is not of type file
+07:42:11,058 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+07:42:11,061 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+07:42:11,082 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+07:42:11,107 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+07:42:11,330 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+07:42:11,341 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [FILE]
+07:42:11,365 |-INFO in ch.qos.logback.core.rolling.FixedWindowRollingPolicy@48088342 - Will use zip compression
+07:42:11,375 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: logs/tofhir-redcap.log
+07:42:11,375 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [logs/tofhir-redcap.log]
+07:42:11,378 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+07:42:11,386 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ASYNC]
+07:42:11,387 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [FILE] to ch.qos.logback.classic.AsyncAppender[ASYNC]
+07:42:11,387 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Attaching appender named [FILE] to AsyncAppender.
+07:42:11,388 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Setting discardingThreshold to 51
+07:42:11,389 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+07:42:11,390 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ASYNC-AUDIT]
+07:42:11,391 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE-AUDIT]. Did you define it below instead of above in the configuration file?
+07:42:11,391 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+07:42:11,391 |-ERROR in ch.qos.logback.classic.AsyncAppender[ASYNC-AUDIT] - No attached appenders found.
+07:42:11,391 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+07:42:11,391 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ASYNC] to Logger[ROOT]
+07:42:11,391 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+07:42:11,392 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.kafka] to WARN
+07:42:11,392 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+07:42:11,397 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@51d96fe - Registering current configuration as safe fallback point
+
+2025-01-10_07:42:11.418 [toFHIR-REDCap-akka.actor.default-dispatcher-6] INFO  a.e.s.Slf4jLogger - Slf4jLogger started
+2025-01-10_07:42:17.869 [main] INFO  i.t.r.Boot$ - 'redcap.publishRecordsAtStartup' is enabled. Will delete existing Kafka topics and publish REDCap records to Kafka...
