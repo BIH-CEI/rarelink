@@ -1,23 +1,40 @@
-Generate FHIR Resources
-=======================
+.. _4_4:
+
+Generate FHIR Ressources
+================
 
 .. attention::
     This section is still to be implemented in the documentation and the RareLink
     command-line interface.
 
-Via the RareLink CLI type:
+Pre-setup
+----------
+
+1. **System Requirements**:
+   - Docker and Docker Compose installed on the system.
+   - Colima installed and running.
+
+.. note::
+   We recommend installing colima with brew (https://brew.sh/) and starting
+   before running the setup command.
+
+2. **Environment Variables**:
+     - `BIOPORTAL_API_TOKEN`
+     - `REDCAP_PROJECT_URL`
+     - `REDCAP_PROJECT_ID`
+     - `REDCAP_API_TOKEN`
+
+Please make sure you have configured the API keys and REDCap details before 
+running the ToFHIR pipeline. If you haven't done so, please run the following 
+command:
 
 .. code-block:: bash
 
-    rarelink setup -pipeline toFHIR
-    rarelink pipeline -run toFHIR
+    rarelink setup api-keys
 
-The FHIR module in RareLink allows users to generate FHIR resources from REDCap data.
-
----
 
 ToFHIR Pipeline Setup
-======================
+---------------------
 
 To set up the ToFHIR pipeline for the RareLink framework, use the following command:
 
@@ -25,39 +42,32 @@ To set up the ToFHIR pipeline for the RareLink framework, use the following comm
 
     rarelink fhir setup
 
-This command ensures all configurations are validated and helps users prepare the ToFHIR pipeline for FHIR resource generation.
+This command ensures all configurations are validated and helps users prepare
+the ToFHIR pipeline for FHIR resource generation.
 
-.. _4_4:
 
 Steps for `rarelink fhir setup`
 -------------------------------
 
-1. **Validate API Keys and Configurations**:
-   The setup process validates the following configurations:
-
-   - BIOPORTAL_API_TOKEN
-   - REDCAP_PROJECT_URL
-   - REDCAP_PROJECT_ID
-   - REDCAP_API_TOKEN
-
-   If these are not set up correctly, the setup will prompt you to configure them.
-
-.. note::
-    Run the command ``rarelink setup api-keys`` if any configurations are missing or incorrect.
+1. **Validate API Keys and Configurations** using `rarelink setup api-keys`.
 
 2. **FHIR Server Configuration**:
-   - If you have a FHIR server, provide the URL when prompted (e.g., `http://100.11.000.111:0000/fhir`).
+   - If you have a FHIR server, provide the URL when prompted 
+   (e.g., `http://100.11.000.111:0000/fhir`).
    - The configuration will be saved to `rarelink_fhirconfig.json`.
 
    .. tip::
-      If you don’t have a FHIR server, consult the RareLink documentation for guidance on setting one up.
+      If you don’t have a FHIR server, you will be guided through the command 
+      line to set up a local FHIR server using Docker.
 
 3. **Docker and Colima Setup**:
    - Ensure Docker and Colima are installed.
-   - The setup will verify Colima is running. If not, it will prompt to install and start Colima via Homebrew.
+   - The setup will verify Colima is running. If not, it will prompt to install
+   and start Colima via Homebrew.
 
    .. attention::
-      Colima is essential for managing the ToFHIR pipeline. Installation is mandatory to proceed.
+      Colima is essential for managing the ToFHIR pipeline. Installation is 
+      mandatory to proceed.
 
 4. **Next Steps**:
    - Once setup is complete, run additional commands such as:
@@ -70,38 +80,25 @@ Steps for `rarelink fhir setup`
 
 ---
 
-What Users Need to Set Up RareLink CLI in the Environment
-=========================================================
+Overview Usage
+----------------
 
-.. note::
-    The following components and configurations are required to set up and use the RareLink CLI:
-
-1. **System Requirements**:
-   - Docker and Docker Compose installed on the system.
-   - Colima installed and running.
-
-2. **Environment Variables**:
-   - Set up the `.env` file with the following:
-     - `BIOPORTAL_API_TOKEN`
-     - `REDCAP_PROJECT_URL`
-     - `REDCAP_PROJECT_ID`
-     - `REDCAP_API_TOKEN`
-
-3. **Configuration Files**:
+- **Configuration Files**:
    - `docker-compose.yml`: Includes services and volumes.
    - `rarelink_apiconfig.json`: Contains REDCap project configurations.
    - `tofhir-redcap-application.conf`: Configures the ToFHIR-Redcap integration.
 
-4. **Scripts**:
+- **Scripts**:
    - Use `up.sh` and `down.sh` scripts to start and stop services.
 
-5. **Testing**:
-   - Validate the setup with `docker logs` and test REDCap integration by setting up the Data Entry Trigger URL in the REDCap project.
+- **Testing**:
+   - Validate the setup with `docker logs` and test REDCap integration by 
+   setting up the Data Entry Trigger URL in the REDCap project.
 
 ---
 
 Additional Docker Configuration Help
-====================================
+------------------------------------
 
 1. **Quitting and Restarting Docker Containers**:
 
