@@ -15,13 +15,13 @@
   },
   "sinkSettings": {
     "jsonClass": "FhirRepositorySinkSettings",
-    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
     "returnMinimal": false
   },
   "mappings": [
     {
       "name": "ips.patient",
-      "mappingRef": "rarelink/ips.patient",
+      "mappingRef": "rarelink/ips_patient",
       "sourceBinding": {
         "rarelinkpatient": {
           "sourceRef": "redcap-kafka-source",
