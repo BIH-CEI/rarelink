@@ -108,7 +108,7 @@ def export():
             ["docker-compose", "-f", DOCKER_COMPOSE_PATH, "--project-directory", "./", "-p", "tofhir-redcap", "up", "-d"],
             check=True
         )
-        success_text("✅ REDCap-ToFHIR pipeline executed successfully.")
+        success_text("✅ REDCap-ToFHIR pipeline is now running...")
     except subprocess.CalledProcessError as e:
         typer.secho(
             error_text(f"❌ Failed to start the ToFHIR pipeline: {str(e)}"),
@@ -119,8 +119,8 @@ def export():
     between_section_separator()
 
     # Final message
-    typer.secho("The data should have been written to your FHIR server shortly, "
-        "please validate."
+    typer.secho(f"The data should now be written to your FHIR server - run {format_command('docker logs -f tofhir')} to check the logs.",
     )
+    
     
     end_of_section_separator()

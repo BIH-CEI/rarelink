@@ -38,50 +38,62 @@ def hapi_server():
         )
         raise typer.Exit(1)
 
-    # Create a shared Docker network
-    network_name = "hapi-fhir-net"
-    typer.echo(f"Ensuring Docker network '{network_name}' exists...")
-    subprocess.run(["docker", "network", "create", network_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-    # Check if the container exists
+    # Define network and container names
+    network_name = "shared-network"
     container_name = "hapi-fhir"
-    typer.echo("Checking for existing HAPI FHIR server...")
-    result = subprocess.run(
-        ["docker", "ps", "-a", "--filter", f"name={container_name}", "--format", "{{.Names}}"],
+
+    # Ensure Docker network exists
+    typer.echo(f"Ensuring Docker network '{network_name}' exists...")
+    subprocess.run(
+        ["docker", "network", "create", network_name],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    # Check if the container already exists
+    typer.echo("Checking for existing HAPI FHIR server container...")
+    existing_containers = subprocess.run(
+        ["docker", "ps", "-a", "--filter", f"name={container_name}",
+         "--format", "{{.Names}}"],
         stdout=subprocess.PIPE,
         text=True,
-    )
-    if container_name in result.stdout:
-        typer.echo("A HAPI FHIR server container already exists.")
+    ).stdout.strip()
+
+    if existing_containers == container_name:
+        typer.secho("✅ A HAPI FHIR server container already exists.",
+                    fg=typer.colors.GREEN)
         # Check if the container is running
-        running = subprocess.run(
-            ["docker", "ps", "--filter", f"name={container_name}", "--format", "{{.Names}}"],
+        running_containers = subprocess.run(
+            ["docker", "ps", "--filter", f"name={container_name}",
+             "--format", "{{.Names}}"],
             stdout=subprocess.PIPE,
             text=True,
-        )
-        if container_name in running.stdout:
-            success_text("✅ HAPI FHIR server is already running on port 8081.")
-            return
+        ).stdout.strip()
+        if running_containers == container_name:
+            success_text("✅ HAPI FHIR server is already running at "
+                         "http://localhost:8080.")
         else:
-            typer.echo("Restarting the existing HAPI FHIR server container...")
+            typer.secho("🔄 Restarting the existing HAPI FHIR server container...",
+                        fg=typer.colors.YELLOW)
             subprocess.run(["docker", "start", container_name], check=True)
-            success_text("✅ HAPI FHIR server is running.")
-            return
+            success_text("✅ HAPI FHIR server is now running at "
+                         "http://localhost:8080.")
+        return
 
-    # Start a new HAPI FHIR server on port 8081
+    # Start a new HAPI FHIR server container
     try:
-        typer.echo("Starting a new HAPI FHIR server on port 8081...")
+        typer.echo("Starting a new HAPI FHIR server on port 8080...")
         subprocess.run(
             [
-                "docker", "run", "-d", "-p", "8081:8080", "--name", container_name,
-                "--network", network_name,
-                "hapiproject/hapi:v6.4.0"
+                "docker", "run", "-d", "-p", "8080:8080", "--name", container_name,
+                "--network", network_name, "hapiproject/hapi:v6.4.0"
             ],
             check=True,
         )
-        success_text("✅ HAPI FHIR server is running at http://localhost:8081.")
+        success_text("✅ HAPI FHIR server is running at http://localhost:8080.")
         hint_text(
-            "⚠️ Data is stored inside the Docker container. Ensure the container is not removed to preserve data."
+            "⚠️ Data is stored inside the Docker container. Ensure the container "
+            "is not removed to preserve data."
         )
     except subprocess.CalledProcessError as e:
         typer.secho(

@@ -15,20 +15,23 @@ def validate_url(url, required_keyword=None):
     Validate that a URL is syntactically valid.
     Accepts:
     - IP addresses (e.g., http://134.95.194.154:6080/fhir)
-    - Hostnames with optional dashes (e.g., http://local-host:8080)
+    - Hostnames (e.g., http://hapi-fhir:8080/fhir)
+    - Hostnames with optional dots (e.g., http://localhost or http://my-app.local)
+    - Optional paths (e.g., /fhir, /api)
     - REDCap-specific URLs with 'redcap' in the path (if required_keyword='redcap')
     """
     regex = (
         r"^(https?:\/\/)"  # Protocol (http or https)
-        r"(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}"  # Domain name (e.g., example.com)
+        r"(([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+"  # Domain or hostname
         r"|localhost"  # OR localhost
-        r"|([0-9]{1,3}\.){3}[0-9]{1,3})"  # OR IPv4 address (e.g., 134.95.194.154)
+        r"|([0-9]{1,3}\.){3}[0-9]{1,3})"  # OR IPv4 address
         r"(:[0-9]{1,5})?"  # Optional port (e.g., :8080)
-        r"(\/[a-zA-Z0-9-]*)*\/?$"  # Optional path (e.g., /fhir or /api)
+        r"(\/[a-zA-Z0-9-._~%!$&'()*+,;=:@]*)*\/?$"  # Optional path
     )
     if not re.match(regex, url):
         typer.secho(
-            f"❌ Invalid URL: {url}. Please ensure the URL is properly formatted (e.g., https://example.com).",
+            f"❌ Invalid URL: {url}. Please ensure the URL is properly formatted "
+            f"(e.g., https://example.com, http://hapi-fhir:8080/fhir).",
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -42,7 +45,6 @@ def validate_url(url, required_keyword=None):
         raise typer.Exit(1)
 
     return True
-
 
 def validate_env(required_keys):
     """
