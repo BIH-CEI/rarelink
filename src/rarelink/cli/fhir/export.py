@@ -119,9 +119,8 @@ def export():
     between_section_separator()
 
     # Final message
-    typer.echo(
-        "🎉 The data should have been written to your FHIR server within minutes. "
-        "Please validate your data to ensure it meets the expected quality and format."
+    typer.secho("The data should have been written to your FHIR server shortly, "
+        "please validate."
     )
     
     end_of_section_separator()
