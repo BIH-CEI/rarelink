@@ -27,7 +27,7 @@ services:
       - .env
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./src/rarelink/tofhir/v2.0.0.dev0/redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
+      - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8095/tofhir-redcap/notification"]
