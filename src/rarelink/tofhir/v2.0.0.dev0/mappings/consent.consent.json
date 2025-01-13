@@ -25,7 +25,7 @@
             ]
           },
           "resourceType": "Consent",
-          "status": "{{mpp:getConcept(%consentStatus, snomed_309370004, 'target_code'}}",
+          "status": "{{mpp:getConcept(%consentStatus, snomed_309370004, 'target_code')}}",
           "scope": {
             "coding": [
               {
