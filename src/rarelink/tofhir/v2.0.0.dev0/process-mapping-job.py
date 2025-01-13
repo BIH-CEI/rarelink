@@ -20,10 +20,20 @@ with open(input_file, "r") as infile:
     data = json.load(infile)
 
 # Replace placeholders with environment variable values
+# Update source URI
 data["sourceSettings"]["redcap-kafka-source"]["sourceUri"] = redcap_url
+
+# Update FHIR repository URL
 data["sinkSettings"]["fhirRepoUrl"] = fhir_repo_url
-data["mappings"][0]["sourceBinding"]["rarelinkpatient"]["topicName"] = f"{redcap_project_id}-rarelink_1_formal_criteria"
-data["mappings"][0]["sourceBinding"]["rarelinkpersonalinformation"]["topicName"] = f"{redcap_project_id}-rarelink_2_personal_information"
+
+# Process all mappings and update topicName placeholders
+for mapping in data.get("mappings", []):
+    source_bindings = mapping.get("sourceBinding", {})
+    for binding_name, binding_details in source_bindings.items():
+        topic_name = binding_details.get("topicName", "")
+        # Replace the placeholder in topicName
+        if "${REDCAP_PROJECT_ID}" in topic_name:
+            binding_details["topicName"] = topic_name.replace("${REDCAP_PROJECT_ID}", redcap_project_id)
 
 # Write the processed JSON to the output file
 with open(output_file, "w") as outfile:
