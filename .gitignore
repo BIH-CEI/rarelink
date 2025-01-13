@@ -185,8 +185,8 @@ echo "/fsh-generated" >> .gitignore
 /fsh-generated
 
 # RareLink Config jsons
-rarelink_apiconfig.json
-rarelink_fhirconfig.json
+redcap-projects.json
+rarelink-cdm-processed.json
 
 # Local FHIR server configuration
 hapi-fhir

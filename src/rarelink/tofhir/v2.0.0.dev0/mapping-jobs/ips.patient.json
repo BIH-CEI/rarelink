@@ -6,7 +6,7 @@
   "sourceSettings": {
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
-      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "sourceUri": "${REDCAP_URL}",
       "asStream": false,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,
@@ -15,7 +15,7 @@
   },
   "sinkSettings": {
     "jsonClass": "FhirRepositorySinkSettings",
-    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
     "returnMinimal": false
   },
   "mappings": [
@@ -27,13 +27,13 @@
           "sourceRef": "redcap-kafka-source",
           "jsonClass": "KafkaSource",
           "options": {},
-          "topicName": "51-rarelink_1_formal_criteria"
+          "topicName": "${REDCAP_PROJECT_ID}-rarelink_1_formal_criteria"
         },
         "rarelinkpersonalinformation": {
           "sourceRef": "redcap-kafka-source",
           "jsonClass": "KafkaSource",
           "options": {},
-          "topicName": "51-rarelink_2_personal_information"
+          "topicName": "${REDCAP_PROJECT_ID}-rarelink_2_personal_information"
         }
       }
     }

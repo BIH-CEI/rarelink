@@ -6,7 +6,7 @@ services:
     environment:
       - CONTEXT_PATH=conf
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
-    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/ips.patient.json"] ##rarelink-cdm job # CLI: run --job path.json
+    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/rarelink-cdm-processed.json"] ##rarelink-cdm job # CLI: run --job path.json
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
     depends_on:
@@ -21,11 +21,13 @@ services:
       - 8095:8095
     environment:
       - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
-      - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/rarelink_apiconfig.json
-      - REDCAP_URL="http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/"
+      - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/redcap-projects.json
+      - REDCAP_URL=${REDCAP_URL}
+    env_file:
+      - .env
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
-      - ./src/rarelink/tofhir/v2.0.0.dev0/rarelink_apiconfig.json:/usr/local/tofhir-redcap/rarelink_apiconfig.json
+      - ./src/rarelink/tofhir/v2.0.0.dev0/redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8095/tofhir-redcap/notification"]
@@ -86,5 +88,3 @@ services:
       timeout: 10s
       retries: 5
       start_period: 20s
-
-  # docker 
