@@ -18,7 +18,7 @@
         "name": "observation.genetic_findings",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'GeneticsFindings')}}",
+          "id": "{{mpp:getHashedId('Observation', record_id & ga4gh_interp_status & loinc_lp7824_8 & loinc_81290_9 & loinc_48004_6 & loinc_48005_3 & loinc_53034_5 & loinc_48002_0 & loinc_48019_4 & loinc_48019_4_other & loinc_53034_5_other & loinc_48018_6 & loinc_53037_8 & loinc_93044_6)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"

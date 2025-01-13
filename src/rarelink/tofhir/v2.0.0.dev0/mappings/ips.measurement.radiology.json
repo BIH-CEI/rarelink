@@ -18,7 +18,7 @@
         "name": "ips.measurement",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'Radiology')}}",
+          "id": "{{mpp:getHashedId('Observation', record_id & measurement_category & ncit_c60819 & ncit_c82577 & ncit_c92571 & ncit_c25712 & ncit_c41255 & snomed_122869004_ncit & snomed_122869004_snomed)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot"

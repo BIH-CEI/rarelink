@@ -66,7 +66,7 @@
                 {
                   "system": "{{? iif(ncit_c41255.empty().not(), 'https://ncit.nci.nih.gov/')}}",
                   "code": "{{? ncit_c41255.substring(10)}}",
-                  "version": "{{? iif(ncit_c41255.empty().not(), '24.04e'}}"
+                  "version": "{{? iif(ncit_c41255.empty().not(), '24.04e')}}"
                 }
               ]
             }
@@ -74,12 +74,12 @@
           "method": {
             "coding": [
               {
-                "system": "{{? iif(snomed_122869004_ncit.empty().not(), 'https://ncit.nci.nih.gov/'}}",
+                "system": "{{? iif(snomed_122869004_ncit.empty().not(), 'https://ncit.nci.nih.gov/')}}",
                 "code": "{{? snomed_122869004_ncit.substring(10)}}",
-                "version": "{{? iif(snomed_122869004_ncit.empty().not(), '24.04e'}}"
+                "version": "{{? iif(snomed_122869004_ncit.empty().not(), '24.04e')}}"
               },
               {
-                "system": "{{? iif(snomed_122869004_snomed.empty().not(), 'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{? iif(snomed_122869004_snomed.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
                 "code": "{{? snomed_122869004_snomed.substring(7)}}",
                 "version": "{{? iif(snomed_122869004_snomed.empty().not(), '2024-09-01')}}"
               }

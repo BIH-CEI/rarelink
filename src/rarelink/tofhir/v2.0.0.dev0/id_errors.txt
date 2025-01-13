@@ -1,0 +1,22 @@
+ips.condition
+2025-01-13 19:07:45 2025-01-13_16:07:45.131 [Executor task launch worker for task 0.0 in stage 140.0 (TID 2873)] ERROR i.t.e.d.w.FhirRepositoryWriter - Firely did not return an expression indicating the location of the OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Condition/c176bf45ff3cd2c4e8b41f23bfca6577, Condition/a68bc0710ca6c86a5472bb6250b2bc07, Condition/7955d6d0729f760addbbe9096e775f52, Condition/329b55b9c4086c8b85f6cc732849cfe4 are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+encounter.care_pathway
+ OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Encounter/0bf5d7f529d34e07dcc6dc7f372513dd, Encounter/1c151080c72f5d75d21d59d83ee76f12, Encounter/6e7ab00e040d95450b7fbaff90255432 are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+observation.genetic_findings
+2025-01-13 19:07:46 2025-01-13_16:07:46.760 [Executor task launch worker for task 0.0 in stage 155.0 (TID 2884)] ERROR i.t.e.d.w.FhirRepositoryWriter - Firely did not return an expression indicating the location of the OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Observation/b1f8946533b46e6881d30252da539f47, Observation/b3b07ec45ef2ce477c060566c836937e are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+
+observation.phenotypic_fetaure
+2025-01-13 19:07:49 2025-01-13_16:07:49.300 [Executor task launch worker for task 0.0 in stage 170.0 (TID 2895)] ERROR i.t.e.d.w.FhirRepositoryWriter - Firely did not return an expression indicating the location of the OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Observation/c5c99768ffd4f375987f44081534eea4, Observation/17cfabd7e688cb0ed1c4616f6a22cecc, Observation/f287218041d761caaf896aa1301b5e43, Observation/03a6e3a826aaad41cced6666de56c410, Observation/f2aa7eaffced673d2f4a5c729a474dd2 are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+
+ips.measurement.laboratory
+2025-01-13 19:07:51 2025-01-13_16:07:51.121 [Executor task launch worker for task 0.0 in stage 186.0 (TID 2908)] ERROR i.t.e.d.w.FhirRepositoryWriter - Firely did not return an expression indicating the location of the OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Observation/321094d161974f53c661b937495230d8 are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+ips.measurement.radiology
+2025-01-13 19:07:52 2025-01-13_16:07:52.459 [Executor task launch worker for task 0.0 in stage 201.0 (TID 2919)] ERROR i.t.e.d.w.FhirRepositoryWriter - Firely did not return an expression indicating the location of the OutcomeIssue: {"severity":"error","code":"invalid","diagnostics":"Resource identity overlapping! Resources Observation/38bccc15d39005bcbc60a161f00fe209 are referred multiple times within update/patch/delete requests. Batch/transaction can not be performed ...","expression":[]}
+
+
+
