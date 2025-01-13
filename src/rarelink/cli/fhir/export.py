@@ -91,7 +91,7 @@ def export():
 
     # Step 5: Notify about batch mode
     typer.secho(
-            "▶ The export process is configured in batch mode. Changes made "
+            "HINT: The export process is configured in batch mode. Changes made "
             "after export require rerunning the pipeline. "
             f"For more information, please refer to our documentation: {hyperlink('ToFHIR Module Documentation', 'https://rarelink.readthedocs.io/en/latest/4_user_guide/4_4_tofhir_module.html')}."
         )
