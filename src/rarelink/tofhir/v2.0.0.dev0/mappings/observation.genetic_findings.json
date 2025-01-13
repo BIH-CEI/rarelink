@@ -18,7 +18,7 @@
         "name": "observation.genetic_findings",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings')}}",
+          "id": "{{mpp:getHashedId('Observation', record_id & 'GeneticsFindings')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"

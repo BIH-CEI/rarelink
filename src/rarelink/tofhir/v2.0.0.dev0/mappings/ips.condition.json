@@ -18,7 +18,7 @@
         "name": "RareLink IPS Condition",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Condition', record_id & 'Disease')}}",
+          "id": "{{mpp:getHashedId('Condition', record_id & 'Diagnosed')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
