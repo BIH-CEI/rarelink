@@ -27,7 +27,7 @@
         "name": "ips.patient",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Patient',record_id & 'VitalStatus')}} ",
+          "id": "{{mpp:getHashedId('Patient',record_id & 'VitalStatus')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"

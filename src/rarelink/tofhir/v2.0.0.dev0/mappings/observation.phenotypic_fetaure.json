@@ -18,7 +18,7 @@
         "name": "observation.phenotypic_fetaure",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'Phenotypic Feature')}} ",
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Phenotypic Feature')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"

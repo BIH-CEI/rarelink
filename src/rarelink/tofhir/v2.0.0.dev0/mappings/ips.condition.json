@@ -18,7 +18,7 @@
         "name": "RareLink IPS Condition",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Condition', record_id)}}",
+          "id": "{{mpp:getHashedId('Condition', record_id & 'Disease' & timestamp())}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
@@ -39,7 +39,7 @@
             "coding": [
               {
                 "system": "{{? iif(snomed_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                "code": "{{? iif(snomed_64572001_mondo.empty().not(), snomed_64572001_mondo.substring(6)}}",
+                "code": "{{? iif(snomed_64572001_mondo.empty().not(), snomed_64572001_mondo.substring(6))}}",
                 "version": "{{? iif(snomed_64572001_mondo.empty().not(), '2024-09-03')}}"
               },
               {

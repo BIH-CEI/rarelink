@@ -18,7 +18,7 @@
         "name": "ips.procedure",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Procedure', record_id)}} ",
+          "id": "{{mpp:getHashedId('Procedure', record_id)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"

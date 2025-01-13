@@ -18,7 +18,7 @@
         "name": "observation.measurements.other",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'Other Measurements')}} ",
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Other Measurements')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"

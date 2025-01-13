@@ -18,7 +18,7 @@
         "name": "observation.genetic_findings",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings')}} ",
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
@@ -323,8 +323,8 @@
                 "coding": [
                   {
                     "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
-                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03'}}"
+                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
                   }
                 ],
                 "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"

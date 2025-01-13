@@ -104,8 +104,8 @@
       }
     },
     {
-      "name": "encounter",
-      "mappingRef": "rarelink/encounter",
+      "name": "encounter.care_pathway",
+      "mappingRef": "rarelink/encounter.care_pathway",
       "sourceBinding": {
         "rarelinkencounter": {
           "sourceRef": "redcap-kafka-source",
