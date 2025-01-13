@@ -2,7 +2,7 @@ import typer
 import json
 import subprocess
 from pathlib import Path
-from dotenv import dotenv_values, set_key
+from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
     between_section_separator,

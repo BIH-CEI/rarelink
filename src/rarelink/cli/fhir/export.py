@@ -71,7 +71,7 @@ def export():
     typer.secho(
         hint_text(
             "⚠️ Please ensure you are authorized to export real-world data to" 
-            "the configured FHIR server. This includes verifying compliance with"
+            " the configured FHIR server. This includes verifying compliance with"
             "the ethical agreement and data protection regulations of your study"
             " or registry."
         ),
