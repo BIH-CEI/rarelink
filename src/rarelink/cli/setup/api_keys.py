@@ -1,7 +1,8 @@
 import typer
 import json
 from pathlib import Path
-from dotenv import dotenv_values, set_key
+from dotenv import dotenv_values
+from rarelink.cli.utils.write_utils import write_env_file
 from rarelink.cli.utils.terminal_utils import (
     masked_input,
     end_of_section_separator,
@@ -15,7 +16,7 @@ from rarelink.cli.utils.string_utils import (
     format_command,
     hyperlink,
 )
-from rarelink.cli.utils.config_utils import validate_env
+from rarelink.cli.utils.validation_utils import validate_env
 
 app = typer.Typer()
 
@@ -114,10 +115,10 @@ def app():
         ENV_PATH.touch()
 
     try:
-        set_key(str(ENV_PATH), "BIOPORTAL_API_TOKEN", bioportal_api_token)
-        set_key(str(ENV_PATH), "REDCAP_URL", redcap_url)
-        set_key(str(ENV_PATH), "REDCAP_PROJECT_ID", redcap_project_id)
-        set_key(str(ENV_PATH), "REDCAP_API_TOKEN", redcap_api_token)
+        write_env_file(ENV_PATH, "BIOPORTAL_API_TOKEN", bioportal_api_token)
+        write_env_file(ENV_PATH, "REDCAP_URL", redcap_url)
+        write_env_file(ENV_PATH, "REDCAP_PROJECT_ID", redcap_project_id)
+        write_env_file(ENV_PATH, "REDCAP_API_TOKEN", redcap_api_token)
         success_text(f"✅ API keys and configurations have been saved to {ENV_PATH}.")
     except Exception as e:
         typer.secho(

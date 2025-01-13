@@ -36,9 +36,16 @@ from .logging_utils import (
     log_exception
 )
 
-from .config_utils import (
+from .validation_utils import (
     validate_env,
-    validate_config
+    validate_config,
+    validate_url,
+    validate_redcap_projects_json,
+    validate_docker_and_compose
+)
+
+from .write_utils import (
+    write_env_file
 )
 
 __all__ = [
@@ -75,7 +82,12 @@ __all__ = [
     "log_warning",
     "log_error",
     "log_exception",
-    # config utils
+    # validation utils
     "validate_env",
-    "validate_config"
+    "validate_config",
+    "validate_url",
+    "validate_redcap_projects_json",
+    "validate_docker_and_compose",
+    # write utils
+    "write_env_file"
 ]

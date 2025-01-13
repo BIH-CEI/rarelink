@@ -6,7 +6,7 @@
   "sourceSettings": {
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
-      "sourceUri": "${REDCAP_URL}",
+      "sourceUri": "${SOURCE_URL}",
       "asStream": false,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,

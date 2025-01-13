@@ -15,10 +15,10 @@ app = typer.Typer(name="framework", help="Setup and manage the \
 @app.command()
 def update():
     """
-    Update RareLink to the latest version.
+    Updates RareLink and all modules to the latest version.
     """
     format_header("Update RareLink")
-    hint_text("Updating RareLink to the latest version...")
+    hint_text("🔄Updating RareLink to the latest version...")
     try:
         # Execute `pip install --upgrade rarelink`
         subprocess.run(["pip", "install", "--upgrade", "rarelink"], check=True)
@@ -28,4 +28,13 @@ def update():
         typer.secho(error_text(str(e)))
         raise typer.Exit(code=1)
 
+    hint_text("🔄...updating all RareLink Submodules")
+    subprocess.run(["git", "submodule", "update", "--init", "--recursive"], 
+                   check=True)
+    subprocess.run(["git", "submodule", "update", "--remote", "--merge"], 
+                   check=True)
+    
+    hint_text("🔄...updating all toFHIR Docker Engine")
+    subprocess.run(["docker", "pull", "srdc/tofhir-engine:latest"], check=True)
+    success_text("✅ ToFHIR engine has been successfully updated.")
     end_of_section_separator()

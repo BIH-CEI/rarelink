@@ -15,7 +15,12 @@ from rarelink.cli.utils.string_utils import (
     format_command,
     hyperlink,
 )
-from rarelink.cli.utils.config_utils import validate_env
+from rarelink.cli.utils.validation_utils import (
+    validate_env,
+    validate_redcap_projects_json,
+    validate_docker_and_compose
+)
+from rarelink.cli.utils.write_utils import write_env_file
 
 app = typer.Typer()
 
@@ -89,7 +94,7 @@ def setup():
 
     # Update or add FHIR_REPO_URL to the .env file
     try:
-        set_key(str(ENV_PATH), "FHIR_REPO_URL", fhir_repo_url)
+        write_env_file(ENV_PATH, "FHIR_REPO_URL", fhir_repo_url)
         success_text(f"✅ FHIR repository URL added to {ENV_PATH}.")
     except Exception as e:
         typer.secho(
@@ -158,43 +163,8 @@ def setup():
 
     between_section_separator()
 
-    # Docker Compose setup
-    typer.echo("Docker Compose is required to manage the pipeline services.")
-    docker_compose_installed = subprocess.run(
-        ["docker-compose", "--version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
-    )
-
-    if docker_compose_installed.returncode != 0:
-        typer.secho(
-            error_text("❌ Docker Compose is not installed."),
-            fg=typer.colors.RED,
-        )
-        install_choice = typer.confirm(
-            "Do you want to install Docker Compose via Homebrew? "
-            "(Select 'No' to install via pip instead.)"
-        )
-        if install_choice:
-            try:
-                subprocess.run(["brew", "install", "docker-compose"], check=True)
-                success_text("✅ Docker Compose installed successfully via Homebrew.")
-            except subprocess.CalledProcessError as e:
-                typer.secho(
-                    error_text(f"❌ Failed to install Docker Compose via Homebrew: {str(e)}"),
-                    fg=typer.colors.RED,
-                )
-                raise typer.Exit(1)
-        else:
-            try:
-                subprocess.run(["pip", "install", "docker-compose"], check=True)
-                success_text("✅ Docker Compose installed successfully via pip.")
-            except subprocess.CalledProcessError as e:
-                typer.secho(
-                    error_text(f"❌ Failed to install Docker Compose via pip: {str(e)}"),
-                    fg=typer.colors.RED,
-                )
-                raise typer.Exit(1)
-    else:
-        success_text("✅ Docker Compose is already installed.")
+    typer.echo("🔄 Validating Docker and Docker Compose setup...")
+    validate_docker_and_compose()
 
     between_section_separator()
 
@@ -216,6 +186,19 @@ def setup():
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
+    
+    # Step 6: Validate the redcap-project.json file
+    typer.echo("🔄 Validating the redcap-projects.json file...")
+    try:
+        validate_redcap_projects_json()  # Call the imported validation function
+        success_text("✅ redcap-projects.json validated successfully.")
+    except Exception as e:
+        typer.secho(
+            error_text(f"❌ Validation of redcap-projects.json failed: {str(e)}"),
+            fg=typer.colors.RED,
+        )
+        raise typer.Exit(1)
+    
     between_section_separator()
 
     # Closing hints
