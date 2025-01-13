@@ -7,6 +7,20 @@ import re
 ENV_PATH = Path(".env")
 CONFIG_FILE = Path("rarelink_apiconfig.json")
 
+def validate_url(redcap_url):
+    """
+    Validate that the REDCap URL is valid and includes 'redcap'.
+    """
+    regex = r"^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[a-zA-Z0-9-]+)*\/?$"
+    if "redcap" not in redcap_url or not re.match(regex, redcap_url):
+        typer.secho(
+            f"❌ Invalid REDCap URL: {redcap_url}. "
+            "The URL must be valid and include the word 'redcap'.",
+            fg=typer.colors.RED,
+        )
+        raise typer.Exit(1)
+    return True
+
 def validate_env(required_keys):
     """
     Validate that required keys exist in the .env file and meet specific criteria.
@@ -35,7 +49,7 @@ def validate_env(required_keys):
         raise typer.Exit(1)
 
     # Validate REDCap URL
-    redcap_url = env_values.get("REDCAP_PROJECT_URL", "")
+    redcap_url = env_values.get("REDCAP_URL", "")
     if not validate_url(redcap_url):
         typer.secho(
             f"❌ Invalid REDCap URL in .env: {redcap_url}. URL must include 'redcap' and be valid.",
@@ -108,9 +122,3 @@ def validate_config(required_keys):
         )
         raise typer.Exit(1)
 
-def validate_url(url):
-    """
-    Validate that the URL is valid and includes 'redcap'.
-    """
-    regex = r"^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[a-zA-Z0-9-]+)*\/?$"
-    return "redcap" in url and re.match(regex, url)
