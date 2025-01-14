@@ -7,11 +7,6 @@ RareLink Overview
    RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
    it to ensure you have the latest updates and guidance.
 
-
-.. attention:: 
-    You will need your own REDCap instance to deploy the RareLink framework.
-    See the :ref:`3_2` for more information.
-
 RareLink aims to maximise the utility of REDCap by providing a comprehensive 
 framework designed specifically for rare disease (RD) research and care. 
 At the core of RareLink is this documentation, the RareLink instruments that are 
@@ -26,6 +21,10 @@ rare disease data seamlessly within the REDCap environment.
    :alt: RareLink Overview
    :align: center
 
+
+.. note:: 
+    You will need your own REDCap instance to deploy the RareLink framework.
+    See the :ref:`3_2` for more information.
 _____________________________________________________________________________________
 
 RareLink Framework components

@@ -16,10 +16,6 @@ intuitive, and it provides a simple and efficient way to work with the RareLink
 framework.
 
 
-General CLI Command Groups
---------------------------
-
-
 1. Framework Setup (``framework``)
 _________________________________
 

@@ -8,7 +8,6 @@ Set up the RareLink Framework
    it to ensure you have the latest updates and guidance.
 
 
-
 Getting Started
 ---------------
 
@@ -36,7 +35,7 @@ Follow these steps to set up the project locally and run tests.
       pip install .
 
 4. Configure all api keys necessary to use rarelink by running the following
-    command:
+command:
 
 .. code-block:: bash
 
@@ -60,7 +59,7 @@ Follow these steps to set up the project locally and run tests.
 
 _____________________________________________________________________________________
 
-RareLink-CLI Framework Configuration
+RareLink Framework CLI config
 ------------------------------------
 
 Use the following commands to update the framework and its components, view 
@@ -117,6 +116,7 @@ ___________________________
 
 This command guides you through setting up the FHIR pipeline for RareLink. 
 You will be prompted to enter:
+
 - Your FHIR server URL.
 - If required, your FHIR server username & password.
 
