@@ -69,11 +69,6 @@ data accuracy, accessibility, and reusability across multiple platforms and
 projects.
 
 
-
-
-
-
-
 Further Reading
 ---------------
 - `The GA4GH Phenopacket schema defines a computable representation of clinical data <https://www.nature.com/articles/s41587-022-01357-4>`_
