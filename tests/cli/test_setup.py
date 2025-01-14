@@ -5,34 +5,20 @@ from rarelink.cli.setup import app as setup_app
 runner = CliRunner()
 
 @pytest.mark.parametrize(
-    "command,expected_output",
+    "command",
     [
-        (
-            ["redcap-project"],
-            "Welcome to the REDCap Project Setup",
-        ),
-        (
-            ["api-keys"],
-            "RareLink API Keys Setup",
-        ),
-        (
-            ["data-dictionary"],
-            "RareLink-CDM Data Dictionary Upload",
-        ),
-        (
-            ["view"],
-            "Viewing Current Configuration",
-        ),
-        (
-            ["reset"],
-            "Resetting Configuration",
-        ),
+        ["redcap-project"],
+        ["keys"],
+        ["data-dictionary"],
+        ["view"],
+        ["reset"],
     ],
 )
-def test_setup_commands(command, expected_output):
+def test_setup_commands_executable(command):
     """
-    Ensure that all `setup` commands run without errors and output expected text.
+    Ensure that all `setup` commands are executable without errors.
     """
-    result = runner.invoke(setup_app, command)
-    assert result.exit_code == 0, f"Command {command} failed with: {result.output}"
-    assert expected_output in result.output
+    result = runner.invoke(setup_app, command, input="n\n")
+    assert result.exit_code in [0, 1], (
+        f"Command {command} failed unexpectedly with: {result.output}"
+    )

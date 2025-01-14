@@ -16,12 +16,12 @@ def write_env_file(env_path, key, value):
 
     Example:
         >>> from pathlib import Path
-        >>> write_env_file(Path('.env'), 'API_KEY', '12345')
-        # Updates or creates a .env file with the content:
-        # API_KEY=12345
-
-    Raises:
-        IOError: If the function fails to write to the .env file.
+        >>> import tempfile
+        >>> temp_file = tempfile.NamedTemporaryFile(delete=False)
+        >>> temp_path = Path(temp_file.name)
+        >>> write_env_file(temp_path, 'API_KEY', '12345')
+        >>> print(temp_path.read_text().strip())  # Verify file content
+        API_KEY=12345
     """
     # Read existing lines or create an empty list if the file doesn't exist
     lines = []

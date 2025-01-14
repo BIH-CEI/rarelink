@@ -1,5 +1,6 @@
 from typer.testing import CliRunner
 from rarelink.cli import app
+from unittest.mock import patch
 
 runner = CliRunner()
 
@@ -11,13 +12,37 @@ def test_status():
     assert result.exit_code == 0
     assert "Checking RareLink framework status..." in result.stdout
 
-def test_update():
+@patch("subprocess.run")
+def test_update(mock_subprocess_run):
     """
-    Test the `framework-setup update` command to check if it runs without error.
+    Test the `framework update` command to check if it runs without error.
     """
+    # Mock subprocess.run to simulate successful execution
+    mock_subprocess_run.return_value.returncode = 0
+
     result = runner.invoke(app, ["framework", "update"])
+
+    # Assertions to ensure the command behaves as expected
     assert result.exit_code == 0
     assert "Updating RareLink to the latest version..." in result.stdout
+    assert "✅ RareLink has been successfully updated." in result.stdout
+    assert "🔄...updating all RareLink Submodules" in result.stdout
+    assert "✅ ToFHIR engine has been successfully updated." in result.stdout
+
+    # Verify subprocess.run was called with the correct arguments
+    mock_subprocess_run.assert_any_call(
+        ["pip", "install", "--upgrade", "rarelink"], check=True
+    )
+    mock_subprocess_run.assert_any_call(
+        ["git", "submodule", "update", "--init", "--recursive"], check=True
+    )
+    mock_subprocess_run.assert_any_call(
+        ["git", "submodule", "update", "--remote", "--merge"], check=True
+    )
+    mock_subprocess_run.assert_any_call(
+        ["docker", "pull", "srdc/tofhir-engine:latest"], check=True
+    )
+
 
 def test_version():
     """
