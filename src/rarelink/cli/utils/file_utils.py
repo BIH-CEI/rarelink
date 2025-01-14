@@ -13,8 +13,7 @@ def download_file(url: str, output_file: Path):
         with open(output_file, "wb") as f:
             for chunk in response.iter_content(chunk_size=8192):
                 f.write(chunk)
-        typer.secho(f"✅ File successfully downloaded to {output_file}", 
-                    fg=typer.colors.GREEN)
+        typer.secho(f"✅ File successfully downloaded to {output_file}")
     except Exception as e:
         typer.secho(f"❌ Failed to download the file: {e}", 
                     fg=typer.colors.RED)
