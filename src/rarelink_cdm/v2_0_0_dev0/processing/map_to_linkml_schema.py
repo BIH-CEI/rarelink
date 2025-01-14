@@ -1,4 +1,4 @@
-from rarelink.utils.preprocessing.add_prefixes import add_prefix_to_code, process_prefix
+from rarelink.utils.preprocessing.redcap_to_linkml.add_prefixes import add_prefix_to_code, process_prefix
 
 
 def map_formal_criteria(entry):

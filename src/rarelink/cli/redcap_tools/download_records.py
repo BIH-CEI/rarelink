@@ -1,7 +1,7 @@
 import typer
 from pathlib import Path
 import requests
-import json
+from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
     between_section_separator,
@@ -10,18 +10,18 @@ from rarelink.cli.utils.string_utils import (
     format_header,
     success_text,
     error_text,
-    format_command,
     hint_text,
 )
 from rarelink.cli.utils.file_utils import ensure_directory_exists, write_json
 from rarelink.cli.utils.logging_utils import setup_logger, log_info
 from rarelink_cdm.v2_0_0_dev0.processing import preprocess_flat_data, MAPPING_FUNCTIONS
+from rarelink.cli.utils.validation_utils import validate_env
 
 app = typer.Typer()
 
 DEFAULT_CONFIG_FILE = Path.home() / "Downloads" / "rarelink_apiconfig.json"
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
-
+ENV_PATH = Path(".env")  # Path to your .env file
 
 @app.callback(invoke_without_command=True)
 def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
@@ -36,50 +36,25 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     """
     format_header("Fetch REDCap Records")
 
+    # Validate environment
+    validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_ID"])
+
     # Display alert about production mode
     hint_text(
         "⚠️ IMPORTANT: If your project is in PRODUCTION mode, the downloaded"
-            " data might be sensitive. \n"
-            "It must only be stored within your organisational site's "
-            "approved storage."
+        " data might be sensitive. \n"
+        "It must only be stored within your organisational site's "
+        "approved storage."
     )
     between_section_separator()
 
-    # Check if the API configuration has been set up
-    api_config_done = typer.confirm("Have you already set up an API "
-        "configuration file?")
-    if not api_config_done:
-        typer.echo(
-            f"👉 Please run the following command to set up your REDCap \
-API configuration: {format_command('rarelink redcap-setup api-config start')}",)
-        raise typer.Exit(code=1)
-
-    # Prompt for the path to the API configuration file
-    config_file_path = typer.prompt(
-        "Enter the path to your API configuration file", 
-        default=str(DEFAULT_CONFIG_FILE)
-    )
-    config_file = Path(config_file_path)
-
-    if not config_file.exists():
-        typer.secho(
-            error_text(f"❌ Configuration file not found at {config_file_path}."),
-            fg=typer.colors.RED,
-        )
-        raise typer.Exit(code=1)
-
-    # Load configuration
-    try:
-        config = config_file.read_text()
-        config_data = json.loads(config)
-    except Exception as e:
-        typer.secho(error_text(f"❌ Failed to load configuration: {e}"), 
-                    fg=typer.colors.RED)
-        raise typer.Exit(code=1)
+    # Load environment variables
+    env_values = dotenv_values(ENV_PATH)
+    api_token = env_values["REDCAP_API_TOKEN"]
+    api_url = env_values["REDCAP_URL"]
 
     # Ensure output directory exists
     ensure_directory_exists(output_dir)
-    
 
     output_file = output_dir / "records.json"
     processed_file = output_dir / "processed_records.json"
@@ -92,8 +67,7 @@ API configuration: {format_command('rarelink redcap-setup api-config start')}",)
         )
         if not typer.confirm("Do you want to overwrite these files?"):
             typer.secho("❌ Operation canceled by the user.", fg=typer.colors.RED)
-            raise typer.Exit(code=0)
-
+            raise typer.Exit(0)
 
     # Set up logger
     log_file = output_dir / "download_records.log"
@@ -101,7 +75,7 @@ API configuration: {format_command('rarelink redcap-setup api-config start')}",)
 
     # Prepare API request
     fields = {
-        "token": config_data["api_token"],
+        "token": api_token,
         "content": "record",
         "format": "json",
         "type": "flat",
@@ -109,27 +83,23 @@ API configuration: {format_command('rarelink redcap-setup api-config start')}",)
 
     try:
         # Send request to REDCap API
-        response = requests.post(config_data["api_url"], data=fields)
+        response = requests.post(api_url, data=fields)
         response.raise_for_status()
 
         # Save the fetched data to a JSON file
         records = response.json()
-        output_file = output_dir / "records.json"
         write_json(records, output_file)
-
-        log_info(logger, f"✅ Records successfully downloaded to {output_file}")
-        success_text(f"✅ Records successfully downloaded to {output_file}")
 
         # Process the records into the RareLink-CDM schema
         typer.echo("🔄 Processing records into the RareLink-CDM LinkML schema...")
         transformed_data = preprocess_flat_data(records, MAPPING_FUNCTIONS)
-        processed_file = output_dir / "processed_records.json"
         write_json(transformed_data, processed_file)
 
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
         # Validate the processed data against the LinkML schema
-        typer.echo("🔄 Validating processed records against the RareLink-CDM LinkML schema...")
+        typer.echo("🔄 Validating processed records against the "
+                    "RareLink-CDM LinkML schema...")
         schema_path =\
             "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 
@@ -152,15 +122,16 @@ API configuration: {format_command('rarelink redcap-setup api-config start')}",)
         except FileNotFoundError:
             typer.secho(
                 error_text(
-                    "❌ Validation tool not found. Ensure 'linkml-validate' \
-is installed."),
+                    "❌ Validation tool not found. Ensure 'linkml-validate' "
+                    "is installed."),
                 fg=typer.colors.RED,
             )
+
     except requests.exceptions.RequestException as e:
         log_info(logger, f"❌ Failed to fetch records: {e}")
         typer.secho(error_text(f"❌ Failed to fetch records: {e}"), 
                     fg=typer.colors.RED)
-        raise typer.Exit(code=1)
+        raise typer.Exit(1)
 
     end_of_section_separator()
 

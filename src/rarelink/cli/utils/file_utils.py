@@ -50,8 +50,7 @@ def write_json(data: dict, file_path: Path):
     try:
         with open(file_path, "w") as file:
             json.dump(data, file, indent=4)
-        typer.secho(f"✅ Successfully wrote JSON to {file_path}",
-                    fg=typer.colors.GREEN)
+        typer.secho(f"✅ Successfully wrote JSON to {file_path}")
     except Exception as e:
         typer.secho(f"❌ Failed to write JSON file {file_path}: {e}",
                     fg=typer.colors.RED)

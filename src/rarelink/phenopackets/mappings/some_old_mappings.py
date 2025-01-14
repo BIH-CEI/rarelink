@@ -1,7 +1,7 @@
-"""
-for now not necessary, all codes are processed to the LinkML schema automatically.
-only mapping will be needed between linkml schema and phenopacket schema
-"""
+# """
+# for now not necessary, all codes are processed to the LinkML schema automatically.
+# only mapping will be needed between linkml schema and phenopacket schema
+# """
 
 # from typing import List
 # import pandas as pd
@@ -189,4 +189,4 @@ only mapping will be needed between linkml schema and phenopacket schema
 #     data_set.to_csv(output_path, index=False)
 #     # add XML or whatever necessary too
     
-#     return output_path
+# #     return output_path
