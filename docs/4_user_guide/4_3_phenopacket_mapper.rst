@@ -17,15 +17,8 @@ Via the RareLink CLI type:
 
 .. code-block:: bash
 
-    rarelink setup -pipeline Phenopacket
-    rarelink pipeline -run Phenopacket
-
-Further Links Phenopacket Mapper
----------------------------------
-
-- `Phenopacket Mapper Documentation <https://bih-cei.github.io/phenopacket_mapper/stable/>`_
-- `Phenopacket Mapper GitHub <https://github.com/BIH-CEI/phenopacket_mapper>`_
-
+    rarelink phenopackets setup
+    rarelink phenopackets export
 
 RareLink Phenopacket Mapper Configuration
 _________________________________________

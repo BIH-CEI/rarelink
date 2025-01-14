@@ -6,9 +6,8 @@ Welcome to the RareLink REDCap Documentation!
     :alt: Documentation Status
 
 .. warning:: 
-    RareLink v2.0.0.dev0 is currently under development, and many things are 
-    subject to change. Please reach out before implementing or using the 
-    software to ensure you have the latest updates and guidance.
+   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
+   it to ensure you have the latest updates and guidance.
 
 RareLink is a novel framework designed for managing and processing rare disease 
 (RD) data within the REDCap. Rare diseases affect over 260 million individuals 
@@ -17,9 +16,9 @@ and clinical care. RareLink aims to standardize and streamline RD data managemen
 around REDCap by providing a structured project setup that ensures consistency 
 across data collection instruments, variables, and data dictionaries. This setup
 allows the linkage and export to data the standards HL7 FHIR and the 
-GA4GH Phenopacket Schema. In the following you will find detailed information on the RareLink framework,
-including its background, components, installation instructions, user guide,
-and full examples. 
+GA4GH Phenopacket Schema. In the following you will find detailed information on
+the RareLink framework, including its background, components, installation 
+instructions, user guide, and full examples. 
 
 .. image:: _static/res/rarelink_overview.png
    :alt: RareLink Overview
@@ -96,7 +95,7 @@ Sections
 - :doc:`4_user_guide/4_3_phenopacket_mapper`
 - :doc:`4_user_guide/4_4_tofhir_module`
 - :doc:`4_user_guide/4_5_develop_redcap_instruments`
-- :doc:`4_user_guide/4_6_redcap_project_interaction`
+- :doc:`4_user_guide/4_6_redcap_tools`
 
 5) Full Examples
 -----------------
@@ -115,7 +114,7 @@ Additional Information
 - :doc:`9_acknowledgements`
 - :doc:`10_license`
 - :doc:`11_download_manifest`
-
+- :doc:`12_contact`
 
 .. toctree::
    :caption: Background 
@@ -162,7 +161,7 @@ Additional Information
    4_user_guide/4_3_phenopacket_mapper
    4_user_guide/4_4_tofhir_module
    4_user_guide/4_5_develop_redcap_instruments
-   4_user_guide/4_6_redcap_project_interaction
+   4_user_guide/4_6_redcap_tools
 
 .. toctree::
    :caption: Full Examples
@@ -186,6 +185,8 @@ Additional Information
    8_glossary
    9_acknowledgements
    10_license
+   11_download_manifest
+   12_contact
 
 
 Indices and tables

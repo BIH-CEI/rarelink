@@ -1,18 +1,48 @@
 .. _fhir_commands:
 
-FHIR Commands
-=============
+Generate FHIR Resources
+========================
 
-This section details the commands available in the RareLink CLI to manage the
+The RareLink FHIR module implements the `open-source toFHIR engine <https://github.com/srdc/tofhir>`_ 
+which converts all data from the :ref:`2_2` into FHIR resources. This section details the commands available in the RareLink CLI to manage the
 FHIR module and associated pipelines.
 
 .. attention:: 
-   - Please ensure you are authorized to export (real-world) data to
-      the configured FHIR server. This includes verifying compliance with
-      the ethical agreement and data protection regulations of your study 
-      or registry
-   - Be aware of your projects development and production mode. Read the
-      :ref:`1_6` section and discuss this with your FHIR server administrator!
+   - Please ensure you are **authorized to export (real-world) data** to
+     the configured FHIR server. This includes verifying compliance with
+     the ethical agreement and data protection regulations of your study 
+     or registry
+   - Be aware of your projects **development and production mode**. Read the
+     :ref:`1_6` section and discuss this with your FHIR server administrator!
+
+How to get started:
+-------------------
+
+To use these functionalities, you need a running REDCap project with API access 
+and the RareLink-CDM instruments. You also need the framework and all its
+components running. You can run the following commands to set everything up: 
+
+- ``rarelink framework update`` to update the framework and all components.
+- ``rarelink setup redcap-project`` to set up a REDCap project with your REDCap 
+  administrator. 
+- ``rarelink setup keys`` to set up the REDCap API access locally.
+
+_____________________________________________________________________________________
+
+
+FHIR Profiles
+--------------
+
+These FHIR resources generated are based on the HL7 FHIR `International Patient Summary (IPS) <https://www.hl7.org/fhir/ips.html>`_
+and `Genomoics Reporting <https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html>`_ 
+profiles. The :ref:`2_2` FHIR profiles include these dependencies to generate
+the FHIR resources that are compliant with the IPS and the GenomicsReporting 
+profiles. For more information on FHIR, please read the background section
+:ref:`1_4`.
+
+.. hint::
+   You can check out the :ref:`2_2` FHIR Profiles in **draft** `here <https://github.com/BIH-CEI/rarelink/tree/develop/src/fsh/input/fsh>`_ 
+_____________________________________________________________________________________
 
 .. _setup_command:
 
@@ -24,25 +54,33 @@ FHIR module and associated pipelines.
    rarelink fhir setup
 
 **What it does**:
+
 - Configures the `toFHIR` pipeline for RareLink.
 - Validates required setup files (`.env`, `redcap-projects.json`).
 - Prompts for the FHIR server URL and saves it to `.env`.
 
 **Requirements**:
+ 
 - Docker and Docker Compose must be installed.
-- A FHIR server must be accessible or created locally using `rarelink fhir hapi-server`.
+- A FHIR server must be accessible or created locally using ``rarelink fhir hapi-server``.
 
 **Steps**:
+
 1. Ensure the `.env` file exists and contains:
-   - `BIOPORTAL_API_TOKEN`
-   - `REDCAP_URL`
-   - `REDCAP_PROJECT_ID`
-   - `REDCAP_API_TOKEN`
-   ... otherwise run `rarelink setup keys` to set them up.
+
+.. code:: bash
+    
+   BIOPORTAL_API_TOKEN:<your_bioportal_api_token>
+   REDCAP_URL:<your_redcap_url>
+   REDCAP_PROJECT_ID:<your_redcap_project_id>
+   REDCAP_API_TOKEN:<your_redcap_api_token>
+
+... otherwise run ``rarelink setup keys`` to set them up.
+
 2. Run the command and provide the FHIR server URL.
 3. Confirm Docker is installed, or follow prompts to install it.
 
----
+_____________________________________________________________________________________
 
 .. _hapi_server_command:
 
@@ -54,23 +92,28 @@ FHIR module and associated pipelines.
    rarelink fhir hapi-server
 
 **What it does**:
+
 - Sets up a local HAPI FHIR server using Docker.
 - Creates a Docker network (`shared-network`) if not present.
 - Runs the HAPI FHIR server container.
 
 **Requirements**:
+
 - Docker must be installed.
 
 **Steps**:
+
 1. Run the command.
 2. If the server container already exists, it restarts it.
 3. Access the server at `http://localhost:8080`.
 
 **Hints**:
+
 - Data is stored in the Docker container. Avoid removing it to preserve data.
 - Use this command if no external FHIR server is available.
 
----
+
+_____________________________________________________________________________________
 
 .. _export_command:
 
@@ -82,23 +125,27 @@ FHIR module and associated pipelines.
    rarelink fhir export
 
 **What it does**:
+
 - Exports data from REDCap to the configured FHIR server.
 - Validates `.env` and `redcap-projects.json` files.
 - Runs the ToFHIR pipeline using Docker Compose.
 
 **Requirements**:
+
 - `.env` and `redcap-projects.json` must be valid.
 - Docker and Docker Compose must be installed.
 
 **Steps**:
-1. Validate setup files using `rarelink fhir setup`.
+
+1. Validate setup files using ``rarelink fhir setup``.
 2. Ensure the ethical agreement for exporting data is fulfilled.
 3. Run the command to start the ToFHIR pipeline.
 
 **Logs**:
-- Use `docker logs -f tofhir` to monitor the export process in real time.
 
----
+- Use ``docker logs -f tofhir`` to monitor the export process in real time.
+
+_____________________________________________________________________________________
 
 .. _restart_docker_command:
 
@@ -110,49 +157,51 @@ FHIR module and associated pipelines.
    rarelink fhir restart-dockers
 
 **What it does**:
+
 - Stops all running Docker containers.
 - Removes stopped containers.
 - Restarts the necessary containers using `docker-compose`.
 
 **Steps**:
+
 1. Run the command.
 2. Monitor logs if needed (e.g., `docker logs -f <container>`).
 
----
+_____________________________________________________________________________________
 
 .. _docker_commands:
 
 Docker Commands
-===============
+----------------
 
 These commands help manage Docker containers used in the RareLink framework.
 
-1. **Stop All Containers**:
+- **Stop All Containers**:
 
    .. code-block:: bash
 
       docker stop $(docker ps -q)
 
-2. **Remove Stopped Containers**:
+- **Remove Stopped Containers**:
 
    .. code-block:: bash
 
       docker rm $(docker ps -aq)
 
-3. **Restart Containers with Docker Compose**:
+- **Restart Containers with Docker Compose**:
 
    .. code-block:: bash
 
       docker-compose down
       docker-compose up -d
 
-4. **Inspect a Running Container**:
+- **Inspect a Running Container**:
 
    .. code-block:: bash
 
       docker exec -it <container_name> /bin/bash
 
-5. **View Logs**:
+- **View Logs**:
 
    .. code-block:: bash
 
@@ -166,14 +215,14 @@ These commands help manage Docker containers used in the RareLink framework.
 
    This shows real-time logs for the `tofhir` export process.
 
-6. **Copy Files from a Container**:
+- **Copy Files from a Container**:
 
    .. code-block:: bash
 
       docker cp <container_name>:/path/to/file /local/destination
 
----
+_____________________________________________________________________________________
 
-**Tip**:
-For detailed troubleshooting, refer to the RareLink documentation or :ref:`12` 
-us.
+.. note:: 
+   For detailed troubleshooting, refer to the RareLink documentation or :ref:`12` 
+   us.

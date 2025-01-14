@@ -20,7 +20,7 @@ GA4GH Phenopacket Schema and the HL7 FHIR standard.
    :caption: Contents
 
    2_1_rarelink_overview
-   2_2_rarelink_cdm_instruments
+   2_2_rarelink_cdm
    2_3_rarelink_cli
 
    

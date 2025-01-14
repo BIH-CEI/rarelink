@@ -1,7 +1,7 @@
 .. _4_6:
 
-REDCap Project Interaction
-===========================
+REDCap Tools
+==============
 
 Once you have your API access set up, you can interact with your REDCap project: 
 
@@ -9,7 +9,7 @@ Once you have your API access set up, you can interact with your REDCap project:
     This section is still to be implemented in the docuemntation.
 
 
-AAPI Endpoints
+API Endpoints
 ----------------
 
 **Export Records**
@@ -21,14 +21,6 @@ The `export-records` command allows users to export records from REDCap.
     rarelink redcap export-records
 
 
-**Export Project**
-
-The `export-project` command allows users to export the project metadata from REDCap.
-
-.. code-block:: bash
-
-    rarelink redcap export-project
-
 
 **Import Records**
 
@@ -39,12 +31,13 @@ The `import-records` command allows users to import records into REDCap.
     rarelink redcap import-records
 
 
-**Import Project**
+**Fetch Metadata**
 
-The `import-project` command allows users to import the preconfigured RareLink 
-project into your local REDCap. 
+The `fetch-metadata` command allows users to fetch metadata from REDCap.
 
 .. code-block:: bash
-    
-    rarelink redcap import-project       
+
+    rarelink redcap fetch-metadata
+
+
 
