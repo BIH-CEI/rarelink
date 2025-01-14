@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "AgreementToBeContactedVS",
+  "id": "agreement-to-be-contacted-vs",
+  "title": "Agreement to Be Contacted Value Set",
+  "description": "Value set for capturing agreement to be contacted for research.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/agreement-to-be-contacted-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "373066001",
+            "display": "Yes"
+          },
+          {
+            "code": "373067005",
+            "display": "No"
+          },
+          {
+            "code": "261665006",
+            "display": "Unknown"
+          }
+        ]
+      }
+    ]
+  }
+}

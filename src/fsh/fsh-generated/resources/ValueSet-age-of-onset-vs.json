@@ -1,0 +1,58 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "AgeOfOnsetVS",
+  "id": "age-of-onset-vs",
+  "title": "Age of Onset Value Set",
+  "description": "Value set for capturing the age of onset for phenotypes.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.human-phenotype-ontology.org",
+        "concept": [
+          {
+            "code": "0011460",
+            "display": "Embryonal onset (0w-8w embryonal)"
+          },
+          {
+            "code": "0011461",
+            "display": "Fetal onset (8w embryonal - birth)"
+          },
+          {
+            "code": "0003577",
+            "display": "Congenital onset (at birth)"
+          },
+          {
+            "code": "0003623",
+            "display": "Neonatal onset (0d-28d)"
+          },
+          {
+            "code": "0003593",
+            "display": "Infantile onset (28d-1y)"
+          },
+          {
+            "code": "0011463",
+            "display": "Childhood onset (1y-5y)"
+          },
+          {
+            "code": "0003621",
+            "display": "Juvenile onset (5y-15y)"
+          },
+          {
+            "code": "0011462",
+            "display": "Young adult onset (16y-40y)"
+          },
+          {
+            "code": "0003596",
+            "display": "Middle age adult onset (40y-60y)"
+          },
+          {
+            "code": "0003584",
+            "display": "Late adult onset (60y+)"
+          }
+        ]
+      }
+    ]
+  }
+}

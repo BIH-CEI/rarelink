@@ -1,0 +1,551 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "rarelink-ig",
+  "url": "https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig",
+  "version": "2.0.0-dev0",
+  "name": "RareLinkImplementationGuide",
+  "title": "RareLink Implementation Guide",
+  "status": "draft",
+  "publisher": "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact": [
+    {
+      "name": "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://github.com/BIH-CEI/RareLink"
+        },
+        {
+          "system": "email",
+          "value": "adam.graefe@charite.de"
+        }
+      ]
+    }
+  ],
+  "description": "An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR and the IPS 2.0.0 profiles, harmonizing international rare disease registries.\n",
+  "packageId": "rarelink-ig",
+  "license": "BSD 3-Clause License",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "uri": "http://hl7.org/fhir/StructureDefinition/uri",
+      "version": "4.0.1",
+      "id": "hl7_fhir_r4_core"
+    },
+    {
+      "packageId": "hl7.fhir.uv.ips",
+      "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
+      "version": "2.0.0",
+      "id": "hl7_fhir_uv_ips"
+    },
+    {
+      "packageId": "hl7.fhir.uv.genomics-reporting",
+      "uri": "http://hl7.org/fhir/uv/genomics-reporting/ImplementationGuide/hl7.fhir.uv.genomics-reporting",
+      "version": "3.0.0",
+      "id": "hl7_fhir_uv_genomics_reporting"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/age-at-diagnosis"
+        },
+        "name": "Age at Diagnosis",
+        "description": "ERDRI-CDS - The age at which the condition was diagnosed.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-at-diagnosis-vs"
+        },
+        "name": "Age at Diagnosis Value Set",
+        "description": "Value set for capturing age at diagnosis.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/age-at-onset"
+        },
+        "name": "Age at Onset",
+        "description": "ERDRI-CDS - The age at which the condition first appeared.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-at-onset-vs"
+        },
+        "name": "Age at Onset Value Set",
+        "description": "Value set for capturing age at onset.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-category-vs"
+        },
+        "name": "Age Category Value Set",
+        "description": "Value set for capturing the age category of a patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/age-of-onset-vs"
+        },
+        "name": "Age of Onset Value Set",
+        "description": "Value set for capturing the age of onset for phenotypes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/agreement-to-be-contacted"
+        },
+        "name": "Agreement to Be Contacted",
+        "description": "ERDRI-CDS - Agreement to be contacted for research purposes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/agreement-to-be-contacted-vs"
+        },
+        "name": "Agreement to Be Contacted Value Set",
+        "description": "Value set for capturing agreement to be contacted for research.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/birthplace"
+        },
+        "name": "Birth Place",
+        "description": "The patient's place of birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cause-of-death"
+        },
+        "name": "Cause of Death",
+        "description": "The cause of death for the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/clinical-annotation-evidence-vs"
+        },
+        "name": "Clinical Annotation Level of Evidence Value Set",
+        "description": "Value set for clinical annotation levels of evidence.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/clinical-significance-acmg-vs"
+        },
+        "name": "Clinical Significance ACMG Value Set",
+        "description": "Value set for ACMG clinical significance levels.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/consanguinity"
+        },
+        "name": "Consanguinity",
+        "description": "Indicates whether there is consanguinity in the family relationship.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/consanguinity-vs"
+        },
+        "name": "Consanguinity Value Set",
+        "description": "Value set for indicating whether there is consanguinity in the family relationship.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/consent-to-reuse-data"
+        },
+        "name": "Consent to Reuse Data",
+        "description": "ERDRI-CDS - Consent to the reuse of data.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/consent-to-reuse-vs"
+        },
+        "name": "Consent to Reuse Data Value Set",
+        "description": "Value set for capturing consent to reuse data.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/date-of-admission"
+        },
+        "name": "Date of Admission",
+        "description": "The date of the patient's admission.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dna-change-type-vs"
+        },
+        "name": "DNA Change Type Value Set",
+        "description": "Value set for capturing DNA change types.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/encounter-class-vs"
+        },
+        "name": "Encounter Class Value Set",
+        "description": "Value set for encounter classes, including custom RareLink-specific codes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/family-sex-vs"
+        },
+        "name": "Family Member Sex Value Set",
+        "description": "Value set for capturing the sex of a family member.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/family-relationship-vs"
+        },
+        "name": "Family Relationship Value Set",
+        "description": "Value set for capturing family member relationships.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/gender-identity-vs"
+        },
+        "name": "Gender Identity Value Set",
+        "description": "Value set for gender identity.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/genomic-source-class-vs"
+        },
+        "name": "Genomic Source Class Value Set",
+        "description": "Value set for capturing genomic source classes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/interpretation-status-vs"
+        },
+        "name": "Interpretation Status Value Set",
+        "description": "Value set for interpretation statuses.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/karyotypic-sex-vs"
+        },
+        "name": "Karyotypic Sex Value Set",
+        "description": "Value set for capturing karyotypic sex.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/patient-status-date"
+        },
+        "name": "Patient Status Date",
+        "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/phenotype-modifier"
+        },
+        "name": "Phenotype Modifier",
+        "description": "Captures modifiers for the phenotypic feature, such as severity or specific classifications.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/phenotypie-severity-vs"
+        },
+        "name": "Phenotype Severity Value Set",
+        "description": "Value set for capturing phenotype severity.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/phenotype-status"
+        },
+        "name": "Phenotype Status",
+        "description": "Captures the status of a phenotypic feature, such as confirmed present or refuted.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/phenotype-status-vs"
+        },
+        "name": "Phenotype Status Value Set",
+        "description": "Value set for capturing phenotype status.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/progress-status-interpretation-vs"
+        },
+        "name": "Progress Status of Interpretation Value Set",
+        "description": "Value set for capturing the progress status of interpretation.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/propositus"
+        },
+        "name": "Propositus",
+        "description": "Indicates whether the family member is the propositus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/propositus-vs"
+        },
+        "name": "Propositus Value Set",
+        "description": "Value set for indicating whether the family member is the propositus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-condition-undiagnosed-rd-case"
+        },
+        "name": "RareLink Condition for Undiagnosed RD Case",
+        "description": "A RareLink-specific Condition profile for documenting undiagnosed rare disease cases based on the IPS Condition profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-consent"
+        },
+        "name": "RareLink Consent",
+        "description": "A RareLink-specific Consent profile based on the Consent resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-encounter"
+        },
+        "name": "RareLink Encounter",
+        "description": "A RareLink-specific Encounter profile based on the Encounter resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-familyhistory"
+        },
+        "name": "RareLink Family History",
+        "description": "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-condition"
+        },
+        "name": "RareLink IPS Condition",
+        "description": "A RareLink-specific Condition profile based on the IPS Condition profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-measurement-laboratory"
+        },
+        "name": "RareLink IPS Measurement Laboratory",
+        "description": "A RareLink-specific profile for laboratory measurements based on the IPS Observation profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-measurement-radiology"
+        },
+        "name": "RareLink IPS Measurement Radiology",
+        "description": "A RareLink-specific profile for radiology measurements based on the IPS Observation profile.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-patient"
+        },
+        "name": "RareLink IPS Patient",
+        "description": "A RareLink-specific profile for the IPS Patient resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-patient-vital-status"
+        },
+        "name": "RareLink IPS Patient Vital Status",
+        "description": "A RareLink-specific profile for the IPS Patient resource with vital status extensions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-ips-procedure"
+        },
+        "name": "RareLink IPS Procedure",
+        "description": "A RareLink-specific profile for the IPS Procedure resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-age-category"
+        },
+        "name": "RareLink Observation Age Category",
+        "description": "A RareLink-specific profile for capturing the age category of\n a patient as an observation, based on the ERDRI-CDS value set.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-genetic-findings"
+        },
+        "name": "RareLink Observation Genetic Findings",
+        "description": "A RareLink-specific profile for capturing genetic findings.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-gestation-at-birth"
+        },
+        "name": "RareLink Observation Gestation at Birth",
+        "description": "A RareLink-specific profile for capturing gestation length at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-karyotypic-sex"
+        },
+        "name": "RareLink Observation Karyotypic Sex",
+        "description": "A RareLink-specific profile for capturing karyotypic sex information.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-measurements-others"
+        },
+        "name": "RareLink Observation Measurements (Others)",
+        "description": "A RareLink-specific profile for measurements that do not fall under IPS laboratory, radiology, procedures, or vital signs.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-phenotypic-feature"
+        },
+        "name": "RareLink Observation Phenotypic Feature",
+        "description": "A RareLink-specific profile for capturing phenotypic features.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-observation-vital-signs"
+        },
+        "name": "RareLink Vital Signs Measurements",
+        "description": "A RareLink-specific profile for vital signs measurements.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/recorded-sex-at-birth"
+        },
+        "name": "Recorded Sex at Birth",
+        "description": "The sex assigned to the patient at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/reference-genome-vs"
+        },
+        "name": "Reference Genome Value Set",
+        "description": "Value set for reference sequence assemblies.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/resolution-date"
+        },
+        "name": "Resolution Date",
+        "description": "The date when the phenotypic feature resolved.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/severity-vs"
+        },
+        "name": "Severity Value Set",
+        "description": "Value set for severity levels of conditions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/sex-at-birth-vs"
+        },
+        "name": "Sex at Birth Value Set",
+        "description": "Value set for capturing the sex assigned at birth.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/structural-variant-analysis-method-vs"
+        },
+        "name": "Structural Variant Analysis Method Value Set",
+        "description": "Value set for capturing structural variant analysis methods.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/temporal-pattern-vs"
+        },
+        "name": "Temporal Pattern Value Set",
+        "description": "Value set for capturing the temporal pattern of phenotypic features.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/undiagnosed-rd-case-vs"
+        },
+        "name": "Undiagnosed Rare Disease Case Value Set",
+        "description": "Value set for capturing undiagnosed rare disease cases.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/vital-status-vs"
+        },
+        "name": "Vital Status Value Set",
+        "description": "Value set for capturing the vital status of the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/zygosity-vs"
+        },
+        "name": "Zygosity Value Set",
+        "description": "Value set for capturing zygosity.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": []
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2025"
+      },
+      {
+        "code": "releaselabel",
+        "value": "2.0.0.dev0"
+      }
+    ]
+  }
+}

@@ -4,9 +4,9 @@ RareLink Overview
 =================
 
 .. warning:: 
-    RareLink v2.0.0.dev0 is currently under development, and many things are 
-    subject to change. Please reach out before implementing or using the 
-    software to ensure you have the latest updates and guidance.
+   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
+   it to ensure you have the latest updates and guidance.
+
 
 .. attention:: 
     You will need your own REDCap instance to deploy the RareLink framework.
@@ -110,3 +110,17 @@ _______________________
         - Guide to :ref:`4_3`
         - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
         - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 
+
+
+.. admonition:: Continue here...
+        - How to set up the :ref:`3_1`
+        - How to set up the :ref:`3_2`
+        - How to set up the :ref:`3_3`
+        - How to set up the :ref:`3_4`
+        - User guide for :ref:`4_1`
+        - User guide for :ref:`4_2`
+        - User guide for :ref:`4_3`
+        - User guide for :ref:`4_4`
+        - User guide for :ref:`4_5`
+        - User guide for :ref:`4_6`
+

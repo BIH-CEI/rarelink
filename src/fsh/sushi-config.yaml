@@ -1,27 +1,35 @@
 canonical: https://github.com/BIH-CEI/RareLink
 id: rarelink-ig
 name: RareLinkImplementationGuide
-title: "RareLink Implementation Guide" # Optional, but recommended for clarity
+title: "RareLink Implementation Guide"
 description: >
   An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR
   and the IPS 2.0.0 profiles, harmonizing international rare disease registries.
 version: 2.0.0-dev0
-status: active
-copyrightYear: 2024
-releaseLabel: dev0
-fhirVersion: 4.0.1 # Specify the FHIR version you are using
+status: draft
+license: BSD 3-Clause License
+copyrightYear: 2025
+releaseLabel: 2.0.0.dev0
+fhirVersion: 4.0.1
+publisher:
+  name: Berlin Institute of Health - Charité Universitätsmedizin Berlin
+  url: https://github.com/BIH-CEI/RareLink
+  email: adam.graefe@charite.de
 dependencies:
-  hl7.fhir.r4.core: # Core FHIR package
-    uri: http://hl7.org/fhir/R4/
+  hl7.fhir.r4.core:
+    uri: http://hl7.org/fhir/StructureDefinition/uri
     version: 4.0.1
-  hl7.fhir.uv.ips: # Reference for official IPS repository (1.1.0)
-    uri: https://build.fhir.org/ig/HL7/fhir-ips/
-    version: 1.1.0
-  ips-2.0.0: # Local reference for IPS 2.0.0 (manually integrated)
-    uri: https://build.fhir.org/ig/HL7/fhir-ips/
+  hl7.fhir.uv.ips:
+    uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
     version: 2.0.0
+  hl7.fhir.uv.genomics-reporting:
+    uri: http://hl7.org/fhir/uv/genomics-reporting/ImplementationGuide/hl7.fhir.uv.genomics-reporting
+    version: 3.0.0
 menu:
-  - name: Home
-    url: index.html
-  - name: Profiles
-    url: profiles.html
+  Home: index.html
+  Artifacts:
+    Profiles: artifacts.html#2
+    Extensions: artifacts.html#3
+    Value Sets: artifacts.html#4
+  Downloads: downloads.html
+  History: https://rarelink.readthedocs.io/en/latest/6_changelog.html

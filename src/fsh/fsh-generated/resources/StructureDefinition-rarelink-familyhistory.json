@@ -1,0 +1,130 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-familyhistory",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-familyhistory",
+  "name": "RareLinkFamilyHistory",
+  "title": "RareLink Family History",
+  "status": "draft",
+  "description": "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "FamilyMemberHistory",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "FamilyMemberHistory.meta.profile",
+        "path": "FamilyMemberHistory.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
+      },
+      {
+        "id": "FamilyMemberHistory.text.div",
+        "path": "FamilyMemberHistory.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Family History</strong></p><p>This profile is based on the RareLink-CDM Section (6.4) Family History and the FamilyMemberHistory resource.</p></div>"
+      },
+      {
+        "id": "FamilyMemberHistory.extension",
+        "path": "FamilyMemberHistory.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.extension:propositus",
+        "path": "FamilyMemberHistory.extension",
+        "sliceName": "propositus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "FamilyMemberHistory.extension:consanguinity",
+        "path": "FamilyMemberHistory.extension",
+        "sliceName": "consanguinity",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "FamilyMemberHistory.status",
+        "path": "FamilyMemberHistory.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/family-history-status"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.patient.reference",
+        "path": "FamilyMemberHistory.patient.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding",
+        "path": "FamilyMemberHistory.relationship.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding.system",
+        "path": "FamilyMemberHistory.relationship.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://snomed.info/sct"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding.code",
+        "path": "FamilyMemberHistory.relationship.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding",
+        "path": "FamilyMemberHistory.sex.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding.system",
+        "path": "FamilyMemberHistory.sex.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/administrative-gender"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding.code",
+        "path": "FamilyMemberHistory.sex.coding.code",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/family-sex-vs"
+        }
+      }
+    ]
+  }
+}

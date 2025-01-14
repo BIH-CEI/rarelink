@@ -1,0 +1,167 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-ips-condition",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-condition",
+  "name": "RareLinkIPSCondition",
+  "title": "RareLink IPS Condition",
+  "status": "draft",
+  "description": "A RareLink-specific Condition profile based on the IPS Condition profile.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+      },
+      {
+        "id": "Condition.text.div",
+        "path": "Condition.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Condition</strong></p><p>This profile is based on the RareLink-CDM Section (5) Disease and the IPS profile.</p></div>"
+      },
+      {
+        "id": "Condition.extension",
+        "path": "Condition.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.extension:age_at_diagnosis",
+        "path": "Condition.extension",
+        "sliceName": "age_at_diagnosis",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.extension:age_at_onset",
+        "path": "Condition.extension",
+        "sliceName": "age_at_onset",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+        }
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+        }
+      },
+      {
+        "id": "Condition.severity.coding",
+        "path": "Condition.severity.coding",
+        "max": "1"
+      },
+      {
+        "id": "Condition.severity.coding.system",
+        "path": "Condition.severity.coding.system",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://snomed.info/sct"
+        }
+      },
+      {
+        "id": "Condition.severity.coding.code",
+        "path": "Condition.severity.coding.code",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs"
+        }
+      },
+      {
+        "id": "Condition.bodySite",
+        "path": "Condition.bodySite",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.bodySite.coding",
+        "path": "Condition.bodySite.coding",
+        "max": "1"
+      },
+      {
+        "id": "Condition.bodySite.coding.system",
+        "path": "Condition.bodySite.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://snomed.info/sct"
+        }
+      },
+      {
+        "id": "Condition.subject.reference",
+        "path": "Condition.subject.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.onset[x]:onsetDateTime",
+        "path": "Condition.onset[x]",
+        "sliceName": "onsetDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

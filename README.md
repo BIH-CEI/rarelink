@@ -232,7 +232,6 @@ use of REDCap for rare disease research and care.
 - [RD-CDM](https://github.com/BIH-CEI/rd-cdm)
 - [toFHIR](https://github.com/srdc/tofhir)
 - [toFHIR-redcap](https://github.com/srdc/tofhir-redcap)
-- [Phenopacket Mapper](https://github.com/BIH-CEI/phenopacket_mapper)
 - [HL7 FHIR-IPS](https://github.com/HL7/fhir-ips)
 - [LinkML](https://github.com/linkml/linkml)
 

@@ -1,0 +1,482 @@
+[
+  {
+    "outputFile": "StructureDefinition-age-at-diagnosis.json",
+    "fshName": "AgeAtDiagnosis",
+    "fshType": "Extension",
+    "fshFile": "condition.fsh",
+    "startLine": 43,
+    "endLine": 50
+  },
+  {
+    "outputFile": "StructureDefinition-age-at-onset.json",
+    "fshName": "AgeAtOnset",
+    "fshType": "Extension",
+    "fshFile": "condition.fsh",
+    "startLine": 51,
+    "endLine": 56
+  },
+  {
+    "outputFile": "StructureDefinition-agreement-to-be-contacted.json",
+    "fshName": "AgreementToBeContacted",
+    "fshType": "Extension",
+    "fshFile": "consent.fsh",
+    "startLine": 38,
+    "endLine": 45
+  },
+  {
+    "outputFile": "StructureDefinition-birthplace.json",
+    "fshName": "BirthPlace",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 40,
+    "endLine": 48
+  },
+  {
+    "outputFile": "StructureDefinition-cause-of-death.json",
+    "fshName": "CauseOfDeath",
+    "fshType": "Extension",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 33,
+    "endLine": 41
+  },
+  {
+    "outputFile": "StructureDefinition-consanguinity.json",
+    "fshName": "Consanguinity",
+    "fshType": "Extension",
+    "fshFile": "family_history.fsh",
+    "startLine": 53,
+    "endLine": 60
+  },
+  {
+    "outputFile": "StructureDefinition-consent-to-reuse-data.json",
+    "fshName": "ConsentToReuseData",
+    "fshType": "Extension",
+    "fshFile": "consent.fsh",
+    "startLine": 28,
+    "endLine": 37
+  },
+  {
+    "outputFile": "StructureDefinition-date-of-admission.json",
+    "fshName": "DateOfAdmission",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 49,
+    "endLine": 55
+  },
+  {
+    "outputFile": "StructureDefinition-patient-status-date.json",
+    "fshName": "PatientStatusDate",
+    "fshType": "Extension",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 42,
+    "endLine": 46
+  },
+  {
+    "outputFile": "StructureDefinition-phenotype-modifier.json",
+    "fshName": "PhenotypeModifier",
+    "fshType": "Extension",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 76,
+    "endLine": 83
+  },
+  {
+    "outputFile": "StructureDefinition-phenotype-status.json",
+    "fshName": "PhenotypeStatus",
+    "fshType": "Extension",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 59,
+    "endLine": 68
+  },
+  {
+    "outputFile": "StructureDefinition-propositus.json",
+    "fshName": "Propositus",
+    "fshType": "Extension",
+    "fshFile": "family_history.fsh",
+    "startLine": 43,
+    "endLine": 52
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-condition-undiagnosed-rd-case.json",
+    "fshName": "RareLinkConditionUndiagnosedRDCase",
+    "fshType": "Profile",
+    "fshFile": "condition_undiagnosed_rd.fsh",
+    "startLine": 4,
+    "endLine": 21
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-consent.json",
+    "fshName": "RareLinkConsent",
+    "fshType": "Profile",
+    "fshFile": "consent.fsh",
+    "startLine": 3,
+    "endLine": 27
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-encounter.json",
+    "fshName": "RareLinkEncounter",
+    "fshType": "Profile",
+    "fshFile": "care_pathway.fsh",
+    "startLine": 4,
+    "endLine": 21
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-familyhistory.json",
+    "fshName": "RareLinkFamilyHistory",
+    "fshType": "Profile",
+    "fshFile": "family_history.fsh",
+    "startLine": 3,
+    "endLine": 42
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-condition.json",
+    "fshName": "RareLinkIPSCondition",
+    "fshType": "Profile",
+    "fshFile": "condition.fsh",
+    "startLine": 2,
+    "endLine": 42
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-measurement-laboratory.json",
+    "fshName": "RareLinkIPSMeasurementLaboratory",
+    "fshType": "Profile",
+    "fshFile": "measurements_laboratory.fsh",
+    "startLine": 8,
+    "endLine": 45
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-measurement-radiology.json",
+    "fshName": "RareLinkIPSMeasurementRadiology",
+    "fshType": "Profile",
+    "fshFile": "measurements_radiology.fsh",
+    "startLine": 8,
+    "endLine": 45
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-patient-vital-status.json",
+    "fshName": "RareLinkIPSPatientVitalStatus",
+    "fshType": "Profile",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 4,
+    "endLine": 32
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-patient.json",
+    "fshName": "RareLinkIPSPatient",
+    "fshType": "Profile",
+    "fshFile": "patient.fsh",
+    "startLine": 4,
+    "endLine": 39
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-ips-procedure.json",
+    "fshName": "RareLinkIPSProcedure",
+    "fshType": "Profile",
+    "fshFile": "procedure.fsh",
+    "startLine": 4,
+    "endLine": 31
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-karyotypic-sex.json",
+    "fshName": "RareLinkKaryotypicSex",
+    "fshType": "Profile",
+    "fshFile": "observation_karyotypic_sex.fsh",
+    "startLine": 3,
+    "endLine": 29
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-age-category.json",
+    "fshName": "RareLinkAgeCategory",
+    "fshType": "Profile",
+    "fshFile": "observation_age_category.fsh",
+    "startLine": 4,
+    "endLine": 33
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-genetic-findings.json",
+    "fshName": "RareLinkGeneticFindings",
+    "fshType": "Profile",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 6,
+    "endLine": 42
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-gestation-at-birth.json",
+    "fshName": "RareLinkGestationAtBirth",
+    "fshType": "Profile",
+    "fshFile": "observation_gestation_length.fsh",
+    "startLine": 1,
+    "endLine": 25
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-measurements-others.json",
+    "fshName": "RareLinkIPSMeasurementsOthers",
+    "fshType": "Profile",
+    "fshFile": "measurements_other.fsh",
+    "startLine": 6,
+    "endLine": 48
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-observation-vital-signs.json",
+    "fshName": "RareLinkIPSMeasurementsVitalSigns",
+    "fshType": "Profile",
+    "fshFile": "measurements_vitalsigns.fsh",
+    "startLine": 5,
+    "endLine": 49
+  },
+  {
+    "outputFile": "StructureDefinition-rarelink-phenotypic-feature.json",
+    "fshName": "RareLinkPhenotypicFeature",
+    "fshType": "Profile",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 4,
+    "endLine": 58
+  },
+  {
+    "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
+    "fshName": "RecordedSexAtBirth",
+    "fshType": "Extension",
+    "fshFile": "patient.fsh",
+    "startLine": 56,
+    "endLine": 62
+  },
+  {
+    "outputFile": "StructureDefinition-resolution-date.json",
+    "fshName": "ResolutionDate",
+    "fshType": "Extension",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 69,
+    "endLine": 75
+  },
+  {
+    "outputFile": "ValueSet-age-at-diagnosis-vs.json",
+    "fshName": "AgeAtDiagnosisVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 67,
+    "endLine": 74
+  },
+  {
+    "outputFile": "ValueSet-age-at-onset-vs.json",
+    "fshName": "AgeAtOnsetVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 76,
+    "endLine": 83
+  },
+  {
+    "outputFile": "ValueSet-age-category-vs.json",
+    "fshName": "AgeCategoryVS",
+    "fshType": "ValueSet",
+    "fshFile": "observation_age_category.fsh",
+    "startLine": 42,
+    "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-age-of-onset-vs.json",
+    "fshName": "AgeOfOnsetVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 93,
+    "endLine": 106
+  },
+  {
+    "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",
+    "fshName": "AgreementToBeContactedVS",
+    "fshType": "ValueSet",
+    "fshFile": "consent.fsh",
+    "startLine": 55,
+    "endLine": 61
+  },
+  {
+    "outputFile": "ValueSet-clinical-annotation-evidence-vs.json",
+    "fshName": "ClinicalAnnotationEvidenceVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 195,
+    "endLine": 205
+  },
+  {
+    "outputFile": "ValueSet-clinical-significance-acmg-vs.json",
+    "fshName": "ClinicalSignificanceACMGVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 184,
+    "endLine": 193
+  },
+  {
+    "outputFile": "ValueSet-consanguinity-vs.json",
+    "fshName": "ConsanguinityVS",
+    "fshType": "ValueSet",
+    "fshFile": "family_history.fsh",
+    "startLine": 71,
+    "endLine": 78
+  },
+  {
+    "outputFile": "ValueSet-consent-to-reuse-vs.json",
+    "fshName": "ConsentToReuseVS",
+    "fshType": "ValueSet",
+    "fshFile": "consent.fsh",
+    "startLine": 47,
+    "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-dna-change-type-vs.json",
+    "fshName": "DNAChangeTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 171,
+    "endLine": 182
+  },
+  {
+    "outputFile": "ValueSet-encounter-class-vs.json",
+    "fshName": "EncounterClassVS",
+    "fshType": "ValueSet",
+    "fshFile": "care_pathway.fsh",
+    "startLine": 28,
+    "endLine": 39
+  },
+  {
+    "outputFile": "ValueSet-family-relationship-vs.json",
+    "fshName": "FamilyRelationshipVS",
+    "fshType": "ValueSet",
+    "fshFile": "family_history.fsh",
+    "startLine": 80,
+    "endLine": 95
+  },
+  {
+    "outputFile": "ValueSet-family-sex-vs.json",
+    "fshName": "FamilySexVS",
+    "fshType": "ValueSet",
+    "fshFile": "family_history.fsh",
+    "startLine": 97,
+    "endLine": 105
+  },
+  {
+    "outputFile": "ValueSet-gender-identity-vs.json",
+    "fshName": "GenderIdentityVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient.fsh",
+    "startLine": 64,
+    "endLine": 72
+  },
+  {
+    "outputFile": "ValueSet-genomic-source-class-vs.json",
+    "fshName": "GenomicSourceClassVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 158,
+    "endLine": 169
+  },
+  {
+    "outputFile": "ValueSet-interpretation-status-vs.json",
+    "fshName": "InterpretationStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 100,
+    "endLine": 108
+  },
+  {
+    "outputFile": "ValueSet-karyotypic-sex-vs.json",
+    "fshName": "KaryotypicSexVS",
+    "fshType": "ValueSet",
+    "fshFile": "observation_karyotypic_sex.fsh",
+    "startLine": 36,
+    "endLine": 50
+  },
+  {
+    "outputFile": "ValueSet-phenotype-status-vs.json",
+    "fshName": "PhenotypeStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 86,
+    "endLine": 91
+  },
+  {
+    "outputFile": "ValueSet-phenotypie-severity-vs.json",
+    "fshName": "PhenotypeSeverityVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 121,
+    "endLine": 129
+  },
+  {
+    "outputFile": "ValueSet-progress-status-interpretation-vs.json",
+    "fshName": "ProgressStatusInterpretationVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 110,
+    "endLine": 118
+  },
+  {
+    "outputFile": "ValueSet-propositus-vs.json",
+    "fshName": "PropositusVS",
+    "fshType": "ValueSet",
+    "fshFile": "family_history.fsh",
+    "startLine": 62,
+    "endLine": 69
+  },
+  {
+    "outputFile": "ValueSet-reference-genome-vs.json",
+    "fshName": "ReferenceGenomeVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 148,
+    "endLine": 156
+  },
+  {
+    "outputFile": "ValueSet-severity-vs.json",
+    "fshName": "SeverityVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition.fsh",
+    "startLine": 59,
+    "endLine": 65
+  },
+  {
+    "outputFile": "ValueSet-sex-at-birth-vs.json",
+    "fshName": "SexAtBirthVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient.fsh",
+    "startLine": 74,
+    "endLine": 82
+  },
+  {
+    "outputFile": "ValueSet-structural-variant-analysis-method-vs.json",
+    "fshName": "StructuralVariantAnalysisMethodVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 120,
+    "endLine": 133
+  },
+  {
+    "outputFile": "ValueSet-temporal-pattern-vs.json",
+    "fshName": "TemporalPatternVS",
+    "fshType": "ValueSet",
+    "fshFile": "phenotypic_feature.fsh",
+    "startLine": 108,
+    "endLine": 119
+  },
+  {
+    "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",
+    "fshName": "UndiagnosedRDCaseVS",
+    "fshType": "ValueSet",
+    "fshFile": "condition_undiagnosed_rd.fsh",
+    "startLine": 28,
+    "endLine": 33
+  },
+  {
+    "outputFile": "ValueSet-vital-status-vs.json",
+    "fshName": "VitalStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "patient_vitalstatus.fsh",
+    "startLine": 48,
+    "endLine": 56
+  },
+  {
+    "outputFile": "ValueSet-zygosity-vs.json",
+    "fshName": "ZygosityVS",
+    "fshType": "ValueSet",
+    "fshFile": "genetic_findings.fsh",
+    "startLine": 135,
+    "endLine": 146
+  }
+]

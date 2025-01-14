@@ -18,6 +18,7 @@
         "name": "RareLink IPS Condition",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Condition', record_id & '_' & snomed_64572001_ordo & snomed_64572001_mondo & snomed_64572001_omim & snomed_64572001_icd10cm & snomed_64572001_icd11 & snomed_263493007 & loinc_99498_8 & snomed_298059007 & snomed_432213005)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
@@ -38,12 +39,12 @@
             "coding": [
               {
                 "system": "{{? iif(snomed_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                "code": "{{? iif(snomed_64572001_mondo.empty().not(), snomed_64572001_mondo)}}",
+                "code": "{{? iif(snomed_64572001_mondo.empty().not(), snomed_64572001_mondo.substring(6))}}",
                 "version": "{{? iif(snomed_64572001_mondo.empty().not(), '2024-09-03')}}"
               },
               {
                 "system": "{{? iif(snomed_64572001_ordo.empty().not(), 'http://www.orpha.net/')}}",
-                "code": "{{? iif(snomed_64572001_ordo.empty().not(), snomed_64572001_ordo)}}",
+                "code": "{{? iif(snomed_64572001_ordo.empty().not(), snomed_64572001_ordo.substring(6))}}",
                 "version": "{{? iif(snomed_64572001_ordo.empty().not(), '2024-09-12')}}"
               },
               {
@@ -83,6 +84,17 @@
               }
             ]
           },
+          "bodySite": [
+            {
+              "coding": [
+                {
+                  "system": "{{? iif(snomed_363698007.empty().not(), 'http://snomed.info/sct')}}",
+                  "code": "{{? snomed_363698007}}",
+                  "version": "{{? iif(snomed_363698007.empty().not(), '2024-09-01')}}"
+                }
+              ]
+            }
+          ],
           "subject": {
             "reference": "Patient/{id}",
             "identifier": {
@@ -94,7 +106,39 @@
           "text": {
             "status": "{{'generated'}}",
             "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
-          }
+          },
+          "extension": [
+            {
+              "id": "{{? iif(snomed_423493009.empty().not(), 'ERDRI-CDS - Age at Diagnosis')}}",
+              "url": "{{? iif(snomed_423493009.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomed_423493009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_display')}}",
+                    "version": "{{? iif(snomed_423493009.empty().not(), '2024-09-01')}}"
+                  }
+                ],
+                "text": "{{? iif(snomed_423493009.empty().not(), 'SNOMED:423493009 - Age at Diagnosis')}}"
+              }
+            },
+            {
+              "id": "{{? iif(snomed_424850005.empty().not(), 'ERDRI-CDS - Age at Onset')}}",
+              "url": "{{? iif(snomed_424850005.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomed_424850005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomed_424850005, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomed_424850005, 'target_display')}}",
+                    "version": "{{? iif(snomed_424850005.empty().not(), '2024-09-01')}}"
+                  }
+                ],
+                "text": "{{? iif(snomed_424850005.empty().not(), 'SNOMED:424850005 - Age at Onset')}}"
+              }
+            }
+          ]
         }
       },
       "description": "RareLink IPS Condition"
@@ -103,15 +147,23 @@
   "context": {
     "diseaseVerificationStatus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/5_2_verification_status.csv"
+      "url": "$CONTEXT_REPO/5_2_verification_status.csv"
+    },
+    "rarelinkAgeAtDiagnosis": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_5_age_at_diagnosis.csv"
     },
     "diseaseClinicalStatus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/5_8_clinical_status.csv"
+      "url": "$CONTEXT_REPO/5_8_clinical_status.csv"
+    },
+    "diseaseAgeAtOnset": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_3_age_at_onset.csv"
     },
     "diseaseSeverity": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/5_9_severity.csv"
+      "url": "$CONTEXT_REPO/5_9_severity.csv"
     }
   }
 }

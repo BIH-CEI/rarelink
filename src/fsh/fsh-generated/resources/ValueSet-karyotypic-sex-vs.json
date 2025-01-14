@@ -1,0 +1,62 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "KaryotypicSexVS",
+  "id": "karyotypic-sex-vs",
+  "title": "Karyotypic Sex Value Set",
+  "description": "Value set for capturing karyotypic sex.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/karyotypic-sex-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "261665006",
+            "display": "Unknown"
+          },
+          {
+            "code": "734875008",
+            "display": "XX"
+          },
+          {
+            "code": "734876009",
+            "display": "XY"
+          },
+          {
+            "code": "80427008",
+            "display": "X0"
+          },
+          {
+            "code": "65162001",
+            "display": "XXY"
+          },
+          {
+            "code": "35111009",
+            "display": "XXX"
+          },
+          {
+            "code": "403760006",
+            "display": "XXYY"
+          },
+          {
+            "code": "78317008",
+            "display": "XXXY"
+          },
+          {
+            "code": "10567003",
+            "display": "XXXX"
+          },
+          {
+            "code": "48930007",
+            "display": "XYY"
+          },
+          {
+            "code": "74964007",
+            "display": "Other"
+          }
+        ]
+      }
+    ]
+  }
+}

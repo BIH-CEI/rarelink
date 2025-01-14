@@ -1,0 +1,45 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-encounter",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-encounter",
+  "name": "RareLinkEncounter",
+  "title": "RareLink Encounter",
+  "status": "draft",
+  "description": "A RareLink-specific Encounter profile based on the Encounter resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.meta.profile",
+        "path": "Encounter.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+      },
+      {
+        "id": "Encounter.text.div",
+        "path": "Encounter.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Encounter</strong></p><p>This profile is based on the RareLink-CDM Section (4) Care Pathway and the Encounter resource.</p></div>"
+      },
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/encounter-status"
+        }
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/encounter-class-vs"
+        }
+      }
+    ]
+  }
+}

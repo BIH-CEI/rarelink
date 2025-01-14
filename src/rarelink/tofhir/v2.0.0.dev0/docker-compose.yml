@@ -1,34 +1,52 @@
-version: '3.3'
 services:
   tofhir:
+    platform: linux/amd64
     image: srdc/tofhir-engine:latest
     container_name: tofhir
     environment:
       - CONTEXT_PATH=conf
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
-    command: [""] # CLI: run --job path.json
+      - SOURCE_URL=${REDCAP_URL}
+    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/rarelink-cdm.json"] ##rarelink-cdm job # CLI: run --job path.json
     volumes:
-      - ./:/usr/local/tofhir/conf
+      - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
+    env_file:
+      - .env
     depends_on:
       tofhir-redcap:
-        condition: service_started
+        condition: service_healthy
+    networks:
+      - shared-network
+      
   tofhir-redcap:
+    platform: linux/amd64
     image: srdc/tofhir-redcap:latest
     container_name: tofhir-redcap
     ports:
       - 8095:8095
     environment:
-      - APP_CONF_FILE=application.conf
-      - REDCAP_PROJECTS_FILEPATH=redcap-projects.json
+      - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
+      - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/redcap-projects.json
+    env_file:
+      - .env
     volumes:
-      - ./tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./src/rarelink/tofhir/v2.0.0.dev0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
       - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8095/tofhir-redcap/notification"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
     depends_on:
       kafka-1:
         condition: service_healthy
       kafka-2:
         condition: service_healthy
+    networks:
+      - shared-network
+
   kafka-1:
     image: bitnami/kafka:latest
     container_name: kafka-1
@@ -52,6 +70,9 @@ services:
       timeout: 10s
       retries: 5
       start_period: 20s
+    networks:
+      - shared-network
+
   kafka-2:
     image: bitnami/kafka:latest
     container_name: kafka-2
@@ -75,3 +96,9 @@ services:
       timeout: 10s
       retries: 5
       start_period: 20s
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true

@@ -4,9 +4,10 @@ Set up the RareLink Framework
 =============================
 
 .. warning:: 
-    RareLink v2.0.0.dev0 is currently under development, and many things are 
-    subject to change. Please reach out before implementing or using the 
-    software to ensure you have the latest updates and guidance.
+   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
+   it to ensure you have the latest updates and guidance.
+
+
 
 Getting Started
 ---------------
@@ -34,14 +35,21 @@ Follow these steps to set up the project locally and run tests.
 
       pip install .
 
-4. Configure the `.env` file:
-   Create a `.env` file in the project root directory. Add the following line:
+4. Configure all api keys necessary to use rarelink by running the following
+    command:
 
-.. code-block:: ini
+.. code-block:: bash
 
-    BIOPORTAL_API_TOKEN=your_api_token_here
+    rarelink setup keys 
 
-   Replace `your_api_token_here` with your actual BioPortal API token.
+    This command will prompt you to enter the following keys:
+    - BioPortal API key
+    - REDCap API key
+    - REDCap URL
+    - REDCap project ID
+
+.. note:: 
+    You can create your free BioPortal account here: `BioPortal <https://bioportal.bioontology.org/>`_
 
 5. Run tests:
    Use `pytest` to run the test suite.
@@ -50,38 +58,20 @@ Follow these steps to set up the project locally and run tests.
 
       pytest
 
-.. note:: 
-    You can create your free BioPortal account here: `BioPortal <https://bioportal.bioontology.org/>`_
-
 _____________________________________________________________________________________
 
 RareLink-CLI Framework Configuration
 ------------------------------------
 
-To update the RareLink framework:
+Use the following commands to update the framework and its components, view 
+its status or reset the framework. See :ref:`2_3` for more information.
 
 .. code-block:: bash
 
+    rarelink framework --help
     rarelink framework update
-
-This command updates the framework to the latest version.
-
-To check the current framework status:
-
-.. code-block:: bash
-
     rarelink framework status
-
-This command provides a summary of the framework's current status.
-
-To reset the framework to its initial state:
-
-.. code-block:: bash
-
     rarelink framework reset
-
-This command clears all framework configurations and reverts it to its initial setup state.
-
 
 _____________________________________________________________________________________
 
@@ -123,10 +113,14 @@ ___________________________
 
 .. code-block:: bash
 
-    to be implemented
+    rarelink fhir setup
 
 This command guides you through setting up the FHIR pipeline for RareLink. 
 You will be prompted to enter:
 - Your FHIR server URL.
 - If required, your FHIR server username & password.
+
+.. note:: 
+    All sensitive information will also be stored in the 
+    hidden configuration file.
 

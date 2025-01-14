@@ -1,0 +1,58 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "StructuralVariantAnalysisMethodVS",
+  "id": "structural-variant-analysis-method-vs",
+  "title": "Structural Variant Analysis Method Value Set",
+  "description": "Value set for capturing structural variant analysis methods.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-analysis-method-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA26406-1",
+            "display": "Karyotyping"
+          },
+          {
+            "code": "LA26404-6",
+            "display": "FISH"
+          },
+          {
+            "code": "LA26418-6",
+            "display": "PCR"
+          },
+          {
+            "code": "LA26419-4",
+            "display": "qPCR (real-time PCR)"
+          },
+          {
+            "code": "LA26400-4",
+            "display": "SNP array"
+          },
+          {
+            "code": "LA26813-8",
+            "display": "Restriction fragment length polymorphism (RFLP)"
+          },
+          {
+            "code": "LA26810-4",
+            "display": "DNA hybridization"
+          },
+          {
+            "code": "LA26398-0",
+            "display": "Sequencing"
+          },
+          {
+            "code": "LA26415-2",
+            "display": "MLPA"
+          },
+          {
+            "code": "LA46-8",
+            "display": "Other"
+          }
+        ]
+      }
+    ]
+  }
+}

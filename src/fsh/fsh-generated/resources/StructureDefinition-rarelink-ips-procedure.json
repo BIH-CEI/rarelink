@@ -1,0 +1,91 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-ips-procedure",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-procedure",
+  "name": "RareLinkIPSProcedure",
+  "title": "RareLink IPS Procedure",
+  "status": "draft",
+  "description": "A RareLink-specific profile for the IPS Procedure resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.meta.profile",
+        "path": "Procedure.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
+      },
+      {
+        "id": "Procedure.text.div",
+        "path": "Procedure.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Procedure</strong></p><p>This profile is based on the RareLink-CDM Section (6.3) Measurements, integrated with the IPS Procedure profile.</p></div>"
+      },
+      {
+        "id": "Procedure.status",
+        "path": "Procedure.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/event-status"
+        }
+      },
+      {
+        "id": "Procedure.code.coding",
+        "path": "Procedure.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Procedure.code.coding.system",
+        "path": "Procedure.code.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips"
+        }
+      },
+      {
+        "id": "Procedure.subject.reference",
+        "path": "Procedure.subject.reference",
+        "patternString": "Patient/{id}"
+      },
+      {
+        "id": "Procedure.performed[x]",
+        "path": "Procedure.performed[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Procedure.performed[x]:performedDateTime",
+        "path": "Procedure.performed[x]",
+        "sliceName": "performedDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.bodySite.coding.system",
+        "path": "Procedure.bodySite.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://snomed.info/sct"
+        }
+      }
+    ]
+  }
+}

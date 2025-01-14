@@ -1,0 +1,56 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-condition-undiagnosed-rd-case",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-condition-undiagnosed-rd-case",
+  "name": "RareLinkConditionUndiagnosedRDCase",
+  "title": "RareLink Condition for Undiagnosed RD Case",
+  "status": "draft",
+  "description": "A RareLink-specific Condition profile for documenting undiagnosed rare disease cases based on the IPS Condition profile.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+      },
+      {
+        "id": "Condition.text.div",
+        "path": "Condition.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Condition</strong></p><p>This profile is based on the RareLink-CDM Section (3) Patient Status and the IPS Condition profile, specifically for undiagnosed rare disease cases.</p></div>"
+      },
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.code.coding.system",
+        "path": "Condition.code.coding.system",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://www.orpha.net/"
+        }
+      },
+      {
+        "id": "Condition.code.coding.code",
+        "path": "Condition.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/undiagnosed-rd-case-vs"
+        }
+      },
+      {
+        "id": "Condition.subject.reference",
+        "path": "Condition.subject.reference",
+        "patternString": "Patient/{id}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "UndiagnosedRDCaseVS",
+  "id": "undiagnosed-rd-case-vs",
+  "title": "Undiagnosed Rare Disease Case Value Set",
+  "description": "Value set for capturing undiagnosed rare disease cases.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/undiagnosed-rd-case-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "373066001",
+            "display": "Rare disorder without a determined diagnosis after full investigation"
+          },
+          {
+            "code": "373067005",
+            "display": "A Rare Disease was diagnosed"
+          }
+        ]
+      }
+    ]
+  }
+}

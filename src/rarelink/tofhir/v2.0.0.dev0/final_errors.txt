@@ -1,0 +1,26 @@
+ips.measurement.laboratory:
+ERROR: Code binding failure, code 'preliminary' is not defined in the ValueSet 'http://hl7.org/fhir/uv/ips/ValueSet/results-status-uv-ips' or is not active and selectable!
+but preliminary is in there: https://build.fhir.org/ig/HL7/fhir-ips/ValueSet-results-status-uv-ips.html 
+
+observation.length_of_gestation_at_birth
+.7line 1:32 mismatched input '[' expecting {'is', 'as', '$this', '$index', '$total', IDENTIFIER, QUOTEDIDENTIFIER}
+2025-01-13 20:50:43 line 1:32 mismatched input '[' expecting {'is', 'as', '$this', '$index', '$total', IDENTIFIER, QUOTEDIDENTIFIER}
+2025-01-13 20:50:43 line 1:32 mismatched input '[' expecting {'is', 'as', '$this', '$index', '$total', IDENTIFIER, QUOTEDIDENTIFIER}
+2025-01-13 20:50:43 line 1:32 mismatched input '[' expecting {'is', 'as', '$this', '$index', '$total', IDENTIFIER, QUOTEDIDENTIFIER}
+
+encounter.care_pathway
+2025-01-13 20:50:47 line 1:64 missing ')' at '<EOF>'
+2025-01-13 20:50:47 line 1:64 missing ')' at '<EOF>'
+
+observation.genetic_findings
+2025-01-13 20:50:50 line 1:20 token recognition error at: '''
+2025-01-13 20:50:50 line 1:20 token recognition error at: '''
+2025-01-13 20:50:50 line 1:55 missing ')' at '<EOF>'
+
+observation.measurements.other
+2025-01-13 20:51:01 line 1:8 token recognition error at: '''
+
+consent.consent
+2025-01-13 21:12:42 line 1:8 token recognition error at: '''
+2025-01-13 21:12:44 line 1:0 token recognition error at: '?'
+2025-01-13 21:12:44 line 1:0 token recognition error at: '?'

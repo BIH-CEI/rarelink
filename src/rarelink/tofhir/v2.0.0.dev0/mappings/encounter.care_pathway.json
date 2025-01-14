@@ -18,6 +18,7 @@
         "name": "rarelink",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Encounter', record_id & hl7fhir_enc_period_start & hl7fhir_enc_period_end & encounterclass & encounterstatus)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
@@ -47,11 +48,11 @@
   "context": {
     "encounterclass": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/4_4_encounter_class.csv"
+      "url": "$CONTEXT_REPO/4_4_encounter_class.csv"
     },
     "encounterstatus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/4_3_encounter_status.csv"
+      "url": "$CONTEXT_REPO/4_3_encounter_status.csv"
     }
   }
 }

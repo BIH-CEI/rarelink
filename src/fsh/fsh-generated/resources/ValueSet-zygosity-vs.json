@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ZygosityVS",
+  "id": "zygosity-vs",
+  "title": "Zygosity Value Set",
+  "description": "Value set for capturing zygosity.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA6705-3",
+            "display": "Homozygous"
+          },
+          {
+            "code": "LA6706-1",
+            "display": "Heterozygous"
+          },
+          {
+            "code": "LA26217-2",
+            "display": "Compound heterozygous"
+          },
+          {
+            "code": "LA26220-6",
+            "display": "Double heterozygous"
+          },
+          {
+            "code": "LA6707-9",
+            "display": "Hemizygous"
+          },
+          {
+            "code": "LA6703-8",
+            "display": "Heteroplasmic"
+          },
+          {
+            "code": "LA6704-6",
+            "display": "Homoplasmic"
+          },
+          {
+            "code": "53034_5_other",
+            "display": "Other"
+          }
+        ]
+      }
+    ]
+  }
+}

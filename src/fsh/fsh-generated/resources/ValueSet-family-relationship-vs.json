@@ -1,0 +1,66 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "FamilyRelationshipVS",
+  "id": "family-relationship-vs",
+  "title": "Family Relationship Value Set",
+  "description": "Value set for capturing family member relationships.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "65656005",
+            "display": "Natural mother"
+          },
+          {
+            "code": "9947008",
+            "display": "Natural father"
+          },
+          {
+            "code": "83420006",
+            "display": "Natural daughter"
+          },
+          {
+            "code": "113160008",
+            "display": "Natural son"
+          },
+          {
+            "code": "60614009",
+            "display": "Natural brother"
+          },
+          {
+            "code": "73678001",
+            "display": "Natural sister"
+          },
+          {
+            "code": "11286003",
+            "display": "Twin sibling"
+          },
+          {
+            "code": "45929001",
+            "display": "Half-brother"
+          },
+          {
+            "code": "2272004",
+            "display": "Half-sister"
+          },
+          {
+            "code": "62296006",
+            "display": "Natural grandfather"
+          },
+          {
+            "code": "17945006",
+            "display": "Natural grandmother"
+          },
+          {
+            "code": "1220561009",
+            "display": "Not recorded"
+          }
+        ]
+      }
+    ]
+  }
+}

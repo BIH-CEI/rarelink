@@ -1,0 +1,34 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ConsanguinityVS",
+  "id": "consanguinity-vs",
+  "title": "Consanguinity Value Set",
+  "description": "Value set for indicating whether there is consanguinity in the family relationship.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/consanguinity-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "373066001",
+            "display": "Yes"
+          },
+          {
+            "code": "373067005",
+            "display": "No"
+          },
+          {
+            "code": "261665006",
+            "display": "Unknown"
+          },
+          {
+            "code": "1220561009",
+            "display": "Not recorded"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -18,6 +18,7 @@
         "name": "familymemberhistory.familyhistory",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('FamilyMemberHistory', record_id & 'Family History')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
@@ -46,8 +47,8 @@
           "sex": {
             "coding": [
               {
-                "system": "{{? iif(loinc_54123_5.empty().not(),'http://hl7.org/fhir/ValueSet/administrative-gender'}}",
-                "version": "{{? iif(loinc_54123_5.empty().not(),'2024-09-01'}}",
+                "system": "{{? iif(loinc_54123_5.empty().not(),'http://hl7.org/fhir/ValueSet/administrative-gender')}}",
+                "version": "{{? iif(loinc_54123_5.empty().not(),'2024-09-01')}}",
                 "code": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_code')}}",
                 "display": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_display')}}"
               }
@@ -81,25 +82,25 @@
               "code": {
                 "coding": [
                   {
-                    "system": "{{? iif(loinc_54112_8.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm'}}",
-                    "version": "{{? iif(loinc_54112_8.empty().not(), '2024-09-01'}}",
+                    "system": "{{? iif(loinc_54112_8.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
+                    "version": "{{? iif(loinc_54112_8.empty().not(), '2024-09-01')}}",
                     "code": "{{? loinc_54112_8}}"
                   }
                 ],
-                "text": "{{? iif(loinc_54112_8.empty().not(), 'Family Member Cause of Death [ICD10CM] - Records the cause of death of the selected deceased family member.' '}}"
+                "text": "{{? iif(loinc_54112_8.empty().not(), 'Family Member Cause of Death [ICD10CM] - Records the cause of death of the selected deceased family member.')}}"
               },
-              "contributedToDeath": "{{? iif(loinc_54112_8.empty().not(), true}}"
+              "contributedToDeath": "{{? iif(loinc_54112_8.empty().not(), true)}}"
             },
             {
               "code": {
                 "coding": [
                   {
-                    "system": "{{? iif(loinc_75315_2.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
-                    "version": "{{? iif(loinc_75315_2.empty().not(),'2024-09-03'}}",
+                    "system": "{{? iif(loinc_75315_2.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(loinc_75315_2.empty().not(),'2024-09-03')}}",
                     "code": "{{? loinc_75315_2}}"
                   }
                 ],
-                "text": "{{? iif(loinc_75315_2.empty().not(), 'Family Member Disease [MONDO] - Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.'}}"
+                "text": "{{? iif(loinc_75315_2.empty().not(), 'Family Member Disease [MONDO] - Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.')}}"
               }
             }
           ],
@@ -119,8 +120,8 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_64245008.empty().not(), 'https://www.snomed.org/snomed-ct'}}",
-                    "version": "{{? iif(snomed_64245008.empty().not(), '2024-09-01'}}",
+                    "system": "{{? iif(snomed_64245008.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(snomed_64245008.empty().not(), '2024-09-01')}}",
                     "code": "{{? mpp:getConcept(%familyPropositus, snomed_64245008, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyPropositus, snomed_64245008, 'target_display')}}"
                   }
@@ -138,8 +139,8 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_842009.empty().not(), 'https://www.snomed.org/snomed-ct'}}",
-                    "version": "{{? iif(snomed_842009.empty().not(), '2024-09-01'}}",
+                    "system": "{{? iif(snomed_842009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(snomed_842009.empty().not(), '2024-09-01')}}",
                     "code": "{{? mpp:getConcept(%familyConsanguinity, snomed_842009, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyConsanguinity, snomed_842009, 'target_display')}}"
                   }
@@ -155,31 +156,31 @@
   "context": {
     "familyRelationship": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_5_family_member_relationship.csv"
+      "url": "$CONTEXT_REPO/6_4_5_family_member_relationship.csv"
     },
     "familySex": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_7_family_member_sex.csv"
+      "url": "$CONTEXT_REPO/6_4_7_family_member_sex.csv"
     },
     "familyStatus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_6_family_member_record_status.csv"
+      "url": "$CONTEXT_REPO/6_4_6_family_member_record_status.csv"
     },
     "familyPropositus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_2_propositus.csv"
+      "url": "$CONTEXT_REPO/6_4_2_propositus.csv"
     },
     "familyConsanguinity": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_4_consanguinity.csv"
+      "url": "$CONTEXT_REPO/6_4_4_consanguinity.csv"
     },
     "familyDeceased": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_10_family_member_deceased.csv"
+      "url": "$CONTEXT_REPO/6_4_10_family_member_deceased.csv"
     },
     "familyRelationshipPropositus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_4_3_relationship_to_propositus.csv"
+      "url": "$CONTEXT_REPO/6_4_3_relationship_to_propositus.csv"
     }
   }
 }

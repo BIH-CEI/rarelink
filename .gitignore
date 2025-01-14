@@ -182,3 +182,12 @@ Public/
 
 # FHIR SUSHI
 echo "/fsh-generated" >> .gitignore
+/fsh-generated
+
+# RareLink Config jsons
+redcap-projects.json
+rarelink-cdm-processed.json
+rarelink_apiconfig.json
+
+# Local FHIR server configuration
+hapi-fhir

@@ -1,0 +1,34 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "AgeAtDiagnosisVS",
+  "id": "age-at-diagnosis-vs",
+  "title": "Age at Diagnosis Value Set",
+  "description": "Value set for capturing age at diagnosis.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-diagnosis-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "118189007",
+            "display": "Prenatal"
+          },
+          {
+            "code": "3950001",
+            "display": "Birth"
+          },
+          {
+            "code": "410672004",
+            "display": "Date"
+          },
+          {
+            "code": "261665006",
+            "display": "Unknown"
+          }
+        ]
+      }
+    ]
+  }
+}

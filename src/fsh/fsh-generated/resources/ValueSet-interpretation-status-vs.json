@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "InterpretationStatusVS",
+  "id": "interpretation-status-vs",
+  "title": "Interpretation Status Value Set",
+  "description": "Value set for interpretation statuses.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/interpretation-status-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://www.ga4gh.org/product/phenopackets/",
+        "concept": [
+          {
+            "code": "UNKNOWN_STATUS",
+            "display": "No information is available about the status"
+          },
+          {
+            "code": "REJECTED",
+            "display": "The variant or gene is not related to the diagnosis"
+          },
+          {
+            "code": "CANDIDATE",
+            "display": "The variant or gene is possibly related to the diagnosis"
+          },
+          {
+            "code": "CONTRIBUTORY",
+            "display": "The variant or gene is related to the diagnosis"
+          },
+          {
+            "code": "CAUSATIVE",
+            "display": "The variant or gene is causative of the diagnosis"
+          }
+        ]
+      }
+    ]
+  }
+}

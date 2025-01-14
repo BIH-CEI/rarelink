@@ -18,23 +18,28 @@
         "name": "observation.length_of_gestation_at_birth",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Gestational Length')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
             ]
           },
           "resourceType": "Observation",
-          "status": "registered",
+          "status": "{{'final'}}",
           "code": {
             "coding": [
               {
                 "code": "{{'412726003'}}",
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "display": "{{'Length of Gestation at Birth [weeks+days]'}}"
+                "display": "{{'Length of Gestation at Birth - weeks+days'}}"
               }
             ]
           },
+          "subject": {
+            "reference": "Patient/{id}"
+          },
+          "effectiveDateTime": "{{patient_status_date}}",
           "component": [
             {
               "code": {
@@ -43,7 +48,7 @@
                     "code": "{{'412726003'}}",
                     "system": "{{'https://www.snomed.org/snomed-ct'}}",
                     "version": "{{'2024-09-01'}}",
-                    "display": "{{'Length of Gestation at Birth [weeks]'}}"
+                    "display": "{{'Length of Gestation at Birth - weeks'}}"
                   }
                 ]
               },
@@ -61,7 +66,7 @@
                     "code": "{{'412726003'}}",
                     "system": "{{'https://www.snomed.org/snomed-ct'}}",
                     "version": "{{'2024-09-01'}}",
-                    "display": "{{'Length of Gestation at Birth [days]'}}"
+                    "display": "{{'Length of Gestation at Birth - days'}}"
                   }
                 ]
               },

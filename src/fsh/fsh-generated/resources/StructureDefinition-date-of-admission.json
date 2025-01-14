@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "date-of-admission",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission",
+  "name": "DateOfAdmission",
+  "title": "Date of Admission",
+  "status": "draft",
+  "description": "The date of the patient's admission.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Date of Admission",
+        "definition": "The date of the patient's admission."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

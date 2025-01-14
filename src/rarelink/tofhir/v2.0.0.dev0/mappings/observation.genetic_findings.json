@@ -18,13 +18,14 @@
         "name": "observation.genetic_findings",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & ga4gh_interp_status & loinc_lp7824_8 & loinc_81290_9 & loinc_48004_6 & loinc_48005_3 & loinc_53034_5 & loinc_48002_0 & loinc_48019_4 & loinc_48019_4_other & loinc_53034_5_other & loinc_48018_6 & loinc_53037_8 & loinc_93044_6)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
             ]
           },
           "resourceType": "Observation",
-          "status": "registered",
+          "status": "{{'final'}}",
           "code": {
             "coding": [
               {
@@ -35,6 +36,21 @@
               }
             ]
           },
+          "subject": {
+            "reference": "Patient/{id}"
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "code": "{{? mpp:getConcept(%phenopacketsInterpretation, ga4gh_interp_status, 'target_code')}}",
+                  "system": "{{? iif(ga4gh_interp_status.empty().not(), 'https://www.ga4gh.org/product/phenopackets/')}}",
+                  "version": "{{? iif(ga4gh_interp_status.empty().not(), '2.0')}}",
+                  "display": "{{? mpp:getConcept(%phenopacketsInterpretation, ga4gh_interp_status, 'target_display')}}"
+                }
+              ]
+            }
+          ],
           "method": {
             "coding": [
               {
@@ -244,7 +260,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? loinc_48018_6}}",
+                    "code": "{{? loinc_48018_6.substring(5)}}",
                     "system": "{{'https://www.genenames.org/'}}",
                     "version": "{{'2024-08-23'}}",
                     "display": "{{? loinc_48018_6_label}}"
@@ -300,7 +316,68 @@
           "text": {
             "status": "{{'generated'}}",
             "div": "{{'<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\\\"https://github.com/BIH-CEI/rarelink\\\">RareLink GitHub Repository</a> or the <a href=\\\"https://rarelink.readthedocs.io/en/latest/index.html\\\">documentation</a>.</p></div>'}}"
-          }
+          },
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? snomed_106221001_mondo.substring(6)}}",
+                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
+                  }
+                ],
+                "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
+              },
+              "url": "{{? iif(snomed_106221001_mondo.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? snomed_106221001_omim_p}}",
+                    "system": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                    "version": "{{? iif(snomed_106221001_omim_p.empty().not(), '2024-09-12'}}"
+                  }
+                ],
+                "text": "{{? iif(snomed_106221001_omim_p.empty().not(), 'Genomic Diagnosis - OMIM')}}"
+              },
+              "url": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsProgressStatus, ga4gh_progress_status, 'target_code')}}",
+                    "system": "{{? iif(ga4gh_progress_status.empty().not(), 'https://www.ga4gh.org/product/phenopackets/')}}",
+                    "version": "{{? iif(ga4gh_progress_status.empty().not(), '2.0')}}",
+                    "display": "{{? mpp:getConcept(%geneticsProgressStatus, ga4gh_progress_status, 'target_display')}}"
+                  }
+                ]
+              },
+              "url": "{{'https://www.ga4gh.org/product/phenopackets/'}}"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_62374_4.empty().not(), '62374-4')}}",
+                    "system": "{{? iif(loinc_62374_4.empty().not(), 'https://loinc.org')}}",
+                    "version": "{{? iif(loinc_62374_4.empty().not(), 'v2.78')}}",
+                    "display": "{{? iif(loinc_62374_4.empty().not(), 'Human reference sequence assembly version')}}"
+                  }
+                ],
+                "text": "{{? iif(loinc_62374_4.empty().not(), 'Variant Reference Genome')}}"
+              },
+              "url": "{{? iif(loinc_62374_4.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCoding": {
+                "code": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_code')}}",
+                "system": "{{? iif(loinc_62374_4.empty().not(), 'https://loinc.org')}}",
+                "version": "{{? iif(loinc_62374_4.empty().not(), 'v2.78')}}",
+                "display": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_display')}}"
+              }
+            }
+          ]
         }
       },
       "description": "RareLink Observation Genetic Findings"
@@ -309,31 +386,39 @@
   "context": {
     "geneticsZygosity": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_11_zygosity.csv"
+      "url": "$CONTEXT_REPO/6_1_11_zygosity.csv"
     },
     "geneticsClinicalAnnotation": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_16_clinical_annotation_level_of_evidence.csv"
+      "url": "$CONTEXT_REPO/6_1_16_clinical_annotation_level_of_evidence.csv"
     },
     "geneticsDNAChangeType": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_13_dna_change_type.csv"
+      "url": "$CONTEXT_REPO/6_1_13_dna_change_type.csv"
     },
     "geneticsMethod": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_4_structural_variant_analysis_method.csv"
+      "url": "$CONTEXT_REPO/6_1_4_structural_variant_analysis_method.csv"
     },
-    "geneticsClinicalSignifiance": {
+    "phenopacketsInterpretation": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_14_clinical_significance_acmg.csv"
+      "url": "$CONTEXT_REPO/6_1_3_interpretation_status.csv"
     },
     "geneticsReferenceGenome": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_5_reference_genome.csv"
+      "url": "$CONTEXT_REPO/6_1_5_reference_genome.csv"
     },
     "geneticsGenomicSourceClass": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/6_1_12_genomic_source_class.csv"
+      "url": "$CONTEXT_REPO/6_1_12_genomic_source_class.csv"
+    },
+    "geneticsProgressStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_2_progress_status_of_interpretation.csv"
+    },
+    "geneticsClinicalSignifiance": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_14_clinical_significance_acmg.csv"
     }
   }
 }

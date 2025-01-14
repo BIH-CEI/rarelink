@@ -18,13 +18,14 @@
         "name": "observation.age_category",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Age Category')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
             ]
           },
           "resourceType": "Observation",
-          "status": "registered",
+          "status": "{{'final'}}",
           "code": {
             "coding": [
               {
@@ -35,6 +36,10 @@
               }
             ]
           },
+          "subject": {
+            "reference": "Patient/{id}"
+          },
+          "effectiveDateTime": "{{patient_status_date}}",
           "valueCodeableConcept": {
             "coding": [
               {
@@ -57,7 +62,7 @@
   "context": {
     "ageCategory": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/3_4_age_category.csv"
+      "url": "$CONTEXT_REPO/3_4_age_category.csv"
     }
   }
 }

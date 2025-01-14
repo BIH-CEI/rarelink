@@ -18,6 +18,7 @@
         "name": "condition.undiagnosed_rd_case",
         "language": "application/fhir-template+json",
         "value": {
+          "id": "{{mpp:getHashedId('Condition', record_id & 'Undiagnosed')}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
@@ -48,14 +49,14 @@
       "precondition": {
         "name": "noRDDiagnosisMade",
         "language": "text/fhirpath",
-        "expression": "snomed_723663001 = 'snomed_373066001')"
+        "expression": "snomed_723663001 = 'snomed_373066001'"
       }
     }
   ],
   "context": {
     "undiagnoseRDcase": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/rarelink/3_6_undiagnosed_rd_case.csv"
+      "url": "$CONTEXT_REPO/3_6_undiagnosed_rd_case.csv"
     }
   }
 }

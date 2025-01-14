@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ProgressStatusInterpretationVS",
+  "id": "progress-status-interpretation-vs",
+  "title": "Progress Status of Interpretation Value Set",
+  "description": "Value set for capturing the progress status of interpretation.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/progress-status-interpretation-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://www.ga4gh.org/product/phenopackets/",
+        "concept": [
+          {
+            "code": "UNKNOWN_PROGRESS",
+            "display": "No information is available about the diagnosis"
+          },
+          {
+            "code": "IN_PROGRESS",
+            "display": "No diagnosis has been found to date but additional differential diagnostic work is in progress."
+          },
+          {
+            "code": "COMPLETED",
+            "display": "The work on the interpretation is complete."
+          },
+          {
+            "code": "SOLVED",
+            "display": "The interpretation is complete and also considered to be a definitive diagnosis"
+          },
+          {
+            "code": "UNSOLVED",
+            "display": "The interpretation is complete but no definitive diagnosis was found."
+          }
+        ]
+      }
+    ]
+  }
+}
