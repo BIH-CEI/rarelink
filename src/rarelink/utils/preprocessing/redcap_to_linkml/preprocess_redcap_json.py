@@ -1,6 +1,6 @@
 import json
 from collections import defaultdict
-from .....rarelink_cdm.v2_0_0_dev0.processing.map_to_linkml_schema import MAPPING_FUNCTIONS
+from .....rarelink_cdm.v2_0_0_dev0.helpers.map_to_linkml_schema import MAPPING_FUNCTIONS
 
 def preprocess_flat_data(flat_data, mapping_functions):
     """

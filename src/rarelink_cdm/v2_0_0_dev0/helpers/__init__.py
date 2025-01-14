@@ -15,7 +15,9 @@ Exports:
 
 # Importing functions and constants from individual modules
 from .schema_loader import load_schema
+from .map_to_linkml_schema import MAPPING_FUNCTIONS
 
 __all__ = [
     "load_schema",
+    "MAPPING_FUNCTIONS"
 ]
