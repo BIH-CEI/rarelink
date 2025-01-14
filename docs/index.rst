@@ -77,8 +77,7 @@ Sections
 - :doc:`2_rarelink_framework/2_0_rarelink_file`
 - :doc:`2_rarelink_framework/2_1_rarelink_overview`
 - :doc:`2_rarelink_framework/2_2_rarelink_cdm`
-- :doc:`2_rarelink_framework/2_3_rarelink_core_redcap_project`
-- :doc:`2_rarelink_framework/2_4_rarelink_cli`
+- :doc:`2_rarelink_framework/2_3_rarelink_cli`
 
 3) Installation
 -----------------
@@ -139,8 +138,7 @@ Additional Information
    2_rarelink_framework/2_0_rarelink_file
    2_rarelink_framework/2_1_rarelink_overview
    2_rarelink_framework/2_2_rarelink_cdm
-   2_rarelink_framework/2_3_rarelink_core_redcap_project
-   2_rarelink_framework/2_4_rarelink_cli
+   2_rarelink_framework/2_3_rarelink_cli
 
 .. toctree::
    :caption: Installation & Development

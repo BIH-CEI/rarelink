@@ -21,13 +21,15 @@ FHIR_CONFIG_FILE = Path("rarelink_fhirconfig.json")
 @app.command()
 def hapi_server():
     """
-    Set up a local HAPI FHIR server with Docker, avoiding conflicts.
+    CLI command to set up a local HAPI FHIR server with Docker, 
+    avoiding conflicts.
     """
     format_header("Setting up a Local HAPI FHIR Server")
 
     # Check if Docker is installed
     try:
-        subprocess.run(["docker", "--version"], check=True, stdout=subprocess.PIPE)
+        subprocess.run(["docker", "--version"], 
+                       check=True, stdout=subprocess.PIPE)
     except FileNotFoundError:
         typer.secho(
             error_text(
@@ -73,7 +75,8 @@ def hapi_server():
             success_text("✅ HAPI FHIR server is already running at "
                          "http://localhost:8080.")
         else:
-            typer.secho("🔄 Restarting the existing HAPI FHIR server container...",
+            typer.secho(
+                "🔄 Restarting the existing HAPI FHIR server container...",
                         fg=typer.colors.YELLOW)
             subprocess.run(["docker", "start", container_name], check=True)
             success_text("✅ HAPI FHIR server is now running at "

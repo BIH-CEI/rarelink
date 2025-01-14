@@ -5,9 +5,10 @@ Data Dictionary
 ================
 
 .. warning:: 
-    RareLink v2.0.0.dev0 is currently under development, and many things are 
-    subject to change. Please reach out before implementing or using the 
-    software to ensure you have the latest updates and guidance.
+   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
+   it to ensure you have the latest updates and guidance.
+
+
 
 To install the RareLink CDM instruments, you will need to download the 
 instruments from the RareLink REDCap project.
@@ -52,11 +53,6 @@ ________________________________________________________________________________
 
 _____________________________________________________________________________________
 
-.. tip:: 
-  Read pages 25 & 26 of the `Comprehensive Guide to REDCap <https://www.unmc.edu/vcr/_documents/unmc_redcap_usage.pdf>`_ for more information. 
-
-_____________________________________________________________________________________
-
 3. **Verify that the instruments have been imported correctly.**
 
 - Go to the "Online Designer" tab and check the data elements in each instrument.
@@ -65,20 +61,25 @@ ________________________________________________________________________________
     - the instruments are consistent with the RareLink CDM Data Dictionary.
     - the fields with BioPortal are connected properly.
 
-.. tip:: 
-  Read the :ref:`1_6` section to learn more about the general REDCap Setup, 
-  among others how to connect BioPortal to REDCap.
-
 _____________________________________________________________________________________
 
 4. **Start capturing data with the RareLink CDM instruments.**
 
-Check out the :ref:`4_1` section to learn more about manual data capture.
+Check out the : or 
+the :ref:`4_2` section to learn more about the semi-automatic import of data.
 
 .. admonition:: Continue here...
 
-    - Guide to develop the :ref:`3_2`
-    - User guide for :ref:`4_1`
+    - :ref:`4_1` section to learn on how to use the RareLink CDM instruments.
+    - :ref:`4_2` section to learn on how to import data from tabular databases.
+    - :ref:`4_3` section to learn on how to export data to Phenopackets.
+    - :ref:`4_3` section to learn on how to export data to FHIR.
+
+.. admonition:: Further reading...
+
+    - Read pages 25 & 26 of the `Comprehensive Guide to REDCap <https://www.unmc.edu/vcr/_documents/unmc_redcap_usage.pdf>`_ for more information. 
+    - Read the :ref:`1_6` section to learn more about the general REDCap Setup, 
+        among others how to connect BioPortal to REDCap.
 
 
 
@@ -93,10 +94,37 @@ If the rules are followd upon development of the REDCap sheets, another
 subsequent mapping step will be required to convert the data into the
 Phenopackets or FHIR format. For this second step guides are given below, too. 
 
-.. note::
-    This section is still to be implemented in the docuemntation.
 
-Example CIEINR. 
+Separate RareLink-CDM Instruments
+----------------------------------
 
-Rule Sets. 
+The :ref:`2_2` section provides an overview of the RareLink-CDM which is
+based on the ontology-based rare disease common data model (:ref:`_1_5`).
+However, for many use cases, it may be necessary to use only a subset of the
+instruments. 
+
+For such cases, please note:
+- If you use the RareLink-CDM instruments, you will not need to enter data 
+    for all instruments - many of these instruments can be left empty or deleted.
+- The RareLink-CDM instruments are designed to be used in a modular way, 
+    so you can use only the instruments that are relevant to your study.
+- However, if an instrument is used in your study, it is important to fill 
+    in all `mandatory` the fields in that instrument to ensure correct FHIR 
+    and Phenopacket export (More Info: :ref:`4_1`)
+- The sheets `(1) Formal Criteria` and `(2) Personal Information` must
+  always be filled in to ensure correct FHIR and Phenopacket export!
+- Feel free to :ref:`12` us in case you have any questions or need help.
+
+
+Extensional RareLink-CDM Instruments
+------------------------------------
+
+The :ref:`2_2` section provides an overview of the RareLink-CDM which is 
+based on the ontology-based rare disease common data model (:ref:`_1_5`). 
+However, for many use cases, it is necessary to extend the data model with
+additional fields or instruments. This can be done by following the
+established RareLink guidelines given in the :ref:`4_5` section.
+
+- Feel free to :ref:`12` us in case you have any questions or need help.
+
 

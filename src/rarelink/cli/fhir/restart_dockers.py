@@ -7,7 +7,7 @@ app = typer.Typer()
 @app.command()
 def restart_dockers():
     """
-    Stop, remove, and restart all relevant Docker containers.
+    CLI Command to stop, remove, and restart all relevant Docker containers.
     """
     typer.echo("Stopping all running containers...")
     subprocess.run(["docker", "stop", "$(docker ps -q)"], shell=True)

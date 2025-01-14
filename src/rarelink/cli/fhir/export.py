@@ -1,7 +1,10 @@
 import typer
 import subprocess
 from pathlib import Path
-from rarelink.cli.utils.terminal_utils import between_section_separator, end_of_section_separator
+from rarelink.cli.utils.terminal_utils import (
+    between_section_separator, 
+    end_of_section_separator
+)
 from rarelink.cli.utils.string_utils import (
     success_text,
     error_text,
@@ -26,7 +29,8 @@ DOCKER_COMPOSE_PATH = "src/rarelink/tofhir/v2.0.0.dev0/docker-compose.yml"
 @app.command()
 def export():
     """
-    Export data to the configured FHIR server using the ToFHIR pipeline.
+    CLI command to export data to the configured FHIR server 
+    using the ToFHIR pipeline.
     """
     format_header("REDCap to FHIR export")
 

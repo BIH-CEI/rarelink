@@ -1,7 +1,7 @@
 import typer
 from .redcap_project import app as redcap_project_app
 from .data_dictionary import app as data_dictionary_app
-from .api_keys import app as api_keys_app
+from .keys import app as keys_app
 from .view import app as view_app
 from .reset import app as reset_app
 
@@ -14,7 +14,7 @@ def setup():
     """
 
 app.command(name="redcap-project")(redcap_project_app)
-app.command(name="api-keys")(api_keys_app)
+app.command(name="keys")(keys_app)
 app.command(name="data-dictionary")(data_dictionary_app)
 app.command(name="view")(view_app)
 app.command(name="reset")(reset_app)

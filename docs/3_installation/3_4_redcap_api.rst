@@ -4,9 +4,9 @@ Set up the REDCap API
 ======================
 
 .. warning:: 
-    RareLink v2.0.0.dev0 is currently under development, and many things are 
-    subject to change. Please reach out before implementing or using the 
-    software to ensure you have the latest updates and guidance.
+   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using it to ensure you have the latest 
+   updates and guidance.
+
 
 The REDCap API for RareLink is a RESTful web service that allows users to 
 interact with REDCap programmatically. The API is designed to provide a simple 
@@ -26,9 +26,10 @@ In your terminal, write:
 
 .. code-block:: bash
 
-    rarelink redcap-setup api-config start
+    rarelink setup keys
 
-This command guides you through setting up the REDCap API for RareLink. You will be prompted to enter:
+This command guides you through setting up the REDCap API for RareLink. 
+You will be prompted to enter:
 - Your REDCap instance URL.
 - Your REDCap API token.
 
@@ -36,13 +37,13 @@ To view your current configuration:
 
 .. code-block:: bash
 
-    rarelink redcap-setup api-config view
+    rarelink setup view
 
 To reset your REDCap API configuration:
 
 .. code-block:: bash
 
-    rarelink redcap-setup api-config reset
+    rarelink setup reset
 
 .. tip:: 
    For help on any command, run:

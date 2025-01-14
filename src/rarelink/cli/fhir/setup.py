@@ -31,7 +31,7 @@ REDCAP_PROJECTS_FILE = Path("redcap-projects.json")
 @app.command()
 def setup():
     """
-    Configure the ToFHIR pipeline for the RareLink framework.
+    CLI Command to configure the toFHIR pipeline for the RareLink framework.
     """
     format_header("RareLink FHIR Setup")
     typer.echo("Starting the FHIR setup process.")
@@ -49,7 +49,8 @@ def setup():
 
     try:
         env_values = dotenv_values(ENV_PATH)
-        validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
+        validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_URL", 
+                      "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
         success_text("✅ .env file validated successfully.")
     except Exception as e:
         typer.secho(
@@ -66,13 +67,15 @@ def setup():
     typer.echo("You need a FHIR server to export (or import) FHIR records.")
     typer.secho(
         hint_text(
-            "Note: Please make sure you only write real-world data to a secure FHIR server "
-            "that is within the scope of the respective ethical agreement of your study/registry."
+            "Note: Please make sure you only write real-world data to a"
+            " secure FHIR server that is within the scope of the respective"
+            " ethical agreement of your study/registry."
         ),
         fg=typer.colors.YELLOW,
     )
     fhir_server_accessible = typer.confirm(
-        "Do you have an accessible and running FHIR server to write data to (or import data from)?"
+        "Do you have an accessible and running FHIR server to write data"
+        " to (or import data from)?"
     )
 
     if not fhir_server_accessible:
@@ -87,7 +90,8 @@ def setup():
 
     # Ask for the FHIR URL
     fhir_repo_url = typer.prompt(
-        "Enter the FHIR repository URL for your server (e.g., http://example.com/fhir)",
+        "Enter the FHIR repository URL for your server "
+        "(e.g., http://example.com/fhir)",
         default=env_values.get("FHIR_REPO_URL", ""),
         show_default=False,
     )
@@ -114,11 +118,14 @@ def setup():
         }
     ]
     try:
-        REDCAP_PROJECTS_FILE.write_text(json.dumps(redcap_projects_content, indent=4))
-        success_text(f"✅ redcap-projects.json file written to {REDCAP_PROJECTS_FILE}.")
+        REDCAP_PROJECTS_FILE.write_text(
+            json.dumps(redcap_projects_content, indent=4))
+        success_text(
+            f"✅ redcap-projects.json file written to {REDCAP_PROJECTS_FILE}.")
     except Exception as e:
         typer.secho(
-            error_text(f"❌ Failed to write redcap-projects.json file: {str(e)}"),
+            error_text(
+                f"❌ Failed to write redcap-projects.json file: {str(e)}"),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -139,16 +146,20 @@ def setup():
             ),
             fg=typer.colors.RED,
         )
-        install_docker = typer.confirm("Do you want to install Docker Desktop via Homebrew?")
+        install_docker = typer.confirm(
+            "Do you want to install Docker Desktop via Homebrew?")
         if install_docker:
             try:
-                subprocess.run(["brew", "install", "--cask", "docker"], check=True)
+                subprocess.run(["brew", "install", "--cask", "docker"],
+                               check=True)
                 typer.echo("Starting Docker Desktop...")
-                subprocess.run(["open", "/Applications/Docker.app"], check=True)
-                success_text("✅ Docker Desktop installed and started successfully.")
+                subprocess.run(["open", "/Applications/Docker.app"],check=True)
+                success_text(
+                    "✅ Docker Desktop installed and started successfully.")
             except subprocess.CalledProcessError as e:
                 typer.secho(
-                    error_text(f"❌ Failed to install/start Docker Desktop: {str(e)}"),
+                    error_text(
+                        f"❌ Failed to install/start Docker Desktop: {str(e)}"),
                     fg=typer.colors.RED,
                 )
                 raise typer.Exit(1)
@@ -194,7 +205,8 @@ def setup():
         success_text("✅ redcap-projects.json validated successfully.")
     except Exception as e:
         typer.secho(
-            error_text(f"❌ Validation of redcap-projects.json failed: {str(e)}"),
+            error_text(
+                f"❌ Validation of redcap-projects.json failed: {str(e)}"),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -206,5 +218,6 @@ def setup():
         "▶ Run the next steps for the ToFHIR module, such as "
         f"{format_command('rarelink fhir export')}."
     )
-    hint_text("Refer to the documentation for more advanced usage and examples.")
+    hint_text("Refer to the documentation for more advanced "
+              "usage guide and examples.")
     end_of_section_separator()
