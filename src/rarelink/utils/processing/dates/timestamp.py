@@ -4,27 +4,34 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def date_to_timestamp(date_input):
+def date_to_timestamp(date_input: str) -> Timestamp:
     """
-    Converts a full date (YYYY-MM-DD) into an ISO8601 UTC timestamp.
+    Converts a date string into a Protobuf-compatible Timestamp.
 
-    :param date_input: Date input as a string in "YYYY-MM-DD" format.
-    :type date_input: str
-    :return: ISO8601 UTC timestamp string or None for invalid dates.
-    :rtype: str | None
+    Args:
+        date_input (str): Date input as a string in "YYYY-MM-DD" or ISO8601 format.
+
+    Returns:
+        Timestamp: Protobuf Timestamp object.
     """
     if not date_input:
         logger.warning("Empty or invalid date input; returning None")
         return None
 
     try:
-        parsed_date = datetime.strptime(date_input, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-        timestamp = Timestamp()
-        timestamp.FromDatetime(parsed_date)
-        return timestamp.ToJsonString()
+        # Attempt to parse ISO8601 format
+        parsed_date = datetime.fromisoformat(date_input.rstrip("Z"))
     except ValueError:
-        logger.error(f"Invalid date format: {date_input}. Expected format: YYYY-MM-DD.")
-        return None
+        # Fallback to "YYYY-MM-DD" format
+        try:
+            parsed_date = datetime.strptime(date_input, "%Y-%m-%d")
+        except ValueError:
+            logger.error(f"Invalid date format: {date_input}. Expected ISO8601 or YYYY-MM-DD.")
+            return None
+
+    timestamp = Timestamp()
+    timestamp.FromDatetime(parsed_date)
+    return timestamp
 
 
 def year_month_to_timestamp(year, month):

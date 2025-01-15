@@ -22,7 +22,7 @@ mapping_dicts = [
             "snomed_261665006": "UNKNOWN_KARYOTYPE",
             "snomed_734875008": "XX",
             "snomed_734876009": "XY",
-            "snomed_80427008": "X0",
+            "snomed_80427008": "XO",
             "snomed_65162001": "XXY",
             "snomed_35111009": "XXX",
             "snomed_403760006": "XXYY",

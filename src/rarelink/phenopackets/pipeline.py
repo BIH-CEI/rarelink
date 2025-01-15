@@ -1,32 +1,16 @@
 import typer
 from pathlib import Path
-from rarelink.phenopackets import create_phenopacket, write_phenopackets
+from rarelink.phenopackets import (
+    create_phenopacket,
+    write_phenopackets
+)
+from rarelink.phenopackets.validate import validate_phenopackets
 import logging
 
 
 app = typer.Typer()
 
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "phenopackets"
-
-RESOURCE_CONFIG = {
-    "names": [
-        "Human Phenotype Ontology",
-        "Logical Observation Identifiers Names and Codes",
-        "ICD-10 Clinical Modification",
-    ],
-    "namespace_prefixes": ["HP", "LOINC", "ICD10CM"],
-    "urls": [
-        "http://purl.obolibrary.org/obo/hp.owl",
-        "https://loinc.org",
-        "https://www.cdc.gov/nchs/icd/icd10cm.htm",
-    ],
-    "versions": ["2024-04-26", "2.74", "2023"],
-    "iri_prefixes": [
-        "http://purl.obolibrary.org/obo/HP_",
-        "http://loinc.org",
-        "http://hl7.org/fhir/sid/icd-10-cm",
-    ],
-}
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +43,31 @@ def phenopacket_pipeline(input_data: list, output_dir: str, created_by: str):
     write_phenopackets(phenopackets, output_dir)
 
     logger.info("Phenopacket pipeline completed successfully.")
+    
+        # Validate Phenopackets
+    logger.info("Validating Phenopackets...")
+    try:
+        validation_results = validate_phenopackets(Path(output_dir))
+        if isinstance(validation_results, list):
+            for success, details in validation_results:
+                if success:
+                    logger.info(f"Validation successful for file: {details}")
+                else:
+                    logger.error(f"Validation failed for file: {details}")
+        else:
+            success, details = validation_results
+            if success:
+                logger.info(f"Validation successful for file: {details}")
+            else:
+                logger.error(f"Validation failed for file: {details}")
+    except ValueError as ve:
+        logger.error(f"Validation error: {ve}")
+    except Exception as e:
+        logger.error(f"Unexpected error during validation: {e}")
+
+    logger.info("Phenopacket pipeline completed successfully.")
+    
+    
 
 
 # def pipeline(data_path: str, output_path: str = None):

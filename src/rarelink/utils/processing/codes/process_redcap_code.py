@@ -1,10 +1,7 @@
-def process_redcap_code(code: str, prefix: str) -> str:
+def process_redcap_code(code: str) -> str:
     """
-    Processes a REDCap code by ensuring it has the correct prefix format and 
-    applies specific transformations based on the prefix type.
-
-    This function supports a variety of transformations commonly required for 
-    REDCap codes to ensure standardization across different code systems.
+    Processes a REDCap code by dynamically extracting the prefix and ensuring it 
+    has the correct format, applying specific transformations based on the prefix type.
 
     Args:
         code (str): The code to process. Expected formats include:
@@ -12,11 +9,6 @@ def process_redcap_code(code: str, prefix: str) -> str:
             - "prefix:code" (e.g., "HP:0004322")
             - Mixed case inputs for prefixes (e.g., "Loinc_81304_8", 
               "ICD10cm_r51_1")
-        prefix (str): The expected prefix for the code. Examples:
-            - "UO" for Units of Measurement Ontology
-            - "LOINC" for Logical Observation Identifiers Names and Codes
-            - "ICD10CM" for ICD-10 Clinical Modification
-            - "HP" for Human Phenotype Ontology
 
     Returns:
         str: The processed code with the correct prefix format. Specific 
@@ -40,28 +32,33 @@ def process_redcap_code(code: str, prefix: str) -> str:
         - Supports common ontologies like SNOMED, LOINC, MONDO, ICD, and HP.
 
     Examples:
-        >>> process_redcap_code("loinc_81304_8", "loinc")
+        >>> process_redcap_code("loinc_81304_8")
         'LOINC:81304-8'
 
-        >>> process_redcap_code("icd10cm_r51_1", "icd10cm")
+        >>> process_redcap_code("icd10cm_r51_1")
         'ICD10CM:R51.1'
 
-        >>> process_redcap_code("HP:0004322", "hp")
+        >>> process_redcap_code("HP:0004322")
         'HP:0004322'
 
-        >>> process_redcap_code("ORDO_56789", "ordo")
+        >>> process_redcap_code("ORDO_56789")
         'ORDO:56789'
     """
-    if not code or not prefix:
-        return code  # Return the original code if inputs are invalid.
+    if not code:
+        return code  # Return the original code if input is invalid.
 
-    # Capitalize the prefix
+    # Determine prefix from the code
+    delimiter = "_" if "_" in code else ":" if ":" in code else None
+    if not delimiter:
+        return code  # Return as-is if no valid delimiter found.
+
+    prefix, rest = code.split(delimiter, 1)
     prefix_upper = prefix.upper()
 
     # Handle the transformation based on prefix
-    if code.startswith(f"{prefix}_") or code.startswith(f"{prefix.upper()}_"):
+    if delimiter == "_":
         # Replace the first "_" with ":"
-        processed_code = code.replace("_", ":", 1)
+        processed_code = f"{prefix_upper}:{rest}"
 
         # Special handling for LOINC: Replace subsequent "_" with "-"
         if prefix_upper == "LOINC":
@@ -69,13 +66,16 @@ def process_redcap_code(code: str, prefix: str) -> str:
 
         # Special handling for ICD codes: Replace subsequent "_" with "."
         elif prefix_upper in ["ICD10CM", "ICD11", "ICD10", "ICD9"]:
-            processed_code = processed_code.replace("_", ".").upper()
+            processed_code = f"{prefix_upper}:{rest.replace('_', '.').upper()}"
+            
+        elif prefix_upper == "SNOMED":
+            prefix_upper = "SNOMEDCT"
+            processed_code = f"{prefix_upper}:{rest}"
+            
+        return processed_code
 
-        return f"{prefix_upper}:{processed_code.split(':', 1)[1]}"
-
-    # If the code is already in the correct format, ensure prefix is uppercase
-    if ":" in code:
-        parts = code.split(":", 1)
-        return f"{prefix_upper}:{parts[1]}"
+    elif delimiter == ":":
+        # Ensure prefix is uppercase and return
+        return f"{prefix_upper}:{rest}"
 
     return code  # Default case: return as-is if no transformations apply.

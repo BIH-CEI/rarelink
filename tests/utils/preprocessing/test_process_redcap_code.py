@@ -31,5 +31,4 @@ def test_process_redcap_code():
     ]
 
     for code, expected in test_cases:
-        prefix = code.split('_')[0] if '_' in code else code.split(':')[0]
-        assert process_redcap_code(code, prefix) == expected
+        assert process_redcap_code(code) == expected
