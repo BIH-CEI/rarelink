@@ -4,10 +4,9 @@ from .download_records import app as download_records_app
 
 import typer
 
-app = typer.Typer()
+app = typer.Typer(help="Tools for interacting with REDCap projects.")
 
 # REDCap tools commands
-app.add_typer(download_records_app, name="download-records", help= "Download"
-              "records as JSON from your REDCap project.")
+app.command(name="download-records")(download_records_app)
 # app.add_typer(upload_records_app, name="upload-records")
 # app.add_typer(fetch_metadata_app, name="fetch-metadata")

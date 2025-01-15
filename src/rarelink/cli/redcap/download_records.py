@@ -27,7 +27,7 @@ ENV_PATH = Path(".env")  # Path to your .env file
 
 
 @app.command()
-def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
+def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     """
     Fetch REDCap records, process them into the RareLink-CDM schema, 
     and validate the output.
