@@ -1,6 +1,6 @@
 import json
 from collections import defaultdict
-from src.rarelink_cdm.v2_0_0_dev0.helpers import MAPPING_FUNCTIONS
+from rarelink.utils.mapping import MAPPING_FUNCTIONS
 
 def preprocess_flat_data(flat_data, mapping_functions):
     """

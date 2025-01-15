@@ -11,10 +11,7 @@ Exports:
 - RarelinkCDM (from v2_0_0_dev0)
 """
 
-from .v2_0_0_dev0 import load_schema
-
 __all__ = [
-    "load_schema"
 ]
 
 # Optionally, you can define a default version to simplify usage:

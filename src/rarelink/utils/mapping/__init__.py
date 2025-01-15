@@ -12,7 +12,7 @@ field lists.
 
 """
 
-from .map_to_linkml_schema import MAPPING_FUNCTIONS
+from .mapping_dict import MAPPING_FUNCTIONS
 
 __all__ = [
     MAPPING_FUNCTIONS

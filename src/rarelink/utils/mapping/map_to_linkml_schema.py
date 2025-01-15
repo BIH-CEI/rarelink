@@ -248,17 +248,3 @@ def map_disability(entry):
         "rarelink_8_disability_complete": entry.get(
             "rarelink_8_disability_complete", "")
     }
-
-MAPPING_FUNCTIONS = {
-    "formal_criteria": map_formal_criteria,
-    "personal_information": map_personal_information,
-    "patient_status": map_patient_status,
-    "care_pathway": map_care_pathway,
-    "disease": map_disease,
-    "genetic_findings": map_genetic_findings,
-    "phenotypic_feature": map_phenotypic_feature,
-    "measurements": map_measurements,
-    "family_history": map_family_history,
-    "consent": map_consent,
-    "disability": map_disability
-}

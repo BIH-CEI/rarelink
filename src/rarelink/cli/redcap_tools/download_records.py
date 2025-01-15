@@ -14,7 +14,10 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.file_utils import ensure_directory_exists, write_json
 from rarelink.cli.utils.logging_utils import setup_logger, log_info
-from rarelink_cdm.v2_0_0_dev0.processing import preprocess_flat_data, MAPPING_FUNCTIONS
+from rarelink.utils.mapping import MAPPING_FUNCTIONS
+from rarelink.utils.processing import preprocess_flat_data
+
+
 from rarelink.cli.utils.validation_utils import validate_env
 
 app = typer.Typer()
