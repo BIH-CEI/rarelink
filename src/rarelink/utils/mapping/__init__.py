@@ -12,10 +12,11 @@ field lists.
 
 """
 
-from .map_entry import map_entry
-from .mapping_dict import MAPPING_FUNCTIONS
+from . import redcap_to_linkml
+from . import map_entry
 
 __all__ = [
-    "map_entry",
-    MAPPING_FUNCTIONS
+    "redcap_to_linkml",
+    "map_entry"
 ]
+
