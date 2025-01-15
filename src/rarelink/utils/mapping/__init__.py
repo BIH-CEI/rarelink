@@ -12,8 +12,7 @@ field lists.
 
 """
 
-from . import redcap_to_linkml
-from . import map_entry
+from .map_entry import map_entry
 
 __all__ = [
     "redcap_to_linkml",

@@ -11,6 +11,11 @@ def load_project_and_schema_info(env_path):
         dict: Dictionary containing `project_name` and `schema_name`.
     """
     env_values = dotenv_values(env_path)
-    project_name = env_values.get("REDCAP_PROJECT_NAME", "default_project")
-    schema_name = env_values.get("LINKML_SCHEMA_NAME", "rarelink_cdm")
-    return {"project_name": project_name, "schema_name": schema_name}
+
+    if "REDCAP_PROJECT_NAME" not in env_values or "LINKML_SCHEMA_NAME" not in env_values:
+        raise KeyError("Missing REDCAP_PROJECT_NAME or LINKML_SCHEMA_NAME in the .env file.")
+
+    return {
+        "project_name": env_values["REDCAP_PROJECT_NAME"],
+        "schema_name": env_values["LINKML_SCHEMA_NAME"],
+    }

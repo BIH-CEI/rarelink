@@ -23,16 +23,50 @@ from .map_8_disability import map_disability
 
 # Centralized mapping registry for REDCap schemas.
 # Keys correspond to schema names, values are mapping functions.
+
 MAPPING_FUNCTIONS = {
-    "formal_criteria": map_formal_criteria,
-    "personal_information": map_personal_information,
-    "patient_status": map_patient_status,
-    "care_pathway": map_care_pathway,
-    "disease": map_disease,
-    "genetic_findings": map_genetic_findings,
-    "phenotypic_feature": map_phenotypic_feature,
-    "measurements": map_measurements,
-    "family_history": map_family_history,
-    "consent": map_consent,
-    "disability": map_disability,
+    "formal_criteria": {
+        "mapper": map_formal_criteria,
+        "is_repeating": False
+    },
+    "personal_information": {
+        "mapper": map_personal_information,
+        "is_repeating": False
+    },
+    "patient_status": {
+        "mapper": map_patient_status,
+        "is_repeating": True
+    },
+    "care_pathway": {
+        "mapper": map_care_pathway,
+        "is_repeating": True
+    },
+    "disease": {
+        "mapper": map_disease,
+        "is_repeating": True
+    },
+    "genetic_findings": {
+        "mapper": map_genetic_findings,
+        "is_repeating": True
+    },
+    "phenotypic_feature": {
+        "mapper": map_phenotypic_feature,
+        "is_repeating": True
+    },
+    "measurements": {
+        "mapper": map_measurements,
+        "is_repeating": True
+    },
+    "family_history": {
+        "mapper": map_family_history,
+        "is_repeating": True
+    },
+    "consent": {
+        "mapper": map_consent,
+        "is_repeating": False
+    },
+    "disability": {
+        "mapper": map_disability,
+        "is_repeating": False
+    },
 }

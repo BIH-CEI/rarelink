@@ -11,6 +11,9 @@ for Boolean conversions and prefix additions.
 from rarelink.utils.mapping import map_entry
 from rarelink.utils.processing.codes import add_prefix_to_code
 
+# Metadata for the schema
+IS_REPEATING = True  # Mark as repeating schema
+
 FIELD_MAPPINGS = {
     "patient_status_date": "patient_status_date",
     "snomed_278844005": "snomed_278844005",
