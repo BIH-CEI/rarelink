@@ -1,4 +1,4 @@
-from rarelink.utils.processing import add_prefix_to_code, process_prefix
+from rarelink.utils.processing.codes import add_prefix_to_code, process_prefix
 
 
 def map_formal_criteria(entry):

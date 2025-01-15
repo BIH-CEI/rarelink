@@ -2,29 +2,18 @@
 RareLink Utilities - Processing Module
 
 This module contains all functions to preprocessing, enrich, and transform 
-data for the required exports and pipelines.
+data for the required schemas, exports, and pipelines.
 
-Modules: 
-
-
-Exports: 
+Submodules: 
+- codes: contains all functions to process codes from REDCap or other 
+unstructured formats to comply with Phenopackets or FHIR
+- schemas: contains all functions to process entire schemas, such as the
+REDCap JSON data into the LinkML RareLink-CDM schema.
 """
 
-from .redcap_to_linkml.add_prefixes import add_prefix_to_code, process_prefix
-from .redcap_to_linkml.preprocess_redcap_json import preprocess_flat_data, main
-from .fetch_displays import (
-    fetch_label_directly, 
-    fetch_label_for_code, 
-    batch_fetch_labels
-)
+
 
 __all__ = [
-    "add_prefix_to_code",
-    "process_prefix",
-    "preprocess_flat_data",
-    "preprocess_flat_data",
-    "main",
-    "fetch_label_directly",
-    "fetch_label_for_code",
-    "batch_fetch_labels"
+    "codes",
+    "schemas"
 ]
