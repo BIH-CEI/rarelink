@@ -1,4 +1,3 @@
-from google.protobuf.timestamp_pb2 import Timestamp
 from rarelink.utils.processing.dates import (
     date_to_timestamp,
     year_month_to_timestamp,
