@@ -12,7 +12,7 @@ runner = CliRunner()
 )
 def test_redcap_tools_commands_executable(command):
     """
-    Ensure that all `redcap_tools` commands are executable without errors.
+    Ensure that all `redcap` commands are executable without errors.
     """
     result = runner.invoke(redcap_tools_app, command, input="n\n")
     assert result.exit_code in [0, 1], (
