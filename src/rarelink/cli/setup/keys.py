@@ -94,6 +94,11 @@ def app():
         default=env_values.get("REDCAP_PROJECT_ID", ""),
         show_default=False,
     )
+    redcap_project_name = typer.prompt(
+        "Step 4: Enter your REDCap Project Name",
+        default=env_values.get("REDCAP_PROJECT_NAME", ""),
+        show_default=False,
+    )
 
     typer.echo()
     between_section_separator()
@@ -104,7 +109,7 @@ def app():
         "You can find it in your project's `API` settings."
     )
     redcap_api_token = masked_input(
-        "Step 4: Enter your REDCap API Token (input will be masked): ", mask="#"
+        "Step 5: Enter your REDCap API Token (input will be masked): ", mask="#"
     )
 
     typer.echo()
@@ -118,6 +123,7 @@ def app():
         write_env_file(ENV_PATH, "BIOPORTAL_API_TOKEN", bioportal_api_token)
         write_env_file(ENV_PATH, "REDCAP_URL", redcap_url)
         write_env_file(ENV_PATH, "REDCAP_PROJECT_ID", redcap_project_id)
+        write_env_file(ENV_PATH, "REDCAP_PROJECT_NAME", redcap_project_name)
         write_env_file(ENV_PATH, "REDCAP_API_TOKEN", redcap_api_token)
         success_text(f"✅ API keys and configurations have been saved to {ENV_PATH}.")
     except Exception as e:

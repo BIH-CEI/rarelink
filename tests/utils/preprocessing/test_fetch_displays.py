@@ -1,5 +1,5 @@
 import pytest
-from rarelink.utils.preprocessing.fetch_displays import (
+from rarelink.utils.processing.codes import (
     fetch_label_directly,
     batch_fetch_labels,
 )
