@@ -1,6 +1,6 @@
 import pytest
 from typer.testing import CliRunner
-from rarelink.cli.redcap_tools import app as redcap_tools_app
+from rarelink.cli.redcap import app as redcap_tools_app
 
 runner = CliRunner()
 

@@ -1,7 +1,7 @@
 import typer
 from rarelink.cli.framework import app as framework
 from rarelink.cli.setup import app as redcap_setup_app
-from rarelink.cli.redcap_tools import app as redcap_tools_app
+from rarelink.cli.redcap import app as redcap_tools_app
 from rarelink.cli.fhir import app as fhir_app
 from rarelink.cli.utils.string_utils import format_command
 
