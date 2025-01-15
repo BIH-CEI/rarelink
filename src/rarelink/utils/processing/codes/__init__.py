@@ -14,10 +14,8 @@ Exports:
     
 """
 
-from .add_prefixes import (
-    add_prefix_to_code,
-    process_prefix
-)
+from .add_prefixes import add_prefix_to_code
+from .process_redcap_code import process_redcap_code
 from .fetch_displays import (
     fetch_label_directly, 
     fetch_label_for_code, 
@@ -26,7 +24,7 @@ from .fetch_displays import (
 
 __all__ = [
     "add_prefix_to_code",
-    "process_prefix",
+    "process_redcap_code",
     "fetch_label_directly",
     "fetch_label_for_code",
     "batch_fetch_labels"

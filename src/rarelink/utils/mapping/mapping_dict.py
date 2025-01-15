@@ -1,4 +1,17 @@
-from .map_to_linkml_schema import map_formal_criteria, map_personal_information, map_patient_status, map_care_pathway, map_disease, map_genetic_findings, map_phenotypic_feature, map_measurements, map_family_history, map_consent, map_disability
+from .map_to_linkml_schema import (
+    map_formal_criteria, 
+    map_personal_information, 
+    map_patient_status, 
+    map_care_pathway, 
+    map_disease, 
+    map_genetic_findings, 
+    map_phenotypic_feature, 
+    map_measurements, 
+    map_family_history, 
+    map_consent, 
+    map_disability
+)
+
 MAPPING_FUNCTIONS = {
     "formal_criteria": map_formal_criteria,
     "personal_information": map_personal_information,

@@ -40,7 +40,8 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
     format_header("Fetch REDCap Records")
 
     # Validate environment
-    validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_ID"])
+    validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN",
+                  "REDCAP_URL", "REDCAP_PROJECT_ID"])
 
     # Display alert about production mode
     hint_text(
@@ -94,7 +95,8 @@ def download_records(output_dir: Path = DEFAULT_OUTPUT_DIR):
         write_json(records, output_file)
 
         # Process the records into the RareLink-CDM schema
-        typer.echo("🔄 Processing records into the RareLink-CDM LinkML schema...")
+        typer.echo(
+            "🔄 Processing records into the RareLink-CDM LinkML schema...")
         transformed_data = preprocess_flat_data(records, MAPPING_FUNCTIONS)
         write_json(transformed_data, processed_file)
 
