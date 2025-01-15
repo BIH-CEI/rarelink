@@ -15,11 +15,11 @@ classes:
       The section for capturing the classification of functioning or disability for an individual
       using the International Classification of Functioning, Disability and Health (ICF).
     slots:
-      - icf_score
+      - rarelink_icf_score
       - rarelink_8_disability_complete
 
 slots:
-  icf_score:
+  rarelink_icf_score:
     description: >
       Classification of functioning/disability as per ICF.
     range: string

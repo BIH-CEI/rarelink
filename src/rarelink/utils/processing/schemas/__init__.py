@@ -10,9 +10,9 @@ Exports:
 - 
 """
 
-from .preprocess_redcap_json import preprocess_flat_data, main
+from .redcap_to_linkml import redcap_to_linkml, main
 
 __all__ = [
-    "preprocess_flat_data",
+    "redcap_to_linkml",
     "main"
 ]

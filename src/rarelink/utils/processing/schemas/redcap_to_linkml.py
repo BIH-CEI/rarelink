@@ -2,7 +2,7 @@ import json
 from collections import defaultdict
 from rarelink.utils.mapping import MAPPING_FUNCTIONS
 
-def preprocess_flat_data(flat_data, mapping_functions):
+def redcap_to_linkml(flat_data, mapping_functions):
     """
     Transforms flat REDCap data into structured JSON format compatible with the 
     RareLink-CDM LinkML schema. Allows modular addition of schemas via
@@ -79,7 +79,7 @@ def main(flat_data_file, output_file):
         flat_data = json.load(infile)
 
     # Transform the flat data
-    transformed_data = preprocess_flat_data(flat_data, MAPPING_FUNCTIONS)
+    transformed_data = redcap_to_linkml(flat_data, MAPPING_FUNCTIONS)
 
     # Save the transformed data to a new JSON file
     with open(output_file, "w") as outfile:

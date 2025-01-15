@@ -12,8 +12,10 @@ field lists.
 
 """
 
+from .map_entry import map_entry
 from .mapping_dict import MAPPING_FUNCTIONS
 
 __all__ = [
+    "map_entry",
     MAPPING_FUNCTIONS
 ]

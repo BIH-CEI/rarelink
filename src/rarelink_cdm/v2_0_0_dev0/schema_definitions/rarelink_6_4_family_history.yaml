@@ -5,7 +5,6 @@ prefixes:
   rarelink: https://github.com/BIH-CEI/rarelink/
   SNOMED: http://snomed.info/sct/
   LOINC: https://loinc.org/
-  MONDO: https://purl.obolibrary.org/obo/MONDO_
   HL7FHIR: http://hl7.org/fhir/
   ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
@@ -18,106 +17,105 @@ default_prefix: rarelink
 classes:
   FamilyHistory:
     description: >
-      Captures the family history of the individual, detailing relationships, 
-      consanguinity, and specific family member details like diseases, age, 
+      Captures the family history of the individual, detailing relationships,
+      consanguinity, and specific family member details like diseases, age,
       sex, and cause of death.
     slots:
       - family_history_pseudonym
-      - propositus
-      - relationship_to_index_case
-      - consanguinity
-      - family_member_relationship
-      - family_member_record_status
-      - family_member_sex
-      - family_member_age
-      - family_member_dob
-      - family_member_deceased
-      - family_member_cause_of_death
-      - family_member_deceased_age
-      - family_member_disease
+      - snomed_64245008
+      - snomed_408732007
+      - snomed_842009
+      - snomed_444018008
+      - hl7fhir_fmh_status
+      - loinc_54123_5
+      - loinc_54141_7
+      - loinc_54124_3
+      - snomed_740604001
+      - loinc_54112_8
+      - loinc_92662_6
+      - loinc_75315_2
       - rarelink_6_4_family_history_complete
 
 slots:
   family_history_pseudonym:
     description: >
-      If a pseudonym was already assigned to the specific family member, it 
-      should be entered here to identify across records.
+      A pseudonym assigned to the specific family member to identify across records.
     range: string
     required: false
 
-  propositus:
+  snomed_64245008:
     description: >
-      Indicates whether the individual is the first affected family member who 
+      Indicates whether the individual is the first affected family member who
       seeks medical attention for a genetic disorder.
-    range: PropositusStatus
+    range: string
     required: false
 
-  relationship_to_index_case:
+  snomed_408732007:
     description: >
-      Specifies the familial relationship of the individual being evaluated to 
-      the index case or propositus/proposita.
-    range: RelationshipToIndexCase
+      Specifies the familial relationship of the individual being evaluated
+      to the index case.
+    range: string
     required: false
 
-  consanguinity:
+  snomed_842009:
     description: >
       Indicates whether the parents of the individual are related by blood.
-    range: YesNoUnknown
+    range: string
     required: false
 
-  family_member_relationship:
+  snomed_444018008:
     description: >
       Specifies the relationship of the selected family member to the patient.
-    range: FamilyRelationship
+    range: string
     required: false
 
-  family_member_record_status:
+  hl7fhir_fmh_status:
     description: >
       Specifies the record’s status of the family history of a specific family member.
-    range: FamilyRecordStatus
+    range: string
     required: false
 
-  family_member_sex:
+  loinc_54123_5:
     description: >
-      Specifies the sex (or gender) of the specific family member. If possible, 
+      Specifies the sex (or gender) of the specific family member. If possible,
       the sex assigned at birth should be selected.
-    range: FamilyMemberSex
+    range: string
     required: false
 
-  family_member_age:
+  loinc_54141_7:
     description: >
       Records the current age in full years of the selected family member.
     range: integer
     required: false
 
-  family_member_dob:
+  loinc_54124_3:
     description: >
       Records the date of birth of the selected family member.
     range: date
     required: false
 
-  family_member_deceased:
+  snomed_740604001:
     description: >
       Indicates whether the selected family member is deceased.
-    range: YesNoUnknown
+    range: string
     required: false
 
-  family_member_cause_of_death:
+  loinc_54112_8:
     description: >
       Records the cause of death of the selected deceased family member.
     range: string
     required: false
 
-  family_member_deceased_age:
+  loinc_92662_6:
     description: >
       Records the age at which the family member passed away.
     range: integer
     required: false
 
-  family_member_disease:
+  loinc_75315_2:
     description: >
-      Indicates whether the selected family member is affected by the same RD 
-      as the individual or a different rare disease, encoded with MONDO
+      Indicates whether the selected family member is affected by the same RD
+      as the individual or a different rare disease, encoded with MONDO.
     range: string
     required: false
 
@@ -126,6 +124,7 @@ slots:
       Completion status for the family history form.
     range: string
     required: false
+
 
 enums:
   PropositusStatus:
