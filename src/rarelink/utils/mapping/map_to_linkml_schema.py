@@ -1,4 +1,4 @@
-from rarelink.utils.preprocessing.redcap_to_linkml.add_prefixes import add_prefix_to_code, process_prefix
+from rarelink.utils.processing import add_prefix_to_code, process_prefix
 
 
 def map_formal_criteria(entry):
@@ -248,7 +248,6 @@ def map_disability(entry):
         "rarelink_8_disability_complete": entry.get(
             "rarelink_8_disability_complete", "")
     }
-
 
 MAPPING_FUNCTIONS = {
     "formal_criteria": map_formal_criteria,
