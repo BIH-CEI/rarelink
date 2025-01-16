@@ -18,10 +18,15 @@ from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
 from rarelink_cdm.v2_0_0_dev0.mappings.redcap import MAPPING_FUNCTIONS
+import logging
 
+
+logger = logging.getLogger(__name__)
 app = typer.Typer()
 
+REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
+BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 ENV_PATH = Path(".env")  # Path to your .env file
 
 
@@ -84,18 +89,16 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         typer.echo(f"🔄 Processing records for project '{project_name}'...")
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
-
-        # Validate the processed data
-        schema_path = Path("src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml")
+        
+        # Validation
         typer.echo("🔄 Validating processed records against the LinkML schema...")
-        if validate_linkml_data(schema_path, processed_file):
-            success_text("✅ Validation successful!")
+        if validate_linkml_data(BASE_SCHEMA_PATH, processed_file):
+            typer.secho("✅ Validation successful!", fg=typer.colors.GREEN)
         else:
-            typer.secho(error_text(f"❌ Validation failed for {processed_file}"), fg=typer.colors.RED)
+            typer.secho(f"❌ Validation failed for {processed_file}", fg=typer.colors.RED)
 
     except Exception as e:
-        log_info(logger, f"❌ Error: {e}")
-        typer.secho(error_text(f"❌ Error: {e}"), fg=typer.colors.RED)
+        typer.secho(f"❌ Error: {e}", fg=typer.colors.RED)
         raise typer.Exit(1)
 
     end_of_section_separator()

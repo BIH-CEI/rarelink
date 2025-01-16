@@ -47,31 +47,31 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
     Returns:
         Phenopacket: A fully constructed Phenopacket.
     """
-    # Process VitalStatus (fetch the highest instance)
-    vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
-    highest_instance = get_nested_field(
-        data,
-        "repeated_elements",
-        highest_redcap_repeat_instance=True
-    )
-    vital_status = map_vital_status(highest_instance, vital_status_processor) if highest_instance else None
+    try:
+        # Initialize the DataProcessor for vital status mapping
+        vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
+        vital_status = map_vital_status(data, vital_status_processor)
 
-    # Initialize the DataProcessor for individual mapping
-    individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
-    individual = map_individual(data, individual_processor, vital_status=vital_status)
-    
-    # Map the Metadata block
-    metadata = map_metadata(
-        created_by=created_by, 
-        code_systems=RARELINK_CODE_SYSTEMS
-    )
+        # Initialize the DataProcessor for individual mapping
+        individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
+        individual = map_individual(data, individual_processor, vital_status=vital_status)
 
-    # Construct and return the Phenopacket
-    return Phenopacket(
-        id=data["record_id"],
-        subject=individual,
-        meta_data=metadata
-    )
+        # Map the Metadata block
+        metadata = map_metadata(
+            created_by=created_by, 
+            code_systems=RARELINK_CODE_SYSTEMS
+        )
+
+        # Construct and return the Phenopacket
+        return Phenopacket(
+            id=data["record_id"],
+            subject=individual,
+            meta_data=metadata
+        )
+    except Exception as e:
+        logger.error(f"Error creating Phenopacket for record ID: {data.get('record_id')} - {e}")
+        raise
+
 
     # # Process other repeated elements
     # repeated_elements = data.get("repeated_elements", [])
