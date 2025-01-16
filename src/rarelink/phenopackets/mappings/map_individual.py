@@ -4,27 +4,10 @@ from rarelink.utils.processing.dates.timestamp import date_to_timestamp
 from rarelink.utils.processing.codes.process_redcap_code import process_redcap_code
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
 from rarelink.utils.processing.codes.fetch_displays import fetch_label_directly
+from rarelink.utils.loading import get_nested_field
 
 logger = logging.getLogger(__name__)
 
-def get_nested_field(data: dict, field_path: str):
-    """
-    Fetches a value from a nested dictionary based on a dotted field path.
-
-    Args:
-        data (dict): The dictionary to search.
-        field_path (str): Dotted path to the field (e.g., "personal_information.snomed_184099003").
-
-    Returns:
-        The value of the field or None if not found.
-    """
-    keys = field_path.split(".")
-    for key in keys:
-        if isinstance(data, dict) and key in data:
-            data = data[key]
-        else:
-            return None
-    return data
 
 def wrap_in_time_element(timestamp):
     """
