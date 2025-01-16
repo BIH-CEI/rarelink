@@ -31,56 +31,88 @@ def map_onset(data: dict, processor: DataProcessor, category_field: str, date_fi
         )
     return None
 
-def map_disease(element: dict, processor: DataProcessor) -> Disease:
+def map_disease(data: dict, processor: DataProcessor, mapping_config: dict) -> Disease:
     """
-    Maps a single disease element to a Phenopacket Disease block.
+    Maps a single instance of disease data to a Phenopacket Disease block.
 
     Args:
-        element (dict): A single disease element from the input data.
-        processor (DataProcessor): Handles data processing and mapping.
+        data (dict): Input data dictionary for the disease.
+        processor (DataProcessor): Processor for data retrieval and mapping.
+        mapping_config (dict): Configuration for disease fields.
 
     Returns:
         Disease: A Phenopacket Disease block.
     """
-    try:
-        # Prefer the first non-empty term field
-        term_id = processor.prefer_non_empty_field(
-            element, processor, DISEASE_BLOCK["term_fields"])
-        term_label = processor.fetch_label(term_id)
+    # Select the first non-empty term field
+    term_fields = mapping_config["term_fields"]
+    term_id = processor.prefer_non_empty_field(data, processor, term_fields)
 
-        term = OntologyClass(
-            id=term_id,
-            label=term_label or "Unknown"
-        )
+    if not term_id:
+        raise ValueError("No valid disease term found in term_fields.")
 
-        # Map onset (prefer date over category)
-        onset = map_onset(
-            element,
-            processor,
-            category_field=DISEASE_BLOCK["onset_category_field"],
-            date_field=DISEASE_BLOCK["onset_date_field"]
-        )
+    # Fetch the label for the term
+    term_label = processor.fetch_label(term_id)
 
-        # Map primary site (if available)
-        primary_site_field = processor.get_field
-        (element, DISEASE_BLOCK["primary_site_field"])
-        primary_site = OntologyClass(
-            id=primary_site_field,
-            label=processor.fetch_label(primary_site_field)
-        ) if primary_site_field else None
+    # Build the OntologyClass for the disease term
+    term = OntologyClass(
+        id=term_id,
+        label=term_label,
+    )
 
-        # Map exclusion status
-        excluded_field = processor.get_field(
-            element, DISEASE_BLOCK["excluded_field"])
-        excluded = True if excluded_field and excluded_field.lower() \
-            == "hl7fhir_excluded" else False
+    # Handle onset preference (date over category)
+    onset_date = processor.get_field(data, mapping_config["onset_date_field"])
+    onset_category = processor.get_field(data, mapping_config["onset_category_field"])
 
-        return Disease(
-            term=term,
-            onset=onset,
-            excluded=excluded,
-            primary_site=primary_site
-        )
-    except Exception as e:
-        logger.error(f"Failed to map disease: {e}")
-        raise
+    if onset_date:
+        onset = TimeElement(timestamp=processor.process_time_element(onset_date))
+    elif onset_category:
+        onset = OntologyClass(id=onset_category, label=processor.fetch_label(onset_category))
+    else:
+        onset = None
+
+    # Exclude field logic (e.g., disease exclusion)
+    excluded_value = processor.get_field(data, mapping_config["excluded_field"])
+    excluded = excluded_value == "hl7fhir_excluded"
+
+    # Handle primary site
+    primary_site_id = processor.get_field(data, mapping_config["primary_site_field"])
+    primary_site = (
+        OntologyClass(
+            id=primary_site_id,
+            label=processor.fetch_label(primary_site_id)
+        ) if primary_site_id else None
+    )
+
+    # Construct and return the Disease block
+    return Disease(
+        term=term,
+        onset=onset,
+        excluded=excluded,
+        primary_site=primary_site,
+    )
+
+def map_diseases(data: dict, processor: DataProcessor, mapping_config: dict) -> list:
+    """
+    Maps all repeated instances of disease data to Phenopacket Disease blocks.
+
+    Args:
+        data (dict): Input data dictionary containing repeated elements.
+        processor (DataProcessor): Processor for data retrieval and mapping.
+        mapping_config (dict): Configuration for disease fields.
+
+    Returns:
+        list: A list of Phenopacket Disease blocks.
+    """
+    repeated_elements = processor.get_field(data, "repeated_elements")
+    if not repeated_elements:
+        return []
+
+    # Filter for relevant disease instances
+    disease_elements = [
+        element for element in repeated_elements
+        if element.get("redcap_repeat_instrument") == "rarelink_5_disease"
+    ]
+
+    return processor.process_repeated_elements(
+        disease_elements, processor, lambda elem, proc: map_disease(elem, proc, mapping_config)
+    )

@@ -4,7 +4,7 @@ from rarelink.phenopackets.mappings import (
     map_individual,
     map_vital_status,
     map_metadata,
-    map_disease
+    map_diseases
 )
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
@@ -37,18 +37,9 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         individual = map_individual(data, individual_processor, vital_status=vital_status)
 
         # Map diseases
-        disease_elements = DataProcessor.get_field(data, "repeated_elements")
-        if disease_elements:
-            disease_data = [
-                elem for elem in disease_elements if elem.get(
-                    "redcap_repeat_instrument") == "rarelink_5_disease"
-            ]
-            disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
-            diseases = DataProcessor.process_repeated_elements(
-                disease_data, disease_processor, map_disease)
-        else:
-            diseases = []
-            
+        disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
+        diseases = map_diseases(data, disease_processor, DISEASE_BLOCK)
+
         # Map the Metadata block
         metadata = map_metadata(
             created_by=created_by, 
