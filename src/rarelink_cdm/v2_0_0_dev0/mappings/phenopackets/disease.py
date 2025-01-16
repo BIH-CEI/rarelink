@@ -8,6 +8,6 @@ DISEASE_BLOCK = {
     ],
     "excluded_field": "repeated_elements[redcap_repeat_instrument:rarelink_5_disease].disease.loinc_99498_8",
     "onset_category_field": "repeated_elements[redcap_repeat_instrument:rarelink_5_disease].disease.snomed_432213005",
-    "onset_date_field": "repeated_elements[redcap_repeat_instrument:rarelink_5_disease].disease.snomed_298059007",
+    "onset_date_field": "repeated_elements[redcap_repeat_instrument:rarelink_5_disease].disease.snomed_424850005",
     "primary_site_field": "repeated_elements[redcap_repeat_instrument:rarelink_5_disease].disease.snomed_363698007",
 }

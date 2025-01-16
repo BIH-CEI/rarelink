@@ -2,7 +2,7 @@ import logging
 from phenopackets import Disease, OntologyClass, TimeElement
 from rarelink.utils.processor import DataProcessor
 from google.protobuf.timestamp_pb2 import Timestamp
-from rarelink.utils.processing.codes import convert_to_boolean
+from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
 
 logger = logging.getLogger(__name__)
 
@@ -113,16 +113,14 @@ def map_diseases(
                 except Exception as e:
                     logger.error(f"Error processing onset category: {e}")
                     
-            # excluded field
+            # Fetch the excluded value and convert it directly using the boolean mapping
             excluded_value = disease_data.get("loinc_99498_8")
-            if excluded_value is None:
-                logger.warning("Excluded value is None, skipping exclusion mapping.")
-                excluded = None
+            if excluded_value:
+                # Fetch the boolean mapping and apply it
+                excluded = get_mapping_by_name("map_disease_verification_status", to_boolean=True).get(excluded_value, None)
+                logger.debug(f"Excluded value after boolean mapping: {excluded}")
             else:
-                excluded_map = processor.fetch_mapping_value("map_disease_verification_status", excluded_value)
-                logger.debug(f"Fetched mapping for exclusion: {excluded_map}")
-                excluded = convert_to_boolean(excluded_map, {"true": True, "false": False})
-                logger.debug(f"Converted exclusion value: {excluded}")
+                excluded = None
 
 
             # Handle primary site

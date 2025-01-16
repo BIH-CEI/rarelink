@@ -1,3 +1,4 @@
+
 """
 These are specific mappings from the Rarelink CDM v2.0.0 to the Phenopackets 
 schema where specific codes are required. These mappings are used to convert
@@ -44,12 +45,12 @@ mapping_dicts = [
     {
         "name": "map_disease_verification_status",
         "mapping": {
-            "hl7fhir_unconfirmed": "false",
-            "hl7fhir_provisional": "false",
-            "hl7fhir_differential": "false",
-            "hl7fhir_confirmed": "false",
-            "hl7fhir_refuted": "true",
-            "hl7fhir_entered-in-error": "false"
+            "hl7fhir_unconfirmed": "",
+            "hl7fhir_provisional": "",
+            "hl7fhir_differential": "",
+            "hl7fhir_confirmed": "False",
+            "hl7fhir_refuted": "True",
+            "hl7fhir_entered-in-error": ""
         },
     },
     {
@@ -73,9 +74,25 @@ mapping_dicts = [
 ]
 
 # Utility function to fetch a mapping by name
-def get_mapping_by_name(name):
+def get_mapping_by_name(name, to_boolean=False):
+    """
+    Fetches a mapping by its name and optionally applies a boolean conversion.
+
+    Args:
+        name (str): The name of the mapping to fetch.
+        to_boolean (bool): Whether to convert the mapping values to booleans.
+
+    Returns:
+        dict: The requested mapping, optionally converted to booleans.
+
+    Raises:
+        KeyError: If no mapping is found for the given name.
+    """
     for mapping_dict in mapping_dicts:
         if mapping_dict["name"] == name:
-            return mapping_dict["mapping"]
+            mapping = mapping_dict["mapping"]
+            if to_boolean:
+                # Apply boolean conversion to the mapping values
+                return {key: value.lower() == "true" for key, value in mapping.items()}
+            return mapping
     raise KeyError(f"No mapping found for name: {name}")
-
