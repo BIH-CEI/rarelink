@@ -4,7 +4,6 @@ schema where specific codes are required. These mappings are used to convert
 the codes in the CDM to the required codes in the Phenopackets schema.
 """
 
-
 mapping_dicts = [
     {
         "name": "map_sex",

@@ -1,10 +1,10 @@
 from phenopackets import Phenopacket
 from rarelink.phenopackets.mappings.map_individual import map_individual
 from rarelink.phenopackets.mappings.map_metadata import map_metadata
-from rarelink.utils.processor import DataProcessor 
+from rarelink.utils.processor import DataProcessor
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
-    INDIVIDUAL_BLOCK, 
-    RESOURCE_CONFIG
+    INDIVIDUAL_BLOCK,
+    RARELINK_CODE_SYSTEMS
 )
 
 def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
@@ -20,13 +20,13 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
     """
     # Initialize the DataProcessor with the data model-specific mappings
     processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
-
-    # Map the Individual block
     individual = map_individual(data, processor)
+
+    # Instantiate the CodeSystemsContainer with CodeSystem objects
 
     # Map the Metadata block
     metadata = map_metadata(created_by=created_by, 
-                            resources_config=RESOURCE_CONFIG)
+                            code_systems=RARELINK_CODE_SYSTEMS)
 
     # Construct and return the Phenopacket
     return Phenopacket(

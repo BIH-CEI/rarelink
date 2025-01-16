@@ -33,9 +33,11 @@ def phenopacket_pipeline(input_data: list, output_dir: str, created_by: str):
         try:
             phenopacket = create_phenopacket(record, created_by)
             phenopackets.append(phenopacket)
-            logger.info(f"Successfully created Phenopacket for record ID: {record['record_id']}")
+            logger.info(f"Successfully created Phenopacket for record ID: \
+                {record['record_id']}")
         except Exception as e:
-            logger.error(f"Error creating Phenopacket for record ID: {record['record_id']} - {e}")
+            logger.error(f"Error creating Phenopacket for record ID: \
+                {record['record_id']} - {e}")
 
     # Write Phenopackets to files
     logger.info("Writing Phenopackets to files...")
