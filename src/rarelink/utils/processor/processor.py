@@ -9,7 +9,7 @@ from rarelink.utils.processing.codes import (
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name
 )
-from rarelink.utils.loading import get_nested_field, fetch_label_from_enum
+from rarelink.utils.loading import get_nested_field, fetch_description_from_label_dict
 
 class DataProcessor:
     def __init__(self, mapping_config: dict):
@@ -91,7 +91,7 @@ class DataProcessor:
             str: The label (description) for the code, or None if not found.
         """
         try:
-            return fetch_label_from_enum(enum_class, code)
+            return fetch_description_from_label_dict(enum_class, code)
         except KeyError:
             return None
 

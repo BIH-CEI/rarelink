@@ -16,12 +16,12 @@ from .fetch_redcap_data import fetch_redcap_data
 from .schema_loader import load_schema
 from .project_and_schema import load_project_and_schema_info
 from .nested_json_data import get_nested_field  
-from .label_from_enum import fetch_label_from_enum
+from .label_from_enum import fetch_description_from_label_dict
 
 __all__ = [
     "load_schema",
     "fetch_redcap_data",
     "load_project_and_schema_info",
     "get_nested_field",
-    "fetch_label_from_enum"
+    "fetch_description_from_label_dict"
 ]

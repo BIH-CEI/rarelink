@@ -25,28 +25,28 @@ def map_individual(data: dict, processor: DataProcessor) -> Individual:
 
         # Time at Last Encounter
         time_at_last_encounter_field = processor.get_field(
-            data, "time_at_last_encounter_field")
+            data, "time_at_last_encounter_field"
+        )
         time_at_last_encounter = processor.process_time_element(
-            time_at_last_encounter_field)
+            time_at_last_encounter_field
+        )
 
         # Sex
         sex_field = processor.get_field(data, "sex_field")
-        sex_label = processor.fetch_description_from_label_dict("SexAtBirth", sex_field)
-        sex = sex_label or "UNKNOWN_SEX"
+        sex = processor.fetch_mapping_value("map_sex", sex_field) or "UNKNOWN_SEX"
 
         # Karyotypic Sex
         karyotypic_sex_field = processor.get_field(data, "karyotypic_sex_field")
-        karyotypic_sex_label = processor.fetch_description_from_label_dict(
-            "KaryotypicSex", karyotypic_sex_field
-        )
-        karyotypic_sex = karyotypic_sex_label or "UNKNOWN_KARYOTYPE"
+        karyotypic_sex = processor.fetch_mapping_value(
+            "map_karyotypic_sex", karyotypic_sex_field
+        ) or "UNKNOWN_KARYOTYPE"
 
         # Gender
         gender_field = processor.get_field(data, "gender_field")
         if gender_field:
             processed_gender = processor.process_code(gender_field)
-            gender_label = processor.fetch_description_from_label_dict(
-                "GenderIdentity", gender_field
+            gender_label = processor.fetch_label(
+                gender_field, enum_class="GenderIdentity"
             )
             gender = OntologyClass(
                 id=processed_gender,
