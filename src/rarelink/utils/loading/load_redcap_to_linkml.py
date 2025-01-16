@@ -1,4 +1,4 @@
-from .redcap_data import fetch_redcap_data
+from .fetch_redcap_data import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
 from dotenv import dotenv_values

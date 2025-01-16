@@ -12,10 +12,10 @@ Exports:
     
 """
 
-from .redcap_data import fetch_redcap_data
+from .fetch_redcap_data import fetch_redcap_data
 from .schema_loader import load_schema
 from .project_and_schema import load_project_and_schema_info
-from .nested_json_data import get_nested_field
+from .nested_json_data import get_nested_field  
 
 __all__ = [
     "load_schema",

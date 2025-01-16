@@ -1,27 +1,14 @@
 import logging
-from phenopackets import Individual, OntologyClass, TimeElement
-from rarelink.utils.processing.dates.timestamp import date_to_timestamp
-from rarelink.utils.processing.codes.process_redcap_code import process_redcap_code
+from phenopackets import Individual, OntologyClass
+from rarelink.utils.processing.dates import date_to_timestamp
+from rarelink.utils.processing.codes import process_redcap_code
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
-from rarelink.utils.processing.codes.fetch_displays import fetch_label_directly
+from rarelink.utils.processing.codes import fetch_label_directly
 from rarelink.utils.loading import get_nested_field
+from rarelink.utils.processing.dates import create_time_element_from_date
 
 logger = logging.getLogger(__name__)
 
-
-def wrap_in_time_element(timestamp):
-    """
-    Wraps a Protobuf `Timestamp` in a Phenopacket `TimeElement`.
-
-    Args:
-        timestamp (Timestamp): A Protobuf Timestamp object.
-
-    Returns:
-        TimeElement: A Phenopacket TimeElement wrapping the given Timestamp.
-    """
-    if timestamp is None:
-        return None
-    return TimeElement(timestamp=timestamp)
 
 def map_individual(data: dict, mapping_config: dict) -> Individual:
     """
@@ -44,7 +31,7 @@ def map_individual(data: dict, mapping_config: dict) -> Individual:
 
         # Time at Last Encounter
         time_at_last_encounter_field = get_nested_field(data, mapping_config["time_at_last_encounter_field"])
-        time_at_last_encounter = wrap_in_time_element(date_to_timestamp(time_at_last_encounter_field))
+        time_at_last_encounter = create_time_element_from_date(time_at_last_encounter_field)
 
         # Sex
         sex_field = get_nested_field(data, mapping_config["sex_field"])
