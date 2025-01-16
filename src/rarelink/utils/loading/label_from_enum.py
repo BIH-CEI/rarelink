@@ -1,7 +1,6 @@
-from rarelink_cdm.v2_0_0_dev0.datamodel import Optional
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import label_dicts
 
-def fetch_description_from_label_dict(enum_name: str, code: str) -> Optional[str]:
+def fetch_description_from_label_dict(enum_name: str, code: str) -> str:
     """
     Fetch the description for a specific code from a pre-defined label dictionary.
 
