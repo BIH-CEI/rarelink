@@ -113,16 +113,17 @@ def map_diseases(
                 except Exception as e:
                     logger.error(f"Error processing onset category: {e}")
                     
-            # Exclude field logic (e.g., disease exclusion)
+            # excluded field
             excluded_value = disease_data.get("loinc_99498_8")
-            try:
-                # Retrieve the mapped value for the exclusion code
-                mapped_value = processor.fetch_mapping_value("map_disease_verification_status", excluded_value)
-                if mapped_value is not None:
-                    # Convert the mapped value to a boolean
-                    excluded = convert_to_boolean(mapped_value, {"true": True, "false": False})
-            except Exception as e:
-                logger.error(f"Error processing exclusion field: {e}")
+            if excluded_value is None:
+                logger.warning("Excluded value is None, skipping exclusion mapping.")
+                excluded = None
+            else:
+                excluded_map = processor.fetch_mapping_value("map_disease_verification_status", excluded_value)
+                logger.debug(f"Fetched mapping for exclusion: {excluded_map}")
+                excluded = convert_to_boolean(excluded_map, {"true": True, "false": False})
+                logger.debug(f"Converted exclusion value: {excluded}")
+
 
             # Handle primary site
             primary_site_id = disease_data.get("snomed_363698007")
