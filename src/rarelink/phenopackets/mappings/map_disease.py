@@ -115,8 +115,8 @@ def map_diseases(
                     
             # Fetch excluded field and convert it to a boolean
             excluded_value = disease_data.get("loinc_99498_8")
-            excluded = processor.fetch_mapping_value(
-                "map_disease_verification_status", excluded_value, to_boolean=True
+            excluded = bool(processor.fetch_mapping_value(
+                "map_disease_verification_status", excluded_value)
             )
             # Handle primary site
             primary_site_id = disease_data.get("snomed_363698007")

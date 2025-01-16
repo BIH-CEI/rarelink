@@ -17,4 +17,4 @@ def write_phenopackets(phenopackets: list, output_dir: str):
         file_name = f"{phenopacket.id}.json"
         file_path = output_path / file_name
         with open(file_path, "w") as f:
-            json.dump(MessageToDict(phenopacket), f, indent=2)
+            json.dump(MessageToDict(phenopacket, preserving_proto_field_name=True), f, indent=2)

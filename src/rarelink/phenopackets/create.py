@@ -9,8 +9,7 @@ from rarelink.phenopackets.mappings import (
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
-    RARELINK_CODE_SYSTEMS,
-    DISEASE_BLOCK
+    RARELINK_CODE_SYSTEMS
 )
 import logging
 
