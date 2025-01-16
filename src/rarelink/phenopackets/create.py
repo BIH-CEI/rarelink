@@ -36,7 +36,7 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         individual = map_individual(data, individual_processor, vital_status=vital_status)
 
         # Diseases
-        disease_processor = DataProcessor(mapping_config={})  # No config needed for hardcoded mapping
+        disease_processor = DataProcessor(mapping_config={}) # hardcoded for now
         diseases = map_diseases(data, disease_processor)
         
         # Metadata

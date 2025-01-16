@@ -81,7 +81,8 @@ def map_diseases(
         for disease_element in disease_elements:
             disease_data = disease_element.get("disease")
             if not disease_data:
-                logger.warning("No disease data found in this element. Skipping.")
+                logger.warning("No disease data found in "
+                               "this element. Skipping.")
                 continue
 
             term_id = (
