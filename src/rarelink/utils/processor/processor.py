@@ -49,7 +49,6 @@ class DataProcessor:
             logger.error(f"Failed to fetch field '{field_name}' with path '{field_path}': {e}")
             return None
 
-    @staticmethod
     def prefer_non_empty_field(self, data: dict, fields: list) -> str:
         """
         Selects the first non-empty field from a list of fields.
@@ -62,7 +61,7 @@ class DataProcessor:
             str: The value of the first non-empty field or None if all are empty.
         """
         for field in fields:
-            # Fetch the value using get_field
+            logger.debug(f"Attempting to resolve field: {field}")
             value = self.get_field(data, field)
             if isinstance(value, list):  # Handle repeated elements
                 for item in value:
@@ -70,7 +69,9 @@ class DataProcessor:
                         return item
             elif value:
                 return value
+        logger.warning(f"All fields empty or not found: {fields}")
         return None
+
 
     # --------------------------------------
     # Data Processing Methods

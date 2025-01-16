@@ -21,41 +21,42 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
     Creates a Phenopacket for an individual record.
 
     Args:
-        data (dict): The input data for the individual.
-        created_by (str): The creator's name (for metadata).
+        data (dict): Input dictionary containing all data.
+        created_by (str): Creator's name for metadata.
 
     Returns:
         Phenopacket: A fully constructed Phenopacket.
     """
     try:
-        # Initialize the DataProcessor for vital status mapping
+        # Vital Status
         vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
         vital_status = map_vital_status(data, vital_status_processor)
 
-        # Initialize the DataProcessor for individual mapping
+        # Individual
         individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
         individual = map_individual(data, individual_processor, vital_status=vital_status)
 
-        # Map diseases
+        # Diseases
         disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
         diseases = map_diseases(data, disease_processor, DISEASE_BLOCK)
 
-        # Map the Metadata block
+        # Metadata
         metadata = map_metadata(
             created_by=created_by, 
             code_systems=RARELINK_CODE_SYSTEMS
         )
 
-        # Construct and return the Phenopacket
+        # Construct Phenopacket
         return Phenopacket(
             id=data["record_id"],
             subject=individual,
+            diseases=diseases,
             meta_data=metadata,
-            diseases=diseases
         )
     except Exception as e:
-        logger.error(f"Error creating Phenopacket for record ID: {data.get('record_id')} - {e}")
+        logger.error(f"Error creating Phenopacket: {e}")
         raise
+
 
 
     # phenotype_processor = DataProcessor(mapping_config={...})  # Define mappings for phenotypes
