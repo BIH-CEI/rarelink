@@ -4,9 +4,8 @@ from rarelink.phenopackets import (
     create_phenopacket,
     write_phenopackets
 )
-from rarelink.phenopackets.validate import validate_phenopackets
+# from rarelink.phenopackets.validate import validate_phenopackets
 import logging
-
 
 app = typer.Typer()
 
@@ -32,7 +31,7 @@ def phenopacket_pipeline(input_data: list, output_dir: str, created_by: str):
     phenopackets = []
     for record in input_data:
         try:
-            phenopacket = create_phenopacket(record, {}, created_by)
+            phenopacket = create_phenopacket(record, created_by)
             phenopackets.append(phenopacket)
             logger.info(f"Successfully created Phenopacket for record ID: {record['record_id']}")
         except Exception as e:

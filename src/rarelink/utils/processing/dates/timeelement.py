@@ -10,10 +10,12 @@ def create_time_element_from_date(date_input: str) -> TimeElement:
     Creates a Phenopacket `TimeElement` from a date string.
 
     Args:
-        date_input (str): Date input as a string in "YYYY-MM-DD" or ISO8601 format.
+        date_input (str): Date input as a string in "YYYY-MM-DD" 
+        or ISO8601 format.
 
     Returns:
-        TimeElement: A Phenopacket TimeElement containing the parsed Timestamp, or None if invalid.
+        TimeElement: A Phenopacket TimeElement containing the parsed 
+        Timestamp, or None if invalid.
     """
     if not date_input:
         logger.warning("Empty or invalid date input; returning None")
@@ -27,7 +29,8 @@ def create_time_element_from_date(date_input: str) -> TimeElement:
         try:
             parsed_date = datetime.strptime(date_input, "%Y-%m-%d")
         except ValueError:
-            logger.error(f"Invalid date format: {date_input}. Expected ISO8601 or YYYY-MM-DD.")
+            logger.error(f"Invalid date format: {date_input}. \
+                         Expected ISO8601 or YYYY-MM-DD.")
             return None
 
     # Convert to Protobuf Timestamp

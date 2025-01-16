@@ -1,63 +1,57 @@
 import logging
 from phenopackets import Individual, OntologyClass
-from rarelink.utils.processing.dates import date_to_timestamp
-from rarelink.utils.processing.codes import process_redcap_code
-from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
-from rarelink.utils.processing.codes import fetch_label_directly
-from rarelink.utils.loading import get_nested_field
-from rarelink.utils.processing.dates import create_time_element_from_date
+from rarelink.utils.processor import DataProcessor
 
 logger = logging.getLogger(__name__)
 
-
-def map_individual(data: dict, mapping_config: dict) -> Individual:
+def map_individual(data: dict, processor: DataProcessor) -> Individual:
     """
-    Maps patient data to the Individual block based on the provided mapping configuration.
+    Maps patient data to the Individual block using a DataProcessor.
 
     Args:
         data (dict): Input data from the RareLink-CDM schema (or similar).
-        mapping_config (dict): Configuration defining how to map input fields.
+        processor (DataProcessor): Handles all data processing logic.
 
     Returns:
         Individual: A Phenopacket Individual block.
     """
     try:
         # Extract ID
-        id_field = get_nested_field(data, mapping_config["id_field"])
+        id_field = processor.get_field(data, "id_field")
 
         # Date of Birth
-        date_of_birth_field = get_nested_field(data, mapping_config["date_of_birth_field"])
-        date_of_birth = date_to_timestamp(date_of_birth_field)
+        date_of_birth_field = processor.get_field(data, "date_of_birth_field")
+        date_of_birth = processor.process_date(date_of_birth_field)
 
         # Time at Last Encounter
-        time_at_last_encounter_field = get_nested_field(data, mapping_config["time_at_last_encounter_field"])
-        time_at_last_encounter = create_time_element_from_date(time_at_last_encounter_field)
+        time_at_last_encounter_field = processor.get_field(
+            data, "time_at_last_encounter_field")
+        time_at_last_encounter = processor.process_time_element(
+            time_at_last_encounter_field)
 
         # Sex
-        sex_field = get_nested_field(data, mapping_config["sex_field"])
-        sex = get_mapping_by_name("map_sex").get(sex_field, "UNKNOWN_SEX")
+        sex_field = processor.get_field(data, "sex_field")
+        sex = processor.get_mapping("map_sex").get(sex_field, "UNKNOWN_SEX")
 
         # Karyotypic Sex
-        karyotypic_sex_field = get_nested_field(data, mapping_config["karyotypic_sex_field"])
-        karyotypic_sex = get_mapping_by_name("map_karyotypic_sex").get(karyotypic_sex_field, "UNKNOWN_KARYOTYPE")
+        karyotypic_sex_field = processor.get_field(
+            data, "karyotypic_sex_field")
+        karyotypic_sex = processor.get_mapping("map_karyotypic_sex").get(
+            karyotypic_sex_field, "UNKNOWN_KARYOTYPE")
 
         # Gender
-        gender_field = get_nested_field(data, mapping_config["gender_field"])
+        gender_field = processor.get_field(data, "gender_field")
         if gender_field:
-            processed_gender = process_redcap_code(gender_field)
-            
-            # Fetch the label for the processed code
-            gender_label = fetch_label_directly(processed_gender)
-            logger.debug(f"Fetched label for gender field: {gender_label}")
-
+            processed_gender = processor.process_code(gender_field)
+            gender_label = processor.fetch_label(processed_gender)
             gender = OntologyClass(
                 id=processed_gender,
                 label=gender_label or "Unknown"
             )
         else:
             gender = None
-            logger.debug("Gender field is missing or empty, set to None.")
-            
+
+        # Taxonomy (assume human as default)
         taxonomy = OntologyClass(
             id="NCBITaxon:9606",
             label="Homo sapiens"
