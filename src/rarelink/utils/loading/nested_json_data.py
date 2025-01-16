@@ -2,7 +2,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
 def get_nested_field(data: dict, field_path: str, highest_redcap_repeat_instance: bool = False):
     """
     Fetches a value from a nested dictionary based on a dotted field path,
@@ -20,17 +19,25 @@ def get_nested_field(data: dict, field_path: str, highest_redcap_repeat_instance
     keys = field_path.split(".")
     for i, key in enumerate(keys):
         if key == "repeated_elements":
-            # Handle repeated_elements as a list of dictionaries
+            # Process repeated elements as a list of dictionaries
             if isinstance(data, list):
                 if highest_redcap_repeat_instance:
-                    # Find the dictionary with the highest redcap_repeat_instance
+                    # Filter repeated elements for the given instrument
+                    instrument_key = keys[i + 1].split(":")[1]
+                    filtered_elements = [
+                        element for element in data
+                        if element.get("redcap_repeat_instrument") == instrument_key
+                    ]
+                    if not filtered_elements:
+                        logger.warning(f"No elements found for instrument '{instrument_key}'")
+                        return None
+                    # Get the element with the highest redcap_repeat_instance
                     data = max(
-                        data,
+                        filtered_elements,
                         key=lambda x: x.get("redcap_repeat_instance", 0),
                         default=None
                     )
                 else:
-                    # If no filtering, return the list itself
                     return data
             else:
                 logger.warning(f"Expected list for 'repeated_elements', got: {type(data)}")
@@ -40,3 +47,4 @@ def get_nested_field(data: dict, field_path: str, highest_redcap_repeat_instance
         else:
             return None
     return data
+
