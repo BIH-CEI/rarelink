@@ -10,6 +10,9 @@ from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name
 )
 from rarelink.utils.loading import get_nested_field, fetch_description_from_label_dict
+import logging
+
+logger = logging.getLogger(__name__)
 
 class DataProcessor:
     def __init__(self, mapping_config: dict):
@@ -26,7 +29,12 @@ class DataProcessor:
         Returns:
             Any: The value of the requested field or None if not found.
         """
-        return get_nested_field(data, self.mapping_config.get(field_name))
+        field_path = self.mapping_config.get(field_name)
+        if field_path is None:
+            logger.warning(f"Field '{field_name}' not found in mapping_config.")
+            return None
+        return get_nested_field(data, field_path)
+
 
     def process_date(self, date_input: str):
         """
