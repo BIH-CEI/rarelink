@@ -18,30 +18,27 @@ def get_nested_field(data: dict, field_path: str, highest_redcap_repeat_instance
     """
     keys = field_path.split(".")
     for i, key in enumerate(keys):
-        if key == "repeated_elements":
-            # Process repeated elements as a list of dictionaries
-            if isinstance(data, list):
-                if highest_redcap_repeat_instance:
-                    # Filter repeated elements for the given instrument
-                    instrument_key = keys[i + 1].split(":")[1]
-                    filtered_elements = [
-                        element for element in data
-                        if element.get("redcap_repeat_instrument") == instrument_key
+        if key.startswith("repeated_elements"):
+            # Parse filter conditions like [redcap_repeat_instrument:rarelink_5_disease]
+            if ":" in key:
+                condition_key, condition_value = key.split(":")[1].strip("]").split("=")
+                if isinstance(data, list):
+                    data = [
+                        elem for elem in data
+                        if elem.get(condition_key) == condition_value
                     ]
-                    if not filtered_elements:
-                        logger.warning(f"No elements found for instrument '{instrument_key}'")
-                        return None
-                    # Get the element with the highest redcap_repeat_instance
-                    data = max(
-                        filtered_elements,
-                        key=lambda x: x.get("redcap_repeat_instance", 0),
-                        default=None
-                    )
                 else:
-                    return data
-            else:
-                logger.warning(f"Expected list for 'repeated_elements', got: {type(data)}")
-                return None
+                    logger.warning(f"Expected list for 'repeated_elements', got: {type(data)}")
+                    return None
+
+            # Handle max logic for `redcap_repeat_instance`
+            if highest_redcap_repeat_instance:
+                if isinstance(data, list) and len(data) > 0:
+                    data = max(data, key=lambda x: x.get("redcap_repeat_instance", 0))
+                else:
+                    return None
+            elif isinstance(data, list):
+                return data  # Return all matching elements if no `max` condition
         elif isinstance(data, dict) and key in data:
             data = data[key]
         else:

@@ -54,21 +54,25 @@ class DataProcessor:
             return None
 
     @staticmethod
-    def prefer_non_empty_field(data: dict, processor, fields: list) -> str:
+    def prefer_non_empty_field(self, data: dict, fields: list) -> str:
         """
         Selects the first non-empty field from a list of fields.
 
         Args:
             data (dict): The input data dictionary.
-            processor (DataProcessor): Handles field retrieval.
             fields (list): List of field paths to check.
 
         Returns:
             str: The value of the first non-empty field or None if all are empty.
         """
         for field in fields:
-            value = processor.get_field(data, field)
-            if value:
+            # Fetch the value using get_field
+            value = self.get_field(data, field)
+            if isinstance(value, list):  # Handle repeated elements
+                for item in value:
+                    if item:
+                        return item
+            elif value:
                 return value
         return None
 
