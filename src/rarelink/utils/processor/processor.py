@@ -162,23 +162,29 @@ class DataProcessor:
             return fetch_description_from_label_dict(enum_class, code)
         except KeyError:
             return None
-
-    def fetch_mapping_value(self, mapping_name: str, code: str):
+        
+    def fetch_mapping_value(self, mapping_name: str, code: str, to_boolean: bool = False):
         """
-        Fetches the mapped value for a code using the specified mapping name.
+        Fetches the mapped value for a code using the specified mapping name, with an optional boolean conversion.
 
         Args:
             mapping_name (str): The name of the mapping to use.
             code (str): The code to look up in the mapping.
+            to_boolean (bool): Whether to convert the mapped value to a boolean.
 
         Returns:
-            str: The mapped value, or None if not found.
+            str | bool | None: The mapped value (optionally converted to boolean), or None if not found.
         """
         try:
             mapping = get_mapping_by_name(mapping_name)
-            return mapping.get(code, None)
+            value = mapping.get(code, None)
+            if value is not None and to_boolean:
+                # Convert the value to a boolean
+                return value.lower() == "true"
+            return value
         except KeyError:
             return None
+
 
     def get_mapping(self, mapping_name: str):
         """

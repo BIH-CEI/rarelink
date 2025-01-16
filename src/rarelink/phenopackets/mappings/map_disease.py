@@ -113,16 +113,11 @@ def map_diseases(
                 except Exception as e:
                     logger.error(f"Error processing onset category: {e}")
                     
-            # Fetch the excluded value and convert it directly using the boolean mapping
+            # Fetch excluded field and convert it to a boolean
             excluded_value = disease_data.get("loinc_99498_8")
-            if excluded_value:
-                # Fetch the boolean mapping and apply it
-                excluded = get_mapping_by_name("map_disease_verification_status", to_boolean=True).get(excluded_value, None)
-                logger.debug(f"Excluded value after boolean mapping: {excluded}")
-            else:
-                excluded = None
-
-
+            excluded = processor.fetch_mapping_value(
+                "map_disease_verification_status", excluded_value, to_boolean=True
+            )
             # Handle primary site
             primary_site_id = disease_data.get("snomed_363698007")
             primary_site = None
@@ -137,6 +132,10 @@ def map_diseases(
                 excluded=excluded,
                 primary_site=primary_site,
             )
+            
+            if hasattr(disease, "excluded") and disease.excluded is not None:
+                disease.excluded = bool(disease.excluded)
+
             diseases.append(disease)
 
         return diseases
