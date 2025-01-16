@@ -1,7 +1,6 @@
 import logging
 from phenopackets import Individual, OntologyClass
 from rarelink.utils.processor import DataProcessor
-from rarelink_cdm.v2_0_0_dev0.datamodel import GenderIdentity
 
 logger = logging.getLogger(__name__)
 
@@ -32,20 +31,23 @@ def map_individual(data: dict, processor: DataProcessor) -> Individual:
 
         # Sex
         sex_field = processor.get_field(data, "sex_field")
-        sex = processor.get_mapping("map_sex").get(sex_field, "UNKNOWN_SEX")
+        sex_label = processor.fetch_description_from_label_dict("SexAtBirth", sex_field)
+        sex = sex_label or "UNKNOWN_SEX"
 
         # Karyotypic Sex
-        karyotypic_sex_field = processor.get_field(
-            data, "karyotypic_sex_field")
-        karyotypic_sex = processor.get_mapping("map_karyotypic_sex").get(
-            karyotypic_sex_field, "UNKNOWN_KARYOTYPE")
+        karyotypic_sex_field = processor.get_field(data, "karyotypic_sex_field")
+        karyotypic_sex_label = processor.fetch_description_from_label_dict(
+            "KaryotypicSex", karyotypic_sex_field
+        )
+        karyotypic_sex = karyotypic_sex_label or "UNKNOWN_KARYOTYPE"
 
         # Gender
         gender_field = processor.get_field(data, "gender_field")
         if gender_field:
             processed_gender = processor.process_code(gender_field)
-            gender_label = processor.load_label(
-                gender_field, enum_class=GenderIdentity)
+            gender_label = processor.fetch_description_from_label_dict(
+                "GenderIdentity", gender_field
+            )
             gender = OntologyClass(
                 id=processed_gender,
                 label=gender_label or "Unknown"
