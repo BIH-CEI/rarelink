@@ -13,7 +13,7 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
-from rarelink.cli.utils.logging_utils import setup_logger, log_info
+from rarelink.cli.utils.logging_utils import setup_logger
 from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
@@ -43,7 +43,10 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     format_header("Fetch and Process REDCap Records")
 
     # Validate required environment variables
-    validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_NAME"])
+    validate_env(["BIOPORTAL_API_TOKEN", 
+                  "REDCAP_API_TOKEN",
+                  "REDCAP_URL", 
+                  "REDCAP_PROJECT_NAME"])
 
     # Load environment variables
     env_values = dotenv_values(ENV_PATH)
@@ -72,7 +75,8 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
             fg=typer.colors.YELLOW,
         )
         if not typer.confirm("Do you want to overwrite these files?"):
-            typer.secho("❌ Operation canceled by the user.", fg=typer.colors.RED)
+            typer.secho("❌ Operation canceled by the user.", 
+                        fg=typer.colors.RED)
             raise typer.Exit(0)
 
     # Set up logging
@@ -81,7 +85,8 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
 
     try:
         # Fetch REDCap data
-        typer.echo(f"🔄 Fetching records for project '{project_name}' from REDCap...")
+        typer.echo(
+            f"🔄 Fetching records for project '{project_name}' from REDCap...")
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
         typer.echo(f"✅ Records saved to {records_file}")
 
@@ -91,14 +96,15 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
         # Validation
-        typer.echo("🔄 Validating processed records against the LinkML schema...")
+        typer.echo(
+            "🔄 Validating processed records against the LinkML schema...")
         if validate_linkml_data(BASE_SCHEMA_PATH, processed_file):
-            typer.secho("✅ Validation successful!", fg=typer.colors.GREEN)
+            success_text("✅ Validation successful!")
         else:
-            typer.secho(f"❌ Validation failed for {processed_file}", fg=typer.colors.RED)
+            error_text(f"❌ Validation failed for {processed_file}")
 
     except Exception as e:
-        typer.secho(f"❌ Error: {e}", fg=typer.colors.RED)
+        error_text(f"❌ Error: {e}")
         raise typer.Exit(1)
 
     end_of_section_separator()
