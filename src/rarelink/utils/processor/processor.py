@@ -10,6 +10,8 @@ from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name
 )
 from rarelink.utils.loading import get_nested_field, fetch_description_from_label_dict
+from google.protobuf.timestamp_pb2 import Timestamp
+from datetime import datetime
 import logging
 
 logger = logging.getLogger(__name__)
@@ -78,17 +80,25 @@ class DataProcessor:
     # --------------------------------------
 
     @staticmethod
-    def process_date(date_input: str):
+    def process_date(date_input: str) -> Timestamp:
         """
-        Converts a date string into a timestamp.
+        Converts a date string into a protobuf Timestamp.
 
         Args:
-            date_input (str): The date string to process.
+            date_input (str): The date string to process (in ISO8601 format).
 
         Returns:
-            int: The timestamp representation of the date.
+            Timestamp: A protobuf Timestamp object.
         """
-        return date_to_timestamp(date_input)
+        try:
+            # Parse the date and create a Timestamp object
+            dt = datetime.fromisoformat(date_input)
+            timestamp = Timestamp()
+            timestamp.FromDatetime(dt)
+            return timestamp
+        except Exception as e:
+            logger.error(f"Error converting date to Timestamp: {e}")
+            raise
 
     @staticmethod
     def process_time_element(date_input: str):

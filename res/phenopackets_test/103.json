@@ -27,8 +27,34 @@
       "label": "Homo sapiens"
     }
   },
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "timestamp": "2021-08-09T00:00:00Z"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0021679",
+        "label": "gram-positive bacterial infections"
+      },
+      "onset": {
+        "timestamp": "2021-05-09T00:00:00Z"
+      }
+    },
+    {
+      "term": {
+        "id": "OMIM:241600",
+        "label": "IMMUNODEFICIENCY 43"
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-01-16T15:04:15.295791Z",
+    "created": "2025-01-16T15:56:41.315504Z",
     "createdBy": "Adam G.",
     "resources": [
       {

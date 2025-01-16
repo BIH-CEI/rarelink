@@ -27,8 +27,28 @@
       "label": "Homo sapiens"
     }
   },
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "timestamp": "2021-08-09T00:00:00Z"
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:216820",
+        "label": "Osteogenesis imperfecta type 4"
+      },
+      "onset": {
+        "timestamp": "2021-05-09T00:00:00Z"
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-01-16T15:04:16.177983Z",
+    "created": "2025-01-16T15:56:43.866194Z",
     "createdBy": "Adam G.",
     "resources": [
       {

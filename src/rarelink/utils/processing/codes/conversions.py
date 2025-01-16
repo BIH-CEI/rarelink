@@ -1,11 +1,12 @@
 def convert_to_boolean(value: str, mapping: dict) -> bool:
-    """A simple conversion function to convert a string to a boolean value.
+    """
+    Converts a string value to a boolean based on a mapping.
 
     Args:
-        value (str): any code or string value
-        mapping (dict): True or False mapping 
+        value (str): String value to convert (e.g., "true", "false").
+        mapping (dict): A dictionary mapping string values to booleans.
 
     Returns:
-        bool: True or False
+        bool: Converted boolean value or None if no match is found.
     """
     return mapping.get(value.lower(), None)

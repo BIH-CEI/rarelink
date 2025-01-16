@@ -1,131 +1,147 @@
 import logging
 from phenopackets import Disease, OntologyClass, TimeElement
 from rarelink.utils.processor import DataProcessor
+from google.protobuf.timestamp_pb2 import Timestamp
+from rarelink.utils.processing.codes import convert_to_boolean
 
 logger = logging.getLogger(__name__)
 
-def map_onset(data: dict, processor: DataProcessor, category_field: str, date_field: str) -> TimeElement:
+def map_onset(disease_data: dict, processor: DataProcessor, date_field: str, category_field: str) -> TimeElement:
     """
     Maps onset information, preferring the date field over the category field.
 
     Args:
-        data (dict): The input data dictionary.
-        processor (DataProcessor): Handles field retrieval.
-        category_field (str): Field path for the onset category.
-        date_field (str): Field path for the onset date.
+        disease_data (dict): The input dictionary containing disease data.
+        processor (DataProcessor): The data processor for handling fields and mappings.
+        date_field (str): Field name for the onset date.
+        category_field (str): Field name for the onset category.
 
     Returns:
-        TimeElement: A Phenopacket TimeElement block or None.
+        TimeElement: A Phenopacket TimeElement or None if no onset data is available.
     """
-    onset_date = processor.get_field(data, date_field)
+    # Attempt to map onset using date
+    onset_date = disease_data.get(date_field)
     if onset_date:
-        return TimeElement(
-            timestamp=processor.process_time_element(onset_date)
-        )
-    
-    onset_category = processor.get_field(data, category_field)
+        try:
+            timestamp = processor.process_date(onset_date)
+            return TimeElement(timestamp=timestamp)
+        except Exception as e:
+            logger.error(f"Error processing onset date '{onset_date}': {e}")
+
+    # Attempt to map onset using category
+    onset_category = disease_data.get(category_field)
     if onset_category:
-        return TimeElement(
-            description=onset_category
-        )
+        try:
+            category_label = processor.fetch_label(onset_category)
+            return TimeElement(
+                ontology_class=OntologyClass(id=onset_category, label=category_label)
+            )
+        except Exception as e:
+            logger.error(f"Error processing onset category '{onset_category}': {e}")
+
     return None
 
-logger = logging.getLogger(__name__)
-
-def map_disease(data: dict, processor: DataProcessor, mapping_config: dict) -> Disease:
+def map_diseases(
+    data: dict, 
+    processor: DataProcessor) -> list:
     """
-    Maps a single disease entry to a Phenopacket Disease block.
+    Maps disease data directly using a hardcoded approach for extracting and processing.
 
     Args:
-        data (dict): Input dictionary containing the disease data.
-        processor (DataProcessor): Processor for field mapping.
-        mapping_config (dict): Configuration for disease fields.
+        data (dict): Input data from the RareLink-CDM schema (or similar).
+        processor (DataProcessor): Handles all data processing logic.
 
     Returns:
-        Disease: A Phenopacket Disease block.
+        list: A list of Phenopacket Disease blocks.
     """
     try:
-        # Term field logic
-        term_id = processor.prefer_non_empty_field(data, mapping_config["term_fields"])
-        if not term_id:
-            raise ValueError("No valid disease term found.")
-        term_label = processor.fetch_label(term_id)
-        term = OntologyClass(id=term_id, label=term_label)
+        repeated_elements = data.get("repeated_elements", [])
+        if not repeated_elements:
+            logger.warning("No repeated elements found in the data.")
+            return []
 
-        # Onset logic (date prioritized over category)
-        onset_date = data.get(mapping_config["onset_date_field"])
-        onset_category = data.get(mapping_config["onset_category_field"])
-        onset = None
-        if onset_date:
-            onset = TimeElement(timestamp=processor.process_time_element(onset_date))
-        elif onset_category:
-            onset_label = processor.fetch_label(onset_category)
-            onset = OntologyClass(id=onset_category, label=onset_label)
+        # Filter relevant disease elements
+        disease_elements = [
+            element for element in repeated_elements
+            if element.get("redcap_repeat_instrument") == "rarelink_5_disease"
+        ]
 
-        # Exclusion logic
-        excluded_value = data.get(mapping_config["excluded_field"])
-        excluded = processor.fetch_mapping_value(
-            "map_excluded", excluded_value) or None
-        
-        # Primary site logic
-        primary_site_id = data.get(mapping_config["primary_site_field"])
-        primary_site = None
-        if primary_site_id:
-            primary_site_label = processor.fetch_label(primary_site_id)
-            primary_site = OntologyClass(id=primary_site_id, label=primary_site_label)
+        diseases = []
+        for disease_element in disease_elements:
+            disease_data = disease_element.get("disease")
+            if not disease_data:
+                logger.warning("No disease data found in this element. Skipping.")
+                continue
 
-        # Construct and return the Disease block
-        return Disease(
-            term=term,
-            onset=onset,
-            excluded=excluded,
-            primary_site=primary_site,
-        )
-    except Exception as e:
-        logger.error(f"Error mapping disease: {e}")
-        raise
+            # Extract term fields (pick the first non-empty)
+            term_id = (
+                disease_data.get("snomed_64572001_mondo") or
+                disease_data.get("snomed_64572001_ordo") or
+                disease_data.get("snomed_64572001_icd10cm") or
+                disease_data.get("snomed_64572001_icd11") or
+                disease_data.get("snomed_64572001_omim_p")
+            )
+            if not term_id:
+                logger.warning("No valid term ID found for disease. Skipping.")
+                continue
 
+            term_label = processor.fetch_label(term_id)
+            term = OntologyClass(id=term_id, label=term_label)
 
+            # Handle onset (prefer date over category)
+            onset_date = disease_data.get("snomed_298059007")
+            onset_category = disease_data.get(processor.process_code("snomed_424850005"))
+            onset = None
 
-def map_diseases(data: dict, processor: DataProcessor, mapping_config: dict) -> list:
-    logger.debug("Starting to map diseases...")
-    repeated_elements = data.get("repeated_elements", [])
-    diseases = []
+            if onset_date:
+                try:
+                    # Process onset_date into a protobuf Timestamp
+                    timestamp = processor.process_date(onset_date)
+                    if isinstance(timestamp, Timestamp):
+                        onset = TimeElement(timestamp=timestamp)
+                    else:
+                        raise TypeError("Processed date is not a Timestamp object.")
+                except Exception as e:
+                    logger.error(f"Error processing onset date: {e}")
 
-    for element in repeated_elements:
-        if element.get("redcap_repeat_instrument") == "rarelink_5_disease":
-            disease_data = element.get("disease", {})
+            elif onset_category:
+                try:
+                    onset_label = processor.fetch_label(onset_category)
+                    onset = TimeElement(
+                        ontology_class=OntologyClass(id=onset_category, label=onset_label)
+                    )
+                except Exception as e:
+                    logger.error(f"Error processing onset category: {e}")
+                    
+            # Exclude field logic (e.g., disease exclusion)
+            excluded_value = disease_data.get("loinc_99498_8")
             try:
-                # Fetch the term ID
-                term_id = processor.prefer_non_empty_field(disease_data, mapping_config["term_fields"])
-                if not term_id:
-                    raise ValueError("No valid disease term found.")
-                term_label = processor.fetch_label(term_id)
-
-                # Fetch the onset
-                onset = map_onset(
-                    disease_data,
-                    processor,
-                    mapping_config["onset_category_field"],
-                    mapping_config["onset_date_field"]
-                )
-
-                # Handle exclusion and primary site
-                excluded = processor.get_field(disease_data, mapping_config["excluded_field"]) == "hl7fhir_excluded"
-                primary_site_id = processor.get_field(disease_data, mapping_config["primary_site_field"])
-                primary_site = OntologyClass(
-                    id=primary_site_id,
-                    label=processor.fetch_label(primary_site_id)
-                ) if primary_site_id else None
-
-                # Construct the Disease block
-                diseases.append(Disease(
-                    term=OntologyClass(id=term_id, label=term_label),
-                    onset=onset,
-                    excluded=excluded,
-                    primary_site=primary_site,
-                ))
+                # Retrieve the mapped value for the exclusion code
+                mapped_value = processor.fetch_mapping_value("map_disease_verification_status", excluded_value)
+                if mapped_value is not None:
+                    # Convert the mapped value to a boolean
+                    excluded = convert_to_boolean(mapped_value, {"true": True, "false": False})
             except Exception as e:
-                logger.warning(f"Failed to map disease: {e}")
+                logger.error(f"Error processing exclusion field: {e}")
 
-    return diseases
+            # Handle primary site
+            primary_site_id = disease_data.get("snomed_363698007")
+            primary_site = None
+            if primary_site_id:
+                primary_site_label = processor.fetch_label(primary_site_id)
+                primary_site = OntologyClass(id=primary_site_id, label=primary_site_label)
+
+            # Create the Disease block
+            disease = Disease(
+                term=term,
+                onset=onset,
+                excluded=excluded,
+                primary_site=primary_site,
+            )
+            diseases.append(disease)
+
+        return diseases
+
+    except Exception as e:
+        logger.error(f"Failed to map diseases: {e}")
+        raise

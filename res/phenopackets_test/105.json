@@ -20,8 +20,37 @@
       "label": "Homo sapiens"
     }
   },
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0021163",
+        "label": "kidney neoplasm"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0002078",
+        "label": "heart septal defect"
+      },
+      "onset": {
+        "timestamp": "2020-05-09T00:00:00Z"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0002367",
+        "label": "kidney cancer"
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-01-16T15:04:16.277866Z",
+    "created": "2025-01-16T15:56:47.356794Z",
     "createdBy": "Adam G.",
     "resources": [
       {
