@@ -48,8 +48,8 @@ mapping_dicts = [
             "hl7fhir_unconfirmed": "",
             "hl7fhir_provisional": "",
             "hl7fhir_differential": "",
-            "hl7fhir_confirmed": "False",
-            "hl7fhir_refuted": "True",
+            "hl7fhir_confirmed": "false",
+            "hl7fhir_refuted": "true",
             "hl7fhir_entered-in-error": ""
         },
     },

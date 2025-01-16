@@ -39,10 +39,6 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         disease_processor = DataProcessor(mapping_config={})  # No config needed for hardcoded mapping
         diseases = map_diseases(data, disease_processor)
         
-        for disease in diseases:
-            if hasattr(disease, "excluded") and disease.excluded is not None:
-                disease.excluded = bool(disease.excluded)
-
         # Metadata
         metadata = map_metadata(
             created_by=created_by, 

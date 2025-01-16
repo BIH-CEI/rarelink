@@ -163,7 +163,7 @@ class DataProcessor:
         except KeyError:
             return None
         
-    def fetch_mapping_value(self, mapping_name: str, code: str, to_boolean: bool = False):
+    def fetch_mapping_value(self, mapping_name: str, code: str):
         """
         Fetches the mapped value for a code using the specified mapping name, with an optional boolean conversion.
 
@@ -178,9 +178,6 @@ class DataProcessor:
         try:
             mapping = get_mapping_by_name(mapping_name)
             value = mapping.get(code, None)
-            if value is not None and to_boolean:
-                # Convert the value to a boolean
-                return value.lower() == "true"
             return value
         except KeyError:
             return None
