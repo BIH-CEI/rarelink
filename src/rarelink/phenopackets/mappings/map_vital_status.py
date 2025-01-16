@@ -15,47 +15,52 @@ def map_vital_status(data: dict, processor: DataProcessor) -> VitalStatus:
 
     Returns:
         VitalStatus: A Phenopacket VitalStatus block.
-    """
+    """ 
     try:
         # Status
-        status_field = processor.get_field(data, VITAL_STATUS_BLOCK["status_field"])
-        if not status_field:
+        status_field = processor.get_field(
+            data, VITAL_STATUS_BLOCK["status_field"], highest_redcap_repeat_instance=True
+        )
+        if status_field:
+            status_label = processor.fetch_mapping_value("map_vital_status", status_field)
+            status = status_label or "UNKNOWN_STATUS"
+        else:
             logger.warning("Vital status field not found.")
-        status_label = processor.fetch_mapping_value("map_vital_status", status_field)
-        status = status_label or "UNKNOWN_STATUS"
+            status = "UNKNOWN_STATUS"
 
         # Time of Death
-        time_of_death_field = processor.get_field(data, VITAL_STATUS_BLOCK["time_of_death_field"])
-        if not time_of_death_field:
-            logger.warning("Time of death field not found.")
-        time_of_death = (
-            processor.process_time_element(time_of_death_field) if time_of_death_field else None
+        time_of_death_field = processor.get_field(
+            data, VITAL_STATUS_BLOCK["time_of_death_field"], highest_redcap_repeat_instance=True
         )
+        if time_of_death_field:
+            time_of_death = processor.process_time_element(time_of_death_field)
+        else:
+            logger.warning("Time of death field not found.")
+            time_of_death = None
 
         # Cause of Death
-        cause_of_death_field = processor.get_field(data, VITAL_STATUS_BLOCK["cause_of_death_field"])
-        if not cause_of_death_field:
+        cause_of_death_field = processor.get_field(
+            data, VITAL_STATUS_BLOCK["cause_of_death_field"], highest_redcap_repeat_instance=True
+        )
+        if cause_of_death_field:
+            cause_of_death = OntologyClass(
+                id=cause_of_death_field,
+                label=processor.fetch_label(cause_of_death_field)
+            )
+        else:
             logger.warning("Cause of death field not found.")
-        cause_of_death_label = (
-            processor.fetch_label(cause_of_death_field) if cause_of_death_field else None
-        )
-        cause_of_death = (
-            OntologyClass(
-                id=cause_of_death_field, 
-                label=cause_of_death_label
-            ) if cause_of_death_label else None
-        )
+            cause_of_death = None
 
-        # Create the VitalStatus block
-        vitalstatus = VitalStatus(
+        # Create and return the VitalStatus block
+        vital_status = VitalStatus(
             status=status,
             time_of_death=time_of_death,
             cause_of_death=cause_of_death,
         )
 
-        logger.info(f"Successfully mapped vital status: {vitalstatus}")
-        return vitalstatus
+        logger.info(f"Successfully mapped vital status: {vital_status}")
+        return vital_status
 
     except Exception as e:
-        logger.error(f"Failed to map vital status: {e}", exc_info=True)
+        logger.error(f"Failed to map vital status: {e}")
         raise

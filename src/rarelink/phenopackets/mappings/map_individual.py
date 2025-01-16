@@ -1,10 +1,10 @@
 import logging
-from phenopackets import Individual, OntologyClass
+from phenopackets import Individual, OntologyClass, VitalStatus
 from rarelink.utils.processor import DataProcessor
 
 logger = logging.getLogger(__name__)
 
-def map_individual(data: dict, processor: DataProcessor) -> Individual:
+def map_individual(data: dict, processor: DataProcessor, vital_status: VitalStatus = None) -> Individual:
     """
     Maps patient data to the Individual block using a DataProcessor.
 
@@ -69,6 +69,7 @@ def map_individual(data: dict, processor: DataProcessor) -> Individual:
             sex=sex,
             karyotypic_sex=karyotypic_sex,
             gender=gender,
+            vital_status=vital_status,
             taxonomy=taxonomy,
         )
 
