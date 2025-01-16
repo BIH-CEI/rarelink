@@ -1,5 +1,4 @@
 from rarelink.utils.processing.dates import (
-    date_to_timestamp, 
     create_time_element_from_date
 )
 from rarelink.utils.processing.codes import (
@@ -9,7 +8,10 @@ from rarelink.utils.processing.codes import (
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name
 )
-from rarelink.utils.loading import get_nested_field, fetch_description_from_label_dict
+from rarelink.utils.loading import (
+    get_nested_field, 
+    fetch_description_from_label_dict
+)
 from google.protobuf.timestamp_pb2 import Timestamp
 from datetime import datetime
 import logging
@@ -24,15 +26,19 @@ class DataProcessor:
     # Field Fetching Methods
     # --------------------------------------
 
-    def get_field(self, data: dict, field_name: str, highest_redcap_repeat_instance: bool = False):
+    def get_field(self, 
+                  data: dict, 
+                  field_name: str, 
+                  highest_redcap_repeat_instance: bool = False):
         """
-        Fetches a field value from nested input data based on the mapping configuration.
+        Fetches a field value from nested input data based on the
+        mapping configuration.
 
         Args:
             data (dict): Input data dictionary.
             field_name (str): The name of the field to fetch.
-            highest_redcap_repeat_instance (bool, optional): Whether to fetch the value 
-                                                            from the highest redcap_repeat_instance.
+            highest_redcap_repeat_instance (bool, optional): Whether to fetch  
+                            the value from the highest redcap_repeat_instance.
 
         Returns:
             Any: The value of the requested field or None if not found.
@@ -46,9 +52,11 @@ class DataProcessor:
         logger.debug(f"Input data: {data}")
 
         try:
-            return get_nested_field(data, field_path, highest_redcap_repeat_instance)
+            return get_nested_field(
+                data, field_path, highest_redcap_repeat_instance)
         except Exception as e:
-            logger.error(f"Failed to fetch field '{field_name}' with path '{field_path}': {e}")
+            logger.error(f"Failed to fetch field '{field_name}' \
+                with path '{field_path}': {e}")
             return None
 
     def prefer_non_empty_field(self, data: dict, fields: list) -> str:
@@ -165,7 +173,8 @@ class DataProcessor:
         
     def fetch_mapping_value(self, mapping_name: str, code: str):
         """
-        Fetches the mapped value for a code using the specified mapping name, with an optional boolean conversion.
+        Fetches the mapped value for a code using the specified mapping name,
+        with an optional boolean conversion.
 
         Args:
             mapping_name (str): The name of the mapping to use.
@@ -173,7 +182,8 @@ class DataProcessor:
             to_boolean (bool): Whether to convert the mapped value to a boolean.
 
         Returns:
-            str | bool | None: The mapped value (optionally converted to boolean), or None if not found.
+            str | bool | None: The mapped value (optionally converted to 
+            boolean), or None if not found.
         """
         try:
             mapping = get_mapping_by_name(mapping_name)
