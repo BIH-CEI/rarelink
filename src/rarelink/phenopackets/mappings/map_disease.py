@@ -44,7 +44,7 @@ def map_disease(disease_data: dict, processor: DataProcessor, mapping_config: di
     """
     try:
         # Select the first non-empty term field
-        term_id = processor.prefer_non_empty_field(
+        term_id = processor.get_field(
             disease_data, mapping_config["term_fields"])
         if not term_id:
             raise ValueError("No valid disease term found.")
@@ -113,16 +113,20 @@ def map_diseases(data: dict, processor: DataProcessor, mapping_config: dict) -> 
     Returns:
         list: A list of Phenopacket Disease blocks.
     """
+    logger.debug("Starting to map diseases...")
+    logger.debug(f"Input data: {data}")
+    logger.debug(f"Mapping configuration: {mapping_config}")
+
     repeated_elements = processor.get_field(data, "repeated_elements")
     if not repeated_elements:
         logger.warning("No repeated elements found in the data.")
         return []
 
-    # Filter for relevant disease instances
     disease_elements = [
-        element for element in repeated_elements
-        if element.get("redcap_repeat_instrument") == "rarelink_5_disease"
+        element["disease"] for element in repeated_elements
+        if element.get("redcap_repeat_instrument") == "rarelink_5_disease" and "disease" in element
     ]
+    logger.debug(f"Filtered disease elements: {disease_elements}")
 
     diseases = []
     for disease_data in disease_elements:
@@ -131,5 +135,5 @@ def map_diseases(data: dict, processor: DataProcessor, mapping_config: dict) -> 
             diseases.append(disease)
         except Exception as e:
             logger.warning(f"Failed to map disease block: {e}")
-
+    logger.debug(f"Mapped diseases: {diseases}")
     return diseases

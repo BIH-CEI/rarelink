@@ -22,20 +22,15 @@ class DataProcessor:
     # Field Fetching Methods
     # --------------------------------------
 
-    def get_field(self, 
-                  data: dict, 
-                  field_name: str, 
-                  highest_redcap_repeat_instance: bool = False):
+    def get_field(self, data: dict, field_name: str, highest_redcap_repeat_instance: bool = False):
         """
-        Fetches a field value from nested input data based on the mapping 
-        configuration.
+        Fetches a field value from nested input data based on the mapping configuration.
 
         Args:
             data (dict): Input data dictionary.
             field_name (str): The name of the field to fetch.
-            highest_redcap_repeat_instance (bool, optional): Whether to fetch 
-                                                    the value from the highest 
-                                                    redcap_repeat_instance.
+            highest_redcap_repeat_instance (bool, optional): Whether to fetch the value 
+                                                            from the highest redcap_repeat_instance.
 
         Returns:
             Any: The value of the requested field or None if not found.
@@ -45,12 +40,13 @@ class DataProcessor:
             logger.warning(f"Field '{field_name}' not found in mapping_config.")
             return None
 
+        logger.debug(f"Resolving field '{field_name}' with path: {field_path}")
+        logger.debug(f"Input data: {data}")
+
         try:
-            return get_nested_field(
-                data, field_path, highest_redcap_repeat_instance)
+            return get_nested_field(data, field_path, highest_redcap_repeat_instance)
         except Exception as e:
-            logger.error(
-                f"Failed to fetch field '{field_name}' with path '{field_path}': {e}")
+            logger.error(f"Failed to fetch field '{field_name}' with path '{field_path}': {e}")
             return None
 
     @staticmethod
