@@ -55,13 +55,13 @@ def map_individual(data: dict, processor: DataProcessor) -> Individual:
         else:
             gender = None
 
-        # Taxonomy (assume human as default)
+        # Taxonomy - assuming human as default)
         taxonomy = OntologyClass(
             id="NCBITaxon:9606",
             label="Homo sapiens"
         )
 
-        # Create the Individual block
+        # Creating the Individual block
         individual = Individual(
             id=id_field,
             date_of_birth=date_of_birth,
