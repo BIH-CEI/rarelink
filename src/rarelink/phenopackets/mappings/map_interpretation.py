@@ -1,12 +1,18 @@
 import logging
 from rarelink.utils.processor import DataProcessor
-from phenopackets import Interpretation
+from phenopackets import (
+    Interpretation,
+    OntologyClass,
+    Diagnosis,
+    GenomicInterpretation
+)
 
 logger = logging.getLogger(__name__)
 
 def map_interpretations(data: dict, 
                         processor: DataProcessor,
-                        subject_id: str) -> dict:
+                        subject_id: str,
+                        genomic_interpretations: GenomicInterpretation = None) -> dict:
     """
     Maps interpretation details.
 
@@ -49,10 +55,27 @@ def map_interpretations(data: dict,
             progress_status = processor.fetch_mapping_value(
                 "map_progress_status", progress_status_field) if \
                     progress_status_field else "UNKNOWN_PROGRESS"
+                    
+            #diagnosis
+            diagnosis_id = (
+                interpretation_data.get(
+                    processor.mapping_config["diagnosis_field_1"]) or
+                interpretation_data.get(
+                    processor.mapping_config["diagnosis_field_1"])
+            )
+            diagnosis_label = processor.fetch_label(diagnosis_id)
+            diagnosis = Diagnosis(
+                disease=OntologyClass(
+                    id=diagnosis_id, 
+                    label=diagnosis_label),
+                genomic_interpretations=genomic_interpretations
+            )
             
+            # -> Interpretation Block
             interpretation = Interpretation(
                 id=interpretation_id,
-                progress_status=progress_status
+                progress_status=progress_status,
+                diagnosis=diagnosis
             )
 
             interpretations.append(interpretation)

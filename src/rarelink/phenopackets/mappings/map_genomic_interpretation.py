@@ -1,11 +1,20 @@
 from rarelink.utils.processor import DataProcessor
 import logging
+from phenopackets import (
+    GenomicInterpretation, 
+    VariantInterpretation,
+    VariationDescriptor
+)
 
 logger = logging.getLogger(__name__)
 
-def map_genomic_interpretation(data: dict, processor: DataProcessor) -> dict:
+def map_genomic_interpretations(
+    data: dict, 
+    processor: DataProcessor,
+    subject_id: str,
+    variation_descriptor: VariationDescriptor = None) -> dict:
     """
-    Maps a single genomic interpretation to the required format.
+    Maps multiple genomic interpretation to the required format.
 
     Args:
         data (dict): Input data for genomic interpretation.
@@ -14,69 +23,72 @@ def map_genomic_interpretation(data: dict, processor: DataProcessor) -> dict:
     Returns:
         dict: Mapped genomic interpretation structure.
     """
+
+    instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
+    
     try:
-        variation_descriptor = {
-            "id": data.get("variation_id"),
-            "geneContext": {
-                "valueId": data.get("gene_context_id"),
-                "symbol": data.get("gene_symbol")
-            },
-            "expressions": [
-                {"syntax": "hgvs.c", "value": data.get("hgvs_c")},
-                {"syntax": "hgvs.g", "value": data.get("hgvs_g")},
-            ],
-            "vcfRecord": {
-                "genomeAssembly": data.get("genome_assembly"),
-                "chrom": data.get("chrom"),
-                "pos": data.get("pos"),
-                "ref": data.get("ref"),
-                "alt": data.get("alt"),
-            },
-            "moleculeContext": "genomic",
-            "allelicState": {
-                "id": data.get("allelic_state_id"),
-                "label": data.get("allelic_state_label")
-            },
-        }
+        repeated_elements = data.get("repeated_elements", [])
+        if not repeated_elements:
+            logger.warning("No repeated elements found in the data.")
+            return []
 
-        return {
-            "subjectOrBiosampleId": data.get("subject_id"),
-            "interpretationStatus": data.get("interpretation_status"),
-            "variantInterpretation": {"variationDescriptor": variation_descriptor},
-        }
-    except Exception as e:
-        logger.error(f"Error mapping genomic interpretation: {e}")
-        raise
-
-
-def map_diagnosis(data: dict, processor: DataProcessor) -> dict:
-    """
-    Maps diagnosis details with multiple genomic interpretations.
-
-    Args:
-        data (dict): Input data for diagnosis.
-        processor (DataProcessor): Handles field processing.
-
-    Returns:
-        dict: Mapped diagnosis structure.
-    """
-    try:
-        disease = {
-            "id": data.get("disease_id"),
-            "label": data.get("disease_label"),
-        }
-
-        # Handle multiple genomic interpretations
-        genomic_interpretations_data = data.get("genomic_interpretations", [])
-        genomic_interpretations = [
-            map_genomic_interpretation(gi_data, processor)
-            for gi_data in genomic_interpretations_data
+        genomic_interpretation_elements = [
+            element for element in repeated_elements
+            if element.get("redcap_repeat_instrument") == instrument_name
         ]
+        
+        genomic_interpretations = []
+        
+        for genomic_interpretation_element in genomic_interpretation_elements:
+            genomic_interpretation_data = genomic_interpretation_element.get(
+                                                        "genetic_findings")
+            if not genomic_interpretation_data:
+                logger.warning("No interpretation data found in "
+                               "this element. Skipping.")
+                continue
 
-        return {
-            "disease": disease,
-            "genomicInterpretations": genomic_interpretations,
-        }
+            # id
+            subject_or_biosample_id = subject_id
+
+            # interpretation status
+            interpretation_status_field=genomic_interpretation_data.get(
+                processor.mapping_config["interpretation_status_field"])
+            interpretation_status = processor.fetch_mapping_value(
+                "map_interpretation_status", interpretation_status_field) if \
+                interpretation_status_field else "UNKNOWN_STATUS"
+                
+            # call: VariantInterpretation
+            ## ACMG
+            acmg_pathogenicity_classification_field = genomic_interpretation_data.get(
+                processor.mapping_config["acmg_pathogenicity_classification_field"])
+            acmg_pathogenicity_classification = processor.fetch_mapping_value(
+                "map_acmg_classification", acmg_pathogenicity_classification_field) if \
+                acmg_pathogenicity_classification_field else "NOT_PROVIDED"
+            ## TherapeuticActionability
+            therapeutic_actionability_field = genomic_interpretation_data.get(
+                processor.mapping_config["therapeutic_actionability_field"])
+            therapeutic_actionability = processor.fetch_mapping_value(
+                "map_therapeutic_actionability", therapeutic_actionability_field) if \
+                therapeutic_actionability_field else "UNKNOWN_ACTIONABILITY"    
+            
+            variant_interpretation = VariantInterpretation(
+                acmg_pathogenicity_classification=acmg_pathogenicity_classification,
+                therapeutic_actionability=therapeutic_actionability,
+                variation_descriptor=variation_descriptor
+                
+            )
+            
+            # -> GenomicInterpretation Block
+            genomic_interpretation = GenomicInterpretation(
+                subject_or_biosample_id=subject_or_biosample_id,
+                interpretation_status=interpretation_status,
+                variant_interpretation = variant_interpretation
+            )
+
+            genomic_interpretations.append(genomic_interpretation)
+        
+        return genomic_interpretations
+        
     except Exception as e:
-        logger.error(f"Error mapping diagnosis: {e}")
+        logger.error(f"Error mapping interpretation: {e}")
         raise

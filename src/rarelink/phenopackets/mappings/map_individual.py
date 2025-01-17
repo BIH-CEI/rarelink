@@ -4,7 +4,9 @@ from rarelink.utils.processor import DataProcessor
 
 logger = logging.getLogger(__name__)
 
-def map_individual(data: dict, processor: DataProcessor, vital_status: VitalStatus = None) -> Individual:
+def map_individual(data: dict, 
+                   processor: DataProcessor, 
+                   vital_status: VitalStatus = None) -> Individual:
     """
     Maps patient data to the Individual block using a DataProcessor.
 
@@ -55,7 +57,7 @@ def map_individual(data: dict, processor: DataProcessor, vital_status: VitalStat
         else:
             gender = None
 
-        # Taxonomy - assuming human as default)
+        # Taxonomy - assuming human as default
         taxonomy = OntologyClass(
             id="NCBITaxon:9606",
             label="Homo sapiens"

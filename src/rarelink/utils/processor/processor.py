@@ -229,3 +229,29 @@ class DataProcessor:
             except Exception as e:
                 logger.warning(f"Failed to process repeated element: {e}")
         return processed_elements
+    
+    # --------------------------------------
+    # Generation Methods
+    # --------------------------------------
+    @staticmethod
+    def generate_unique_id(length=30, used_ids=None) -> str:
+        """
+        Generates a unique random string of the specified length and ensures it is unique within a document.
+
+        Args:
+            length (int): The desired length of the unique ID. Default is 30.
+            used_ids (set): A set of already-used IDs to ensure uniqueness.
+
+        Returns:
+            str: A unique random string of the specified length.
+        """
+        import uuid
+
+        if used_ids is None:
+            used_ids = set()  # Initialize if not provided
+
+        while True:
+            unique_id = uuid.uuid4().hex[:length]  # Generate a random ID
+            if unique_id not in used_ids:  # Check uniqueness
+                used_ids.add(unique_id)  # Mark as used
+                return unique_id

@@ -30,11 +30,111 @@
   "interpretations": [
     {
       "id": "EFG678",
-      "progressStatus": "UNSOLVED"
+      "progressStatus": "UNSOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0010518",
+          "label": "Wiskott-Aldrich syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "EFG678",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "ACTIONABLE",
+              "variationDescriptor": {
+                "id": "15ca1160a5ba48faacf4fd3ff542d4",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "EFG678",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "15ca1160a5ba48faacf4fd3ff542d4",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "id": "EFG678",
-      "progressStatus": "IN_PROGRESS"
+      "progressStatus": "IN_PROGRESS",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0010518",
+          "label": "Wiskott-Aldrich syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "EFG678",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "ACTIONABLE",
+              "variationDescriptor": {
+                "id": "15ca1160a5ba48faacf4fd3ff542d4",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "EFG678",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "15ca1160a5ba48faacf4fd3ff542d4",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "diseases": [
@@ -65,7 +165,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-17T08:55:37.912999Z",
+    "created": "2025-01-17T15:21:56.333953Z",
     "createdBy": "Adam G.",
     "resources": [
       {

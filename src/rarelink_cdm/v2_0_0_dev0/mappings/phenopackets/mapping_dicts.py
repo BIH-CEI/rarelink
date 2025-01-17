@@ -64,14 +64,31 @@ mapping_dicts = [
         }
     },
     {
+    "name": "map_interpretation_status",
+    "mapping": {
+        "ga4gh_unknown_status": "UNKNOWN_STATUS",
+        "ga4gh_rejected": "REJECTED",
+        "ga4gh_candidate": "CANDIDATE",
+        "ga4gh_contributory": "CONTRIBUTORY",
+        "ga4gh_causative": "CAUSATIVE"
+        }
+    },
+    {
         "name": "map_acmg_classification",
         "mapping": {
-            "loinc_la6668_3": "PATHOGENIC",
-            "loinc_la26332_9": "LIKELY_PATHOGENIC",
-            "loinc_la26333_7": "UNCERTAIN_SIGNIFICANCE",
-            "loinc_la26334_5": "LIKELY_BENIGN",
-            "loinc_la6675_8": "BENIGN",
-            "loinc_la4489_6": "NOT_PROVIDED"
+            "loinc_la6668-3": "PATHOGENIC",
+            "loinc_la26332-9": "LIKELY_PATHOGENIC",
+            "loinc_la26333-7": "UNCERTAIN_SIGNIFICANCE",
+            "loinc_la26334-5": "LIKELY_BENIGN",
+            "loinc_la6675-8": "BENIGN",
+            "loinc_la4489-6": "NOT_PROVIDED"
+        }
+    },
+    {
+        "name": "map_therapeutic_actionability",
+        "mapping": {"ga4gh_unknown_actionability": "UNKNOWN_ACTIONABILITY",
+                    "ga4gh_not_actionable": "NOT_ACTIONABLE",
+                    "ga4gh_actionable": "ACTIONABLE",
         }
     },
     {

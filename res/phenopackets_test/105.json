@@ -23,7 +23,36 @@
   "interpretations": [
     {
       "id": "CDE456",
-      "progressStatus": "COMPLETED"
+      "progressStatus": "COMPLETED",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0019499",
+          "label": "Turner syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "CDE456",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "3332be81e8ab41a4979fbe842d1fd1",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_006883.2:c.-507G>C"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "diseases": [
@@ -68,7 +97,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-17T08:55:44.022196Z",
+    "created": "2025-01-17T15:22:05.220893Z",
     "createdBy": "Adam G.",
     "resources": [
       {

@@ -9,6 +9,9 @@ from .map_metadata import map_metadata
 from .map_vital_status import map_vital_status
 from .map_disease import map_diseases
 from .map_interpretation import map_interpretations
+from .map_genomic_interpretation import map_genomic_interpretations
+from .map_variation_descriptor import map_variation_descriptor
+
 
 
 __all__ = [
@@ -16,5 +19,7 @@ __all__ = [
     "map_metadata",
     "map_vital_status",
     "map_diseases",
-    "map_interpretations"
+    "map_interpretations",
+    "map_genomic_interpretations",
+    "map_variation_descriptor"
 ]

@@ -17,7 +17,8 @@ def process_redcap_code(code: str) -> str:
             - The first "_" in the code is replaced with ":" 
               (e.g., "UO_1234" -> "UO:1234").
             - For "LOINC", additional "_" in the code part are replaced with 
-              "-" (e.g., "loinc_81304_8" -> "LOINC:81304-8").
+              "-" and letters become uppercase 
+              (e.g., "loinc_la6706-1" -> "LOINC:LA6706-1").
             - For ICD codes ("ICD10CM", "ICD11", "ICD10", "ICD9"), additional 
               "_" in the code part are replaced with "." and the code part is 
               capitalized (e.g., "icd10cm_r51_1" -> "ICD10CM:R51.1").
@@ -32,8 +33,8 @@ def process_redcap_code(code: str) -> str:
         - Supports common ontologies like SNOMED, LOINC, MONDO, ICD, and HP.
 
     Examples:
-        >>> process_redcap_code("loinc_81304_8")
-        'LOINC:81304-8'
+        >>> process_redcap_code("loinc_la6706-1")
+        'LOINC:LA6706-1'
 
         >>> process_redcap_code("icd10cm_r51_1")
         'ICD10CM:R51.1'
@@ -60,9 +61,9 @@ def process_redcap_code(code: str) -> str:
         # Replace the first "_" with ":"
         processed_code = f"{prefix_upper}:{rest}"
 
-        # Special handling for LOINC: Replace subsequent "_" with "-"
+        # Special handling for LOINC: Replace subsequent "_" with "-" and ensure uppercase
         if prefix_upper == "LOINC":
-            processed_code = processed_code.replace("_", "-")
+            processed_code = f"{prefix_upper}:{rest.replace('_', '-').upper()}"
 
         # Special handling for ICD codes: Replace subsequent "_" with "."
         elif prefix_upper in ["ICD10CM", "ICD11", "ICD10", "ICD9"]:

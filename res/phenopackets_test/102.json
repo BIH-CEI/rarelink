@@ -23,7 +23,36 @@
   "interpretations": [
     {
       "id": "DEF567",
-      "progressStatus": "IN_PROGRESS"
+      "progressStatus": "IN_PROGRESS",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0006823",
+          "label": "Klinefelter syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "DEF567",
+            "interpretationStatus": "REJECTED",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "c40132821035482d89562f9151e76d",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_001377304.1:c.-16G>A"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "diseases": [
@@ -38,7 +67,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-17T08:55:33.659008Z",
+    "created": "2025-01-17T15:21:50.270007Z",
     "createdBy": "Adam G.",
     "resources": [
       {

@@ -5,14 +5,19 @@ from rarelink.phenopackets.mappings import (
     map_vital_status,
     map_metadata,
     map_diseases,
-    map_interpretations
+    map_interpretations,
+    map_genomic_interpretations,
+    map_variation_descriptor
 )
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
     DISEASE_BLOCK,
     INTERPRETATION_BLOCK,
-    RARELINK_CODE_SYSTEMS
+    GENOMIC_INTERPRETATIONS_BLOCK,
+    VARIATION_DESCRIPTOR_BLOCK,
+    RARELINK_CODE_SYSTEMS,
+    
 )
 import logging
 
@@ -30,26 +35,44 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         Phenopacket: A fully constructed Phenopacket.
     """
     try:
-        # Vital Status
+    # Individual ---------------------------------------------------------------
+        # VitalStatus Block
         vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
         vital_status = map_vital_status(data, vital_status_processor)
 
-        # Individual
+        # IndividualBlock
         individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
         individual = map_individual(data, 
                                     individual_processor, 
                                     vital_status=vital_status)
-
-        # Diseases
+        
+    # Disease -----------------------------------------------------------------
+        # DiseaseBlock
         disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
         diseases = map_diseases(data, disease_processor)
         
-        # Interpretations
-        interpretation_processor = DataProcessor(mapping_config=INTERPRETATION_BLOCK)
+    # Genetics ----------------------------------------------------------------
+        ## Variation Descriptor
+        variation_descriptor_processor = DataProcessor(
+                                mapping_config=VARIATION_DESCRIPTOR_BLOCK)
+        variation_descriptor= map_variation_descriptor(data, 
+                                            variation_descriptor_processor)
+        
+        ## Genomic Interpretation
+        genomoic_interpretation_processor = DataProcessor(
+                            mapping_config=GENOMIC_INTERPRETATIONS_BLOCK)
+        genomic_interpretations= map_genomic_interpretations(data,
+                                        genomoic_interpretation_processor,
+                                        subject_id=individual.id,
+                                        variation_descriptor=variation_descriptor)
+        
+        ## Interpretation
+        interpretation_processor = DataProcessor(
+            mapping_config=INTERPRETATION_BLOCK)
         interpretations = map_interpretations(data, 
-                                              interpretation_processor, 
-                                              subject_id=individual.id)
-
+                                interpretation_processor, 
+                                subject_id=individual.id,
+                                genomic_interpretations=genomic_interpretations)
         
         # Metadata
         metadata = map_metadata(

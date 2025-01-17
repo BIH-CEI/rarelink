@@ -17,5 +17,16 @@ label_dicts = {
         "snomed_3950001": "Birth",
         "snomed_410672004": "Date",
         "snomed_261665006": "Unknown",
+    },
+    "Zygosity": {
+        "loinc_53034_5_other": "Other",
+        "loinc_la6705-3": "Homozygous",
+        "loinc_la6706-1": "(simple) Heterozygous",
+        "loinc_la26217-2": "Compound heterozygous",
+        "loinc_la26220-6": "Double heterozygous",
+        "loinc_la6707-9": "Hemizygous",
+        "loinc_la6703-8": "Heteroplasmic",
+        "loinc_la6704-6": "Homoplasmic",
     }
 }
+
