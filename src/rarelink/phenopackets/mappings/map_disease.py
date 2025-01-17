@@ -58,7 +58,6 @@ def map_diseases(
                 processor.mapping_config["onset_date_field"])
             onset_category_field = disease_data.get(
                 processor.mapping_config["onset_category_field"])
-
             onset = None
 
             if onset_date:
@@ -98,7 +97,6 @@ def map_diseases(
                 processor.mapping_config["excluded_field"])
             excluded = None
             if excluded_value:
-                # Fetch the mapped value
                 mapped_value = processor.fetch_mapping_value(
                     "map_disease_verification_status", excluded_value)
                 logger.debug(f"Excluded value: {excluded_value},\
@@ -125,9 +123,6 @@ def map_diseases(
                 excluded=excluded,
                 primary_site=primary_site,
             )
-            
-            if hasattr(disease, "excluded") and disease.excluded is not None:
-                disease.excluded = bool(disease.excluded)
 
             diseases.append(disease)
 

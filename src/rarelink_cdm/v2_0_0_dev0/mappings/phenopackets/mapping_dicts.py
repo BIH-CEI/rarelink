@@ -54,6 +54,16 @@ mapping_dicts = [
         },
     },
     {
+        "name": "map_progress_status",
+        "mapping": {
+            "ga4gh_unknown_progress": "UNKNOWN_PROGRESS",
+            "ga4gh_in_progress": "IN_PROGRESS",
+            "ga4gh_completed": "COMPLETED",
+            "ga4gh_solved": "SOLVED",
+            "ga4gh_unsolved": "UNSOLVED"
+        }
+    },
+    {
         "name": "map_acmg_classification",
         "mapping": {
             "loinc_la6668_3": "PATHOGENIC",

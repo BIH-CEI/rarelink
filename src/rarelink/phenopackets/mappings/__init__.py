@@ -8,12 +8,13 @@ from .map_individual import map_individual
 from .map_metadata import map_metadata
 from .map_vital_status import map_vital_status
 from .map_disease import map_diseases
+from .map_interpretation import map_interpretations
 
 
 __all__ = [
     "map_individual",
     "map_metadata",
     "map_vital_status",
-    "map_diseases"
-
+    "map_diseases",
+    "map_interpretations"
 ]

@@ -1,5 +1,4 @@
 import json
-import sys
 from pathlib import Path
 from google.protobuf.json_format import MessageToDict
 

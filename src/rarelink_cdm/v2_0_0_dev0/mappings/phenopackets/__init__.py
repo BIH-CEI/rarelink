@@ -8,8 +8,12 @@ from .mapping_dicts import mapping_dicts
 from .label_dicts import label_dicts
 from .individual import INDIVIDUAL_BLOCK
 from .vitalstatus import VITAL_STATUS_BLOCK
+from .genetics import (
+    INTERPRETATION_BLOCK
+)
 from .disease import DISEASE_BLOCK
 from .resources import RARELINK_CODE_SYSTEMS
+
 
 
 
@@ -19,6 +23,7 @@ __all__ = [
     "label_dicts",
     "INDIVIDUAL_BLOCK",
     "VITAL_STATUS_BLOCK",
+    "INTERPRETATION_BLOCK",
     "DISEASE_BLOCK",
     "RARELINK_CODE_SYSTEMS"
 ]
