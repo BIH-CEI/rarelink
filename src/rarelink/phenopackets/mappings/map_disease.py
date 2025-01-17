@@ -5,51 +5,6 @@ from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 
-def map_onset(
-    disease_data: dict, 
-    processor: DataProcessor, 
-    date_field: str, 
-    category_field: str
-    ) -> TimeElement:
-    """s
-    Maps onset information, preferring the date field over the category field.
-
-    Args:
-        disease_data (dict): The input dictionary containing disease data.
-        processor (DataProcessor): The data processor for handling fields and 
-                                mappings.
-        date_field (str): Field name for the onset date.
-        category_field (str): Field name for the onset category.
-
-    Returns:
-        TimeElement: A Phenopacket TimeElement or None 
-                    if no onset data is available.
-    """
-    # Attempt to map onset using date
-    onset_date = disease_data.get(date_field)
-    if onset_date:
-        try:
-            timestamp = processor.process_date(onset_date)
-            return TimeElement(timestamp=timestamp)
-        except Exception as e:
-            logger.error(f"Error processing onset date '{onset_date}': {e}")
-
-    # Attempt to map onset using category
-    onset_category = disease_data.get(category_field)
-    if onset_category:
-        try:
-            category_label = processor.fetch_label(onset_category)
-            return TimeElement(
-                ontology_class=OntologyClass(
-                    id=onset_category, 
-                    label=category_label)
-            )
-        except Exception as e:
-            logger.error(
-                f"Error processing onset category '{onset_category}': {e}")
-
-    return None
-
 def map_diseases(
     data: dict, 
     processor: DataProcessor) -> list:
@@ -64,6 +19,7 @@ def map_diseases(
     Returns:
         list: A list of Phenopacket Disease blocks.
     """
+    instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
     try:
         repeated_elements = data.get("repeated_elements", [])
         if not repeated_elements:
@@ -73,9 +29,9 @@ def map_diseases(
         # Filter relevant disease elements
         disease_elements = [
             element for element in repeated_elements
-            if element.get("redcap_repeat_instrument") == "rarelink_5_disease"
+            if element.get("redcap_repeat_instrument") == instrument_name
         ]
-
+        
         # Disease.term
         diseases = []
         for disease_element in disease_elements:
@@ -86,28 +42,27 @@ def map_diseases(
                 continue
 
             term_id = (
-                disease_data.get("snomed_64572001_mondo") or
-                disease_data.get("snomed_64572001_ordo") or
-                disease_data.get("snomed_64572001_icd10cm") or
-                disease_data.get("snomed_64572001_icd11") or
-                disease_data.get("snomed_64572001_omim_p")
+                disease_data.get(processor.mapping_config["term_field_1"]) or
+                disease_data.get(processor.mapping_config["term_field_2"]) or
+                disease_data.get(processor.mapping_config["term_field_3"]) or
+                disease_data.get(processor.mapping_config["term_field_4"]) or
+                disease_data.get(processor.mapping_config["term_field_5"])
             )
-            if not term_id:
-                logger.warning("No valid term ID found for disease. Skipping.")
-                continue
 
             term_label = processor.fetch_label(term_id)
             term = OntologyClass(id=term_id, label=term_label)
 
+
             # Disease.onset[0..1] ( -> prefer date over category)
-            onset_date = disease_data.get("snomed_298059007")
-            onset_category = disease_data.get(
-                processor.process_code("snomed_424850005"))
+            onset_date = disease_data.get(
+                processor.mapping_config["onset_date_field"])
+            onset_category_field = disease_data.get(
+                processor.mapping_config["onset_category_field"])
+
             onset = None
 
             if onset_date:
                 try:
-                    # Process onset_date into a protobuf Timestamp
                     timestamp = processor.process_date(onset_date)
                     if isinstance(timestamp, Timestamp):
                         onset = TimeElement(timestamp=timestamp)
@@ -117,18 +72,30 @@ def map_diseases(
                 except Exception as e:
                     logger.error(f"Error processing onset date: {e}")
 
-            elif onset_category:
+            if not onset and onset_category_field:
                 try:
-                    onset_label = processor.fetch_label(onset_category)
-                    onset = TimeElement(
-                        ontology_class=OntologyClass(
-                            id=onset_category, label=onset_label)
-                    )
+                    onset_label = processor.fetch_label(
+                        onset_category_field, enum_class="AgeAtOnset")
+                    onset_category = processor.process_code(
+                        onset_category_field)
+                    
+                    if onset_label:
+                        onset = TimeElement(
+                            ontology_class=OntologyClass(
+                                id=onset_category, label=onset_label)
+                        )
+                    else:
+                        logger.warning(
+                            f"No label found for onset category \
+                                '{onset_category}'.")
                 except Exception as e:
-                    logger.error(f"Error processing onset category: {e}")
+                        logger.error(
+                            f"Error processing onset category \
+                                '{onset_category}': {e}")
                     
             # Disease.excluded
-            excluded_value = disease_data.get("loinc_99498_8")
+            excluded_value = disease_data.get(
+                processor.mapping_config["excluded_field"])
             excluded = None
             if excluded_value:
                 # Fetch the mapped value
@@ -142,7 +109,8 @@ def map_diseases(
                     excluded = None # default value in Phenopackets
 
             # Disease.primary_site
-            primary_site_id = disease_data.get("snomed_363698007")
+            primary_site_id = disease_data.get(
+                processor.mapping_config["primary_site_field"])
             primary_site = None
             if primary_site_id:
                 primary_site_label = processor.fetch_label(primary_site_id)

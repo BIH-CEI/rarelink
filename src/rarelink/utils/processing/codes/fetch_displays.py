@@ -84,9 +84,6 @@ def fetch_label_directly(code: str) -> Optional[str]:
     encoded_iri = quote(iri, safe="")
     url = f"{base_url}/{ontology}/classes/{encoded_iri}?apikey={adapter.api_key}"
 
-    # Debugging: Print constructed URL
-    print(f"Constructed URL: {url}")
-
     # Make the API request
     response = requests.get(url)
     if response.status_code == 200:

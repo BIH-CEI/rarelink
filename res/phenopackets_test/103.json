@@ -2,22 +2,22 @@
   "id": "103",
   "subject": {
     "id": "EFG678",
-    "date_of_birth": "2020-01-01T00:00:00Z",
-    "time_at_last_encounter": {
+    "dateOfBirth": "2020-01-01T00:00:00Z",
+    "timeAtLastEncounter": {
       "timestamp": "2024-09-09T00:00:00Z"
     },
-    "vital_status": {
+    "vitalStatus": {
       "status": "DECEASED",
-      "time_of_death": {
+      "timeOfDeath": {
         "timestamp": "2025-01-05T00:00:00Z"
       },
-      "cause_of_death": {
+      "causeOfDeath": {
         "id": "ICD10CM:Z82.3",
         "label": "Family history of stroke"
       }
     },
     "sex": "MALE",
-    "karyotypic_sex": "XY",
+    "karyotypicSex": "XY",
     "gender": {
       "id": "SNOMEDCT:1220561009",
       "label": "Not recorded"
@@ -54,147 +54,147 @@
       }
     }
   ],
-  "meta_data": {
-    "created": "2025-01-16T18:57:39.855352Z",
-    "created_by": "Adam G.",
+  "metaData": {
+    "created": "2025-01-17T07:12:43.378852Z",
+    "createdBy": "Adam G.",
     "resources": [
       {
         "id": "snomed",
         "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
         "url": "https://www.snomed.org/snomed-ct",
         "version": "2024-09-01",
-        "namespace_prefix": "SNOMEDCT",
-        "iri_prefix": "http://snomed.info/sct"
+        "namespacePrefix": "SNOMEDCT",
+        "iriPrefix": "http://snomed.info/sct"
       },
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
         "version": "2024-09-03",
-        "namespace_prefix": "MONDO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/MONDO_"
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
       {
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
         "version": "2024-08-13",
-        "namespace_prefix": "HPO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/HP_"
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
       },
       {
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
         "version": "2.78",
-        "namespace_prefix": "LOINC",
-        "iri_prefix": "http://loinc.org"
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
       },
       {
         "id": "omim",
         "name": "Online Mendelian Inheritance",
         "url": "https://omim.org/",
         "version": "2024-09-12",
-        "namespace_prefix": "OMIM",
-        "iri_prefix": "https://www.omim.org/entry/"
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
       },
       {
         "id": "orpha",
         "name": "Orphanet Rare Disease Ontology",
         "url": "https://www.orpha.net/",
         "version": "2024-09-12",
-        "namespace_prefix": "ORPHA",
-        "iri_prefix": "https://www.orpha.net/ORDO/Orphanet_"
+        "namespacePrefix": "ORPHA",
+        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
       },
       {
         "id": "ncit",
         "name": "NCI Thesaurus OBO Edition",
         "url": "https://ncit.nci.nih.gov/",
         "version": "24.04e",
-        "namespace_prefix": "NCIT",
-        "iri_prefix": "http://purl.obolibrary.org/obo/NCIT_"
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
       },
       {
         "id": "uo",
         "name": "Units of Measurement Ontology",
         "url": "https://www.ontobee.org/ontology/UO",
         "version": "2024-09-12",
-        "namespace_prefix": "UO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/UO_"
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
       },
       {
         "id": "hgnc",
         "name": "HUGO Gene Nomenclature Committee",
         "url": "https://www.genenames.org/",
         "version": "2024-08-23",
-        "namespace_prefix": "HGNC",
-        "iri_prefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
       },
       {
         "id": "hgvs",
         "name": "Human Genome Variation Society",
         "url": "https://varnomen.hgvs.org/",
         "version": "21.0.0",
-        "namespace_prefix": "HGVS",
-        "iri_prefix": "https://varnomen.hgvs.org/recommendations/variant/"
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
       },
       {
         "id": "ga4gh",
         "name": "Global Alliance for Genomics and Health",
         "url": "https://www.ga4gh.org/",
         "version": "v2.0",
-        "namespace_prefix": "GA4GH",
-        "iri_prefix": "https://www.ga4gh.org/"
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
       },
       {
         "id": "icd11",
         "name": "International Classification of Diseases, Eleventh Revision",
         "url": "https://icd.who.int/en",
         "version": "2024-09-01",
-        "namespace_prefix": "ICD11",
-        "iri_prefix": "http://hl7.org/fhir/sid/icd-11"
+        "namespacePrefix": "ICD11",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
       },
       {
         "id": "icd10cm",
         "name": "ICD-10 Clinical Modification",
         "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
         "version": "2023",
-        "namespace_prefix": "ICD10CM",
-        "iri_prefix": "http://hl7.org/fhir/sid/icd-10-cm"
+        "namespacePrefix": "ICD10CM",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
       },
       {
         "id": "so",
         "name": "Sequence types and features ontology",
         "url": "https://www.sequenceontology.org/",
         "version": "2.6",
-        "namespace_prefix": "SO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/SO_"
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
       },
       {
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
         "version": "2023-10-08",
-        "namespace_prefix": "GENO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/GENO_"
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
       },
       {
         "id": "iso3166",
         "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
         "url": "https://www.iso.org/iso-3166-country-codes.html",
         "version": "2020(en)",
-        "namespace_prefix": "ISO3166",
-        "iri_prefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
+        "namespacePrefix": "ISO3166",
+        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
       },
       {
         "id": "icf",
         "name": "International Classification of Functioning, Disability and Health",
         "url": "https://www.who.int/classifications/icf/en/",
         "version": "1.0.2",
-        "namespace_prefix": "ICF",
-        "iri_prefix": "http://hl7.org/fhir/sid/icf"
+        "namespacePrefix": "ICF",
+        "iriPrefix": "http://hl7.org/fhir/sid/icf"
       }
     ],
-    "phenopacket_schema_version": "2.0"
+    "phenopacketSchemaVersion": "2.0"
   }
 }

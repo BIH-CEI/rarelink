@@ -12,5 +12,10 @@ label_dicts = {
         "snomed_33791000087105": "Identifies as nonbinary gender",
         "snomed_1220561009": "Not recorded",
     },
-    
+    "AgeAtOnset": {
+        "snomed_118189007": "Prenatal",
+        "snomed_3950001": "Birth",
+        "snomed_410672004": "Date",
+        "snomed_261665006": "Unknown",
+    }
 }

@@ -5,7 +5,8 @@ from rarelink.utils.loading import get_highest_instance
 
 logger = logging.getLogger(__name__)
 
-def map_vital_status(data: dict, processor: DataProcessor) -> VitalStatus:
+def map_vital_status(data: dict,
+                     processor: DataProcessor) -> VitalStatus:
     """
     Maps patient data to the VitalStatus block using a DataProcessor.
 
@@ -17,20 +18,30 @@ def map_vital_status(data: dict, processor: DataProcessor) -> VitalStatus:
         VitalStatus: A Phenopacket VitalStatus block.
     """
     try:
-        # Fetch the highest redcap_repeat_instance for patient status
+        # Fetch the instrument name from the mapping configuration
+        instrument_name = processor.mapping_config.get("instrument_name")
+        if not instrument_name:
+            raise ValueError(
+                "Instrument name is missing from the mapping configuration.")
+
+        # Fetch the highest redcap_repeat_instance for patient status 
+        # (i.e. the most recent vital status)
         highest_instance = get_highest_instance(
-            data.get("repeated_elements", []), "rarelink_3_patient_status")
+            data.get("repeated_elements", []), instrument_name)
         if not highest_instance or "patient_status" not in highest_instance:
             logger.warning("No valid patient status data found.")
             return None
 
-        # Extract relevant fields
+        # Extract fields from mapping configuration
         patient_status = highest_instance["patient_status"]
-        status_field = patient_status.get("snomed_278844005")
-        time_of_death_field = patient_status.get("snomed_398299004")
-        cause_of_death_field = patient_status.get("snomed_184305005")
+        status_field = patient_status.get(
+            processor.mapping_config["status_field"])
+        time_of_death_field = patient_status.get(
+            processor.mapping_config["time_of_death_field"])
+        cause_of_death_field = patient_status.get(
+            processor.mapping_config["cause_of_death_field"])
 
-        # Map fields
+        # Map and process fields
         status_label = processor.fetch_mapping_value(
             "map_vital_status", status_field) if status_field \
                 else "UNKNOWN_STATUS"

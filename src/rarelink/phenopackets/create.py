@@ -9,7 +9,8 @@ from rarelink.phenopackets.mappings import (
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
-    RARELINK_CODE_SYSTEMS
+    RARELINK_CODE_SYSTEMS,
+    DISEASE_BLOCK
 )
 import logging
 
@@ -33,10 +34,12 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
 
         # Individual
         individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
-        individual = map_individual(data, individual_processor, vital_status=vital_status)
+        individual = map_individual(data, 
+                                    individual_processor, 
+                                    vital_status=vital_status)
 
         # Diseases
-        disease_processor = DataProcessor(mapping_config={}) # hardcoded for now
+        disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK) # hardcoded for now
         diseases = map_diseases(data, disease_processor)
         
         # Metadata
@@ -52,6 +55,7 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
             diseases=diseases,
             meta_data=metadata,
         )
+     
     except Exception as e:
         logger.error(f"Error creating Phenopacket: {e}")
         raise
