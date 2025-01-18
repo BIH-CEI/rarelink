@@ -10,6 +10,7 @@ from .map_vital_status import map_vital_status
 from .map_disease import map_diseases
 from .map_interpretation import map_interpretations
 from .map_variation_descriptor import map_variation_descriptor
+from .map_phenotypic_feature import map_phenotypic_features
 
 
 
@@ -19,5 +20,6 @@ __all__ = [
     "map_vital_status",
     "map_diseases",
     "map_interpretations",
-    "map_variation_descriptor"
+    "map_variation_descriptor",
+    "map_phenotypic_features"
 ]

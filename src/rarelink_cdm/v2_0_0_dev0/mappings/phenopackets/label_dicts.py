@@ -43,6 +43,35 @@ label_dicts = {
         "loinc_la14030-3": "NCBI Build 36.1 (hg18)",
         "loinc_la14031-1": "NCBI Build 35 (hg17)",
         "loinc_la26806-2": "GRCh38 (hg38)",
+    },
+    "AgeOfOnset": {
+        "hp_0011460": "Embryonal onset (0w-8w embryonal)",
+        "hp_0011461": "Fetal onset (8w embryonal - birth)",
+        "hp_0003577": "Congenital onset (at birth)",
+        "hp_0003623": "Neonatal onset (0d-28d)",
+        "hp_0003593": "Infantile onset (28d-1y)",
+        "hp_0011463": "Childhood onset (1y-5y)",
+        "hp_0003621": "Juvenile onset (5y-15y)",
+        "hp_0011462": "Young adult onset (16y-40y)",
+        "hp_0003596": "Middle age adult onset (40y-60y)",
+        "hp_0003584": "Late adult onset (60y+)"
+    },
+    "TemporalPattern": {
+        "hp_0011009": "Acute",
+        "hp_0011010": "Chronic",
+        "hp_0031914": "Fluctuating",
+        "hp_0025297": "Prolonged",
+        "hp_0031796": "Recurrent",
+        "hp_0031915": "Stable",
+        "hp_0011011": "Subacute",
+        "hp_0025153": "Transient"
+    },
+    "PhenotypeSeverity": {
+        "hp_0012827": "Borderline",
+        "hp_0012825": "Mild",
+        "hp_0012826": "Moderate",
+        "hp_0012829": "Profound",
+        "hp_0012828": "Severe"
     }
 }
 

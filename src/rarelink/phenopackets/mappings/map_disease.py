@@ -9,8 +9,8 @@ def map_diseases(
     data: dict, 
     processor: DataProcessor) -> list:
     """
-    Maps disease data directly using a hardcoded approach 
-    for extracting and processing.
+    Maps disease data to the Phenopacket schema Disease block fetching the 
+    data elements from the repeated elements in the input data.
 
     Args:
         data (dict): Input data from the RareLink-CDM schema (or similar).
@@ -32,7 +32,6 @@ def map_diseases(
             if element.get("redcap_repeat_instrument") == instrument_name
         ]
         
-        # Disease.term
         diseases = []
         for disease_element in disease_elements:
             disease_data = disease_element.get("disease")
@@ -40,7 +39,8 @@ def map_diseases(
                 logger.warning("No disease data found in "
                                "this element. Skipping.")
                 continue
-
+            
+            # Disease.term
             term_id = (
                 disease_data.get(processor.mapping_config["term_field_1"]) or
                 disease_data.get(processor.mapping_config["term_field_2"]) or
