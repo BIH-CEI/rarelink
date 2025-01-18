@@ -1,4 +1,4 @@
-from rarelink.utils.processing.codes import process_redcap_code
+from rarelink.utils.processing import process_redcap_code
 
 def test_process_redcap_code():
     test_cases = [
