@@ -44,13 +44,23 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "2e3fb8557d674c99b4827c8be8bb73",
+                "id": "050da7fcdd134028999c66221c8a63",
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_000377.3:c.6T>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
                   "id": "LOINC:LA6705-3",
                   "label": "Homozygous"
@@ -65,67 +75,23 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "2e3fb8557d674c99b4827c8be8bb73",
+                "id": "050da7fcdd134028999c66221c8a63",
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_000377.3:c.6T>C"
                   }
                 ],
-                "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "EFG678",
-      "progressStatus": "IN_PROGRESS",
-      "diagnosis": {
-        "disease": {
-          "id": "MONDO:0010518",
-          "label": "Wiskott-Aldrich syndrome"
-        },
-        "genomicInterpretations": [
-          {
-            "subjectOrBiosampleId": "EFG678",
-            "interpretationStatus": "CANDIDATE",
-            "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "ACTIONABLE",
-              "variationDescriptor": {
-                "id": "2e3fb8557d674c99b4827c8be8bb73",
-                "expressions": [
-                  {
-                    "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
-                  }
-                ],
-                "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
-                }
-              }
-            }
-          },
-          {
-            "subjectOrBiosampleId": "EFG678",
-            "interpretationStatus": "CONTRIBUTORY",
-            "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
-              "variationDescriptor": {
-                "id": "2e3fb8557d674c99b4827c8be8bb73",
-                "expressions": [
-                  {
-                    "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
-                  }
-                ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
                   "id": "LOINC:LA6705-3",
                   "label": "Homozygous"
@@ -158,7 +124,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T05:14:39.609151Z",
+    "created": "2025-01-18T11:36:00.032040Z",
     "createdBy": "Adam G.",
     "resources": [
       {

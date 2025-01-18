@@ -37,13 +37,27 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "db01bb4212564df7a8e378f785d2dc",
+                "id": "93cc0aeba4a54c97b567d3c8a94d33",
+                "geneContext": {
+                  "valueId": "HGNC:10853",
+                  "symbol": "SHOX"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_006883.2:c.-507G>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6686-5",
+                  "label": "Duplication"
+                },
                 "allelicState": {
                   "id": "LOINC:LA6706-1",
                   "label": "(simple) Heterozygous"
@@ -63,8 +77,8 @@
       },
       "onset": {
         "ontologyClass": {
-          "id": "SNOMEDCT:3950001",
-          "label": "Birth"
+          "id": "SNOMEDCT:118189007",
+          "label": "Prenatal"
         }
       }
     },
@@ -97,7 +111,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T05:14:43.967585Z",
+    "created": "2025-01-18T11:36:05.320547Z",
     "createdBy": "Adam G.",
     "resources": [
       {

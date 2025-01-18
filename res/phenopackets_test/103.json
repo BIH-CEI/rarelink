@@ -44,16 +44,30 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "f122e8239f0c4a129fe161f8eb15c8",
+                "id": "47c4d25755cc4029aac3555bce4bae",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_000377.3:c.6T>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -65,16 +79,30 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "f122e8239f0c4a129fe161f8eb15c8",
+                "id": "47c4d25755cc4029aac3555bce4bae",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_000377.3:c.6T>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -84,51 +112,42 @@
     },
     {
       "id": "EFG678",
-      "progressStatus": "IN_PROGRESS",
+      "progressStatus": "UNSOLVED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0010518",
-          "label": "Wiskott-Aldrich syndrome"
+          "id": "OMIM:613759",
+          "label": "IMMUNODEFICIENCY 90 WITH ENCEPHALOPATHY, FUNCTIONAL HYPOSPLENIA, AND HEPATIC DYSFUNCTION"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "EFG678",
-            "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "ACTIONABLE",
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "f122e8239f0c4a129fe161f8eb15c8",
+                "id": "47c4d25755cc4029aac3555bce4bae",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_000377.3:c.6T>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
-                }
-              }
-            }
-          },
-          {
-            "subjectOrBiosampleId": "EFG678",
-            "interpretationStatus": "CONTRIBUTORY",
-            "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
-              "variationDescriptor": {
-                "id": "f122e8239f0c4a129fe161f8eb15c8",
-                "expressions": [
-                  {
-                    "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
-                  }
-                ],
-                "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -165,7 +184,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T05:14:35.151623Z",
+    "created": "2025-01-18T11:35:55.384738Z",
     "createdBy": "Adam G.",
     "resources": [
       {

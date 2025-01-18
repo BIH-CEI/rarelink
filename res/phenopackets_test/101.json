@@ -44,16 +44,30 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "a66c73672534439f9ffe74c3cb2968",
+                "id": "faea43469b9c4d6fbf711109765fd1",
+                "geneContext": {
+                  "valueId": "HGNC:10853",
+                  "symbol": "SHOX"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_006883.2:c.-507G>C"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LP71749-3",
+                  "label": "Chromosomal nuclear Ab pattern"
+                },
                 "allelicState": {
-                  "id": "LOINC:LA6706-1",
-                  "label": "(simple) Heterozygous"
+                  "id": "LOINC:53034-5-OTHER",
+                  "label": "Other"
                 }
               }
             }
@@ -109,7 +123,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T05:14:27.489421Z",
+    "created": "2025-01-18T11:35:45.437957Z",
     "createdBy": "Adam G.",
     "resources": [
       {

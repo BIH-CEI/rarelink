@@ -37,13 +37,27 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "526c7f746c674bb9ac38328c80771a",
+                "id": "6f69286a23984df0a711da1a9984c2",
+                "geneContext": {
+                  "valueId": "HGNC:4238",
+                  "symbol": "GFI1B"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
                     "value": "NM_001377304.1:c.-16G>A"
                   }
                 ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh38 (hg38)",
+                  "chrom": "unknown",
+                  "ref": "unknown",
+                  "alt": "unknown"
+                },
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
                 "allelicState": {
                   "id": "LOINC:LA6705-3",
                   "label": "Homozygous"
@@ -67,7 +81,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T05:14:29.395268Z",
+    "created": "2025-01-18T11:35:48.149336Z",
     "createdBy": "Adam G.",
     "resources": [
       {

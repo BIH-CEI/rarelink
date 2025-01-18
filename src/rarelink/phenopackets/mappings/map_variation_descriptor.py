@@ -1,11 +1,15 @@
 from rarelink.utils.processor import DataProcessor
+
 import logging
 from phenopackets import (
     VariationDescriptor,
     OntologyClass,
-    Expression
-    #GeneDescriptor
+    Expression,
+    GeneDescriptor,
+    Extension,
+    VcfRecord
 )
+
 
 logger = logging.getLogger(__name__)
 
@@ -57,28 +61,103 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
             ]
         ]
         
+        # Fetching VCF Record fields
+        # potentially integrate function with pyhgvs in future - for now 
+        # we only pass the genome assemlbly (= reference genome)
+        genome_assembly_id = variation_descriptor_data.get(
+            processor.mapping_config["genome_assembly_field"]
+        )
+        genome_assembly = processor.fetch_label(genome_assembly_id, 
+                                                enum_class="ReferenceGenome")
+            
+        vcf_record = VcfRecord(
+            genome_assembly=genome_assembly,
+            chrom="unknown",
+            pos=0,
+            ref="unknown",
+            alt="unknown",
+        )
+
         # Allelic State
-        allelic_state_id = variation_descriptor_data.get(
-                processor.mapping_config["allelic_state_field_1"] or
-                processor.mapping_config["allelic_state_field_2"]
+        allelic_state_id = (
+            variation_descriptor_data.get(
+                processor.mapping_config["allelic_state_field_2"])
+            if variation_descriptor_data.get(
+                processor.mapping_config["allelic_state_field_1"]) == "loinc_48019_4_other"
+            else variation_descriptor_data.get(
+                processor.mapping_config["allelic_state_field_1"])
+        )
+        allelic_state_label = (
+            processor.fetch_label(allelic_state_id, enum_class="Zygosity")
+            or processor.fetch_label(allelic_state_id)
         )
         allelic_state = OntologyClass(
-            id = processor.process_code(allelic_state_id),
-            label = processor.fetch_label(allelic_state_id, enum_class="Zygosity")
+            id=processor.process_code(allelic_state_id),
+            label=allelic_state_label
         )
         
         # Structural Type
-        structural_type_id = variation_descriptor_data.get(
-                processor.mapping_config["structural_type_field"]
-         )
+        structural_type_id = (
+            variation_descriptor_data.get(
+                processor.mapping_config["structural_type_field_2"])
+            if variation_descriptor_data.get(
+                processor.mapping_config["structural_type_field_1"]) == "loinc_48019_4_other"
+            else variation_descriptor_data.get(
+                processor.mapping_config["structural_type_field_1"])
+        )
+        structural_type_label = (
+            processor.fetch_label(structural_type_id, 
+                                     enum_class="DNAChangeType")
+            or processor.fetch_label(structural_type_id)
+   
+        )
+        structural_type = OntologyClass(
+            id=processor.process_code(structural_type_id),
+            label=structural_type_label
+        )
 
+        # Gene Context
+        value_id = variation_descriptor_data.get(
+            processor.mapping_config["value_id_field"], None
+        )
+
+        if value_id:
+            symbol = processor.fetch_label(value_id)
+            gene_context = GeneDescriptor(
+                value_id=value_id,
+                symbol=symbol
+            )
+        else:
+            gene_context = None
+            
+        # Extensions: (6.1.6) - Genetic Mutation String
+            # to be discussed: This field allows users to enter unvalidated 
+            # genetic mutation strings. We could allow this field to be added
+            # to the Extensions field of the VariationDescriptor class.
+            # expression_string_field
+        value = variation_descriptor_data.get(
+            processor.mapping_config["expression_string_field"], None
+        )
+
+        if value:
+            extensions = [
+                Extension(
+                    name="Unvalidated Genetic Mutation String",
+                    value=value
+                )
+            ]
+        else:
+            extensions = None
+            
+        # --> constructing VariationDescriptor
         variation_descriptor = VariationDescriptor(
             id=id,
             expressions=expressions,
+            vcf_record=vcf_record,
             allelic_state=allelic_state,
-            # structural_type=structural_type,
-            # gene_context=gene_context,
-            # extensions=extensions
+            structural_type=structural_type,
+            gene_context=gene_context,
+            extensions=extensions
         )
             
         logger.info(f"Successfully mapped individual: {variation_descriptor}")
@@ -88,14 +167,3 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
     except Exception as e:
         logger.error(f"Failed to map individual: {e}")
         raise
-            
-
-    
-    #     "expression_field_1": "loinc_81290_9",
-    # "expression_field_2": "loinc_48004_6",
-    # "expression_field_3": "loinc_48005_3",
-    # "allelic_state_field_1": "loinc_53034_5",
-    # "allelic_state_field_2": "loinc_53034_5_other",
-    # "structural_type_field": "loinc_48019_4",
-    # # gene descriptor:
-    # "value_id_field": "loinc_48018_6"

@@ -28,7 +28,7 @@ label_dicts = {
         "loinc_la6703-8": "Heteroplasmic",
         "loinc_la6704-6": "Homoplasmic",
     },
-    "VariantType": {
+    "DNAChangeType": {
         "loinc_la9658-1": "Wild type",
         "loinc_la6692-3": "Deletion",
         "loinc_la6686-5": "Duplication",
@@ -36,7 +36,13 @@ label_dicts = {
         "loinc_la6688-1": "Insertion/Deletion",
         "loinc_la6689-9": "Inversion",
         "loinc_la6690-7": "Substitution",
-        }
+    },
+    "ReferenceGenome": {
+        "loinc_la14032-9": "NCBI Build 34 (hg16)",
+        "loinc_la14029-5": "GRCh37 (hg19)",
+        "loinc_la14030-3": "NCBI Build 36.1 (hg18)",
+        "loinc_la14031-1": "NCBI Build 35 (hg17)",
+        "loinc_la26806-2": "GRCh38 (hg38)",
     }
-
+}
 
