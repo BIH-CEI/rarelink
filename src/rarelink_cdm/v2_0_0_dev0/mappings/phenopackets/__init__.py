@@ -14,6 +14,7 @@ from .genetics import (
 )
 from .phenotype import PHENOTYPIC_FEATURES_BLOCK
 from .disease import DISEASE_BLOCK
+from .measurements import MEASUREMENT_BLOCK
 from .resources import RARELINK_CODE_SYSTEMS
 
 
@@ -28,6 +29,7 @@ __all__ = [
     "INTERPRETATION_BLOCK",
     "PHENOTYPIC_FEATURES_BLOCK",
     "DISEASE_BLOCK",
+    "MEASUREMENT_BLOCK",
     "RARELINK_CODE_SYSTEMS",
     "VARIATION_DESCRIPTOR_BLOCK"
 ]

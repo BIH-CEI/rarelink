@@ -106,6 +106,26 @@
       }
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP32067-8",
+        "label": "Hemoglobin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000208",
+            "label": "gram per deciliter"
+          },
+          "value": 34.4
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "EFG678",
@@ -123,7 +143,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "ccac547b9e594037912d8af2a590f6",
+                "id": "f43fd4dc671c4251a965a9c8ff4d08",
                 "geneContext": {
                   "valueId": "HGNC:12731",
                   "symbol": "WAS"
@@ -158,7 +178,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "52f34a7b193f4bb198b2b874c9038c",
+                "id": "a5e7206d5b9c4f5b8535032af9eb34",
                 "expressions": [
                   {
                     "syntax": "hgvs",
@@ -207,7 +227,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T17:06:42.108637Z",
+    "created": "2025-01-18T18:18:37.014097Z",
     "createdBy": "Adam G.",
     "resources": [
       {

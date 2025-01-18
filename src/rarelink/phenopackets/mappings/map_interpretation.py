@@ -31,6 +31,9 @@ def map_interpretations(
     Returns:
         dict: Mapped interpretation structure.
     """
+    
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
     
     try:
@@ -39,12 +42,13 @@ def map_interpretations(
             logger.warning("No repeated elements found in the data.")
             return []
 
-        # Filter relevant interpretation elements
         interpretation_elements = [
             element for element in repeated_elements
             if element.get("redcap_repeat_instrument") == instrument_name
         ]
         
+        # Grouping interpreations by diagnosis_id
+        # ----------------------------------------------------------------------
         interpretation_groups = {}
 
         for interpretation_element in interpretation_elements:
@@ -52,8 +56,9 @@ def map_interpretations(
             if not interpretation_data:
                 logger.warning("No interpretation data found in this element.")
                 continue
-
-            # Fetch `diagnosis_id` and label
+            
+            # Genomic Diagnosis
+            # ------------------------------------------------------------------
             diagnosis_id = (
                 interpretation_data.get(processor.mapping_config[
                                                     "diagnosis_field_1"]) or
@@ -62,7 +67,8 @@ def map_interpretations(
             )
             diagnosis_label = processor.fetch_label(diagnosis_id)
 
-            # Fetch `progress_status`
+            # Progress Status
+            # ------------------------------------------------------------------
             progress_status_field = interpretation_data.get(
                 processor.mapping_config["progress_status_field"])
             progress_status = processor.fetch_mapping_value(
@@ -70,6 +76,7 @@ def map_interpretations(
             ) if progress_status_field else "UNKNOWN_PROGRESS"
 
             # Initialize interpretation group by `diagnosis_id`
+            # ------------------------------------------------------------------
             if diagnosis_id not in interpretation_groups:
                 interpretation_groups[diagnosis_id] = {
                     "diagnosis": Diagnosis(
@@ -83,6 +90,7 @@ def map_interpretations(
                 }
 
             # Fetch `redcap_repeat_instance`
+            # ------------------------------------------------------------------
             redcap_repeat_instance = interpretation_element.get(
                                                     "redcap_repeat_instance")
             if not redcap_repeat_instance:
@@ -90,6 +98,7 @@ def map_interpretations(
                 continue
 
             # Check for existing genomic interpretations
+            # ------------------------------------------------------------------
             existing_instances = {
                 gi.subject_or_biosample_id for gi in interpretation_groups[
                     diagnosis_id]["diagnosis"].genomic_interpretations
@@ -98,6 +107,7 @@ def map_interpretations(
                 continue
 
             # Match VariationDescriptor by redcap_repeat_instance
+            # ------------------------------------------------------------------
             variation_descriptor_instance = variation_descriptor.get(
                 redcap_repeat_instance)
             if not variation_descriptor_instance:
@@ -106,6 +116,7 @@ def map_interpretations(
                 continue
             
             # Create VariantInterpretation
+            # ------------------------------------------------------------------
             variant_interpretation = VariantInterpretation(
                 acmg_pathogenicity_classification=processor.fetch_mapping_value(
                     "map_acmg_classification",
@@ -121,6 +132,7 @@ def map_interpretations(
             )
 
             # Create GenomicInterpretation
+            # ------------------------------------------------------------------
             genomic_interpretation = GenomicInterpretation(
                 subject_or_biosample_id=subject_id,
                 interpretation_status=processor.fetch_mapping_value(
@@ -131,12 +143,12 @@ def map_interpretations(
                 variant_interpretation=variant_interpretation
             )
 
-            # Add to genomic_interpretations in the group
             interpretation_groups[diagnosis_id][
                 "diagnosis"].genomic_interpretations.append(
                     genomic_interpretation)
 
         # Build interpretations
+        # ----------------------------------------------------------------------
         interpretations = [
             Interpretation(
                 id=subject_id,

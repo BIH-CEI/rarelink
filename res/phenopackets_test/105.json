@@ -101,6 +101,32 @@
       }
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:17351-8",
+        "label": "Neutrophil cytoplasmic Ab:PrThr:Pt:Ser:Ord"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000201",
+            "label": "cells per milliliter"
+          },
+          "value": 5.42
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "Thesaurus:C133303",
+          "label": "Blood Products Distribution Center"
+        }
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "CDE456",
@@ -118,7 +144,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "51a7099ad1aa463cb8c4ba86ccf355",
+                "id": "32f459e349e6498f9d8fb04579377a",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -192,7 +218,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T17:06:53.307195Z",
+    "created": "2025-01-18T18:18:49.793123Z",
     "createdBy": "Adam G.",
     "resources": [
       {

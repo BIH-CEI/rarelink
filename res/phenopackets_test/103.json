@@ -198,6 +198,56 @@
       }
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:MTHU020480",
+        "label": "Immunodeficiency markers"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000276",
+            "label": "amount per container"
+          },
+          "value": 24.24
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "Thesaurus:C104947",
+          "label": "MR-Based Treatment Machine"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:MTHU020483",
+        "label": "Immunodeficiency panel"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000075",
+            "label": "normal"
+          },
+          "value": 1.0
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2023-10-31T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "SNOMEDCT:313334002",
+          "label": "Blood sample taken"
+        }
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "EFG678",
@@ -215,7 +265,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "6fe3a894268e4501958f004ed86c72",
+                "id": "b3b167ccdef54fd19da1cfff994710",
                 "geneContext": {
                   "valueId": "HGNC:12731",
                   "symbol": "WAS"
@@ -250,7 +300,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "ae5b0c4941254c028ff36c8f78367b",
+                "id": "1dad8181b9a24f00b9b37c7202fb4c",
                 "expressions": [
                   {
                     "syntax": "hgvs",
@@ -297,7 +347,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "5a9ec05d94504022b93d2ce390a0c5",
+                "id": "9f0562d206224557938279ab0fcc21",
                 "geneContext": {
                   "valueId": "HGNC:1100",
                   "symbol": "BRCA1"
@@ -357,7 +407,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T17:06:32.113906Z",
+    "created": "2025-01-18T18:18:24.938867Z",
     "createdBy": "Adam G.",
     "resources": [
       {

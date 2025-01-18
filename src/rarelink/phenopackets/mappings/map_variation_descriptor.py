@@ -24,6 +24,8 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
         dict: A dictionary with `redcap_repeat_instance` as the key and 
               VariationDescriptor as the value.
     """
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
 
     try:
@@ -54,9 +56,11 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 continue
 
             # Unique ID
+            # ------------------------------------------------------------------
             id = processor.generate_unique_id()
 
-            # Expressions
+            # VariationDescriptor.expressions
+            # ------------------------------------------------------------------
             expressions = [
                 Expression(syntax="hgvs", value=expression_value)
                 for expression_value in [
@@ -86,7 +90,8 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 alt="unknown",
             )
 
-            # Allelic State
+            # VariationDescriptor.allelic_state
+            # ------------------------------------------------------------------
             allelic_state_id = (
                 variation_descriptor_data.get(processor.mapping_config[
                     "allelic_state_field_2"])
@@ -104,7 +109,8 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 label=allelic_state_label
             )
 
-            # Structural Type
+            # VariationDescriptor.structural_type
+            # ------------------------------------------------------------------
             structural_type_id = (
                 variation_descriptor_data.get(processor.mapping_config[
                     "structural_type_field_2"])
@@ -123,19 +129,22 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 label=structural_type_label
             )
 
-            # Gene Context
+            # VariationDescriptor.gene_context
+            # ------------------------------------------------------------------
             value_id = variation_descriptor_data.get(
                 processor.mapping_config["value_id_field"], None)
             gene_context = GeneDescriptor(value_id=value_id, 
                 symbol=processor.fetch_label(value_id)) if value_id else None
 
-            # Extensions
+            # VariationDescriptor.extensions = Unvalidated Genetic Mutation String
+            # ------------------------------------------------------------------
             value = variation_descriptor_data.get(processor.mapping_config[
                 "expression_string_field"], None)
             extensions = [Extension(name="Unvalidated Genetic Mutation String",
                                     value=value)] if value else None
 
             # Create VariationDescriptor
+            # ------------------------------------------------------------------
             variation_descriptor = VariationDescriptor(
                 id=id,
                 expressions=expressions,
@@ -146,7 +155,6 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 extensions=extensions
             )
 
-            # Map by redcap_repeat_instance
             variation_descriptors[redcap_repeat_instance] = variation_descriptor
 
         return variation_descriptors

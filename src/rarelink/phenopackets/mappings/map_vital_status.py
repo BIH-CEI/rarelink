@@ -17,8 +17,9 @@ def map_vital_status(data: dict,
     Returns:
         VitalStatus: A Phenopacket VitalStatus block.
     """
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     try:
-        # Fetch the instrument name from the mapping configuration
         instrument_name = processor.mapping_config.get("instrument_name")
         if not instrument_name:
             raise ValueError(
@@ -33,6 +34,7 @@ def map_vital_status(data: dict,
             return None
 
         # Extract fields from mapping configuration
+        # ----------------------------------------------------------------------
         patient_status = highest_instance["patient_status"]
         status_field = patient_status.get(
             processor.mapping_config["status_field"])
@@ -42,6 +44,7 @@ def map_vital_status(data: dict,
             processor.mapping_config["cause_of_death_field"])
 
         # Map and process fields
+        # ----------------------------------------------------------------------
         status_label = processor.fetch_mapping_value(
             "map_vital_status", status_field) if status_field \
                 else "UNKNOWN_STATUS"
@@ -55,6 +58,7 @@ def map_vital_status(data: dict,
         )
 
         # Create the VitalStatus block
+        # ----------------------------------------------------------------------
         return VitalStatus(
             status=status_label,
             time_of_death=time_of_death,

@@ -120,6 +120,50 @@
       }
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP7720-8",
+        "label": "White blood cells"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000276",
+            "label": "amount per container"
+          },
+          "value": 5.01
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP7536-8",
+        "label": "Red Blood Cells"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 4.56
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "Thesaurus:C113676",
+          "label": "Complete Blood Count Collection Tube"
+        }
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "CDE456",
@@ -137,7 +181,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "ed3572180875425d9451a9b3e79091",
+                "id": "dbb8c448cc0f4d3e895c422aa7afbe",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -216,7 +260,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T17:05:52.798944Z",
+    "created": "2025-01-18T18:17:35.507417Z",
     "createdBy": "Adam G.",
     "resources": [
       {

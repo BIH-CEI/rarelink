@@ -1,21 +1,10 @@
 MEASUREMENT_BLOCK = {
     "redcap_repeat_instrument" : "rarelink_6_3_measurements",
-    
-    
-    
-    
+    "assay_field": "ncit_c60819",
+    "value_field": "ncit_c25712",
+    "value_unit_field": "ncit_c92571",
+    "time_observed_field": "ncit_c82577",
+    "procedure_field_1": "snomed_122869004_ncit",
+    "procedure_field_2": "snomed_122869004_snomed",
+    "procedure_field_3": "snomed_122869004"
 }
-
-# ncit_c60819
-# ln_85353_1
-# ln_85353_1_other
-# ncit_c25712
-# ncit_c92571
-# ncit_c41255
-# ncit_c82577
-# snomed_122869004_ncit
-# snomed_122869004_snomed
-# snomed_122869004_descr
-# snomed_122869004
-# snomed_122869004_bodysite
-# snomed_122869004_status

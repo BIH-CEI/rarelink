@@ -19,6 +19,9 @@ def map_diseases(
     Returns:
         list: A list of Phenopacket Disease blocks.
     """
+    
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
     try:
         repeated_elements = data.get("repeated_elements", [])
@@ -26,7 +29,6 @@ def map_diseases(
             logger.warning("No repeated elements found in the data.")
             return []
 
-        # Filter relevant disease elements
         disease_elements = [
             element for element in repeated_elements
             if element.get("redcap_repeat_instrument") == instrument_name
@@ -41,6 +43,7 @@ def map_diseases(
                 continue
             
             # Disease.term
+            # ------------------------------------------------------------------
             term_id = (
                 disease_data.get(processor.mapping_config["term_field_1"]) or
                 disease_data.get(processor.mapping_config["term_field_2"]) or
@@ -53,6 +56,7 @@ def map_diseases(
 
 
             # Disease.onset[0..1] ( -> prefer date over category)
+            # ------------------------------------------------------------------
             onset_date = disease_data.get(
                 processor.mapping_config["onset_date_field"])
             onset_category_field = disease_data.get(
@@ -92,6 +96,7 @@ def map_diseases(
                                 '{onset_category}': {e}")
                     
             # Disease.excluded
+            # ------------------------------------------------------------------
             excluded_value = disease_data.get(
                 processor.mapping_config["excluded_field"])
             excluded = None
@@ -106,6 +111,7 @@ def map_diseases(
                     excluded = None # default value in Phenopackets
 
             # Disease.primary_site
+            # ------------------------------------------------------------------
             primary_site_id = disease_data.get(
                 processor.mapping_config["primary_site_field"])
             primary_site = None
@@ -116,6 +122,7 @@ def map_diseases(
                     label=primary_site_label)
 
             # Create the Disease block
+            # ------------------------------------------------------------------
             disease = Disease(
                 term=term,
                 onset=onset,

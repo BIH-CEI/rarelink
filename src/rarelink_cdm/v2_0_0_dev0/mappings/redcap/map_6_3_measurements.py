@@ -35,7 +35,7 @@ ADDITIONAL_PROCESSING = {
     "ncit_c60819": lambda x: add_prefix_to_code(x, "LOINC"),
     "ln_85353_1": lambda x: add_prefix_to_code(x, "LOINC"),
     "ncit_c25712": lambda x: float(x) if x else None,
-    "snomed_122869004": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "snomed_122869004_snomed": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
     "snomed_122869004_bodysite": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
 }
 

@@ -7,7 +7,8 @@ from rarelink.phenopackets.mappings import (
     map_diseases,
     map_interpretations,
     map_variation_descriptor,
-    map_phenotypic_features
+    map_phenotypic_features,
+    map_measurements
 )
 from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
@@ -16,7 +17,8 @@ from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
     INTERPRETATION_BLOCK,
     VARIATION_DESCRIPTOR_BLOCK,
     RARELINK_CODE_SYSTEMS,
-    PHENOTYPIC_FEATURES_BLOCK
+    PHENOTYPIC_FEATURES_BLOCK,
+    MEASUREMENT_BLOCK
 )
 import logging
 
@@ -35,15 +37,7 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
     """
     try:
         
-        # PhenotypicFeature -------------------------------------------------------
-        phenotypic_feature_processor = DataProcessor(
-            mapping_config=PHENOTYPIC_FEATURES_BLOCK
-        )
-        phenotypic_features = map_phenotypic_features(
-            data,
-            phenotypic_feature_processor
-        )
-        
+
         # Individual ---------------------------------------------------------------
         # VitalStatus Block
         vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
@@ -56,6 +50,21 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
             individual_processor,
             vital_status=vital_status
         )
+        
+        # PhenotypicFeature -------------------------------------------------------
+        phenotypic_feature_processor = DataProcessor(
+            mapping_config=PHENOTYPIC_FEATURES_BLOCK
+        )
+        phenotypic_features = map_phenotypic_features(
+            data,
+            phenotypic_feature_processor
+        )
+        
+        # Measurements ------------------------------------------------------------
+        measurement_processor = DataProcessor(
+            mapping_config=MEASUREMENT_BLOCK
+        )
+        measurements = map_measurements(data, measurement_processor)
 
         # Disease -----------------------------------------------------------------
         # DiseaseBlock
@@ -94,6 +103,7 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
             id=data["record_id"],
             subject=individual,
             phenotypic_features=phenotypic_features,
+            measurements=measurements,
             diseases=diseases,
             meta_data=metadata,
             interpretations=interpretations

@@ -100,6 +100,32 @@
       "severity": {}
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP18044-5",
+        "label": "Growth hormone-releasing hormone"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO_0010046",
+            "label": "united states customary cup"
+          },
+          "value": 1.54
+        }
+      },
+      "timeObserved": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "SNOMEDCT:87612001",
+          "label": "Blood"
+        }
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "DEF567",
@@ -117,7 +143,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "20fd37230deb4e6ca5d4ee6a1b78f4",
+                "id": "403d3ffd07ff4d9d9fbc0a200be7bf",
                 "geneContext": {
                   "valueId": "HGNC:4238",
                   "symbol": "GFI1B"
@@ -161,7 +187,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T17:06:01.399279Z",
+    "created": "2025-01-18T18:17:50.200913Z",
     "createdBy": "Adam G.",
     "resources": [
       {

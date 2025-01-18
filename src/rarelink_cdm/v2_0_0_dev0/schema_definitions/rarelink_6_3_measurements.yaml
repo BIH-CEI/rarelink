@@ -74,13 +74,13 @@ slots:
     description: >
       The measurement value, entered as a two-decimal number.
     range: double
-    required: true
+    required: false
 
   ncit_c92571:
     description: >
       The unit of the measurement, encoded with Unit Ontology (UO).
     range: string
-    required: true
+    required: false
 
   ncit_c41255:
     description: >

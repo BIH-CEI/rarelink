@@ -17,8 +17,12 @@ def map_individual(data: dict,
     Returns:
         Individual: A Phenopacket Individual block.
     """
+    # Single instance data
+    # --------------------------------------------------------------------------
     try:
-        # Extract ID
+    # Individual data fields
+    # --------------------------------------------------------------------------
+        # ID
         id_field = processor.get_field(data, "id_field")
 
         # Date of Birth
@@ -64,6 +68,7 @@ def map_individual(data: dict,
         )
 
         # Creating the Individual block
+        # ----------------------------------------------------------------------
         individual = Individual(
             id=id_field,
             date_of_birth=date_of_birth,

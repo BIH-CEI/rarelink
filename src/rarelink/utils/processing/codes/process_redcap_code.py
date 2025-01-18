@@ -19,6 +19,7 @@ def process_redcap_code(code: str) -> str:
             - For "LOINC", additional "_" in the code part are replaced with 
               "-" and letters become uppercase 
               (e.g., "loinc_la6706-1" -> "LOINC:LA6706-1").
+            - For "NCIT" codes, the letters in the code part are capitalized.
             - For ICD codes ("ICD10CM", "ICD11", "ICD10", "ICD9"), additional 
               "_" in the code part are replaced with "." and the code part is 
               capitalized (e.g., "icd10cm_r51_1" -> "ICD10CM:R51.1").
@@ -64,6 +65,9 @@ def process_redcap_code(code: str) -> str:
         # Special handling for LOINC: Replace subsequent "_" with "-" and ensure uppercase
         if prefix_upper == "LOINC":
             processed_code = f"{prefix_upper}:{rest.replace('_', '-').upper()}"
+            
+        if prefix_upper == "NCIT":
+            processed_code = f"{prefix_upper}:{rest.upper()}"
 
         # Special handling for ICD codes: Replace subsequent "_" with "."
         elif prefix_upper in ["ICD10CM", "ICD11", "ICD10", "ICD9"]:

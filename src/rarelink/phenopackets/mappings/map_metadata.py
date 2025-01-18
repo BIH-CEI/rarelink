@@ -15,9 +15,13 @@ def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaDat
     Returns:
         MetaData: Metadata block for the Phenopacket.
     """
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     created_time = datetime.utcnow().isoformat() + "Z"
     created_timestamp = date_to_timestamp(created_time)
 
+    # Resources
+    # --------------------------------------------------------------------------
     resources = []
     for field in dataclasses.fields(CodeSystemsContainer):
         value = getattr(code_systems, field.name, None)
@@ -35,6 +39,8 @@ def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaDat
         )
         resources.append(resource)
 
+    # Create MetaData block
+    # --------------------------------------------------------------------------
     return MetaData(
         created_by=created_by,
         created=created_timestamp,

@@ -19,6 +19,9 @@ def map_phenotypic_features(
     Returns:
         list: A list of Phenopacket PhenotypicFeature blocks.
     """
+    
+    # Fetching and preparation
+    # --------------------------------------------------------------------------
     instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
     try:
         repeated_elements = data.get("repeated_elements", [])
@@ -41,6 +44,8 @@ def map_phenotypic_features(
                                 "this element. Skipping.")
                 continue
             
+            # PhenotypicFeature.type
+            # ------------------------------------------------------------------
             type_field = phenotypic_feature_data.get(
                 processor.mapping_config["type_field"])
             type_field_label = processor.fetch_label(type_field)
@@ -63,6 +68,7 @@ def map_phenotypic_features(
                     excluded = None
             
             # PhenotypicFeature.onset ( -> prefer date over category)
+            # ------------------------------------------------------------------
             onset_date= phenotypic_feature_data.get(
                 processor.mapping_config["onset_date_field"])
             onset_age_field = phenotypic_feature_data.get(
@@ -95,7 +101,8 @@ def map_phenotypic_features(
                 except Exception as e:
                     logger.error(f"Error processing onset age: {e}")
                     
-            # Resolution field
+            # PhenotypicFeature.resolution
+            # ------------------------------------------------------------------
             resolution = None
             resolution_field = phenotypic_feature_data.get(
                 processor.mapping_config["resolution_field"])
@@ -111,7 +118,8 @@ def map_phenotypic_features(
                 except Exception as e:
                     logger.error(f"Error processing resolution date: {e}")
 
-            # Severity
+            # PhenotypicFeature.severity
+            # ------------------------------------------------------------------
             severity = None
             severity_field = phenotypic_feature_data.get(
                 processor.mapping_config["severity_field"])
@@ -122,7 +130,9 @@ def map_phenotypic_features(
                 id=severity_id,
                 label=severity_label
             )
-            # Evidence
+            
+            # PhenotypicFeature.evidence
+            # ------------------------------------------------------------------
             evidence_id = phenotypic_feature_data.get(
                 processor.mapping_config["evidence_field"]
             )
@@ -138,7 +148,8 @@ def map_phenotypic_features(
             else:
                 evidence_list = None
 
-            # Modifiers
+            # PhenotypicFeature.modifiers
+            # ------------------------------------------------------------------
             modifiers = []
             # First Modifier: TemporalPattern
             modifier_temp_pattern_field = processor.mapping_config.get(
@@ -173,10 +184,11 @@ def map_phenotypic_features(
                         label=modifier_label
                     ))
 
-            # Ensure modifiers is None if empty (optional, depending on schema)
             if not modifiers:
                 modifiers = None
-            
+
+            # Create PhenotypicFeature
+            # ------------------------------------------------------------------            
             phenotypic_feature = PhenotypicFeature(
                 type=type,
                 excluded=excluded,
