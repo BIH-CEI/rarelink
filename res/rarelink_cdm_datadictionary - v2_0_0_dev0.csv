@@ -248,7 +248,7 @@ Choices:
 - HL7FHIR:refuted | Refuted  
 - HL7FHIR:entered-in-error | Entered in Error  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 - HL7 FHIR Version 4.0.1  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Condition.verificationStatus  
@@ -331,7 +331,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.severity  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  "
 genetic_diagnosis_code,rarelink_6_1_genetic_findings,"<div class=""rich-text-field-label""><p>RareLink - 6.1) Genetic Findings</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Genetic Findings sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#genetic-findings"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul></div>",dropdown,Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.,"mondo, MONDO | omim, OMIM","If you want to link it to a specific Disease, please use the same code system.",,,,,,,,,,,
-snomed_106221001_mondo,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [MONDO],BIOPORTAL:MONDO,The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.,,,,,[genetic_diagnosis_code] = 'mondo',,,,,,"Variable: 
+snomed_106221001_mondo,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [MONDO],BIOPORTAL:MONDO,The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.,,,,,[genetic_diagnosis_code] = 'mondo',y,,,,,"Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -340,7 +340,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: [Suggested] : Condition.code
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.Diagnosis.disease"
-snomed_106221001_omim_p,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [OMIM_p],BIOPORTAL:OMIM,The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.,,,,,[genetic_diagnosis_code] = 'omim',,,,,,"Variable: 
+snomed_106221001_omim_p,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [OMIM_p],BIOPORTAL:OMIM,The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.,,,,,[genetic_diagnosis_code] = 'omim',y,,,,,"Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -391,7 +391,7 @@ LOINC:LA26398-0 | Sequencing
 LOINC:LA26415-2 | MLPA
 LOINC:LA46-8 | Other
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.method
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
@@ -404,7 +404,7 @@ LOINC:LA14030-3 | NCBI Build 36.1 (hg18)
 LOINC:LA14031-1 | NCBI Build 35 (hg17)
 LOINC:LA26806-2 | GRCh38 (hg38)
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: MolecularSequence.referenceSeqId
 - GA4GH Phenopacket Schema v2.0 Element:"
@@ -413,7 +413,7 @@ LOINC:LP7824-8 | Genetic Mutation String
 Choices: 
 n/a
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueString
 - GA4GH Phenopacket Schema v2.0 Element: [...].VariantInterpretation.VariationDescriptor.Extension"
@@ -423,7 +423,7 @@ LOINC:81290-9 | Genomic DNA Change
 Choices: 
 n/a
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: ""[...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"""
@@ -432,7 +432,7 @@ LOINC:48004-6 | Sequence DNA Change
 Choices: 
 n/a
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
@@ -441,7 +441,7 @@ LOINC:48005-3 | Amino Acid Change
 Choices: 
 n/a
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:AminoAcidChange
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
@@ -453,7 +453,7 @@ LOINC:48018-6 | Gene
 Choices: 
 n/a
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Gene
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.GeneDescriptor.value_id"
@@ -468,7 +468,7 @@ LOINC:LA6707-9 | Hemizygous
 LOINC:LA6703-8 | Heteroplasmic
 LOINC:LA6704-6 | Homoplasmic
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
@@ -483,7 +483,7 @@ LOINC:LA6707-9 | Hemizygous
 LOINC:LA6703-8 | Heteroplasmic
 LOINC:LA6704-6 | Homoplasmic
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
@@ -499,7 +499,7 @@ LOINC:LA18196-8 | Likely fetal
 LOINC:LA18197-6 | Unknown genomic origin
 LOINC:LA26807-0 | De novo
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:GenomicSourceClass
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
@@ -514,7 +514,7 @@ LOINC:LA6688-1 | Insertion/Deletion
 LOINC:LA6689-9 | Inversion
 LOINC:LA6690-7 | Substitution
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping:
 - HL7 FHIR Expression v4.0.1: Variant.type
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
@@ -529,7 +529,7 @@ LOINC:LA6688-1 | Insertion/Deletion
 LOINC:LA6689-9 | Inversion
 LOINC:LA6690-7 | Substitution
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping:
 - HL7 FHIR Expression v4.0.1: Variant.type
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
@@ -543,7 +543,7 @@ LOINC:LA26334-5 | Likely benign
 LOINC:LA6675-8 | Benign
 LOINC:LA4489-6 | Unknown
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Variant.Interpretation
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.AcmgPathogenicityClassification"
@@ -570,7 +570,7 @@ LOINC:LA30204-4 | Supporting evidence benign
 LOINC:LA30205-1 | Strong evidence benign
 LOINC:LA30206-9 | Stand-alone evidence pathogenic
 Version(s): 
-- LOINC Version 2.77
+- LOINC Version 2.78
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.extension:Variant.Interpretation
 - GA4GH Phenopacket Schema v2.0 Elemen: n/a"
@@ -791,7 +791,8 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed"
-snomed_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],BIOPORTAL:NCIT,Please search for the procedure in NCIT and see tips above.,,,,,[measurement_category] != 'procedure',,,,,,"Variable: SNOMED:122869004 | Procedure
+procedure,rarelink_6_3_measurements,,dropdown,Procedure as NCIT or SNOMED?,"ncit, NCIT | snomed, SNOMEDCT",,,,,,[measurement_category] != 'procedure',,,,,,
+snomed_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],BIOPORTAL:NCIT,Please search for the procedure in NCIT and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'ncit',,,,,,"Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -799,7 +800,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
-snomed_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMED],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED and see tips above.,,,,,[measurement_category] != 'procedure',,,,,,"Variable: SNOMED:122869004 | Procedure
+snomed_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMED],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'snomed',,,,,,"Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -927,7 +928,7 @@ Choices:
 - SNOMED:32570691000036108 | Intersex  
 - SNOMED:1220561009 | Not recorded  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 - SNOMED CT Version 23.2.0  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.sex (VS: AdministrativeGender)  
@@ -937,7 +938,7 @@ LOINC:54141-7 | Family Member Age
 Choices: 
 n/a  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.ageAge  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
@@ -946,7 +947,7 @@ LOINC:54124-3 | Family Member Date of Birth
 Choices: 
 n/a  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.bornDate  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
@@ -966,7 +967,7 @@ LOINC:54112-8 | Family Member Cause of Death
 Choices: 
 n/a  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
@@ -975,7 +976,7 @@ LOINC:92662-6 | Family Member Deceased Age
 Choices: 
 n/a  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceasedAge  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
@@ -984,7 +985,7 @@ LOINC:75315-2 | Family Member Disease
 Choices: 
 n/a  
 Version(s): 
-- LOINC Version 2.77  
+- LOINC Version 2.78  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
