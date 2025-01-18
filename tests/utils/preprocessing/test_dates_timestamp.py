@@ -3,13 +3,26 @@ from rarelink.utils.processing.dates import (
     year_month_to_timestamp,
     year_to_timestamp,
 )
+from datetime import datetime
+from google.protobuf.timestamp_pb2 import Timestamp
 
 def test_date_to_timestamp():
-    assert date_to_timestamp("2018-03-01") == "2018-03-01T00:00:00Z"
-    assert date_to_timestamp("2024-01-02") == "2024-01-02T00:00:00Z"
+    # Test with a valid date
+    ts = date_to_timestamp("2018-03-01")
+    expected_ts = Timestamp()
+    expected_ts.FromDatetime(datetime(2018, 3, 1))
+    assert ts.seconds == expected_ts.seconds
+    assert ts.nanos == expected_ts.nanos
+
+    # Test with another valid date
+    ts = date_to_timestamp("2024-01-02")
+    expected_ts = Timestamp()
+    expected_ts.FromDatetime(datetime(2024, 1, 2))
+    assert ts.seconds == expected_ts.seconds
+    assert ts.nanos == expected_ts.nanos
+
+    # Test with an empty string
     assert date_to_timestamp("") is None
-
-
 def test_year_month_to_timestamp():
     assert year_month_to_timestamp(2018, 3) == "2018-03-01T00:00:00Z"
     assert year_month_to_timestamp(2024, 1) == "2024-01-01T00:00:00Z"

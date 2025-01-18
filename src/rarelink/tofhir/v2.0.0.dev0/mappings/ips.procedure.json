@@ -34,9 +34,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "performedDateTime": "{{ncit_c82577}}",
           "bodySite": [
             {

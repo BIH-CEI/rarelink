@@ -64,9 +64,7 @@
               ]
             }
           ],
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{? snomed_8116006_onset}}",
           "_effectiveDateTime": {
             "extension": [

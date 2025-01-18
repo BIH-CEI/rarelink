@@ -36,9 +36,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{patient_status_date}}",
           "valueCodeableConcept": {
             "coding": [

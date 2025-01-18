@@ -35,9 +35,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "recordedDate": "{{patient_status_date.toDate()}}",
           "text": {
             "status": "{{'generated'}}",
