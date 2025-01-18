@@ -114,23 +114,19 @@ def export():
             "Ensure you have an internet connection as this may take a while."))
 
     try:
-        typer.echo("🚀 Exporting Phenopackets...")
+        typer.echo("🚀 Processing your REDCap records to Phenopackets...")
 
         # Load the JSON data from the file
         with open(input_path, "r") as f:
             input_data = json.load(f)
 
         # Use the number of records in input_data for the progress bar
-        with typer.progressbar(length=len(input_data), 
-                               label="Processing records") as progress:
-            progress.update(5)
-            phenopacket_pipeline(input_data=input_data, 
+        phenopacket_pipeline(input_data=input_data, 
                                  output_dir=output_dir, 
                                  created_by=created_by)
         
         typer.secho(success_text("✅ Phenopackets successfully created!"))
-        typer.echo(f"📂 Find your Phenopackets here: \
-            {hyperlink('Your project\'s Phenopackets!', str(output_dir))}")
+        typer.echo(f"📂 Find your Phenopackets here: {output_dir}")
 
     except Exception as e:
         typer.secho(
