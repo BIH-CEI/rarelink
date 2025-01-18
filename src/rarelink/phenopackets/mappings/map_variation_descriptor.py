@@ -27,42 +27,50 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
             logger.warning("No repeated elements found in the data.")
             return []
 
-        # Filter elements for the specified instrument
         variation_descriptor_elements = [
             element for element in repeated_elements
             if element.get("redcap_repeat_instrument") == instrument_name
         ]
 
         for variation_descriptor_element in variation_descriptor_elements:
-            # Validate and retrieve `genetic_findings`
-            variation_descriptor_data = variation_descriptor_element.get("genetic_findings")
+            variation_descriptor_data = variation_descriptor_element.get(
+                                                        "genetic_findings")
             if not variation_descriptor_data:
-                logger.warning(f"No genetic findings data found in element: {variation_descriptor_element}. Skipping.")
+                logger.warning(f"No genetic findings data found in element: \
+                    {variation_descriptor_element}. Skipping.")
                 continue
-          #  Ensure expressions are safely created
-            expressions = [
-                Expression(syntax="hgvs", value=expression_value)
-                for expression_value in [
-                    variation_descriptor_data.get(processor.mapping_config[field_key])
-                    for field_key in [
-                        "expression_field_1",
-                        "expression_field_2",
-                        "expression_field_3"
-                    ]
-                    if variation_descriptor_data.get(processor.mapping_config[field_key])
-                ]
-            ]
-
-        # Generate unique ID
+            
+        # unique ID
         id = processor.generate_unique_id()
         
+        #  Expressions
+        expressions = [
+            Expression(syntax="hgvs", value=expression_value)
+            for expression_value in [
+                variation_descriptor_data.get(processor.mapping_config[field_key])
+                for field_key in [
+                    "expression_field_1",
+                    "expression_field_2",
+                    "expression_field_3"
+                ]
+                if variation_descriptor_data.get(processor.mapping_config[field_key])
+            ]
+        ]
+        
+        # Allelic State
         allelic_state_id = variation_descriptor_data.get(
-                processor.mapping_config["allelic_state_field_1"]
+                processor.mapping_config["allelic_state_field_1"] or
+                processor.mapping_config["allelic_state_field_2"]
         )
         allelic_state = OntologyClass(
             id = processor.process_code(allelic_state_id),
             label = processor.fetch_label(allelic_state_id, enum_class="Zygosity")
         )
+        
+        # Structural Type
+        structural_type_id = variation_descriptor_data.get(
+                processor.mapping_config["structural_type_field"]
+         )
 
         variation_descriptor = VariationDescriptor(
             id=id,

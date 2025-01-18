@@ -21,7 +21,8 @@ VARIATION_DESCRIPTOR_BLOCK = {
     "expression_field_3": "loinc_48005_3",
     "allelic_state_field_1": "loinc_53034_5",
     "allelic_state_field_2": "loinc_53034_5_other",
-    "structural_type_field": "loinc_48019_4",
+    "structural_type_field_1": "loinc_48019_4",
+    "structural_type_field_2": "loinc_48019_4_other",
     # gene descriptor:
     "value_id_field": "loinc_48018_6"
 }

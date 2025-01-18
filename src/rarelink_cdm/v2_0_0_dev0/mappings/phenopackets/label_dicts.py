@@ -27,6 +27,16 @@ label_dicts = {
         "loinc_la6707-9": "Hemizygous",
         "loinc_la6703-8": "Heteroplasmic",
         "loinc_la6704-6": "Homoplasmic",
+    },
+    "VariantType": {
+        "loinc_la9658-1": "Wild type",
+        "loinc_la6692-3": "Deletion",
+        "loinc_la6686-5": "Duplication",
+        "loinc_la6687-3": "Insertion",
+        "loinc_la6688-1": "Insertion/Deletion",
+        "loinc_la6689-9": "Inversion",
+        "loinc_la6690-7": "Substitution",
+        }
     }
-}
+
 
