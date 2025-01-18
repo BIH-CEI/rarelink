@@ -27,6 +27,85 @@
       "label": "Homo sapiens"
     }
   },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002719",
+        "label": "Recurrent infections"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000979",
+        "label": "Purpura"
+      },
+      "excluded": true,
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-09-21T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0011127",
+        "label": "Perioral eczema"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0012059",
+        "label": "Lentigo maligna melanoma"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "EFG678",
@@ -44,7 +123,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "63deb1a41e4441f68ea3dd1f7dd7e1",
+                "id": "ccac547b9e594037912d8af2a590f6",
                 "geneContext": {
                   "valueId": "HGNC:12731",
                   "symbol": "WAS"
@@ -79,7 +158,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "86f50c9c101a46fcb515ea091d1670",
+                "id": "52f34a7b193f4bb198b2b874c9038c",
                 "expressions": [
                   {
                     "syntax": "hgvs",
@@ -128,7 +207,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T15:57:29.191094Z",
+    "created": "2025-01-18T17:06:42.108637Z",
     "createdBy": "Adam G.",
     "resources": [
       {

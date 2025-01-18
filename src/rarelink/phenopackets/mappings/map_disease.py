@@ -48,7 +48,6 @@ def map_diseases(
                 disease_data.get(processor.mapping_config["term_field_4"]) or
                 disease_data.get(processor.mapping_config["term_field_5"])
             )
-
             term_label = processor.fetch_label(term_id)
             term = OntologyClass(id=term_id, label=term_label)
 

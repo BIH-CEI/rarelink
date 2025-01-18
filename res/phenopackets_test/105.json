@@ -20,6 +20,87 @@
       "label": "Homo sapiens"
     }
   },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0001059",
+        "label": "Pterygium"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002967",
+        "label": "Cubitus valgus"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        }
+      ],
+      "onset": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      },
+      "resolution": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0004322",
+        "label": "Short stature"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2020-10-14T00:00:00Z"
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "CDE456",
@@ -37,7 +118,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "06f44777d3db4cd888afe87b9ba36e",
+                "id": "51a7099ad1aa463cb8c4ba86ccf355",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -111,7 +192,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T15:57:35.118950Z",
+    "created": "2025-01-18T17:06:53.307195Z",
     "createdBy": "Adam G.",
     "resources": [
       {

@@ -20,6 +20,86 @@
       "label": "Homo sapiens"
     }
   },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0000866",
+        "label": "Euthyroid multinodular goiter"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "timestamp": "2022-10-14T00:00:00Z"
+      },
+      "resolution": {
+        "timestamp": "2022-10-14T00:00:00Z"
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0000133",
+        "label": "Gonadal dysgenesis"
+      },
+      "severity": {
+        "id": "HP:0012828",
+        "label": "Severe"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        }
+      ],
+      "onset": {
+        "timestamp": "2020-10-14T00:00:00Z"
+      },
+      "resolution": {
+        "timestamp": "2021-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000823",
+        "label": "Delayed puberty"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002315",
+        "label": "Headache"
+      },
+      "severity": {}
+    }
+  ],
   "interpretations": [
     {
       "id": "DEF567",
@@ -37,7 +117,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "d19d6df5f8f84ae1a55aff49a6b6b4",
+                "id": "20fd37230deb4e6ca5d4ee6a1b78f4",
                 "geneContext": {
                   "valueId": "HGNC:4238",
                   "symbol": "GFI1B"
@@ -81,7 +161,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T15:57:14.757321Z",
+    "created": "2025-01-18T17:06:01.399279Z",
     "createdBy": "Adam G.",
     "resources": [
       {

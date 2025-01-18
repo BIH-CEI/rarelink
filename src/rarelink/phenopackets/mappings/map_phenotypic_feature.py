@@ -1,7 +1,7 @@
 import logging
-from phenopackets import PhenotypicFeature, OntologyClass # TimeElement
+from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence
 from rarelink.utils.processor import DataProcessor
-# from google.protobuf.timestamp_pb2 import Timestamp
+from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +20,6 @@ def map_phenotypic_features(
         list: A list of Phenopacket PhenotypicFeature blocks.
     """
     instrument_name = processor.mapping_config.get("redcap_repeat_instrument")
-    
     try:
         repeated_elements = data.get("repeated_elements", [])
         if not repeated_elements:
@@ -35,7 +34,8 @@ def map_phenotypic_features(
     
         phenotypic_features = []
         for phenotypic_feature_element in phenotypic_feature_elements:
-            phenotypic_feature_data = phenotypic_feature_element.get("phenotypic_feature")
+            phenotypic_feature_data = phenotypic_feature_element.get(
+                                                    "phenotypic_feature")
             if not phenotypic_feature_data:
                 logger.warning("No phenotypic feature data found in "
                                 "this element. Skipping.")
@@ -48,8 +48,143 @@ def map_phenotypic_features(
                 id=type_field, 
                 label=type_field_label)
             
+
+            excluded_value = phenotypic_feature_data.get(
+                processor.mapping_config["excluded_field"])
+            excluded = None
+            if excluded_value:
+                mapped_value = processor.fetch_mapping_value(
+                    "phenotypic_feature_status", excluded_value)
+                if mapped_value == "true":
+                    excluded = True
+                elif mapped_value == "false":
+                    excluded = False
+                else:
+                    excluded = None
+            
+            # PhenotypicFeature.onset ( -> prefer date over category)
+            onset_date= phenotypic_feature_data.get(
+                processor.mapping_config["onset_date_field"])
+            onset_age_field = phenotypic_feature_data.get(
+                processor.mapping_config["onset_age_field"])
+            onset = None 
+            
+            if onset_date:
+                try:
+                    timestamp = processor.process_date(onset_date)
+                    if isinstance(timestamp, Timestamp):
+                        onset = TimeElement(timestamp=timestamp)
+                    else:
+                        raise TypeError(
+                            "Processed date is not a Timestamp object.")
+                except Exception as e:
+                    logger.error(f"Error processing onset date: {e}")
+            
+            if not onset and onset_age_field:
+                try:
+                    onset_label = processor.fetch_label(
+                        onset_age_field, enum_class="AgeOfOnset")
+                    onset_age = processor.process_code(
+                        onset_age_field)
+                    if onset_label:
+                        onset = TimeElement(
+                            ontology_class=OntologyClass(
+                                id=onset_age,
+                                label=onset_label)
+                        )
+                except Exception as e:
+                    logger.error(f"Error processing onset age: {e}")
+                    
+            # Resolution field
+            resolution = None
+            resolution_field = phenotypic_feature_data.get(
+                processor.mapping_config["resolution_field"])
+            if resolution_field: 
+                try:
+                    resolution_timestamp = processor.process_date(
+                                                        resolution_field)
+                    if isinstance(resolution_timestamp, Timestamp):
+                        resolution = TimeElement(timestamp=resolution_timestamp)
+                    else:
+                        raise TypeError(
+                            "Processed date is not a Timestamp object.")
+                except Exception as e:
+                    logger.error(f"Error processing resolution date: {e}")
+
+            # Severity
+            severity = None
+            severity_field = phenotypic_feature_data.get(
+                processor.mapping_config["severity_field"])
+            severity_id = processor.process_code(severity_field)
+            severity_label = processor.fetch_label(severity_field, 
+                                                enum_class="PhenotypeSeverity")
+            severity = OntologyClass(
+                id=severity_id,
+                label=severity_label
+            )
+            # Evidence
+            evidence_id = phenotypic_feature_data.get(
+                processor.mapping_config["evidence_field"]
+            )
+            if evidence_id:  
+                evidence_label = processor.fetch_label(evidence_id)
+                evidence = Evidence(
+                    evidence_code=OntologyClass(
+                        id=evidence_id,
+                        label=evidence_label
+                    )
+                )
+                evidence_list = [evidence]
+            else:
+                evidence_list = None
+
+            # Modifiers
+            modifiers = []
+            # First Modifier: TemporalPattern
+            modifier_temp_pattern_field = processor.mapping_config.get(
+                "modifier_temp_pattern_field")
+            if modifier_temp_pattern_field:
+                temp_pattern_id = phenotypic_feature_data.get(
+                    modifier_temp_pattern_field)
+                if temp_pattern_id:
+                    temp_pattern_label = processor.fetch_label(
+                        temp_pattern_id, enum_class="TemporalPattern")
+                    modifiers.append(OntologyClass(
+                        id=processor.process_code(temp_pattern_id),
+                        label=temp_pattern_label
+                    ))
+                        
+            # Other Modifiers: Clinical Modifiers 1 -3, Causing Agent [NCBITaxon] 
+            # and BodySite [SNOMEDCT]
+            modifier_fields = [
+                processor.mapping_config.get("modifier_field_1"),
+                processor.mapping_config.get("modifier_field_2"),
+                processor.mapping_config.get("modifier_field_3"),
+                processor.mapping_config.get("modifier_field_4"),
+                processor.mapping_config.get("modifier_field_5")
+            ]
+
+            for field in modifier_fields:
+                modifier_id = phenotypic_feature_data.get(field)
+                if modifier_id:
+                    modifier_label = processor.fetch_label(modifier_id)
+                    modifiers.append(OntologyClass(
+                        id=modifier_id,
+                        label=modifier_label
+                    ))
+
+            # Ensure modifiers is None if empty (optional, depending on schema)
+            if not modifiers:
+                modifiers = None
+            
             phenotypic_feature = PhenotypicFeature(
-                type=type
+                type=type,
+                excluded=excluded,
+                onset=onset,
+                resolution=resolution,
+                severity=severity,
+                evidence=evidence_list,
+                modifiers=modifiers
             )
             
             phenotypic_features.append(phenotypic_feature)
@@ -57,27 +192,8 @@ def map_phenotypic_features(
         return phenotypic_features
                     
     except Exception as e:
-        logger.error(f"Failed to map diseases: {e}")
+        logger.error(f"Failed to map phenotypic feature: {e}")
         raise
-
-            
-            
-            
-#     "type_field": "snomed_8116006",
-#     "excluded_field": "snomed_363778006",
-#     "onset_field_2": "hp_0003674",
-#     "onset_field_1": "snomed_8116006_onset",
-#     "resolution_field": "snomed_8116006_resolution",
-#     "modifier_temp_pattern_field_": "hp_0011008",
-#     "severity_field": "hp_0012824",
-#     "modifier_field_1": "hp_0012823_hp1",
-#     "modifier_field_2": "hp_0012823_hp2",
-#     "modifier_field_3": "hp_0012823_hp3",
-#     "modifier_field_4": "hp_0012823_ncbitaxon",
-#     "modifier_field_5": "hp_0012823_snomed",
-#     "evidence_field": "phenotypicfeature_evidence"
-# }
-
 
             
     

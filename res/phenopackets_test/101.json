@@ -27,6 +27,99 @@
       "label": "Homo sapiens"
     }
   },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0001059",
+        "label": "Pterygium"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        },
+        {
+          "id": "SNOMEDCT:303726000",
+          "label": "Shoulder joint prosthesis"
+        }
+      ],
+      "onset": {
+        "timestamp": "2022-10-14T00:00:00Z"
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0006018",
+            "label": "inference based on individual clinical experience"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0002967",
+        "label": "Cubitus valgus"
+      },
+      "excluded": true,
+      "severity": {},
+      "onset": {
+        "timestamp": "2022-10-14T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "NCBITAXON:10376",
+          "label": "human gammaherpesvirus 4"
+        },
+        {
+          "id": "SNOMEDCT:31099001",
+          "label": "Systemic"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      },
+      "resolution": {
+        "timestamp": "2023-10-07T00:00:00Z"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0004322",
+        "label": "Short stature"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "timestamp": "2021-10-14T00:00:00Z"
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "CDE456",
@@ -44,7 +137,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "e3880e26c1fd4081a01dfb52848b7a",
+                "id": "ed3572180875425d9451a9b3e79091",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -123,7 +216,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T15:57:12.203587Z",
+    "created": "2025-01-18T17:05:52.798944Z",
     "createdBy": "Adam G.",
     "resources": [
       {

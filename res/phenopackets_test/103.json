@@ -27,6 +27,177 @@
       "label": "Homo sapiens"
     }
   },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002719",
+        "label": "Recurrent infections"
+      },
+      "excluded": true,
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030206",
+          "label": "EMG: incremental response of compound muscle action potential to repetitive nerve stimulation"
+        },
+        {
+          "id": "HP:0040272",
+          "label": "Hyperintensity of MRI T2 signal of the spinal cord"
+        },
+        {
+          "id": "HP:0012708",
+          "label": "Reduced brain N-acetyl aspartate level by MRS"
+        },
+        {
+          "id": "NCBITAXON:90964",
+          "label": "Staphylococcaceae"
+        },
+        {
+          "id": "SNOMEDCT:462887004",
+          "label": "Arm/elbow protector"
+        }
+      ],
+      "onset": {
+        "timestamp": "2022-10-14T00:00:00Z"
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0000979",
+        "label": "Purpura"
+      },
+      "excluded": true,
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "HP:0002423",
+          "label": "Long-tract sign"
+        },
+        {
+          "id": "HP:0031122",
+          "label": "Two-raphe bicuspid aortic valve"
+        },
+        {
+          "id": "NCBITAXON:2049174",
+          "label": "Staphylus tucumanus"
+        },
+        {
+          "id": "SNOMEDCT:410300003",
+          "label": "Legal system education, guidance, and counseling"
+        }
+      ],
+      "onset": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      },
+      "resolution": {
+        "timestamp": "2023-10-31T00:00:00Z"
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0001272",
+            "label": "high-performance liquid chromatography evidence used in manual assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0011127",
+        "label": "Perioral eczema"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030460",
+          "label": "Abnormal timing of pattern reversal visual evoked potentials"
+        },
+        {
+          "id": "HP:0008009",
+          "label": "Three rows of eyelashes"
+        },
+        {
+          "id": "NCBITAXON:99822",
+          "label": "Streptococcus dysgalactiae subsp. dysgalactiae"
+        },
+        {
+          "id": "SNOMEDCT:818983003",
+          "label": "Abdomen"
+        }
+      ],
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003596",
+          "label": "Middle age adult onset (40y-60y)"
+        }
+      },
+      "resolution": {
+        "timestamp": "2024-10-22T00:00:00Z"
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007224",
+            "label": "animal model system study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0012059",
+        "label": "Lentigo maligna melanoma"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011010",
+          "label": "Chronic"
+        }
+      ],
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003596",
+          "label": "Middle age adult onset (40y-60y)"
+        }
+      },
+      "resolution": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "EFG678",
@@ -44,7 +215,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "8dd2b4cb444e4a54b6bf4222e2320a",
+                "id": "6fe3a894268e4501958f004ed86c72",
                 "geneContext": {
                   "valueId": "HGNC:12731",
                   "symbol": "WAS"
@@ -79,7 +250,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "434fb3e2774c43129d5352e3e7ef06",
+                "id": "ae5b0c4941254c028ff36c8f78367b",
                 "expressions": [
                   {
                     "syntax": "hgvs",
@@ -126,7 +297,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "a2a60278d7f44b319721cbc215dcd5",
+                "id": "5a9ec05d94504022b93d2ce390a0c5",
                 "geneContext": {
                   "valueId": "HGNC:1100",
                   "symbol": "BRCA1"
@@ -186,7 +357,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T15:57:23.215252Z",
+    "created": "2025-01-18T17:06:32.113906Z",
     "createdBy": "Adam G.",
     "resources": [
       {
