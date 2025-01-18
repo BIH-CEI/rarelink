@@ -109,6 +109,22 @@
   "measurements": [
     {
       "assay": {
+        "id": "LOINC:LP97610-7",
+        "label": "Immunoglobulin light chains.free panel"
+      },
+      "value": {},
+      "timeObserved": {
+        "timestamp": "2023-10-14T00:00:00Z"
+      },
+      "procedure": {
+        "code": {
+          "id": "Thesaurus:C161406",
+          "label": "Single-Molecule Array"
+        }
+      }
+    },
+    {
+      "assay": {
         "id": "LOINC:LP32067-8",
         "label": "Hemoglobin"
       },
@@ -143,7 +159,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "f43fd4dc671c4251a965a9c8ff4d08",
+                "id": "87781e7a65f84d57bc9d465e6b2aa3",
                 "geneContext": {
                   "valueId": "HGNC:12731",
                   "symbol": "WAS"
@@ -178,7 +194,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "a5e7206d5b9c4f5b8535032af9eb34",
+                "id": "9c4af148a5684a978ff180e6d1fee8",
                 "expressions": [
                   {
                     "syntax": "hgvs",
@@ -227,7 +243,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T18:18:37.014097Z",
+    "created": "2025-01-18T18:35:26.384336Z",
     "createdBy": "Adam G.",
     "resources": [
       {

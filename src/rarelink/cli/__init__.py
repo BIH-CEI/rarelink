@@ -3,6 +3,7 @@ from rarelink.cli.framework import app as framework
 from rarelink.cli.setup import app as redcap_setup_app
 from rarelink.cli.redcap import app as redcap_tools_app
 from rarelink.cli.fhir import app as fhir_app
+from rarelink.cli.phenopackets import app as phenopackets_app
 from rarelink.cli.utils.string_utils import format_command
 
 # Main Typer application
@@ -26,6 +27,11 @@ app.add_typer(fhir_app,
               name="fhir", 
               help=f"Setup, manage, and execute the\
  REDCap-FHIR module: {format_command('rarelink fhir --help')}\
+ for more information.")
+app.add_typer(phenopackets_app,
+              name="phenopackets",
+              help=f"Setup, manage, and execute the\
+ Phenopackets module: {format_command('rarelink phenopackets --help')}\
  for more information.")
 
 def version_callback(value: bool):

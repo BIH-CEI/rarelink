@@ -125,6 +125,16 @@
           "label": "Blood Products Distribution Center"
         }
       }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA28046-3",
+        "label": "Nonreactive results for the presence of Zika antibodies and indeterminate for dengue antibodies."
+      },
+      "value": {},
+      "timeObserved": {
+        "timestamp": "2024-10-14T00:00:00Z"
+      }
     }
   ],
   "interpretations": [
@@ -144,7 +154,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "32f459e349e6498f9d8fb04579377a",
+                "id": "1e369491bb5c4f3086b5405752e75b",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -218,7 +228,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T18:18:49.793123Z",
+    "created": "2025-01-18T18:35:39.055926Z",
     "createdBy": "Adam G.",
     "resources": [
       {

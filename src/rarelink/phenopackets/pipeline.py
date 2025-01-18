@@ -34,7 +34,7 @@ def phenopacket_pipeline(input_data: list, output_dir: str, created_by: str):
         try:
             phenopacket = create_phenopacket(record, created_by)
             phenopackets.append(phenopacket)
-            print(f"... created Phenopacket for record id={record['record_id']}")
+            print(f" ... created Phenopacket for record id={record['record_id']}")
         except Exception as e:
             print(f"ERROR creating Phenopacket for record id={record['record_id']} - {e}")
 

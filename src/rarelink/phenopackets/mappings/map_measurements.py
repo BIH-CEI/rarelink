@@ -50,24 +50,23 @@ def map_measurements(
             assay = None
             assay_field = measurement_data.get(
                 processor.mapping_config.get("assay_field"))
+            
+            if not assay_field:
+                continue # Skip this instance but continue with others
+            
             assay_id = processor.process_code(assay_field)
             assay_label = processor.fetch_label(assay_id)
             assay = OntologyClass(
                 id=assay_id,
                 label=assay_label
             )
-            
-
+    
             # Measurement Value
             # ------------------------------------------------------------------
             value_field = measurement_data.get(
                 processor.mapping_config["value_field"])
             value_unit_field = measurement_data.get(
                 processor.mapping_config["value_unit_field"])
-            
-            if not value_field:
-                continue    # Skip this instance but continue with others
-
 
             value_unit_id = processor.process_code(value_unit_field)
 
