@@ -44,15 +44,15 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "47c4d25755cc4029aac3555bce4bae",
+                "id": "540734de192d41f9aa807baa1140ee",
                 "geneContext": {
-                  "valueId": "HGNC:1100",
-                  "symbol": "BRCA1"
+                  "valueId": "HGNC:12731",
+                  "symbol": "WAS"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
+                    "value": "NC_000023.11:g.48683512T>C"
                   }
                 ],
                 "vcfRecord": {
@@ -79,15 +79,11 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "47c4d25755cc4029aac3555bce4bae",
-                "geneContext": {
-                  "valueId": "HGNC:1100",
-                  "symbol": "BRCA1"
-                },
+                "id": "92dcc16004a8493d963a67b8983e91",
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
+                    "value": "NM_006883.2:c.-507G>C"
                   }
                 ],
                 "vcfRecord": {
@@ -96,13 +92,19 @@
                   "ref": "unknown",
                   "alt": "unknown"
                 },
+                "extensions": [
+                  {
+                    "name": "Unvalidated Genetic Mutation String",
+                    "value": "test test"
+                  }
+                ],
                 "structuralType": {
                   "id": "LOINC:LA6692-3",
                   "label": "Deletion"
                 },
                 "allelicState": {
-                  "id": "LOINC:LA6706-1",
-                  "label": "(simple) Heterozygous"
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
                 }
               }
             }
@@ -124,7 +126,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "47c4d25755cc4029aac3555bce4bae",
+                "id": "edbc057eb1ac4ee9ae855e575cc6e2",
                 "geneContext": {
                   "valueId": "HGNC:1100",
                   "symbol": "BRCA1"
@@ -184,7 +186,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-01-18T11:35:55.384738Z",
+    "created": "2025-01-18T12:35:28.767550Z",
     "createdBy": "Adam G.",
     "resources": [
       {

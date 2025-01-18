@@ -14,6 +14,7 @@ INTERPRETATION_BLOCK = {
 }
 VARIATION_DESCRIPTOR_BLOCK = {
     "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+    "redcap_repeat_instance": "redcap_repeat_instance",
     "expression_field_1": "loinc_81290_9",
     "expression_field_2": "loinc_48004_6",
     "expression_field_3": "loinc_48005_3",
