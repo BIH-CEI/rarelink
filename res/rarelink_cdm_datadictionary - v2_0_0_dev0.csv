@@ -457,7 +457,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:Gene
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.GeneDescriptor.value_id"
-loinc_53034_5,rarelink_6_1_genetic_findings,,dropdown,6.1.11 Zygosity,"loinc_la6705-3, Homozygous | loinc_la6706-1, (simple) Heterozygous | loinc_la26217-2, Compound heterozygous | loinc_la26220-6, Double heterozygous | loinc_la6707-9, Hemizygous | loinc_la6703-8, Heteroplasmic | loinc_la6704-6, Homoplasmic | other, Other",The zygosity of the genetic variant.,,,,,,,,,,,"Variable: 
+loinc_53034_5,rarelink_6_1_genetic_findings,,dropdown,6.1.11 Zygosity,"loinc_la6705-3, Homozygous | loinc_la6706-1, (simple) Heterozygous | loinc_la26217-2, Compound heterozygous | loinc_la26220-6, Double heterozygous | loinc_la6707-9, Hemizygous | loinc_la6703-8, Heteroplasmic | loinc_la6704-6, Homoplasmic | loinc_53034_5_other, Other",The zygosity of the genetic variant.,,,,,,,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
 Choices: 
 LOINC:LA6705-3 | Homozygous
@@ -472,7 +472,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
-loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,[loinc_53034_5] = 'other',,,,,,"Variable: 
+loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,[loinc_53034_5] = 'loinc_53034_5_other',,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
 Choices: 
 LOINC:LA6705-3 | Homozygous
@@ -487,7 +487,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
-loinc_48002_0,rarelink_6_1_genetic_findings,,dropdown,6.1.12 Genomic Source Class,s,"The classification of the genomic source, such as germline, somatic, or other origins.",,,,,,,,,,,"Variable: 
+loinc_48002_0,rarelink_6_1_genetic_findings,,dropdown,6.1.12 Genomic Source Class,"loinc_la6683-2, Germline | loinc_la6684-0, Somatic | loinc_la10429-1, Fetal | loinc_la18194-3, Likely germline | loinc_la18195-0, Likely somatic | loinc_la18196-8, Likely fetal | loinc_la18197-6, Unknown genomic origin | loinc_la26807-0, De novo","The classification of the genomic source, such as germline, somatic, or other origins.",,,,,,,,,,,"Variable: 
 LOINC:48002-0 | Genomic Source Class
 Choices: 
 LOINC:LA6683-2 | Germline
@@ -503,7 +503,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.component:GenomicSourceClass
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-loinc_48019_4,rarelink_6_1_genetic_findings,,dropdown,6.1.13 DNA Change Type,"loinc_la9658-1, Wild type | loinc_la6692-3, Deletion | loinc_la6686-5, Duplication | loinc_la6687-3, Insertion | loinc_la6688-1, Insertion/Deletion | loinc_la6689-9, Inversion | loinc_la6690-7, Substitution | other, Other","The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.",,,,,,,,,,,"Variable: 
+loinc_48019_4,rarelink_6_1_genetic_findings,,dropdown,6.1.13 DNA Change Type,"loinc_la9658-1, Wild type | loinc_la6692-3, Deletion | loinc_la6686-5, Duplication | loinc_la6687-3, Insertion | loinc_la6688-1, Insertion/Deletion | loinc_la6689-9, Inversion | loinc_la6690-7, Substitution | loinc_48019_4_other, Other","The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.",,,,,,,,,,,"Variable: 
 LOINC:48019-4 | DNA Change Type
 Choices: 
 LOINC:LA9658-1 | Wild type
@@ -518,7 +518,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Variant.type
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-loinc_48019_4_other,rarelink_6_1_genetic_findings,,text,6.1.13A DNA Change Type - Other [LOINC],BIOPORTAL:LOINC,Please search for a different DNA change typ in LOINC.,,,,,[loinc_48019_4] = 'other',,,,,,"Variable: 
+loinc_48019_4_other,rarelink_6_1_genetic_findings,,text,6.1.13A DNA Change Type - Other [LOINC],BIOPORTAL:LOINC,Please search for a different DNA change typ in LOINC.,,,,,[loinc_48019_4] = 'loinc_48019_4_other',,,,,,"Variable: 
 LOINC:48019-4 | DNA Change Type
 Choices: 
 LOINC:LA9658-1 | Wild type
