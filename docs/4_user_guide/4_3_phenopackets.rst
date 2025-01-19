@@ -88,19 +88,19 @@ _________
 To provide an overview, the RareLink-Phenopacket module consists of the following
 components:
 
-- ``mappings`` (`GitHub Folder <TODO>`_):
+- ``mappings`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/phenopackets/mappings>`_):
   Contains all the mappings from the REDCap data model to the 
   respective blocks in the Phenopacket schema without containing data-model 
   specific values or codes.
-- ``DataProcessor`` Class (`GitHub Folder <TODO>`_):
+- ``DataProcessor`` Class (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py>`_):
   Contains all functions to process any REDCap data to Phenopacket-compliant 
   data, including *field fetching*, *data drocessing*, *data validation*, 
   *Label & Mapping*, *repeated element*, and *generation* methods.
-- ``create`` (`GitHub Folder <TODO>`_):
+- ``create`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py>`_):
   Contains the main function to generate Phenopackets from the processed data.
-- ``write`` (`GitHub Folder <TODO>`_):
+- ``write`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/write.py>`_):
   Contains the function to write the generated Phenopackets to a JSON file.
-- ``phenopacket pipeline`` (`GitHub Folder <TODO>`_):
+- ``phenopacket pipeline`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py>`_):
   Contains the pipeline to generate Phenopackets from the processed data.
 
 
