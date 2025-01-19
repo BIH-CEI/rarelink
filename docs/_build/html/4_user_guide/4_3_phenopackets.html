@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate Phenopackets &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=25d36582"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Generate FHIR Resources" href="4_4_tofhir_module.html" />
+    <link rel="prev" title="Semi-Automatic Data Capture" href="4_2_import_mapper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generate Phenopackets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-started">Get started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-cdm-to-phenopackets">RareLink-CDM to Phenopackets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-phenopacket-module">RareLink-Phenopacket module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Generate Phenopackets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/4_user_guide/4_3_phenopackets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generate-phenopackets">
+<span id="id1"></span><h1>Generate Phenopackets<a class="headerlink" href="#generate-phenopackets" title="Link to this heading"></a></h1>
+<p>The RareLink-Phenopacket module allows users to generate (validated) <a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#id1"><span class="std std-ref">GA4GH Phenopackets</span></a>
+from data stored in a local REDCap project. For the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>  all mappings and
+configurations except the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#family-history"><span class="std std-ref">(6.4) Family History</span></a> section are predefined so that
+Phenopackets can be instantly exported via the <a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#id1"><span class="std std-ref">RareLink CLI</span></a>.</p>
+<p>The RareLink-Phenopacket module is designed to be modular and flexible so that
+it can be adapted to other REDCap data structures. Please see the section below.</p>
+<hr class="docutils" />
+<p><strong>Overview</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-started"><span class="std std-ref">Get started</span></a></p></li>
+<li><p><a class="reference internal" href="#rarelink-phenopacket-export"><span class="std std-ref">RareLink-CDM to Phenopackets</span></a></p></li>
+<li><p><a class="reference internal" href="#rarelink-phenopacket-module"><span class="std std-ref">RareLink-Phenopacket module</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#phenopackets-other-redcap-data-models"><span class="std std-ref">Usage for other REDCap data models</span></a></p></li>
+<li><p><a class="reference internal" href="#phenopacket-mappings"><span class="std std-ref">Mapping example to Phenopacket Blocks</span></a></p></li>
+<li><p><a class="reference internal" href="#label-dicts"><span class="std std-ref">Example for Label Dictionaries</span></a></p></li>
+<li><p><a class="reference internal" href="#mapping-dicts"><span class="std std-ref">General Example for Mapping Dictionaries</span></a></p></li>
+</ul>
+</li>
+</ul>
+<section id="get-started">
+<span id="id2"></span><h2>Get started<a class="headerlink" href="#get-started" title="Link to this heading"></a></h2>
+<p>To use the Phenopacket export, you need a running REDCap project with API access
+and the RareLink-CDM instruments set up. You also need the framework and all its
+components running. You can run the following commands to set everything up:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">framework</span> <span class="pre">update</span></code> to update the framework and all components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">redcap-project</span></code> to set up a REDCap project with your REDCap
+administrator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">keys</span></code> to set up the REDCap API access locally.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="rarelink-cdm-to-phenopackets">
+<span id="rarelink-phenopacket-export"></span><h2>RareLink-CDM to Phenopackets<a class="headerlink" href="#rarelink-cdm-to-phenopackets" title="Link to this heading"></a></h2>
+<p>Once you have data captured in you REDCap project using the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> REDCap
+instruments, you can export the data to Phenopackets. The data is exported to
+one Phenopacket JSON file per individual and can be used for further analysis.</p>
+<ul class="simple">
+<li><p>For this, simply run:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>phenopackets<span class="w"> </span><span class="nb">export</span>
+</pre></div>
+</div>
+<p>And you will be guided through the exporting process. The Phenopackets will be
+exported to the configured output directory (default is your Downloads folder).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you comply with your local data protection regulations and ethical
+agreements before exporting the data!</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="rarelink-phenopacket-module">
+<span id="id3"></span><h2>RareLink-Phenopacket module<a class="headerlink" href="#rarelink-phenopacket-module" title="Link to this heading"></a></h2>
+<p>The RareLink-Phenopacket module is developed in a modular way to allow for easy
+adaptation to other REDCap data structures. All data model specific
+configurations and mappings of the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> are within its <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm">GitHub folder</a>.
+Therefore, all functions and modules we developed can be used or adapted for
+other REDCap data models extending the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> once the data model is
+converted to a similar <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML schema</span></a>.</p>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>To provide an overview, the RareLink-Phenopacket module consists of the following
+components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mappings</span></code> (<a class="reference external" href="TODO">GitHub Folder</a>):
+Contains all the mappings from the REDCap data model to the
+respective blocks in the Phenopacket schema without containing data-model
+specific values or codes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> Class (<a class="reference external" href="TODO">GitHub Folder</a>):
+Contains all functions to process any REDCap data to Phenopacket-compliant
+data, including <em>field fetching</em>, <em>data drocessing</em>, <em>data validation</em>,
+<em>Label &amp; Mapping</em>, <em>repeated element</em>, and <em>generation</em> methods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code> (<a class="reference external" href="TODO">GitHub Folder</a>):
+Contains the main function to generate Phenopackets from the processed data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code> (<a class="reference external" href="TODO">GitHub Folder</a>):
+Contains the function to write the generated Phenopackets to a JSON file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phenopacket</span> <span class="pre">pipeline</span></code> (<a class="reference external" href="TODO">GitHub Folder</a>):
+Contains the pipeline to generate Phenopackets from the processed data.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="usage-for-other-redcap-data-models">
+<span id="phenopackets-other-redcap-data-models"></span><h3>Usage for other REDCap data models<a class="headerlink" href="#usage-for-other-redcap-data-models" title="Link to this heading"></a></h3>
+<p>If you want to adapt the RareLink-Phenopacket module to another REDCap data model,
+you can follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Develop your REDCap sheets and instruments according to the <a class="reference internal" href="4_5_develop_redcap_instruments.html#id1"><span class="std std-ref">Develop REDCap Instruments</span></a>
+section. Try to use the RareLink-CDM for as much as you can - this will
+make the mapping and export process easier.</p></li>
+<li><p>(OPTIONAL): Convert your REDCap data model to a <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML schema</span></a>.
+This can be done by following the instructions in the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> section.</p></li>
+<li><p>Convert your REDCap data model using the <code class="docutils literal notranslate"><span class="pre">redcap_to_linkml</span></code> function you
+in the RareLink Utils. This will convert your REDCap data to a
+JSON schema that handles repeating elements more inherently. This allows
+the <code class="docutils literal notranslate"><span class="pre">mappings</span></code> to handle repeating elements and Phenopacket Blocks.</p></li>
+<li><p>Write the specific mappings from your REDCap data model to the Phenopacket
+schema, using the templates for the mappings below (<a class="reference internal" href="#phenopacket-mappings"><span class="std std-ref">Mapping example to Phenopacket Blocks</span></a>).</p></li>
+<li><p>Develop label dictionaries for all value sets of your data model,
+mapping codes to human-readable labels (best to use the ontologie’s
+<cite>preferred label</cite>) . Use the templates for the label dictionaries below (
+<a class="reference internal" href="#label-dicts"><span class="std std-ref">Example for Label Dictionaries</span></a>). This will allow the <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> class to fetch
+the labels for the codes in your data model using the <code class="docutils literal notranslate"><span class="pre">fetch_label</span></code> method.</p>
+<ul class="simple">
+<li><p>For REDCap fields that are connected to BIOPORTAL directly, the label will
+be automatically fetched via the BIOPORTAL API.</p></li>
+</ul>
+</li>
+<li><p>Develop mapping dictionaries for your data model, mapping codes to
+standardized terms or enums. Use the templates for the mapping dictionaries
+below (<a class="reference internal" href="#mapping-dicts"><span class="std std-ref">General Example for Mapping Dictionaries</span></a>).</p></li>
+<li><p>Use the mappings in the <code class="docutils literal notranslate"><span class="pre">mappings</span></code> folder of the RareLink-Phenopacket
+module as a template to adapt the mappings to other Phenopacket blocks or
+extensions in your model.</p></li>
+<li><p>Adapt the <code class="docutils literal notranslate"><span class="pre">create</span></code> function to your needs, if necessary extending it with
+the relevant Phenopacket blocks and elements and importing your additional
+mapping dictionaries.</p></li>
+<li><p>Run the Phenopacket pipleine by running:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>phenopackets<span class="w"> </span><span class="nb">export</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="mapping-example-to-phenopacket-blocks">
+<span id="phenopacket-mappings"></span><h4>Mapping example to Phenopacket Blocks<a class="headerlink" href="#mapping-example-to-phenopacket-blocks" title="Link to this heading"></a></h4>
+<p>This section provides general examples of how to structure repeating and
+non-repeating data blocks. Customize the right-hand side values to fit specific
+user fields. The left-hand values are derived from the respective Phenopacket
+blocks <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/disease.html">Disease</a>
+and <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/individual.html">Individual</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">INDIVIDUAL_BLOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;id_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;individual_id&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;date_of_birth_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;date_of_birth&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;time_at_last_encounter_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;last_encounter&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;sex_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;sex&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;karyotypic_sex_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;karyotypic_sex&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;gender_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;gender&gt;&quot;</span>,
+<span class="o">}</span>
+
+<span class="nv">DISEASE_BLOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;redcap_repeat_instrument&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;instrument_name&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;term_field_1&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;disease_term_1&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;term_field_2&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;disease_term_2&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;term_field_3&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;disease_term_3&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;term_field_4&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;disease_term_4&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;term_field_5&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;disease_term_5&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;excluded_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;excluded_term&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;onset_date_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;onset_date&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;onset_category_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;onset_category&gt;&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;primary_site_field&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;primary_site&gt;&quot;</span>,
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><strong>Notes</strong>:</p>
+<ul class="simple">
+<li><p>Replace <cite>&lt;instrument_name&gt;</cite> and other placeholders with the specific field
+names or codes used in your REDCap project or dataset.</p></li>
+<li><p>For repeating blocks, ensure the <cite>redcap_repeat_instrument</cite> value matches the
+instrument name configured in REDCap.</p></li>
+<li><p>Customize as needed for other field mappings.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="example-for-label-dictionaries">
+<span id="label-dicts"></span><h4>Example for Label Dictionaries<a class="headerlink" href="#example-for-label-dictionaries" title="Link to this heading"></a></h4>
+<p>The label dictionaries map codes to human-readable labels defined in your
+value sets. Replace the placeholders with specific codes and labels relevant to
+your use case. Make sure to include the function below in your .py file
+<code class="docutils literal notranslate"><span class="pre">get_mapping_by_name</span></code> so that the <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> can access the mappings
+correctly. All codes that are not defined in here, will be fetched from
+the BIOPORTAL API by the <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">label_dicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;CategoryName1&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;&lt;code_1&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_1&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_2&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_2&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_3&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_3&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_4&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_4&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_5&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_5&gt;&quot;</span>,
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;CategoryName2&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;&lt;code_1&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_1&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_2&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_2&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_3&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_3&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;&lt;code_4&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;label_4&gt;&quot;</span>,
+<span class="w">    </span><span class="o">}</span>,
+<span class="o">}</span>
+
+def<span class="w"> </span>get_mapping_by_name<span class="o">(</span>name,<span class="w"> </span><span class="nv">to_boolean</span><span class="o">=</span>False<span class="o">)</span>:
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>mapping_dict<span class="w"> </span><span class="k">in</span><span class="w"> </span>mapping_dicts:
+<span class="w">        </span><span class="k">if</span><span class="w"> </span>mapping_dict<span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>name:
+<span class="w">            </span><span class="nv">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>mapping_dict<span class="o">[</span><span class="s2">&quot;mapping&quot;</span><span class="o">]</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span>to_boolean:
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="o">{</span>key:<span class="w"> </span>value.lower<span class="o">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>key,<span class="w"> </span>value<span class="w"> </span><span class="k">in</span><span class="w"> </span>mapping.items<span class="o">()}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span>mapping
+<span class="w">    </span>raise<span class="w"> </span>KeyError<span class="o">(</span>f<span class="s2">&quot;No mapping found for name: {name}&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="general-example-for-mapping-dictionaries">
+<span id="mapping-dicts"></span><h4>General Example for Mapping Dictionaries<a class="headerlink" href="#general-example-for-mapping-dictionaries" title="Link to this heading"></a></h4>
+<p>The mapping dictionaries map codes to standardized terms or enums defined, with
+mapped values corresponding to Phenopacket-specific elements. Replace the
+placeholders with relevant codes and Phenopacket terms.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">mapping_dicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;mapping_name_1&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;mapping&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_1&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_1&gt;&quot;</span>,<span class="w">  </span><span class="c1"># Example: &quot;FEMALE&quot;</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_2&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_2&gt;&quot;</span>,<span class="w">  </span><span class="c1"># Example: &quot;MALE&quot;</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_3&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_3&gt;&quot;</span>,<span class="w">  </span><span class="c1"># Example: &quot;UNKNOWN_SEX&quot;</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_4&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_4&gt;&quot;</span>,<span class="w">  </span><span class="c1"># Example: &quot;OTHER_SEX&quot;</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_5&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_5&gt;&quot;</span>,<span class="w">  </span><span class="c1"># Example: &quot;NOT_RECORDED&quot;</span>
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;mapping_name_2&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;mapping&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">&quot;&lt;code_1&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_1&gt;&quot;</span>,
+<span class="w">            </span><span class="s2">&quot;&lt;code_2&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_2&gt;&quot;</span>,
+<span class="w">            </span><span class="s2">&quot;&lt;code_3&gt;&quot;</span>:<span class="w"> </span><span class="s2">&quot;&lt;PHENOPACKET_TERM_3&gt;&quot;</span>,
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">    </span><span class="o">}</span>,
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Notes</strong>:</p>
+<ul class="simple">
+<li><p><strong>Mapping Name:</strong> Replace <cite>&lt;mapping_name_x&gt;</cite> with descriptive names for the
+mapping (e.g., <cite>“map_sex”</cite>, <cite>“map_disease”</cite>).</p></li>
+<li><p><strong>Codes:</strong> Replace <cite>&lt;code_x&gt;</cite> with actual codes (e.g., <cite>snomed_248152002</cite>).</p></li>
+<li><p><strong>Phenopacket Terms:</strong> Replace <cite>&lt;PHENOPACKET_TERM_X&gt;</cite> with specific
+Phenopacket-standardized terms (e.g., <cite>“FEMALE”</cite>, <cite>“UNKNOWN_SEX”</cite>).</p></li>
+<li><p>Add additional mappings as necessary to include all relevant
+Phenopacket-specific elements.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_2_import_mapper.html" class="btn btn-neutral float-left" title="Semi-Automatic Data Capture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_4_tofhir_module.html" class="btn btn-neutral float-right" title="Generate FHIR Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

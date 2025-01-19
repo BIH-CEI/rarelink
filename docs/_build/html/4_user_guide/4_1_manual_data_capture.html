@@ -6,11 +6,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guide for Manual Data Capture &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
+  <title>Manual Data Capture Guide &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a33df711" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -20,11 +20,12 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Semi-Automatic Data Capture" href="4_2_import_mapper.html" />
-    <link rel="prev" title="RareLink User Guide" href="4_0_guide_file.html" /> 
+    <link rel="prev" title="Set up the REDCap API" href="../3_installation/3_4_redcap_api.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,7 +50,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Background</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_0_background_file.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
@@ -59,29 +59,21 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_0_rarelink_file.html">RareLink Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html">RareLink-CDM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_core_redcap_project.html">Core REDCap Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_4_rarelink_cli.html">RareLink CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Installation &amp; Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_0_install_file.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_setup_rarelink_instruments.html">RareLink CDM Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="4_0_guide_file.html">RareLink User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide for Manual Data Capture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-information-please-read">General Information (please read!)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#types-of-fields">Types of Fields:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#types-of-instruments">Types of Instruments:</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Manual Data Capture Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-information-please-read">General Information (please read!)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#formal-criteria">(1) Formal Criteria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#personal-information">(2) Personal Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#patient-status">(3) Patient Status</a></li>
@@ -96,27 +88,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_3_phenopacket_mapper.html">Generate GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Generate Phenopackets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_project_interaction.html">REDCap Project Interaction</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Full Examples</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_0_examples_file.html">Full Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_1_example_redcap_project.html">Example - REDCap Project Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_2_example_redcap_instruments.html">Example - Manual Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_3_example_semiaut_import.html">Example - Semi-Automatic Data Import</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_4_example_phenopacket_mapper.html">Example - Generating Phenopackets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_examples/5_5_example_tofhir_module.html">Example - Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">RareLink Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
 </ul>
 
         </div>
@@ -133,8 +119,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="4_0_guide_file.html">RareLink User Guide</a></li>
-      <li class="breadcrumb-item active">Guide for Manual Data Capture</li>
+      <li class="breadcrumb-item active">Manual Data Capture Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/4_user_guide/4_1_manual_data_capture.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -144,14 +129,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="guide-for-manual-data-capture">
-<span id="id1"></span><h1>Guide for Manual Data Capture<a class="headerlink" href="#guide-for-manual-data-capture" title="Link to this heading"></a></h1>
+  <section id="manual-data-capture-guide">
+<span id="id1"></span><h1>Manual Data Capture Guide<a class="headerlink" href="#manual-data-capture-guide" title="Link to this heading"></a></h1>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>This section offers detailed guidance for manually entering data into
 RareLink CDM forms:</p>
 <ul class="simple">
-<li><p>For more information about the RareLink CDM, visit <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink-CDM</span></a>.</p></li>
+<li><p>For more information about the RareLink CDM, visit <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>.</p></li>
 <li><p>Instructions for installing the RareLink CDM instruments in REDCap are available at <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a>.</p></li>
 </ul>
 </div>
@@ -161,7 +146,7 @@ RareLink CDM forms:</p>
 process:</p>
 <ul class="simple">
 <li><p><strong>Purpose</strong>: The manual data capture guide is designed to facilitate the
-entry of patient data into the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"><span class="std std-ref">RareLink-CDM</span></a>. It provides detailed instructions
+entry of patient data into the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>. It provides detailed instructions
 for completing each section of the RareLink CDM forms.</p></li>
 <li><p><strong>Feedback</strong>: If you encounter any issues or have suggestions for improving
 the manual data capture process, please find more information in the <a class="reference internal" href="../7_faq.html#id1"><span class="std std-ref">FAQ &amp; Contributing</span></a>
@@ -180,7 +165,7 @@ broader or related terms. Alternatively, use the
 <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> to identify the
 correct code and display for the concept you are looking for.</p></li>
 <li><p><strong>Updates</strong>: This section will continue to evolve as RareLink documentation
-expands. Please  check the <a class="reference internal" href="../6_changelog.html#id1"><span class="std std-ref">RareLink Changelog</span></a> and <a class="reference internal" href="../7_faq.html#id1"><span class="std std-ref">FAQ &amp; Contributing</span></a> sections for updates and
+expands. Please  check the <a class="reference internal" href="../6_changelog.html#id1"><span class="std std-ref">Changelog</span></a> and <a class="reference internal" href="../7_faq.html#id1"><span class="std std-ref">FAQ &amp; Contributing</span></a> sections for updates and
 additional information.</p></li>
 </ul>
 <section id="types-of-fields">
@@ -398,6 +383,10 @@ validation status.</p></li>
 </li>
 <li><p><strong>6.1.2 Progress Status of Interpretation</strong>: recommended when creating GA4GH Phenopackets.</p></li>
 <li><p><strong>6.1.3 Interpretation Status</strong>: recommended when creating GA4GH Phenopackets.</p></li>
+<li><p>Phenopacket Value Sets:
+- Progress Status: ga4gh_unknown_progress, No information is available about the diagnosis | ga4gh_in_progress, No diagnosis has been found to date but additional differential diagnostic work is in progress. | ga4gh_completed, The work on the interpretation is complete. | ga4gh_solved, The interpretation is complete and also considered to be a definitive diagnosis | ga4gh_unsolved, The interpretation is complete but no definitive diagnosis was found
+- Interpretation Status: ga4gh_unknown_status, No information is available about the status | ga4gh_rejected, The variant or gene reported here is interpreted not to be related to the diagnosis | ga4gh_candidate, The variant or gene reported here is interpreted to possibly be related to the diagnosis | ga4gh_contributory, The variant or gene reported here is interpreted to be related to the diagnosis | ga4gh_causative, The variant or gene reported here is interpreted to be causative of the diagnosis
+- Therapeutic Actionability: ga4gh_unknown_actionability, There is not enough information at this time to support any therapeutic actionability for this variant | ga4gh_not_actionable, This variant has no therapeutic actionability. | ga4gh_actionable, This variant is known to be therapeutically actionable.</p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -561,7 +550,7 @@ Functioning, Disability, and Health).</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4_0_guide_file.html" class="btn btn-neutral float-left" title="RareLink User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../3_installation/3_4_redcap_api.html" class="btn btn-neutral float-left" title="Set up the REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="4_2_import_mapper.html" class="btn btn-neutral float-right" title="Semi-Automatic Data Capture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -583,7 +572,7 @@ Functioning, Disability, and Health).</p></li>
   </div>
   <script>
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.Navigation.enable(false);
       });
   </script> 
 

@@ -1,4 +1,6 @@
 """
+RareLink Main Package
+
 RareLink - A Rare Disease Interoperability Framework in REDCap
 linking registry use, FHIR, and Phenopackets.
 """

@@ -31,9 +31,7 @@
             }
           ],
           "status": "{{mpp:getConcept(%familyStatus, hl7fhir_fmh_status, 'target_code')}}",
-          "patient": {
-            "reference": "Patient/{id}"
-          },
+          "patient": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "relationship": {
             "coding": [
               {
@@ -60,19 +58,19 @@
           },
           "ageAge": {
             "value": {
-              "{{#valueVar}}": "{{? iif(loinc_54124_3.exists().not(), true)}}",
+              "{{#valueVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
               "{{?}}": "{{loinc_54141_7}}"
             },
             "system": {
-              "{{#systemVar}}": "{{? iif(loinc_54124_3.exists().not(), true)}}",
+              "{{#systemVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
               "{{?}}": "{{'http://unitsofmeasure.org'}}"
             },
             "code": {
-              "{{#codeVar}}": "{{? iif(loinc_54124_3.exists().not(), true)}}",
+              "{{#codeVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
               "{{?}}": "{{'a'}}"
             },
             "unit": {
-              "{{#unitVar}}": "{{? iif(loinc_54124_3.exists().not(), true)}}",
+              "{{#unitVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
               "{{?}}": "{{'years'}}"
             }
           },

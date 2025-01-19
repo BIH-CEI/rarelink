@@ -4,23 +4,28 @@
 }
 
 /* Adjust the logo size and alignment */
-.wy-side-nav-search {
+/* .wy-side-nav-search {
     background-image: url("../res/RareLink SpinxDocs Logo.png");
     background-repeat: no-repeat;
     background-position: center top;
     padding-top: 100px; /* Adjust as needed to ensure no overlap */
-}
+/* } */ */
 
 .logo {
-    max-width: auto; /* Set the maximum width (adjust as needed) */
-    height: auto;     /* Maintain the aspect ratio */
-    margin: auto;   /* Center the logo if necessary */
-    display: block;   /* Ensures proper centering and layout */
+    max-width: 50px; /* Set the maximum width (adjust as needed) */
+    height: 50px;     /* Maintain the aspect ratio */
+    margin: 50px;   /* Center the logo if necessary */
+    display: 50px;   /* Ensures proper centering and layout */
+}
+
+.wy-menu a[href*="background.html"] {
+    display: none;
 }
 
 /* Prevent unnecessary scrolling by restricting parent container height */
 .wy-side-nav-search {
-    padding-top: 0; /* Remove unnecessary padding */
+    padding-top: 0;
+    scroll-behavior: auto; /* Remove unnecessary padding */
 }
 
 .wy-nav-side {

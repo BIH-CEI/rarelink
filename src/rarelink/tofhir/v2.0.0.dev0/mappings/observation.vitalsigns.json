@@ -52,9 +52,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{ncit_c82577}}",
           "valueQuantity": {
             "value": "{{ncit_c25712.toDecimal()}}",

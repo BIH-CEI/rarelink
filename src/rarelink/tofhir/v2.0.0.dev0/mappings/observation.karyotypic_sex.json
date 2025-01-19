@@ -36,9 +36,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "valueCodeableConcept": {
             "coding": [
               {

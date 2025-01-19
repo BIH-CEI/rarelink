@@ -48,7 +48,8 @@ def export():
     except Exception as e:
         typer.secho(
             error_text(f"❌ Validation of .env file failed: {str(e)}. "
-                       f"Please run {format_command('rarelink setup api-keys')} to configure the required keys."),
+                       f"Please run {format_command('rarelink setup api-keys')} "
+                       "to configure the required keys."),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -59,7 +60,8 @@ def export():
     except Exception as e:
         typer.secho(
             error_text(f"❌ Validation of redcap-project.json failed: {str(e)}. "
-                       f"Please run {format_command('rarelink fhir setup')} to configure the required project."),
+                       f"Please run {format_command('rarelink fhir setup')} "
+                       "to configure the required project."),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -105,11 +107,13 @@ def export():
     typer.echo("🔄 Starting the ToFHIR pipeline...")
     try:
         subprocess.run(
-            ["docker-compose", "-f", DOCKER_COMPOSE_PATH, "--project-directory", "./", "-p", "tofhir-redcap", "down"],
+            ["docker-compose", "-f", DOCKER_COMPOSE_PATH, "--project-directory",
+             "./", "-p", "tofhir-redcap", "down"],
             check=True
         )
         subprocess.run(
-            ["docker-compose", "-f", DOCKER_COMPOSE_PATH, "--project-directory", "./", "-p", "tofhir-redcap", "up", "-d"],
+            ["docker-compose", "-f", DOCKER_COMPOSE_PATH, "--project-directory",
+             "./", "-p", "tofhir-redcap", "up", "-d"],
             check=True
         )
         success_text("✅ REDCap-ToFHIR pipeline is now running...")

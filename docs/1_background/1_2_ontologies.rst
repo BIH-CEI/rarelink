@@ -34,6 +34,7 @@ Ontologies used in RareLink
 The following codesystems are used in the RareLink Core Framework:
 
 .. fields: Ontologies Used in RareLink
+
 :`ICD-10 & ICD-11 <https://www.who.int/standards/classifications/classification-of-diseases>`_: 
     The **International Statistical Classification of Diseases** is used for 
     documenting morbidity in healthcare systems, encoding mortality statistics, 
@@ -92,9 +93,8 @@ The following codesystems are used in the RareLink Core Framework:
     The **Sequence Ontology** provides standardized vocabulary for genomic 
     annotation components, enhancing sharing and analysis of genomic information.
 
-
 .. note:: The versions used by the RareLink Core Framework can be found here: 
-    `RareLink Ontologies <
+    `RareLink Ontologies <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink_cdm/v2_0_0_dev0/datamodel/rarelink_code_systems.py>`_.
 
 Further Reading
 ---------------

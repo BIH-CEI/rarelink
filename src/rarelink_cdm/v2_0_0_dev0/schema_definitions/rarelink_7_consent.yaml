@@ -17,60 +17,61 @@ classes:
     description: >
       The section Consent (7) of the RareLink CDM.
     slots:
-      - consent_status
-      - consent_date
-      - health_policy_monitoring
-      - agreement_to_contact
-      - consent_to_reuse_data
-      - biological_sample
-      - biobank_link
+      - snomed_309370004
+      - hl7fhir_consent_datetime
+      - snomed_386318002
+      - rarelink_consent_contact
+      - rarelink_consent_data
+      - snomed_123038009
+      - rarelink_biobank_link
       - rarelink_7_consent_complete
 
 slots:
-  consent_status:
+  snomed_309370004:
     description: >
       The status of the consent provided.
     range: ConsentStatus
     required: true
 
-  consent_date:
+  hl7fhir_consent_datetime:
     description: >
       The date when the consent was provided.
     range: union_date_string
     required: false
 
-  health_policy_monitoring:
+  snomed_386318002:
     description: >
       Indicates consent for health policy monitoring.
     range: string
     required: true
 
-  agreement_to_contact:
+  rarelink_consent_contact:
     description: >
       Indicates agreement to be contacted for research purposes.
     range: YesNoUnknown
     required: true
 
-  consent_to_reuse_data:
+  rarelink_consent_data:
     description: >
       Indicates consent for the reuse of data for research.
     range: YesNoUnknown
     required: true
 
-  biological_sample:
+  snomed_123038009:
     description: >
       Indicates whether consent includes biological samples.
     range: YesNoUnknown
     required: false
 
-  biobank_link:
+  rarelink_biobank_link:
     description: >
       Link to a biobank where biological samples are stored.
     range: string
     required: false
 
   rarelink_7_consent_complete:
-    description: Completion status of this section
+    description: >
+      Completion status of this section.
     range: string
     required: true
 

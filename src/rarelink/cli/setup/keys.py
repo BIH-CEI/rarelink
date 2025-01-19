@@ -49,7 +49,8 @@ def app():
     between_section_separator()
 
     # Confirm readiness
-    ready = typer.confirm("Do you have all the required accounts and API access ready?")
+    ready = typer.confirm(
+        "Do you have all the required accounts and API access ready?")
     if not ready:
         typer.secho(
             "❌ Setup cannot proceed without the required accounts and API access.",
@@ -83,15 +84,20 @@ def app():
     typer.echo()
     between_section_separator()
 
-    # Step 3: REDCap Project ID
+    # Step 3: REDCap project ID and project name
     typer.echo(
         "The REDCap Project ID uniquely identifies your project within your "
-        "REDCap instance. You can find it displayed as `PID - <number>` next to "
-        "your project name. For example, if it says `PID - 1234`, enter `1234`."
+        "REDCap instance. You can find it displayed as `PID - <number>` next to"
+        " your project name. For example, if it says `PID - 1234`, enter `1234`."
     )
     redcap_project_id = typer.prompt(
         "Step 3: Enter your REDCap Project ID",
         default=env_values.get("REDCAP_PROJECT_ID", ""),
+        show_default=False,
+    )
+    redcap_project_name = typer.prompt(
+        "Step 4: Enter your REDCap Project Name",
+        default=env_values.get("REDCAP_PROJECT_NAME", ""),
         show_default=False,
     )
 
@@ -100,13 +106,25 @@ def app():
 
     # Step 4: REDCap API Token
     typer.echo(
-        "The API Token is required to securely interact with your REDCap project. "
-        "You can find it in your project's `API` settings."
+        "The API Token is required to securely interact with your REDCap "
+        "project. You can find it in your project's `API` settings."
     )
     redcap_api_token = masked_input(
-        "Step 4: Enter your REDCap API Token (input will be masked): ", mask="#"
+        "Step 5: Enter your REDCap API Token (input will be masked): ", mask="#"
     )
-
+    
+    typer.echo()
+    between_section_separator()
+    
+    # Step 5: Created By
+    typer.echo(
+        "The 'Created By' field is added to the metadata of the Phenopackets."
+    )
+    created_by = typer.prompt(
+        "Step 6: Enter your name or identifier for the 'Created By' field",
+        default=env_values.get("CREATED_BY", ""),
+        show_default=False,
+    )
     typer.echo()
     between_section_separator()
 
@@ -118,8 +136,11 @@ def app():
         write_env_file(ENV_PATH, "BIOPORTAL_API_TOKEN", bioportal_api_token)
         write_env_file(ENV_PATH, "REDCAP_URL", redcap_url)
         write_env_file(ENV_PATH, "REDCAP_PROJECT_ID", redcap_project_id)
+        write_env_file(ENV_PATH, "REDCAP_PROJECT_NAME", redcap_project_name)
         write_env_file(ENV_PATH, "REDCAP_API_TOKEN", redcap_api_token)
-        success_text(f"✅ API keys and configurations have been saved to {ENV_PATH}.")
+        write_env_file(ENV_PATH, "CREATED_BY", created_by)
+        success_text(
+            f"✅ API keys and configurations have been saved to {ENV_PATH}.")
     except Exception as e:
         typer.secho(
             error_text(f"❌ An error occurred while saving configurations: {e}"),
@@ -149,7 +170,8 @@ def app():
 
     # Optional: Save the JSON configuration to Downloads
     save_locally = typer.confirm(
-        "Would you like to save this configuration in your Downloads folder as well?"
+        "Would you like to save this configuration in your "
+        "Downloads folder as well?"
     )
     if save_locally:
         try:
@@ -166,7 +188,15 @@ def app():
     # Validate the .env file
     typer.echo("🔄 Validating the .env file...")
     try:
-        validate_env(["BIOPORTAL_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_ID", "REDCAP_API_TOKEN"])
+        validate_env(
+            [
+            "BIOPORTAL_API_TOKEN", 
+            "REDCAP_URL", 
+            "REDCAP_PROJECT_ID",
+            "REDCAP_API_TOKEN",
+            "CREATED_BY"
+            ]
+        )
         success_text("✅ Validation successful! Your configurations are complete.")
     except Exception as e:
         typer.secho(

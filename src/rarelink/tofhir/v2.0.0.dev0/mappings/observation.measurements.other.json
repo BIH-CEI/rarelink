@@ -41,14 +41,12 @@
             "coding": [
               {
                 "system": "{{'https://ncit.nci.nih.gov/'}}",
-                "version": "{{'24.04e''}}",
+                "version": "{{'24.04e'}}",
                 "code": "{{'ncit_c60819'}}"
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{ncit_c82577}}",
           "valueQuantity": {
             "system": "{{'http://www.ontobee.org/ontology/UO'}}",

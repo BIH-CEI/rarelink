@@ -1,7 +1,7 @@
 .. _4_1:
 
-Guide for Manual Data Capture
-===============================
+Manual Data Capture Guide
+==========================
 
 .. hint::
     This section offers detailed guidance for manually entering data into
@@ -245,6 +245,10 @@ This section provides details about genetic findings:
 - **6.1.2 Progress Status of Interpretation**: recommended when creating GA4GH Phenopackets.
 - **6.1.3 Interpretation Status**: recommended when creating GA4GH Phenopackets.
 
+- Phenopacket Value Sets:
+  - Progress Status: ga4gh_unknown_progress, No information is available about the diagnosis | ga4gh_in_progress, No diagnosis has been found to date but additional differential diagnostic work is in progress. | ga4gh_completed, The work on the interpretation is complete. | ga4gh_solved, The interpretation is complete and also considered to be a definitive diagnosis | ga4gh_unsolved, The interpretation is complete but no definitive diagnosis was found
+  - Interpretation Status: ga4gh_unknown_status, No information is available about the status | ga4gh_rejected, The variant or gene reported here is interpreted not to be related to the diagnosis | ga4gh_candidate, The variant or gene reported here is interpreted to possibly be related to the diagnosis | ga4gh_contributory, The variant or gene reported here is interpreted to be related to the diagnosis | ga4gh_causative, The variant or gene reported here is interpreted to be causative of the diagnosis
+  - Therapeutic Actionability: ga4gh_unknown_actionability, There is not enough information at this time to support any therapeutic actionability for this variant | ga4gh_not_actionable, This variant has no therapeutic actionability. | ga4gh_actionable, This variant is known to be therapeutically actionable.
 
 .. attention::
     The quality of the variant's validated HGVS expression is crucial for the 

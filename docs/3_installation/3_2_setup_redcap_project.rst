@@ -9,8 +9,8 @@ Set up a REDCap Project
 
 
 
-How to set up a REDCap project:
--------------------------------
+Steps
+------
 
 To create a REDCap project, please follow these steps:
 
@@ -31,7 +31,7 @@ To create a REDCap project, please follow these steps:
 
 _____________________________________________________________________________________
 
-Next Steps and further reading:
+Next Steps and further reading
 -------------------------------
 
 - Read the :ref:`1_6` section to learn more about the REDCap API access.
@@ -40,8 +40,8 @@ Next Steps and further reading:
 _____________________________________________________________________________________
 
 
-RareLink CLI Commands:
----------------------
+RareLink CLI Commands
+----------------------
 
 .. code-block:: bash
 

@@ -96,7 +96,7 @@
             }
           ],
           "subject": {
-            "reference": "Patient/{id}",
+            "reference": "Patient/{{mpp:getHashedId('Patient', record_id)}}",
             "identifier": {
               "value": "{{? record_id}}"
             }

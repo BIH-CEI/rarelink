@@ -49,9 +49,7 @@ Sections
 4) :doc:`4_user_guide/4_0_guide_file`
     User guides for all components of the RareLink framework.
 
-5) :doc:`5_examples/5_0_examples_file`
-    Full examples of how to use the RareLink framework in practice.
-
+5) :doc:`5_contributing`
 6) :doc:`6_changelog`
 7) :doc:`7_faq`
 8) :doc:`8_glossary`
@@ -62,6 +60,7 @@ Sections
 1) Background
 ---------------
 
+- :doc:`1_background/1_0_background_file`
 - :doc:`1_background/1_1_rd_interoperability`
 - :doc:`1_background/1_2_ontologies`
 - :doc:`1_background/1_3_ga4gh_phenopacket_schema`
@@ -73,7 +72,6 @@ Sections
 2) RareLink Framework
 ----------------------
 
-- :doc:`2_rarelink_framework/2_0_rarelink_file`
 - :doc:`2_rarelink_framework/2_1_rarelink_overview`
 - :doc:`2_rarelink_framework/2_2_rarelink_cdm`
 - :doc:`2_rarelink_framework/2_3_rarelink_cli`
@@ -81,7 +79,6 @@ Sections
 3) Installation
 -----------------
 
-- :doc:`3_installation/3_0_install_file`
 - :doc:`3_installation/3_1_setup_rarelink_framework`
 - :doc:`3_installation/3_2_setup_redcap_project`
 - :doc:`3_installation/3_3_data_dictionary`
@@ -89,25 +86,17 @@ Sections
 
 4) User Guide
 --------------
-- :doc:`4_user_guide/4_0_guide_file`
+
 - :doc:`4_user_guide/4_1_manual_data_capture`
 - :doc:`4_user_guide/4_2_import_mapper`
-- :doc:`4_user_guide/4_3_phenopacket_mapper`
+- :doc:`4_user_guide/4_3_phenopackets`
 - :doc:`4_user_guide/4_4_tofhir_module`
 - :doc:`4_user_guide/4_5_develop_redcap_instruments`
 - :doc:`4_user_guide/4_6_redcap_tools`
 
-5) Full Examples
------------------
-- :doc:`5_examples/5_0_examples_file`
-- :doc:`5_examples/5_1_example_redcap_project`
-- :doc:`5_examples/5_2_example_redcap_instruments`
-- :doc:`5_examples/5_3_example_semiaut_import`
-- :doc:`5_examples/5_4_example_phenopacket_mapper`
-- :doc:`5_examples/5_5_example_tofhir_module`
-
 Additional Information
 -----------------------
+- :doc:`5_contributing`
 - :doc:`6_changelog`
 - :doc:`7_faq`
 - :doc:`8_glossary`
@@ -118,10 +107,9 @@ Additional Information
 
 .. toctree::
    :caption: Background 
-   :maxdepth: 4
+   :maxdepth: 2
    :hidden:
 
-   1_background/1_0_background_file
    1_background/1_1_rd_interoperability
    1_background/1_2_ontologies
    1_background/1_3_ga4gh_phenopacket_schema
@@ -131,20 +119,18 @@ Additional Information
 
 .. toctree:: 
    :caption: RareLink Framework 
-   :maxdepth: 4
+   :maxdepth: 2
    :hidden:
 
-   2_rarelink_framework/2_0_rarelink_file
    2_rarelink_framework/2_1_rarelink_overview
    2_rarelink_framework/2_2_rarelink_cdm
    2_rarelink_framework/2_3_rarelink_cli
 
 .. toctree::
-   :caption: Installation & Development
-   :maxdepth: 4
+   :caption: Installation
+   :maxdepth: 2
    :hidden:
 
-   3_installation/3_0_install_file
    3_installation/3_1_setup_rarelink_framework
    3_installation/3_2_setup_redcap_project
    3_installation/3_3_data_dictionary
@@ -152,34 +138,22 @@ Additional Information
 
 .. toctree::
    :caption: User Guide
-   :maxdepth: 4
+   :maxdepth: 2
    :hidden:
 
-   4_user_guide/4_0_guide_file
    4_user_guide/4_1_manual_data_capture
    4_user_guide/4_2_import_mapper
-   4_user_guide/4_3_phenopacket_mapper
+   4_user_guide/4_3_phenopackets
    4_user_guide/4_4_tofhir_module
    4_user_guide/4_5_develop_redcap_instruments
    4_user_guide/4_6_redcap_tools
 
 .. toctree::
-   :caption: Full Examples
-   :maxdepth: 4
-   :hidden:
-
-   5_examples/5_0_examples_file
-   5_examples/5_1_example_redcap_project
-   5_examples/5_2_example_redcap_instruments
-   5_examples/5_3_example_semiaut_import
-   5_examples/5_4_example_phenopacket_mapper
-   5_examples/5_5_example_tofhir_module
-
-.. toctree::
    :caption: Additional Information
-   :maxdepth: 4
+   :maxdepth: 2
    :hidden:
 
+   5_contributing
    6_changelog
    7_faq
    8_glossary

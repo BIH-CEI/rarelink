@@ -36,9 +36,7 @@
               }
             ]
           },
-          "subject": {
-            "reference": "Patient/{id}"
-          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{patient_status_date}}",
           "component": [
             {
@@ -55,7 +53,7 @@
               "valueQuantity": {
                 "code": "{{'UO:0000034'}}",
                 "system": "{{'http://www.ontobee.org/ontology/UO'}}",
-                "value": "{{? snomed_412726003.utl:split('+').[0].toDecimal()}}",
+                "value": "{{? snomed_412726003.utl:split('+')[0].toDecimal()}}",
                 "unit": "{{'week'}}"
               }
             },
@@ -73,7 +71,7 @@
               "valueQuantity": {
                 "code": "{{'UO:0000033'}}",
                 "system": "{{'http://www.ontobee.org/ontology/UO'}}",
-                "value": "{{? snomed_412726003.utl:split('+').[1].toDecimal()}}",
+                "value": "{{? snomed_412726003.utl:split('+')[1].toDecimal()}}",
                 "unit": "{{'day'}}"
               }
             }

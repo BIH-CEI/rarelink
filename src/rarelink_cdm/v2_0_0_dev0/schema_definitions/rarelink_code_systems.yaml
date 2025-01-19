@@ -100,11 +100,6 @@ enums:
     code_set: https://www.genoontology.org/
     code_set_version: "2023-10-08"
 
-  ICD9:
-    description: International Classification of Diseases, Ninth Revision
-    code_set: https://www.cdc.gov/nchs/icd/icd9.htm
-    code_set_version: "2024-09-01"
-
   ISO3166:
     description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
     code_set: https://www.iso.org/iso-3166-country-codes.html
@@ -191,10 +186,6 @@ classes:
       geno:
         description: GENO - The Genotype Ontology
         range: GENO
-        required: true
-      icd9:
-        description: International Classification of Diseases, Ninth Revision
-        range: ICD9
         required: true
       iso3166:
         description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
