@@ -192,19 +192,6 @@ class DataProcessor:
         except KeyError:
             return None
 
-
-    def get_mapping(self, mapping_name: str):
-        """
-        Retrieves a mapping dictionary by its name.
-
-        Args:
-            mapping_name (str): The name of the mapping to retrieve.
-
-        Returns:
-            dict: The mapping dictionary.
-        """
-        return get_mapping_by_name(mapping_name)
-
     # --------------------------------------
     # Repeated Element Methods
     # --------------------------------------

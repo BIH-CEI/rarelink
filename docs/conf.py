@@ -1,6 +1,8 @@
 import doctest
 import os
 import sys
+from docutils import nodes
+from docutils.parsers.rst import roles
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -41,10 +43,17 @@ html_logo = '_static/res/RareLink SpinxDocs Logo.png'
 html_css_files = [
     'custom.css',
 ]
+html_js_files = ['custom.js']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+exclude_patterns = ['_build', 
+                    'Thumbs.db', 
+                    '.DS_Store',
+                    "3_0_install_file.rst",
+                    "4_0_guide_file.rst",
+                    "2_0_framework_file.rst",
+                    "1_0_background_file.rst",  
+]
 pygments_style = 'sphinx'
 
 # -- Autodoc setup ------------------------------------------------------------
@@ -84,9 +93,17 @@ intersphinx_mapping = {
 html_theme = 'sphinx_rtd_theme'  # experiment with this
 html_static_path = ['_static']
 
+html_theme_options = {
+    # Collapse all navigation entries by default
+    "collapse_navigation": True,
+    # Disable sticky navigation (sidebar won't follow as you scroll)
+    "sticky_navigation": False,
+    # Limit the depth of the sidebar tree
+    "navigation_depth": 2,
+    # Show only the titles (no sub-headings in the sidebar)
+    "titles_only": False,
+}
 
-from docutils import nodes
-from docutils.parsers.rst import roles
 
 def custom_literal_role(name, rawtext, text, lineno, inliner, options=None, content=None):
     """Custom role for styled literals."""

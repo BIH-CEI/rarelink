@@ -1,7 +1,7 @@
 .. _4_1:
 
-Guide for Manual Data Capture
-===============================
+Manual Data Capture Guide
+==========================
 
 .. hint::
     This section offers detailed guidance for manually entering data into

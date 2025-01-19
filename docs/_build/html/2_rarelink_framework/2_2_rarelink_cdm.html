@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RareLink-CDM &mdash; RareLink REDCap Documentation 2.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=25d36582"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RareLink CLI" href="2_3_rarelink_cli.html" />
+    <link rel="prev" title="RareLink Overview" href="2_1_rarelink_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RareLink-CDM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redcap-data-dictionary">REDCap Data Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linkml-schema">LinkML Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rules-for-redcap-codes-and-codesystems">Rules for REDCap codes and codesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redcap-field-annotations">REDCap Field Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-cdm-instruments">RareLink-CDM Instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopackets.html">Generate Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RareLink-CDM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/2_rarelink_framework/2_2_rarelink_cdm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rarelink-cdm">
+<span id="id1"></span><h1>RareLink-CDM<a class="headerlink" href="#rarelink-cdm" title="Link to this heading"></a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>RareLink v2.0.0.dev0 is under development (the REDCap sheets may be subject
+to change). Please <a class="reference internal" href="../12_contact.html#id1"><span class="std std-ref">Contact</span></a> us before using it to ensure you have the latest
+updates and guidance.</p>
+</div>
+<p>In this section, we provide an overview of the instruments that are part of the
+RareLink Common Data Model (CDM), which is based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>.
+We have implemented the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>’s definitions, codes, and mappins
+into the REDCap instruments by encoding the variables and value sets in the
+REDCap data dictionary. Each section of the model corresponds to a distinct
+instrument, ensuring consistency and comprehensive data capture.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p>Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> page to understand how REDCap instruments data dictionaries work.</p></li>
+<li><p>Read the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> page for more information on the Rare Disease Common Data Model.</p></li>
+</ul>
+</div>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#rarelink-cdm-datadictionary"><span class="std std-ref">REDCap Data Dictionary</span></a></p></li>
+<li><p><a class="reference internal" href="#rarelink-cdm-linkml"><span class="std std-ref">LinkML Schema</span></a></p></li>
+<li><p><a class="reference internal" href="#rule-set"><span class="std std-ref">Rules for REDCap codes and codesystems</span></a></p></li>
+<li><p><a class="reference internal" href="#field-anotations"><span class="std std-ref">REDCap Field Annotations</span></a></p></li>
+<li><p><a class="reference internal" href="#cdm-overview"><span class="std std-ref">RareLink-CDM Instruments</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="redcap-data-dictionary">
+<span id="rarelink-cdm-datadictionary"></span><h2>REDCap Data Dictionary<a class="headerlink" href="#redcap-data-dictionary" title="Link to this heading"></a></h2>
+<p>The RareLink CDM Data Dictionary is available for download as a CSV file:</p>
+<p><a class="reference download internal" download="" href="../_downloads/96039eb384ba3033a44ae98aeb2e26d6/rarelink_cdm_datadictionary%20-%20v2_0_0_dev0.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download:</span> <span class="pre">RareLink-CDM</span> <span class="pre">Data</span> <span class="pre">Dictionary</span> <span class="pre">(v2.0.0.dev0)</span></code></a></p>
+<section id="next-steps">
+<h3>… Next steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>… read <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a> for more information on how to manually import and set up
+the RareLink-CDM Data Dictionary into your local REDCap project.</p></li>
+<li><p>… or run the following commands to directly import the data dictionary into
+your REDCap project using the <a class="reference internal" href="2_3_rarelink_cli.html#id1"><span class="std std-ref">RareLink CLI</span></a>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>keys
+rarelink<span class="w"> </span>setup<span class="w"> </span>data-dictionary
+</pre></div>
+</div>
+<p>Return to <a class="reference external" href="#top">Top</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="linkml-schema">
+<span id="rarelink-cdm-linkml"></span><h2>LinkML Schema<a class="headerlink" href="#linkml-schema" title="Link to this heading"></a></h2>
+<p>The RareLink-CDM has been encoded in the LinkML schema format to allow for
+interoperability with other data models and standards. The LinkML schema
+is an open-data modeling language and provides a machine-readable representation
+of the RareLink-CDM, including the data elements, codes, and mappings to other
+standards. In other words, the RareLink REDCap instruments are displayed in a
+structured format that so that LinkML modules and functionalities can be used.</p>
+<ul class="simple">
+<li><p>Here you can view the <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev0">LinkML schema of the RareLink-CDM v2.0.0.dev0</a>.</p></li>
+</ul>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>We use RareLink-CDM-LinkML schema and functionalities in various RareLink
+modules, for example:</p>
+<ul class="simple">
+<li><p>When running <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">redcap</span> <span class="pre">export-records</span></code> you will see, that the data
+from the REDCap project is automatically processed to the LinkML presentation
+of the RareLink-CDM and validated against it. This ensures the data is ready
+to <a class="reference internal" href="../4_user_guide/4_3_phenopackets.html#id1"><span class="std std-ref">Generate Phenopackets</span></a>.</p></li>
+<li><p>Within the data model itself, we use its <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev0/datamodel">python classes and properties</a>
+automatically generated by LinkML schema to ensure consistent use of code
+systems, versions and codes within one RareLink-CDM version and its mappings.</p></li>
+<li><p>Since our RareLink-CDM is modeled and defined with LinkML, we can make use
+of the <a class="reference external" href="https://github.com/linkml/schema-automator">LinkML Schema Automator</a>
+for <a class="reference internal" href="../4_user_guide/4_2_import_mapper.html#id1"><span class="std std-ref">Semi-Automatic Data Capture</span></a> from existing (tabular) databases. This allows import it into
+a REDCap project and allow you to <a class="reference internal" href="../4_user_guide/4_3_phenopackets.html#id1"><span class="std std-ref">Generate Phenopackets</span></a> or <a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html#id1"><span class="std std-ref">Generate FHIR Resources</span></a>.</p></li>
+</ul>
+</section>
+<section id="linkml-furhther-links">
+<h3>LinkML - furhther links<a class="headerlink" href="#linkml-furhther-links" title="Link to this heading"></a></h3>
+<p>To know more about LinkML, check out:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://github.com/linkml/linkml">LinkML GitHub repository</a>  or</p></li>
+<li><p>the <a class="reference external" href="https://linkml.io/linkml/schemas/">LinkML Schema Documentation</a>.</p></li>
+</ul>
+<p>Feel free to <a class="reference internal" href="../12_contact.html#id1"><span class="std std-ref">Contact</span></a> us in case you would like to be connected to the LinkML
+community or our colleagues from the <a class="reference external" href="https://monarchinitiative.org/">Monarch Initiative</a>.</p>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="rules-for-redcap-codes-and-codesystems">
+<span id="rule-set"></span><h2>Rules for REDCap codes and codesystems<a class="headerlink" href="#rules-for-redcap-codes-and-codesystems" title="Link to this heading"></a></h2>
+<p>REDCap variables and choice codes have specific limitations and requirements:</p>
+<ul class="simple">
+<li><p>REDCap recommends a maximum of 26 characters for variable names. We have
+shortened the variable names to adhere to this limitation.</p></li>
+<li><p>REDCap variables must be unique and must not contain spaces or special
+characters, i.e. only alphanumeric characters and underscores.</p></li>
+<li><p>REDCap choice codes must be unique and must not contain spaces or special
+characters, i.e. only alphanumeric characters and underscores.</p></li>
+</ul>
+<p>To address these, we have defined a set of rules for the REDCap variables and
+choice codes in the RareLink CDM Data Dictionary. The rules are as follows:</p>
+<ol class="arabic simple">
+<li><p>The REDCap variable names are based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> codes and display names.</p></li>
+<li><p>The REDCap choices are based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> codes and display names.</p></li>
+<li><p>The REDCap variable names are shortened to adhere to the 26-character limit.</p></li>
+<li><p>The REDCap variable names are unique and do not contain spaces or special characters.</p></li>
+<li><p>The REDCap choice codes are unique and do not contain spaces or special characters.</p></li>
+<li><p>All codes begin with the official codesystem prefix (e.g. HP, SNOMED, etc.) as a lower case string followed by an underscore and the code.</p></li>
+<li><p>All codes are defined in the Field Annotations of each data element.</p></li>
+</ol>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="redcap-field-annotations">
+<span id="field-anotations"></span><h2>REDCap Field Annotations<a class="headerlink" href="#redcap-field-annotations" title="Link to this heading"></a></h2>
+<p>Witin the Field Annotation field of each REDCap element, we have defined each
+element’s metadata according to the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> standard, including the following:</p>
+<ul class="simple">
+<li><p><strong>Variable</strong>: Corresponding to the data element code, codesystem, and display name.</p></li>
+<li><p><strong>Choices</strong>: If applicable, the corresponding choices codesystem, and display name.</p></li>
+<li><p><strong>Version(s)</strong>: If applicable, the corresponding codesystem versions used in the REDCap data element</p></li>
+<li><p><strong>Mapping</strong>: If applicable, the corresponding mapping to the <a class="reference internal" href="../1_background/1_4_hl7_fhir.html#id1"><span class="std std-ref">HL7 FHIR</span></a> or <a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#id1"><span class="std std-ref">GA4GH Phenopackets</span></a> standard.</p></li>
+</ul>
+<p>Example Field Annotation of 6.2.6 Temporal Pattern:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Variable:
+HP:0012824<span class="w"> </span><span class="p">|</span><span class="w"> </span>Severity
+Choices:
+-<span class="w"> </span>HP:0012827<span class="w"> </span><span class="p">|</span><span class="w"> </span>Borderline
+-<span class="w"> </span>HP:0012825<span class="w"> </span><span class="p">|</span><span class="w"> </span>Mild
+-<span class="w"> </span>HP:0012826<span class="w"> </span><span class="p">|</span><span class="w"> </span>Moderate
+-<span class="w"> </span>HP:0012829<span class="w"> </span><span class="p">|</span><span class="w"> </span>Profound
+-<span class="w"> </span>HP:0012828<span class="w"> </span><span class="p">|</span><span class="w"> </span>Severe
+Version<span class="o">(</span>s<span class="o">)</span>:
+-<span class="w"> </span>HPO<span class="w"> </span>Version<span class="w"> </span><span class="m">2024</span>-08-13
+Mapping:
+-<span class="w"> </span>HL7<span class="w"> </span>FHIR<span class="w"> </span>Expression<span class="w"> </span>v4.0.1:<span class="w"> </span>Observation.interpretation
+-<span class="w"> </span>GA4GH<span class="w"> </span>Phenopacket<span class="w"> </span>Schema<span class="w"> </span>v2.0<span class="w"> </span>Element:<span class="w"> </span>PhenotypicFeature.severity
+</pre></div>
+</div>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="rarelink-cdm-instruments">
+<span id="cdm-overview"></span><h2>RareLink-CDM Instruments<a class="headerlink" href="#rarelink-cdm-instruments" title="Link to this heading"></a></h2>
+<p>The RareLink-CDM instruments translate the <a class="reference external" href="https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html">ontology-based Rare Disease Common Data Model (RD-CDM)</a>
+into REDCap instruments, ensuring usability for registry implementation while
+aligning with the <a class="reference external" href="https://build.fhir.org/ig/HL7/fhir-ips/">HL7 FHIR International Patient Summary (IPS)</a>
+and the <a class="reference external" href="https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a>.
+Each instrument corresponds to a specific section of the RD-CDM and has been
+adapted for REDCap’s technical requirements.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#formal-criteria"><span class="std std-ref">(1) Formal Criteria</span></a></p></li>
+<li><p><a class="reference internal" href="#personal-information"><span class="std std-ref">(2) Personal Information</span></a></p></li>
+<li><p><a class="reference internal" href="#patient-status"><span class="std std-ref">(3) Patient Status</span></a></p></li>
+<li><p><a class="reference internal" href="#care-pathway"><span class="std std-ref">(4) Care Pathway</span></a></p></li>
+<li><p><a class="reference internal" href="#disease"><span class="std std-ref">(5) Disease</span></a></p></li>
+<li><p><a class="reference internal" href="#genetic-findings"><span class="std std-ref">(6.1) Genetic Findings</span></a></p></li>
+<li><p><a class="reference internal" href="#phenotypic-features"><span class="std std-ref">(6.2) Phenotypic Features</span></a></p></li>
+<li><p><a class="reference internal" href="#measurements"><span class="std std-ref">(6.3) Measurements</span></a></p></li>
+<li><p><a class="reference internal" href="#family-history"><span class="std std-ref">(6.4) Family History</span></a></p></li>
+<li><p><a class="reference internal" href="#consent"><span class="std std-ref">(7) Consent</span></a></p></li>
+<li><p><a class="reference internal" href="#disability"><span class="std std-ref">(8) Disability</span></a></p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">Top</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>to be implemented.</p>
+</div>
+<section id="formal-criteria">
+<span id="id6"></span><h3>(1) Formal Criteria<a class="headerlink" href="#formal-criteria" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Captures eligibility and registration information for individuals.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="personal-information">
+<span id="id7"></span><h3>(2) Personal Information<a class="headerlink" href="#personal-information" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Records demographic and personal data.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="patient-status">
+<span id="id9"></span><h3>(3) Patient Status<a class="headerlink" href="#patient-status" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Tracks changes in patient conditions over time.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="care-pathway">
+<span id="id11"></span><h3>(4) Care Pathway<a class="headerlink" href="#care-pathway" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Logs encounter-specific data.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="disease">
+<span id="id13"></span><h3>(5) Disease<a class="headerlink" href="#disease" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Details disease history and ontology mappings.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="genetic-findings">
+<span id="id15"></span><h3>(6.1) Genetic Findings<a class="headerlink" href="#genetic-findings" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Captures genetic variant information.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="phenotypic-features">
+<span id="id17"></span><h3>(6.2) Phenotypic Features<a class="headerlink" href="#phenotypic-features" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Encodes phenotypes and their modifiers.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:</p>
+<ul class="simple">
+<li><p><strong>Simplified Field Names</strong>: Shortened and formatted for REDCap constraints:</p>
+<ul>
+<li><p><cite>snomed_439272007_704321009_363778006</cite> -&gt; <cite>snomed_8116006_date</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_excluded</cite> -&gt; <cite>ga4gh_pheno_excluded</cite></p></li>
+</ul>
+</li>
+<li><p><strong>Modifiers Grouping</strong>: Introduced consistent naming for modifiers:</p>
+<ul>
+<li><p>HPO Modifiers:</p>
+<ul>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_hp_1</cite> -&gt; <cite>ga4gh_pheno_mod_hp1</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_hp_2</cite> -&gt; <cite>ga4gh_pheno_mod_hp2</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_hp_3</cite> -&gt; <cite>ga4gh_pheno_mod_hp3</cite></p></li>
+</ul>
+</li>
+<li><p>NCBITaxon Modifiers:</p>
+<ul>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_ncbitaxon_1</cite> -&gt; <cite>ga4gh_pheno_mod_ncbitax1</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_ncbitaxon_2</cite> -&gt; <cite>ga4gh_pheno_mod_ncbitax2</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_ncbitaxon_3</cite> -&gt; <cite>ga4gh_pheno_mod_ncbitax3</cite></p></li>
+</ul>
+</li>
+<li><p>SNOMED Modifiers:</p>
+<ul>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_snomed_1</cite> -&gt; <cite>ga4gh_pheno_mod_snomed1</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_snomed_2</cite> -&gt; <cite>ga4gh_pheno_mod_snomed2</cite></p></li>
+<li><p><cite>ga4gh_phenotypicfeature_modifier_snomed_3</cite> -&gt; <cite>ga4gh_pheno_mod_snomed3</cite></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Adjustments from the RD-CDM</strong>:</p>
+<ul class="simple">
+<li><p>[Insert Adjustments from the RD-CDM Here]</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="measurements">
+<span id="id19"></span><h3>(6.3) Measurements<a class="headerlink" href="#measurements" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Records clinical and laboratory data.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="family-history">
+<span id="id21"></span><h3>(6.4) Family History<a class="headerlink" href="#family-history" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Details familial relationships and genetic predispositions.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="consent">
+<span id="id23"></span><h3>(7) Consent<a class="headerlink" href="#consent" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Documents patient consent details.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+<section id="disability">
+<span id="id25"></span><h3>(8) Disability<a class="headerlink" href="#disability" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Captures ICF-encoded functional and disability data.</p>
+<p><strong>Core Variables</strong>:
+- [Insert Core Variables Here]</p>
+<p><strong>Adjustments for REDCap</strong>:
+- [Insert Adjustments for REDCap Here]</p>
+<p><strong>Adjustments from the RD-CDM</strong>:
+- [Insert Adjustments from the RD-CDM Here]</p>
+<p>Return to <a class="reference external" href="#cdm-instruments-overview">Instruments Overview</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_1_rarelink_overview.html" class="btn btn-neutral float-left" title="RareLink Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_3_rarelink_cli.html" class="btn btn-neutral float-right" title="RareLink CLI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

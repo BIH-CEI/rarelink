@@ -8,4 +8,3 @@ app.command()(export)
 @app.callback(invoke_without_command=True)
 def phenopackets():
     """Manage the REDCap-toFHIR configurations and pipeline execution."""
-    typer.echo("Welcome to RareLink FHIR tools!")

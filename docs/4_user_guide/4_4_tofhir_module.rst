@@ -1,4 +1,4 @@
-.. _fhir_commands:
+.. _4_4:
 
 Generate FHIR Resources
 ========================
@@ -15,7 +15,23 @@ FHIR module and associated pipelines.
    - Be aware of your projects **development and production mode**. Read the
      :ref:`1_6` section and discuss this with your FHIR server administrator!
 
-How to get started:
+_____________________________________________________________________________________  
+
+**Overview**
+
+- :ref:`get__started`
+- :ref:`fhir_profiles`
+- :ref:`setup_command`
+- :ref:`hapi_server_command`
+- :ref:`export_command`
+- :ref:`restart_docker_command`
+- :ref:`docker_commands`
+
+_____________________________________________________________________________________
+
+.. _get__started:
+
+How to get started
 -------------------
 
 To use these functionalities, you need a running REDCap project with API access 
@@ -29,9 +45,10 @@ components running. You can run the following commands to set everything up:
 
 _____________________________________________________________________________________
 
+.. _fhir_profiles:
 
-FHIR Profiles
---------------
+RareLink-CDM FHIR Profiles
+--------------------------
 
 These FHIR resources generated are based on the HL7 FHIR `International Patient Summary (IPS) <https://www.hl7.org/fhir/ips.html>`_
 and `Genomoics Reporting <https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html>`_ 
@@ -42,6 +59,8 @@ profiles. For more information on FHIR, please read the background section
 
 .. hint::
    You can check out the :ref:`2_2` FHIR Profiles in **draft** `here <https://github.com/BIH-CEI/rarelink/tree/develop/src/fsh/input/fsh>`_ 
+
+   
 _____________________________________________________________________________________
 
 .. _setup_command:

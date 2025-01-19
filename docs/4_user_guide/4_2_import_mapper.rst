@@ -9,18 +9,44 @@ Semi-Automatic Data Capture
 
 
 While there are many existing data bases in rare disease centres and hospitals, 
-the data is often not in a structured format. RareLink provides a semi-automatic
-data capture configuration using the Schema Automator that allows users to 
-capture data from existing databases and convert it into a structured format - 
-in our case the RareLink-CDM LinkML schema.
+the data is often not in a structured format. As the RareLink-CDM is a modeled 
+with LinkML, there are tools to convert existing data into a LinkML schema.
+While we currently have not implemented a full conversion tool, we are happy 
+to assist you in converting your data into a LinkML schema.
 
-.. attention::
-    This section is still to be implemented in the docuemntation and the RareLink
-    command line interface.
+Although the semi-automation can speed up the process of capturing existing data
+bases, the semantic mapping will still have to be done by you.
+The semantic mapping and encoding of all data elements and value sets 
+to :ref:`1_2` and validating genetic mutations with HGVS is a crucial step
+in the process of converting data into the RareLink-CDM format for 
+Phenopackets of FHIR export. 
 
 
-Via the RareLink CLI type:
+RareLink-CDM LinkML
+-------------------
 
-.. code-block:: bash
+In this seciton :ref:`rarelink_cdm_linkml` we elaborate on the development of the
+RareLink-CDM LinkML schema, how it is designed and where it can be found. 
+This schema is the basis for REDCap data to be converted to and validated 
+against when running ``rarelink redcap export-records``. It was designed to be
+light-weight and as close as possible to the original REDCap data model so that
+other REDCap projects can also use the :ref:`rarelink-phenopacket-module`.
 
-    rarelink import -file <path_to_excel_file> -map <mapping_config>
+
+LinkML schema-automator
+------------------------
+The LinkML schema-automator is a toolkit that assists with generating and 
+enhancing schemas and data models from a variety of sources. The primary end 
+target is a LinkML schema, but the framework can be used to generate 
+JSON-Schema, SHACL, SQL DDL etc via the LinkML Generator framework. All 
+functionality is available via a cli. The functionality is also available 
+by using the relevant Python Packages.
+
+- `LinkML Schema-Automator documentation <https://linkml.io/schema-automator/introduction.html#generalization-from-instance-data>`_
+- `LinkML Schema-Automator GitHub repository <https://github.com/linkml/schema-automator>`_
+
+.. note:: 
+    Feel free to :ref:`12` us in case you would like to be connected to the LinkML 
+    community or our colleagues from the `Monarch Initiative <https://monarchinitiative.org/>`_.
+
+

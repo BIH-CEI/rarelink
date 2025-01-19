@@ -100,7 +100,6 @@ mapping_dicts = [
     }
 ]
 
-# Utility function to fetch a mapping by name
 def get_mapping_by_name(name, to_boolean=False):
     """
     Fetches a mapping by its name and optionally applies a boolean conversion.
@@ -119,7 +118,6 @@ def get_mapping_by_name(name, to_boolean=False):
         if mapping_dict["name"] == name:
             mapping = mapping_dict["mapping"]
             if to_boolean:
-                # Apply boolean conversion to the mapping values
                 return {key: value.lower() == "true" for key, value in mapping.items()}
             return mapping
     raise KeyError(f"No mapping found for name: {name}")
