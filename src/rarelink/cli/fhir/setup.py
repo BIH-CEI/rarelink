@@ -41,7 +41,7 @@ def setup():
     if not ENV_PATH.exists():
         typer.secho(
             error_text(
-                f"❌ .env file not found. Please run {format_command('rarelink setup api-keys')} first to generate the required API keys."
+                f"❌ .env file not found. Please run {format_command('rarelink setup keys')} first to generate the required API keys."
             ),
             fg=typer.colors.RED,
         )
@@ -55,7 +55,7 @@ def setup():
     except Exception as e:
         typer.secho(
             error_text(
-                f"❌ Validation failed: {str(e)}. Please fix the .env file or rerun {format_command('rarelink setup api-keys')}."
+                f"❌ Validation failed: {str(e)}. Please fix the .env file or rerun {format_command('rarelink setup keys')}."
             ),
             fg=typer.colors.RED,
         )
