@@ -8,6 +8,7 @@ from rarelink.cli.utils.string_utils import (
     success_text,
     error_text,
     format_header,
+    format_command,
     hint_text
 )
 
@@ -62,8 +63,7 @@ def hapi_server():
     ).stdout.strip()
 
     if existing_containers == container_name:
-        typer.secho("✅ A HAPI FHIR server container already exists.",
-                    fg=typer.colors.GREEN)
+        typer.secho("NOTE: A HAPI FHIR server container already exists.")
         # Check if the container is running
         running_containers = subprocess.run(
             ["docker", "ps", "--filter", f"name={container_name}",
@@ -72,15 +72,26 @@ def hapi_server():
             text=True,
         ).stdout.strip()
         if running_containers == container_name:
-            success_text("✅ HAPI FHIR server is already running at "
-                         "http://localhost:8080.")
+            success_text(f"✅ HAPI FHIR server is already running at \
+http://hapi-fhir:8080/fhir - use this URL for \
+{format_command('rarelink fhir setup')}.")
+            typer.echo("HINT: To fetch data, e.g. via postman, use the URL "
+"http://localhost:8080/fhir/.")
+            typer.secho(f"To stop the server, run \
+{format_command('docker stop hapi-fhir')}.")
+            
         else:
             typer.secho(
                 "🔄 Restarting the existing HAPI FHIR server container...",
                         fg=typer.colors.YELLOW)
             subprocess.run(["docker", "start", container_name], check=True)
-            success_text("✅ HAPI FHIR server is now running at "
-                         "http://localhost:8080.")
+            success_text(f"✅ HAPI FHIR server is already running at \
+http://hapi-fhir:8080/fhir - use this URL for \
+{format_command('rarelink fhir setup')}.")
+            typer.echo("HINT: To fetch data, e.g. via postman, use the URL "
+"http://localhost:8080/fhir/.")
+            typer.secho(f"To stop the server, run \
+{format_command('docker stop hapi-fhir')}.")
         return
 
     # Start a new HAPI FHIR server container
@@ -93,7 +104,13 @@ def hapi_server():
             ],
             check=True,
         )
-        success_text("✅ HAPI FHIR server is running at http://localhost:8080.")
+        success_text(f"✅ HAPI FHIR server is already running at \
+http://hapi-fhir:8080/fhir - use this URL when running \
+{format_command('rarelink fhir setup')}.")
+        typer.echo("HINT: To fetch data, e.g. via postman, use the URL "
+"http://localhost:8080/fhir/.")
+        typer.secho(f"To stop the server, run \
+ {format_command('docker stop hapi-fhir')}.")
         hint_text(
             "⚠️ Data is stored inside the Docker container. Ensure the container "
             "is not removed to preserve data."

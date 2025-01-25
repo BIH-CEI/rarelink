@@ -1,0 +1,106 @@
+# name: Create, Validate, and Test RareLink Pipelines
+
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+
+# jobs:
+#   setup-environment:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.x'
+
+#       - name: Install dependencies
+#         run: |
+#           pip install -r requirements.txt
+
+#   phenopacket-pipeline:
+#     needs: setup-environment
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Run Phenopacket Pipeline
+#         run: |
+#           python src/phenopacket_pipeline.py
+#         env:
+#           BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }} # UPDATE: Add BioPortal API token secret
+#           REDCAP_URL: ${{ secrets.REDCAP_URL }}                   # UPDATE: Add REDCap URL secret
+#           REDCAP_PROJECT_ID: ${{ secrets.REDCAP_PROJECT_ID }}     # UPDATE: Add REDCap Project ID secret
+#           REDCAP_API_TOKEN: ${{ secrets.REDCAP_API_TOKEN }}       # UPDATE: Add REDCap API token secret
+#           CREATED_BY: ${{ secrets.CREATED_BY }}                   # UPDATE: Add creator information secret
+#       - name: Update Phenopacket Badge
+#         run: |
+#           if python src/phenopacket_pipeline.py; then
+#             echo "![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)" > phenopacket_badge.md
+#           else
+#             echo "![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Failed-red)" > phenopacket_badge.md
+
+#   fhir-pipeline:
+#     needs: setup-environment
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Set up Docker
+#         uses: docker/setup-buildx-action@v1
+
+#       - name: Start HAPI FHIR Server
+#         run: |
+#           docker-compose -f src/rarelink/tofhir/v2.0.0.dev0/docker-compose.yml up -d # UPDATE: Provide correct path for `docker-compose.yml`
+#         env:
+#           FHIR_REPO_URL: ${{ secrets.FHIR_REPO_URL }}                                # UPDATE: Add FHIR Repository URL secret
+
+#       - name: Run FHIR Pipeline
+#         run: |
+#           python src/fhir_pipeline.py
+#         env:
+#           BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }} # UPDATE: Add BioPortal API token secret
+#           REDCAP_URL: ${{ secrets.REDCAP_URL }}                   # UPDATE: Add REDCap URL secret
+#           REDCAP_PROJECT_ID: ${{ secrets.REDCAP_PROJECT_ID }}     # UPDATE: Add REDCap Project ID secret
+#           REDCAP_API_TOKEN: ${{ secrets.REDCAP_API_TOKEN }}       # UPDATE: Add REDCap API token secret
+#       - name: Update FHIR Badge
+#         run: |
+#           if python src/fhir_pipeline.py; then
+#             echo "![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Running-darkgreen)" > fhir_badge.md
+#           else
+#             echo "![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Failed-red)" > fhir_badge.md
+
+#   cli-tests:
+#     needs: setup-environment
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Run CLI Tests
+#         run: |
+#           pytest tests/cli
+#       - name: Update CLI Badge
+#         run: |
+#           if pytest tests/cli; then
+#             echo "![RareLink CLI](https://img.shields.io/badge/CLI-Operational-darkblue)" > cli_badge.md
+#           else
+#             echo "![RareLink CLI](https://img.shields.io/badge/CLI-Failed-red)" > cli_badge.md
+
+#   update-readme:
+#     needs: [phenopacket-pipeline, fhir-pipeline, cli-tests]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Update README with Badges
+#         run: |
+#           sed -i '/<!-- PHENOPACKET BADGE -->/r phenopacket_badge.md' README.md
+#           sed -i '/<!-- FHIR BADGE -->/r fhir_badge.md' README.md
+#           sed -i '/<!-- CLI BADGE -->/r cli_badge.md' README.md
+#           rm phenopacket_badge.md
+#           rm fhir_badge.md
+#           rm cli_badge.md
+
+#       - name: Commit and Push README update
+#         run: |
+#           git config --global user.name 'GitHub Actions'
+#           git config --global user.email 'actions@github.com'
+#           git add README.md
+#           git commit -m "Update README with pipeline and CLI badges"
+#           git push

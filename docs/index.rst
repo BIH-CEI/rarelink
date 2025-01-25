@@ -5,7 +5,7 @@ Welcome to the RareLink REDCap Documentation!
     :target: https://rarelink.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. warning:: 
+.. attention:: 
    RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
    it to ensure you have the latest updates and guidance.
 
@@ -14,22 +14,26 @@ RareLink is a novel framework designed for managing and processing rare disease
 worldwide, yet data quality and scarcity pose significant challenges in research 
 and clinical care. RareLink aims to standardize and streamline RD data management 
 around REDCap by providing a structured project setup that ensures consistency 
-across data collection instruments, variables, and data dictionaries. This setup
-allows the linkage and export to data the standards HL7 FHIR and the 
-GA4GH Phenopacket Schema. In the following you will find detailed information on
-the RareLink framework, including its background, components, installation 
-instructions, user guide, and full examples. 
+across data collection instruments, variables, and data dictionaries. RareLink 
+has integrated the `ontology-based rare disease common data model (RD-CDM) <https://github.com/BIH-CEI/rd-cdm>`_ 
+into its core, allowing its linkage and preconifgured export to data the 
+standards HL7 FHIR and the GA4GH Phenopacket Schema. In the following you will 
+find detailed information on the RareLink framework, including its background, 
+components, installation instructions, user guide, and full examples. 
+
+________________________________________________________________________________
 
 .. image:: _static/res/rarelink_overview.png
    :alt: RareLink Overview
    :align: center
 
-.. tip::
-    GitHub Repository: https://github.com/BIH-CEI/RareLink
+________________________________________________________________________________
 
-.. attention::
-    The manuscript for the RareLink REDCap framework is currently being revised 
-    for submission.
+- **GitHub Repository:** https://github.com/BIH-CEI/RareLink
+- Note: The manuscript is currently being prepared for submission. A preprint
+  will be available soon.
+
+________________________________________________________________________________
 
 The documentation is structured as follows:
 
@@ -57,6 +61,8 @@ Sections
 10) :doc:`10_license`
 11) :doc:`11_download_manifest`
 
+________________________________________________________________________________
+
 1) Background
 ---------------
 
@@ -68,6 +74,7 @@ Sections
 - :doc:`1_background/1_5_rd_cdm`
 - :doc:`1_background/1_6_redcap`
 
+________________________________________________________________________________
 
 2) RareLink Framework
 ----------------------
@@ -75,6 +82,8 @@ Sections
 - :doc:`2_rarelink_framework/2_1_rarelink_overview`
 - :doc:`2_rarelink_framework/2_2_rarelink_cdm`
 - :doc:`2_rarelink_framework/2_3_rarelink_cli`
+
+________________________________________________________________________________
 
 3) Installation
 -----------------
@@ -94,6 +103,9 @@ Sections
 - :doc:`4_user_guide/4_5_develop_redcap_instruments`
 - :doc:`4_user_guide/4_6_redcap_tools`
 
+________________________________________________________________________________
+
+
 Additional Information
 -----------------------
 - :doc:`5_contributing`
@@ -104,6 +116,8 @@ Additional Information
 - :doc:`10_license`
 - :doc:`11_download_manifest`
 - :doc:`12_contact`
+
+________________________________________________________________________________
 
 .. toctree::
    :caption: Background 
