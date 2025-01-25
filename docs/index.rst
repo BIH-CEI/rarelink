@@ -30,6 +30,8 @@ ________________________________________________________________________________
 ________________________________________________________________________________
 
 - **GitHub Repository:** https://github.com/BIH-CEI/RareLink
+- Note: The manuscript is currently being prepared for submission. A preprint
+  will be available soon.
 
 ________________________________________________________________________________
 
