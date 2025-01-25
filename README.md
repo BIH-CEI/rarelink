@@ -13,7 +13,13 @@ software to ensure you have the latest updates and guidance.
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
 [![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 
-[Stable Documentation](https://rarelink.readthedocs.io/en/stable/)  
+
+<!-- Combined Badges for v2.0.0.dev0 -->
+![v2.0.0.dev0](https://img.shields.io/badge/v2.0.0.dev0:-grey) 
+![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)
+![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Running-darkgreen)
+![RareLink CLI](https://img.shields.io/badge/CLI-Operational-darkblue)
+
 [Latest Documentation](https://rarelink.readthedocs.io/en/latest/) 
 
 ## Table of Contents
