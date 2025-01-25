@@ -1,0 +1,43 @@
+name: Create and Validate Pipelines
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+  phenopacket-pipeline:
+    needs: setup-environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Phenopacket Pipeline
+        run: |
+          python src/phenopacket_pipeline.py
+        env:
+          BIOPORTAL_API_TOKEN: ${{ secrets.BIOPORTAL_API_TOKEN }}
+          REDCAP_URL: ${{ secrets.REDCAP_URL }}
+          REDCAP_PROJECT_ID: ${{ secrets.REDCAP_PROJECT_ID }}
+          REDCAP_API_TOKEN: ${{ secrets.REDCAP_API_TOKEN }}
+          CREATED_BY: ${{ secrets.CREATED_BY }}
+      - name: Update Phenopacket Badge
+        run: |
+          if python src/phenopacket_pipeline.py; then
+            echo "![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket-Pipeline%20Success-brightgreen)" > phenopacket_badge.md
+          else
+            echo "![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket-Pipeline%20Failed-red)" > phenopacket_badge.md
