@@ -55,8 +55,8 @@ def app(input_file: Path = typer.Option(
     )
     hint_text(
         f"NOTE: Data with the same record-ID will be overwritten in the REDCap "
-        f"project! Make sure you have a backup of the data before proceeding:"
-        f" run {format_command("`rarelink redcap download-records`")} "
+        f"project! Make sure you have a backup of the data before proceeding: "
+        f"run {format_command('`rarelink redcap download-records`')}"
     )
     typer.confirm("Do you want to proceed?", abort=True)
         
