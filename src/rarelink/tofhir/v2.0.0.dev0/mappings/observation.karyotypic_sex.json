@@ -40,10 +40,10 @@
           "valueCodeableConcept": {
             "coding": [
               {
-                "code": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomed_1296886006, 'target_code')}}",
+                "code": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_code')}}",
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "display": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomed_1296886006, 'target_display')}}"
+                "display": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_display')}}"
               }
             ]
           },
@@ -57,7 +57,7 @@
       "precondition": {
         "name": "karyotypicSexExists",
         "language": "text/fhirpath",
-        "expression": "snomed_1296886006.empty().not()"
+        "expression": "snomedct_1296886006.empty().not()"
       }
     }
   ],

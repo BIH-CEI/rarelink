@@ -37,8 +37,8 @@
               {
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "code": "{{mpp:getConcept(%familyRelationship, snomed_444018008, 'target_code')}}",
-                "display": "{{mpp:getConcept(%familyRelationship, snomed_444018008, 'target_display')}}"
+                "code": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_code')}}",
+                "display": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_display')}}"
               }
             ]
           },
@@ -74,7 +74,7 @@
               "{{?}}": "{{'years'}}"
             }
           },
-          "deceasedBoolean": "{{? mpp:getConcept(%familyDeceased, snomed_740604001, 'target_code').toBoolean()}}",
+          "deceasedBoolean": "{{? mpp:getConcept(%familyDeceased, snomedct_740604001, 'target_code').toBoolean()}}",
           "condition": [
             {
               "code": {
@@ -118,10 +118,10 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_64245008.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                    "version": "{{? iif(snomed_64245008.empty().not(), '2024-09-01')}}",
-                    "code": "{{? mpp:getConcept(%familyPropositus, snomed_64245008, 'target_code')}}",
-                    "display": "{{? mpp:getConcept(%familyPropositus, snomed_64245008, 'target_display')}}"
+                    "system": "{{? iif(snomedct_64245008.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(snomedct_64245008.empty().not(), '2024-09-01')}}",
+                    "code": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_display')}}"
                   }
                 ]
               }
@@ -137,10 +137,10 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_842009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                    "version": "{{? iif(snomed_842009.empty().not(), '2024-09-01')}}",
-                    "code": "{{? mpp:getConcept(%familyConsanguinity, snomed_842009, 'target_code')}}",
-                    "display": "{{? mpp:getConcept(%familyConsanguinity, snomed_842009, 'target_display')}}"
+                    "system": "{{? iif(snomedct_842009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(snomedct_842009.empty().not(), '2024-09-01')}}",
+                    "code": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_display')}}"
                   }
                 ]
               }

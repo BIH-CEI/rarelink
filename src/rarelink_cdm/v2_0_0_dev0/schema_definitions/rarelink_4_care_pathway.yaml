@@ -20,7 +20,7 @@ classes:
     slots:
       - hl7fhir_enc_period_start
       - hl7fhir_enc_period_end
-      - snomed_305058001
+      - snomedct_305058001
       - hl7fhir_encounter_class
       - rarelink_4_care_pathway_complete
 
@@ -39,7 +39,7 @@ slots:
     range: union_date_string
     required: false
 
-  snomed_305058001:
+  snomedct_305058001:
     description: >
       The status of an encounter of the individual at the time of data capture.
     range: EncounterStatus
@@ -110,6 +110,6 @@ enums:
       rarelink_rdc:
         description: RD Specialist Center
         meaning: rarelink:rdc
-      snomed_261665006:
+      snomedct_261665006:
         description: Unknown
         meaning: SNOMED:261665006

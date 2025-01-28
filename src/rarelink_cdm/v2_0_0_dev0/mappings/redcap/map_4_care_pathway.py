@@ -13,7 +13,7 @@ from rarelink.utils.mapping import map_entry
 FIELD_MAPPINGS = {
     "hl7fhir_enc_period_start": "hl7fhir_enc_period_start",
     "hl7fhir_enc_period_end": "hl7fhir_enc_period_end",
-    "snomed_305058001": "snomed_305058001",
+    "snomedct_305058001": "snomedct_305058001",
     "hl7fhir_encounter_class": "hl7fhir_encounter_class",
     "rarelink_4_care_pathway_complete": "rarelink_4_care_pathway_complete",
 }

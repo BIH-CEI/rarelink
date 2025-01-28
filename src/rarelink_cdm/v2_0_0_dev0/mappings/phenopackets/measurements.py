@@ -4,7 +4,7 @@ MEASUREMENT_BLOCK = {
     "value_field": "ncit_c25712",
     "value_unit_field": "ncit_c92571",
     "time_observed_field": "ncit_c82577",
-    "procedure_field_1": "snomed_122869004_ncit",
-    "procedure_field_2": "snomed_122869004_snomed",
-    "procedure_field_3": "snomed_122869004"
+    "procedure_field_1": "snomedct_122869004_ncit",
+    "procedure_field_2": "snomedct_122869004_snomed",
+    "procedure_field_3": "snomedct_122869004"
 }

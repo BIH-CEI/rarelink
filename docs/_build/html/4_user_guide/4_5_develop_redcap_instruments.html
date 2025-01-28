@@ -168,7 +168,7 @@ be processed by the RareLink framework.</p>
 data elemen’ts value set) <strong>must</strong> be encoded with <a class="reference internal" href="../1_background/1_2_ontologies.html#id1"><span class="std std-ref">Ontologies &amp; Terminologies</span></a> codes,
 their official prefixes and their respective  <em>preferred labels</em>.</p>
 <ul class="simple">
-<li><p>e.g.: <strong>snomed_32218000</strong> or <strong>hp_5200403</strong>.</p></li>
+<li><p>e.g.: <strong>snomedct_32218000</strong> or <strong>hp_5200403</strong>.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Checkboxes</span> <span class="pre">(Multiple</span> <span class="pre">Answers)fields</span></code> <strong>CANNOT</strong> be processed by the
@@ -232,12 +232,12 @@ Mapping:
 <ul class="simple">
 <li><p>The REDCap variable names should also be encoded with <a class="reference internal" href="../1_background/1_2_ontologies.html#id1"><span class="std std-ref">Ontologies &amp; Terminologies</span></a> codes and
 their respective <em>preferred labels</em> and using their official prefix
-(e.g. <em>hp_</em>, <em>snomed_</em>, etc.) so that the concept of an element itself is
+(e.g. <em>hp_</em>, <em>snomedct_</em>, etc.) so that the concept of an element itself is
 clear. Also, sometimes FHIR requires a <em>CodeableConcept</em> for a specific
 element.</p></li>
 <li><p>If you include the codes in the variable names, you can use suffixes to
 differentiate between the codes and the variable names. For example,
-<code class="docutils literal notranslate"><span class="pre">snomed_123456_onset</span></code>, or <code class="docutils literal notranslate"><span class="pre">snomed_123456_age</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">snomedct_123456_onset</span></code>, or <code class="docutils literal notranslate"><span class="pre">snomedct_123456_age</span></code>.</p></li>
 <li><p>For repeating sections, we recommend using the REDCap <strong>Repeating Instruments</strong>
 feature for separate instruments, which allows you to repeat a section of
 questions for a specific number of times. See <a class="reference internal" href="../3_installation/3_3_data_dictionary.html#id1"><span class="std std-ref">Set up the Data Dictionary</span></a> for more information

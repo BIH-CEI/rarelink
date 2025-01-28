@@ -118,8 +118,6 @@ you can follow these steps:
    section. Try to use the RareLink-CDM for as much as you can - this will
    make the mapping and export process easier.
 
-
-
 2. (OPTIONAL): Convert your REDCap data model to a :ref:`LinkML schema <rarelink_cdm_linkml>`. 
    This can be done by following the instructions in the :ref:`2_2` section.
 
@@ -285,7 +283,7 @@ placeholders with relevant codes and Phenopacket terms.
 
 - **Mapping Name:** Replace `<mapping_name_x>` with descriptive names for the 
   mapping (e.g., `"map_sex"`, `"map_disease"`).
-- **Codes:** Replace `<code_x>` with actual codes (e.g., `snomed_248152002`).
+- **Codes:** Replace `<code_x>` with actual codes (e.g., `snomedct_248152002`).
 - **Phenopacket Terms:** Replace `<PHENOPACKET_TERM_X>` with specific 
   Phenopacket-standardized terms (e.g., `"FEMALE"`, `"UNKNOWN_SEX"`).
 - Add additional mappings as necessary to include all relevant 

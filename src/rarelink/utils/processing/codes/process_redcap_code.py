@@ -1,7 +1,8 @@
 def process_redcap_code(code: str) -> str:
     """
     Processes a REDCap code by dynamically extracting the prefix and ensuring it 
-    has the correct format, applying specific transformations based on the prefix type.
+    has the correct format, applying specific transformations based on the
+    prefix type.
 
     Args:
         code (str): The code to process. Expected formats include:

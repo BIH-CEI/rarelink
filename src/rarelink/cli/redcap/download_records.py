@@ -54,19 +54,22 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     api_url = env_values["REDCAP_URL"]
     api_token = env_values["REDCAP_API_TOKEN"]
 
+    # Sanitize project name: replace spaces with underscores
+    sanitized_project_name = project_name.replace(" ", "_")
+
     # Display caution message for sensitive data
     hint_text(
-        f"⚠️ IMPORTANT: If your project '{project_name}' is in PRODUCTION mode, "
-        "ensure compliance with data storage policies."
+        f"⚠️ IMPORTANT: If your project '{sanitized_project_name}' is in "
+        "PRODUCTION mode, ensure compliance with data storage policies."
     )
     between_section_separator()
 
     # Ensure output directory exists
     ensure_directory_exists(output_dir)
 
-    # Define output file paths
-    records_file = output_dir / f"{project_name}-records.json"
-    processed_file = output_dir / f"{project_name}-linkml-records.json"
+    # Define output file paths with sanitized project name
+    records_file = output_dir / f"{sanitized_project_name}-records.json"
+    processed_file = output_dir / f"{sanitized_project_name}-linkml-records.json"
 
     # Check for existing files and prompt for overwrite confirmation
     if records_file.exists() or processed_file.exists():
@@ -86,12 +89,13 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     try:
         # Fetch REDCap data
         typer.echo(
-            f"🔄 Fetching records for project '{project_name}' from REDCap...")
+            f"🔄 Fetching records for project '{sanitized_project_name}' \
+from REDCap...")
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
-        typer.echo(f"✅ Records saved to {records_file}")
 
         # Process REDCap data using `redcap_to_linkml`
-        typer.echo(f"🔄 Processing records for project '{project_name}'...")
+        typer.echo(f"🔄 Processing records for project \
+'{sanitized_project_name}'...")
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
         

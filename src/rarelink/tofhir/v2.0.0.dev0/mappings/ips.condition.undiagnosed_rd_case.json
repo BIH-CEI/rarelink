@@ -28,9 +28,9 @@
           "code": {
             "coding": [
               {
-                "code": "{{? mpp:getConcept(%undiagnoseRDcase, snomed_723663001, 'target_code')}}",
+                "code": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_code')}}",
                 "system": "{{'http://www.orpha.net/'}}",
-                "display": "{{? mpp:getConcept(%undiagnoseRDcase, snomed_723663001, 'target_display')}}",
+                "display": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_display')}}",
                 "version": "{{'2024-09-12'}}"
               }
             ]
@@ -47,7 +47,7 @@
       "precondition": {
         "name": "noRDDiagnosisMade",
         "language": "text/fhirpath",
-        "expression": "snomed_723663001 = 'snomed_373066001'"
+        "expression": "snomedct_723663001 = 'snomedct_373066001'"
       }
     }
   ],

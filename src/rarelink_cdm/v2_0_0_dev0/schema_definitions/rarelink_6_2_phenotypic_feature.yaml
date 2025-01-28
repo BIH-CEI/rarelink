@@ -18,10 +18,10 @@ classes:
     description: >
       The section Phenotypic Feature (6.2) of the RareLink CDM.
     slots:
-      - snomed_8116006
-      - snomed_363778006
-      - snomed_8116006_onset
-      - snomed_8116006_resolution
+      - snomedct_8116006
+      - snomedct_363778006
+      - snomedct_8116006_onset
+      - snomedct_8116006_resolut
       - hp_0003674
       - hp_0011008
       - hp_0012824
@@ -34,26 +34,26 @@ classes:
       - rarelink_6_2_phenotypic_feature_complete
 
 slots:
-  snomed_8116006:
+  snomedct_8116006:
     description: >
       An observed physical and clinical characteristic encoded with HPO.
     range: string
     required: true
 
-  snomed_363778006:
+  snomedct_363778006:
     description: >
       The current status of the phenotypic feature, indicating whether it is confirmed or refuted.
     range: PhenotypicFeatureStatus
     required: false
 
-  snomed_8116006_onset:
+  snomedct_8116006_onset:
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
     range: untion_date_string
     required: false
 
-  snomed_8116006_resolution:
+  snomedct_8116006_resolut:
     description: >
       Time at which the feature resolved or abated.
     range: union_date_string
@@ -122,10 +122,10 @@ slots:
 enums:
   PhenotypicFeatureStatus:
     permissible_values:
-      snomed_410605003:
+      snomedct_410605003:
         description: Confirmed present
         meaning: SNOMED:410605003
-      snomed_723511001:
+      snomedct_723511001:
         description: Refuted
         meaning: SNOMED:723511001
       '':

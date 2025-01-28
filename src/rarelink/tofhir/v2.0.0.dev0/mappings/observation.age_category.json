@@ -41,10 +41,10 @@
           "valueCodeableConcept": {
             "coding": [
               {
-                "code": "{{? mpp:getConcept(%ageCategory, snomed_105727008, 'target_code')}}",
+                "code": "{{? mpp:getConcept(%ageCategory, snomedct_105727008, 'target_code')}}",
                 "system": "{{'https://www.snomed.org/snomed-ct'}}",
                 "version": "{{'2024-09-01'}}",
-                "display": "{{? mpp:getConcept(%ageCategory, snomed_105727008, 'target_display')}}"
+                "display": "{{? mpp:getConcept(%ageCategory, snomedct_105727008, 'target_display')}}"
               }
             ]
           },

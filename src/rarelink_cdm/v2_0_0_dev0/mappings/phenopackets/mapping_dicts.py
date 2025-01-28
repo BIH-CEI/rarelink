@@ -9,37 +9,37 @@ mapping_dicts = [
     {
         "name": "map_sex",
         "mapping": {
-            "snomed_248152002": "FEMALE",
-            "snomed_248153007": "MALE",
-            "snomed_184115007": "UNKNOWN_SEX",
-            "snomed_32570691000036108": "OTHER_SEX",
-            "snomed_1220561009": "UNKNOWN_SEX"
+            "snomedct_248152002": "FEMALE",
+            "snomedct_248153007": "MALE",
+            "snomedct_184115007": "UNKNOWN_SEX",
+            "snomedct_32570691000036108": "OTHER_SEX",
+            "snomedct_1220561009": "UNKNOWN_SEX"
         },
     },
     {
         "name": "map_karyotypic_sex",
         "mapping": {
-            "snomed_261665006": "UNKNOWN_KARYOTYPE",
-            "snomed_734875008": "XX",
-            "snomed_734876009": "XY",
-            "snomed_80427008": "XO",
-            "snomed_65162001": "XXY",
-            "snomed_35111009": "XXX",
-            "snomed_403760006": "XXYY",
-            "snomed_78317008": "XXXY",
-            "snomed_10567003": "XXXX",
-            "snomed_48930007": "XYY",
-            "snomed_74964007": "OTHER_KARYOTYPE"
+            "snomedct_261665006": "UNKNOWN_KARYOTYPE",
+            "snomedct_734875008": "XX",
+            "snomedct_734876009": "XY",
+            "snomedct_80427008": "XO",
+            "snomedct_65162001": "XXY",
+            "snomedct_35111009": "XXX",
+            "snomedct_403760006": "XXYY",
+            "snomedct_78317008": "XXXY",
+            "snomedct_10567003": "XXXX",
+            "snomedct_48930007": "XYY",
+            "snomedct_74964007": "OTHER_KARYOTYPE"
         },
     },
     {
         "name": "map_vital_status",
         "mapping": {
-            "snomed_438949009": "ALIVE",
-            "snomed_419099009": "DECEASED",
-            "snomed_399307001": "UNKNOWN_STATUS",
-            "snomed_185924006": "UNKNOWN_STATUS",
-            "snomed_261665006": "UNKNOWN_STATUS"
+            "snomedct_438949009": "ALIVE",
+            "snomedct_419099009": "DECEASED",
+            "snomedct_399307001": "UNKNOWN_STATUS",
+            "snomedct_185924006": "UNKNOWN_STATUS",
+            "snomedct_261665006": "UNKNOWN_STATUS"
         },
     },
     {
@@ -94,8 +94,8 @@ mapping_dicts = [
     {
         "name": "phenotypic_feature_status",
         "mapping": {
-            "snomed_410605003" : "false",
-            "snomed_723511001" : "true"
+            "snomedct_410605003" : "false",
+            "snomedct_723511001" : "true"
         }
     }
 ]

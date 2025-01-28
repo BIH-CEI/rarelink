@@ -14,28 +14,28 @@ from rarelink.utils.processing.codes import add_prefix_to_code
 # Define mappings from REDCap fields to schema fields.
 FIELD_MAPPINGS = {
     "disease_coding": "disease_coding",
-    "snomed_64572001_mondo": "snomed_64572001_mondo",
-    "snomed_64572001_ordo": "snomed_64572001_ordo",
-    "snomed_64572001_icd10cm": "snomed_64572001_icd10cm",
-    "snomed_64572001_icd11": "snomed_64572001_icd11",
-    "snomed_64572001_omim_p": "snomed_64572001_omim_p",
+    "snomedct_64572001_mondo": "snomedct_64572001_mondo",
+    "snomedct_64572001_ordo": "snomedct_64572001_ordo",
+    "snomedct_64572001_icd10cm": "snomedct_64572001_icd10cm",
+    "snomedct_64572001_icd11": "snomedct_64572001_icd11",
+    "snomedct_64572001_omim_p": "snomedct_64572001_omim_p",
     "loinc_99498_8": "loinc_99498_8",
-    "snomed_424850005": "snomed_424850005",
-    "snomed_298059007": "snomed_298059007",
-    "snomed_423493009": "snomed_423493009",
-    "snomed_432213005": "snomed_432213005",
-    "snomed_363698007": "snomed_363698007",
-    "snomed_263493007": "snomed_263493007",
-    "snomed_246112005": "snomed_246112005",
+    "snomedct_424850005": "snomedct_424850005",
+    "snomedct_298059007": "snomedct_298059007",
+    "snomedct_423493009": "snomedct_423493009",
+    "snomedct_432213005": "snomedct_432213005",
+    "snomedct_363698007": "snomedct_363698007",
+    "snomedct_263493007": "snomedct_263493007",
+    "snomedct_246112005": "snomedct_246112005",
     "rarelink_5_disease_complete": "rarelink_5_disease_complete",
 }
 
 # Define additional processing for certain fields.
 ADDITIONAL_PROCESSING = {
-    "snomed_64572001_icd10cm": lambda x: add_prefix_to_code(x, "ICD10CM"),
-    "snomed_64572001_icd11": lambda x: add_prefix_to_code(x, "ICD11"),
-    "snomed_64572001_omim_p": lambda x: add_prefix_to_code(x, "OMIM"),
-    "snomed_363698007": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "snomedct_64572001_icd10cm": lambda x: add_prefix_to_code(x, "ICD10CM"),
+    "snomedct_64572001_icd11": lambda x: add_prefix_to_code(x, "ICD11"),
+    "snomedct_64572001_omim_p": lambda x: add_prefix_to_code(x, "OMIM"),
+    "snomedct_363698007": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
 }
 
 def map_disease(entry):

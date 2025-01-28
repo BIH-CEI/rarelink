@@ -16,17 +16,17 @@ IS_REPEATING = True  # Mark as repeating schema
 
 FIELD_MAPPINGS = {
     "patient_status_date": "patient_status_date",
-    "snomed_278844005": "snomed_278844005",
-    "snomed_398299004": "snomed_398299004",
-    "snomed_184305005": "snomed_184305005",
-    "snomed_105727008": "snomed_105727008",
-    "snomed_412726003": "snomed_412726003",
-    "snomed_723663001": "snomed_723663001",
+    "snomedct_278844005": "snomedct_278844005",
+    "snomedct_398299004": "snomedct_398299004",
+    "snomedct_184305005": "snomedct_184305005",
+    "snomedct_105727008": "snomedct_105727008",
+    "snomedct_412726003": "snomedct_412726003",
+    "snomedct_723663001": "snomedct_723663001",
     "rarelink_3_patient_status_complete": "rarelink_3_patient_status_complete",
 }
 
 ADDITIONAL_PROCESSING = {
-    "snomed_184305005": lambda x: add_prefix_to_code(x, "ICD10CM"),
+    "snomedct_184305005": lambda x: add_prefix_to_code(x, "ICD10CM"),
 }
 
 def map_patient_status(entry):

@@ -11,12 +11,12 @@ from rarelink.utils.mapping import map_entry
 
 # Define mappings from REDCap fields to schema fields.
 FIELD_MAPPINGS = {
-    "snomed_309370004": "snomed_309370004",
+    "snomedct_309370004": "snomedct_309370004",
     "hl7fhir_consent_datetime": "hl7fhir_consent_datetime",
-    "snomed_386318002": "snomed_386318002",
+    "snomedct_386318002": "snomedct_386318002",
     "rarelink_consent_contact": "rarelink_consent_contact",
     "rarelink_consent_data": "rarelink_consent_data",
-    "snomed_123038009": "snomed_123038009",
+    "snomedct_123038009": "snomedct_123038009",
     "rarelink_biobank_link": "rarelink_biobank_link",
     "rarelink_7_consent_complete": "rarelink_7_consent_complete",
 }

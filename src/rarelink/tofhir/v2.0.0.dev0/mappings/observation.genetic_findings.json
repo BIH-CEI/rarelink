@@ -320,27 +320,27 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
+                    "code": "{{? snomedct_106221001_mondo.substring(6)}}",
+                    "system": "{{? iif(snomedct_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(snomedct_106221001_mondo.empty().not(), '2024-09-03')}}"
                   }
                 ],
-                "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
+                "text": "{{? iif(snomedct_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
               },
-              "url": "{{? iif(snomed_106221001_mondo.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
+              "url": "{{? iif(snomedct_106221001_mondo.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
             },
             {
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? snomed_106221001_omim_p}}",
-                    "system": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
-                    "version": "{{? iif(snomed_106221001_omim_p.empty().not(), '2024-09-12')}}"
+                    "code": "{{? snomedct_106221001_omim_p}}",
+                    "system": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                    "version": "{{? iif(snomedct_106221001_omim_p.empty().not(), '2024-09-12')}}"
                   }
                 ],
-                "text": "{{? iif(snomed_106221001_omim_p.empty().not(), 'Genomic Diagnosis - OMIM')}}"
+                "text": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'Genomic Diagnosis - OMIM')}}"
               },
-              "url": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
+              "url": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}"
             },
             {
               "valueCodeableConcept": {

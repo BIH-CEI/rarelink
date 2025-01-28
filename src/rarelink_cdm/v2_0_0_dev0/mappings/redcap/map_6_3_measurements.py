@@ -22,11 +22,11 @@ FIELD_MAPPINGS = {
     "ncit_c92571": "ncit_c92571",
     "ncit_c41255": "ncit_c41255",
     "ncit_c82577": "ncit_c82577",
-    "snomed_122869004_ncit": "snomed_122869004_ncit",
-    "snomed_122869004_snomed": "snomed_122869004_snomed",
-    "snomed_122869004": "snomed_122869004",
-    "snomed_122869004_bodysite": "snomed_122869004_bodysite",
-    "snomed_122869004_status": "snomed_122869004_status",
+    "snomedct_122869004_ncit": "snomedct_122869004_ncit",
+    "snomedct_122869004_snomed": "snomedct_122869004_snomed",
+    "snomedct_122869004": "snomedct_122869004",
+    "snomedct_122869004_bdsite": "snomedct_122869004_bdsite",
+    "snomedct_122869004_status": "snomedct_122869004_status",
     "rarelink_6_3_measurements_complete": "rarelink_6_3_measurements_complete",
 }
 
@@ -35,8 +35,8 @@ ADDITIONAL_PROCESSING = {
     "ncit_c60819": lambda x: add_prefix_to_code(x, "LOINC"),
     "ln_85353_1": lambda x: add_prefix_to_code(x, "LOINC"),
     "ncit_c25712": lambda x: float(x) if x else None,
-    "snomed_122869004_snomed": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
-    "snomed_122869004_bodysite": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "snomedct_122869004_snomed": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "snomedct_122869004_bdsite": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
 }
 
 def map_measurements(entry):

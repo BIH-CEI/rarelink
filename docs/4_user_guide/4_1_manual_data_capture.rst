@@ -223,8 +223,12 @@ This section provides details about genetic findings:
 - **6.1.1 Genomic Diagnosis**: To link a variant to a genetic diagnosis, 
   select the corresponding disease, if applicable, also to the **5.1 Disease**. 
   You can also link multiple variants to a single disease by repeating the form!
-- **HGVS Variant Expression**: Please select the appropriate HGVS nomenclature
-  for the variant. 
+- **6.1.2 Progress Status of interpretaion**: required when creating GA4GH 
+  Phenopackets - You cand find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus> `_ 
+- **6.1.3 Interpretation Status**: required when creating GA4GH Phenopackets -
+  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus> `_
+- **6.1.6 - .9 Variant Expression**: Please select the appropriate HGVS 
+  nomenclature for the variant. 
 
   > **If you are unsure, prioritize** ``c.HGVS``.
 
@@ -235,6 +239,7 @@ This section provides details about genetic findings:
       all information in the **6.1.6 Genetic Mutation String** field.
 
 - **HGVS Validation**: 
+
     1. Validate mutations using `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/>`_
        or `Varsome <https://varsome.com/>`_
     2. Confirm the expression with the `HGVS Validator <https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/>`_.
@@ -242,13 +247,9 @@ This section provides details about genetic findings:
     4. ``*``: **Are you sure the entered HGVS expression was validated using 
        the variant validator?** - this field is mandatory to ensure the
        validation status.
-- **6.1.2 Progress Status of Interpretation**: recommended when creating GA4GH Phenopackets.
-- **6.1.3 Interpretation Status**: recommended when creating GA4GH Phenopackets.
 
-- Phenopacket Value Sets:
-  - Progress Status: ga4gh_unknown_progress, No information is available about the diagnosis | ga4gh_in_progress, No diagnosis has been found to date but additional differential diagnostic work is in progress. | ga4gh_completed, The work on the interpretation is complete. | ga4gh_solved, The interpretation is complete and also considered to be a definitive diagnosis | ga4gh_unsolved, The interpretation is complete but no definitive diagnosis was found
-  - Interpretation Status: ga4gh_unknown_status, No information is available about the status | ga4gh_rejected, The variant or gene reported here is interpreted not to be related to the diagnosis | ga4gh_candidate, The variant or gene reported here is interpreted to possibly be related to the diagnosis | ga4gh_contributory, The variant or gene reported here is interpreted to be related to the diagnosis | ga4gh_causative, The variant or gene reported here is interpreted to be causative of the diagnosis
-  - Therapeutic Actionability: ga4gh_unknown_actionability, There is not enough information at this time to support any therapeutic actionability for this variant | ga4gh_not_actionable, This variant has no therapeutic actionability. | ga4gh_actionable, This variant is known to be therapeutically actionable.
+- **6.1.15 Therapeutic Actionability**: recommended when creating GA4GH 
+  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability> `_
 
 .. attention::
     The quality of the variant's validated HGVS expression is crucial for the 

@@ -47,7 +47,7 @@
                   }
                 ]
               },
-              "value": "{{snomed_422549004}}"
+              "value": "{{snomedct_422549004}}"
             }
           ],
           "name": [
@@ -59,17 +59,17 @@
             "status": "{{'extensions'}}",
             "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
           },
-          "gender": "{{? %rarelinkpersonalinformation.mpp:getConcept(%gender, snomed_263495000, 'target_code')}}",
-          "birthDate": "{{%rarelinkpersonalinformation.snomed_184099003}}",
+          "gender": "{{? %rarelinkpersonalinformation.mpp:getConcept(%gender, snomedct_263495000, 'target_code')}}",
+          "birthDate": "{{%rarelinkpersonalinformation.snomedct_184099003}}",
           "extension": [
             {
               "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-patient-birthPlace.html",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(%rarelinkpersonalinformation.snomed_370159000.empty().not(), 'https://www.iso.org/iso-3166-country-codes.html')}}",
-                    "version": "{{? iif(%rarelinkpersonalinformation.snomed_370159000.empty().not(), 'ISO 3166-1:2020(en)')}}",
-                    "code": "{{? %rarelinkpersonalinformation.snomed_370159000}}"
+                    "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://www.iso.org/iso-3166-country-codes.html')}}",
+                    "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'ISO 3166-1:2020(en)')}}",
+                    "code": "{{? %rarelinkpersonalinformation.snomedct_370159000}}"
                   }
                 ]
               }
@@ -86,20 +86,20 @@
                   }
                 ]
               },
-              "valueDateTime": "{{snomed_399423000}}"
+              "valueDateTime": "{{snomedct_399423000}}"
             },
             {
-              "url": "{{? iif(%rarelinkpersonalinformation.snomed_281053000.empty().not(), 'https://build.fhir.org/ig/HL7/fhir-extensions//StructureDefinition-individual-recordedSexOrGender.html')}}",
+              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://build.fhir.org/ig/HL7/fhir-extensions//StructureDefinition-individual-recordedSexOrGender.html')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(%rarelinkpersonalinformation.snomed_281053000.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                    "version": "{{? iif(%rarelinkpersonalinformation.snomed_281053000.empty().not(), '2024-09-01')}}",
-                    "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomed_281053000, 'target_code')}}",
-                    "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomed_281053000, 'target_display')}}"
+                    "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '2024-09-01')}}",
+                    "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
+                    "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"
                   }
                 ],
-                "text": "{{? iif(%rarelinkpersonalinformation.snomed_281053000.empty().not(), 'Sex at Birth: The individuals sex that was assigned at birth')}}"
+                "text": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'Sex at Birth: The individuals sex that was assigned at birth')}}"
               }
             }
           ]

@@ -17,17 +17,17 @@ classes:
     description: >
       The section Consent (7) of the RareLink CDM.
     slots:
-      - snomed_309370004
+      - snomedct_309370004
       - hl7fhir_consent_datetime
-      - snomed_386318002
+      - snomedct_386318002
       - rarelink_consent_contact
       - rarelink_consent_data
-      - snomed_123038009
+      - snomedct_123038009
       - rarelink_biobank_link
       - rarelink_7_consent_complete
 
 slots:
-  snomed_309370004:
+  snomedct_309370004:
     description: >
       The status of the consent provided.
     range: ConsentStatus
@@ -39,7 +39,7 @@ slots:
     range: union_date_string
     required: false
 
-  snomed_386318002:
+  snomedct_386318002:
     description: >
       Indicates consent for health policy monitoring.
     range: string
@@ -57,7 +57,7 @@ slots:
     range: YesNoUnknown
     required: true
 
-  snomed_123038009:
+  snomedct_123038009:
     description: >
       Indicates whether consent includes biological samples.
     range: YesNoUnknown
@@ -103,13 +103,13 @@ enums:
     description: >
       Indicates yes, no, or unknown status.
     permissible_values:
-      snomed_373066001:
+      snomedct_373066001:
         description: Yes
         meaning: snomed:373066001
-      snomed_373067005:
+      snomedct_373067005:
         description: No
         meaning: snomed:373067005
-      snomed_261665006:
+      snomedct_261665006:
         description: Unknown
         meaning: snomed:261665006
       '':

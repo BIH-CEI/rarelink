@@ -47,7 +47,7 @@
 	</FormDef>
 	<FormDef OID="Form.rarelink_2_personal_information" Name="Rarelink 2 Personal Information" Repeating="No" redcap:FormName="rarelink_2_personal_information">
 		<ItemGroupRef ItemGroupOID="rarelink_2_personal_information.personal_information_descr" Mandatory="No"/>
-		<ItemGroupRef ItemGroupOID="rarelink_2_personal_information.snomed_184099003" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="rarelink_2_personal_information.snomedct_184099003" Mandatory="No"/>
 		<ItemGroupRef ItemGroupOID="rarelink_2_personal_information.rarelink_2_personal_information_complete" Mandatory="No"/>
 	</FormDef>
 	<FormDef OID="Form.rarelink_3_patient_status" Name="Rarelink 3 Patient Status" Repeating="No" redcap:FormName="rarelink_3_patient_status">
@@ -72,7 +72,7 @@
 	</FormDef>
 	<FormDef OID="Form.rarelink_6_2_phenotypic_feature" Name="Rarelink 6 2 Phenotypic Feature" Repeating="No" redcap:FormName="rarelink_6_2_phenotypic_feature">
 		<ItemGroupRef ItemGroupOID="rarelink_6_2_phenotypic_feature.phenotypic_feature_descr" Mandatory="No"/>
-		<ItemGroupRef ItemGroupOID="rarelink_6_2_phenotypic_feature.snomed_8116006" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="rarelink_6_2_phenotypic_feature.snomedct_8116006" Mandatory="No"/>
 		<ItemGroupRef ItemGroupOID="rarelink_6_2_phenotypic_feature.rarelink_6_2_phenotypic_feature_complete" Mandatory="No"/>
 	</FormDef>
 	<FormDef OID="Form.rarelink_6_3_measurements" Name="Rarelink 6 3 Measurements" Repeating="No" redcap:FormName="rarelink_6_3_measurements">
@@ -87,7 +87,7 @@
 	</FormDef>
 	<FormDef OID="Form.rarelink_7_consent" Name="Rarelink 7 Consent" Repeating="No" redcap:FormName="rarelink_7_consent">
 		<ItemGroupRef ItemGroupOID="rarelink_7_consent.consent_descr" Mandatory="No"/>
-		<ItemGroupRef ItemGroupOID="rarelink_7_consent.snomed_309370004" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="rarelink_7_consent.snomedct_309370004" Mandatory="No"/>
 		<ItemGroupRef ItemGroupOID="rarelink_7_consent.rarelink_7_consent_complete" Mandatory="No"/>
 	</FormDef>
 	<FormDef OID="Form.rarelink_8_disability" Name="Rarelink 8 Disability" Repeating="No" redcap:FormName="rarelink_8_disability">
@@ -102,8 +102,8 @@
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_1_formal_criteria.rarelink_1_formal_criteria_timestamp" Name="Rarelink 1 Formal Criteria" Repeating="No">
 		<ItemRef ItemOID="rarelink_1_formal_criteria_timestamp" Mandatory="No" redcap:Variable="rarelink_1_formal_criteria_timestamp"/>
-		<ItemRef ItemOID="snomed_422549004" Mandatory="Yes" redcap:Variable="snomed_422549004"/>
-		<ItemRef ItemOID="snomed_399423000" Mandatory="Yes" redcap:Variable="snomed_399423000"/>
+		<ItemRef ItemOID="snomedct_422549004" Mandatory="Yes" redcap:Variable="snomedct_422549004"/>
+		<ItemRef ItemOID="snomedct_399423000" Mandatory="Yes" redcap:Variable="snomedct_399423000"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_1_formal_criteria.rarelink_1_formal_criteria_complete" Name="Form Status" Repeating="No">
 		<ItemRef ItemOID="rarelink_1_formal_criteria_complete" Mandatory="No" redcap:Variable="rarelink_1_formal_criteria_complete"/>
@@ -111,12 +111,12 @@
 	<ItemGroupDef OID="rarelink_2_personal_information.personal_information_descr" Name="RareLink - 2) Personal Information" Repeating="No">
 		<ItemRef ItemOID="personal_information_descr" Mandatory="No" redcap:Variable="personal_information_descr"/>
 	</ItemGroupDef>
-	<ItemGroupDef OID="rarelink_2_personal_information.snomed_184099003" Name="Rarelink 2 Personal Information" Repeating="No">
-		<ItemRef ItemOID="snomed_184099003" Mandatory="No" redcap:Variable="snomed_184099003"/>
-		<ItemRef ItemOID="snomed_281053000" Mandatory="No" redcap:Variable="snomed_281053000"/>
-		<ItemRef ItemOID="snomed_1296886006" Mandatory="No" redcap:Variable="snomed_1296886006"/>
-		<ItemRef ItemOID="snomed_263495000" Mandatory="No" redcap:Variable="snomed_263495000"/>
-		<ItemRef ItemOID="snomed_370159000" Mandatory="No" redcap:Variable="snomed_370159000"/>
+	<ItemGroupDef OID="rarelink_2_personal_information.snomedct_184099003" Name="Rarelink 2 Personal Information" Repeating="No">
+		<ItemRef ItemOID="snomedct_184099003" Mandatory="No" redcap:Variable="snomedct_184099003"/>
+		<ItemRef ItemOID="snomedct_281053000" Mandatory="No" redcap:Variable="snomedct_281053000"/>
+		<ItemRef ItemOID="snomedct_1296886006" Mandatory="No" redcap:Variable="snomedct_1296886006"/>
+		<ItemRef ItemOID="snomedct_263495000" Mandatory="No" redcap:Variable="snomedct_263495000"/>
+		<ItemRef ItemOID="snomedct_370159000" Mandatory="No" redcap:Variable="snomedct_370159000"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_2_personal_information.rarelink_2_personal_information_complete" Name="Form Status" Repeating="No">
 		<ItemRef ItemOID="rarelink_2_personal_information_complete" Mandatory="No" redcap:Variable="rarelink_2_personal_information_complete"/>
@@ -126,12 +126,12 @@
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_3_patient_status.patient_status_date" Name="Rarelink 3 Patient Status" Repeating="No">
 		<ItemRef ItemOID="patient_status_date" Mandatory="No" redcap:Variable="patient_status_date"/>
-		<ItemRef ItemOID="snomed_278844005" Mandatory="No" redcap:Variable="snomed_278844005"/>
-		<ItemRef ItemOID="snomed_398299004" Mandatory="No" redcap:Variable="snomed_398299004"/>
-		<ItemRef ItemOID="snomed_184305005" Mandatory="No" redcap:Variable="snomed_184305005"/>
-		<ItemRef ItemOID="snomed_105727008" Mandatory="No" redcap:Variable="snomed_105727008"/>
-		<ItemRef ItemOID="snomed_412726003" Mandatory="No" redcap:Variable="snomed_412726003"/>
-		<ItemRef ItemOID="snomed_723663001" Mandatory="No" redcap:Variable="snomed_723663001"/>
+		<ItemRef ItemOID="snomedct_278844005" Mandatory="No" redcap:Variable="snomedct_278844005"/>
+		<ItemRef ItemOID="snomedct_398299004" Mandatory="No" redcap:Variable="snomedct_398299004"/>
+		<ItemRef ItemOID="snomedct_184305005" Mandatory="No" redcap:Variable="snomedct_184305005"/>
+		<ItemRef ItemOID="snomedct_105727008" Mandatory="No" redcap:Variable="snomedct_105727008"/>
+		<ItemRef ItemOID="snomedct_412726003" Mandatory="No" redcap:Variable="snomedct_412726003"/>
+		<ItemRef ItemOID="snomedct_723663001" Mandatory="No" redcap:Variable="snomedct_723663001"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_3_patient_status.rarelink_3_patient_status_complete" Name="Form Status" Repeating="No">
 		<ItemRef ItemOID="rarelink_3_patient_status_complete" Mandatory="No" redcap:Variable="rarelink_3_patient_status_complete"/>
@@ -142,7 +142,7 @@
 	<ItemGroupDef OID="rarelink_4_care_pathway.hl7fhir_enc_period_start" Name="Rarelink 4 Care Pathway" Repeating="No">
 		<ItemRef ItemOID="hl7fhir_enc_period_start" Mandatory="No" redcap:Variable="hl7fhir_enc_period_start"/>
 		<ItemRef ItemOID="hl7fhir_enc_period_end" Mandatory="No" redcap:Variable="hl7fhir_enc_period_end"/>
-		<ItemRef ItemOID="snomed_305058001" Mandatory="Yes" redcap:Variable="snomed_305058001"/>
+		<ItemRef ItemOID="snomedct_305058001" Mandatory="Yes" redcap:Variable="snomedct_305058001"/>
 		<ItemRef ItemOID="hl7fhir_encounter_class" Mandatory="Yes" redcap:Variable="hl7fhir_encounter_class"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_4_care_pathway.rarelink_4_care_pathway_complete" Name="Form Status" Repeating="No">
@@ -153,19 +153,19 @@
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_5_disease.disease_coding" Name="Rarelink 5 Disease" Repeating="No">
 		<ItemRef ItemOID="disease_coding" Mandatory="No" redcap:Variable="disease_coding"/>
-		<ItemRef ItemOID="snomed_64572001_mondo" Mandatory="No" redcap:Variable="snomed_64572001_mondo"/>
-		<ItemRef ItemOID="snomed_64572001_ordo" Mandatory="No" redcap:Variable="snomed_64572001_ordo"/>
-		<ItemRef ItemOID="snomed_64572001_icd10cm" Mandatory="No" redcap:Variable="snomed_64572001_icd10cm"/>
-		<ItemRef ItemOID="snomed_64572001_icd11" Mandatory="No" redcap:Variable="snomed_64572001_icd11"/>
-		<ItemRef ItemOID="snomed_64572001_omim_p" Mandatory="No" redcap:Variable="snomed_64572001_omim_p"/>
+		<ItemRef ItemOID="snomedct_64572001_mondo" Mandatory="No" redcap:Variable="snomedct_64572001_mondo"/>
+		<ItemRef ItemOID="snomedct_64572001_ordo" Mandatory="No" redcap:Variable="snomedct_64572001_ordo"/>
+		<ItemRef ItemOID="snomedct_64572001_icd10cm" Mandatory="No" redcap:Variable="snomedct_64572001_icd10cm"/>
+		<ItemRef ItemOID="snomedct_64572001_icd11" Mandatory="No" redcap:Variable="snomedct_64572001_icd11"/>
+		<ItemRef ItemOID="snomedct_64572001_omim_p" Mandatory="No" redcap:Variable="snomedct_64572001_omim_p"/>
 		<ItemRef ItemOID="loinc_99498_8" Mandatory="No" redcap:Variable="loinc_99498_8"/>
-		<ItemRef ItemOID="snomed_424850005" Mandatory="No" redcap:Variable="snomed_424850005"/>
-		<ItemRef ItemOID="snomed_298059007" Mandatory="No" redcap:Variable="snomed_298059007"/>
-		<ItemRef ItemOID="snomed_423493009" Mandatory="No" redcap:Variable="snomed_423493009"/>
-		<ItemRef ItemOID="snomed_432213005" Mandatory="No" redcap:Variable="snomed_432213005"/>
-		<ItemRef ItemOID="snomed_363698007" Mandatory="No" redcap:Variable="snomed_363698007"/>
-		<ItemRef ItemOID="snomed_263493007" Mandatory="No" redcap:Variable="snomed_263493007"/>
-		<ItemRef ItemOID="snomed_246112005" Mandatory="No" redcap:Variable="snomed_246112005"/>
+		<ItemRef ItemOID="snomedct_424850005" Mandatory="No" redcap:Variable="snomedct_424850005"/>
+		<ItemRef ItemOID="snomedct_298059007" Mandatory="No" redcap:Variable="snomedct_298059007"/>
+		<ItemRef ItemOID="snomedct_423493009" Mandatory="No" redcap:Variable="snomedct_423493009"/>
+		<ItemRef ItemOID="snomedct_432213005" Mandatory="No" redcap:Variable="snomedct_432213005"/>
+		<ItemRef ItemOID="snomedct_363698007" Mandatory="No" redcap:Variable="snomedct_363698007"/>
+		<ItemRef ItemOID="snomedct_263493007" Mandatory="No" redcap:Variable="snomedct_263493007"/>
+		<ItemRef ItemOID="snomedct_246112005" Mandatory="No" redcap:Variable="snomedct_246112005"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_5_disease.rarelink_5_disease_complete" Name="Form Status" Repeating="No">
 		<ItemRef ItemOID="rarelink_5_disease_complete" Mandatory="No" redcap:Variable="rarelink_5_disease_complete"/>
@@ -175,8 +175,8 @@
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_6_1_genetic_findings.genetic_diagnosis_code" Name="Rarelink 6 1 Genetic Findings" Repeating="No">
 		<ItemRef ItemOID="genetic_diagnosis_code" Mandatory="No" redcap:Variable="genetic_diagnosis_code"/>
-		<ItemRef ItemOID="snomed_106221001_mondo" Mandatory="No" redcap:Variable="snomed_106221001_mondo"/>
-		<ItemRef ItemOID="snomed_106221001_omim_p" Mandatory="No" redcap:Variable="snomed_106221001_omim_p"/>
+		<ItemRef ItemOID="snomedct_106221001_mondo" Mandatory="No" redcap:Variable="snomedct_106221001_mondo"/>
+		<ItemRef ItemOID="snomedct_106221001_omim_p" Mandatory="No" redcap:Variable="snomedct_106221001_omim_p"/>
 		<ItemRef ItemOID="ga4gh_progress_status" Mandatory="No" redcap:Variable="ga4gh_progress_status"/>
 		<ItemRef ItemOID="ga4gh_interp_status" Mandatory="No" redcap:Variable="ga4gh_interp_status"/>
 		<ItemRef ItemOID="loinc_81304_8" Mandatory="No" redcap:Variable="loinc_81304_8"/>
@@ -204,11 +204,11 @@
 	<ItemGroupDef OID="rarelink_6_2_phenotypic_feature.phenotypic_feature_descr" Name="RareLink - 6.2) Phenotypic Findings" Repeating="No">
 		<ItemRef ItemOID="phenotypic_feature_descr" Mandatory="No" redcap:Variable="phenotypic_feature_descr"/>
 	</ItemGroupDef>
-	<ItemGroupDef OID="rarelink_6_2_phenotypic_feature.snomed_8116006" Name="Rarelink 6 2 Phenotypic Feature" Repeating="No">
-		<ItemRef ItemOID="snomed_8116006" Mandatory="No" redcap:Variable="snomed_8116006"/>
-		<ItemRef ItemOID="snomed_363778006" Mandatory="No" redcap:Variable="snomed_363778006"/>
-		<ItemRef ItemOID="snomed_8116006_onset" Mandatory="No" redcap:Variable="snomed_8116006_onset"/>
-		<ItemRef ItemOID="snomed_8116006_resolution" Mandatory="No" redcap:Variable="snomed_8116006_resolution"/>
+	<ItemGroupDef OID="rarelink_6_2_phenotypic_feature.snomedct_8116006" Name="Rarelink 6 2 Phenotypic Feature" Repeating="No">
+		<ItemRef ItemOID="snomedct_8116006" Mandatory="No" redcap:Variable="snomedct_8116006"/>
+		<ItemRef ItemOID="snomedct_363778006" Mandatory="No" redcap:Variable="snomedct_363778006"/>
+		<ItemRef ItemOID="snomedct_8116006_onset" Mandatory="No" redcap:Variable="snomedct_8116006_onset"/>
+		<ItemRef ItemOID="snomedct_8116006_resolut" Mandatory="No" redcap:Variable="snomedct_8116006_resolut"/>
 		<ItemRef ItemOID="hp_0003674" Mandatory="No" redcap:Variable="hp_0003674"/>
 		<ItemRef ItemOID="hp_0011008" Mandatory="No" redcap:Variable="hp_0011008"/>
 		<ItemRef ItemOID="hp_0012824" Mandatory="No" redcap:Variable="hp_0012824"/>
@@ -231,8 +231,8 @@
 		<ItemRef ItemOID="ncit_c92571" Mandatory="No" redcap:Variable="ncit_c92571"/>
 		<ItemRef ItemOID="ncit_c41255" Mandatory="No" redcap:Variable="ncit_c41255"/>
 		<ItemRef ItemOID="ncit_c82577" Mandatory="No" redcap:Variable="ncit_c82577"/>
-		<ItemRef ItemOID="snomed_122869004_ncit" Mandatory="No" redcap:Variable="snomed_122869004_ncit"/>
-		<ItemRef ItemOID="snomed_122869004_snomed" Mandatory="No" redcap:Variable="snomed_122869004_snomed"/>
+		<ItemRef ItemOID="snomedct_122869004_ncit" Mandatory="No" redcap:Variable="snomedct_122869004_ncit"/>
+		<ItemRef ItemOID="snomedct_122869004_snomed" Mandatory="No" redcap:Variable="snomedct_122869004_snomed"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_6_3_measurements.rarelink_6_3_measurements_complete" Name="Form Status" Repeating="No">
 		<ItemRef ItemOID="rarelink_6_3_measurements_complete" Mandatory="No" redcap:Variable="rarelink_6_3_measurements_complete"/>
@@ -242,15 +242,15 @@
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_6_4_family_history.family_history_pseudonym" Name="Rarelink 6 4 Family History" Repeating="No">
 		<ItemRef ItemOID="family_history_pseudonym" Mandatory="Yes" redcap:Variable="family_history_pseudonym"/>
-		<ItemRef ItemOID="snomed_64245008" Mandatory="No" redcap:Variable="snomed_64245008"/>
-		<ItemRef ItemOID="snomed_408732007" Mandatory="No" redcap:Variable="snomed_408732007"/>
-		<ItemRef ItemOID="snomed_842009" Mandatory="No" redcap:Variable="snomed_842009"/>
-		<ItemRef ItemOID="snomed_444018008" Mandatory="No" redcap:Variable="snomed_444018008"/>
+		<ItemRef ItemOID="snomedct_64245008" Mandatory="No" redcap:Variable="snomedct_64245008"/>
+		<ItemRef ItemOID="snomedct_408732007" Mandatory="No" redcap:Variable="snomedct_408732007"/>
+		<ItemRef ItemOID="snomedct_842009" Mandatory="No" redcap:Variable="snomedct_842009"/>
+		<ItemRef ItemOID="snomedct_444018008" Mandatory="No" redcap:Variable="snomedct_444018008"/>
 		<ItemRef ItemOID="hl7fhir_fmh_status" Mandatory="Yes" redcap:Variable="hl7fhir_fmh_status"/>
 		<ItemRef ItemOID="loinc_54123_5" Mandatory="No" redcap:Variable="loinc_54123_5"/>
 		<ItemRef ItemOID="loinc_54141_7" Mandatory="No" redcap:Variable="loinc_54141_7"/>
 		<ItemRef ItemOID="loinc_54124_3" Mandatory="No" redcap:Variable="loinc_54124_3"/>
-		<ItemRef ItemOID="snomed_740604001" Mandatory="No" redcap:Variable="snomed_740604001"/>
+		<ItemRef ItemOID="snomedct_740604001" Mandatory="No" redcap:Variable="snomedct_740604001"/>
 		<ItemRef ItemOID="loinc_54112_8" Mandatory="No" redcap:Variable="loinc_54112_8"/>
 		<ItemRef ItemOID="loinc_92662_6" Mandatory="No" redcap:Variable="loinc_92662_6"/>
 		<ItemRef ItemOID="loinc_75315_2" Mandatory="No" redcap:Variable="loinc_75315_2"/>
@@ -261,13 +261,13 @@
 	<ItemGroupDef OID="rarelink_7_consent.consent_descr" Name="RareLink - 7) Consent" Repeating="No">
 		<ItemRef ItemOID="consent_descr" Mandatory="No" redcap:Variable="consent_descr"/>
 	</ItemGroupDef>
-	<ItemGroupDef OID="rarelink_7_consent.snomed_309370004" Name="Rarelink 7 Consent" Repeating="No">
-		<ItemRef ItemOID="snomed_309370004" Mandatory="Yes" redcap:Variable="snomed_309370004"/>
+	<ItemGroupDef OID="rarelink_7_consent.snomedct_309370004" Name="Rarelink 7 Consent" Repeating="No">
+		<ItemRef ItemOID="snomedct_309370004" Mandatory="Yes" redcap:Variable="snomedct_309370004"/>
 		<ItemRef ItemOID="hl7fhir_consent_datetime" Mandatory="No" redcap:Variable="hl7fhir_consent_datetime"/>
-		<ItemRef ItemOID="snomed_386318002" Mandatory="No" redcap:Variable="snomed_386318002"/>
+		<ItemRef ItemOID="snomedct_386318002" Mandatory="No" redcap:Variable="snomedct_386318002"/>
 		<ItemRef ItemOID="rarelink_consent_contact" Mandatory="Yes" redcap:Variable="rarelink_consent_contact"/>
 		<ItemRef ItemOID="rarelink_consent_data" Mandatory="Yes" redcap:Variable="rarelink_consent_data"/>
-		<ItemRef ItemOID="snomed_123038009" Mandatory="No" redcap:Variable="snomed_123038009"/>
+		<ItemRef ItemOID="snomedct_123038009" Mandatory="No" redcap:Variable="snomedct_123038009"/>
 		<ItemRef ItemOID="rarelink_biobank_link" Mandatory="No" redcap:Variable="rarelink_biobank_link"/>
 	</ItemGroupDef>
 	<ItemGroupDef OID="rarelink_7_consent.rarelink_7_consent_complete" Name="Form Status" Repeating="No">
@@ -294,7 +294,7 @@
 	<ItemDef OID="rarelink_1_formal_criteria_timestamp" Name="rarelink_1_formal_criteria_timestamp" DataType="datetime" Length="999" redcap:Variable="rarelink_1_formal_criteria_timestamp">
 		<Question><TranslatedText>Survey Timestamp</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_422549004" Name="snomed_422549004" DataType="text" Length="999" redcap:Variable="snomed_422549004" redcap:FieldType="text" redcap:FieldNote="The (local) patient-related Identification code" redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_422549004" Name="snomedct_422549004" DataType="text" Length="999" redcap:Variable="snomedct_422549004" redcap:FieldType="text" redcap:FieldNote="The (local) patient-related Identification code" redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
 SNOMED:422549004 | Pseudonym |
 Choices: n/a
 Version(s): 
@@ -304,7 +304,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Individual.id">
 		<Question><TranslatedText>1.1 Pseudonym</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_399423000" Name="snomed_399423000" DataType="date" Length="999" redcap:Variable="snomed_399423000" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date of admission or data capture of the individual" redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_399423000" Name="snomedct_399423000" DataType="date" Length="999" redcap:Variable="snomedct_399423000" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date of admission or data capture of the individual" redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
 SNOMED:399423000 | Date of admission (observable entity) |
 Choices: n/a
 Version(s): 
@@ -335,7 +335,7 @@ Mapping:
 &lt;/div&gt;
 </redcap:FormattedTranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_184099003" Name="snomed_184099003" DataType="date" Length="999" redcap:Variable="snomed_184099003" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The individual&#039;s date of birth. If the exact month or day is allowd to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_184099003" Name="snomedct_184099003" DataType="date" Length="999" redcap:Variable="snomedct_184099003" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The individual&#039;s date of birth. If the exact month or day is allowd to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively." redcap:FieldAnnotation="Variable:
 SNOMED:184099003 | Date of Birth |
 Choices: n/a
 Version(s): 
@@ -345,7 +345,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Individual.date_of_birth">
 		<Question><TranslatedText>2.1 Date of birth</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_281053000" Name="snomed_281053000" DataType="text" Length="24" redcap:Variable="snomed_281053000" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s sex that was assigned at birth" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_281053000" Name="snomedct_281053000" DataType="text" Length="24" redcap:Variable="snomedct_281053000" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s sex that was assigned at birth" redcap:FieldAnnotation="Variable:
 SNOMED:281053000 | Sex at Birth |
 Choices: 
 - SNOMED:248152002 | Female
@@ -359,9 +359,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.extension:individual-recordedSexOrGender
 - GA4GH Phenopacket Schema v2.0 Element: Individual.sex">
 		<Question><TranslatedText>2.2 Sex at birth</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_281053000.choices"/>
+		<CodeListRef CodeListOID="snomedct_281053000.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_1296886006" Name="snomed_1296886006" DataType="text" Length="16" redcap:Variable="snomed_1296886006" redcap:FieldType="select" redcap:FieldNote="The chromosomal sex of an individual" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_1296886006" Name="snomedct_1296886006" DataType="text" Length="16" redcap:Variable="snomedct_1296886006" redcap:FieldType="select" redcap:FieldNote="The chromosomal sex of an individual" redcap:FieldAnnotation="Variable:
 SNOMED:1296886006 | Karyotypic Sex |
 Choices: 
 - SNOMED:261665006 | Unknown
@@ -381,9 +381,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Observation.value
 - GA4GH Phenopacket Schema v2.0 Element: Individual.karyotypic_sex">
 		<Question><TranslatedText>2.3 Karyotypic Sex</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_1296886006.choices"/>
+		<CodeListRef CodeListOID="snomedct_1296886006.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_263495000" Name="snomed_263495000" DataType="text" Length="22" redcap:Variable="snomed_263495000" redcap:FieldType="select" redcap:FieldNote="The self-assigned gender of the individual" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_263495000" Name="snomedct_263495000" DataType="text" Length="22" redcap:Variable="snomedct_263495000" redcap:FieldType="select" redcap:FieldNote="The self-assigned gender of the individual" redcap:FieldAnnotation="Variable:
 SNOMED:263495000 | Gender Identity |
 Choices: 
 - SNOMED:446141000124107 | Female gender identity
@@ -397,9 +397,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.extension:individual-genderIdentity
 - GA4GH Phenopacket Schema v2.0 Element: Individual.gender">
 		<Question><TranslatedText>2.4 Gender Identity</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_263495000.choices"/>
+		<CodeListRef CodeListOID="snomedct_263495000.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_370159000" Name="snomed_370159000" DataType="text" Length="999" redcap:Variable="snomed_370159000" redcap:FieldType="text" redcap:FieldNote="The individual&#039;s country of birth. Please enter a two or three letter ISO3166 code which you can search in the link provided in the description above." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_370159000" Name="snomedct_370159000" DataType="text" Length="999" redcap:Variable="snomedct_370159000" redcap:FieldType="text" redcap:FieldNote="The individual&#039;s country of birth. Please enter a two or three letter ISO3166 code which you can search in the link provided in the description above." redcap:FieldAnnotation="Variable:
 SNOMED:370159000 | Country of Birth |
 Choices: ISO 3166 - 2 or 3 letter country code
 Version(s): 
@@ -437,7 +437,7 @@ Mapping:
 	<ItemDef OID="patient_status_date" Name="patient_status_date" DataType="date" Length="999" redcap:Variable="patient_status_date" redcap:FieldType="text" redcap:TextValidationType="date_ymd">
 		<Question><TranslatedText>Date of Completion for the Sheet</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_278844005" Name="snomed_278844005" DataType="text" Length="16" redcap:Variable="snomed_278844005" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s general clinical status or vital status." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_278844005" Name="snomedct_278844005" DataType="text" Length="16" redcap:Variable="snomedct_278844005" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s general clinical status or vital status." redcap:FieldAnnotation="Variable:
 SNOMED:278844005 | Vital Status |
 Choices: 
 - SNOMED:438949009 | Alive
@@ -451,9 +451,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.deceased.deceasedBoolean or Observation.value
 - GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.status">
 		<Question><TranslatedText>3.1 Vital Status</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_278844005.choices"/>
+		<CodeListRef CodeListOID="snomedct_278844005.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_398299004" Name="snomed_398299004" DataType="date" Length="999" redcap:Variable="snomed_398299004" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="If deceased, the individual&#039;s date of death. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:BranchingLogic="[snomed_278844005] = &#039;snomed_419099009&#039;" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_398299004" Name="snomedct_398299004" DataType="date" Length="999" redcap:Variable="snomedct_398299004" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="If deceased, the individual&#039;s date of death. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:BranchingLogic="[snomedct_278844005] = &#039;snomedct_419099009&#039;" redcap:FieldAnnotation="Variable:
 SNOMED:398299004 | Time of Death |
 Choices: n/a
 Version(s): 
@@ -463,7 +463,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.time_of_death">
 		<Question><TranslatedText>3.2 Time of Death</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_184305005" Name="snomed_184305005" DataType="text" Length="999" redcap:Variable="snomed_184305005" redcap:FieldType="text" redcap:FieldNote="If deceased, the individual&#039;s primary cause of death (i.e. according to the death certificate)." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[snomed_278844005] = &#039;snomed_419099009&#039;" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_184305005" Name="snomedct_184305005" DataType="text" Length="999" redcap:Variable="snomedct_184305005" redcap:FieldType="text" redcap:FieldNote="If deceased, the individual&#039;s primary cause of death (i.e. according to the death certificate)." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[snomedct_278844005] = &#039;snomedct_419099009&#039;" redcap:FieldAnnotation="Variable:
 SNOMED:184305005 | Cause of Death |
 Choices: n/a
 Version(s): 
@@ -473,7 +473,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.cause_of_death">
 		<Question><TranslatedText>3.3 Cause of Death [ICD10CM]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_105727008" Name="snomed_105727008" DataType="text" Length="16" redcap:Variable="snomed_105727008" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s age category at the time of data capture (1.2)." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_105727008" Name="snomedct_105727008" DataType="text" Length="16" redcap:Variable="snomedct_105727008" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s age category at the time of data capture (1.2)." redcap:FieldAnnotation="Variable:
 SNOMED:105727008 | Age Category |
 Choices: 
 - SNOMED:3658006 | Infancy
@@ -490,9 +490,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Observation.value.coding.code
 - GA4GH Phenopacket Schema v2.0 Element: Individual.time_at_last_encounter.ontology_class">
 		<Question><TranslatedText>3.4 Age Category</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_105727008.choices"/>
+		<CodeListRef CodeListOID="snomedct_105727008.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_412726003" Name="snomed_412726003" DataType="text" Length="999" redcap:Variable="snomed_412726003" redcap:FieldType="text" redcap:FieldNote="The duration of the pregnancy in weeks and days, from the first day of the last menstrual period to the day of delivery, formatted as XX+X (weeks+days)." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_412726003" Name="snomedct_412726003" DataType="text" Length="999" redcap:Variable="snomedct_412726003" redcap:FieldType="text" redcap:FieldNote="The duration of the pregnancy in weeks and days, from the first day of the last menstrual period to the day of delivery, formatted as XX+X (weeks+days)." redcap:FieldAnnotation="Variable:
 SNOMED:412726003 | Length of Gestation at Birth [weeks+days] |
 Choices: 
 - n/a
@@ -503,7 +503,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: n/a">
 		<Question><TranslatedText>3.5 Length of Gestation at Birth [weeks+days]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_723663001" Name="snomed_723663001" DataType="text" Length="16" redcap:Variable="snomed_723663001" redcap:FieldType="select" redcap:FieldNote="Identifies cases where an RD diagnosis has not been established." redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_723663001" Name="snomedct_723663001" DataType="text" Length="16" redcap:Variable="snomedct_723663001" redcap:FieldType="select" redcap:FieldNote="Identifies cases where an RD diagnosis has not been established." redcap:FieldAnnotation="Variable:
 SNOMED:723663001 | Undiagnosed RD Case |
 Choices: 
 - SNOMED:373066001 | Yes
@@ -514,7 +514,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.code (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)">
 		<Question><TranslatedText>3.6 Undiagnosed RD Case</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_723663001.choices"/>
+		<CodeListRef CodeListOID="snomedct_723663001.choices"/>
 	</ItemDef>
 	<ItemDef OID="rarelink_3_patient_status_complete" Name="rarelink_3_patient_status_complete" DataType="text" Length="1" redcap:Variable="rarelink_3_patient_status_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
 		<Question><TranslatedText>Complete?</TranslatedText></Question>
@@ -559,7 +559,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: n/a">
 		<Question><TranslatedText>4.2 Encounter End</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_305058001" Name="snomed_305058001" DataType="text" Length="24" redcap:Variable="snomed_305058001" redcap:FieldType="select" redcap:FieldNote="The status of an encounter of the individual at the time of data capture." redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
+	<ItemDef OID="snomedct_305058001" Name="snomedct_305058001" DataType="text" Length="24" redcap:Variable="snomedct_305058001" redcap:FieldType="select" redcap:FieldNote="The status of an encounter of the individual at the time of data capture." redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
 SNOMED:305058001 | Encounter Status |
 Choices: 
 - SNOMED:planned | Planned
@@ -577,7 +577,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Encounter.status
 - GA4GH Phenopacket Schema v2.0 Element: n/a">
 		<Question><TranslatedText>4.3 Encounter Status</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_305058001.choices"/>
+		<CodeListRef CodeListOID="snomedct_305058001.choices"/>
 	</ItemDef>
 	<ItemDef OID="hl7fhir_encounter_class" Name="hl7fhir_encounter_class" DataType="text" Length="16" redcap:Variable="hl7fhir_encounter_class" redcap:FieldType="select" redcap:FieldNote="The class of an encounter of the individual at the time of data capture." redcap:RequiredField="y" redcap:FieldAnnotation="Variable:
 HL7 FHIR:encounter.class | Encounter Class |
@@ -634,7 +634,7 @@ Mapping:
 		<Question><TranslatedText>Please choose the encoding of the disease to be captured</TranslatedText></Question>
 		<CodeListRef CodeListOID="disease_coding.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_64572001_mondo" Name="snomed_64572001_mondo" DataType="text" Length="999" redcap:Variable="snomed_64572001_mondo" redcap:FieldType="text" redcap:FieldNote="Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings." redcap:OntologySearch="BIOPORTAL:MONDO" redcap:BranchingLogic="[disease_coding] = &#039;mondo&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_64572001_mondo" Name="snomedct_64572001_mondo" DataType="text" Length="999" redcap:Variable="snomedct_64572001_mondo" redcap:FieldType="text" redcap:FieldNote="Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings." redcap:OntologySearch="BIOPORTAL:MONDO" redcap:BranchingLogic="[disease_coding] = &#039;mondo&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -645,7 +645,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  ">
 		<Question><TranslatedText>5.1 Disease [MONDO]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_64572001_ordo" Name="snomed_64572001_ordo" DataType="text" Length="999" redcap:Variable="snomed_64572001_ordo" redcap:FieldType="text" redcap:FieldNote="Please look up the ORDO code for the disease that the individual was affected by." redcap:OntologySearch="BIOPORTAL:ORDO" redcap:BranchingLogic="[disease_coding] = &#039;ordo&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_64572001_ordo" Name="snomedct_64572001_ordo" DataType="text" Length="999" redcap:Variable="snomedct_64572001_ordo" redcap:FieldType="text" redcap:FieldNote="Please look up the ORDO code for the disease that the individual was affected by." redcap:OntologySearch="BIOPORTAL:ORDO" redcap:BranchingLogic="[disease_coding] = &#039;ordo&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -656,7 +656,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  ">
 		<Question><TranslatedText>5.1 Disease [ORDO]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_64572001_icd10cm" Name="snomed_64572001_icd10cm" DataType="text" Length="999" redcap:Variable="snomed_64572001_icd10cm" redcap:FieldType="text" redcap:FieldNote="Please look up the ICD10CM code for the disease that the individual was affected by." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[disease_coding] = &#039;icd10cm&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_64572001_icd10cm" Name="snomedct_64572001_icd10cm" DataType="text" Length="999" redcap:Variable="snomedct_64572001_icd10cm" redcap:FieldType="text" redcap:FieldNote="Please look up the ICD10CM code for the disease that the individual was affected by." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[disease_coding] = &#039;icd10cm&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -667,7 +667,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  ">
 		<Question><TranslatedText>5.1 Disease [ICD10CM]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_64572001_icd11" Name="snomed_64572001_icd11" DataType="text" Length="999" redcap:Variable="snomed_64572001_icd11" redcap:FieldType="text" redcap:FieldNote="Please enter the ICD11 code for the disease that the individual was affected by." redcap:BranchingLogic="[disease_coding] = &#039;icd11&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_64572001_icd11" Name="snomedct_64572001_icd11" DataType="text" Length="999" redcap:Variable="snomedct_64572001_icd11" redcap:FieldType="text" redcap:FieldNote="Please enter the ICD11 code for the disease that the individual was affected by." redcap:BranchingLogic="[disease_coding] = &#039;icd11&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -678,7 +678,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  ">
 		<Question><TranslatedText>5.1 Disease [ICD11]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_64572001_omim_p" Name="snomed_64572001_omim_p" DataType="text" Length="999" redcap:Variable="snomed_64572001_omim_p" redcap:FieldType="text" redcap:FieldNote="A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings." redcap:OntologySearch="BIOPORTAL:OMIM" redcap:BranchingLogic="[disease_coding] = &#039;omim&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_64572001_omim_p" Name="snomedct_64572001_omim_p" DataType="text" Length="999" redcap:Variable="snomedct_64572001_omim_p" redcap:FieldType="text" redcap:FieldNote="A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings." redcap:OntologySearch="BIOPORTAL:OMIM" redcap:BranchingLogic="[disease_coding] = &#039;omim&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:64572001 | Disease  
 Choices: 
 n/a  
@@ -707,7 +707,7 @@ Mapping:
 		<Question><TranslatedText>5.2 Verification Status</TranslatedText></Question>
 		<CodeListRef CodeListOID="loinc_99498_8.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_424850005" Name="snomed_424850005" DataType="text" Length="16" redcap:Variable="snomed_424850005" redcap:FieldType="select" redcap:FieldNote="The age at the onset of the first symptoms or signs of the disease." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_424850005" Name="snomedct_424850005" DataType="text" Length="16" redcap:Variable="snomedct_424850005" redcap:FieldType="select" redcap:FieldNote="The age at the onset of the first symptoms or signs of the disease." redcap:FieldAnnotation="Variable: 
 SNOMED:424850005 | Age at Onset  
 Choices: 
 - SNOMED:118189007 | Prenatal  
@@ -720,9 +720,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.onsetString or Observation.valueCodeableConcept  
 - GA4GH Phenopacket Schema v2.0 Element: Disease.onset  ">
 		<Question><TranslatedText>5.3 Age at Onset</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_424850005.choices"/>
+		<CodeListRef CodeListOID="snomedct_424850005.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_298059007" Name="snomed_298059007" DataType="date" Length="999" redcap:Variable="snomed_298059007" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date at onset of first symptoms or signs of the disease. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_298059007" Name="snomedct_298059007" DataType="date" Length="999" redcap:Variable="snomedct_298059007" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date at onset of first symptoms or signs of the disease. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
 SNOMED:298059007 | Date of Onset  
 Choices: 
 n/a  
@@ -733,7 +733,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.onset  ">
 		<Question><TranslatedText>5.4 Date of Onset</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_423493009" Name="snomed_423493009" DataType="text" Length="16" redcap:Variable="snomed_423493009" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s age when the diagnosis was made." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_423493009" Name="snomedct_423493009" DataType="text" Length="16" redcap:Variable="snomedct_423493009" redcap:FieldType="select" redcap:FieldNote="The individual&#039;s age when the diagnosis was made." redcap:FieldAnnotation="Variable: 
 SNOMED:423493009 | Age at Diagnosis  
 Choices: 
 - SNOMED:118189007 | Prenatal  
@@ -746,9 +746,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Observation.valueCodeableConcept  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  ">
 		<Question><TranslatedText>5.5 Age at Diagnosis</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_423493009.choices"/>
+		<CodeListRef CodeListOID="snomedct_423493009.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_432213005" Name="snomed_432213005" DataType="date" Length="999" redcap:Variable="snomed_432213005" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date on which the disease was determined. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_432213005" Name="snomedct_432213005" DataType="date" Length="999" redcap:Variable="snomedct_432213005" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date on which the disease was determined. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
 SNOMED:432213005 | Date of Diagnosis  
 Choices: 
 n/a  
@@ -759,7 +759,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.onset  ">
 		<Question><TranslatedText>5.6 Date of Diagnosis</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_363698007" Name="snomed_363698007" DataType="text" Length="999" redcap:Variable="snomed_363698007" redcap:FieldType="text" redcap:FieldNote="The specific body site affected by disease is encoded using all descendants of SCT Body Structure (123037004)." redcap:OntologySearch="BIOPORTAL:SNOMEDCT" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_363698007" Name="snomedct_363698007" DataType="text" Length="999" redcap:Variable="snomedct_363698007" redcap:FieldType="text" redcap:FieldNote="The specific body site affected by disease is encoded using all descendants of SCT Body Structure (123037004)." redcap:OntologySearch="BIOPORTAL:SNOMEDCT" redcap:FieldAnnotation="Variable: 
 SNOMED:363698007 | Body Site  
 Choices: 
 n/a  
@@ -770,7 +770,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Disease.primary_site.OntologyClass  ">
 		<Question><TranslatedText>5.7 Body Site [SNOMED CT]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_263493007" Name="snomed_263493007" DataType="text" Length="18" redcap:Variable="snomed_263493007" redcap:FieldType="select" redcap:FieldNote="The clinical status of the disease indicates whether it is active, inactive, or resolved." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_263493007" Name="snomedct_263493007" DataType="text" Length="18" redcap:Variable="snomedct_263493007" redcap:FieldType="select" redcap:FieldNote="The clinical status of the disease indicates whether it is active, inactive, or resolved." redcap:FieldAnnotation="Variable: 
 SNOMED:263493007 | Clinical Status  
 Choices: 
 - HL7FHIR:active | Active  
@@ -786,9 +786,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.clinicalStatus  
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.progress_status.ProgressStatus  ">
 		<Question><TranslatedText>5.8 Clinical Status</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_263493007.choices"/>
+		<CodeListRef CodeListOID="snomedct_263493007.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_246112005" Name="snomed_246112005" DataType="text" Length="16" redcap:Variable="snomed_246112005" redcap:FieldType="select" redcap:FieldNote="The severity of the disease is categorised by clinical evaluation." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_246112005" Name="snomedct_246112005" DataType="text" Length="16" redcap:Variable="snomedct_246112005" redcap:FieldType="select" redcap:FieldNote="The severity of the disease is categorised by clinical evaluation." redcap:FieldAnnotation="Variable: 
 SNOMED:246112005 | Severity  
 Choices: 
 - SNOMED:24484000 | Severe  
@@ -800,7 +800,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Condition.severity  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  ">
 		<Question><TranslatedText>5.9 Disease Severity</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_246112005.choices"/>
+		<CodeListRef CodeListOID="snomedct_246112005.choices"/>
 	</ItemDef>
 	<ItemDef OID="rarelink_5_disease_complete" Name="rarelink_5_disease_complete" DataType="text" Length="1" redcap:Variable="rarelink_5_disease_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
 		<Question><TranslatedText>Complete?</TranslatedText></Question>
@@ -847,7 +847,7 @@ Mapping:
 		<Question><TranslatedText>Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.</TranslatedText></Question>
 		<CodeListRef CodeListOID="genetic_diagnosis_code.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_106221001_mondo" Name="snomed_106221001_mondo" DataType="text" Length="999" redcap:Variable="snomed_106221001_mondo" redcap:FieldType="text" redcap:FieldNote="The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used." redcap:OntologySearch="BIOPORTAL:MONDO" redcap:BranchingLogic="[genetic_diagnosis_code] = &#039;mondo&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_106221001_mondo" Name="snomedct_106221001_mondo" DataType="text" Length="999" redcap:Variable="snomedct_106221001_mondo" redcap:FieldType="text" redcap:FieldNote="The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used." redcap:OntologySearch="BIOPORTAL:MONDO" redcap:BranchingLogic="[genetic_diagnosis_code] = &#039;mondo&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -858,7 +858,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.Diagnosis.disease">
 		<Question><TranslatedText>6.1.1 Genomic Diagnosis [MONDO]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_106221001_omim_p" Name="snomed_106221001_omim_p" DataType="text" Length="999" redcap:Variable="snomed_106221001_omim_p" redcap:FieldType="text" redcap:FieldNote="The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used." redcap:OntologySearch="BIOPORTAL:OMIM" redcap:BranchingLogic="[genetic_diagnosis_code] = &#039;omim&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_106221001_omim_p" Name="snomedct_106221001_omim_p" DataType="text" Length="999" redcap:Variable="snomedct_106221001_omim_p" redcap:FieldType="text" redcap:FieldNote="The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used." redcap:OntologySearch="BIOPORTAL:OMIM" redcap:BranchingLogic="[genetic_diagnosis_code] = &#039;omim&#039;" redcap:FieldAnnotation="Variable: 
 SNOMED:106221001 | Genomic Diagnosis
 Choices: 
 n/a
@@ -1174,7 +1174,7 @@ Mapping:
   &lt;/ul&gt;
 &lt;/div&gt;</redcap:FormattedTranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_8116006" Name="snomed_8116006" DataType="text" Length="999" redcap:Variable="snomed_8116006" redcap:FieldType="text" redcap:FieldNote="An observed physical and clinical characteristic encoded with HPO." redcap:OntologySearch="BIOPORTAL:HP" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_8116006" Name="snomedct_8116006" DataType="text" Length="999" redcap:Variable="snomedct_8116006" redcap:FieldType="text" redcap:FieldNote="An observed physical and clinical characteristic encoded with HPO." redcap:OntologySearch="BIOPORTAL:HP" redcap:FieldAnnotation="Variable: 
 SNOMED:8116006 | Phenotypic Feature  
 Choices: 
 n/a  
@@ -1185,7 +1185,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.type">
 		<Question><TranslatedText>6.2.1 Phenotypic Feature</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_363778006" Name="snomed_363778006" DataType="text" Length="16" redcap:Variable="snomed_363778006" redcap:FieldType="select" redcap:FieldNote="The current status of the phenotypic feature, indicating whether it is confirmed or refuted." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_363778006" Name="snomedct_363778006" DataType="text" Length="16" redcap:Variable="snomedct_363778006" redcap:FieldType="select" redcap:FieldNote="The current status of the phenotypic feature, indicating whether it is confirmed or refuted." redcap:FieldAnnotation="Variable: 
 SNOMED:363778006 | Status  
 Choices: 
 - SNOMED:410605003 | Confirmed present  
@@ -1197,9 +1197,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Observation.Status (Rec VS: observation.status)  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.excluded ">
 		<Question><TranslatedText>6.2.2 Status</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_363778006.choices"/>
+		<CodeListRef CodeListOID="snomedct_363778006.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_8116006_onset" Name="snomed_8116006_onset" DataType="date" Length="999" redcap:Variable="snomed_8116006_onset" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date on which the phenotypic feature was observed or recorded (we the time it was observed). If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_8116006_onset" Name="snomedct_8116006_onset" DataType="date" Length="999" redcap:Variable="snomedct_8116006_onset" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="The date on which the phenotypic feature was observed or recorded (we the time it was observed). If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively" redcap:FieldAnnotation="Variable: 
 SNOMED:439272007:704321009=363778006 | Determination Date  
 Choices: 
 n/a  
@@ -1210,7 +1210,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset  ">
 		<Question><TranslatedText>6.2.3 Determination Date</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_8116006_resolution" Name="snomed_8116006_resolution" DataType="date" Length="999" redcap:Variable="snomed_8116006_resolution" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="Time at which the feature resolved or abated." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_8116006_resolut" Name="snomedct_8116006_resolut" DataType="date" Length="999" redcap:Variable="snomedct_8116006_resolut" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="Time at which the feature resolved or abated." redcap:FieldAnnotation="Variable: 
 HPO:0034382 | Resolution Date  
 Choices: 
 n/a  
@@ -1415,7 +1415,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed">
 		<Question><TranslatedText>6.3.5 Time Observed</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_122869004_ncit" Name="snomed_122869004_ncit" DataType="text" Length="999" redcap:Variable="snomed_122869004_ncit" redcap:FieldType="text" redcap:FieldNote="Please search for the procedure in NCIT and see tips above." redcap:OntologySearch="BIOPORTAL:NCIT" redcap:FieldAnnotation="Variable: SNOMED:122869004 | Procedure
+	<ItemDef OID="snomedct_122869004_ncit" Name="snomedct_122869004_ncit" DataType="text" Length="999" redcap:Variable="snomedct_122869004_ncit" redcap:FieldType="text" redcap:FieldNote="Please search for the procedure in NCIT and see tips above." redcap:OntologySearch="BIOPORTAL:NCIT" redcap:FieldAnnotation="Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -1425,7 +1425,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure">
 		<Question><TranslatedText>6.3.6A Procedure [NCIT]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_122869004_snomed" Name="snomed_122869004_snomed" DataType="text" Length="999" redcap:Variable="snomed_122869004_snomed" redcap:FieldType="text" redcap:FieldNote="Please search for the procedure in SNOMED and see tips above." redcap:OntologySearch="BIOPORTAL:SNOMED" redcap:FieldAnnotation="Variable: SNOMED:122869004 | Procedure
+	<ItemDef OID="snomedct_122869004_snomed" Name="snomedct_122869004_snomed" DataType="text" Length="999" redcap:Variable="snomedct_122869004_snomed" redcap:FieldType="text" redcap:FieldNote="Please search for the procedure in SNOMED and see tips above." redcap:OntologySearch="BIOPORTAL:SNOMED" redcap:FieldAnnotation="Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -1461,7 +1461,7 @@ Mapping:
 	<ItemDef OID="family_history_pseudonym" Name="family_history_pseudonym" DataType="text" Length="999" redcap:Variable="family_history_pseudonym" redcap:FieldType="text" redcap:FieldNote="If a pseudonym was already assigned to the specific family member, please enter it here to identify across records." redcap:RequiredField="y">
 		<Question><TranslatedText>6.4.0 Pseudonym</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_64245008" Name="snomed_64245008" DataType="text" Length="17" redcap:Variable="snomed_64245008" redcap:FieldType="select" redcap:FieldNote="Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members." redcap:FieldAnnotation="SNOMED:64245008 | Propositus/-a  
+	<ItemDef OID="snomedct_64245008" Name="snomedct_64245008" DataType="text" Length="17" redcap:Variable="snomedct_64245008" redcap:FieldType="select" redcap:FieldNote="Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members." redcap:FieldAnnotation="SNOMED:64245008 | Propositus/-a  
 Choices: 
 - SNOMED:373066001 | Yes  
 - SNOMED:373067005 | No  
@@ -1473,9 +1473,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: n/a
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member) ">
 		<Question><TranslatedText>6.4.1 Propositus/-a</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_64245008.choices"/>
+		<CodeListRef CodeListOID="snomedct_64245008.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_408732007" Name="snomed_408732007" DataType="text" Length="17" redcap:Variable="snomed_408732007" redcap:FieldType="select" redcap:FieldNote="Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
+	<ItemDef OID="snomedct_408732007" Name="snomedct_408732007" DataType="text" Length="17" redcap:Variable="snomedct_408732007" redcap:FieldType="select" redcap:FieldNote="Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
 Disclaimer:" redcap:FieldAnnotation="SNOMED:408732007 | Relationship of the individual to the index case / propositus/a  
 Choices: 
 - SNOMED:65656005 | Natural mother  
@@ -1496,9 +1496,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: n/a  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member)  ">
 		<Question><TranslatedText>6.4.2 Relationship of the individual to the index case / propositus/a</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_408732007.choices"/>
+		<CodeListRef CodeListOID="snomedct_408732007.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_842009" Name="snomed_842009" DataType="text" Length="17" redcap:Variable="snomed_842009" redcap:FieldType="select" redcap:FieldNote="The presence of a biological relationship between parents who are related by blood, typically as first or second cousins." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_842009" Name="snomedct_842009" DataType="text" Length="17" redcap:Variable="snomedct_842009" redcap:FieldType="select" redcap:FieldNote="The presence of a biological relationship between parents who are related by blood, typically as first or second cousins." redcap:FieldAnnotation="Variable: 
 SNOMED:842009 | Consanguinity  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -1511,9 +1511,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Family.consanguinous_parents  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.consanguinous_parents)  ">
 		<Question><TranslatedText>6.4.3 Consanguinity</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_842009.choices"/>
+		<CodeListRef CodeListOID="snomedct_842009.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_444018008" Name="snomed_444018008" DataType="text" Length="17" redcap:Variable="snomed_444018008" redcap:FieldType="select" redcap:FieldNote="Specifies the relationship of the selected family member to the patient." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_444018008" Name="snomedct_444018008" DataType="text" Length="17" redcap:Variable="snomedct_444018008" redcap:FieldType="select" redcap:FieldNote="Specifies the relationship of the selected family member to the patient." redcap:FieldAnnotation="Variable: 
 SNOMED:444018008 | Family Member Relationship  
 Choices: 
 - SNOMED:65656005 | Natural mother  
@@ -1534,7 +1534,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.relationship.coding (VS: FamilyMember)  
 - GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.individual_id  ">
 		<Question><TranslatedText>6.4.4 Family Member Relationship</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_444018008.choices"/>
+		<CodeListRef CodeListOID="snomedct_444018008.choices"/>
 	</ItemDef>
 	<ItemDef OID="hl7fhir_fmh_status" Name="hl7fhir_fmh_status" DataType="text" Length="24" redcap:Variable="hl7fhir_fmh_status" redcap:FieldType="select" redcap:FieldNote="Specifies the record&#039;s status of the family history of a specific family member." redcap:RequiredField="y" redcap:FieldAnnotation="Variable: 
 HL7 FHIR:familymemberhistory.status | Family Member Record Status  
@@ -1598,7 +1598,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  ">
 		<Question><TranslatedText>6.4.8 Family Member Date of Birth</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_740604001" Name="snomed_740604001" DataType="text" Length="16" redcap:Variable="snomed_740604001" redcap:FieldType="select" redcap:FieldNote="Indicates whether the selected family member is deceased." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_740604001" Name="snomedct_740604001" DataType="text" Length="16" redcap:Variable="snomedct_740604001" redcap:FieldType="select" redcap:FieldNote="Indicates whether the selected family member is deceased." redcap:FieldAnnotation="Variable: 
 SNOMED:740604001 | Family Member Deceased  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -1610,9 +1610,9 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceased.deceasedBoolean  
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  ">
 		<Question><TranslatedText>6.4.9 Family Member Deceased</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_740604001.choices"/>
+		<CodeListRef CodeListOID="snomedct_740604001.choices"/>
 	</ItemDef>
-	<ItemDef OID="loinc_54112_8" Name="loinc_54112_8" DataType="text" Length="999" redcap:Variable="loinc_54112_8" redcap:FieldType="text" redcap:FieldNote="Records the cause of death of the selected deceased family member." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[snomed_740604001] = &#039;snomed_373066001&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="loinc_54112_8" Name="loinc_54112_8" DataType="text" Length="999" redcap:Variable="loinc_54112_8" redcap:FieldType="text" redcap:FieldNote="Records the cause of death of the selected deceased family member." redcap:OntologySearch="BIOPORTAL:ICD10CM" redcap:BranchingLogic="[snomedct_740604001] = &#039;snomedct_373066001&#039;" redcap:FieldAnnotation="Variable: 
 LOINC:54112-8 | Family Member Cause of Death  
 Choices: 
 n/a  
@@ -1623,7 +1623,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  ">
 		<Question><TranslatedText>6.4.10 Family Member Cause of Death [ICD10CM]</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="loinc_92662_6" Name="loinc_92662_6" DataType="integer" Length="999" redcap:Variable="loinc_92662_6" redcap:FieldType="text" redcap:TextValidationType="int" redcap:FieldNote="Records the current age in full years of the selected family member. " redcap:BranchingLogic="[snomed_740604001] = &#039;snomed_373066001&#039;" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="loinc_92662_6" Name="loinc_92662_6" DataType="integer" Length="999" redcap:Variable="loinc_92662_6" redcap:FieldType="text" redcap:TextValidationType="int" redcap:FieldNote="Records the current age in full years of the selected family member. " redcap:BranchingLogic="[snomedct_740604001] = &#039;snomedct_373066001&#039;" redcap:FieldAnnotation="Variable: 
 LOINC:92662-6 | Family Member Deceased Age  
 Choices: 
 n/a  
@@ -1674,7 +1674,7 @@ Mapping:
 &lt;/div&gt;
 </redcap:FormattedTranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_309370004" Name="snomed_309370004" DataType="text" Length="24" redcap:Variable="snomed_309370004" redcap:FieldType="select" redcap:FieldNote="Indicates the current status of the consent." redcap:RequiredField="y" redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_309370004" Name="snomedct_309370004" DataType="text" Length="24" redcap:Variable="snomedct_309370004" redcap:FieldType="select" redcap:FieldNote="Indicates the current status of the consent." redcap:RequiredField="y" redcap:FieldAnnotation="Variable: 
 SNOMED:309370004 | Consent Status  
 Choices: 
 - HL7FHIR:draft | Pending  
@@ -1689,7 +1689,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: Consent.status  
 - GA4GH Phenopacket Schema v2.0 Element: n/a ">
 		<Question><TranslatedText>7.1 Consent Status</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_309370004.choices"/>
+		<CodeListRef CodeListOID="snomedct_309370004.choices"/>
 	</ItemDef>
 	<ItemDef OID="hl7fhir_consent_datetime" Name="hl7fhir_consent_datetime" DataType="date" Length="999" redcap:Variable="hl7fhir_consent_datetime" redcap:FieldType="text" redcap:TextValidationType="date_ymd" redcap:FieldNote="Records the date when the consent was given." redcap:FieldAnnotation="Variable: 
 HL7 FHIR:consent.datetime | Consent Date  
@@ -1702,7 +1702,7 @@ Mapping:
 - GA4GH Phenopacket Schema v2.0 Element: n/a  ">
 		<Question><TranslatedText>7.2 Consent Date</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="snomed_386318002" Name="snomed_386318002" DataType="text" Length="999" redcap:Variable="snomed_386318002" redcap:FieldType="text" redcap:FieldNote="The references to the policies that are included in this consent scope. Policies may be organisational, but are often defined jurisdictionally, or in law." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_386318002" Name="snomedct_386318002" DataType="text" Length="999" redcap:Variable="snomedct_386318002" redcap:FieldType="text" redcap:FieldNote="The references to the policies that are included in this consent scope. Policies may be organisational, but are often defined jurisdictionally, or in law." redcap:FieldAnnotation="Variable: 
 SNOMED:386318002 | Health Policy Monitoring  
 Choices: 
 n/a  
@@ -1746,7 +1746,7 @@ Mapping:
 of data</TranslatedText></Question>
 		<CodeListRef CodeListOID="rarelink_consent_data.choices"/>
 	</ItemDef>
-	<ItemDef OID="snomed_123038009" Name="snomed_123038009" DataType="text" Length="16" redcap:Variable="snomed_123038009" redcap:FieldType="select" redcap:FieldNote="Indicates whether a patient&#039;s biological sample is available for research." redcap:FieldAnnotation="Variable: 
+	<ItemDef OID="snomedct_123038009" Name="snomedct_123038009" DataType="text" Length="16" redcap:Variable="snomedct_123038009" redcap:FieldType="select" redcap:FieldNote="Indicates whether a patient&#039;s biological sample is available for research." redcap:FieldAnnotation="Variable: 
 SNOMED:123038009 | Biological sample  
 Choices: 
 - SNOMED:373066001 | Yes  
@@ -1758,7 +1758,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1: n/a  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  ">
 		<Question><TranslatedText>7.6 Biological sample</TranslatedText></Question>
-		<CodeListRef CodeListOID="snomed_123038009.choices"/>
+		<CodeListRef CodeListOID="snomedct_123038009.choices"/>
 	</ItemDef>
 	<ItemDef OID="rarelink_biobank_link" Name="rarelink_biobank_link" DataType="text" Length="999" redcap:Variable="rarelink_biobank_link" redcap:FieldType="text" redcap:FieldNote="If there is a biological sample, this data element indicates the link to the biobank of the patient&#039;s biological sample." redcap:FieldAnnotation="Variable: 
 RareLinkCode:biobank_link | Link to a biobank  
@@ -1813,65 +1813,65 @@ Mapping:
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_281053000.choices" Name="snomed_281053000" DataType="text" redcap:Variable="snomed_281053000">
-		<CodeListItem CodedValue="snomed_248152002"><Decode><TranslatedText>Female</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_248153007"><Decode><TranslatedText>Male</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_184115007"><Decode><TranslatedText>Patient sex unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_32570691000036108"><Decode><TranslatedText>Intersex</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_281053000.choices" Name="snomedct_281053000" DataType="text" redcap:Variable="snomedct_281053000">
+		<CodeListItem CodedValue="snomedct_248152002"><Decode><TranslatedText>Female</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_248153007"><Decode><TranslatedText>Male</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_184115007"><Decode><TranslatedText>Patient sex unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_32570691000036108"><Decode><TranslatedText>Intersex</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_1296886006.choices" Name="snomed_1296886006" DataType="text" redcap:Variable="snomed_1296886006">
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_734875008"><Decode><TranslatedText>XX</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_734876009"><Decode><TranslatedText>XY</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_80427008"><Decode><TranslatedText>X0</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_65162001"><Decode><TranslatedText>XXY</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_35111009"><Decode><TranslatedText>XXX</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_403760006"><Decode><TranslatedText>XXYY</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_78317008"><Decode><TranslatedText>XXXY</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_10567003"><Decode><TranslatedText>XXXX</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_48930007"><Decode><TranslatedText>XYY</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_74964007"><Decode><TranslatedText>Other</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_1296886006.choices" Name="snomedct_1296886006" DataType="text" redcap:Variable="snomedct_1296886006">
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_734875008"><Decode><TranslatedText>XX</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_734876009"><Decode><TranslatedText>XY</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_80427008"><Decode><TranslatedText>X0</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_65162001"><Decode><TranslatedText>XXY</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_35111009"><Decode><TranslatedText>XXX</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_403760006"><Decode><TranslatedText>XXYY</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_78317008"><Decode><TranslatedText>XXXY</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_10567003"><Decode><TranslatedText>XXXX</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_48930007"><Decode><TranslatedText>XYY</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_74964007"><Decode><TranslatedText>Other</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_263495000.choices" Name="snomed_263495000" DataType="text" redcap:Variable="snomed_263495000">
-		<CodeListItem CodedValue="snomed_446141000124107"><Decode><TranslatedText>Female gender identity</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_446151000124109"><Decode><TranslatedText>Male gender identity</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_394743007"><Decode><TranslatedText>Gender unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_33791000087105"><Decode><TranslatedText>Identifies as nonbinary gender</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_263495000.choices" Name="snomedct_263495000" DataType="text" redcap:Variable="snomedct_263495000">
+		<CodeListItem CodedValue="snomedct_446141000124107"><Decode><TranslatedText>Female gender identity</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_446151000124109"><Decode><TranslatedText>Male gender identity</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_394743007"><Decode><TranslatedText>Gender unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_33791000087105"><Decode><TranslatedText>Identifies as nonbinary gender</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_2_personal_information_complete.choices" Name="rarelink_2_personal_information_complete" DataType="text" redcap:Variable="rarelink_2_personal_information_complete">
 		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_278844005.choices" Name="snomed_278844005" DataType="text" redcap:Variable="snomed_278844005">
-		<CodeListItem CodedValue="snomed_438949009"><Decode><TranslatedText>Alive</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_419099009"><Decode><TranslatedText>Dead</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_399307001"><Decode><TranslatedText>Unknown - Lost in follow-up</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_185924006"><Decode><TranslatedText>Unknown - Opted-out</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown - Other Reason</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_278844005.choices" Name="snomedct_278844005" DataType="text" redcap:Variable="snomedct_278844005">
+		<CodeListItem CodedValue="snomedct_438949009"><Decode><TranslatedText>Alive</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_419099009"><Decode><TranslatedText>Dead</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_399307001"><Decode><TranslatedText>Unknown - Lost in follow-up</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_185924006"><Decode><TranslatedText>Unknown - Opted-out</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown - Other Reason</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_105727008.choices" Name="snomed_105727008" DataType="text" redcap:Variable="snomed_105727008">
-		<CodeListItem CodedValue="snomed_3658006"><Decode><TranslatedText>Infancy</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_713153009"><Decode><TranslatedText>Toddler</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_255398004"><Decode><TranslatedText>Childhood</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_263659003"><Decode><TranslatedText>Adolescence</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_41847000"><Decode><TranslatedText>Adulthood</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_303112003"><Decode><TranslatedText>Fetal period</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_419099009"><Decode><TranslatedText>Dead</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_105727008.choices" Name="snomedct_105727008" DataType="text" redcap:Variable="snomedct_105727008">
+		<CodeListItem CodedValue="snomedct_3658006"><Decode><TranslatedText>Infancy</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_713153009"><Decode><TranslatedText>Toddler</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_255398004"><Decode><TranslatedText>Childhood</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_263659003"><Decode><TranslatedText>Adolescence</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_41847000"><Decode><TranslatedText>Adulthood</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_303112003"><Decode><TranslatedText>Fetal period</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_419099009"><Decode><TranslatedText>Dead</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_723663001.choices" Name="snomed_723663001" DataType="text" redcap:Variable="snomed_723663001">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_723663001.choices" Name="snomedct_723663001" DataType="text" redcap:Variable="snomedct_723663001">
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_3_patient_status_complete.choices" Name="rarelink_3_patient_status_complete" DataType="text" redcap:Variable="rarelink_3_patient_status_complete">
 		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_305058001.choices" Name="snomed_305058001" DataType="text" redcap:Variable="snomed_305058001">
+	<CodeList OID="snomedct_305058001.choices" Name="snomedct_305058001" DataType="text" redcap:Variable="snomedct_305058001">
 		<CodeListItem CodedValue="hl7fhir_planned"><Decode><TranslatedText>Planned</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_arrived"><Decode><TranslatedText>Arrived</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_triaged"><Decode><TranslatedText>Triaged</TranslatedText></Decode></CodeListItem>
@@ -1890,7 +1890,7 @@ Mapping:
 		<CodeListItem CodedValue="hl7fhir_vr"><Decode><TranslatedText>Virtual</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_hh"><Decode><TranslatedText>Home Health</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="rarelink_rdc"><Decode><TranslatedText>RD Specialist Center</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_4_care_pathway_complete.choices" Name="rarelink_4_care_pathway_complete" DataType="text" redcap:Variable="rarelink_4_care_pathway_complete">
 		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
@@ -1912,19 +1912,19 @@ Mapping:
 		<CodeListItem CodedValue="hl7fhir_refuted"><Decode><TranslatedText>Refuted</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_entered-in-error"><Decode><TranslatedText>Entered in Error</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_424850005.choices" Name="snomed_424850005" DataType="text" redcap:Variable="snomed_424850005">
-		<CodeListItem CodedValue="snomed_118189007"><Decode><TranslatedText>Prenatal</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_3950001"><Decode><TranslatedText>Birth</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_410672004"><Decode><TranslatedText>Date</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_424850005.choices" Name="snomedct_424850005" DataType="text" redcap:Variable="snomedct_424850005">
+		<CodeListItem CodedValue="snomedct_118189007"><Decode><TranslatedText>Prenatal</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_3950001"><Decode><TranslatedText>Birth</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_410672004"><Decode><TranslatedText>Date</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_423493009.choices" Name="snomed_423493009" DataType="text" redcap:Variable="snomed_423493009">
-		<CodeListItem CodedValue="snomed_118189007"><Decode><TranslatedText>Prenatal</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_3950001"><Decode><TranslatedText>Birth</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_410672004"><Decode><TranslatedText>Date</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_423493009.choices" Name="snomedct_423493009" DataType="text" redcap:Variable="snomedct_423493009">
+		<CodeListItem CodedValue="snomedct_118189007"><Decode><TranslatedText>Prenatal</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_3950001"><Decode><TranslatedText>Birth</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_410672004"><Decode><TranslatedText>Date</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_263493007.choices" Name="snomed_263493007" DataType="text" redcap:Variable="snomed_263493007">
+	<CodeList OID="snomedct_263493007.choices" Name="snomedct_263493007" DataType="text" redcap:Variable="snomedct_263493007">
 		<CodeListItem CodedValue="hl7fhir_active"><Decode><TranslatedText>Active</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_recurrence"><Decode><TranslatedText>Recurrence</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_relapse"><Decode><TranslatedText>Relapse</TranslatedText></Decode></CodeListItem>
@@ -1932,10 +1932,10 @@ Mapping:
 		<CodeListItem CodedValue="hl7fhir_remission"><Decode><TranslatedText>Remission</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_resolved"><Decode><TranslatedText>Resolved</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_246112005.choices" Name="snomed_246112005" DataType="text" redcap:Variable="snomed_246112005">
-		<CodeListItem CodedValue="snomed_24484000"><Decode><TranslatedText>Severe</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_6736007"><Decode><TranslatedText>Moderate</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_255604002"><Decode><TranslatedText>Mild</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_246112005.choices" Name="snomedct_246112005" DataType="text" redcap:Variable="snomedct_246112005">
+		<CodeListItem CodedValue="snomedct_24484000"><Decode><TranslatedText>Severe</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_6736007"><Decode><TranslatedText>Moderate</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_255604002"><Decode><TranslatedText>Mild</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_5_disease_complete.choices" Name="rarelink_5_disease_complete" DataType="text" redcap:Variable="rarelink_5_disease_complete">
 		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
@@ -2045,9 +2045,9 @@ Mapping:
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_363778006.choices" Name="snomed_363778006" DataType="text" redcap:Variable="snomed_363778006">
-		<CodeListItem CodedValue="snomed_410605003"><Decode><TranslatedText>Confirmed present</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_723511001"><Decode><TranslatedText>Refuted</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_363778006.choices" Name="snomedct_363778006" DataType="text" redcap:Variable="snomedct_363778006">
+		<CodeListItem CodedValue="snomedct_410605003"><Decode><TranslatedText>Confirmed present</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_723511001"><Decode><TranslatedText>Refuted</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="hp_0003674.choices" Name="hp_0003674" DataType="text" redcap:Variable="hp_0003674">
 		<CodeListItem CodedValue="hp_0011460"><Decode><TranslatedText>Embryonal onset (0w-8w embryonal)</TranslatedText></Decode></CodeListItem>
@@ -2088,45 +2088,45 @@ Mapping:
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_64245008.choices" Name="snomed_64245008" DataType="text" redcap:Variable="snomed_64245008">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_64245008.choices" Name="snomedct_64245008" DataType="text" redcap:Variable="snomedct_64245008">
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_408732007.choices" Name="snomed_408732007" DataType="text" redcap:Variable="snomed_408732007">
-		<CodeListItem CodedValue="snomed_65656005"><Decode><TranslatedText>Natural mother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_9947008"><Decode><TranslatedText>Natural father</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_83420006"><Decode><TranslatedText>Natural daughter</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_113160008"><Decode><TranslatedText>Natural son</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_60614009"><Decode><TranslatedText>Natural brother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_73678001"><Decode><TranslatedText>Natural sister</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_11286003"><Decode><TranslatedText>Twin sibling</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_45929001"><Decode><TranslatedText>Half-brother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_2272004"><Decode><TranslatedText>Half-sister</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_62296006"><Decode><TranslatedText>Natural grandfather</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_17945006"><Decode><TranslatedText>Natural grandmother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_408732007.choices" Name="snomedct_408732007" DataType="text" redcap:Variable="snomedct_408732007">
+		<CodeListItem CodedValue="snomedct_65656005"><Decode><TranslatedText>Natural mother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_9947008"><Decode><TranslatedText>Natural father</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_83420006"><Decode><TranslatedText>Natural daughter</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_113160008"><Decode><TranslatedText>Natural son</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_60614009"><Decode><TranslatedText>Natural brother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_73678001"><Decode><TranslatedText>Natural sister</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_11286003"><Decode><TranslatedText>Twin sibling</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_45929001"><Decode><TranslatedText>Half-brother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_2272004"><Decode><TranslatedText>Half-sister</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_62296006"><Decode><TranslatedText>Natural grandfather</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_17945006"><Decode><TranslatedText>Natural grandmother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_842009.choices" Name="snomed_842009" DataType="text" redcap:Variable="snomed_842009">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_842009.choices" Name="snomedct_842009" DataType="text" redcap:Variable="snomedct_842009">
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_444018008.choices" Name="snomed_444018008" DataType="text" redcap:Variable="snomed_444018008">
-		<CodeListItem CodedValue="snomed_65656005"><Decode><TranslatedText>Natural mother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_9947008"><Decode><TranslatedText>Natural father</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_83420006"><Decode><TranslatedText>Natural daughter</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_113160008"><Decode><TranslatedText>Natural son</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_60614009"><Decode><TranslatedText>Natural brother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_73678001"><Decode><TranslatedText>Natural sister</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_11286003"><Decode><TranslatedText>Twin sibling</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_45929001"><Decode><TranslatedText>Half-brother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_2272004"><Decode><TranslatedText>Half-sister</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_62296006"><Decode><TranslatedText>Natural grandfather</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_17945006"><Decode><TranslatedText>Natural grandmother</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_444018008.choices" Name="snomedct_444018008" DataType="text" redcap:Variable="snomedct_444018008">
+		<CodeListItem CodedValue="snomedct_65656005"><Decode><TranslatedText>Natural mother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_9947008"><Decode><TranslatedText>Natural father</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_83420006"><Decode><TranslatedText>Natural daughter</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_113160008"><Decode><TranslatedText>Natural son</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_60614009"><Decode><TranslatedText>Natural brother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_73678001"><Decode><TranslatedText>Natural sister</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_11286003"><Decode><TranslatedText>Twin sibling</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_45929001"><Decode><TranslatedText>Half-brother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_2272004"><Decode><TranslatedText>Half-sister</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_62296006"><Decode><TranslatedText>Natural grandfather</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_17945006"><Decode><TranslatedText>Natural grandmother</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="hl7fhir_fmh_status.choices" Name="hl7fhir_fmh_status" DataType="text" redcap:Variable="hl7fhir_fmh_status">
 		<CodeListItem CodedValue="hl7fhir_partial"><Decode><TranslatedText>Partial</TranslatedText></Decode></CodeListItem>
@@ -2135,23 +2135,23 @@ Mapping:
 		<CodeListItem CodedValue="hl7fhir_health-unknown"><Decode><TranslatedText>Health Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="loinc_54123_5.choices" Name="loinc_54123_5" DataType="text" redcap:Variable="loinc_54123_5">
-		<CodeListItem CodedValue="snomed_248152002"><Decode><TranslatedText>Female</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_248153007"><Decode><TranslatedText>Male</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_184115007"><Decode><TranslatedText>Patient sex unknown</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_32570691000036108"><Decode><TranslatedText>Intersex</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_248152002"><Decode><TranslatedText>Female</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_248153007"><Decode><TranslatedText>Male</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_184115007"><Decode><TranslatedText>Patient sex unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_32570691000036108"><Decode><TranslatedText>Intersex</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_1220561009"><Decode><TranslatedText>Not recorded</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_740604001.choices" Name="snomed_740604001" DataType="text" redcap:Variable="snomed_740604001">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_740604001.choices" Name="snomedct_740604001" DataType="text" redcap:Variable="snomedct_740604001">
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_6_4_family_history_complete.choices" Name="rarelink_6_4_family_history_complete" DataType="text" redcap:Variable="rarelink_6_4_family_history_complete">
 		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_309370004.choices" Name="snomed_309370004" DataType="text" redcap:Variable="snomed_309370004">
+	<CodeList OID="snomedct_309370004.choices" Name="snomedct_309370004" DataType="text" redcap:Variable="snomedct_309370004">
 		<CodeListItem CodedValue="hl7fhir_draft"><Decode><TranslatedText>Pending</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_proposed"><Decode><TranslatedText>Proposed</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue="hl7fhir_active"><Decode><TranslatedText>Active</TranslatedText></Decode></CodeListItem>
@@ -2160,21 +2160,21 @@ Mapping:
 		<CodeListItem CodedValue="hl7fhir_entered-in-error"><Decode><TranslatedText>Entered in Error</TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_consent_contact.choices" Name="rarelink_consent_contact" DataType="text" redcap:Variable="rarelink_consent_contact">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue=""><Decode><TranslatedText></TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_consent_data.choices" Name="rarelink_consent_data" DataType="text" redcap:Variable="rarelink_consent_data">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue=""><Decode><TranslatedText></TranslatedText></Decode></CodeListItem>
 	</CodeList>
-	<CodeList OID="snomed_123038009.choices" Name="snomed_123038009" DataType="text" redcap:Variable="snomed_123038009">
-		<CodeListItem CodedValue="snomed_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
-		<CodeListItem CodedValue="snomed_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
+	<CodeList OID="snomedct_123038009.choices" Name="snomedct_123038009" DataType="text" redcap:Variable="snomedct_123038009">
+		<CodeListItem CodedValue="snomedct_373066001"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_373067005"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="snomedct_261665006"><Decode><TranslatedText>Unknown</TranslatedText></Decode></CodeListItem>
 		<CodeListItem CodedValue=""><Decode><TranslatedText></TranslatedText></Decode></CodeListItem>
 	</CodeList>
 	<CodeList OID="rarelink_7_consent_complete.choices" Name="rarelink_7_consent_complete" DataType="text" redcap:Variable="rarelink_7_consent_complete">

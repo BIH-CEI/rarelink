@@ -133,12 +133,13 @@ def app():
         ENV_PATH.touch()
 
     try:
+        # Save values to the .env file, ensuring they are stored as strings
         write_env_file(ENV_PATH, "BIOPORTAL_API_TOKEN", bioportal_api_token)
         write_env_file(ENV_PATH, "REDCAP_URL", redcap_url)
         write_env_file(ENV_PATH, "REDCAP_PROJECT_ID", redcap_project_id)
-        write_env_file(ENV_PATH, "REDCAP_PROJECT_NAME", redcap_project_name)
+        write_env_file(ENV_PATH, "REDCAP_PROJECT_NAME", f'"{redcap_project_name}"')  # Ensure it's treated as a string
         write_env_file(ENV_PATH, "REDCAP_API_TOKEN", redcap_api_token)
-        write_env_file(ENV_PATH, "CREATED_BY", created_by)
+        write_env_file(ENV_PATH, "CREATED_BY", f'"{created_by}"')  # Ensure it's treated as a string
         success_text(
             f"✅ API keys and configurations have been saved to {ENV_PATH}.")
     except Exception as e:

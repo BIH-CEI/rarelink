@@ -9,8 +9,8 @@ FormalCriteria schema defined in the RareLink-CDM LinkML model.
 from rarelink.utils.mapping import map_entry
 
 FIELD_MAPPINGS = {
-    "snomed_422549004": "snomed_422549004",
-    "snomed_399423000": "snomed_399423000",
+    "snomedct_422549004": "snomedct_422549004",
+    "snomedct_399423000": "snomedct_399423000",
     "rarelink_1_formal_criteria_complete": "rarelink_1_formal_criteria_complete",
 }
 

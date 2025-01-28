@@ -6,17 +6,17 @@ LinkML schema, to fetch the label for writing Phenopackets.
 
 label_dicts = {
     "GenderIdentity": {
-        "snomed_446141000124107": "Female gender identity",
-        "snomed_446151000124109": "Male gender identity",
-        "snomed_394743007": "Gender unknown",
-        "snomed_33791000087105": "Identifies as nonbinary gender",
-        "snomed_1220561009": "Not recorded",
+        "snomedct_446141000124107": "Female gender identity",
+        "snomedct_446151000124109": "Male gender identity",
+        "snomedct_394743007": "Gender unknown",
+        "snomedct_33791000087105": "Identifies as nonbinary gender",
+        "snomedct_1220561009": "Not recorded",
     },
     "AgeAtOnset": {
-        "snomed_118189007": "Prenatal",
-        "snomed_3950001": "Birth",
-        "snomed_410672004": "Date",
-        "snomed_261665006": "Unknown",
+        "snomedct_118189007": "Prenatal",
+        "snomedct_3950001": "Birth",
+        "snomedct_410672004": "Date",
+        "snomedct_261665006": "Unknown",
     },
     "Zygosity": {
         "loinc_53034_5_other": "Other",
