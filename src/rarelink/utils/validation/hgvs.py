@@ -46,11 +46,16 @@ def validate_and_encode_hgvs(data, transcript_key=None):
                 transcript, hgvs_string = hgvs_string.split(":", 1)
 
             try:
+
                 # Attempt validation
                 validator.encode_hgvs(hgvs_string, custom_transcript=transcript)
                 success_text(f"✅ Validation succeeded for {original_hgvs_string}")
             except Exception as e:
                 error_text(f"⚠️ Validation failed for {original_hgvs_string}: {e}")
+                typer.echo(
+                    f"Tried to validate this HGVS string for {variable}: {hgvs_string} "
+                    f"with transcript: {transcript} and genome build: {genome_build}"
+                )
         else:
             continue
 
