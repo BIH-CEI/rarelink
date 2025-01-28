@@ -9,7 +9,6 @@ from rarelink.cli.utils.terminal_utils import (
 from rarelink.cli.utils.string_utils import (
     success_text,
     error_text,
-    hint_text,
     format_command,
     format_header
 )
