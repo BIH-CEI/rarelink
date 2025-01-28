@@ -1,5 +1,6 @@
 import json
 import requests
+import tempfile
 import typer
 from pathlib import Path
 from dotenv import dotenv_values
@@ -14,30 +15,37 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
+from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.cli.utils.logging_utils import setup_logger
+from rarelink.utils.validation import validate_linkml_data
+from rarelink.utils.processing.schemas import linkml_to_redcap  # Adjust the import to the correct module
+from rarelink_cdm.v2_0_0_dev0.mappings.redcap import MAPPING_FUNCTIONS
 import logging
 
+# Initialize logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 app = typer.Typer()
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")  # Path to your .env file
+BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml"
 
-# REDCap API configuration from environment
+# Define the function to upload records to REDCap
 @app.command()
 def app(input_file: Path = None):
     """
-    Upload a JSON file to REDCap.
+    Upload a validated LinkML JSON file to REDCap after transforming it to the appropriate format.
 
     Args:
-        input_file (Path): Path to the JSON file containing records to upload.
+        input_file (Path): Path to the JSON file containing LinkML records to upload.
     """
     format_header("Upload Records to REDCap")
 
     # If no input file is provided, prompt the user to enter one
     if input_file is None:
-        input_file = Path(typer.prompt("Enter the path to the JSON file containing records"))
+        input_file = Path(typer.prompt("Enter the path to the JSON file containing LinkML records"))
 
     # Validate required environment variables
     validate_env(["REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_NAME"])
@@ -69,8 +77,49 @@ def app(input_file: Path = None):
         error_text(f"❌ Error reading JSON file: {e}")
         raise typer.Exit(1)
 
+    # Step 1: Validate LinkML data
+    typer.echo("🔄 Validating LinkML data before transformation...")
+    
+    # Step 1a: Write records to a temporary file
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.json') as temp_file:
+            json.dump(records, temp_file, indent=2)
+            temp_file_path = temp_file.name
+        
+        # Validate using the temporary file
+        if not validate_linkml_data(BASE_SCHEMA_PATH, Path(temp_file_path)):
+            error_text("❌ Validation of LinkML data failed.")
+            raise typer.Exit(1)
+        
+        success_text("✅ Validation successful!")
+    except Exception as e:
+        error_text(f"❌ Validation failed: {e}")
+        raise typer.Exit(1)
+    
+    # Step 2: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
+    # Define the output processed file path (with project name)
+    sanitized_project_name = project_name.replace(" ", "_")
+    processed_file = Path(DEFAULT_OUTPUT_DIR) / f"{sanitized_project_name}-import-records.json"
+
+    try:
+        # Pass the records and MAPPING_FUNCTIONS to the transformation function
+        # The function now writes the transformed data to the processed_file internally
+        linkml_to_redcap(records, processed_file, MAPPING_FUNCTIONS)
+    except Exception as e:
+        error_text(f"❌ Error in transformation: {e}")
+        raise typer.Exit(1)
+
+    # Read the processed file to prepare for upload
+    try:
+        with open(processed_file, 'r') as file:
+            flat_records = json.load(file)
+        typer.echo(f"✅ Successfully read {len(flat_records)} instances from {processed_file}")
+    except Exception as e:
+        error_text(f"❌ Error reading processed file: {e}")
+        raise typer.Exit(1)
+
     # Prepare data to upload to REDCap
-    data = json.dumps(records)
+    data = json.dumps(flat_records)
     fields = {
         'token': api_token,
         'content': 'record',
@@ -85,12 +134,12 @@ def app(input_file: Path = None):
 
     try:
         # Make the API request to upload the records
-        typer.echo(f"🔄 Uploading {len(records)} instances to REDCap project '{project_name}'...")
+        typer.echo(f"🔄 Uploading {len(flat_records)} instances to REDCap project '{project_name}'...")
         r = requests.post(api_url, data=fields)
         
         # Check the response status
         if r.status_code == 200:
-            typer.echo(f"✅ Successfully uploaded {len(records)} instances.")
+            typer.echo(f"✅ Successfully uploaded {len(flat_records)} instances.")
             success_text(f"Response: {r.text}")
         else:
             typer.echo(f"❌ Failed to upload records. HTTP Status: {r.status_code}")
@@ -102,7 +151,6 @@ def app(input_file: Path = None):
         raise typer.Exit(1)
 
     end_of_section_separator()
-
 
 if __name__ == "__main__":
     app()
