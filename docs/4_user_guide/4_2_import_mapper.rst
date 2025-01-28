@@ -28,8 +28,8 @@ ________________________________________________________________________________
 RareLink-CDM LinkML
 -------------------
 
-In this seciton :ref:`rarelink_cdm_linkml` we elaborate on the development of the
-RareLink-CDM LinkML schema, how it is designed and where it can be found. 
+In this seciton :ref:`rarelink_cdm_linkml` we elaborate on the development of 
+the RareLink-CDM LinkML schema, how it is designed and where it can be found. 
 This schema is the basis for REDCap data to be converted to and validated 
 against when running ``rarelink redcap export-records``. It was designed to be
 light-weight and as close as possible to the original REDCap data model so that
@@ -52,7 +52,6 @@ by using the relevant Python Packages.
 .. note:: 
     Feel free to :ref:`12` us in case you would like to be connected to the LinkML 
     community or our colleagues from the `Monarch Initiative <https://monarchinitiative.org/>`_.
-
 
 ____________________________________________________________________________________
 

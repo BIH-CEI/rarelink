@@ -70,17 +70,27 @@ def app(input_file: Path = typer.Option(
     # Step 1: Validate LinkML data
     typer.echo("🔄 Validating LinkML data before transformation...")
     if not validate_linkml_data(BASE_SCHEMA_PATH, input_file):
-        error_text("❌ Validation of LinkML data failed.")
+        error_text(f"❌ Validation of LinkML data failed. Please run "
+                   f"{format_command("`linkml-validate --schema src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details")} ")
         raise typer.Exit(1)
     
     success_text("✅ Validation successful!")
 
-    # Step 2: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
+    # Step 2: Count `record_id` instances in the input file
+    try:
+        with open(input_file, 'r') as file:
+            input_data = json.load(file)
+        record_id_count = len(input_data)
+    except Exception as e:
+        error_text(f"❌ Error reading input file: {e}")
+        raise typer.Exit(1)
+
+    # Step 3: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
     processed_file = DEFAULT_OUTPUT_DIR / f"{
         project_name.replace(' ', '_')}-import-records.json"
     template_path = "src/rarelink_cdm/v2_0_0_dev0/mappings/redcap/template.json"
     
-        # Load the template into a dictionary
+    # Load the template into a dictionary
     try:
         with open(template_path, 'r') as template_file:
             template_dict = json.load(template_file)
@@ -93,17 +103,17 @@ def app(input_file: Path = typer.Option(
                      template_dict, 
                      REVERSE_PROCESSING)
 
-    # Step 3: Read the processed file to prepare for upload
+    # Step 4: Read the processed file to prepare for upload
     try:
         with open(processed_file, 'r') as file:
             flat_records = json.load(file)
-        typer.echo(f"✅ Successfully read {len(flat_records)} "
-                   f"instances from {processed_file}")
+        typer.echo(f"✅ Processed file contains {record_id_count} flattened records "
+                   f"for upload to REDCap.")
     except Exception as e:
         error_text(f"❌ Error reading processed file: {e}")
         raise typer.Exit(1)
 
-    # Step 4: Prepare data to upload to REDCap
+    # Step 5: Prepare data to upload to REDCap
     data = json.dumps(flat_records)
     fields = {
         'token': api_token,
@@ -115,12 +125,12 @@ def app(input_file: Path = typer.Option(
 
     # Make the API request to upload the records
     try:
-        typer.echo(f"🔄 Uploading {len(flat_records)} instances to "
+        typer.echo(f"🔄 Uploading {record_id_count} records to "
                    f"REDCap project '{project_name}'...")
         response = requests.post(api_url, data=fields)
         if response.status_code == 200:
             success_text(
-                f"✅ Successfully uploaded {len(flat_records)} instances.")
+                f"✅ Successfully uploaded {record_id_count} records.")
         else:
             error_text(f"❌ Failed to upload records. HTTP Status: "
                        f"{response.status_code} - Error response: "
@@ -131,6 +141,3 @@ def app(input_file: Path = typer.Option(
         raise typer.Exit(1)
 
     end_of_section_separator()
-
-if __name__ == "__main__":
-    app()

@@ -180,11 +180,16 @@ RareLink-CDM Instruments
 -------------------------
 
 The RareLink-CDM instruments translate the `ontology-based Rare Disease Common Data Model (RD-CDM) <https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html>`_
-into REDCap instruments, ensuring usability for registry implementation while 
-aligning with the `HL7 FHIR International Patient Summary (IPS) <https://build.fhir.org/ig/HL7/fhir-ips/>`_
-and the `GA4GH Phenopacket Schema <https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html>`_.
-Each instrument corresponds to a specific section of the RD-CDM and has been 
-adapted for REDCap's technical requirements.
+into REDCap instruments. Slight adjustments to the RD-CDM were made to comply 
+with REDCap's :ref:`rule_set`, the data dictionary requirements and to ensure
+alignment with:
+
+- international registries (e.g., the `European Rare Disease Registry Infrastructure (ERDRI) <https://eu-rd-platform.jrc.ec.europa.eu/erdri-description_en>`_),
+- the `HL7 FHIR International Patient Summary (IPS) <https://build.fhir.org/ig/HL7/fhir-ips/>`_,
+- & the `GA4GH Phenopacket Schema <https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html>`_.
+
+Each instrument corresponds to a specific section of the RD-CDM and its 
+adpations are described in the section below for each section: 
 
 - :ref:`formal-criteria`
 - :ref:`personal-information`
@@ -200,228 +205,813 @@ adapted for REDCap's technical requirements.
 
 Return to `Top <#top>`_.
 
-.. note:: 
-    to be implemented.
+.. tip:: 
+  When capturing data manually in you REDCap project, we recommend using the 
+  :ref:`4_1`! The information below rather details the structure of the :ref:`1_5`
+  within REDCap (i.e. therefore as the RareLink-CDM).
+
+_____________________________________________________________________________________
+
+Legend: Structure of the Schema below
+"""""""""""""""""""""""""""""""""""""""
+
+Each instrument follows a consistent format for documentation and representation
+ of variables. Below is an explanation of the sections and terms used:
+
+**Instrument Header**
+
+Each instrument begins with:
+- **Title**: The name of the instrument and its corresponding REDCap identifier 
+  in parentheses (e.g., ``rarelink_1_formal_criteria``).
+- **Purpose**: A brief description of the instrument's objective.
+- **Sheet type**: Indicates whether the instrument is a **Single-Entry Form** 
+  (used once per individual) or a **Repeating Form** (used multiple times per 
+  individual).
+
+**Variables & Adjustments**
+
+Each variable is documented with the following attributes:
+
+1. **Variable Name and Description**:
+
+   - Listed with its sequence number and corresponding identifier 
+     (e.g., 1.1 Pseudonym (``snomedct_422549004)``).
+   - Includes a brief explanation of the variable's purpose, if necessary.
+
+2. **Cardinality**:
+
+   - Specifies whether the variable is **Required** or **Optional** and its occurrence 
+     (e.g., ``1..1`` for exactly one occurrence).
+
+3. **Validation**:
+
+   - Describes the expected format or encoding for the variable 
+     (e.g., **Free Text**, **Dropdown (choices encoded according to ref:`1_5`)**, 
+     or specific ontology references like ``BIOPORTAL:MONDO``).
+
+_____________________________________________________________________________________
 
 .. _formal-criteria:
 
-(1) Formal Criteria
-_____________________
+(1) Formal Criteria (``rarelink_1_formal_criteria``)
+______________________________________________________
 
 **Purpose**: Captures eligibility and registration information for individuals.
+**Sheet type**: Single-Entry Form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- 1.1 Pseudonym (``snomedct_422549004``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Cardinality: Required (1..1)
+  - Validation: Free Text
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 1.2 Date of Admission (``snomedct_399423000``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Date format (YYYY-MM-DD)
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _personal-information:
 
-(2) Personal Information
-__________________________
+(2) Personal Information (``rarelink_2_personal_information``)
+______________________________________________________________
 
-**Purpose**: Records demographic and personal data.
+**Purpose**: Captures demographic and personal details of individuals.
+**Sheet type**: Single-Entry Form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- 2.1 Date of Birth (``snomedct_184099003``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Cardinality: Required (1..1)
+  - Validation: Date format (YYYY-MM-DD)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 2.2 Sex at Birth (``snomedct_281053000``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 2.3 Karyotypic Sex (``snomedct_1296886006``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 2.4 Gender Identity (``snomedct_263495000``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 2.5 Country of Birth (``snomedct_370159000``)
+
+  - Cardinality: Optional
+  - Validation: Free Text
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _patient-status:
 
-(3) Patient Status
-____________________
+(3) Patient Status (``rarelink_3_patient_status``)
+____________________________________________________
 
 **Purpose**: Tracks changes in patient conditions over time.
+**Sheet type**: Repeating form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- Date of Completion for the Sheet (``patient_status_date``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Novel Variable: Date of completion for the sheet
+  - Cardinality: Required (1..1)
+  - Validation: Date format (YYYY-MM-DD)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 3.1 Vital Status (``snomedct_278844005``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 3.2 Time of Death (``snomedct_398299004``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 3.3 Cause of Death [ICD10CM] (``snomedct_184305005``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:ICD10CM`
+
+- 3.4 Age Category (``snomedct_105727008``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 3.5 Length of Gestation at Birth [weeks+days] (``snomedct_412726003``)
+
+  - Cardinality: Optional
+  - Validation: Free Text
+
+- 3.6 Undiagnosed RD Case (``snomedct_723663001``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _care-pathway:
 
-(4) Care Pathway
-__________________
+(4) Care Pathway (``rarelink_4_care_pathway``)
+____________________________________________________
 
-**Purpose**: Logs encounter-specific data.
+**Purpose**: Tracks details of individual encounters in the care pathway.
+**Sheet type**: Repeating form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- 4.1 Encounter Start (``hl7fhir_enc_period_start``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 4.2 Encounter End (``hl7fhir_enc_period_end``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 4.3 Encounter Status (``snomedct_305058001``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 4.4 Encounter Class (``hl7fhir_encounter_class``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _disease:
 
-(5) Disease
-____________
+(5) Disease (``rarelink_5_disease``)
+____________________________________________________
 
-**Purpose**: Details disease history and ontology mappings.
+**Purpose**: Captures detailed information about the diseases affecting 
+individuals.
+**Sheet type**: Repeating form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- Disease Coding (``disease_coding``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Novel Variable: Selection of code system for disease information (only one 
+    code system allowed per disease entry. We recommend using MONDO).
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+**Disease Information (Grouped Fields)**:
+
+The following fields capture the disease information using different encoding systems. The relevant field depends on the choice made in ``disease_coding``:
+
+- 5.1 Disease [MONDO] (``snomedct_64572001_mondo``)
+
+  - Cardinality: Required (1..1) if ``disease_coding`` = 'mondo'
+  - Validation: `BIOPORTAL:MONDO`
+
+- 5.1 Disease [ORDO] (``snomedct_64572001_ordo``)
+
+  - Cardinality: Required (1..1) if ``disease_coding`` = 'ordo'
+  - Validation: `BIOPORTAL:ORDO`
+
+- 5.1 Disease [ICD10CM] (``snomedct_64572001_icd10cm``)
+
+  - Cardinality: Required (1..1) if ``disease_coding`` = 'icd10cm'
+  - Validation: `BIOPORTAL:ICD10CM`
+
+- 5.1 Disease [ICD11] (``snomedct_64572001_icd11``)
+
+  - Cardinality: Required (1..1) if ``disease_coding`` = 'icd11'
+  - Validation: Free Text (`BIOPORTAL does not support ICD11 yet`)
+
+- 5.1 Disease [OMIM_P] (``snomedct_64572001_omim_p``)
+
+  - Cardinality: Required (1..1) if ``disease_coding`` = 'omim'
+  - Validation: `BIOPORTAL:OMIM`
+
+**Additional Fields**:
+
+- 5.2 Verification Status (``loinc_99498_8``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 5.3 Age at Onset (``snomedct_424850005``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 5.4 Date of Onset (``snomedct_298059007``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 5.5 Age at Diagnosis (``snomedct_423493009``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 5.6 Date of Diagnosis (``snomedct_432213005``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 5.7 Body Site [SNOMED CT] (``snomedct_363698007``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:SNOMEDCT`
+
+- 5.8 Clinical Status (``snomedct_263493007``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 5.9 Disease Severity (``snomedct_246112005``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _genetic-findings:
 
-(6.1) Genetic Findings
-_________________________
+(6.1) Genetic Findings (``rarelink_6_1_genetic_findings``)
+____________________________________________________
 
-**Purpose**: Captures genetic variant information.
+**Purpose**: Captures information about genetic variants and their clinical significance.
+**Sheet type**: Repeating form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- Genetic Diagnosis Code (``genetic_diagnosis_code``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Novel Variable: Allows the user to choose the corresponding code system for 
+    a genetic diagnosis related to the variant.
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+**Genomic Diagnosis (Grouped Fields)**:
+
+The following fields capture the genomic diagnosis using different code systems.
+The relevant field depends on the choice made in ``genetic_diagnosis_code``:
+
+- 6.1.1 Genomic Diagnosis [MONDO] (``snomedct_106221001_mondo``)
+
+  - Cardinality: Required (1..1) if ``genetic_diagnosis_code`` = 'mondo'
+  - Validation: `BIOPORTAL:MONDO`
+
+- 6.1.1 Genomic Diagnosis [OMIM_p] (``snomedct_106221001_omim_p``)
+
+  - Cardinality: Required (1..1) if ``genetic_diagnosis_code`` = 'omim'
+  - Validation: `BIOPORTAL:OMIM`
+
+**Variant Information**:
+
+- 6.1.2 Progress Status of Interpretation (``ga4gh_progress_status``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.3 Interpretation Status (``ga4gh_interp_status``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.4 Structural Variant Analysis Method (``loinc_81304_8``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.5 Reference Genome (``loinc_62374_4``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.6 Genetic Mutation String (``loinc_lp7824_8``)
+
+  - Cardinality: Optional
+  - Validation: Free Text
+
+**HGVS Variant Information**:
+
+- Variant Expression (``variant_expression``)
+
+  - Novel Variable: Ensures users select the type of validated HGVS expression.
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices: g.HGVS, c.HGVS, p.HGVS)
+
+- 6.1.7 Genomic DNA Change [g.HGVS] (``loinc_81290_9``)
+
+  - Cardinality: Required (1..1) if ``variant_expression`` = 'ghgvs'
+  - Validation: Free Text
+
+- 6.1.8 Sequence DNA Change [c.HGVS] (``loinc_48004_6``)
+
+  - Cardinality: Required (1..1) if ``variant_expression`` = 'chgvs'
+  - Validation: Free Text
+
+- 6.1.9 Amino Acid Change [p.HGVS] (``loinc_48005_3``)
+
+  - Cardinality: Required (1..1) if ``variant_expression`` = 'phgvs'
+  - Validation: Free Text
+
+- Variant Validation (``variant_validation``)
+
+  - Novel Variable: Ensures users confirm that HGVS expressions were validated using the variant validator.
+  - Cardinality: Required if any HGVS field is filled.
+  - Validation: Radio (Yes/No)
+
+**Variant Information**:
+
+- 6.1.10 Gene [HGNC-NR] (``loinc_48018_6``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:HGNC-NR`
+
+- 6.1.11 Zygosity (``loinc_53034_5``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.11A Zygosity - Other [LOINC] (``loinc_53034_5_other``)
+
+  - Cardinality: Required (1..1) if ``loinc_53034_5`` = 'Other'
+  - Validation: `BIOPORTAL:LOINC`
+
+- 6.1.12 Genomic Source Class (``loinc_48002_0``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.13 DNA Change Type (``loinc_48019_4``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.13A DNA Change Type - Other [LOINC] (``loinc_48019_4_other``)
+
+  - Cardinality: Required (1..1) if ``loinc_48019_4`` = 'Other'
+  - Validation: `BIOPORTAL:LOINC`
+
+- 6.1.14 Clinical Significance [ACMG] (``loinc_53037_8``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.15 Therapeutic Actionability (``ga4gh_therap_action``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.1.16 Clinical Annotation Level Of Evidence (``loinc_93044_6``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _phenotypic-features:
 
-(6.2) Phenotypic Features
-__________________________
+(6.2) Phenotypic Feature (``rarelink_6_2_phenotypic_feature``)
+______________________________________________________________
 
-**Purpose**: Encodes phenotypes and their modifiers.
+**Purpose**: Captures observed physical and clinical characteristics using 
+standardized terminologies.
+**Sheet type**: Repeating form
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
+- 6.2.1 Phenotypic Feature (``snomedct_8116006``)
 
-- **Simplified Field Names**: Shortened and formatted for REDCap constraints:
+  - Cardinality: Required (1..1)
+  - Validation: `BIOPORTAL:HP`
 
-  - `snomedct_439272007_704321009_363778006` -> `snomedct_8116006_date`
-  - `ga4gh_phenotypicfeature_excluded` -> `ga4gh_pheno_excluded`
+- 6.2.2 Status (``snomedct_363778006``)
 
-- **Modifiers Grouping**: Introduced consistent naming for modifiers:
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-  - HPO Modifiers:
+- 6.2.3 Determination Date (``snomedct_8116006_onset``)
 
-    - `ga4gh_phenotypicfeature_modifier_hp_1` -> `ga4gh_pheno_mod_hp1`
-    - `ga4gh_phenotypicfeature_modifier_hp_2` -> `ga4gh_pheno_mod_hp2`
-    - `ga4gh_phenotypicfeature_modifier_hp_3` -> `ga4gh_pheno_mod_hp3`
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
 
-  - NCBITaxon Modifiers:
+- 6.2.4 Resolution Date (``snomedct_8116006_resolut``)
 
-    - `ga4gh_phenotypicfeature_modifier_ncbitaxon_1` -> `ga4gh_pheno_mod_ncbitax1`
-    - `ga4gh_phenotypicfeature_modifier_ncbitaxon_2` -> `ga4gh_pheno_mod_ncbitax2`
-    - `ga4gh_phenotypicfeature_modifier_ncbitaxon_3` -> `ga4gh_pheno_mod_ncbitax3`
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
 
-  - SNOMED Modifiers:
+- 6.2.5 Age of Onset (``hp_0003674``)
 
-    - `ga4gh_phenotypicfeature_modifier_snomedct_1` -> `ga4gh_pheno_mod_snomed1`
-    - `ga4gh_phenotypicfeature_modifier_snomedct_2` -> `ga4gh_pheno_mod_snomed2`
-    - `ga4gh_phenotypicfeature_modifier_snomedct_3` -> `ga4gh_pheno_mod_snomed3`
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-**Adjustments from the RD-CDM**:
+- 6.2.6 Temporal Pattern (``hp_0011008``)
 
-- [Insert Adjustments from the RD-CDM Here]
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 6.2.7 Phenotype Severity (``hp_0012824``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.2.9 Evidence for the phenotype [ECO] (``phenotypicfeature_evidence``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:ECO`
+
+**Clinical Modifiers adjustments**:
+
+The following fields capture clinical modifiers for a specific phenotypic 
+feature that were defined within the RareLink-CDM - based on the general 
+corresponding :ref:`1_5` field: 
+
+- 6.2.8A Clinical Modifier [HP] (``hp_0012823_hp1``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:HP`
+
+- 6.2.8B Clinical Modifier [HP] (``hp_0012823_hp2``)
+
+  - Cardinality: Optional (Required if ``hp_0012823_hp1`` is filled)
+  - Validation: `BIOPORTAL:HP`
+
+- 6.2.8C Clinical Modifier [HP] (``hp_0012823_hp3``)
+
+  - Cardinality: Optional (Required if ``hp_0012823_hp2`` is filled)
+  - Validation: `BIOPORTAL:HP`
+
+- 6.2.8D If applicable, what was the causing organism? [NCBITAXON] 
+  (``hp_0012823_ncbitaxon``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:NCBITAXON`
+
+- 6.2.8E If applicable, what was the primary body site? [SNOMED] 
+  (``hp_0012823_snomed``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:SNOMEDCT`
+  
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
+
 
 .. _measurements:
 
-(6.3) Measurements
-____________________
+(6.3) Measurements (``rarelink_6_3_measurements``)
+____________________________________________________
 
-**Purpose**: Records clinical and laboratory data.
+**Purpose**: Captures various types of measurements including vital signs, laboratory tests, imaging, procedures, and more, aligned with IPS and Phenopackets profiles.
+**Sheet type**: Repeating form
+**Key Adjustments**:
 
-**Core Variables**:
-- [Insert Core Variables Here]
+1. **Vital Signs Panel**: Added ``6.3.1A Vital Signs Panel`` and 
+   ``6.3.1A Other Vital Sign`` to align with the IPS vital status profile.
+2. **Procedure-Specific Fields**: Integrated ``Procedure as NCIT or SNOMED?`` 
+   and related fields for ``NCIT`` and ``SNOMED`` procedures to support IPS 
+   procedure profiles.
+3. **Complex Logic**: Highlighted branching logic based on 
+   ``measurement_category`` to handle vital signs, laboratory, imaging, 
+   procedures, and other measurement types.
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+**Variables & Adjustments**:
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+- 6.3.0A Category (``measurement_category``)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.3.0B Status (``measurement_status``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+**Vital Signs**:
+
+- 6.3.1A Vital Signs Panel (``ln_85353_1``)
+
+  - Cardinality: Optional (if ``measurement_category`` = "vital-signs")
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.3.1A Other Vital Sign (``ln_85353_1_other``)
+
+  - Cardinality: Optional (Required if ``ln_85353_1`` = "other")
+  - Validation: `BIOPORTAL:LOINC`
+
+**Measurement Details**:
+
+- 6.3.1 Assay (``ncit_c60819``)
+
+  - Cardinality: Optional (if ``measurement_category`` ≠ "vital-signs" and ≠ "procedure")
+  - Validation: `BIOPORTAL:LOINC`
+
+- 6.3.2 Value (``ncit_c25712``)
+
+  - Cardinality: Optional (if ``measurement_category`` ≠ "procedure")
+  - Validation: Decimal number (e.g., 0.00–999999.99)
+
+- 6.3.3 Value Unit (``ncit_c92571``)
+
+  - Cardinality: Optional (if ``measurement_category`` ≠ "vital-signs" or ``ln_85353_1_other`` is filled, and ≠ "procedure")
+  - Validation: `BIOPORTAL:UO`
+
+- 6.3.4 Interpretation (``ncit_c41255``)
+
+  - Cardinality: Optional (if ``measurement_category`` ≠ "procedure")
+  - Validation: `BIOPORTAL:NCIT`
+
+- 6.3.5 Time Observed (``ncit_c82577``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Date format (YYYY-MM-DD)
+
+**Procedure-Specific Fields**:
+
+- Procedure as NCIT or SNOMED? (``procedure``)
+
+  - Cardinality: Optional (if ``measurement_category`` = "procedure")
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.3.6A Procedure [NCIT] (``snomedct_122869004_ncit``)
+
+  - Cardinality: Optional (if ``procedure`` = "ncit")
+  - Validation: `BIOPORTAL:NCIT`
+
+- 6.3.6B Procedure [SNOMED] (``snomedct_122869004_snomed``)
+
+  - Cardinality: Optional (if ``procedure`` = "snomed")
+  - Validation: `BIOPORTAL:SNOMEDCT`
+
+- 6.3.7 Procedure [SNOMED] (``snomedct_122869004``)
+
+  - Cardinality: Required (1..1, if ``measurement_category`` = "procedure")
+  - Validation: `BIOPORTAL:SNOMEDCT`
+
+- 6.3.7A Body Site [SNOMED] (``snomedct_122869004_bdsite``)
+
+  - Cardinality: Optional (if ``measurement_category`` = "procedure")
+  - Validation: `BIOPORTAL:SNOMEDCT`
+
+- 6.3.7B Procedure Status [SNOMED] (``snomedct_122869004_status``)
+
+  - Cardinality: Required (1..1, if ``measurement_category`` = "procedure")
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
+
 
 .. _family-history:
 
-(6.4) Family History
-______________________
+(6.4) Family History (``rarelink_6_4_family_history``)
+____________________________________________________
 
-**Purpose**: Details familial relationships and genetic predispositions.
+**Purpose**: Captures family history details of the individual, including relationships, health statuses, and genetic information.
+**Sheet type**: Repeating form
+**Key Adjustments**:
 
-**Core Variables**:
-- [Insert Core Variables Here]
+1. **Pseudonym Field**: Added ``family_history_pseudonym`` to identify family 
+   members across records.
+2. **Required Fields**: Marked fields like ``family_history_pseudonym``, 
+   ``snomedct_444018008``, and ``hl7fhir_fmh_status`` as mandatory for FHIR 
+   Family History Basic Resource compatibility.
+3. **Branching Logic**: Added logic for deceased family members to ensure fields
+    like ``loinc_54112_8`` and ``loinc_92662_6`` are completed if applicable.
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+**Variables & Adjustments**:
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 6.4.0 Pseudonym (``family_history_pseudonym``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Free Text
+
+- 6.4.1 Propositus/-a (``snomedct_64245008``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.2 Relationship to Index Case (``snomedct_408732007``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.3 Consanguinity (``snomedct_842009``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.4 Family Member Relationship (``snomedct_444018008``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.5 Family Member Record Status (``hl7fhir_fmh_status``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.6 Family Member Sex (``loinc_54123_5``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.7 Family Member Age (``loinc_54141_7``)
+
+  - Cardinality: Optional
+  - Validation: Integer (0–200)
+
+- 6.4.8 Family Member Date of Birth (``loinc_54124_3``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 6.4.9 Family Member Deceased (``snomedct_740604001``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 6.4.10 Family Member Cause of Death [ICD10CM] (``loinc_54112_8``)
+
+  - Cardinality: Optional (available if ``snomedct_740604001`` = "snomedct_373066001")
+  - Validation: `BIOPORTAL:ICD10CM`
+
+- 6.4.11 Family Member Deceased Age (``loinc_92662_6``)
+
+  - Cardinality: Optional (available if ``snomedct_740604001`` = "snomedct_373066001")
+  - Validation: Integer (0–200)
+
+- 6.4.12 Family Member Disease [MONDO] (``loinc_75315_2``)
+
+  - Cardinality: Optional
+  - Validation: `BIOPORTAL:MONDO`
+
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _consent:
+(7) Consent (``rarelink_7_consent``)
+____________________________________
 
-(7) Consent
-_____________
+**Purpose**: Captures the status and scope of consent provided by the patient 
+for research, data reuse, and other purposes.
+**Sheet type**: Single-entry form
+**Key Adjustments**:
 
-**Purpose**: Documents patient consent details.
+1. **Required Fields**: Fields like ``snomedct_309370004``, 
+   ``snomedct_386318002``, ``rarelink_consent_contact``, and 
+   ``rarelink_consent_data`` are mandatory to align with consent management 
+   requirements.
+2. **Biobank Information**: Added fields for biological samples and biobank 
+   links to support research-focused data capture.
+3. **Dropdown Logic**: Defined consistent encoding for dropdown fields to 
+   ensure proper selection for consent-related decisions.
 
-**Core Variables**:
-- [Insert Core Variables Here]
+**Variables & Adjustments**:
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+- 7.1 Consent Status (``snomedct_309370004``)
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+- 7.2 Consent Date (``hl7fhir_consent_datetime``)
+
+  - Cardinality: Optional
+  - Validation: Date format (YYYY-MM-DD)
+
+- 7.3 Health Policy Monitoring (``snomedct_386318002``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Free Text
+
+- 7.4 Agreement to be Contacted for Research Purposes (``rarelink_consent_contact``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 7.5 Consent to the Reuse of Data (``rarelink_consent_data``)
+
+  - Cardinality: Required (1..1)
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 7.6 Biological Sample (``snomedct_123038009``)
+
+  - Cardinality: Optional
+  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+
+- 7.7 Link to a Biobank (``rarelink_biobank_link``)
+
+  - Cardinality: Optional
+  - Validation: Free Text
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
+
+_____________________________________________________________________________________
 
 .. _disability:
 
-(8) Disability
-_______________
+(8) Disability (``rarelink_8_disability``)
+__________________________________________
 
-**Purpose**: Captures ICF-encoded functional and disability data.
+**Purpose**: Captures information related to the classification of an individual's functioning and disability.
+**Sheet type**: Single-entry form
+**Key Adjustments**:
 
-**Core Variables**:
-- [Insert Core Variables Here]
+1. **ICF Integration**: The variable ``rarelink_icf_score`` allows for the 
+   classification of functioning and disability using the International 
+   Classification of Functioning, Disability, and Health (ICF) framework.
+2. **Documentation Support**: Links to relevant documentation and guidance 
+   provided to ensure proper data entry and standardization.
+3. **Optional Field**: The field is optional, catering to cases where detailed 
+   disability classification is not required.
 
-**Adjustments for REDCap**:
-- [Insert Adjustments for REDCap Here]
+**Variables & Adjustments**:
 
-**Adjustments from the RD-CDM**:
-- [Insert Adjustments from the RD-CDM Here]
+- 8.1 Classification of Functioning / Disability (``rarelink_icf_score``)
 
-Return to `Instruments Overview <#cdm-instruments-overview>`_.
+  - Cardinality: Optional
+  - Validation: Free Text (encoded according to `BIOPORTAL:ICF`)
+
+Return to `Instruments Overview <cdm-instruments-overview>`_.
+Return to `top <#top>`_.
