@@ -71,7 +71,7 @@ def app(input_file: Path = typer.Option(
     typer.echo("🔄 Validating LinkML data before transformation...")
     if not validate_linkml_data(BASE_SCHEMA_PATH, input_file):
         error_text(f"❌ Validation of LinkML data failed. Please run "
-                   f"{format_command("`linkml-validate --schema src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details")} ")
+                   f"{format_command('`linkml-validate --schema src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details')} ")
         raise typer.Exit(1)
     
     success_text("✅ Validation successful!")
