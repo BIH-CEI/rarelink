@@ -86,8 +86,7 @@ def app(input_file: Path = typer.Option(
         raise typer.Exit(1)
 
     # Step 3: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
-    processed_file = DEFAULT_OUTPUT_DIR / f"{
-        project_name.replace(' ', '_')}-import-records.json"
+    processed_file = DEFAULT_OUTPUT_DIR / f"{project_name.replace(' ', '_')}-import-records.json"
     template_path = "src/rarelink_cdm/v2_0_0_dev0/mappings/redcap/template.json"
     
     # Load the template into a dictionary
