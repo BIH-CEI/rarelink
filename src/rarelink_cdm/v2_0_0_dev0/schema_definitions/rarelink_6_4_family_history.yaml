@@ -22,15 +22,15 @@ classes:
       sex, and cause of death.
     slots:
       - family_history_pseudonym
-      - snomed_64245008
-      - snomed_408732007
-      - snomed_842009
-      - snomed_444018008
+      - snomedct_64245008
+      - snomedct_408732007
+      - snomedct_842009
+      - snomedct_444018008
       - hl7fhir_fmh_status
       - loinc_54123_5
       - loinc_54141_7
       - loinc_54124_3
-      - snomed_740604001
+      - snomedct_740604001
       - loinc_54112_8
       - loinc_92662_6
       - loinc_75315_2
@@ -43,27 +43,27 @@ slots:
     range: string
     required: false
 
-  snomed_64245008:
+  snomedct_64245008:
     description: >
       Indicates whether the individual is the first affected family member who
       seeks medical attention for a genetic disorder.
     range: string
     required: false
 
-  snomed_408732007:
+  snomedct_408732007:
     description: >
       Specifies the familial relationship of the individual being evaluated
       to the index case.
     range: string
     required: false
 
-  snomed_842009:
+  snomedct_842009:
     description: >
       Indicates whether the parents of the individual are related by blood.
     range: string
     required: false
 
-  snomed_444018008:
+  snomedct_444018008:
     description: >
       Specifies the relationship of the selected family member to the patient.
     range: string
@@ -94,7 +94,7 @@ slots:
     range: date
     required: false
 
-  snomed_740604001:
+  snomedct_740604001:
     description: >
       Indicates whether the selected family member is deceased.
     range: string
@@ -131,16 +131,16 @@ enums:
     description: >
       Indicates whether the individual is the first affected family member who seeks medical attention.
     permissible_values:
-      snomed_373066001:
+      snomedct_373066001:
         description: Yes
         meaning: SNOMED:373066001
-      snomed_373067005:
+      snomedct_373067005:
         description: No
         meaning: SNOMED:373067005
-      snomed_261665006:
+      snomedct_261665006:
         description: Unknown
         meaning: SNOMED:261665006
-      snomed_1220561009:
+      snomedct_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
       '':
@@ -151,40 +151,40 @@ enums:
     description: >
       Specifies the relationship of the individual to the index case.
     permissible_values:
-      snomed_65656005:
+      snomedct_65656005:
         description: Natural mother
         meaning: SNOMED:65656005
-      snomed_9947008:
+      snomedct_9947008:
         description: Natural father
         meaning: SNOMED:9947008
-      snomed_83420006:
+      snomedct_83420006:
         description: Natural daughter
         meaning: SNOMED:83420006
-      snomed_113160008:
+      snomedct_113160008:
         description: Natural son
         meaning: SNOMED:113160008
-      snomed_60614009:
+      snomedct_60614009:
         description: Natural brother
         meaning: SNOMED:60614009
-      snomed_73678001:
+      snomedct_73678001:
         description: Natural sister
         meaning: SNOMED:73678001
-      snomed_11286003:
+      snomedct_11286003:
         description: Twin sibling
         meaning: SNOMED:11286003
-      snomed_45929001:
+      snomedct_45929001:
         description: Half-brother
         meaning: SNOMED:45929001
-      snomed_2272004:
+      snomedct_2272004:
         description: Half-sister
         meaning: SNOMED:2272004
-      snomed_62296006:
+      snomedct_62296006:
         description: Natural grandfather
         meaning: SNOMED:62296006
-      snomed_17945006:
+      snomedct_17945006:
         description: Natural grandmother
         meaning: SNOMED:17945006
-      snomed_1220561009:
+      snomedct_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
       '':
@@ -195,40 +195,40 @@ enums:
     description: >
       Specifies the relationship of the selected family member to the patient.
     permissible_values:
-      snomed_65656005:
+      snomedct_65656005:
         description: Natural mother
         meaning: SNOMED:65656005
-      snomed_9947008:
+      snomedct_9947008:
         description: Natural father
         meaning: SNOMED:9947008
-      snomed_83420006:
+      snomedct_83420006:
         description: Natural daughter
         meaning: SNOMED:83420006
-      snomed_113160008:
+      snomedct_113160008:
         description: Natural son
         meaning: SNOMED:113160008
-      snomed_60614009:
+      snomedct_60614009:
         description: Natural brother
         meaning: SNOMED:60614009
-      snomed_73678001:
+      snomedct_73678001:
         description: Natural sister
         meaning: SNOMED:73678001
-      snomed_11286003:
+      snomedct_11286003:
         description: Twin sibling
         meaning: SNOMED:11286003
-      snomed_45929001:
+      snomedct_45929001:
         description: Half-brother
         meaning: SNOMED:45929001
-      snomed_2272004:
+      snomedct_2272004:
         description: Half-sister
         meaning: SNOMED:2272004
-      snomed_62296006:
+      snomedct_62296006:
         description: Natural grandfather
         meaning: SNOMED:62296006
-      snomed_17945006:
+      snomedct_17945006:
         description: Natural grandmother
         meaning: SNOMED:17945006
-      snomed_1220561009:
+      snomedct_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
       '':
@@ -259,19 +259,19 @@ enums:
     description: >
       Specifies the sex (or gender) of the specific family member.
     permissible_values:
-      snomed_248152002:
+      snomedct_248152002:
         description: Female
         meaning: SNOMED:248152002
-      snomed_248153007:
+      snomedct_248153007:
         description: Male
         meaning: SNOMED:248153007
-      snomed_184115007:
+      snomedct_184115007:
         description: Patient sex unknown
         meaning: SNOMED:184115007
-      snomed_32570691000036108:
+      snomedct_32570691000036108:
         description: Intersex
         meaning: SNOMED:32570691000036108
-      snomed_1220561009:
+      snomedct_1220561009:
         description: Not recorded
         meaning: SNOMED:1220561009
       '':

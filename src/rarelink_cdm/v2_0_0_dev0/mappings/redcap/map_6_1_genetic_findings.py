@@ -14,8 +14,8 @@ from rarelink.utils.processing.codes import add_prefix_to_code
 # Define mappings from REDCap fields to schema fields.
 FIELD_MAPPINGS = {
     "genetic_diagnosis_code": "genetic_diagnosis_code",
-    "snomed_106221001_mondo": "snomed_106221001_mondo",
-    "snomed_106221001_omim_p": "snomed_106221001_omim_p",
+    "snomedct_106221001_mondo": "snomedct_106221001_mondo",
+    "snomedct_106221001_omim_p": "snomedct_106221001_omim_p",
     "ga4gh_progress_status": "ga4gh_progress_status",
     "ga4gh_interp_status": "ga4gh_interp_status",
     "loinc_81304_8": "loinc_81304_8",
@@ -40,7 +40,7 @@ FIELD_MAPPINGS = {
 
 # Additional processing for Boolean conversion and prefix additions.
 ADDITIONAL_PROCESSING = {
-    "snomed_106221001_omim_p": lambda x: add_prefix_to_code(x, "OMIM"),
+    "snomedct_106221001_omim_p": lambda x: add_prefix_to_code(x, "OMIM"),
     "variant_validation": lambda x: {"yes": True, "no": False}.get(x.lower(), None),
     "loinc_53034_5_other": lambda x: add_prefix_to_code(x, "LOINC"),
     "loinc_48019_4_other": lambda x: add_prefix_to_code(x, "LOINC")

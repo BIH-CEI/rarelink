@@ -12,18 +12,18 @@ classes:
   FormalCriteria:
     description: Section containing the RareLink (1) Formal Criteria Sheet
     slots:
-      - snomed_422549004
-      - snomed_399423000
+      - snomedct_422549004
+      - snomedct_399423000
       - rarelink_1_formal_criteria_complete
 
 slots:
-  snomed_422549004:
+  snomedct_422549004:
     description: The (local) patient-related identification code
     range: string
     required: true
     identifier: true
 
-  snomed_399423000:
+  snomedct_399423000:
     description: The date of admission or data capture of the individual
     range: date
     required: true

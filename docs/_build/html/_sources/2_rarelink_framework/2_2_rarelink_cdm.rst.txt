@@ -325,7 +325,7 @@ __________________________
 
 - **Simplified Field Names**: Shortened and formatted for REDCap constraints:
 
-  - `snomed_439272007_704321009_363778006` -> `snomed_8116006_date`
+  - `snomedct_439272007_704321009_363778006` -> `snomedct_8116006_date`
   - `ga4gh_phenotypicfeature_excluded` -> `ga4gh_pheno_excluded`
 
 - **Modifiers Grouping**: Introduced consistent naming for modifiers:
@@ -344,9 +344,9 @@ __________________________
 
   - SNOMED Modifiers:
 
-    - `ga4gh_phenotypicfeature_modifier_snomed_1` -> `ga4gh_pheno_mod_snomed1`
-    - `ga4gh_phenotypicfeature_modifier_snomed_2` -> `ga4gh_pheno_mod_snomed2`
-    - `ga4gh_phenotypicfeature_modifier_snomed_3` -> `ga4gh_pheno_mod_snomed3`
+    - `ga4gh_phenotypicfeature_modifier_snomedct_1` -> `ga4gh_pheno_mod_snomed1`
+    - `ga4gh_phenotypicfeature_modifier_snomedct_2` -> `ga4gh_pheno_mod_snomed2`
+    - `ga4gh_phenotypicfeature_modifier_snomedct_3` -> `ga4gh_pheno_mod_snomed3`
 
 **Adjustments from the RD-CDM**:
 

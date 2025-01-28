@@ -41,6 +41,7 @@ dependencies = [
     "jupyter", 
     "pandas", 
     "phenopackets", 
+    "pyphetools",
     "pytest",
     "requests",
     "config",
@@ -58,8 +59,7 @@ dependencies = [
     "oak",
     "oaklib",
     "python-dotenv",
-    "docker",
-    "pyhgvs"
+    "docker"
 ]
 dynamic = ["version"]
 

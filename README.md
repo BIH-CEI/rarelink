@@ -7,12 +7,14 @@ Rare Disease Interoperability Framework in REDCap linking international
 things are subject to change. Please reach out before implementing or using the 
 software to ensure you have the latest updates and guidance.
 
+#### Framework
 <!-- RareLink Badges -->
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
 [![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 
+#### Stable Version
 <!-- Combined Badges for v2.0.0.dev0 -->
 ![v2.0.0.dev0](https://img.shields.io/badge/v2.0.0.dev0:-grey) 
 ![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)

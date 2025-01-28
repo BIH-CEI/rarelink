@@ -18,7 +18,7 @@
         "name": "observation.phenotypic_fetaure",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Observation', record_id & snomed_363778006 & hp_0003674 & hp_0003674 & hp_0011008 & hp_0012824 & hp_0012823_ncbitaxon & hp_0012823_hp1 & hp_0012823_hp2 & hp_0012823_hp3)}}",
+          "id": "{{mpp:getHashedId('Observation', record_id & snomedct_363778006 & hp_0003674 & hp_0003674 & hp_0011008 & hp_0012824 & hp_0012823_ncbitaxon & hp_0012823_hp1 & hp_0012823_hp2 & hp_0012823_hp3)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
@@ -35,8 +35,8 @@
                     {
                       "system": "{{'https://www.snomed.org/snomed-ct'}}",
                       "version": "{{'2024-09-01'}}",
-                      "code": "{{? mpp:getConcept(%phenotypeStatus, snomed_363778006, 'target_code')}}",
-                      "display": "{{? mpp:getConcept(%phenotypeStatus, snomed_363778006 , 'target_display')}}"
+                      "code": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006, 'target_code')}}",
+                      "display": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006 , 'target_display')}}"
                     }
                   ]
                 }
@@ -48,7 +48,7 @@
               {
                 "system": "{{'http://www.human-phenotype-ontology.org'}}",
                 "version": "{{'2024-08-13'}}",
-                "code": "{{? snomed_8116006.substring(3)}}"
+                "code": "{{? snomedct_8116006.substring(3)}}"
               }
             ]
           },
@@ -65,7 +65,7 @@
             }
           ],
           "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
-          "effectiveDateTime": "{{? snomed_8116006_onset}}",
+          "effectiveDateTime": "{{? snomedct_8116006_onset}}",
           "_effectiveDateTime": {
             "extension": [
               {
@@ -80,7 +80,7 @@
                     }
                   ]
                 },
-                "valueDateTime": "{{? snomed_8116006_resolution}}"
+                "valueDateTime": "{{? snomedct_8116006_resolut}}"
               }
             ]
           },

@@ -224,20 +224,20 @@ class FormalCriteria(YAMLRoot):
     class_name: ClassVar[str] = "FormalCriteria"
     class_model_uri: ClassVar[URIRef] = RARELINK_CDM.FormalCriteria
 
-    snomed_422549004: Union[str, FormalCriteriaSnomed422549004] = None
-    snomed_399423000: Union[str, XSDDate] = None
+    snomedct_422549004: Union[str, FormalCriteriaSnomed422549004] = None
+    snomedct_399423000: Union[str, XSDDate] = None
     rarelink_1_formal_criteria_complete: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.snomed_422549004):
-            self.MissingRequiredField("snomed_422549004")
-        if not isinstance(self.snomed_422549004, FormalCriteriaSnomed422549004):
-            self.snomed_422549004 = FormalCriteriaSnomed422549004(self.snomed_422549004)
+        if self._is_empty(self.snomedct_422549004):
+            self.MissingRequiredField("snomedct_422549004")
+        if not isinstance(self.snomedct_422549004, FormalCriteriaSnomed422549004):
+            self.snomedct_422549004 = FormalCriteriaSnomed422549004(self.snomedct_422549004)
 
-        if self._is_empty(self.snomed_399423000):
-            self.MissingRequiredField("snomed_399423000")
-        if not isinstance(self.snomed_399423000, XSDDate):
-            self.snomed_399423000 = XSDDate(self.snomed_399423000)
+        if self._is_empty(self.snomedct_399423000):
+            self.MissingRequiredField("snomedct_399423000")
+        if not isinstance(self.snomedct_399423000, XSDDate):
+            self.snomedct_399423000 = XSDDate(self.snomedct_399423000)
 
         if self.rarelink_1_formal_criteria_complete is not None and not isinstance(self.rarelink_1_formal_criteria_complete, str):
             self.rarelink_1_formal_criteria_complete = str(self.rarelink_1_formal_criteria_complete)
@@ -257,35 +257,35 @@ class PersonalInformation(YAMLRoot):
     class_name: ClassVar[str] = "PersonalInformation"
     class_model_uri: ClassVar[URIRef] = RARELINK_CDM.PersonalInformation
 
-    snomed_184099003: Union[str, XSDDate] = None
+    snomedct_184099003: Union[str, XSDDate] = None
     rarelink_2_personal_information_complete: str = None
-    snomed_281053000: Optional[Union[str, "SexAtBirth"]] = None
-    snomed_1296886006: Optional[Union[str, "KaryotypicSex"]] = None
-    snomed_263495000: Optional[Union[str, "GenderIdentity"]] = None
-    snomed_370159000: Optional[str] = None
+    snomedct_281053000: Optional[Union[str, "SexAtBirth"]] = None
+    snomedct_1296886006: Optional[Union[str, "KaryotypicSex"]] = None
+    snomedct_263495000: Optional[Union[str, "GenderIdentity"]] = None
+    snomedct_370159000: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.snomed_184099003):
-            self.MissingRequiredField("snomed_184099003")
-        if not isinstance(self.snomed_184099003, XSDDate):
-            self.snomed_184099003 = XSDDate(self.snomed_184099003)
+        if self._is_empty(self.snomedct_184099003):
+            self.MissingRequiredField("snomedct_184099003")
+        if not isinstance(self.snomedct_184099003, XSDDate):
+            self.snomedct_184099003 = XSDDate(self.snomedct_184099003)
 
         if self._is_empty(self.rarelink_2_personal_information_complete):
             self.MissingRequiredField("rarelink_2_personal_information_complete")
         if not isinstance(self.rarelink_2_personal_information_complete, str):
             self.rarelink_2_personal_information_complete = str(self.rarelink_2_personal_information_complete)
 
-        if self.snomed_281053000 is not None and not isinstance(self.snomed_281053000, SexAtBirth):
-            self.snomed_281053000 = SexAtBirth(self.snomed_281053000)
+        if self.snomedct_281053000 is not None and not isinstance(self.snomedct_281053000, SexAtBirth):
+            self.snomedct_281053000 = SexAtBirth(self.snomedct_281053000)
 
-        if self.snomed_1296886006 is not None and not isinstance(self.snomed_1296886006, KaryotypicSex):
-            self.snomed_1296886006 = KaryotypicSex(self.snomed_1296886006)
+        if self.snomedct_1296886006 is not None and not isinstance(self.snomedct_1296886006, KaryotypicSex):
+            self.snomedct_1296886006 = KaryotypicSex(self.snomedct_1296886006)
 
-        if self.snomed_263495000 is not None and not isinstance(self.snomed_263495000, GenderIdentity):
-            self.snomed_263495000 = GenderIdentity(self.snomed_263495000)
+        if self.snomedct_263495000 is not None and not isinstance(self.snomedct_263495000, GenderIdentity):
+            self.snomedct_263495000 = GenderIdentity(self.snomedct_263495000)
 
-        if self.snomed_370159000 is not None and not isinstance(self.snomed_370159000, str):
-            self.snomed_370159000 = str(self.snomed_370159000)
+        if self.snomedct_370159000 is not None and not isinstance(self.snomedct_370159000, str):
+            self.snomedct_370159000 = str(self.snomedct_370159000)
 
         super().__post_init__(**kwargs)
 
@@ -304,12 +304,12 @@ class PatientStatus(YAMLRoot):
 
     rarelink_3_patient_status_complete: str = None
     patient_status_date: Optional[Union[str, XSDDate]] = None
-    snomed_278844005: Optional[Union[str, "ClinicalVitalStatus"]] = None
-    snomed_398299004: Optional[Union[str, UnionDateString]] = None
-    snomed_184305005: Optional[str] = None
-    snomed_105727008: Optional[Union[str, "AgeCategory"]] = None
-    snomed_412726003: Optional[str] = None
-    snomed_723663001: Optional[Union[str, "YesNo"]] = None
+    snomedct_278844005: Optional[Union[str, "ClinicalVitalStatus"]] = None
+    snomedct_398299004: Optional[Union[str, UnionDateString]] = None
+    snomedct_184305005: Optional[str] = None
+    snomedct_105727008: Optional[Union[str, "AgeCategory"]] = None
+    snomedct_412726003: Optional[str] = None
+    snomedct_723663001: Optional[Union[str, "YesNo"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.rarelink_3_patient_status_complete):
@@ -320,23 +320,23 @@ class PatientStatus(YAMLRoot):
         if self.patient_status_date is not None and not isinstance(self.patient_status_date, XSDDate):
             self.patient_status_date = XSDDate(self.patient_status_date)
 
-        if self.snomed_278844005 is not None and not isinstance(self.snomed_278844005, ClinicalVitalStatus):
-            self.snomed_278844005 = ClinicalVitalStatus(self.snomed_278844005)
+        if self.snomedct_278844005 is not None and not isinstance(self.snomedct_278844005, ClinicalVitalStatus):
+            self.snomedct_278844005 = ClinicalVitalStatus(self.snomedct_278844005)
 
-        if self.snomed_398299004 is not None and not isinstance(self.snomed_398299004, UnionDateString):
-            self.snomed_398299004 = UnionDateString(self.snomed_398299004)
+        if self.snomedct_398299004 is not None and not isinstance(self.snomedct_398299004, UnionDateString):
+            self.snomedct_398299004 = UnionDateString(self.snomedct_398299004)
 
-        if self.snomed_184305005 is not None and not isinstance(self.snomed_184305005, str):
-            self.snomed_184305005 = str(self.snomed_184305005)
+        if self.snomedct_184305005 is not None and not isinstance(self.snomedct_184305005, str):
+            self.snomedct_184305005 = str(self.snomedct_184305005)
 
-        if self.snomed_105727008 is not None and not isinstance(self.snomed_105727008, AgeCategory):
-            self.snomed_105727008 = AgeCategory(self.snomed_105727008)
+        if self.snomedct_105727008 is not None and not isinstance(self.snomedct_105727008, AgeCategory):
+            self.snomedct_105727008 = AgeCategory(self.snomedct_105727008)
 
-        if self.snomed_412726003 is not None and not isinstance(self.snomed_412726003, str):
-            self.snomed_412726003 = str(self.snomed_412726003)
+        if self.snomedct_412726003 is not None and not isinstance(self.snomedct_412726003, str):
+            self.snomedct_412726003 = str(self.snomedct_412726003)
 
-        if self.snomed_723663001 is not None and not isinstance(self.snomed_723663001, YesNo):
-            self.snomed_723663001 = YesNo(self.snomed_723663001)
+        if self.snomedct_723663001 is not None and not isinstance(self.snomedct_723663001, YesNo):
+            self.snomedct_723663001 = YesNo(self.snomedct_723663001)
 
         super().__post_init__(**kwargs)
 
@@ -354,17 +354,17 @@ class CarePathway(YAMLRoot):
     class_name: ClassVar[str] = "CarePathway"
     class_model_uri: ClassVar[URIRef] = RARELINK_CDM.CarePathway
 
-    snomed_305058001: Union[str, "EncounterStatus"] = None
+    snomedct_305058001: Union[str, "EncounterStatus"] = None
     hl7fhir_encounter_class: Union[str, "EncounterClass"] = None
     rarelink_4_care_pathway_complete: str = None
     hl7fhir_enc_period_start: Optional[Union[str, UnionDateString]] = None
     hl7fhir_enc_period_end: Optional[Union[str, UnionDateString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.snomed_305058001):
-            self.MissingRequiredField("snomed_305058001")
-        if not isinstance(self.snomed_305058001, EncounterStatus):
-            self.snomed_305058001 = EncounterStatus(self.snomed_305058001)
+        if self._is_empty(self.snomedct_305058001):
+            self.MissingRequiredField("snomedct_305058001")
+        if not isinstance(self.snomedct_305058001, EncounterStatus):
+            self.snomedct_305058001 = EncounterStatus(self.snomedct_305058001)
 
         if self._is_empty(self.hl7fhir_encounter_class):
             self.MissingRequiredField("hl7fhir_encounter_class")
@@ -401,18 +401,18 @@ class Disease(YAMLRoot):
     disease_coding: str = None
     loinc_99498_8: Union[str, "VerificationStatus"] = None
     rarelink_5_disease_complete: str = None
-    snomed_64572001_mondo: Optional[str] = None
-    snomed_64572001_ordo: Optional[str] = None
-    snomed_64572001_icd10cm: Optional[str] = None
-    snomed_64572001_icd11: Optional[str] = None
-    snomed_64572001_omim_p: Optional[str] = None
-    snomed_424850005: Optional[Union[str, "AgeCategory"]] = None
-    snomed_298059007: Optional[Union[str, XSDDate]] = None
-    snomed_423493009: Optional[Union[str, "AgeCategory"]] = None
-    snomed_432213005: Optional[Union[str, XSDDate]] = None
-    snomed_363698007: Optional[str] = None
-    snomed_263493007: Optional[Union[str, "ClinicalStatus"]] = None
-    snomed_246112005: Optional[Union[str, "DiseaseSeverity"]] = None
+    snomedct_64572001_mondo: Optional[str] = None
+    snomedct_64572001_ordo: Optional[str] = None
+    snomedct_64572001_icd10cm: Optional[str] = None
+    snomedct_64572001_icd11: Optional[str] = None
+    snomedct_64572001_omim_p: Optional[str] = None
+    snomedct_424850005: Optional[Union[str, "AgeCategory"]] = None
+    snomedct_298059007: Optional[Union[str, XSDDate]] = None
+    snomedct_423493009: Optional[Union[str, "AgeCategory"]] = None
+    snomedct_432213005: Optional[Union[str, XSDDate]] = None
+    snomedct_363698007: Optional[str] = None
+    snomedct_263493007: Optional[Union[str, "ClinicalStatus"]] = None
+    snomedct_246112005: Optional[Union[str, "DiseaseSeverity"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.disease_coding):
@@ -430,41 +430,41 @@ class Disease(YAMLRoot):
         if not isinstance(self.rarelink_5_disease_complete, str):
             self.rarelink_5_disease_complete = str(self.rarelink_5_disease_complete)
 
-        if self.snomed_64572001_mondo is not None and not isinstance(self.snomed_64572001_mondo, str):
-            self.snomed_64572001_mondo = str(self.snomed_64572001_mondo)
+        if self.snomedct_64572001_mondo is not None and not isinstance(self.snomedct_64572001_mondo, str):
+            self.snomedct_64572001_mondo = str(self.snomedct_64572001_mondo)
 
-        if self.snomed_64572001_ordo is not None and not isinstance(self.snomed_64572001_ordo, str):
-            self.snomed_64572001_ordo = str(self.snomed_64572001_ordo)
+        if self.snomedct_64572001_ordo is not None and not isinstance(self.snomedct_64572001_ordo, str):
+            self.snomedct_64572001_ordo = str(self.snomedct_64572001_ordo)
 
-        if self.snomed_64572001_icd10cm is not None and not isinstance(self.snomed_64572001_icd10cm, str):
-            self.snomed_64572001_icd10cm = str(self.snomed_64572001_icd10cm)
+        if self.snomedct_64572001_icd10cm is not None and not isinstance(self.snomedct_64572001_icd10cm, str):
+            self.snomedct_64572001_icd10cm = str(self.snomedct_64572001_icd10cm)
 
-        if self.snomed_64572001_icd11 is not None and not isinstance(self.snomed_64572001_icd11, str):
-            self.snomed_64572001_icd11 = str(self.snomed_64572001_icd11)
+        if self.snomedct_64572001_icd11 is not None and not isinstance(self.snomedct_64572001_icd11, str):
+            self.snomedct_64572001_icd11 = str(self.snomedct_64572001_icd11)
 
-        if self.snomed_64572001_omim_p is not None and not isinstance(self.snomed_64572001_omim_p, str):
-            self.snomed_64572001_omim_p = str(self.snomed_64572001_omim_p)
+        if self.snomedct_64572001_omim_p is not None and not isinstance(self.snomedct_64572001_omim_p, str):
+            self.snomedct_64572001_omim_p = str(self.snomedct_64572001_omim_p)
 
-        if self.snomed_424850005 is not None and not isinstance(self.snomed_424850005, AgeCategory):
-            self.snomed_424850005 = AgeCategory(self.snomed_424850005)
+        if self.snomedct_424850005 is not None and not isinstance(self.snomedct_424850005, AgeCategory):
+            self.snomedct_424850005 = AgeCategory(self.snomedct_424850005)
 
-        if self.snomed_298059007 is not None and not isinstance(self.snomed_298059007, XSDDate):
-            self.snomed_298059007 = XSDDate(self.snomed_298059007)
+        if self.snomedct_298059007 is not None and not isinstance(self.snomedct_298059007, XSDDate):
+            self.snomedct_298059007 = XSDDate(self.snomedct_298059007)
 
-        if self.snomed_423493009 is not None and not isinstance(self.snomed_423493009, AgeCategory):
-            self.snomed_423493009 = AgeCategory(self.snomed_423493009)
+        if self.snomedct_423493009 is not None and not isinstance(self.snomedct_423493009, AgeCategory):
+            self.snomedct_423493009 = AgeCategory(self.snomedct_423493009)
 
-        if self.snomed_432213005 is not None and not isinstance(self.snomed_432213005, XSDDate):
-            self.snomed_432213005 = XSDDate(self.snomed_432213005)
+        if self.snomedct_432213005 is not None and not isinstance(self.snomedct_432213005, XSDDate):
+            self.snomedct_432213005 = XSDDate(self.snomedct_432213005)
 
-        if self.snomed_363698007 is not None and not isinstance(self.snomed_363698007, str):
-            self.snomed_363698007 = str(self.snomed_363698007)
+        if self.snomedct_363698007 is not None and not isinstance(self.snomedct_363698007, str):
+            self.snomedct_363698007 = str(self.snomedct_363698007)
 
-        if self.snomed_263493007 is not None and not isinstance(self.snomed_263493007, ClinicalStatus):
-            self.snomed_263493007 = ClinicalStatus(self.snomed_263493007)
+        if self.snomedct_263493007 is not None and not isinstance(self.snomedct_263493007, ClinicalStatus):
+            self.snomedct_263493007 = ClinicalStatus(self.snomedct_263493007)
 
-        if self.snomed_246112005 is not None and not isinstance(self.snomed_246112005, DiseaseSeverity):
-            self.snomed_246112005 = DiseaseSeverity(self.snomed_246112005)
+        if self.snomedct_246112005 is not None and not isinstance(self.snomedct_246112005, DiseaseSeverity):
+            self.snomedct_246112005 = DiseaseSeverity(self.snomedct_246112005)
 
         super().__post_init__(**kwargs)
 
@@ -484,8 +484,8 @@ class GeneticFindings(YAMLRoot):
 
     genetic_diagnosis_code: str = None
     rarelink_6_1_genetic_findings_complete: str = None
-    snomed_106221001_mondo: Optional[str] = None
-    snomed_106221001_omim_p: Optional[str] = None
+    snomedct_106221001_mondo: Optional[str] = None
+    snomedct_106221001_omim_p: Optional[str] = None
     ga4gh_progress_status: Optional[Union[str, "InterpretationProgressStatus"]] = None
     ga4gh_interp_status: Optional[Union[str, "InterpretationStatus"]] = None
     loinc_81304_8: Optional[Union[str, "StructuralVariantMethod"]] = None
@@ -518,11 +518,11 @@ class GeneticFindings(YAMLRoot):
         if not isinstance(self.rarelink_6_1_genetic_findings_complete, str):
             self.rarelink_6_1_genetic_findings_complete = str(self.rarelink_6_1_genetic_findings_complete)
 
-        if self.snomed_106221001_mondo is not None and not isinstance(self.snomed_106221001_mondo, str):
-            self.snomed_106221001_mondo = str(self.snomed_106221001_mondo)
+        if self.snomedct_106221001_mondo is not None and not isinstance(self.snomedct_106221001_mondo, str):
+            self.snomedct_106221001_mondo = str(self.snomedct_106221001_mondo)
 
-        if self.snomed_106221001_omim_p is not None and not isinstance(self.snomed_106221001_omim_p, str):
-            self.snomed_106221001_omim_p = str(self.snomed_106221001_omim_p)
+        if self.snomedct_106221001_omim_p is not None and not isinstance(self.snomedct_106221001_omim_p, str):
+            self.snomedct_106221001_omim_p = str(self.snomedct_106221001_omim_p)
 
         if self.ga4gh_progress_status is not None and not isinstance(self.ga4gh_progress_status, InterpretationProgressStatus):
             self.ga4gh_progress_status = InterpretationProgressStatus(self.ga4gh_progress_status)
@@ -599,11 +599,11 @@ class PhenotypicFeature(YAMLRoot):
     class_name: ClassVar[str] = "PhenotypicFeature"
     class_model_uri: ClassVar[URIRef] = RARELINK_CDM.PhenotypicFeature
 
-    snomed_8116006: str = None
+    snomedct_8116006: str = None
     rarelink_6_2_phenotypic_feature_complete: str = None
-    snomed_363778006: Optional[Union[str, "PhenotypicFeatureStatus"]] = None
-    snomed_8116006_onset: Optional[Union[str, XSDDate]] = None
-    snomed_8116006_resolution: Optional[Union[str, XSDDate]] = None
+    snomedct_363778006: Optional[Union[str, "PhenotypicFeatureStatus"]] = None
+    snomedct_8116006_onset: Optional[Union[str, XSDDate]] = None
+    snomedct_8116006_resolut: Optional[Union[str, XSDDate]] = None
     hp_0003674: Optional[Union[str, "AgeOfOnset"]] = None
     hp_0011008: Optional[Union[str, "TemporalPattern"]] = None
     hp_0012824: Optional[Union[str, "PhenotypeSeverity"]] = None
@@ -615,24 +615,24 @@ class PhenotypicFeature(YAMLRoot):
     phenotypicfeature_evidence: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.snomed_8116006):
-            self.MissingRequiredField("snomed_8116006")
-        if not isinstance(self.snomed_8116006, str):
-            self.snomed_8116006 = str(self.snomed_8116006)
+        if self._is_empty(self.snomedct_8116006):
+            self.MissingRequiredField("snomedct_8116006")
+        if not isinstance(self.snomedct_8116006, str):
+            self.snomedct_8116006 = str(self.snomedct_8116006)
 
         if self._is_empty(self.rarelink_6_2_phenotypic_feature_complete):
             self.MissingRequiredField("rarelink_6_2_phenotypic_feature_complete")
         if not isinstance(self.rarelink_6_2_phenotypic_feature_complete, str):
             self.rarelink_6_2_phenotypic_feature_complete = str(self.rarelink_6_2_phenotypic_feature_complete)
 
-        if self.snomed_363778006 is not None and not isinstance(self.snomed_363778006, PhenotypicFeatureStatus):
-            self.snomed_363778006 = PhenotypicFeatureStatus(self.snomed_363778006)
+        if self.snomedct_363778006 is not None and not isinstance(self.snomedct_363778006, PhenotypicFeatureStatus):
+            self.snomedct_363778006 = PhenotypicFeatureStatus(self.snomedct_363778006)
 
-        if self.snomed_8116006_onset is not None and not isinstance(self.snomed_8116006_onset, XSDDate):
-            self.snomed_8116006_onset = XSDDate(self.snomed_8116006_onset)
+        if self.snomedct_8116006_onset is not None and not isinstance(self.snomedct_8116006_onset, XSDDate):
+            self.snomedct_8116006_onset = XSDDate(self.snomedct_8116006_onset)
 
-        if self.snomed_8116006_resolution is not None and not isinstance(self.snomed_8116006_resolution, XSDDate):
-            self.snomed_8116006_resolution = XSDDate(self.snomed_8116006_resolution)
+        if self.snomedct_8116006_resolut is not None and not isinstance(self.snomedct_8116006_resolut, XSDDate):
+            self.snomedct_8116006_resolut = XSDDate(self.snomedct_8116006_resolut)
 
         if self.hp_0003674 is not None and not isinstance(self.hp_0003674, AgeOfOnset):
             self.hp_0003674 = AgeOfOnset(self.hp_0003674)
@@ -1098,24 +1098,24 @@ class ICF(EnumDefinitionImpl):
 
 class SexAtBirth(EnumDefinitionImpl):
 
-    snomed_248152002 = PermissibleValue(
-        text="snomed_248152002",
+    snomedct_248152002 = PermissibleValue(
+        text="snomedct_248152002",
         description="Female",
         meaning=SNOMED["248152002"])
-    snomed_248153007 = PermissibleValue(
-        text="snomed_248153007",
+    snomedct_248153007 = PermissibleValue(
+        text="snomedct_248153007",
         description="Male",
         meaning=SNOMED["248153007"])
-    snomed_184115007 = PermissibleValue(
-        text="snomed_184115007",
+    snomedct_184115007 = PermissibleValue(
+        text="snomedct_184115007",
         description="Patient sex unknown",
         meaning=SNOMED["184115007"])
-    snomed_32570691000036108 = PermissibleValue(
-        text="snomed_32570691000036108",
+    snomedct_32570691000036108 = PermissibleValue(
+        text="snomedct_32570691000036108",
         description="Intersex",
         meaning=SNOMED["32570691000036108"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -1132,48 +1132,48 @@ class SexAtBirth(EnumDefinitionImpl):
 
 class KaryotypicSex(EnumDefinitionImpl):
 
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
-    snomed_734875008 = PermissibleValue(
-        text="snomed_734875008",
+    snomedct_734875008 = PermissibleValue(
+        text="snomedct_734875008",
         description="XX",
         meaning=SNOMED["734875008"])
-    snomed_734876009 = PermissibleValue(
-        text="snomed_734876009",
+    snomedct_734876009 = PermissibleValue(
+        text="snomedct_734876009",
         description="XY",
         meaning=SNOMED["734876009"])
-    snomed_80427008 = PermissibleValue(
-        text="snomed_80427008",
+    snomedct_80427008 = PermissibleValue(
+        text="snomedct_80427008",
         description="X0",
         meaning=SNOMED["80427008"])
-    snomed_65162001 = PermissibleValue(
-        text="snomed_65162001",
+    snomedct_65162001 = PermissibleValue(
+        text="snomedct_65162001",
         description="XXY",
         meaning=SNOMED["65162001"])
-    snomed_35111009 = PermissibleValue(
-        text="snomed_35111009",
+    snomedct_35111009 = PermissibleValue(
+        text="snomedct_35111009",
         description="XXX",
         meaning=SNOMED["35111009"])
-    snomed_403760006 = PermissibleValue(
-        text="snomed_403760006",
+    snomedct_403760006 = PermissibleValue(
+        text="snomedct_403760006",
         description="XXYY",
         meaning=SNOMED["403760006"])
-    snomed_78317008 = PermissibleValue(
-        text="snomed_78317008",
+    snomedct_78317008 = PermissibleValue(
+        text="snomedct_78317008",
         description="XXXY",
         meaning=SNOMED["78317008"])
-    snomed_10567003 = PermissibleValue(
-        text="snomed_10567003",
+    snomedct_10567003 = PermissibleValue(
+        text="snomedct_10567003",
         description="XXXX",
         meaning=SNOMED["10567003"])
-    snomed_48930007 = PermissibleValue(
-        text="snomed_48930007",
+    snomedct_48930007 = PermissibleValue(
+        text="snomedct_48930007",
         description="XYY",
         meaning=SNOMED["48930007"])
-    snomed_74964007 = PermissibleValue(
-        text="snomed_74964007",
+    snomedct_74964007 = PermissibleValue(
+        text="snomedct_74964007",
         description="Other",
         meaning=SNOMED["74964007"])
 
@@ -1190,24 +1190,24 @@ class KaryotypicSex(EnumDefinitionImpl):
 
 class GenderIdentity(EnumDefinitionImpl):
 
-    snomed_446141000124107 = PermissibleValue(
-        text="snomed_446141000124107",
+    snomedct_446141000124107 = PermissibleValue(
+        text="snomedct_446141000124107",
         description="Female gender identity",
         meaning=SNOMED["446141000124107"])
-    snomed_446151000124109 = PermissibleValue(
-        text="snomed_446151000124109",
+    snomedct_446151000124109 = PermissibleValue(
+        text="snomedct_446151000124109",
         description="Male gender identity",
         meaning=SNOMED["446151000124109"])
-    snomed_394743007 = PermissibleValue(
-        text="snomed_394743007",
+    snomedct_394743007 = PermissibleValue(
+        text="snomedct_394743007",
         description="Gender unknown",
         meaning=SNOMED["394743007"])
-    snomed_33791000087105 = PermissibleValue(
-        text="snomed_33791000087105",
+    snomedct_33791000087105 = PermissibleValue(
+        text="snomedct_33791000087105",
         description="Identifies as nonbinary gender",
         meaning=SNOMED["33791000087105"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -1224,24 +1224,24 @@ class GenderIdentity(EnumDefinitionImpl):
 
 class ClinicalVitalStatus(EnumDefinitionImpl):
 
-    snomed_438949009 = PermissibleValue(
-        text="snomed_438949009",
+    snomedct_438949009 = PermissibleValue(
+        text="snomedct_438949009",
         description="Alive",
         meaning=SNOMED["438949009"])
-    snomed_419099009 = PermissibleValue(
-        text="snomed_419099009",
+    snomedct_419099009 = PermissibleValue(
+        text="snomedct_419099009",
         description="Dead",
         meaning=SNOMED["419099009"])
-    snomed_399307001 = PermissibleValue(
-        text="snomed_399307001",
+    snomedct_399307001 = PermissibleValue(
+        text="snomedct_399307001",
         description="Unknown - Lost in follow-up",
         meaning=SNOMED["399307001"])
-    snomed_185924006 = PermissibleValue(
-        text="snomed_185924006",
+    snomedct_185924006 = PermissibleValue(
+        text="snomedct_185924006",
         description="Unknown - Opted-out",
         meaning=SNOMED["185924006"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown - Other Reason",
         meaning=SNOMED["261665006"])
 
@@ -1251,36 +1251,36 @@ class ClinicalVitalStatus(EnumDefinitionImpl):
 
 class AgeCategory(EnumDefinitionImpl):
 
-    snomed_3658006 = PermissibleValue(
-        text="snomed_3658006",
+    snomedct_3658006 = PermissibleValue(
+        text="snomedct_3658006",
         description="Infancy",
         meaning=SNOMED["3658006"])
-    snomed_713153009 = PermissibleValue(
-        text="snomed_713153009",
+    snomedct_713153009 = PermissibleValue(
+        text="snomedct_713153009",
         description="Toddler",
         meaning=SNOMED["713153009"])
-    snomed_255398004 = PermissibleValue(
-        text="snomed_255398004",
+    snomedct_255398004 = PermissibleValue(
+        text="snomedct_255398004",
         description="Childhood",
         meaning=SNOMED["255398004"])
-    snomed_263659003 = PermissibleValue(
-        text="snomed_263659003",
+    snomedct_263659003 = PermissibleValue(
+        text="snomedct_263659003",
         description="Adolescence",
         meaning=SNOMED["263659003"])
-    snomed_41847000 = PermissibleValue(
-        text="snomed_41847000",
+    snomedct_41847000 = PermissibleValue(
+        text="snomedct_41847000",
         description="Adulthood",
         meaning=SNOMED["41847000"])
-    snomed_303112003 = PermissibleValue(
-        text="snomed_303112003",
+    snomedct_303112003 = PermissibleValue(
+        text="snomedct_303112003",
         description="Fetal period",
         meaning=SNOMED["303112003"])
-    snomed_419099009 = PermissibleValue(
-        text="snomed_419099009",
+    snomedct_419099009 = PermissibleValue(
+        text="snomedct_419099009",
         description="Dead",
         meaning=SNOMED["419099009"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
 
@@ -1290,12 +1290,12 @@ class AgeCategory(EnumDefinitionImpl):
 
 class YesNo(EnumDefinitionImpl):
 
-    snomed_373066001 = PermissibleValue(
-        text="snomed_373066001",
+    snomedct_373066001 = PermissibleValue(
+        text="snomedct_373066001",
         description="True",
         meaning=SNOMED["373066001"])
-    snomed_373067005 = PermissibleValue(
-        text="snomed_373067005",
+    snomedct_373067005 = PermissibleValue(
+        text="snomedct_373067005",
         description="False",
         meaning=SNOMED["373067005"])
 
@@ -1381,8 +1381,8 @@ class EncounterClass(EnumDefinitionImpl):
         text="rarelink_rdc",
         description="RD Specialist Center",
         meaning=RARELINK["rdc"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
 
@@ -1427,20 +1427,20 @@ class VerificationStatus(EnumDefinitionImpl):
 
 class AgeAtOnset(EnumDefinitionImpl):
 
-    snomed_118189007 = PermissibleValue(
-        text="snomed_118189007",
+    snomedct_118189007 = PermissibleValue(
+        text="snomedct_118189007",
         description="Prenatal",
         meaning=SNOMED["118189007"])
-    snomed_3950001 = PermissibleValue(
-        text="snomed_3950001",
+    snomedct_3950001 = PermissibleValue(
+        text="snomedct_3950001",
         description="Birth",
         meaning=SNOMED["3950001"])
-    snomed_410672004 = PermissibleValue(
-        text="snomed_410672004",
+    snomedct_410672004 = PermissibleValue(
+        text="snomedct_410672004",
         description="Date",
         meaning=SNOMED["410672004"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
 
@@ -1450,20 +1450,20 @@ class AgeAtOnset(EnumDefinitionImpl):
 
 class AgeAtDiagnosis(EnumDefinitionImpl):
 
-    snomed_118189007 = PermissibleValue(
-        text="snomed_118189007",
+    snomedct_118189007 = PermissibleValue(
+        text="snomedct_118189007",
         description="Prenatal",
         meaning=SNOMED["118189007"])
-    snomed_3950001 = PermissibleValue(
-        text="snomed_3950001",
+    snomedct_3950001 = PermissibleValue(
+        text="snomedct_3950001",
         description="Birth",
         meaning=SNOMED["3950001"])
-    snomed_410672004 = PermissibleValue(
-        text="snomed_410672004",
+    snomedct_410672004 = PermissibleValue(
+        text="snomedct_410672004",
         description="Date",
         meaning=SNOMED["410672004"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
 
@@ -1504,16 +1504,16 @@ class ClinicalStatus(EnumDefinitionImpl):
 
 class DiseaseSeverity(EnumDefinitionImpl):
 
-    snomed_24484000 = PermissibleValue(
-        text="snomed_24484000",
+    snomedct_24484000 = PermissibleValue(
+        text="snomedct_24484000",
         description="Severe",
         meaning=SNOMED["24484000"])
-    snomed_6736007 = PermissibleValue(
-        text="snomed_6736007",
+    snomedct_6736007 = PermissibleValue(
+        text="snomedct_6736007",
         description="Moderate",
         meaning=SNOMED["6736007"])
-    snomed_255604002 = PermissibleValue(
-        text="snomed_255604002",
+    snomedct_255604002 = PermissibleValue(
+        text="snomedct_255604002",
         description="Mild",
         meaning=SNOMED["255604002"])
 
@@ -1938,12 +1938,12 @@ class LevelOfEvidence(EnumDefinitionImpl):
 
 class PhenotypicFeatureStatus(EnumDefinitionImpl):
 
-    snomed_410605003 = PermissibleValue(
-        text="snomed_410605003",
+    snomedct_410605003 = PermissibleValue(
+        text="snomedct_410605003",
         description="Confirmed present",
         meaning=SNOMED["410605003"])
-    snomed_723511001 = PermissibleValue(
-        text="snomed_723511001",
+    snomedct_723511001 = PermissibleValue(
+        text="snomedct_723511001",
         description="Refuted",
         meaning=SNOMED["723511001"])
 
@@ -2068,20 +2068,20 @@ class PropositusStatus(EnumDefinitionImpl):
     """
     Indicates whether the individual is the first affected family member who seeks medical attention.
     """
-    snomed_373066001 = PermissibleValue(
-        text="snomed_373066001",
+    snomedct_373066001 = PermissibleValue(
+        text="snomedct_373066001",
         description="True",
         meaning=SNOMED["373066001"])
-    snomed_373067005 = PermissibleValue(
-        text="snomed_373067005",
+    snomedct_373067005 = PermissibleValue(
+        text="snomedct_373067005",
         description="False",
         meaning=SNOMED["373067005"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -2094,52 +2094,52 @@ class RelationshipToIndexCase(EnumDefinitionImpl):
     """
     Specifies the relationship of the individual to the index case.
     """
-    snomed_65656005 = PermissibleValue(
-        text="snomed_65656005",
+    snomedct_65656005 = PermissibleValue(
+        text="snomedct_65656005",
         description="Natural mother",
         meaning=SNOMED["65656005"])
-    snomed_9947008 = PermissibleValue(
-        text="snomed_9947008",
+    snomedct_9947008 = PermissibleValue(
+        text="snomedct_9947008",
         description="Natural father",
         meaning=SNOMED["9947008"])
-    snomed_83420006 = PermissibleValue(
-        text="snomed_83420006",
+    snomedct_83420006 = PermissibleValue(
+        text="snomedct_83420006",
         description="Natural daughter",
         meaning=SNOMED["83420006"])
-    snomed_113160008 = PermissibleValue(
-        text="snomed_113160008",
+    snomedct_113160008 = PermissibleValue(
+        text="snomedct_113160008",
         description="Natural son",
         meaning=SNOMED["113160008"])
-    snomed_60614009 = PermissibleValue(
-        text="snomed_60614009",
+    snomedct_60614009 = PermissibleValue(
+        text="snomedct_60614009",
         description="Natural brother",
         meaning=SNOMED["60614009"])
-    snomed_73678001 = PermissibleValue(
-        text="snomed_73678001",
+    snomedct_73678001 = PermissibleValue(
+        text="snomedct_73678001",
         description="Natural sister",
         meaning=SNOMED["73678001"])
-    snomed_11286003 = PermissibleValue(
-        text="snomed_11286003",
+    snomedct_11286003 = PermissibleValue(
+        text="snomedct_11286003",
         description="Twin sibling",
         meaning=SNOMED["11286003"])
-    snomed_45929001 = PermissibleValue(
-        text="snomed_45929001",
+    snomedct_45929001 = PermissibleValue(
+        text="snomedct_45929001",
         description="Half-brother",
         meaning=SNOMED["45929001"])
-    snomed_2272004 = PermissibleValue(
-        text="snomed_2272004",
+    snomedct_2272004 = PermissibleValue(
+        text="snomedct_2272004",
         description="Half-sister",
         meaning=SNOMED["2272004"])
-    snomed_62296006 = PermissibleValue(
-        text="snomed_62296006",
+    snomedct_62296006 = PermissibleValue(
+        text="snomedct_62296006",
         description="Natural grandfather",
         meaning=SNOMED["62296006"])
-    snomed_17945006 = PermissibleValue(
-        text="snomed_17945006",
+    snomedct_17945006 = PermissibleValue(
+        text="snomedct_17945006",
         description="Natural grandmother",
         meaning=SNOMED["17945006"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -2152,52 +2152,52 @@ class FamilyRelationship(EnumDefinitionImpl):
     """
     Specifies the relationship of the selected family member to the patient.
     """
-    snomed_65656005 = PermissibleValue(
-        text="snomed_65656005",
+    snomedct_65656005 = PermissibleValue(
+        text="snomedct_65656005",
         description="Natural mother",
         meaning=SNOMED["65656005"])
-    snomed_9947008 = PermissibleValue(
-        text="snomed_9947008",
+    snomedct_9947008 = PermissibleValue(
+        text="snomedct_9947008",
         description="Natural father",
         meaning=SNOMED["9947008"])
-    snomed_83420006 = PermissibleValue(
-        text="snomed_83420006",
+    snomedct_83420006 = PermissibleValue(
+        text="snomedct_83420006",
         description="Natural daughter",
         meaning=SNOMED["83420006"])
-    snomed_113160008 = PermissibleValue(
-        text="snomed_113160008",
+    snomedct_113160008 = PermissibleValue(
+        text="snomedct_113160008",
         description="Natural son",
         meaning=SNOMED["113160008"])
-    snomed_60614009 = PermissibleValue(
-        text="snomed_60614009",
+    snomedct_60614009 = PermissibleValue(
+        text="snomedct_60614009",
         description="Natural brother",
         meaning=SNOMED["60614009"])
-    snomed_73678001 = PermissibleValue(
-        text="snomed_73678001",
+    snomedct_73678001 = PermissibleValue(
+        text="snomedct_73678001",
         description="Natural sister",
         meaning=SNOMED["73678001"])
-    snomed_11286003 = PermissibleValue(
-        text="snomed_11286003",
+    snomedct_11286003 = PermissibleValue(
+        text="snomedct_11286003",
         description="Twin sibling",
         meaning=SNOMED["11286003"])
-    snomed_45929001 = PermissibleValue(
-        text="snomed_45929001",
+    snomedct_45929001 = PermissibleValue(
+        text="snomedct_45929001",
         description="Half-brother",
         meaning=SNOMED["45929001"])
-    snomed_2272004 = PermissibleValue(
-        text="snomed_2272004",
+    snomedct_2272004 = PermissibleValue(
+        text="snomedct_2272004",
         description="Half-sister",
         meaning=SNOMED["2272004"])
-    snomed_62296006 = PermissibleValue(
-        text="snomed_62296006",
+    snomedct_62296006 = PermissibleValue(
+        text="snomedct_62296006",
         description="Natural grandfather",
         meaning=SNOMED["62296006"])
-    snomed_17945006 = PermissibleValue(
-        text="snomed_17945006",
+    snomedct_17945006 = PermissibleValue(
+        text="snomedct_17945006",
         description="Natural grandmother",
         meaning=SNOMED["17945006"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -2241,24 +2241,24 @@ class FamilyMemberSex(EnumDefinitionImpl):
     """
     Specifies the sex (or gender) of the specific family member.
     """
-    snomed_248152002 = PermissibleValue(
-        text="snomed_248152002",
+    snomedct_248152002 = PermissibleValue(
+        text="snomedct_248152002",
         description="Female",
         meaning=SNOMED["248152002"])
-    snomed_248153007 = PermissibleValue(
-        text="snomed_248153007",
+    snomedct_248153007 = PermissibleValue(
+        text="snomedct_248153007",
         description="Male",
         meaning=SNOMED["248153007"])
-    snomed_184115007 = PermissibleValue(
-        text="snomed_184115007",
+    snomedct_184115007 = PermissibleValue(
+        text="snomedct_184115007",
         description="Patient sex unknown",
         meaning=SNOMED["184115007"])
-    snomed_32570691000036108 = PermissibleValue(
-        text="snomed_32570691000036108",
+    snomedct_32570691000036108 = PermissibleValue(
+        text="snomedct_32570691000036108",
         description="Intersex",
         meaning=SNOMED["32570691000036108"])
-    snomed_1220561009 = PermissibleValue(
-        text="snomed_1220561009",
+    snomedct_1220561009 = PermissibleValue(
+        text="snomedct_1220561009",
         description="Not recorded",
         meaning=SNOMED["1220561009"])
 
@@ -2309,16 +2309,16 @@ class YesNoUnknown(EnumDefinitionImpl):
     """
     Indicates yes, no, or unknown status.
     """
-    snomed_373066001 = PermissibleValue(
-        text="snomed_373066001",
+    snomedct_373066001 = PermissibleValue(
+        text="snomedct_373066001",
         description="True",
         meaning=SNOMED["373066001"])
-    snomed_373067005 = PermissibleValue(
-        text="snomed_373067005",
+    snomedct_373067005 = PermissibleValue(
+        text="snomedct_373067005",
         description="False",
         meaning=SNOMED["373067005"])
-    snomed_261665006 = PermissibleValue(
-        text="snomed_261665006",
+    snomedct_261665006 = PermissibleValue(
+        text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMED["261665006"])
 
@@ -2376,29 +2376,29 @@ slots.measruements = Slot(uri=RARELINK.measruements, name="measruements", curie=
 slots.family_history = Slot(uri=RARELINK.family_history, name="family_history", curie=RARELINK.curie('family_history'),
                    model_uri=RARELINK_CDM.family_history, domain=None, range=Optional[Union[dict, FamilyHistory]])
 
-slots.snomed_422549004 = Slot(uri=RARELINK.snomed_422549004, name="snomed_422549004", curie=RARELINK.curie('snomed_422549004'),
-                   model_uri=RARELINK_CDM.snomed_422549004, domain=None, range=URIRef)
+slots.snomedct_422549004 = Slot(uri=RARELINK.snomedct_422549004, name="snomedct_422549004", curie=RARELINK.curie('snomedct_422549004'),
+                   model_uri=RARELINK_CDM.snomedct_422549004, domain=None, range=URIRef)
 
-slots.snomed_399423000 = Slot(uri=RARELINK.snomed_399423000, name="snomed_399423000", curie=RARELINK.curie('snomed_399423000'),
-                   model_uri=RARELINK_CDM.snomed_399423000, domain=None, range=Union[str, XSDDate])
+slots.snomedct_399423000 = Slot(uri=RARELINK.snomedct_399423000, name="snomedct_399423000", curie=RARELINK.curie('snomedct_399423000'),
+                   model_uri=RARELINK_CDM.snomedct_399423000, domain=None, range=Union[str, XSDDate])
 
 slots.rarelink_1_formal_criteria_complete = Slot(uri=RARELINK.rarelink_1_formal_criteria_complete, name="rarelink_1_formal_criteria_complete", curie=RARELINK.curie('rarelink_1_formal_criteria_complete'),
                    model_uri=RARELINK_CDM.rarelink_1_formal_criteria_complete, domain=None, range=Optional[str])
 
-slots.snomed_184099003 = Slot(uri=RARELINK.snomed_184099003, name="snomed_184099003", curie=RARELINK.curie('snomed_184099003'),
-                   model_uri=RARELINK_CDM.snomed_184099003, domain=None, range=Union[str, XSDDate])
+slots.snomedct_184099003 = Slot(uri=RARELINK.snomedct_184099003, name="snomedct_184099003", curie=RARELINK.curie('snomedct_184099003'),
+                   model_uri=RARELINK_CDM.snomedct_184099003, domain=None, range=Union[str, XSDDate])
 
-slots.snomed_281053000 = Slot(uri=RARELINK.snomed_281053000, name="snomed_281053000", curie=RARELINK.curie('snomed_281053000'),
-                   model_uri=RARELINK_CDM.snomed_281053000, domain=None, range=Optional[Union[str, "SexAtBirth"]])
+slots.snomedct_281053000 = Slot(uri=RARELINK.snomedct_281053000, name="snomedct_281053000", curie=RARELINK.curie('snomedct_281053000'),
+                   model_uri=RARELINK_CDM.snomedct_281053000, domain=None, range=Optional[Union[str, "SexAtBirth"]])
 
-slots.snomed_1296886006 = Slot(uri=RARELINK.snomed_1296886006, name="snomed_1296886006", curie=RARELINK.curie('snomed_1296886006'),
-                   model_uri=RARELINK_CDM.snomed_1296886006, domain=None, range=Optional[Union[str, "KaryotypicSex"]])
+slots.snomedct_1296886006 = Slot(uri=RARELINK.snomedct_1296886006, name="snomedct_1296886006", curie=RARELINK.curie('snomedct_1296886006'),
+                   model_uri=RARELINK_CDM.snomedct_1296886006, domain=None, range=Optional[Union[str, "KaryotypicSex"]])
 
-slots.snomed_263495000 = Slot(uri=RARELINK.snomed_263495000, name="snomed_263495000", curie=RARELINK.curie('snomed_263495000'),
-                   model_uri=RARELINK_CDM.snomed_263495000, domain=None, range=Optional[Union[str, "GenderIdentity"]])
+slots.snomedct_263495000 = Slot(uri=RARELINK.snomedct_263495000, name="snomedct_263495000", curie=RARELINK.curie('snomedct_263495000'),
+                   model_uri=RARELINK_CDM.snomedct_263495000, domain=None, range=Optional[Union[str, "GenderIdentity"]])
 
-slots.snomed_370159000 = Slot(uri=RARELINK.snomed_370159000, name="snomed_370159000", curie=RARELINK.curie('snomed_370159000'),
-                   model_uri=RARELINK_CDM.snomed_370159000, domain=None, range=Optional[str])
+slots.snomedct_370159000 = Slot(uri=RARELINK.snomedct_370159000, name="snomedct_370159000", curie=RARELINK.curie('snomedct_370159000'),
+                   model_uri=RARELINK_CDM.snomedct_370159000, domain=None, range=Optional[str])
 
 slots.rarelink_2_personal_information_complete = Slot(uri=RARELINK.rarelink_2_personal_information_complete, name="rarelink_2_personal_information_complete", curie=RARELINK.curie('rarelink_2_personal_information_complete'),
                    model_uri=RARELINK_CDM.rarelink_2_personal_information_complete, domain=None, range=str)
@@ -2406,23 +2406,23 @@ slots.rarelink_2_personal_information_complete = Slot(uri=RARELINK.rarelink_2_pe
 slots.patient_status_date = Slot(uri=RARELINK.patient_status_date, name="patient_status_date", curie=RARELINK.curie('patient_status_date'),
                    model_uri=RARELINK_CDM.patient_status_date, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.snomed_278844005 = Slot(uri=RARELINK.snomed_278844005, name="snomed_278844005", curie=RARELINK.curie('snomed_278844005'),
-                   model_uri=RARELINK_CDM.snomed_278844005, domain=None, range=Optional[Union[str, "ClinicalVitalStatus"]])
+slots.snomedct_278844005 = Slot(uri=RARELINK.snomedct_278844005, name="snomedct_278844005", curie=RARELINK.curie('snomedct_278844005'),
+                   model_uri=RARELINK_CDM.snomedct_278844005, domain=None, range=Optional[Union[str, "ClinicalVitalStatus"]])
 
-slots.snomed_398299004 = Slot(uri=RARELINK.snomed_398299004, name="snomed_398299004", curie=RARELINK.curie('snomed_398299004'),
-                   model_uri=RARELINK_CDM.snomed_398299004, domain=None, range=Optional[Union[str, UnionDateString]])
+slots.snomedct_398299004 = Slot(uri=RARELINK.snomedct_398299004, name="snomedct_398299004", curie=RARELINK.curie('snomedct_398299004'),
+                   model_uri=RARELINK_CDM.snomedct_398299004, domain=None, range=Optional[Union[str, UnionDateString]])
 
-slots.snomed_184305005 = Slot(uri=RARELINK.snomed_184305005, name="snomed_184305005", curie=RARELINK.curie('snomed_184305005'),
-                   model_uri=RARELINK_CDM.snomed_184305005, domain=None, range=Optional[str])
+slots.snomedct_184305005 = Slot(uri=RARELINK.snomedct_184305005, name="snomedct_184305005", curie=RARELINK.curie('snomedct_184305005'),
+                   model_uri=RARELINK_CDM.snomedct_184305005, domain=None, range=Optional[str])
 
-slots.snomed_105727008 = Slot(uri=RARELINK.snomed_105727008, name="snomed_105727008", curie=RARELINK.curie('snomed_105727008'),
-                   model_uri=RARELINK_CDM.snomed_105727008, domain=None, range=Optional[Union[str, "AgeCategory"]])
+slots.snomedct_105727008 = Slot(uri=RARELINK.snomedct_105727008, name="snomedct_105727008", curie=RARELINK.curie('snomedct_105727008'),
+                   model_uri=RARELINK_CDM.snomedct_105727008, domain=None, range=Optional[Union[str, "AgeCategory"]])
 
-slots.snomed_412726003 = Slot(uri=RARELINK.snomed_412726003, name="snomed_412726003", curie=RARELINK.curie('snomed_412726003'),
-                   model_uri=RARELINK_CDM.snomed_412726003, domain=None, range=Optional[str])
+slots.snomedct_412726003 = Slot(uri=RARELINK.snomedct_412726003, name="snomedct_412726003", curie=RARELINK.curie('snomedct_412726003'),
+                   model_uri=RARELINK_CDM.snomedct_412726003, domain=None, range=Optional[str])
 
-slots.snomed_723663001 = Slot(uri=RARELINK.snomed_723663001, name="snomed_723663001", curie=RARELINK.curie('snomed_723663001'),
-                   model_uri=RARELINK_CDM.snomed_723663001, domain=None, range=Optional[Union[str, "YesNo"]])
+slots.snomedct_723663001 = Slot(uri=RARELINK.snomedct_723663001, name="snomedct_723663001", curie=RARELINK.curie('snomedct_723663001'),
+                   model_uri=RARELINK_CDM.snomedct_723663001, domain=None, range=Optional[Union[str, "YesNo"]])
 
 slots.rarelink_3_patient_status_complete = Slot(uri=RARELINK.rarelink_3_patient_status_complete, name="rarelink_3_patient_status_complete", curie=RARELINK.curie('rarelink_3_patient_status_complete'),
                    model_uri=RARELINK_CDM.rarelink_3_patient_status_complete, domain=None, range=str)
@@ -2433,8 +2433,8 @@ slots.hl7fhir_enc_period_start = Slot(uri=RARELINK.hl7fhir_enc_period_start, nam
 slots.hl7fhir_enc_period_end = Slot(uri=RARELINK.hl7fhir_enc_period_end, name="hl7fhir_enc_period_end", curie=RARELINK.curie('hl7fhir_enc_period_end'),
                    model_uri=RARELINK_CDM.hl7fhir_enc_period_end, domain=None, range=Optional[Union[str, UnionDateString]])
 
-slots.snomed_305058001 = Slot(uri=RARELINK.snomed_305058001, name="snomed_305058001", curie=RARELINK.curie('snomed_305058001'),
-                   model_uri=RARELINK_CDM.snomed_305058001, domain=None, range=Union[str, "EncounterStatus"])
+slots.snomedct_305058001 = Slot(uri=RARELINK.snomedct_305058001, name="snomedct_305058001", curie=RARELINK.curie('snomedct_305058001'),
+                   model_uri=RARELINK_CDM.snomedct_305058001, domain=None, range=Union[str, "EncounterStatus"])
 
 slots.hl7fhir_encounter_class = Slot(uri=RARELINK.hl7fhir_encounter_class, name="hl7fhir_encounter_class", curie=RARELINK.curie('hl7fhir_encounter_class'),
                    model_uri=RARELINK_CDM.hl7fhir_encounter_class, domain=None, range=Union[str, "EncounterClass"])
@@ -2445,44 +2445,44 @@ slots.rarelink_4_care_pathway_complete = Slot(uri=RARELINK.rarelink_4_care_pathw
 slots.disease_coding = Slot(uri=RARELINK.disease_coding, name="disease_coding", curie=RARELINK.curie('disease_coding'),
                    model_uri=RARELINK_CDM.disease_coding, domain=None, range=str)
 
-slots.snomed_64572001_mondo = Slot(uri=RARELINK.snomed_64572001_mondo, name="snomed_64572001_mondo", curie=RARELINK.curie('snomed_64572001_mondo'),
-                   model_uri=RARELINK_CDM.snomed_64572001_mondo, domain=None, range=Optional[str])
+slots.snomedct_64572001_mondo = Slot(uri=RARELINK.snomedct_64572001_mondo, name="snomedct_64572001_mondo", curie=RARELINK.curie('snomedct_64572001_mondo'),
+                   model_uri=RARELINK_CDM.snomedct_64572001_mondo, domain=None, range=Optional[str])
 
-slots.snomed_64572001_ordo = Slot(uri=RARELINK.snomed_64572001_ordo, name="snomed_64572001_ordo", curie=RARELINK.curie('snomed_64572001_ordo'),
-                   model_uri=RARELINK_CDM.snomed_64572001_ordo, domain=None, range=Optional[str])
+slots.snomedct_64572001_ordo = Slot(uri=RARELINK.snomedct_64572001_ordo, name="snomedct_64572001_ordo", curie=RARELINK.curie('snomedct_64572001_ordo'),
+                   model_uri=RARELINK_CDM.snomedct_64572001_ordo, domain=None, range=Optional[str])
 
-slots.snomed_64572001_icd10cm = Slot(uri=RARELINK.snomed_64572001_icd10cm, name="snomed_64572001_icd10cm", curie=RARELINK.curie('snomed_64572001_icd10cm'),
-                   model_uri=RARELINK_CDM.snomed_64572001_icd10cm, domain=None, range=Optional[str])
+slots.snomedct_64572001_icd10cm = Slot(uri=RARELINK.snomedct_64572001_icd10cm, name="snomedct_64572001_icd10cm", curie=RARELINK.curie('snomedct_64572001_icd10cm'),
+                   model_uri=RARELINK_CDM.snomedct_64572001_icd10cm, domain=None, range=Optional[str])
 
-slots.snomed_64572001_icd11 = Slot(uri=RARELINK.snomed_64572001_icd11, name="snomed_64572001_icd11", curie=RARELINK.curie('snomed_64572001_icd11'),
-                   model_uri=RARELINK_CDM.snomed_64572001_icd11, domain=None, range=Optional[str])
+slots.snomedct_64572001_icd11 = Slot(uri=RARELINK.snomedct_64572001_icd11, name="snomedct_64572001_icd11", curie=RARELINK.curie('snomedct_64572001_icd11'),
+                   model_uri=RARELINK_CDM.snomedct_64572001_icd11, domain=None, range=Optional[str])
 
-slots.snomed_64572001_omim_p = Slot(uri=RARELINK.snomed_64572001_omim_p, name="snomed_64572001_omim_p", curie=RARELINK.curie('snomed_64572001_omim_p'),
-                   model_uri=RARELINK_CDM.snomed_64572001_omim_p, domain=None, range=Optional[str])
+slots.snomedct_64572001_omim_p = Slot(uri=RARELINK.snomedct_64572001_omim_p, name="snomedct_64572001_omim_p", curie=RARELINK.curie('snomedct_64572001_omim_p'),
+                   model_uri=RARELINK_CDM.snomedct_64572001_omim_p, domain=None, range=Optional[str])
 
 slots.loinc_99498_8 = Slot(uri=RARELINK.loinc_99498_8, name="loinc_99498_8", curie=RARELINK.curie('loinc_99498_8'),
                    model_uri=RARELINK_CDM.loinc_99498_8, domain=None, range=Union[str, "VerificationStatus"])
 
-slots.snomed_424850005 = Slot(uri=RARELINK.snomed_424850005, name="snomed_424850005", curie=RARELINK.curie('snomed_424850005'),
-                   model_uri=RARELINK_CDM.snomed_424850005, domain=None, range=Optional[Union[str, "AgeCategory"]])
+slots.snomedct_424850005 = Slot(uri=RARELINK.snomedct_424850005, name="snomedct_424850005", curie=RARELINK.curie('snomedct_424850005'),
+                   model_uri=RARELINK_CDM.snomedct_424850005, domain=None, range=Optional[Union[str, "AgeCategory"]])
 
-slots.snomed_298059007 = Slot(uri=RARELINK.snomed_298059007, name="snomed_298059007", curie=RARELINK.curie('snomed_298059007'),
-                   model_uri=RARELINK_CDM.snomed_298059007, domain=None, range=Optional[Union[str, XSDDate]])
+slots.snomedct_298059007 = Slot(uri=RARELINK.snomedct_298059007, name="snomedct_298059007", curie=RARELINK.curie('snomedct_298059007'),
+                   model_uri=RARELINK_CDM.snomedct_298059007, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.snomed_423493009 = Slot(uri=RARELINK.snomed_423493009, name="snomed_423493009", curie=RARELINK.curie('snomed_423493009'),
-                   model_uri=RARELINK_CDM.snomed_423493009, domain=None, range=Optional[Union[str, "AgeCategory"]])
+slots.snomedct_423493009 = Slot(uri=RARELINK.snomedct_423493009, name="snomedct_423493009", curie=RARELINK.curie('snomedct_423493009'),
+                   model_uri=RARELINK_CDM.snomedct_423493009, domain=None, range=Optional[Union[str, "AgeCategory"]])
 
-slots.snomed_432213005 = Slot(uri=RARELINK.snomed_432213005, name="snomed_432213005", curie=RARELINK.curie('snomed_432213005'),
-                   model_uri=RARELINK_CDM.snomed_432213005, domain=None, range=Optional[Union[str, XSDDate]])
+slots.snomedct_432213005 = Slot(uri=RARELINK.snomedct_432213005, name="snomedct_432213005", curie=RARELINK.curie('snomedct_432213005'),
+                   model_uri=RARELINK_CDM.snomedct_432213005, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.snomed_363698007 = Slot(uri=RARELINK.snomed_363698007, name="snomed_363698007", curie=RARELINK.curie('snomed_363698007'),
-                   model_uri=RARELINK_CDM.snomed_363698007, domain=None, range=Optional[str])
+slots.snomedct_363698007 = Slot(uri=RARELINK.snomedct_363698007, name="snomedct_363698007", curie=RARELINK.curie('snomedct_363698007'),
+                   model_uri=RARELINK_CDM.snomedct_363698007, domain=None, range=Optional[str])
 
-slots.snomed_263493007 = Slot(uri=RARELINK.snomed_263493007, name="snomed_263493007", curie=RARELINK.curie('snomed_263493007'),
-                   model_uri=RARELINK_CDM.snomed_263493007, domain=None, range=Optional[Union[str, "ClinicalStatus"]])
+slots.snomedct_263493007 = Slot(uri=RARELINK.snomedct_263493007, name="snomedct_263493007", curie=RARELINK.curie('snomedct_263493007'),
+                   model_uri=RARELINK_CDM.snomedct_263493007, domain=None, range=Optional[Union[str, "ClinicalStatus"]])
 
-slots.snomed_246112005 = Slot(uri=RARELINK.snomed_246112005, name="snomed_246112005", curie=RARELINK.curie('snomed_246112005'),
-                   model_uri=RARELINK_CDM.snomed_246112005, domain=None, range=Optional[Union[str, "DiseaseSeverity"]])
+slots.snomedct_246112005 = Slot(uri=RARELINK.snomedct_246112005, name="snomedct_246112005", curie=RARELINK.curie('snomedct_246112005'),
+                   model_uri=RARELINK_CDM.snomedct_246112005, domain=None, range=Optional[Union[str, "DiseaseSeverity"]])
 
 slots.rarelink_5_disease_complete = Slot(uri=RARELINK.rarelink_5_disease_complete, name="rarelink_5_disease_complete", curie=RARELINK.curie('rarelink_5_disease_complete'),
                    model_uri=RARELINK_CDM.rarelink_5_disease_complete, domain=None, range=str)
@@ -2490,11 +2490,11 @@ slots.rarelink_5_disease_complete = Slot(uri=RARELINK.rarelink_5_disease_complet
 slots.genetic_diagnosis_code = Slot(uri=RARELINK.genetic_diagnosis_code, name="genetic_diagnosis_code", curie=RARELINK.curie('genetic_diagnosis_code'),
                    model_uri=RARELINK_CDM.genetic_diagnosis_code, domain=None, range=str)
 
-slots.snomed_106221001_mondo = Slot(uri=RARELINK.snomed_106221001_mondo, name="snomed_106221001_mondo", curie=RARELINK.curie('snomed_106221001_mondo'),
-                   model_uri=RARELINK_CDM.snomed_106221001_mondo, domain=None, range=Optional[str])
+slots.snomedct_106221001_mondo = Slot(uri=RARELINK.snomedct_106221001_mondo, name="snomedct_106221001_mondo", curie=RARELINK.curie('snomedct_106221001_mondo'),
+                   model_uri=RARELINK_CDM.snomedct_106221001_mondo, domain=None, range=Optional[str])
 
-slots.snomed_106221001_omim_p = Slot(uri=RARELINK.snomed_106221001_omim_p, name="snomed_106221001_omim_p", curie=RARELINK.curie('snomed_106221001_omim_p'),
-                   model_uri=RARELINK_CDM.snomed_106221001_omim_p, domain=None, range=Optional[str])
+slots.snomedct_106221001_omim_p = Slot(uri=RARELINK.snomedct_106221001_omim_p, name="snomedct_106221001_omim_p", curie=RARELINK.curie('snomedct_106221001_omim_p'),
+                   model_uri=RARELINK_CDM.snomedct_106221001_omim_p, domain=None, range=Optional[str])
 
 slots.ga4gh_progress_status = Slot(uri=RARELINK.ga4gh_progress_status, name="ga4gh_progress_status", curie=RARELINK.curie('ga4gh_progress_status'),
                    model_uri=RARELINK_CDM.ga4gh_progress_status, domain=None, range=Optional[Union[str, "InterpretationProgressStatus"]])
@@ -2559,17 +2559,17 @@ slots.loinc_93044_6 = Slot(uri=RARELINK.loinc_93044_6, name="loinc_93044_6", cur
 slots.rarelink_6_1_genetic_findings_complete = Slot(uri=RARELINK.rarelink_6_1_genetic_findings_complete, name="rarelink_6_1_genetic_findings_complete", curie=RARELINK.curie('rarelink_6_1_genetic_findings_complete'),
                    model_uri=RARELINK_CDM.rarelink_6_1_genetic_findings_complete, domain=None, range=str)
 
-slots.snomed_8116006 = Slot(uri=RARELINK.snomed_8116006, name="snomed_8116006", curie=RARELINK.curie('snomed_8116006'),
-                   model_uri=RARELINK_CDM.snomed_8116006, domain=None, range=str)
+slots.snomedct_8116006 = Slot(uri=RARELINK.snomedct_8116006, name="snomedct_8116006", curie=RARELINK.curie('snomedct_8116006'),
+                   model_uri=RARELINK_CDM.snomedct_8116006, domain=None, range=str)
 
-slots.snomed_363778006 = Slot(uri=RARELINK.snomed_363778006, name="snomed_363778006", curie=RARELINK.curie('snomed_363778006'),
-                   model_uri=RARELINK_CDM.snomed_363778006, domain=None, range=Optional[Union[str, "PhenotypicFeatureStatus"]])
+slots.snomedct_363778006 = Slot(uri=RARELINK.snomedct_363778006, name="snomedct_363778006", curie=RARELINK.curie('snomedct_363778006'),
+                   model_uri=RARELINK_CDM.snomedct_363778006, domain=None, range=Optional[Union[str, "PhenotypicFeatureStatus"]])
 
-slots.snomed_8116006_onset = Slot(uri=RARELINK.snomed_8116006_onset, name="snomed_8116006_onset", curie=RARELINK.curie('snomed_8116006_onset'),
-                   model_uri=RARELINK_CDM.snomed_8116006_onset, domain=None, range=Optional[Union[str, XSDDate]])
+slots.snomedct_8116006_onset = Slot(uri=RARELINK.snomedct_8116006_onset, name="snomedct_8116006_onset", curie=RARELINK.curie('snomedct_8116006_onset'),
+                   model_uri=RARELINK_CDM.snomedct_8116006_onset, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.snomed_8116006_resolution = Slot(uri=RARELINK.snomed_8116006_resolution, name="snomed_8116006_resolution", curie=RARELINK.curie('snomed_8116006_resolution'),
-                   model_uri=RARELINK_CDM.snomed_8116006_resolution, domain=None, range=Optional[Union[str, XSDDate]])
+slots.snomedct_8116006_resolut = Slot(uri=RARELINK.snomedct_8116006_resolut, name="snomedct_8116006_resolut", curie=RARELINK.curie('snomedct_8116006_resolut'),
+                   model_uri=RARELINK_CDM.snomedct_8116006_resolut, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.hp_0003674 = Slot(uri=RARELINK.hp_0003674, name="hp_0003674", curie=RARELINK.curie('hp_0003674'),
                    model_uri=RARELINK_CDM.hp_0003674, domain=None, range=Optional[Union[str, "AgeOfOnset"]])

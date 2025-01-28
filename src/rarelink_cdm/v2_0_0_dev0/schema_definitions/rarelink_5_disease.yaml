@@ -22,19 +22,19 @@ classes:
       provides relevant metadata such as age at onset, verification status, etc.
     slots:
       - disease_coding
-      - snomed_64572001_mondo
-      - snomed_64572001_ordo
-      - snomed_64572001_icd10cm
-      - snomed_64572001_icd11
-      - snomed_64572001_omim_p
+      - snomedct_64572001_mondo
+      - snomedct_64572001_ordo
+      - snomedct_64572001_icd10cm
+      - snomedct_64572001_icd11
+      - snomedct_64572001_omim_p
       - loinc_99498_8
-      - snomed_424850005
-      - snomed_298059007
-      - snomed_423493009
-      - snomed_432213005
-      - snomed_363698007
-      - snomed_263493007
-      - snomed_246112005
+      - snomedct_424850005
+      - snomedct_298059007
+      - snomedct_423493009
+      - snomedct_432213005
+      - snomedct_363698007
+      - snomedct_263493007
+      - snomedct_246112005
       - rarelink_5_disease_complete
 
 slots:
@@ -43,27 +43,27 @@ slots:
     range: string
     required: true
 
-  snomed_64572001_mondo:
+  snomedct_64572001_mondo:
     description: The disease code using MONDO terminology
     range: string
     required: false
 
-  snomed_64572001_ordo:
+  snomedct_64572001_ordo:
     description: The disease code using ORDO terminology
     range: string
     required: false
 
-  snomed_64572001_icd10cm:
+  snomedct_64572001_icd10cm:
     description: The disease code using ICD-10-CM terminology
     range: string
     required: false
 
-  snomed_64572001_icd11:
+  snomedct_64572001_icd11:
     description: The disease code using ICD-11 terminology
     range: string
     required: false
 
-  snomed_64572001_omim_p:
+  snomedct_64572001_omim_p:
     description: The disease code using OMIM terminology
     range: string
     required: false
@@ -73,37 +73,37 @@ slots:
     range: VerificationStatus
     required: true
 
-  snomed_424850005:
+  snomedct_424850005:
     description: Age at onset of the disease
     range: AgeAtOnset
     required: false
 
-  snomed_298059007:
+  snomedct_298059007:
     description: Date of onset of the disease
     range: union_date_string
     required: false
 
-  snomed_423493009:
+  snomedct_423493009:
     description: Age at diagnosis
     range: AgeAtDiagnosis
     required: false
 
-  snomed_432213005:
+  snomedct_432213005:
     description: Date of diagnosis
     range: union_date_string
     required: false
 
-  snomed_363698007:
+  snomedct_363698007:
     description: Body site affected by the disease (SNOMED-CT codes)
     range: string
     required: false
 
-  snomed_263493007:
+  snomedct_263493007:
     description: Clinical status of the disease
     range: ClinicalStatus
     required: false
 
-  snomed_246112005:
+  snomedct_246112005:
     description: Disease severity
     range: DiseaseSeverity
     required: false
@@ -141,16 +141,16 @@ enums:
 
   AgeAtOnset:
     permissible_values:
-      snomed_118189007:
+      snomedct_118189007:
         description: Prenatal
         meaning: SNOMED:118189007
-      snomed_3950001:
+      snomedct_3950001:
         description: Birth
         meaning: SNOMED:3950001
-      snomed_410672004:
+      snomedct_410672004:
         description: Date
         meaning: SNOMED:410672004
-      snomed_261665006:
+      snomedct_261665006:
         description: Unknown
         meaning: SNOMED:261665006
       '':
@@ -159,16 +159,16 @@ enums:
 
   AgeAtDiagnosis:
     permissible_values:
-      snomed_118189007:
+      snomedct_118189007:
         description: Prenatal
         meaning: SNOMED:118189007
-      snomed_3950001:
+      snomedct_3950001:
         description: Birth
         meaning: SNOMED:3950001
-      snomed_410672004:
+      snomedct_410672004:
         description: Date
         meaning: SNOMED:410672004
-      snomed_261665006:
+      snomedct_261665006:
         description: Unknown
         meaning: SNOMED:261665006
       '':
@@ -201,13 +201,13 @@ enums:
 
   DiseaseSeverity:
     permissible_values:
-      snomed_24484000:
+      snomedct_24484000:
         description: Severe
         meaning: SNOMED:24484000
-      snomed_6736007:
+      snomedct_6736007:
         description: Moderate
         meaning: SNOMED:6736007
-      snomed_255604002:
+      snomedct_255604002:
         description: Mild
         meaning: SNOMED:255604002
       '':

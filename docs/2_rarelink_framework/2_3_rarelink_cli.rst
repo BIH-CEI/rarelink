@@ -127,7 +127,7 @@ local REDCap project.
 
 .. code-block:: console
 
-    rarelink redcap-tools --help
+    rarelink redcap --help
 
 The overview of all redcap-tools functionalities and commands.
 
@@ -135,7 +135,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-tools download-records
+    rarelink redcap download-records
 
 Download records from your REDCap project as JSON files and save them locally.
 
@@ -149,7 +149,7 @@ ________________________________________________________________________________
 
 .. code-block:: console 
 
-    rarelink redcap-tools fetch-metadata
+    rarelink redcap fetch-metadata
 
 - Fetch all metadata from your current REDCap project. 
 
@@ -157,9 +157,15 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-tools upload-records (to be implemented)
+    rarelink redcap upload-records
 
 - Upload records to your REDCap project from JSON files stored locally.
+
+.. warning:: 
+    This command will overwrite existing records with the same record_id in your
+    REDCap project. Make sure have unique ``record_id``s or back up your data
+    before running this command, e.g. by running 
+    `rarelink redcap download-records`.
 
 _____________________________________________________________________________________
 

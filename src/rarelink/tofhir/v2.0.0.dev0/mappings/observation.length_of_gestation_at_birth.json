@@ -53,7 +53,7 @@
               "valueQuantity": {
                 "code": "{{'UO:0000034'}}",
                 "system": "{{'http://www.ontobee.org/ontology/UO'}}",
-                "value": "{{? snomed_412726003.utl:split('+')[0].toDecimal()}}",
+                "value": "{{? snomedct_412726003.utl:split('+')[0].toDecimal()}}",
                 "unit": "{{'week'}}"
               }
             },
@@ -71,7 +71,7 @@
               "valueQuantity": {
                 "code": "{{'UO:0000033'}}",
                 "system": "{{'http://www.ontobee.org/ontology/UO'}}",
-                "value": "{{? snomed_412726003.utl:split('+')[1].toDecimal()}}",
+                "value": "{{? snomedct_412726003.utl:split('+')[1].toDecimal()}}",
                 "unit": "{{'day'}}"
               }
             }
@@ -86,7 +86,7 @@
       "precondition": {
         "name": "gestationLengthExists",
         "language": "text/fhirpath",
-        "expression": "snomed_412726003.empty().not()"
+        "expression": "snomedct_412726003.empty().not()"
       }
     }
   ],

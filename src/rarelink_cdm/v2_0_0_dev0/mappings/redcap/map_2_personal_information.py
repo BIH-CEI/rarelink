@@ -11,11 +11,11 @@ for Boolean conversions and prefix additions.
 from rarelink.utils.mapping import map_entry
 
 FIELD_MAPPINGS = {
-    "snomed_184099003": "snomed_184099003",
-    "snomed_281053000": "snomed_281053000",
-    "snomed_1296886006": "snomed_1296886006",
-    "snomed_263495000": "snomed_263495000",
-    "snomed_370159000": "snomed_370159000",
+    "snomedct_184099003": "snomedct_184099003",
+    "snomedct_281053000": "snomedct_281053000",
+    "snomedct_1296886006": "snomedct_1296886006",
+    "snomedct_263495000": "snomedct_263495000",
+    "snomedct_370159000": "snomedct_370159000",
     "rarelink_2_personal_information_complete": "rarelink_2_personal_information_complete",
 }
 

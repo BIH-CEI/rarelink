@@ -22,8 +22,8 @@ classes:
       diagnoses, interpretation, zygosity, clinical significance, and more.
     slots:
       - genetic_diagnosis_code
-      - snomed_106221001_mondo
-      - snomed_106221001_omim_p
+      - snomedct_106221001_mondo
+      - snomedct_106221001_omim_p
       - ga4gh_progress_status
       - ga4gh_interp_status
       - loinc_81304_8
@@ -51,12 +51,12 @@ slots:
     range: string
     required: true
 
-  snomed_106221001_mondo:
+  snomedct_106221001_mondo:
     description: Genomic diagnosis code using MONDO
     range: string
     required: false
 
-  snomed_106221001_omim_p:
+  snomedct_106221001_omim_p:
     description: Genomic diagnosis code using OMIM_p
     range: string
     required: false

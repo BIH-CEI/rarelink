@@ -25,7 +25,7 @@
             ]
           },
           "resourceType": "Encounter",
-          "status": "{{mpp:getConcept(%encounterstatus, snomed_305058001, 'target_code')}}",
+          "status": "{{mpp:getConcept(%encounterstatus, snomedct_305058001, 'target_code')}}",
           "class": {
             "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'system')}}",
             "version": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'version')}}",

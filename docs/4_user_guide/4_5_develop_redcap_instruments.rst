@@ -54,9 +54,9 @@ be processed by the RareLink framework.
 
     - ``Single Choice Dropdown & Radio-Button fields``: the choices (i.e. the 
       data elemen'ts value set) **must** be encoded with :ref:`1_2` codes,
-      their official prefixes and their respective  *preferred labels*. 
+      their official BIOPORTAL prefixes and their respective  *preferred labels*. 
 
-      - e.g.: **snomed_32218000** or **hp_5200403**.
+      - e.g.: **snomedct_32218000** or **hp_5200403**.
 
     - ``Checkboxes (Multiple Answers)fields`` **CANNOT** be processed by the  
       RareLink framework and **should not be used**. Even if the choices are
@@ -117,13 +117,13 @@ RareLink optional rules:
 
 - The REDCap variable names should also be encoded with :ref:`1_2` codes and 
   their respective *preferred labels* and using their official prefix 
-  (e.g. *hp_*, *snomed_*, etc.) so that the concept of an element itself is 
+  (e.g. *hp_*, *snomedct_*, etc.) so that the concept of an element itself is 
   clear. Also, sometimes FHIR requires a *CodeableConcept* for a specific 
   element.
 
 - If you include the codes in the variable names, you can use suffixes to 
   differentiate between the codes and the variable names. For example, 
-  ``snomed_123456_onset``, or ``snomed_123456_age``.
+  ``snomedct_123456_onset``, or ``snomedct_123456_age``.
 
 - For repeating sections, we recommend using the REDCap **Repeating Instruments**
   feature for separate instruments, which allows you to repeat a section of 

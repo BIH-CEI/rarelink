@@ -18,7 +18,7 @@
         "name": "RareLink IPS Condition",
         "language": "application/fhir-template+json",
         "value": {
-          "id": "{{mpp:getHashedId('Condition', record_id & '_' & snomed_64572001_ordo & snomed_64572001_mondo & snomed_64572001_omim & snomed_64572001_icd10cm & snomed_64572001_icd11 & snomed_263493007 & loinc_99498_8 & snomed_298059007 & snomed_432213005)}}",
+          "id": "{{mpp:getHashedId('Condition', record_id & '_' & snomedct_64572001_ordo & snomedct_64572001_mondo & snomedct_64572001_omim & snomedct_64572001_icd10cm & snomedct_64572001_icd11 & snomedct_263493007 & loinc_99498_8 & snomedct_298059007 & snomedct_432213005)}}",
           "meta": {
             "profile": [
               "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
@@ -29,8 +29,8 @@
             "coding": [
               {
                 "system": "{{'http://terminology.hl7.org/CodeSystem/condition-clinical'}}",
-                "code": "{{? mpp:getConcept(%diseaseClinicalStatus, snomed_263493007, 'target_code')}}",
-                "display": "{{? mpp:getConcept(%diseaseClinicalStatus, snomed_263493007, 'target_display')}}",
+                "code": "{{? mpp:getConcept(%diseaseClinicalStatus, snomedct_263493007, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%diseaseClinicalStatus, snomedct_263493007, 'target_display')}}",
                 "version": "{{'v4.0.1'}}"
               }
             ]
@@ -38,29 +38,29 @@
           "code": {
             "coding": [
               {
-                "system": "{{? iif(snomed_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                "code": "{{? iif(snomed_64572001_mondo.empty().not(), snomed_64572001_mondo.substring(6))}}",
-                "version": "{{? iif(snomed_64572001_mondo.empty().not(), '2024-09-03')}}"
+                "system": "{{? iif(snomedct_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                "code": "{{? iif(snomedct_64572001_mondo.empty().not(), snomedct_64572001_mondo.substring(6))}}",
+                "version": "{{? iif(snomedct_64572001_mondo.empty().not(), '2024-09-03')}}"
               },
               {
-                "system": "{{? iif(snomed_64572001_ordo.empty().not(), 'http://www.orpha.net/')}}",
-                "code": "{{? iif(snomed_64572001_ordo.empty().not(), snomed_64572001_ordo.substring(6))}}",
-                "version": "{{? iif(snomed_64572001_ordo.empty().not(), '2024-09-12')}}"
+                "system": "{{? iif(snomedct_64572001_ordo.empty().not(), 'http://www.orpha.net/')}}",
+                "code": "{{? iif(snomedct_64572001_ordo.empty().not(), snomedct_64572001_ordo.substring(6))}}",
+                "version": "{{? iif(snomedct_64572001_ordo.empty().not(), '2024-09-12')}}"
               },
               {
-                "system": "{{? iif(snomed_64572001_omim_p.empty().not(), 'https://omim.org/')}}",
-                "code": "{{? iif(snomed_64572001_omim_p.empty().not(), snomed_64572001_omim_p)}}",
-                "version": "{{? iif(snomed_64572001_omim_p.empty().not(), '2024-09-12')}}"
+                "system": "{{? iif(snomedct_64572001_omim_p.empty().not(), 'https://omim.org/')}}",
+                "code": "{{? iif(snomedct_64572001_omim_p.empty().not(), snomedct_64572001_omim_p)}}",
+                "version": "{{? iif(snomedct_64572001_omim_p.empty().not(), '2024-09-12')}}"
               },
               {
-                "system": "{{? iif(snomed_64572001_icd10cm.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
-                "code": "{{? iif(snomed_64572001_icd10cm.empty().not(), snomed_64572001_icd10cm)}}",
-                "version": "{{? iif(snomed_64572001_icd10cm.empty().not(), '2024-09-01')}}"
+                "system": "{{? iif(snomedct_64572001_icd10cm.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
+                "code": "{{? iif(snomedct_64572001_icd10cm.empty().not(), snomedct_64572001_icd10cm)}}",
+                "version": "{{? iif(snomedct_64572001_icd10cm.empty().not(), '2024-09-01')}}"
               },
               {
-                "system": "{{? iif(snomed_64572001_icd11.empty().not(), 'https://icd.who.int/en')}}",
-                "code": "{{? iif(snomed_64572001_icd11.empty().not(), snomed_64572001_icd11)}}",
-                "version": "{{? iif(snomed_64572001_icd11.empty().not(), '2024-09-01')}}"
+                "system": "{{? iif(snomedct_64572001_icd11.empty().not(), 'https://icd.who.int/en')}}",
+                "code": "{{? iif(snomedct_64572001_icd11.empty().not(), snomedct_64572001_icd11)}}",
+                "version": "{{? iif(snomedct_64572001_icd11.empty().not(), '2024-09-01')}}"
               }
             ]
           },
@@ -78,8 +78,8 @@
             "coding": [
               {
                 "system": "{{'http://snomed.info/sct'}}",
-                "code": "{{? mpp:getConcept(%diseaseSeverity, snomed_246112005, 'target_code')}}",
-                "display": "{{? mpp:getConcept(%diseaseSeverity, snomed_246112005, 'target_display')}}",
+                "code": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_display')}}",
                 "version": "{{'2024-09-01'}}"
               }
             ]
@@ -88,9 +88,9 @@
             {
               "coding": [
                 {
-                  "system": "{{? iif(snomed_363698007.empty().not(), 'http://snomed.info/sct')}}",
-                  "code": "{{? snomed_363698007}}",
-                  "version": "{{? iif(snomed_363698007.empty().not(), '2024-09-01')}}"
+                  "system": "{{? iif(snomedct_363698007.empty().not(), 'http://snomed.info/sct')}}",
+                  "code": "{{? snomedct_363698007}}",
+                  "version": "{{? iif(snomedct_363698007.empty().not(), '2024-09-01')}}"
                 }
               ]
             }
@@ -101,41 +101,41 @@
               "value": "{{? record_id}}"
             }
           },
-          "onsetDateTime": "{{? snomed_298059007.toDate()}}",
-          "recordedDate": "{{? snomed_432213005.toDate()}}",
+          "onsetDateTime": "{{? snomedct_298059007.toDate()}}",
+          "recordedDate": "{{? snomedct_432213005.toDate()}}",
           "text": {
             "status": "{{'generated'}}",
             "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
           },
           "extension": [
             {
-              "id": "{{? iif(snomed_423493009.empty().not(), 'ERDRI-CDS - Age at Diagnosis')}}",
-              "url": "{{? iif(snomed_423493009.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "id": "{{? iif(snomedct_423493009.empty().not(), 'ERDRI-CDS - Age at Diagnosis')}}",
+              "url": "{{? iif(snomedct_423493009.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_423493009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                    "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_code')}}",
-                    "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomed_423493009, 'target_display')}}",
-                    "version": "{{? iif(snomed_423493009.empty().not(), '2024-09-01')}}"
+                    "system": "{{? iif(snomedct_423493009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_display')}}",
+                    "version": "{{? iif(snomedct_423493009.empty().not(), '2024-09-01')}}"
                   }
                 ],
-                "text": "{{? iif(snomed_423493009.empty().not(), 'SNOMED:423493009 - Age at Diagnosis')}}"
+                "text": "{{? iif(snomedct_423493009.empty().not(), 'SNOMED:423493009 - Age at Diagnosis')}}"
               }
             },
             {
-              "id": "{{? iif(snomed_424850005.empty().not(), 'ERDRI-CDS - Age at Onset')}}",
-              "url": "{{? iif(snomed_424850005.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "id": "{{? iif(snomedct_424850005.empty().not(), 'ERDRI-CDS - Age at Onset')}}",
+              "url": "{{? iif(snomedct_424850005.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomed_424850005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                    "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomed_424850005, 'target_code')}}",
-                    "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomed_424850005, 'target_display')}}",
-                    "version": "{{? iif(snomed_424850005.empty().not(), '2024-09-01')}}"
+                    "system": "{{? iif(snomedct_424850005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_display')}}",
+                    "version": "{{? iif(snomedct_424850005.empty().not(), '2024-09-01')}}"
                   }
                 ],
-                "text": "{{? iif(snomed_424850005.empty().not(), 'SNOMED:424850005 - Age at Onset')}}"
+                "text": "{{? iif(snomedct_424850005.empty().not(), 'SNOMED:424850005 - Age at Onset')}}"
               }
             }
           ]

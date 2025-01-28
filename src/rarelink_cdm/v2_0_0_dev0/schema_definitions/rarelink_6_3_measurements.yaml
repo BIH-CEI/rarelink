@@ -29,11 +29,11 @@ classes:
       - ncit_c92571
       - ncit_c41255
       - ncit_c82577
-      - snomed_122869004_ncit
-      - snomed_122869004_snomed
-      - snomed_122869004
-      - snomed_122869004_bodysite
-      - snomed_122869004_status
+      - snomedct_122869004_ncit
+      - snomedct_122869004_snomed
+      - snomedct_122869004
+      - snomedct_122869004_bdsite
+      - snomedct_122869004_status
       - rarelink_6_3_measurements_complete
 
 
@@ -94,31 +94,31 @@ slots:
     range: date
     required: false
 
-  snomed_122869004_ncit:
+  snomedct_122869004_ncit:
     description: >
       The procedure related to the measurement, encoded with NCIT.
     range: string
     required: false
 
-  snomed_122869004_snomed:
+  snomedct_122869004_snomed:
     description: >
       The procedure related to the measurement, encoded with SNOMEDCT.
     range: string
     required: false
 
-  snomed_122869004:
+  snomedct_122869004:
     description: >
       The procedure related to the measurement, encoded with SNOMEDCT
     range: string
     required: false
 
-  snomed_122869004_bodysite:
+  snomedct_122869004_bdsite:
     description: >
       The anatomical site of the procedure, encoded with SNOMED.
     range: string
     required: false
 
-  snomed_122869004_status:
+  snomedct_122869004_status:
     description: >
       The status of the procedure (e.g., preparation, in-progress, completed).
     range: string

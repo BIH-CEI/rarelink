@@ -16,7 +16,7 @@ from .phenotype import PHENOTYPIC_FEATURES_BLOCK
 from .disease import DISEASE_BLOCK
 from .measurements import MEASUREMENT_BLOCK
 from .resources import RARELINK_CODE_SYSTEMS
-
+from .ontology_paths import ONTOLOGY_PATHS
 
 
 
@@ -31,5 +31,6 @@ __all__ = [
     "DISEASE_BLOCK",
     "MEASUREMENT_BLOCK",
     "RARELINK_CODE_SYSTEMS",
-    "VARIATION_DESCRIPTOR_BLOCK"
+    "VARIATION_DESCRIPTOR_BLOCK",
+    "ONTOLOGY_PATHS"
 ]

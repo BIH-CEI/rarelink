@@ -13,10 +13,10 @@ from rarelink.utils.processing.codes import add_prefix_to_code
 
 # Define mappings from REDCap fields to schema fields.
 FIELD_MAPPINGS = {
-    "snomed_8116006": "snomed_8116006",
-    "snomed_363778006": "snomed_363778006",
-    "snomed_8116006_onset": "snomed_8116006_onset",
-    "snomed_8116006_resolution": "snomed_8116006_resolution",
+    "snomedct_8116006": "snomedct_8116006",
+    "snomedct_363778006": "snomedct_363778006",
+    "snomedct_8116006_onset": "snomedct_8116006_onset",
+    "snomedct_8116006_resolut": "snomedct_8116006_resolut",
     "hp_0003674": "hp_0003674",
     "hp_0011008": "hp_0011008",
     "hp_0012824": "hp_0012824",

@@ -1,5 +1,6 @@
 import typer
 from pathlib import Path
+import json
 from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
@@ -13,10 +14,12 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
-from rarelink.cli.utils.logging_utils import setup_logger
 from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
-from rarelink.utils.validation import validate_linkml_data
+from rarelink.utils.validation import (
+    validate_linkml_data, 
+    validate_and_encode_hgvs
+)
 from rarelink_cdm.v2_0_0_dev0.mappings.redcap import MAPPING_FUNCTIONS
 import logging
 
@@ -54,19 +57,22 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     api_url = env_values["REDCAP_URL"]
     api_token = env_values["REDCAP_API_TOKEN"]
 
+    # Sanitize project name: replace spaces with underscores
+    sanitized_project_name = project_name.replace(" ", "_")
+
     # Display caution message for sensitive data
     hint_text(
-        f"⚠️ IMPORTANT: If your project '{project_name}' is in PRODUCTION mode, "
-        "ensure compliance with data storage policies."
+        f"⚠️ IMPORTANT: If your project '{sanitized_project_name}' is in "
+        "PRODUCTION mode, ensure compliance with data storage policies."
     )
     between_section_separator()
 
     # Ensure output directory exists
     ensure_directory_exists(output_dir)
 
-    # Define output file paths
-    records_file = output_dir / f"{project_name}-records.json"
-    processed_file = output_dir / f"{project_name}-linkml-records.json"
+    # Define output file paths with sanitized project name
+    records_file = output_dir / f"{sanitized_project_name}-records.json"
+    processed_file = output_dir / f"{sanitized_project_name}-linkml-records.json"
 
     # Check for existing files and prompt for overwrite confirmation
     if records_file.exists() or processed_file.exists():
@@ -79,25 +85,39 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
                         fg=typer.colors.RED)
             raise typer.Exit(0)
 
-    # Set up logging
-    log_file = output_dir / "download_records.log"
-    logger = setup_logger("fetch_and_process", log_file=log_file)
-
     try:
         # Fetch REDCap data
         typer.echo(
-            f"🔄 Fetching records for project '{project_name}' from REDCap...")
+            f"🔄 Fetching records for project '{sanitized_project_name}' "
+            f"from REDCap..."
+        )
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
-        typer.echo(f"✅ Records saved to {records_file}")
 
-        # Process REDCap data using `redcap_to_linkml`
-        typer.echo(f"🔄 Processing records for project '{project_name}'...")
+        # Read the fetched records
+        with open(records_file, 'r') as file:
+            records = json.load(file)
+
+        # Validate and encode HGVS strings in the records
+        typer.echo("🔄 Validating HGVS strings in the records...")
+        updated_records = [
+            validate_and_encode_hgvs(record, transcript_key="transcript")
+            for record in records
+        ]
+                
+        # Save updated records back to file
+        with open(records_file, 'w') as file:
+            json.dump(updated_records, file, indent=4)
+
+        # Process REDCap data into LinkML format
+        typer.echo(f"🔄 Processing records for project "
+                   f"'{sanitized_project_name}'...")
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
         # Validation
         typer.echo(
-            "🔄 Validating processed records against the LinkML schema...")
+            "🔄 Validating processed records against the LinkML schema..."
+        )
         if validate_linkml_data(BASE_SCHEMA_PATH, processed_file):
             success_text("✅ Validation successful!")
         else:
@@ -108,7 +128,3 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         raise typer.Exit(1)
 
     end_of_section_separator()
-
-
-if __name__ == "__main__":
-    app()
