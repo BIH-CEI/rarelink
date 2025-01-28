@@ -21,6 +21,7 @@ from .fetch_displays import (
     batch_fetch_labels,
 )
 from .conversions import convert_to_boolean
+from .remove_prefixes import remove_prefix_from_code
 
 __all__ = [
     "add_prefix_to_code",
@@ -28,5 +29,6 @@ __all__ = [
     "fetch_label_directly",
     "fetch_label_for_code",
     "batch_fetch_labels",
-    "convert_to_boolean"
+    "convert_to_boolean",
+    "remove_prefix_from_code"
 ]

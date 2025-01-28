@@ -161,6 +161,12 @@ ________________________________________________________________________________
 
 - Upload records to your REDCap project from JSON files stored locally.
 
+.. warning:: 
+    This command will overwrite existing records with the same record_id in your
+    REDCap project. Make sure have unique ``record_id``s or back up your data
+    before running this command, e.g. by running 
+    `rarelink redcap download-records`.
+
 _____________________________________________________________________________________
 
 

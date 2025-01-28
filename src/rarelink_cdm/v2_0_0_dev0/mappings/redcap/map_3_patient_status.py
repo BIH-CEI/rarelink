@@ -40,3 +40,4 @@ def map_patient_status(entry):
         dict: Mapped data conforming to the PatientStatus schema.
     """
     return map_entry(entry, FIELD_MAPPINGS, ADDITIONAL_PROCESSING)
+

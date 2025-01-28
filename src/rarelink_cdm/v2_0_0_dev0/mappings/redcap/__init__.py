@@ -20,6 +20,7 @@ from .map_6_3_measurements import map_measurements
 from .map_6_4_family_history import map_family_history
 from .map_7_consent import map_consent
 from .map_8_disability import map_disability
+from .reverse_processing import REVERSE_PROCESSING
 
 # Centralized mapping registry for REDCap schemas.
 # Keys correspond to schema names, values are mapping functions.
