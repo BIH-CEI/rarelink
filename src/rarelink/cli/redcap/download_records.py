@@ -1,5 +1,6 @@
 import typer
 from pathlib import Path
+import json
 from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
@@ -16,7 +17,10 @@ from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.cli.utils.logging_utils import setup_logger
 from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
-from rarelink.utils.validation import validate_linkml_data
+from rarelink.utils.validation import (
+    validate_linkml_data, 
+    validate_and_encode_hgvs
+)
 from rarelink_cdm.v2_0_0_dev0.mappings.redcap import MAPPING_FUNCTIONS
 import logging
 
@@ -89,19 +93,34 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     try:
         # Fetch REDCap data
         typer.echo(
-            f"🔄 Fetching records for project '{sanitized_project_name}' \
-from REDCap...")
+            f"🔄 Fetching records for project '{sanitized_project_name}' from REDCap..."
+        )
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
 
-        # Process REDCap data using `redcap_to_linkml`
-        typer.echo(f"🔄 Processing records for project \
-'{sanitized_project_name}'...")
+        # Read the fetched records
+        with open(records_file, 'r') as file:
+            records = json.load(file)
+
+        # Validate and encode HGVS strings in the records
+        typer.echo("🔄 Validating HGVS strings in the records...")
+        updated_records = [
+            validate_and_encode_hgvs(record, transcript_key="transcript")
+            for record in records
+        ]
+                
+        # Save updated records back to file
+        with open(records_file, 'w') as file:
+            json.dump(updated_records, file, indent=4)
+
+        # Process REDCap data into LinkML format
+        typer.echo(f"🔄 Processing records for project '{sanitized_project_name}'...")
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
         # Validation
         typer.echo(
-            "🔄 Validating processed records against the LinkML schema...")
+            "🔄 Validating processed records against the LinkML schema..."
+        )
         if validate_linkml_data(BASE_SCHEMA_PATH, processed_file):
             success_text("✅ Validation successful!")
         else:
@@ -112,7 +131,3 @@ from REDCap...")
         raise typer.Exit(1)
 
     end_of_section_separator()
-
-
-if __name__ == "__main__":
-    app()
