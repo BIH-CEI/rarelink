@@ -26,7 +26,7 @@ ENV_PATH = Path(".env")  # Path to your .env file
 
 # REDCap API configuration from environment
 @app.command()
-def app(input_file: Path):
+def app(input_file: Path = None):
     """
     Upload a JSON file to REDCap.
 
@@ -34,6 +34,10 @@ def app(input_file: Path):
         input_file (Path): Path to the JSON file containing records to upload.
     """
     format_header("Upload Records to REDCap")
+
+    # If no input file is provided, prompt the user to enter one
+    if input_file is None:
+        input_file = Path(typer.prompt("Enter the path to the JSON file containing records"))
 
     # Validate required environment variables
     validate_env(["REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_NAME"])
@@ -60,7 +64,7 @@ def app(input_file: Path):
     try:
         with open(input_file, 'r') as file:
             records = json.load(file)
-        typer.echo(f"✅ Successfully read {len(records)} records from {input_file}")
+        typer.echo(f"✅ Successfully read {len(records)} instances from {input_file}")
     except Exception as e:
         error_text(f"❌ Error reading JSON file: {e}")
         raise typer.Exit(1)
@@ -81,12 +85,12 @@ def app(input_file: Path):
 
     try:
         # Make the API request to upload the records
-        typer.echo(f"🔄 Uploading {len(records)} records to REDCap project '{project_name}'...")
+        typer.echo(f"🔄 Uploading {len(records)} instances to REDCap project '{project_name}'...")
         r = requests.post(api_url, data=fields)
         
         # Check the response status
         if r.status_code == 200:
-            typer.echo(f"✅ Successfully uploaded {len(records)} records.")
+            typer.echo(f"✅ Successfully uploaded {len(records)} instances.")
             success_text(f"Response: {r.text}")
         else:
             typer.echo(f"❌ Failed to upload records. HTTP Status: {r.status_code}")
