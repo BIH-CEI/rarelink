@@ -14,7 +14,6 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
-from rarelink.cli.utils.logging_utils import setup_logger
 from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
 from rarelink.utils.validation import (
@@ -86,14 +85,11 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
                         fg=typer.colors.RED)
             raise typer.Exit(0)
 
-    # Set up logging
-    log_file = output_dir / "download_records.log"
-    logger = setup_logger("fetch_and_process", log_file=log_file)
-
     try:
         # Fetch REDCap data
         typer.echo(
-            f"🔄 Fetching records for project '{sanitized_project_name}' from REDCap..."
+            f"🔄 Fetching records for project '{sanitized_project_name}' "
+            f"from REDCap..."
         )
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
 
@@ -113,7 +109,8 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
             json.dump(updated_records, file, indent=4)
 
         # Process REDCap data into LinkML format
-        typer.echo(f"🔄 Processing records for project '{sanitized_project_name}'...")
+        typer.echo(f"🔄 Processing records for project "
+                   f"'{sanitized_project_name}'...")
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
