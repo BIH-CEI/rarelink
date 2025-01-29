@@ -135,10 +135,10 @@
           "sourceRef": "redcap-kafka-source",
           "jsonClass": "KafkaSource",
           "options": {},
-          "topicName": "${REDCAP_PROJECT_ID}-rarelink_6_1_genetic_findings"
+          "topicName": "51-rarelink_6_1_genetic_findings"
         }
       }
-    },
+    }
     {
       "name": "observation.phenotypic_fetaure",
       "mappingRef": "rarelink/observation.phenotypic_fetaure",

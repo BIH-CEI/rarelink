@@ -392,6 +392,29 @@
                 ]
               },
               "@sliceName": "clinical-significance"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{'81259-4'}}",
+                    "system": "{{'http://loinc.org'}}",
+                    "version": "{{'2.78'}}",
+                    "display": "{{'Associated phenotype'}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? snomed_106221001_mondo.substring(6)}}",
+                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
+                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03'}}"
+                  }
+                ],
+                "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
+              },
+              "@sliceName": "predicted-phenotype"
             }
           ],
           "text": {
@@ -418,23 +441,7 @@
               "@sliceName": "geCategory"
             }
           ],
-          "status": "{{'final'}}",
-          "extension": [
-            {
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
-                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03'}}"
-                  }
-                ],
-                "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
-              },
-              "url": "{{'http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding'}}",
-              "@sliceName": "secondary-finding"
-            }
-          ]
+          "status": "{{'final'}}"
         }
       },
       "description": "genetic_findings.diagnostic_implication"
