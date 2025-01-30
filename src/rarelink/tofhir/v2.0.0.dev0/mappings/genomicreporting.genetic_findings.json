@@ -440,12 +440,23 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
+                    "{{#codingVar}}": "{{snomed_106221001_mondo.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? snomed_106221001_mondo.substring(6)}}",
+                      "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                      "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{snomed_106221001_omim_p.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? snomed_106221001_omim_p}}",
+                      "system": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                      "version": "{{? iif(snomed_106221001_omim_p.empty().not(), '2024-09-12'}}"
+                    }
                   }
                 ],
-                "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
+                "text": "{{'Genomic Diagnosis'}}"
               },
               "@sliceName": "predicted-phenotype"
             }
@@ -454,6 +465,7 @@
             "status": "{{'extensions'}}",
             "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
           },
+          "status": "{{'final'}}",
           "category": [
             {
               "coding": [
@@ -473,8 +485,7 @@
               ],
               "@sliceName": "geCategory"
             }
-          ],
-          "status": "{{'final'}}"
+          ]
         }
       },
       "description": "genetic_findings.diagnostic_implication"
