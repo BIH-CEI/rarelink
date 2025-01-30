@@ -132,22 +132,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/clinical-annotation-evidence-vs"
-        },
-        "name": "Clinical Annotation Level of Evidence Value Set",
-        "description": "Value set for clinical annotation levels of evidence.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/clinical-significance-acmg-vs"
-        },
-        "name": "Clinical Significance ACMG Value Set",
-        "description": "Value set for ACMG clinical significance levels.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/consanguinity"
         },
         "name": "Consanguinity",
@@ -188,14 +172,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/dna-change-type-vs"
-        },
-        "name": "DNA Change Type Value Set",
-        "description": "Value set for capturing DNA change types.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "ValueSet/encounter-class-vs"
         },
         "name": "Encounter Class Value Set",
@@ -224,22 +200,6 @@
         },
         "name": "Gender Identity Value Set",
         "description": "Value set for gender identity.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/genomic-source-class-vs"
-        },
-        "name": "Genomic Source Class Value Set",
-        "description": "Value set for capturing genomic source classes.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/interpretation-status-vs"
-        },
-        "name": "Interpretation Status Value Set",
-        "description": "Value set for interpretation statuses.",
         "exampleBoolean": false
       },
       {
@@ -292,14 +252,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/progress-status-interpretation-vs"
-        },
-        "name": "Progress Status of Interpretation Value Set",
-        "description": "Value set for capturing the progress status of interpretation.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/propositus"
         },
         "name": "Propositus",
@@ -332,6 +284,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-diagnostic-implication"
+        },
+        "name": "RareLink Diagnostic Implication Observation",
+        "description": "\n  A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \n  for documenting diagnostic significance, evidence levels, and associated phenotypes \n  (genetic_findings.diagnostic_implication).\n",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-encounter"
         },
         "name": "RareLink Encounter",
@@ -344,6 +304,14 @@
         },
         "name": "RareLink Family History",
         "description": "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-genetic-variant"
+        },
+        "name": "RareLink Genetic Variant Observation",
+        "description": "\n  A RareLink-specific profile for documenting genetic findings \n  (genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.\n",
         "exampleBoolean": false
       },
       {
@@ -404,14 +372,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rarelink-observation-genetic-findings"
-        },
-        "name": "RareLink Observation Genetic Findings",
-        "description": "A RareLink-specific profile for capturing genetic findings.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/rarelink-observation-gestation-at-birth"
         },
         "name": "RareLink Observation Gestation at Birth",
@@ -460,14 +420,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/reference-genome-vs"
-        },
-        "name": "Reference Genome Value Set",
-        "description": "Value set for reference sequence assemblies.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/resolution-date"
         },
         "name": "Resolution Date",
@@ -492,14 +444,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/structural-variant-analysis-method-vs"
-        },
-        "name": "Structural Variant Analysis Method Value Set",
-        "description": "Value set for capturing structural variant analysis methods.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "ValueSet/temporal-pattern-vs"
         },
         "name": "Temporal Pattern Value Set",
@@ -520,14 +464,6 @@
         },
         "name": "Vital Status Value Set",
         "description": "Value set for capturing the vital status of the patient.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/zygosity-vs"
-        },
-        "name": "Zygosity Value Set",
-        "description": "Value set for capturing zygosity.",
         "exampleBoolean": false
       }
     ],

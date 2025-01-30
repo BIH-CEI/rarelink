@@ -1,0 +1,284 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-diagnostic-implication",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-diagnostic-implication",
+  "name": "RareLinkDiagnosticImplication",
+  "title": "RareLink Diagnostic Implication Observation",
+  "status": "draft",
+  "description": "\n  A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \n  for documenting diagnostic significance, evidence levels, and associated phenotypes \n  (genetic_findings.diagnostic_implication).\n",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.meta.profile",
+        "path": "Observation.meta.profile",
+        "fixedCanonical": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0"
+      },
+      {
+        "id": "Observation.text.status",
+        "path": "Observation.text.status",
+        "patternCode": "extensions"
+      },
+      {
+        "id": "Observation.text.div",
+        "path": "Observation.text.div",
+        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Observation</strong></p><p>This observation is generated as part of the RareLink REDCap project and its CDM.</p></div>"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "fixedCode": "final"
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "coding"
+            }
+          ],
+          "description": "Slice based on the category.code pattern",
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 4
+      },
+      {
+        "id": "Observation.category:rarelinkLabCategory",
+        "path": "Observation.category",
+        "sliceName": "rarelinkLabCategory",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category:rarelinkLabCategory.coding",
+        "path": "Observation.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category:rarelinkLabCategory.coding.system",
+        "path": "Observation.category.coding.system",
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/observation-category"
+      },
+      {
+        "id": "Observation.category:rarelinkLabCategory.coding.code",
+        "path": "Observation.category.coding.code",
+        "fixedCode": "laboratory"
+      },
+      {
+        "id": "Observation.category:rarelinkGeCategory",
+        "path": "Observation.category",
+        "sliceName": "rarelinkGeCategory",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category:rarelinkGeCategory.coding",
+        "path": "Observation.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category:rarelinkGeCategory.coding.system",
+        "path": "Observation.category.coding.system",
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v2-0074"
+      },
+      {
+        "id": "Observation.category:rarelinkGeCategory.coding.code",
+        "path": "Observation.category.coding.code",
+        "fixedCode": "GE"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+      },
+      {
+        "id": "Observation.code.coding.version",
+        "path": "Observation.code.coding.version",
+        "patternString": "3.0.0"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "diagnostic-implication"
+      },
+      {
+        "id": "Observation.code.coding.display",
+        "path": "Observation.code.coding.display",
+        "patternString": "Diagnostic Implication"
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "description": "Slice based on the reference profile pattern",
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.derivedFrom:rarelinkVariant",
+        "path": "Observation.derivedFrom",
+        "sliceName": "rarelinkVariant",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.derivedFrom:rarelinkVariant.reference",
+        "path": "Observation.derivedFrom.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "code"
+            }
+          ],
+          "description": "Slice based on the component.code pattern",
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.component:evidenceLevel",
+        "path": "Observation.component",
+        "sliceName": "evidenceLevel",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.version",
+        "path": "Observation.component.code.coding.version",
+        "patternString": "2.78"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "93044-6"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "patternString": "Level of evidence"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:clinicalSignificance",
+        "path": "Observation.component",
+        "sliceName": "clinicalSignificance",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.version",
+        "path": "Observation.component.code.coding.version",
+        "patternString": "2.78"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "53037-8"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "patternString": "Genetic variation clinical significance [Imp]"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:predictedPhenotype",
+        "path": "Observation.component",
+        "sliceName": "predictedPhenotype",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.version",
+        "path": "Observation.component.code.coding.version",
+        "patternString": "2.78"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "81259-4"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.display",
+        "path": "Observation.component.code.coding.display",
+        "patternString": "Associated phenotype"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      }
+    ]
+  }
+}
