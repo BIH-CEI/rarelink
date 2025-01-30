@@ -38,10 +38,21 @@
           "method": {
             "coding": [
               {
-                "code": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_code')}}",
-                "system": "{{'https://loinc.org/'}}",
-                "version": "{{'2.78'}}",
-                "display": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_display')}}"
+                "{{#codingVar}}": "{{loinc_81304_8.exists()}}",
+                "{{?}}": {
+                  "code": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_code')}}",
+                  "system": "{{'https://loinc.org/'}}",
+                  "version": "{{'2.78'}}",
+                  "display": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_display')}}"
+                }
+              },
+              {
+                "{{#codingVar}}": "{{loinc_81304_8_other.exists()}}",
+                "{{?}}": {
+                  "code": "{{? loinc_81304_8_other)}}",
+                  "system": "{{'https://loinc.org/'}}",
+                  "version": "{{'2.78'}}"
+                }
               }
             ]
           },
@@ -251,10 +262,21 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_code')}}",
-                    "system": "{{? iif(loinc_53034_5.empty().not(), 'http://loinc.org')}}",
-                    "version": "{{? iif(loinc_53034_5.empty().not(), '2.78')}}",
-                    "display": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_display')}}"
+                    "{{#codingVar}}": "{{loinc_53034_5.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_code')}}",
+                      "system": "{{? iif(loinc_53034_5.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_53034_5.empty().not(), '2.78')}}",
+                      "display": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_display')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{loinc_53034_5_other.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? loinc_53034_5_other)}}",
+                      "system": "{{? iif(loinc_53034_5_other.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_53034_5_other.empty().not(), '2.78')}}"
+                    }
                   }
                 ]
               },
@@ -297,10 +319,21 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_code')}}",
-                    "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
-                    "version": "{{? iif(loinc_48019_4.empty().not(), '2.78')}}",
-                    "display": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_display')}}"
+                    "{{#codingVar}}": "{{loinc_48019_4.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_code')}}",
+                      "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_48019_4.empty().not(), '2.78')}}",
+                      "display": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_display')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{loinc_48019_4_other.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? loinc_48019_4_other)}}",
+                      "system": "{{? iif(loinc_48019_4_other.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_48019_4_other.empty().not(), '2.78')}}"
+                    }
                   }
                 ]
               },
@@ -450,39 +483,39 @@
   "context": {
     "geneticsZygosity": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_11_zygosity.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_11_zygosity.csv"
     },
     "geneticsClinicalAnnotation": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_16_clinical_annotation_level_of_evidence.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_16_clinical_annotation_level_of_evidence.csv"
     },
     "geneticsDNAChangeType": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_13_dna_change_type.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_13_dna_change_type.csv"
     },
     "geneticsMethod": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_4_structural_variant_analysis_method.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_4_structural_variant_analysis_method.csv"
     },
     "phenopacketsInterpretation": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_3_interpretation_status.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_3_interpretation_status.csv"
     },
     "geneticsReferenceGenome": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_5_reference_genome.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_5_reference_genome.csv"
     },
     "geneticsGenomicSourceClass": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_12_genomic_source_class.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_12_genomic_source_class.csv"
     },
     "geneticsProgressStatus": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_2_progress_status_of_interpretation.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_2_progress_status_of_interpretation.csv"
     },
     "geneticsClinicalSignifiance": {
       "category": "concept-map",
-      "url": "$CONTEXT_REPO/6_1_14_clinical_significance_acmg.csv"
+      "url": "$CONTEXT_REPO/rarelink/6_1_14_clinical_significance_acmg.csv"
     }
   }
 }
