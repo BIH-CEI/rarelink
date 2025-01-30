@@ -341,7 +341,7 @@
           },
           "derivedFrom": [
             {
-              "reference": "{{'Observation/variant-id'}}",
+              "reference": "{{'Observation/' & mpp:getHashedId('Observation', record_id & 'Genetic Findings Variant')}}",
               "type": "{{'Observation'}}",
               "@sliceName": "variant"
             }
