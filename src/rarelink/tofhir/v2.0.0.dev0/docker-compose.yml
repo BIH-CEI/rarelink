@@ -7,7 +7,7 @@ services:
       - CONTEXT_PATH=conf
       - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
       - SOURCE_URL=${REDCAP_URL}
-    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/rarelink-cdm.json"] ##rarelink-cdm job # CLI: run --job path.json
+    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/observation.genetic_findings.json"] ##rarelink-cdm job # CLI: run --job path.json
     volumes:
       - ./src/rarelink/tofhir/v2.0.0.dev0:/usr/local/tofhir/conf
     env_file:

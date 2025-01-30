@@ -20,18 +20,6 @@
   },
   "mappings": [
     {
-      "name": "observation.genetic_findings",
-      "mappingRef": "rarelink/observation.genetic_findings",
-      "sourceBinding": {
-        "rarelinkGeneticFindings": {
-          "sourceRef": "redcap-kafka-source",
-          "jsonClass": "KafkaSource",
-          "options": {},
-          "topicName": "51-rarelink_6_1_genetic_findings"
-        }
-      }
-    },
-    {
       "name": "genomicreporting.genetic_findings",
       "mappingRef": "rarelink/genomicreporting.genetic_findings",
       "sourceBinding": {
