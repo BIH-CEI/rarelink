@@ -116,8 +116,8 @@
     "fshName": "RareLinkDiagnosticImplication",
     "fshType": "Profile",
     "fshFile": "ObservationGeneticFindings_RareLink.fsh",
-    "startLine": 168,
-    "endLine": 246
+    "startLine": 180,
+    "endLine": 268
   },
   {
     "outputFile": "StructureDefinition-rarelink-encounter.json",
@@ -141,7 +141,7 @@
     "fshType": "Profile",
     "fshFile": "ObservationGeneticFindings_RareLink.fsh",
     "startLine": 17,
-    "endLine": 157
+    "endLine": 169
   },
   {
     "outputFile": "StructureDefinition-rarelink-ips-condition.json",
@@ -296,6 +296,14 @@
     "endLine": 61
   },
   {
+    "outputFile": "ValueSet-clinical-significance-vs.json",
+    "fshName": "ClinicalSignificanceVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 347,
+    "endLine": 356
+  },
+  {
     "outputFile": "ValueSet-consanguinity-vs.json",
     "fshName": "ConsanguinityVS",
     "fshType": "ValueSet",
@@ -310,6 +318,14 @@
     "fshFile": "Consent_RareLink.fsh",
     "startLine": 47,
     "endLine": 53
+  },
+  {
+    "outputFile": "ValueSet-dna-change-type-vs.json",
+    "fshName": "DNAChangeTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 334,
+    "endLine": 344
   },
   {
     "outputFile": "ValueSet-encounter-class-vs.json",
@@ -344,12 +360,28 @@
     "endLine": 72
   },
   {
+    "outputFile": "ValueSet-genomic-source-class-vs.json",
+    "fshName": "GenomicSourceClassVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 320,
+    "endLine": 331
+  },
+  {
     "outputFile": "ValueSet-karyotypic-sex-vs.json",
     "fshName": "KaryotypicSexVS",
     "fshType": "ValueSet",
     "fshFile": "ObservationKaryotypicSex_RareLink.fsh",
     "startLine": 36,
     "endLine": 50
+  },
+  {
+    "outputFile": "ValueSet-level-of-evidence-vs.json",
+    "fshName": "LevelOfEvidenceVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 359,
+    "endLine": 369
   },
   {
     "outputFile": "ValueSet-phenotype-status-vs.json",
@@ -376,6 +408,14 @@
     "endLine": 69
   },
   {
+    "outputFile": "ValueSet-reference-genome-vs.json",
+    "fshName": "ReferenceGenomeVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 296,
+    "endLine": 304
+  },
+  {
     "outputFile": "ValueSet-severity-vs.json",
     "fshName": "SeverityVS",
     "fshType": "ValueSet",
@@ -390,6 +430,14 @@
     "fshFile": "Patient_RareLink.fsh",
     "startLine": 74,
     "endLine": 82
+  },
+  {
+    "outputFile": "ValueSet-structural-variant-method-vs.json",
+    "fshName": "StructuralVariantMethodVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 280,
+    "endLine": 293
   },
   {
     "outputFile": "ValueSet-temporal-pattern-vs.json",
@@ -414,5 +462,13 @@
     "fshFile": "PatientVitalStatus_RareLink.fsh",
     "startLine": 48,
     "endLine": 56
+  },
+  {
+    "outputFile": "ValueSet-zygosity-vs.json",
+    "fshName": "ZygosityVS",
+    "fshType": "ValueSet",
+    "fshFile": "ObservationGeneticFindings_RareLink.fsh",
+    "startLine": 307,
+    "endLine": 317
   }
 ]

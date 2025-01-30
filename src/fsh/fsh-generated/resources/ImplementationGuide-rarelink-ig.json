@@ -132,6 +132,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/clinical-significance-vs"
+        },
+        "name": "Clinical Significance Value Set",
+        "description": "LOINC LA codes for the clinical significance of a variant.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/consanguinity"
         },
         "name": "Consanguinity",
@@ -172,6 +180,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/dna-change-type-vs"
+        },
+        "name": "DNA Change Type Value Set",
+        "description": "LOINC LA codes enumerating various DNA change types.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/encounter-class-vs"
         },
         "name": "Encounter Class Value Set",
@@ -204,10 +220,26 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/genomic-source-class-vs"
+        },
+        "name": "Genomic Source Class Value Set",
+        "description": "LOINC LA codes enumerating germline, somatic, fetal, etc.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/karyotypic-sex-vs"
         },
         "name": "Karyotypic Sex Value Set",
         "description": "Value set for capturing karyotypic sex.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/level-of-evidence-vs"
+        },
+        "name": "Level of Evidence Value Set",
+        "description": "LOINC LA codes describing evidence strength for a variant.",
         "exampleBoolean": false
       },
       {
@@ -420,6 +452,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/reference-genome-vs"
+        },
+        "name": "Reference Genome Value Set",
+        "description": "LOINC LA codes specifying the reference genome build.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/resolution-date"
         },
         "name": "Resolution Date",
@@ -444,6 +484,14 @@
       },
       {
         "reference": {
+          "reference": "ValueSet/structural-variant-method-vs"
+        },
+        "name": "Structural Variant Method Value Set",
+        "description": "LOINC LA codes enumerating methods for detecting structural variants.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/temporal-pattern-vs"
         },
         "name": "Temporal Pattern Value Set",
@@ -464,6 +512,14 @@
         },
         "name": "Vital Status Value Set",
         "description": "Value set for capturing the vital status of the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/zygosity-vs"
+        },
+        "name": "Zygosity Value Set",
+        "description": "LOINC LA codes enumerating various zygosity states.",
         "exampleBoolean": false
       }
     ],

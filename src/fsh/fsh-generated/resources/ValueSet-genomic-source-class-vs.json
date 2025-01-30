@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "GenomicSourceClassVS",
+  "id": "genomic-source-class-vs",
+  "title": "Genomic Source Class Value Set",
+  "description": "LOINC LA codes enumerating germline, somatic, fetal, etc.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA6683-2",
+            "display": "Germline"
+          },
+          {
+            "code": "LA6684-0",
+            "display": "Somatic"
+          },
+          {
+            "code": "LA10429-1",
+            "display": "Fetal"
+          },
+          {
+            "code": "LA18194-3",
+            "display": "Likely germline"
+          },
+          {
+            "code": "LA18195-0",
+            "display": "Likely somatic"
+          },
+          {
+            "code": "LA18196-8",
+            "display": "Likely fetal"
+          },
+          {
+            "code": "LA18197-6",
+            "display": "Unknown genomic origin"
+          },
+          {
+            "code": "LA26807-0",
+            "display": "De novo"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ClinicalSignificanceVS",
+  "id": "clinical-significance-vs",
+  "title": "Clinical Significance Value Set",
+  "description": "LOINC LA codes for the clinical significance of a variant.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          },
+          {
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          },
+          {
+            "code": "LA26333-7",
+            "display": "Uncertain significance"
+          },
+          {
+            "code": "LA26334-5",
+            "display": "Likely benign"
+          },
+          {
+            "code": "LA6675-8",
+            "display": "Benign"
+          },
+          {
+            "code": "LA4489-6",
+            "display": "Unknown"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "LevelOfEvidenceVS",
+  "id": "level-of-evidence-vs",
+  "title": "Level of Evidence Value Set",
+  "description": "LOINC LA codes describing evidence strength for a variant.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA30200-2",
+            "display": "Very strong evidence pathogenic"
+          },
+          {
+            "code": "LA30201-0",
+            "display": "Strong evidence pathogenic"
+          },
+          {
+            "code": "LA30202-8",
+            "display": "Moderate evidence pathogenic"
+          },
+          {
+            "code": "LA30203-6",
+            "display": "Supporting evidence pathogenic"
+          },
+          {
+            "code": "LA30204-4",
+            "display": "Supporting evidence benign"
+          },
+          {
+            "code": "LA30205-1",
+            "display": "Strong evidence benign"
+          },
+          {
+            "code": "LA30206-9",
+            "display": "Stand-alone evidence pathogenic"
+          }
+        ]
+      }
+    ]
+  }
+}

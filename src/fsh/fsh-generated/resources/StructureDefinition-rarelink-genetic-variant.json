@@ -122,6 +122,14 @@
         "min": 1
       },
       {
+        "id": "Observation.method.coding",
+        "path": "Observation.method.coding",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-method-vs"
+        }
+      },
+      {
         "id": "Observation.component",
         "path": "Observation.component",
         "slicing": {
@@ -170,6 +178,11 @@
             "code": "CodeableConcept"
           }
         ]
+      },
+      {
+        "id": "Observation.component:genomicHgvs.value[x].coding.system",
+        "path": "Observation.component.value[x].coding.system",
+        "fixedUri": "http://varnomen.hgvs.org"
       },
       {
         "id": "Observation.component:genomicRefSeq",
@@ -244,6 +257,11 @@
         ]
       },
       {
+        "id": "Observation.component:representativeCodingHgvs.value[x].coding.system",
+        "path": "Observation.component.value[x].coding.system",
+        "fixedUri": "http://varnomen.hgvs.org"
+      },
+      {
         "id": "Observation.component:representativeTranscriptRefSeq",
         "path": "Observation.component",
         "sliceName": "representativeTranscriptRefSeq",
@@ -316,6 +334,11 @@
         ]
       },
       {
+        "id": "Observation.component:representativeProteinHgvs.value[x].coding.system",
+        "path": "Observation.component.value[x].coding.system",
+        "fixedUri": "http://varnomen.hgvs.org"
+      },
+      {
         "id": "Observation.component:representativeProteinRefSeq",
         "path": "Observation.component",
         "sliceName": "representativeProteinRefSeq",
@@ -385,7 +408,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs"
+        }
       },
       {
         "id": "Observation.component:geneStudied",
@@ -424,6 +451,11 @@
         ]
       },
       {
+        "id": "Observation.component:geneStudied.value[x].coding.system",
+        "path": "Observation.component.value[x].coding.system",
+        "fixedUri": "http://www.genenames.org"
+      },
+      {
         "id": "Observation.component:allelicState",
         "path": "Observation.component",
         "sliceName": "allelicState",
@@ -457,7 +489,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs"
+        }
       },
       {
         "id": "Observation.component:genomicSourceClass",
@@ -493,7 +529,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs"
+        }
       },
       {
         "id": "Observation.component:codingChangeType",
@@ -529,7 +569,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs"
+        }
       }
     ]
   }

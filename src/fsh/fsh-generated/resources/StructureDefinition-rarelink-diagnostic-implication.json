@@ -195,7 +195,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs"
+        }
       },
       {
         "id": "Observation.component:clinicalSignificance",
@@ -236,7 +240,11 @@
           {
             "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs"
+        }
       },
       {
         "id": "Observation.component:predictedPhenotype",
@@ -278,6 +286,45 @@
             "code": "CodeableConcept"
           }
         ]
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding",
+        "path": "Observation.component.value[x].coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "closed"
+        }
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:mondo",
+        "path": "Observation.component.value[x].coding",
+        "sliceName": "mondo",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:mondo.system",
+        "path": "Observation.component.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://purl.obolibrary.org/obo/mondo.owl"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:omim",
+        "path": "Observation.component.value[x].coding",
+        "sliceName": "omim",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:omim.system",
+        "path": "Observation.component.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://omim.org"
       }
     ]
   }

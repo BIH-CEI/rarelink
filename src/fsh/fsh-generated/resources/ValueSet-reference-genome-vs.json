@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ReferenceGenomeVS",
+  "id": "reference-genome-vs",
+  "title": "Reference Genome Value Set",
+  "description": "LOINC LA codes specifying the reference genome build.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "https://loinc.org/",
+        "concept": [
+          {
+            "code": "LA14032-9",
+            "display": "NCBI Build 34 (hg16)"
+          },
+          {
+            "code": "LA14029-5",
+            "display": "GRCh37 (hg19)"
+          },
+          {
+            "code": "LA14030-3",
+            "display": "NCBI Build 36.1 (hg18)"
+          },
+          {
+            "code": "LA14031-1",
+            "display": "NCBI Build 35 (hg17)"
+          },
+          {
+            "code": "LA26806-2",
+            "display": "GRCh38 (hg38)"
+          }
+        ]
+      }
+    ]
+  }
+}

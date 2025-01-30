@@ -40,6 +40,7 @@ Description: "
 // method => 0..1, codings => 0..*
 * method 0..1
 * method.coding 0..*
+* method.coding from StructuralVariantMethodVS (extensible)
 
 // category => rename slices to avoid conflicts with any existing slices
 * category ^slicing.discriminator[0].type = #pattern
@@ -71,6 +72,8 @@ Description: "
 * component[genomicHgvs].code.coding.version = "2.78"
 * component[genomicHgvs].code.coding.display = "Genomic DNA change (gHGVS)"
 * component[genomicHgvs].value[x] only CodeableConcept
+* component[genomicHgvs].valueCodeableConcept.coding.system = "http://varnomen.hgvs.org" (exactly)
+
 
 // (2) genomic-ref-seq => LOINC 48013-7
 * component contains genomicRefSeq 0..1
@@ -87,6 +90,8 @@ Description: "
 * component[representativeCodingHgvs].code.coding.version = "2.78"
 * component[representativeCodingHgvs].code.coding.display = "DNA change (c.HGVS)"
 * component[representativeCodingHgvs].value[x] only CodeableConcept
+* component[representativeCodingHgvs].valueCodeableConcept.coding.system = "http://varnomen.hgvs.org" (exactly)
+
 
 // (4) representative-transcript-ref-seq => LOINC 51958-7
 * component contains representativeTranscriptRefSeq 0..1
@@ -103,6 +108,8 @@ Description: "
 * component[representativeProteinHgvs].code.coding.version = "2.78"
 * component[representativeProteinHgvs].code.coding.display = "Amino acid change (pHGVS)"
 * component[representativeProteinHgvs].value[x] only CodeableConcept
+* component[representativeProteinHgvs].valueCodeableConcept.coding.system = "http://varnomen.hgvs.org" (exactly)
+
 
 // (6) representative-protein-ref-seq => from tbd-codes-cs
 * component contains representativeProteinRefSeq 0..1
@@ -119,6 +126,7 @@ Description: "
 * component[referenceSequenceAssembly].code.coding.version = "2.78"
 * component[referenceSequenceAssembly].code.coding.display = "Human reference sequence assembly version"
 * component[referenceSequenceAssembly].value[x] only CodeableConcept
+* component[referenceSequenceAssembly].valueCodeableConcept from ReferenceGenomeVS (required)
 
 // (8) gene-studied => LOINC 48018-6
 * component contains geneStudied 0..1
@@ -127,6 +135,7 @@ Description: "
 * component[geneStudied].code.coding.version = "2.78"
 * component[geneStudied].code.coding.display = "Gene studied [ID]"
 * component[geneStudied].value[x] only CodeableConcept
+* component[geneStudied].valueCodeableConcept.coding.system = "http://www.genenames.org" (exactly)
 
 // (9) allelic-state => LOINC 53034-5
 * component contains allelicState 0..1
@@ -135,6 +144,7 @@ Description: "
 * component[allelicState].code.coding.version = "2.78"
 * component[allelicState].code.coding.display = "Allelic state"
 * component[allelicState].value[x] only CodeableConcept
+* component[allelicState].valueCodeableConcept from ZygosityVS (extensible)
 
 // (10) genomic-source-class => LOINC 48002-0
 * component contains genomicSourceClass 0..1
@@ -143,6 +153,7 @@ Description: "
 * component[genomicSourceClass].code.coding.version = "2.78"
 * component[genomicSourceClass].code.coding.display = "Genomic source class [Type]"
 * component[genomicSourceClass].value[x] only CodeableConcept
+* component[genomicSourceClass].valueCodeableConcept from GenomicSourceClassVS (required)
 
 // (11) coding-change-type => LOINC 48019-4
 * component contains codingChangeType 0..1
@@ -151,6 +162,7 @@ Description: "
 * component[codingChangeType].code.coding.version = "2.78"
 * component[codingChangeType].code.coding.display = "DNA change type"
 * component[codingChangeType].value[x] only CodeableConcept
+* component[codingChangeType].valueCodeableConcept from DNAChangeTypeVS (extensible)
 
 // Optional: narrative
 * text.status = #generated
@@ -224,6 +236,7 @@ Description: "
 * component[evidenceLevel].code.coding.version = "2.78"
 * component[evidenceLevel].code.coding.display = "Level of evidence"
 * component[evidenceLevel].value[x] only CodeableConcept
+* component[evidenceLevel].valueCodeableConcept from LevelOfEvidenceVS (required)
 
 // (2) clinical-significance => LOINC 53037-8
 * component contains clinicalSignificance 0..1
@@ -232,6 +245,7 @@ Description: "
 * component[clinicalSignificance].code.coding.version = "2.78"
 * component[clinicalSignificance].code.coding.display = "Genetic variation clinical significance [Imp]"
 * component[clinicalSignificance].value[x] only CodeableConcept
+* component[clinicalSignificance].valueCodeableConcept from ClinicalSignificanceVS (required)
 
 // (3) predicted-phenotype => LOINC 81259-4
 * component contains predictedPhenotype 0..1
@@ -241,6 +255,14 @@ Description: "
 * component[predictedPhenotype].code.coding.display = "Associated phenotype"
 * component[predictedPhenotype].value[x] only CodeableConcept
 
+* component[predictedPhenotype].valueCodeableConcept.coding ^slicing.discriminator[0].type = #value
+* component[predictedPhenotype].valueCodeableConcept.coding ^slicing.discriminator[0].path = "system"
+* component[predictedPhenotype].valueCodeableConcept.coding ^slicing.rules = #closed
+
+* component[predictedPhenotype].valueCodeableConcept.coding contains mondo 0..* and omim 0..*
+* component[predictedPhenotype].valueCodeableConcept.coding[mondo].system = "http://purl.obolibrary.org/obo/mondo.owl" (exactly)
+* component[predictedPhenotype].valueCodeableConcept.coding[omim].system = "http://omim.org" (exactly)
+
 // Narrative text
 * text.status = #extensions
 * text.div = """
@@ -249,3 +271,99 @@ Description: "
   <p>This observation is generated as part of the RareLink REDCap project and its CDM.</p>
 </div>
 """
+
+// ──────────────────────────────────────────────────────────────────────────
+// Value Sets
+// ──────────────────────────────────────────────────────────────────────────
+
+// 1) Structural Variant Method ValueSet
+ValueSet: StructuralVariantMethodVS
+Id: structural-variant-method-vs
+Title: "Structural Variant Method Value Set"
+Description: "LOINC LA codes enumerating methods for detecting structural variants."
+* LOINC#LA26406-1 "Karyotyping"
+* LOINC#LA26404-6 "FISH"
+* LOINC#LA26418-6 "PCR"
+* LOINC#LA26419-4 "qPCR (real-time PCR)"
+* LOINC#LA26400-4 "SNP array"
+* LOINC#LA26813-8 "Restriction fragment length polymorphism (RFLP)"
+* LOINC#LA26810-4 "DNA hybridization"
+* LOINC#LA26398-0 "Sequencing"
+* LOINC#LA26415-2 "MLPA"
+* LOINC#LA46-8 "Other"
+
+// 2) Reference Genome ValueSet
+ValueSet: ReferenceGenomeVS
+Id: reference-genome-vs
+Title: "Reference Genome Value Set"
+Description: "LOINC LA codes specifying the reference genome build."
+* LOINC#LA14032-9 "NCBI Build 34 (hg16)"
+* LOINC#LA14029-5 "GRCh37 (hg19)"
+* LOINC#LA14030-3 "NCBI Build 36.1 (hg18)"
+* LOINC#LA14031-1 "NCBI Build 35 (hg17)"
+* LOINC#LA26806-2 "GRCh38 (hg38)"
+
+// 3) Zygosity ValueSet
+ValueSet: ZygosityVS
+Id: zygosity-vs
+Title: "Zygosity Value Set"
+Description: "LOINC LA codes enumerating various zygosity states."
+* LOINC#LA6705-3 "Homozygous"
+* LOINC#LA6706-1 "(simple) Heterozygous"
+* LOINC#LA26217-2 "Compound heterozygous"
+* LOINC#LA26220-6 "Double heterozygous"
+* LOINC#LA6707-9 "Hemizygous"
+* LOINC#LA6703-8 "Heteroplasmic"
+* LOINC#LA6704-6 "Homoplasmic"
+
+// 4) Genomic Source Class ValueSet
+ValueSet: GenomicSourceClassVS
+Id: genomic-source-class-vs
+Title: "Genomic Source Class Value Set"
+Description: "LOINC LA codes enumerating germline, somatic, fetal, etc."
+* LOINC#LA6683-2 "Germline"
+* LOINC#LA6684-0 "Somatic"
+* LOINC#LA10429-1 "Fetal"
+* LOINC#LA18194-3 "Likely germline"
+* LOINC#LA18195-0 "Likely somatic"
+* LOINC#LA18196-8 "Likely fetal"
+* LOINC#LA18197-6 "Unknown genomic origin"
+* LOINC#LA26807-0 "De novo"
+
+// 5) DNA Change Type ValueSet
+ValueSet: DNAChangeTypeVS
+Id: dna-change-type-vs
+Title: "DNA Change Type Value Set"
+Description: "LOINC LA codes enumerating various DNA change types."
+* LOINC#LA9658-1 "Wild type"
+* LOINC#LA6692-3 "Deletion"
+* LOINC#LA6686-5 "Duplication"
+* LOINC#LA6687-3 "Insertion"
+* LOINC#LA6688-1 "Insertion/Deletion"
+* LOINC#LA6689-9 "Inversion"
+* LOINC#LA6690-7 "Substitution"
+
+// 6) Clinical Significance ValueSet
+ValueSet: ClinicalSignificanceVS
+Id: clinical-significance-vs
+Title: "Clinical Significance Value Set"
+Description: "LOINC LA codes for the clinical significance of a variant."
+* LOINC#LA6668-3 "Pathogenic"
+* LOINC#LA26332-9 "Likely pathogenic"
+* LOINC#LA26333-7 "Uncertain significance"
+* LOINC#LA26334-5 "Likely benign"
+* LOINC#LA6675-8 "Benign"
+* LOINC#LA4489-6 "Unknown"
+
+// 7) Level of Evidence ValueSet
+ValueSet: LevelOfEvidenceVS
+Id: level-of-evidence-vs
+Title: "Level of Evidence Value Set"
+Description: "LOINC LA codes describing evidence strength for a variant."
+* LOINC#LA30200-2 "Very strong evidence pathogenic"
+* LOINC#LA30201-0 "Strong evidence pathogenic"
+* LOINC#LA30202-8 "Moderate evidence pathogenic"
+* LOINC#LA30203-6 "Supporting evidence pathogenic"
+* LOINC#LA30204-4 "Supporting evidence benign"
+* LOINC#LA30205-1 "Strong evidence benign"
+* LOINC#LA30206-9 "Stand-alone evidence pathogenic"
