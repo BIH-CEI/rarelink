@@ -287,7 +287,7 @@
               "code": {
                 "coding": [
                   {
-                    "code": "{{? iif(loinc_48019_4.empty().not(), '48019-4'}}",
+                    "code": "{{? iif(loinc_48019_4.empty().not(), '48019-4')}}",
                     "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
                     "version": "{{? iif(loinc_48019_4.empty().not(), '2.78')}}",
                     "display": "{{? iif(loinc_48019_4.empty().not(), 'DNA change type'}}"
@@ -297,7 +297,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "code": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_code'}}",
+                    "code": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_code')}}",
                     "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
                     "version": "{{? iif(loinc_48019_4.empty().not(), '2.78')}}",
                     "display": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_display')}}"
@@ -408,8 +408,8 @@
                 "coding": [
                   {
                     "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl'}}",
-                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03'}}"
+                    "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
                   }
                 ],
                 "text": "{{? iif(snomed_106221001_mondo.empty().not(), 'Genomic Diagnosis - MONDO')}}"
