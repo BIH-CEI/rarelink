@@ -1,11 +1,11 @@
 {
   "resourceType": "ValueSet",
   "status": "draft",
-  "name": "ClinicalSignificanceACMGVS",
-  "id": "clinical-significance-acmg-vs",
-  "title": "Clinical Significance ACMG Value Set",
-  "description": "Value set for ACMG clinical significance levels.",
-  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-acmg-vs",
+  "name": "ClinicalSignificanceVS",
+  "id": "clinical-significance-vs",
+  "title": "Clinical Significance Value Set",
+  "description": "LOINC LA codes for the clinical significance of a variant.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs",
   "compose": {
     "include": [
       {

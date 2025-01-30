@@ -1,11 +1,11 @@
 {
   "resourceType": "ValueSet",
   "status": "draft",
-  "name": "ClinicalAnnotationEvidenceVS",
-  "id": "clinical-annotation-evidence-vs",
-  "title": "Clinical Annotation Level of Evidence Value Set",
-  "description": "Value set for clinical annotation levels of evidence.",
-  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-annotation-evidence-vs",
+  "name": "LevelOfEvidenceVS",
+  "id": "level-of-evidence-vs",
+  "title": "Level of Evidence Value Set",
+  "description": "LOINC LA codes describing evidence strength for a variant.",
+  "url": "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs",
   "compose": {
     "include": [
       {

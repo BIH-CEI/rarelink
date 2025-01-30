@@ -4,7 +4,7 @@
   "name": "ZygosityVS",
   "id": "zygosity-vs",
   "title": "Zygosity Value Set",
-  "description": "Value set for capturing zygosity.",
+  "description": "LOINC LA codes enumerating various zygosity states.",
   "url": "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs",
   "compose": {
     "include": [
@@ -17,7 +17,7 @@
           },
           {
             "code": "LA6706-1",
-            "display": "Heterozygous"
+            "display": "(simple) Heterozygous"
           },
           {
             "code": "LA26217-2",
@@ -38,10 +38,6 @@
           {
             "code": "LA6704-6",
             "display": "Homoplasmic"
-          },
-          {
-            "code": "53034_5_other",
-            "display": "Other"
           }
         ]
       }

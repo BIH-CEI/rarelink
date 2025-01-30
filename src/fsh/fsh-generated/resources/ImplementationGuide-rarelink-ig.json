@@ -132,18 +132,10 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/clinical-annotation-evidence-vs"
+          "reference": "ValueSet/clinical-significance-vs"
         },
-        "name": "Clinical Annotation Level of Evidence Value Set",
-        "description": "Value set for clinical annotation levels of evidence.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/clinical-significance-acmg-vs"
-        },
-        "name": "Clinical Significance ACMG Value Set",
-        "description": "Value set for ACMG clinical significance levels.",
+        "name": "Clinical Significance Value Set",
+        "description": "LOINC LA codes for the clinical significance of a variant.",
         "exampleBoolean": false
       },
       {
@@ -191,7 +183,7 @@
           "reference": "ValueSet/dna-change-type-vs"
         },
         "name": "DNA Change Type Value Set",
-        "description": "Value set for capturing DNA change types.",
+        "description": "LOINC LA codes enumerating various DNA change types.",
         "exampleBoolean": false
       },
       {
@@ -231,15 +223,7 @@
           "reference": "ValueSet/genomic-source-class-vs"
         },
         "name": "Genomic Source Class Value Set",
-        "description": "Value set for capturing genomic source classes.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/interpretation-status-vs"
-        },
-        "name": "Interpretation Status Value Set",
-        "description": "Value set for interpretation statuses.",
+        "description": "LOINC LA codes enumerating germline, somatic, fetal, etc.",
         "exampleBoolean": false
       },
       {
@@ -248,6 +232,14 @@
         },
         "name": "Karyotypic Sex Value Set",
         "description": "Value set for capturing karyotypic sex.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/level-of-evidence-vs"
+        },
+        "name": "Level of Evidence Value Set",
+        "description": "LOINC LA codes describing evidence strength for a variant.",
         "exampleBoolean": false
       },
       {
@@ -292,14 +284,6 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/progress-status-interpretation-vs"
-        },
-        "name": "Progress Status of Interpretation Value Set",
-        "description": "Value set for capturing the progress status of interpretation.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/propositus"
         },
         "name": "Propositus",
@@ -332,6 +316,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rarelink-diagnostic-implication"
+        },
+        "name": "RareLink Diagnostic Implication Observation",
+        "description": "\n  A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \n  for documenting diagnostic significance, evidence levels, and associated phenotypes \n  (genetic_findings.diagnostic_implication).\n",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rarelink-encounter"
         },
         "name": "RareLink Encounter",
@@ -344,6 +336,14 @@
         },
         "name": "RareLink Family History",
         "description": "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rarelink-genetic-variant"
+        },
+        "name": "RareLink Genetic Variant Observation",
+        "description": "\n  A RareLink-specific profile for documenting genetic findings \n  (genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.\n",
         "exampleBoolean": false
       },
       {
@@ -404,14 +404,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rarelink-observation-genetic-findings"
-        },
-        "name": "RareLink Observation Genetic Findings",
-        "description": "A RareLink-specific profile for capturing genetic findings.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/rarelink-observation-gestation-at-birth"
         },
         "name": "RareLink Observation Gestation at Birth",
@@ -463,7 +455,7 @@
           "reference": "ValueSet/reference-genome-vs"
         },
         "name": "Reference Genome Value Set",
-        "description": "Value set for reference sequence assemblies.",
+        "description": "LOINC LA codes specifying the reference genome build.",
         "exampleBoolean": false
       },
       {
@@ -492,10 +484,10 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/structural-variant-analysis-method-vs"
+          "reference": "ValueSet/structural-variant-method-vs"
         },
-        "name": "Structural Variant Analysis Method Value Set",
-        "description": "Value set for capturing structural variant analysis methods.",
+        "name": "Structural Variant Method Value Set",
+        "description": "LOINC LA codes enumerating methods for detecting structural variants.",
         "exampleBoolean": false
       },
       {
@@ -527,7 +519,7 @@
           "reference": "ValueSet/zygosity-vs"
         },
         "name": "Zygosity Value Set",
-        "description": "Value set for capturing zygosity.",
+        "description": "LOINC LA codes enumerating various zygosity states.",
         "exampleBoolean": false
       }
     ],
