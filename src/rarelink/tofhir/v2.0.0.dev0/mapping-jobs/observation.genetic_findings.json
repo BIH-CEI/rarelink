@@ -6,8 +6,8 @@
   "sourceSettings": {
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
-      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
-      "asStream": true,
+      "sourceUri": "${SOURCE_URL}",
+      "asStream": false,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,
       "bootstrapServers": "kafka-1:29092"
@@ -15,7 +15,7 @@
   },
   "sinkSettings": {
     "jsonClass": "FhirRepositorySinkSettings",
-    "fhirRepoUrl": "http://134.95.194.154:6080/fhir",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
     "returnMinimal": false
   },
   "mappings": [
