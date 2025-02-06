@@ -1,7 +1,7 @@
 """
 RareLink-CDM v2.0.0 Development Package
 
-This package contains all modules and definitions for RareLink CDM version 2.0.0.dev0,
+This package contains all modules and definitions for RareLink CDM version 2.0.0.dev1,
 including:
 
 - Schema definitions (`schema_definitions`)
@@ -20,4 +20,4 @@ __all__ = [
     
 ]
 
-__version__ = "2.0.0.dev0"
+__version__ = "2.0.0.dev1"

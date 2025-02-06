@@ -1,4 +1,4 @@
-from rarelink_cdm.v2_0_0_dev0.datamodel import CodeSystemsContainer, CodeSystem
+from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer, CodeSystem
 
 # Define the CodeSystemsContainer with all code systems
 RARELINK_CODE_SYSTEMS = CodeSystemsContainer(

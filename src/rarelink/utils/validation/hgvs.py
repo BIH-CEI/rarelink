@@ -1,6 +1,6 @@
 from pyphetools.creation.variant_validator import VariantValidator
 from logging import Logger
-from rarelink_cdm.v2_0_0_dev0.mappings.redcap import HGVS_VARIABLES, REFERENCE_GENOME_MAPPING
+from rarelink_cdm.v2_0_0_dev1.mappings.redcap import HGVS_VARIABLES, REFERENCE_GENOME_MAPPING
 import typer
 from rarelink.cli.utils import success_text, error_text
 

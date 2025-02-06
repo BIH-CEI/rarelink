@@ -4,9 +4,9 @@
 Contributing
 ==============
 
-.. warning:: 
-   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
-   it to ensure you have the latest updates and guidance.
+.. attention:: 
+   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
+   before using it to ensure you have the latest updates and guidance.
 
 RareLink is a community-driven project. We welcome contributions from everyone.
 There are many ways to contribute to RareLink, including the following:

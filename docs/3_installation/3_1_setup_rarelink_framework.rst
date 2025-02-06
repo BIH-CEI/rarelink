@@ -3,9 +3,9 @@
 Set up the RareLink Framework
 =============================
 
-.. warning:: 
-   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
-   it to ensure you have the latest updates and guidance.
+.. attention:: 
+   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
+   before using it to ensure you have the latest updates and guidance.
 
 
 Getting Started

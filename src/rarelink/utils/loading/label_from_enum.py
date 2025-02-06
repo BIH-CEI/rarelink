@@ -1,4 +1,4 @@
-from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import label_dicts
+from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import label_dicts
 
 def fetch_description_from_label_dict(enum_name: str, code: str) -> str:
     """

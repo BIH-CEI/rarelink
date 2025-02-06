@@ -94,7 +94,7 @@ The following codesystems are used in the RareLink Core Framework:
     annotation components, enhancing sharing and analysis of genomic information.
 
 .. note:: The versions used by the RareLink Core Framework can be found here: 
-    `RareLink Ontologies <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink_cdm/v2_0_0_dev0/datamodel/rarelink_code_systems.py>`_.
+    `RareLink Ontologies <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink_cdm/v2_0_0_dev1/datamodel/rarelink_code_systems.py>`_.
 
 Further Reading
 ---------------
