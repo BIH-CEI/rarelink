@@ -16,7 +16,7 @@ software to ensure you have the latest updates and guidance.
 
 ### Test Version
 <!-- Combined Badges for v2.0.0.dev1 -->
-![v2.0.0.dev1](https://img.shields.io/badge/v2.0.0.dev0-purple) 
+![v2.0.0.dev1](https://img.shields.io/badge/v2.0.0.dev1-purple) 
 ![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)
 ![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Running-darkgreen)
 ![RareLink CLI](https://img.shields.io/badge/CLI-Operational-darkblue)

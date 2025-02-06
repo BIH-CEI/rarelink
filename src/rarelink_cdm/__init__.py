@@ -15,6 +15,6 @@ __all__ = [
 ]
 
 # Optionally, you can define a default version to simplify usage:
-RarelinkCDM = "2.0.0.dev0"
+RarelinkCDM = "2.0.0.dev1"
 
-__version__ = "2.0.0.dev0"
+__version__ = "2.0.0.dev1"
