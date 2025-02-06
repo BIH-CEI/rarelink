@@ -3,9 +3,9 @@
 Semi-Automatic Data Capture
 ===========================
 
-.. warning:: 
-   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
-   it to ensure you have the latest updates and guidance.
+.. attention:: 
+   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
+   before using it to ensure you have the latest updates and guidance.
 
 
 While there are many existing data bases in rare disease centres and hospitals, 
@@ -65,13 +65,13 @@ Steps when importing data
    
 .. tip:: 
    Use the RareLink-CDM LinkML python classes for validation and conversion,
-   which you can find `HERE <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev0/datamodel>`_ 
+   which you can find `HERE <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/datamodel>`_ 
 
 3. Validate your data against the RareLink-CDM LinkML schema: 
 
 .. code-block:: bash
 
-    linkml-validate --schema src/rarelink_cdm/v2_0_0_dev0/schema_definitions/rarelink_cdm.yaml <path_to_your_data.json>
+    linkml-validate --schema src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml <path_to_your_data.json>
 
 
 You can find LinkML-validated RareLink-CDM data here `RareLink_Berlin-linkml-records.json <https://github.com/BIH-CEI/rarelink/tree/develop/res/RareLink_Berlin-linkml-records.json>`_ 

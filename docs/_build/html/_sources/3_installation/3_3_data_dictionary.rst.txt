@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 1. **Download the instruments from the RareLink REDCap project.**
 
-- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev1 <../../res/rarelink_cdm_datadictionary - v2_0_0_dev0.csv>`
+- :download:`Download RareLink CDM Data Dictionary v2.0.0.dev1 <../../res/rarelink_cdm_datadictionary - v2_0_0_dev1.csv>`
 
 2. **Upload the data dictionary to your REDCap project**
 
