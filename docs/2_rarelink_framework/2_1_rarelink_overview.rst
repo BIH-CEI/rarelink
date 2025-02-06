@@ -3,9 +3,9 @@
 RareLink Overview
 =================
 
-.. warning:: 
-   RareLink v2.0.0.dev0 is under development. Please :ref:`12` us before using
-   it to ensure you have the latest updates and guidance.
+.. attention:: 
+   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
+   before using it to ensure you have the latest updates and guidance.
 
 RareLink aims to maximise the utility of REDCap by providing a comprehensive 
 framework designed specifically for rare disease (RD) research and care. 

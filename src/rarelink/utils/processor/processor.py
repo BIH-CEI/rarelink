@@ -5,7 +5,7 @@ from rarelink.utils.processing.codes import (
     process_redcap_code, 
     fetch_label_directly
 )
-from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets.mapping_dicts import (
+from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name
 )
 from rarelink.utils.loading import (

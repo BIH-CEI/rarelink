@@ -2,7 +2,7 @@ from phenopackets import MetaData, Resource
 from datetime import datetime
 import dataclasses
 from rarelink.utils.processing.dates.timestamp import date_to_timestamp
-from rarelink_cdm.v2_0_0_dev0.datamodel import CodeSystemsContainer, CodeSystem
+from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer, CodeSystem
 
 def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaData:
     """

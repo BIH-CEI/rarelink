@@ -10,7 +10,7 @@ from rarelink.phenopackets.mappings import (
     map_phenotypic_features,
     map_measurements
 )
-from rarelink_cdm.v2_0_0_dev0.mappings.phenopackets import (
+from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
     DISEASE_BLOCK,
