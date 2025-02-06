@@ -38,7 +38,6 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_copybutton'
 ]
-html_logo = '_static/res/RareLink SpinxDocs Logo.png'
 
 html_css_files = [
     'custom.css',
