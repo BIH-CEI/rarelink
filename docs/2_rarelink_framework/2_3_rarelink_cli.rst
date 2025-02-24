@@ -16,6 +16,19 @@ intuitive, and it provides a simple and efficient way to work with the RareLink
 framework.
 
 
+Contents
+----------
+- :ref:`rarelink_cli_framework`
+- :ref:`rarelink_cli_setup`
+- :ref:`rarelink_cli_redcap`
+- :ref:`rarelink_cli_fhir`
+- :ref:`rarelink_cli_phenopackets`
+
+_____________________________________________________________________________________
+
+
+.. _rarelink_cli_framework:
+
 1. Framework Setup (``framework``)
 _________________________________
 
@@ -50,6 +63,7 @@ to the latest version.
 
 _____________________________________________________________________________________
 
+.. _rarelink_cli_setup:
 
 2. REDCap Setup (``setup``)
 ________________________________
@@ -119,6 +133,9 @@ ________________________________________________________________________________
     file to prevent accidental sharing of sensitive information.
 
 
+.. _rarelink_cli_redcap:
+
+
 3. REDCap Tools (``redcap``)
 ___________________________________
 
@@ -169,6 +186,8 @@ ________________________________________________________________________________
 
 _____________________________________________________________________________________
 
+
+.. _rarelink_cli_fhir:
 
 4. FHIR configuration and pipelines (``fhir``)
 ______________________________________________
@@ -223,14 +242,17 @@ ________________________________________________________________________________
 
 - `download-records` (fetch records as JSON files)
 
+_____________________________________________________________________________________
 
-5. Phenopacket Export (``phenopacket``)
+.. _rarelink_cli_phenopackets:
+
+5. Phenopacket Export (``phenopackets``)
 ________________________________________
 
 Export data to Phenopackets using the ToPhenopacket pipeline.
 
 .. code-block:: console
 
-    rarelink phenopacket export
+    rarelink phenopackets export
 
 - Exports REDCap from your configured project data to local Phenopackets.
