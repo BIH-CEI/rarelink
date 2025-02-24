@@ -15,9 +15,8 @@ data stored in the framework. The CLI is designed to be user-friendly and
 intuitive, and it provides a simple and efficient way to work with the RareLink
 framework.
 
+**Overview**
 
-Contents
-----------
 - :ref:`rarelink_cli_framework`
 - :ref:`rarelink_cli_setup`
 - :ref:`rarelink_cli_redcap`

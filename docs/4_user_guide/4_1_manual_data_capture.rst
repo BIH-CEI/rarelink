@@ -11,7 +11,6 @@ Manual Data Capture Guide
 
     - Instructions for installing the RareLink CDM instruments in REDCap are available at :ref:`3_1`.
 
-
 **Overview**
 
 - :ref:`manualguide_general_information`
@@ -65,6 +64,9 @@ process:
   expands. Please  check the :ref:`6` and :ref:`7` sections for updates and 
   additional information.
 
+_________________________________________________________________________________
+
+
 Types of Fields: 
 """"""""""""""""""
 
@@ -74,6 +76,8 @@ Types of Fields:
 - **Optional Fields**: Fields that are not mandatory can be left blank if the 
   information is unknown or not required. This flexibility allows for partial 
   data entry while maintaining focus on required fields.
+
+_________________________________________________________________________________
 
 Types of Instruments:
 """""""""""""""""""""""
@@ -109,6 +113,7 @@ history. You can repeat these forms to reflect changes over time.
 
 
 Return to `top <#top>`_.
+
 _________________________________________________________________________________
 
 
@@ -133,6 +138,7 @@ individuals:
   capture. Ensure the format is YYYY-MM-DD.
 
 Return to `top <#top>`_.
+
 _________________________________________________________________________________
 
 .. _manualguide_personal_information:
@@ -310,9 +316,9 @@ Fields:
     by repeating the form!
 
 - **6.1.2 Progress Status of interpretaion**: required when creating GA4GH 
-  Phenopackets - You cand find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus> `_ 
+  Phenopackets - You can find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus>`_ 
 - **6.1.3 Interpretation Status**: required when creating GA4GH Phenopackets -
-  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus> `_
+  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus>`_
 - **6.1.6 Genetic Mutation String**: If the variant is not validated or you are 
   unsure how to validate, enter all information in this field.
 - **6.1.7 - 6.1.9 Variant Expression [HGVS]** (``ERDRI-CDS``): Please select 
@@ -337,7 +343,7 @@ Fields:
        validation status.
 
 - **6.1.15 Therapeutic Actionability**: recommended when creating GA4GH 
-  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability> `_
+  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability>`_
 
 .. attention::
     The quality of the variant's validated HGVS expression is crucial for the 
