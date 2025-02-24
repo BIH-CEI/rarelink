@@ -19,17 +19,27 @@ data reusability and interoperability.
       `The GA4GH Phenopacket schema defines a computable representation of clinical data <https://www.nature.com/articles/s41587-022-01357-4>`_
 
 
-Phenopacket Building Blocks
----------------------------
+Phenopacket Blocks
+-------------------
 
 The GA4GH Phenopcaket Schema v2.0:
 
-.. image:: ../images/phenopacket-schema-v2.png
-   :alt: GA4GH Phenopacket Schema
-   :width: 1000px  
-   :height: 300px  
-   :align: center
+.. role:: color-base
+.. role:: color-interpretation
+.. role:: color-measurement
+.. role:: color-genomic-vrs
+.. role:: color-pedigree
+.. role:: color-top-level
+.. role:: color-medical-action
 
+.. figure:: ../images/phenopacket-schema-v2-overview.svg
+
+   Overview of v2.0 of the schema. Lines between elements indicate composition. Note that the OntologyClass and TimeElement
+   links have been omitted for legibility. The colour scheme represents: :color-base:`base classes`, :color-interpretation:`interpretation classes`,
+   :color-measurement:`measurement classes`, :color-genomic-vrs:`genomic/vrs classes`, :color-pedigree:`pedigree classes`,
+   :color-top-level:`top-level classes`, :color-medical-action:`medical-action classes`
+
+__________________________________________________________________________________________________________________________
 
 A Phenopacket characterizes an individual or biosample, linking it to detailed 
 phenotypic descriptions, genetic information, diagnoses, and treatments, all 
