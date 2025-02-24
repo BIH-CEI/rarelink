@@ -128,6 +128,10 @@ def export():
         
         typer.secho(success_text("✅ Phenopackets successfully created!"))
         typer.echo(f"📂 Find your Phenopackets here: {output_dir}")
+        
+        # 5. validate phenoapackets
+        
+        
 
     except Exception as e:
         typer.secho(
