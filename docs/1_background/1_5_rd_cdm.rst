@@ -3,9 +3,11 @@
 RD-CDM
 =======
 
-.. attention::
-   The RD CDM v2.0.0 is currently under review and will be published soon.
+.. tip::
+   The RD CDM v2.0.0 has been published in Nature Scientific Data. You can read 
+   it here: https://www.nature.com/articles/s41597-025-04558-z
 
+_________________________________________________________________________________
 
 RD-CDM v2.0.0 Overview
 -----------------------
@@ -35,6 +37,8 @@ across different rare diseases.
    - `RD-CDM Documentation <https://rd-cdm.readthedocs.io/en/latest/>`_
    - `RD-CDM Resources and Downloads <https://rd-cdm.readthedocs.io/en/latest/resources/resources_file.html>`_
 
+_________________________________________________________________________________
+
 Key Success Factors of a Rare Disease Common Data Model
 -------------------------------------------------------
 
@@ -63,9 +67,7 @@ of the rare disease community.
 .. tip::
    Read `Review of Key Elements in Developing a Common Data Model for Rare Diseases: Identifying Common Success Factors (Graefe ASL, et al. 2024) <https://ebooks.iospress.nl/doi/10.3233/SHTI240672>`_
 
-
-
-
+_________________________________________________________________________________
 
 Further Reading
 ---------------
