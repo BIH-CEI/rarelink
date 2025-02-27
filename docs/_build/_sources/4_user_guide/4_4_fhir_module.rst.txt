@@ -33,7 +33,7 @@ ________________________________________________________________________________
 
 .. _get_started:
 
-Geting started
+Getting started
 ---------------
 
 To use these functionalities, you need a running REDCap project with API access 
