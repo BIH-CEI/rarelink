@@ -1,0 +1,30 @@
+{
+  "name": "6_4_6_family_member_record_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "hl7fhir_partial",
+      "source_display": "Partial",
+      "target_code": "partial",
+      "target_display": "Partial"
+    },
+    {
+      "source_code": "hl7fhir_completed",
+      "source_display": "Completed",
+      "target_code": "completed",
+      "target_display": "Completed"
+    },
+    {
+      "source_code": "hl7fhir_entered-in-error",
+      "source_display": "Entered in Error",
+      "target_code": "entered-in-error",
+      "target_display": "Entered in Error"
+    },
+    {
+      "source_code": "hl7fhir_health-unknown",
+      "source_display": "Health Unknown",
+      "target_code": "health-unknown",
+      "target_display": "Health Unknown"
+    }
+  ]
+}

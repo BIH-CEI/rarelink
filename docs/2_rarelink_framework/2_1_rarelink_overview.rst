@@ -84,6 +84,21 @@ __________________________________
     
 _____________________________________________________________________________________
 
+RareLink & Phenopackets
+_______________________
+    RareLink utilises the Phenopacket Mapper to convert the data captured in
+    REDCap into Phenopackets. The RD-CDM and the corresponding RareLink
+    instruments are preconfigured within our GitHub repository to generate
+    Phenopackets automatically.
+
+    .. admonition:: Continue here...
+
+        - How to set up the :ref:`3_1` and the :ref:`3_4`
+        - Guide to :ref:`4_3`
+        - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
+        - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 
+
+
 RareLink & toFHIR
 __________________
     RareLink utilises toFHIR from SRDC to convert the data captured
@@ -103,20 +118,24 @@ __________________
 
 _____________________________________________________________________________________
 
-RareLink & Phenopackets
+
+RareLink & FHIR Import
 _______________________
-    RareLink utilises the Phenopacket Mapper to convert the data captured in
-    REDCap into Phenopackets. The RD-CDM and the corresponding RareLink
-    instruments are preconfigured within our GitHub repository to generate
-    Phenopackets automatically.
+    RareLink provides a detailed guide on how to link a FHIR server and import
+    FHIR resources into REDCap utilising the REDCap modules Clinical Data 
+    Interoperability Services (CDIS). 
+    This module must be installed and activated at your local REDCap site by the
+    REDCap administrator. The guide includes a step by step guide on how to 
+    import FHIR resources into REDCap and how to map the FHIR resources to the 
+    RD-CDM.
 
-    .. admonition:: Continue here...
+    .. admonition:: Continue here..
 
-        - How to set up the :ref:`3_1` and the :ref:`3_4`
-        - Guide to :ref:`4_3`
-        - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
-        - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 
+        - CDIS REDCap: https://projectredcap.org/software/cdis/
+        - CDIS Paper: https://www.sciencedirect.com/science/article/pii/S1532046421002008
+        - User guide for :ref:`4_5`
 
+_____________________________________________________________________________________
 
 .. admonition:: Continue here...
         - How to set up the :ref:`3_1`

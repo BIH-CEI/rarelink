@@ -1,12 +1,7 @@
 .. _4_2:
 
-Semi-Automatic Data Capture
+Semi-Automatic Import
 ===========================
-
-.. attention:: 
-   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
-   before using it to ensure you have the latest updates and guidance.
-
 
 While there are many existing data bases in rare disease centres and hospitals, 
 the data is often not in a structured format. As the RareLink-CDM is a modeled 

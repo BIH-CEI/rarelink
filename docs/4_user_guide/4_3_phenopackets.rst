@@ -1,6 +1,6 @@
 .. _4_3:
 
-Generate Phenopackets
+Phenopackets Module
 ======================
 
 The RareLink-Phenopacket module allows users to generate (validated) :ref:`1_3`

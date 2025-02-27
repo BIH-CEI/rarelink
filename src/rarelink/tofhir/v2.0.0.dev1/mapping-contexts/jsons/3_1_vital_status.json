@@ -1,0 +1,36 @@
+{
+  "name": "3_1_vital_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "snomedct_438949009",
+      "source_display": "Alive",
+      "target_code": "false",
+      "target_display": "Not Deceased"
+    },
+    {
+      "source_code": "snomedct_419099009",
+      "source_display": "Dead",
+      "target_code": "true",
+      "target_display": "Deceased"
+    },
+    {
+      "source_code": "snomedct_399307001",
+      "source_display": "Unknown - Lost in follow-up",
+      "target_code": "",
+      "target_display": ""
+    },
+    {
+      "source_code": "snomedct_185924006",
+      "source_display": "Unknown - Opted-out",
+      "target_code": "",
+      "target_display": ""
+    },
+    {
+      "source_code": "snomedct_261665006",
+      "source_display": "Unknown - Other Reason",
+      "target_code": "",
+      "target_display": ""
+    }
+  ]
+}

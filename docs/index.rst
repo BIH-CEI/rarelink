@@ -25,15 +25,16 @@ ________________________________________________________________________________
 
 .. figure:: ../_static/res/rarelink_overview.svg
 
-    Overview of the RareLink framework integrated with a local REDCap instance. 
-    The framework comprises the RareLink instruments based on the RD-CDM, the 
-    RareLink API, the toFHIR & CDIS module for export and import to HL7 FHIR IPS
-    and Genomic Reporting Resources, and the RareLink-Phenopackets module for 
-    direct export to GA4GH Phenopackets. Additionally, the LinkML-based import 
-    mapper facilitates data import from tabular databases into REDCap, while 
-    the Manual Data Capture Guide assists with the manual data capture of 
-    RD-CDM data in a local REDCap project. Click `here <https://github.com/BIH-CEI/rarelink/blob/develop/docs/_static/res/rarelink_overview.svg>`_ 
-    to see the figure in full size.
+   Overview of the RareLink framework integrated with a local REDCap instance. 
+   The framework comprises the RareLink instruments based on the RD-CDM, the 
+   RareLink API, the toFHIR & CDIS module for export and import to HL7 FHIR IPS
+   and Genomic Reporting Resources, and the RareLink-Phenopackets module for 
+   direct export to GA4GH Phenopackets. Additionally, the LinkML-based import 
+   mapper facilitates data import from tabular databases into REDCap, while 
+   the Manual Data Capture Guide assists with the manual data capture of 
+   RD-CDM data in a local REDCap project. Click `here <https://github.com/BIH-CEI/rarelink/blob/develop/docs/_static/res/rarelink_overview.svg>`_ 
+   to see the figure in full size.
+
 ________________________________________________________________________________
 
 .. note::
@@ -45,7 +46,7 @@ ________________________________________________________________________________
 
 The documentation is structured as follows:
 
-Sections 
+Sections
 ---------
 1) :doc:`1_background/1_0_background_file`
     Introduction, definitions, and explanation of all the background information, 
@@ -107,7 +108,7 @@ ________________________________________________________________________________
 - :doc:`4_user_guide/4_1_manual_data_capture`
 - :doc:`4_user_guide/4_2_import_mapper`
 - :doc:`4_user_guide/4_3_phenopackets`
-- :doc:`4_user_guide/4_4_tofhir_module`
+- :doc:`4_user_guide/4_4_fhir_module`
 - :doc:`4_user_guide/4_5_develop_redcap_instruments`
 - :doc:`4_user_guide/4_6_redcap_tools`
 
@@ -166,7 +167,7 @@ ________________________________________________________________________________
    4_user_guide/4_1_manual_data_capture
    4_user_guide/4_2_import_mapper
    4_user_guide/4_3_phenopackets
-   4_user_guide/4_4_tofhir_module
+   4_user_guide/4_4_fhir_module
    4_user_guide/4_5_develop_redcap_instruments
    4_user_guide/4_6_redcap_tools
 

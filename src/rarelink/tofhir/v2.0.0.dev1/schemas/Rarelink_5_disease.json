@@ -1,0 +1,269 @@
+{
+  "id": "Rarelink_5_disease",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_5_disease",
+  "version": "latest",
+  "name": "Rarelink_5_disease",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_5_disease",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_5_disease",
+        "path": "Rarelink_5_disease",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_5_disease.record_id",
+        "path": "Rarelink_5_disease.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "5.0 Record ID of the Individual",
+        "short": "5.0 Record ID"
+      },
+      {
+        "id": "Rarelink_5_disease.disease_coding",
+        "path": "Rarelink_5_disease.disease_coding",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "Please choose the encoding of the disease to be captured",
+        "short": "Please choose the encoding of the disease to be captured"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_64572001_mondo",
+        "path": "Rarelink_5_disease.snomedct_64572001_mondo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.1 Disease [MONDO]",
+        "short": "5.1 Disease [MONDO]"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_64572001_ordo",
+        "path": "Rarelink_5_disease.snomedct_64572001_ordo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.1 Disease [ORDO]",
+        "short": "5.1 Disease [ORDO]"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_64572001_icd10cm",
+        "path": "Rarelink_5_disease.snomedct_64572001_icd10cm",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.1 Disease [ICD10CM]",
+        "short": "5.1 Disease [ICD10CM]"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_64572001_icd11",
+        "path": "Rarelink_5_disease.snomedct_64572001_icd11",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.1 Disease [ICD11]",
+        "short": "5.1 Disease [ICD11]"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_64572001_omim_p",
+        "path": "Rarelink_5_disease.snomedct_64572001_omim_p",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.1 Disease [OMIM_P]",
+        "short": "5.1 Disease [OMIM_P]"
+      },
+      {
+        "id": "Rarelink_5_disease.loinc_99498_8",
+        "path": "Rarelink_5_disease.loinc_99498_8",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "5.2 Verification Status",
+        "short": "5.2 Verification Status"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_424850005",
+        "path": "Rarelink_5_disease.snomedct_424850005",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "5.3 Age at Onset",
+        "short": "5.3 Age at Onset"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_298059007",
+        "path": "Rarelink_5_disease.snomedct_298059007",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "5.4 Date of Onset",
+        "short": "5.4 Date of Onset"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_423493009",
+        "path": "Rarelink_5_disease.snomedct_423493009",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "5.5 Age at Diagnosis",
+        "short": "5.5 Age at Diagnosis"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_432213005",
+        "path": "Rarelink_5_disease.snomedct_432213005",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "5.6 Date of Diagnosis",
+        "short": "5.6 Date of Diagnosis"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_363698007",
+        "path": "Rarelink_5_disease.snomedct_363698007",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "5.7 Body Site [SNOMED CT]",
+        "short": "5.7 Body Site [SNOMED CT]"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_263493007",
+        "path": "Rarelink_5_disease.snomedct_263493007",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "5.8 Clinical Status",
+        "short": "5.8 Clinical Status"
+      },
+      {
+        "id": "Rarelink_5_disease.snomedct_246112005",
+        "path": "Rarelink_5_disease.snomedct_246112005",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "5.9 Disease Severity",
+        "short": "5.9 Disease Severity"
+      }
+    ]
+  }
+}

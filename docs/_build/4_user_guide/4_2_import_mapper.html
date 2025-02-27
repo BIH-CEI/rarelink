@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semi-Automatic Import &mdash; RareLink REDCap Documentation 2.0.0.dev1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=81abe19b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Phenopackets Module" href="4_3_phenopackets.html" />
+    <link rel="prev" title="Manual Data Capture" href="4_1_manual_data_capture.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Semi-Automatic Import</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-cdm-linkml">RareLink-CDM LinkML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linkml-schema-automator">LinkML schema-automator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps-when-importing-data">Steps when importing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Phenopackets Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_4_fhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Semi-Automatic Import</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/4_user_guide/4_2_import_mapper.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="semi-automatic-import">
+<span id="id1"></span><h1>Semi-Automatic Import<a class="headerlink" href="#semi-automatic-import" title="Link to this heading"></a></h1>
+<p>While there are many existing data bases in rare disease centres and hospitals,
+the data is often not in a structured format. As the RareLink-CDM is a modeled
+with LinkML, there are tools to convert existing data into a LinkML schema.
+While we currently have not implemented a full conversion tool, we are happy
+to assist you in converting your data into a LinkML schema.</p>
+<p>Although the semi-automation can speed up the process of capturing existing data
+bases, the semantic mapping will still have to be done by you.
+The semantic mapping and encoding of all data elements and value sets
+to <a class="reference internal" href="../1_background/1_2_ontologies.html#id1"><span class="std std-ref">Ontologies &amp; Terminologies</span></a> and validating genetic mutations with HGVS is a crucial step
+in the process of converting data into the RareLink-CDM format for
+Phenopackets of FHIR export.</p>
+<hr class="docutils" />
+<section id="rarelink-cdm-linkml">
+<h2>RareLink-CDM LinkML<a class="headerlink" href="#rarelink-cdm-linkml" title="Link to this heading"></a></h2>
+<p>In this seciton <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML Schema</span></a> we elaborate on the development of
+the RareLink-CDM LinkML schema, how it is designed and where it can be found.
+This schema is the basis for REDCap data to be converted to and validated
+against when running <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">redcap</span> <span class="pre">export-records</span></code>. It was designed to be
+light-weight and as close as possible to the original REDCap data model so that
+other REDCap projects can also use the <a class="reference internal" href="4_3_phenopackets.html#rarelink-phenopacket-module"><span class="std std-ref">RareLink-Phenopacket module</span></a>.</p>
+</section>
+<hr class="docutils" />
+<section id="linkml-schema-automator">
+<h2>LinkML schema-automator<a class="headerlink" href="#linkml-schema-automator" title="Link to this heading"></a></h2>
+<p>The LinkML schema-automator is a toolkit that assists with generating and
+enhancing schemas and data models from a variety of sources. The primary end
+target is a LinkML schema, but the framework can be used to generate
+JSON-Schema, SHACL, SQL DDL etc via the LinkML Generator framework. All
+functionality is available via a cli. The functionality is also available
+by using the relevant Python Packages.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linkml.io/schema-automator/introduction.html#generalization-from-instance-data">LinkML Schema-Automator documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/linkml/schema-automator">LinkML Schema-Automator GitHub repository</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Feel free to <a class="reference internal" href="../12_contact.html#id1"><span class="std std-ref">Contact</span></a> us in case you would like to be connected to the LinkML
+community or our colleagues from the <a class="reference external" href="https://monarchinitiative.org/">Monarch Initiative</a>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="steps-when-importing-data">
+<h2>Steps when importing data<a class="headerlink" href="#steps-when-importing-data" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Annotate and encode your data locally according to the
+<a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML Schema</span></a> schema. Use the <a class="reference internal" href="4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a> and <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">Ontology Lookup Service</a></p></li>
+<li><p>Map and process your data acccording to the RareLink-CDM LinkML schema.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the RareLink-CDM LinkML python classes for validation and conversion,
+which you can find <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/datamodel">HERE</a></p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Validate your data against the RareLink-CDM LinkML schema:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linkml-validate<span class="w"> </span>--schema<span class="w"> </span>src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml<span class="w"> </span>&lt;path_to_your_data.json&gt;
+</pre></div>
+</div>
+<p>You can find LinkML-validated RareLink-CDM data here <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/res/RareLink_Berlin-linkml-records.json">RareLink_Berlin-linkml-records.json</a></p>
+<ol class="arabic simple" start="4">
+<li><p>Once the data is validated, you can upload the data to your REDCap project
+using the <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">redcap</span> <span class="pre">upload-records</span></code> command.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command will overwrite existing records with the same record_id in your
+REDCap project. Make sure have unique <a href="#id2"><span class="problematic" id="id3">``</span></a>record_id``s or back up your data
+before running this command, e.g. by running
+<cite>rarelink redcap download-records</cite>.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_1_manual_data_capture.html" class="btn btn-neutral float-left" title="Manual Data Capture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_3_phenopackets.html" class="btn btn-neutral float-right" title="Phenopackets Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

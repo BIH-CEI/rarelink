@@ -1,0 +1,23 @@
+variable CLI input to run toFHIR infrasctructure
+
+docker-compose-yml: 
+-  command: [""] # CLI: run --job path.json
+
+redcap-projects.json:
+[
+    {
+      "id": "", // REDCap instance specific project ID (required)
+      "token": "" // REDCap instance specific project API token (required)
+    }
+  ]
+  
+tofhir-redcap-application.conf:
+- url = "" # CLI argument: --redcap-url to the redcap project api
+
+
+add to documentation: 
+- Open your REDCap project, go to Project Setup, click Additional customizations,
+ and paste the notification URL in the Data Entry Trigger section.
+- Data entry trigger configuration URL: hhtp://localhost:8095/tofhir-redcap/notification
+- use picture from SRDC word file
+

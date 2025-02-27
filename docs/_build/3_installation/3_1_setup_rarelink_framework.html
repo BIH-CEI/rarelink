@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set up the RareLink Framework &mdash; RareLink REDCap Documentation 2.0.0.dev1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=81abe19b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Set up a REDCap Project" href="3_2_setup_redcap_project.html" />
+    <link rel="prev" title="RareLink CLI" href="../2_rarelink_framework/2_3_rarelink_cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Set up the RareLink Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-framework-cli-config">RareLink Framework CLI config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopackets.html">Phenopackets Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Set up the RareLink Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/3_installation/3_1_setup_rarelink_framework.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="set-up-the-rarelink-framework">
+<span id="id1"></span><h1>Set up the RareLink Framework<a class="headerlink" href="#set-up-the-rarelink-framework" title="Link to this heading"></a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>RareLink v2.0.0.dev1 is under testing and development. Please <a class="reference internal" href="../12_contact.html#id1"><span class="std std-ref">Contact</span></a> us
+before using it to ensure you have the latest updates and guidance.</p>
+</div>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>Follow these steps to set up the project locally and run tests.</p>
+<ol class="arabic simple">
+<li><p>Clone the repository:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BIH-CEI/rarelink.git
+<span class="nb">cd</span><span class="w"> </span>rarelink
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create a virtual environment:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On macOS/Linux</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">     </span><span class="c1"># On Windows</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>4. Configure all api keys necessary to use rarelink by running the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>setup<span class="w"> </span>keys
+
+This<span class="w"> </span><span class="nb">command</span><span class="w"> </span>will<span class="w"> </span>prompt<span class="w"> </span>you<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>keys:
+-<span class="w"> </span>BioPortal<span class="w"> </span>API<span class="w"> </span>key
+-<span class="w"> </span>REDCap<span class="w"> </span>API<span class="w"> </span>key
+-<span class="w"> </span>REDCap<span class="w"> </span>URL
+-<span class="w"> </span>REDCap<span class="w"> </span>project<span class="w"> </span>ID
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can create your free BioPortal account here: <a class="reference external" href="https://bioportal.bioontology.org/">BioPortal</a></p>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Run tests:
+Use <cite>pytest</cite> to run the test suite.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="rarelink-framework-cli-config">
+<h2>RareLink Framework CLI config<a class="headerlink" href="#rarelink-framework-cli-config" title="Link to this heading"></a></h2>
+<p>Use the following commands to update the framework and its components, view
+its status or reset the framework. See <a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#id1"><span class="std std-ref">RareLink CLI</span></a> for more information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>framework<span class="w"> </span>--help
+rarelink<span class="w"> </span>framework<span class="w"> </span>update
+rarelink<span class="w"> </span>framework<span class="w"> </span>status
+rarelink<span class="w"> </span>framework<span class="w"> </span>reset
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="import-mapper-configuration">
+<h3>Import Mapper Configuration<a class="headerlink" href="#import-mapper-configuration" title="Link to this heading"></a></h3>
+<p>Via the RareLink CLI type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>to<span class="w"> </span>be<span class="w"> </span>implemented
+</pre></div>
+</div>
+<p>This command guides you through setting up the Import Mapper pipeline for RareLink.
+You will be prompted to enter:
+- Your location of your local (tabular) database.
+- Your REDCap project URL and API token.
+- Your location where to store the Import Mapper configurations.</p>
+</section>
+<hr class="docutils" />
+<section id="phenopacket-pipeline-configuration">
+<h3>Phenopacket Pipeline Configuration<a class="headerlink" href="#phenopacket-pipeline-configuration" title="Link to this heading"></a></h3>
+<p>Via the RareLink CLI type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>to<span class="w"> </span>be<span class="w"> </span>implemented
+</pre></div>
+</div>
+<p>This command guides you through setting up the Phenopacket pipeline for RareLink.
+You will be prompted to enter:
+- Your location where to store the Phenopackets.</p>
+</section>
+<hr class="docutils" />
+<section id="fhir-pipeline-configuration">
+<h3>FHIR Pipeline Configuration<a class="headerlink" href="#fhir-pipeline-configuration" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>fhir<span class="w"> </span>setup
+</pre></div>
+</div>
+<p>This command guides you through setting up the FHIR pipeline for RareLink.
+You will be prompted to enter:</p>
+<ul class="simple">
+<li><p>Your FHIR server URL.</p></li>
+<li><p>If required, your FHIR server username &amp; password.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All sensitive information will also be stored in the
+hidden configuration file.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../2_rarelink_framework/2_3_rarelink_cli.html" class="btn btn-neutral float-left" title="RareLink CLI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_2_setup_redcap_project.html" class="btn btn-neutral float-right" title="Set up a REDCap Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
