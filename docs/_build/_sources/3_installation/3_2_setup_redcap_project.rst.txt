@@ -15,7 +15,8 @@ Steps
 To create a REDCap project, please follow these steps:
 
 0. Check if your instituion hase a REDCap instance.
-1. Contact your local REDCap administrator to create your REDCap project.
+1. Contact your local REDCap administrator to create your REDCap project with 
+    BioPortal ontology service.
 2. Name your REDCap project, e.g.: 
     - ``RareLink - NameofyourInstitution`` or 
     - ``RareLink - NameofyourProject``.
@@ -23,11 +24,16 @@ To create a REDCap project, please follow these steps:
 4. Follow the instructions given to you by your **REDCap administator** to 
    further set up your project.
 5. Copy the API token for the project and keep it secure.
-6. Run ``rarelink setup keys``` to set up the REDCap API access locally.
+6. Run ``rarelink setup keys`` to set up the REDCap API access locally.
 
 .. note:: 
     Be aware of the REDCap **development and production mode**. 
     Read the :ref:`1_6` section and discuss this with your REDCap administrator!
+
+.. note::
+    BioPortal must be connected to your REDCap instance to use the ontology
+    service. If you cannot see this option in your REDCap setup, contact your
+    REDCap administrator.
 
 _____________________________________________________________________________________
 

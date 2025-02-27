@@ -76,10 +76,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopackets.html">Phenopackets Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_fhir_module.html">FHIR Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_tools.html">REDCap Tools</a></li>
 </ul>
@@ -131,7 +131,11 @@ before using it to ensure you have the latest updates and guidance.</p>
 <p>To create a REDCap project, please follow these steps:</p>
 <ol class="arabic simple" start="0">
 <li><p>Check if your instituion hase a REDCap instance.</p></li>
-<li><p>Contact your local REDCap administrator to create your REDCap project.</p></li>
+<li><dl class="simple">
+<dt>Contact your local REDCap administrator to create your REDCap project with</dt><dd><p>BioPortal ontology service.</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt>Name your REDCap project, e.g.:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">RareLink</span> <span class="pre">-</span> <span class="pre">NameofyourInstitution</span></code> or</p></li>
@@ -144,12 +148,18 @@ before using it to ensure you have the latest updates and guidance.</p>
 <li><p>Follow the instructions given to you by your <strong>REDCap administator</strong> to
 further set up your project.</p></li>
 <li><p>Copy the API token for the project and keep it secure.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">keys`</span></code> to set up the REDCap API access locally.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">keys</span></code> to set up the REDCap API access locally.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Be aware of the REDCap <strong>development and production mode</strong>.
 Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> section and discuss this with your REDCap administrator!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>BioPortal must be connected to your REDCap instance to use the ontology
+service. If you cannot see this option in your REDCap setup, contact your
+REDCap administrator.</p>
 </div>
 </section>
 <hr class="docutils" />
