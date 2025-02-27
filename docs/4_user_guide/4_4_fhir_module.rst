@@ -248,15 +248,31 @@ These commands help manage Docker containers used in the RareLink framework.
 
 _____________________________________________________________________________________
 
+_____________________________________________________________________________________
+
 .. _cdis-module:
 
 Importing FHIR to REDCap
 --------------------------
 
-Clinical Data Interoperability Services (CDIS) is a feature in REDCap that 
+**Clinical Data Interoperability Services (CDIS)** is a module in REDCap that 
 lets your project pull clinical data from an external electronic health record 
 (EHR) system. With CDIS, you can use standard FHIR APIs or custom web services 
-to import data into your REDCap project. CDIS is divided into three modules:
+to import data into your REDCap project. This guide is intended to help users 
+understand how to implement and use the CDIS modules for RareLink and the 
+:ref:`2_2`.  
+
+.. note::
+   The CDIS modules can only be enabled by a REDCap administrator. If you need
+   access to these modules, please contact your REDCap administrator.
+   
+.. hint:: 
+   For more information please read:
+
+   - CDIS REDCap: https://projectredcap.org/software/cdis/
+   - CDIS Paper: https://doi.org/10.1016/j.jbi.2021.103871
+
+CDIS is divided into three modules:
  
 - **Clinical Data Pull (CDP)**
 - **Clinical Data Mart (CDM)**
@@ -265,6 +281,8 @@ to import data into your REDCap project. CDIS is divided into three modules:
 Each module has its own process for mapping data from the EHR to your REDCap 
 forms. This guide explains how to use each module and shows where to add your 
 model-specific mapping details.
+
+_____________________________________________________________________________________
 
 Modules Overview
 __________________
@@ -276,119 +294,164 @@ The CDP module is used for importing clinical data for one patient at a time.
 It requires you to:
 
 1. **Create REDCap Instruments:**  
-   Set up the necessary REDCap forms (e.g., *Patient*, *Condition*, and 
-   *Lab Result*) before using CDP.
+
+   :ref:`3_3`, i.e. the corresponding REDCap forms you want to use from the 
+   :ref:`2_2` before using CDP. 
+   
+   - If you developed your own forms, ensure they to use the 
+     :ref:`fhir_profiles` for its core and develop extensional forms
+     using the :ref:`4_5` guide.
+   
+_____
+
 
 2. **Field Mappings:**  
+
    After creating your forms, navigate to the CDP Mapping page. Here, you map 
-   fixed EHR source fields to the fields in your REDCap forms. The mapping is 
-   mandatory for the patient identifier (e.g., Medical Record Number).
+   fixed EHR source fields to the fields in your REDCap forms. 
 
-   A sample mapping table might look like:
+   - **REDCap Field**: this column lists the variables in your REDCap forms
+   - **External Source Field**: this column lists the available source fields 
+     in the EHR
+   - **Date/Time**: The date field which is associated with the temporal fields.
+     It is disabled by default, and it will be enabled if you select a temporal 
+     field from External Source Field list.
+   - **Preselect Strategy**: this column indicates how the data is fetched
+   
+.. note:: 
+   The mapping is mandatory for the patient identifier 
+   (e.g., Medical Record Number) which corresponds to element 1.1 in the
+   :ref:`2_2`. The rest of the fields are optional.
 
-   .. code-block:: rst
+.. hint:: 
+   Check out either the :ref:`cdm_overview` or the :ref:`rarelink_cdm_linkml`  
+   sections in our docs to find all the field variables and forms of the 
+   :ref:`2_2`.
 
-      +----------------------+-------------------------+------------------------+
-      | **REDCap Field**     | **EHR Source Field**    | **Preselect Strategy** |
-      +======================+=========================+========================+
-      | Patient ID           | MedicalRecordNumber     | N/A                    |
-      +----------------------+-------------------------+------------------------+
-      | Date of Birth        | DOB                     | Latest Value           |
-      +----------------------+-------------------------+------------------------+
-      | Lab Result Value     | Glucose [Presence]      | Nearest Timestamp      |
-      +----------------------+-------------------------+------------------------+
 
-   **Mapping Configuration Placeholder:**  
-   *[Insert your model-specific mapping details here. Replace the example above 
-   with your project's defined mapping configuration.]*
+A sample mapping table with values from the :ref:`2_2` might look like:
+
+.. code-block:: rst
+
+   +---------------------------+----------------------+---------------------+------------------------+
+   | **External Source Field** | **REDCap Field**     | **Date/Time Field** | **Preselect Strategy** |
+   +===========================+======================+=====================+========================+
+   | MedicalRecordNumber       | snomedct_422549004   |                     | N/A                    |
+   +---------------------------+----------------------+---------------------+------------------------+
+   | DOB                       | snomedct_399423000   |                     | Latest Value           |
+   +---------------------------+----------------------+---------------------+------------------------+
+   | Glucose [Presence]        | ncit_c60819          | ncit_c82577         | Nearest Timestamp      |
+   +---------------------------+----------------------+---------------------+------------------------+
+
+
+*In this example, these RareLink-CDM elements in REDCap are mapped to
+the corresponding EHR source field names:*
+
+- **1.1 Pseudnoym** ``snomedct_42254900`` *corresponds to* ``MedicalRecordNumber`` in the EHR system.
+- **1.2 Date of Birth** ``snomedct_399423000`` *corresponds to* ``DOB`` in the EHR system.
+- **6.3.1 Assay** ``ncit_c60819`` & **6.3.5 Time Observed** ``ncit_c82577``
+  *correspond to*  ``Glucose [Presence]`` in the EHR system.
+
+_____
+
 
 3. **Adjudication:**  
-   Once mapping is complete, users review and approve (adjudicate) the data 
-   fetched from the EHR before it is saved into the REDCap project. This helps 
-   ensure data accuracy.
+   Adjudication refers to the process in which EHR data is manually reviewed 
+   and approved by a user before it is officially saved and stored in the REDCap
+   project. Once mapping is complete, users review and approve (adjudicate) 
+   the data fetched from the EHR before it is saved into the REDCap project. 
+   This helps ensure data accuracy.
+
+.. hint:: 
+   You can find more information on the **adjudication process** with pictures in
+   the *2.6 Data adjudication in CDP* Methods section of the `paper by Cheng A.C., et al. <https://www.sciencedirect.com/science/article/pii/S1532046421002008>`_.
+
+_____
 
 Clinical Data Mart (CDM)
 """""""""""""""""""""""""""
 
-The CDM module is designed for bulk data import. When creating a CDM project, 
-you:
+The CDM module enables bulk import of EHR data into REDCap. It is set up
+during project creation, and a REDCap administrator must be involved to
+enable and configure this feature.
+
+*Steps:*
 
 1. **Project Creation:**  
-   Select the Clinical Data Mart option on the project creation page.
+   Select the "Clinical Data Mart" option on the project creation page.
+   (Note: REDCap administrator approval is required.)
 
 2. **Automatic Instrument Creation:**  
-   REDCap automatically creates data collection instruments based on the 
-   selected source fields (e.g., Demography, Labs, etc.).
+   REDCap auto-generates instruments for each selected source field 
+   category (e.g., Demography, Labs, Condition).
 
 3. **Optional Filters:**  
-   Configure a time filter (to limit data by date range) and patient ID filters 
-   (to target specific patients).
 
-   **Mapping Configuration Placeholder:**  
-   *[Add any model-specific mapping overrides or transformation rules here if the 
-   default mappings need adjustment.]*
+   - **Time Range:** Set a date filter to limit data (e.g., for lab results).  
+   - **Patient ID:** Optionally, specify patient identifiers (MRNs) to fetch data 
+     for specific patients.
+
+4. **RareLink-CDM Mapping Configuration:** please see the information above for
+   the step *2. Field Mappings* in the CDP module section on how to develop 
+   your specific mapping table.
+
+After setup, use the ``Fetch all records`` button on the Clinical Data Mart page
+to retrieve and populate the instruments with EHR data.
+
+.. hint:: 
+   You can find more information on the **Clinical Data Mart** in the *2.2. Defining
+   initial use cases and operational data flow requirements* Methods section of 
+   the `paper by Cheng A.C., et al. <https://www.sciencedirect.com/science/article/pii/S1532046421002008>`_.
+
+_____
 
 Dynamic Data Pull (DDP)
 """""""""""""""""""""""""""
-
-The DDP module is for cases where the list of source fields may change over time. 
-It uses two web services:
+The DDP module is used when the list of source fields may change over time.
+Unlike CDP, which uses a fixed field list from the EHR's FHIR API, DDP uses
+web services to dynamically retrieve fields and data.
 
 1. **Metadata Web Service:**  
-   Retrieves a dynamic list of source fields.
+   Retrieves a dynamic list of available source fields.
 
 2. **Data Web Service:**  
-   Fetches the actual patient data from the source system.
+   Fetches the actual patient data from the external system.
 
-After enabling DDP and setting up the web services, the process is similar to 
-CDP: create your REDCap forms, set up field mappings, and then adjudicate the 
-fetched data.
+Before enabling DDP, a REDCap administrator must implement and configure these 
+web services (set the metadata and data web service URLs) as described in the 
+official documentation. Once configured, DDP follows a similar flow to CDP:
+create your REDCap forms, set up field mappings, and adjudicate the fetched data.
 
-   **Mapping Configuration Placeholder:**  
-   *[Insert your dynamic mapping logic here. Use your custom metadata and data 
-   web services configuration and specify how dynamic fields are mapped to your 
-   REDCap fields.]*
+**RareLink-DDP Mapping Configuration:**  
+please see the information above for
+the step *2. Field Mappings* in the CDP module section on how to develop your 
+specific mapping table.
+
+.. hint::
+   You can find more information on the **Dynamic Data Pull** in the
+   `paper by Campion Jr Thomas R, et al. <https://pmc.ncbi.nlm.nih.gov/articles/PMC5543341/>`_.
+
+_____
 
 Modules Comparison
 ____________________
 
 Below is a summary comparison of the three CDIS modules:
 
-+----------------------------------------+-------------------------------------------+
-| **Feature**                            | **CDP / CDM**                             |
-+========================================+===========================================+
-| Data Mapping                           | CDP: User-defined mappings per record     |
-|                                        | CDM: Predefined instrument mappings       |
-+----------------------------------------+-------------------------------------------+
-| Activation Process                     | CDP: REDCap admin must enable CDP         |
-|                                        | CDM: User permission required             |
-+----------------------------------------+-------------------------------------------+
-| Data Pull Process                      | CDP: Data fetched during record creation  |
-|                                        | CDM: Data fetched in bulk upon user action|
-+----------------------------------------+-------------------------------------------+
-| Adjudication                           | Manual review before saving               |
-+----------------------------------------+-------------------------------------------+
-| When to Use                            | CDP: When custom mapping is needed        |
-|                                        | CDM: When default mappings suffice        |
-+----------------------------------------+-------------------------------------------+
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
+| **Feature**          | **CDP**                               | **CDM**                               | **DDP**                                                  |
++======================+=======================================+=======================================+==========================================================+
+| Data Mapping         | User-defined mappings per record      | Predefined instrument mappings        | Custom mapping via dynamic metadata                      |
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
+| Activation Process   | REDCap admin must enable CDP          | User permission required              | REDCap admin must enable DDP                             |
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
+| Data Pull Process    | Fetched during record creation        | Fetched in bulk upon user action      | Pulled from web service during record creation           |
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
+| Adjudication         | Manual review before saving           | Manual review before saving           | Manual review before saving (post web service mapping)   |
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
+| When to Use          | When custom mapping is needed         | When default mappings suffice         | When standard source fields are insufficient or when     |
+|                      |                                       |                                       | dynamic mapping is required                              |
++----------------------+---------------------------------------+---------------------------------------+----------------------------------------------------------+
 
-+-------------------------------------------------------------------------+
-| **Dynamic Data Pull (DDP)**                                             |
-+-------------------------------------------------------------------------+
-| - Uses dynamic web services for metadata and data                       |
-| - Requires custom implementation for mapping                            |
-| - Use when standard source fields are insufficient or your use case     |
-|   requires additional, dynamically determined fields                    |
-+-------------------------------------------------------------------------+
-
-Final Notes
-____________
-
-This guide is intended to help users understand how to implement and use the 
-CDIS modules. As your project evolves, update the mapping configurations and 
-any transformation logic to align with your common data model.
-
-If you have any questions or need further assistance, please refer to the 
-additional documentation provided by REDCap or contact your project administrator.
 
 

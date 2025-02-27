@@ -39,7 +39,7 @@ you **should or must** comply with when creating your REDCap shets.
 
 _____________________________________________________________________________________
 
-RareLink obligatory Rules:
+RareLink obligatory rules
 ---------------------------
 
 1) Data element output
@@ -112,7 +112,7 @@ but we recommend keeping these in there so that they are part your project's
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
 
 
-RareLink optional rules:
+RareLink optional rules
 -----------------------------
 
 - The REDCap variable names should also be encoded with :ref:`1_2` codes and 

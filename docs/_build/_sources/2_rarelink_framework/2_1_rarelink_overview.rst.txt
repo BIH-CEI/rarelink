@@ -132,8 +132,8 @@ _______________________
     .. admonition:: Continue here..
 
         - CDIS REDCap: https://projectredcap.org/software/cdis/
-        - CDIS Paper: https://www.sciencedirect.com/science/article/pii/S1532046421002008
-        - User guide for :ref:`4_5`
+        - CDIS Paper: https://doi.org/10.1016/j.jbi.2021.103871
+        - User guide for :ref:`cdis-module`
 
 _____________________________________________________________________________________
 
