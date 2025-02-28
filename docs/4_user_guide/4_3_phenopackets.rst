@@ -3,10 +3,9 @@
 Phenopackets Module
 ======================
 
-The RareLink-Phenopacket module allows users to generate (validated) :ref:`1_3`
-from data stored in a local REDCap project. For the :ref:`2_2`  all mappings and
-configurations except the :ref:`family-history` section are predefined so that 
-Phenopackets can be instantly exported via the :ref:`2_3`. 
+The RareLink-Phenopacket module allows users to generate :ref:`1_3`
+from data stored in a local REDCap project. For the :ref:`2_2` the engine is
+preconfigured so that Phenopackets can be instantly exported via the :ref:`2_3`. 
 
 The RareLink-Phenopacket module is designed to be modular and flexible so that
 it can be adapted to other REDCap data structures. Please see the section below.
@@ -17,13 +16,16 @@ ________________________________________________________________________________
 
 - :ref:`get_started`
 - :ref:`rarelink-phenopacket-export`
-- :ref:`rarelink-phenopacket-module`
+- :ref:`rarelink-phenopacket-engine`
 
+  - :ref:`phenopacket-validation`
+  - :ref:`rarelink-phenopacket-preconfigurations`
   - :ref:`phenopackets-other-redcap-data-models`
   - :ref:`phenopacket-mappings`
   - :ref:`label-dicts`
   - :ref:`mapping-dicts`
 
+_____________________________________________________________________________________
 
 .. _get_started:
 
@@ -58,21 +60,29 @@ one Phenopacket JSON file per individual and can be used for further analysis.
 
     rarelink phenopackets export
 
-
 And you will be guided through the exporting process. The Phenopackets will be
 exported to the configured output directory (default is your Downloads folder).
 
 .. note::
-    Make sure you comply with your local data protection regulations and ethical   
-    agreements before exporting the data!
+    - Make sure you **comply with your local data protection regulations and ethical   
+      agreements** before exporting the data!
+    - The section :ref:`family-history` is not implemented yet. This section may 
+      be included in future versions of the RareLink-Phenopacket module.
+
+.. hint:: 
+    Read the :ref:`rarelink-phenopacket-preconfigurations` below to see how the
+    RareLink-Phenopacket modules is configured to handle specific fields for 
+    dates, data privacy, and preferences over certain fields for the Phenopacket
+    export.
+
 
 _____________________________________________________________________________________
 
 
-.. _rarelink-phenopacket-module:
+.. _rarelink-phenopacket-engine:
 
 
-RareLink-Phenopacket module
+RareLink-Phenopacket engine
 ---------------------------
 
 The RareLink-Phenopacket module is developed in a modular way to allow for easy
@@ -103,8 +113,51 @@ components:
 - ``phenopacket pipeline`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py>`_):
   Contains the pipeline to generate Phenopackets from the processed data.
 
+________
+
+.. _phenopacket-validation:
+
+Phenopackets validation
+________________________
+
+The engine utilizes the `Phenopackets Python Library <https://phenopacket-schema.readthedocs.io/en/latest/python.html>`_
+and its Python classes to generate Phenopackets. These classes include inherent 
+validation mechanisms, which raise errors if a required field is missing or if a
+field is not in the correct format.
+
+If further validation is needed, you can use the
+`Validation Module <https://monarch-initiative.github.io/pyphetools/api/validation/>`_ of the
+`pyphetools Python Package <https://monarch-initiative.github.io/pyphetools/>`_.
 
 _____________________________________________________________________________________
+
+.. _rarelink-phenopacket-preconfigurations:
+
+Preconfigurations
+____________________
+
+The engine provides several preconfigurations to streamline data processing. 
+These include:
+
+- **Date Conversion**: Automatically converting dates to an
+  `ISO8601 duration <https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage>`_
+  for the following elements:
+
+  - ``PhenotypicFeature.onset``
+  - ``PhenotypicFeature.resolution``
+  - ``Disease.onset``
+
+  For example, the resulting ISO8601 duration is formatted as follows:
+
+  .. code-block:: yaml
+
+      age:
+        iso8601duration: "P25Y3M2D"
+
+- **PhenotypicFeature.onset Preference**: The engine prefers the ISO8601Duration defined in
+  section 6.2.3 *Phenotype Determination* over the Age 
+_________
+
 
 .. _phenopackets-other-redcap-data-models:
 

@@ -161,6 +161,22 @@ Download records from your REDCap project as JSON files and save them locally.
     Read here more about the REDCap project modes :ref:`1_6` and discuss this
     with your REDCap administrator.
 
+.. hint::
+    If your dataset includes genetic HGVS mutations, please run 
+    ``rarelink redcap validate-hgvs`` after downloading records to ensure proper 
+    phenopackets and genomics quality of the genetic data.
+
+_____________________________________________________________________________________
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs
+
+Validate and encode HGVS strings in the downloaded records to ensure proper 
+phenopackets and genomics quality of the genetic data. This command will 
+iterate through your downloaded data, validate all HGVS strings and give you a 
+summary of the validation process.
+
 _____________________________________________________________________________________
 
 .. code-block:: console 

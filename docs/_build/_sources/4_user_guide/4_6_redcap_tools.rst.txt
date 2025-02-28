@@ -5,9 +5,6 @@ REDCap Tools
 
 Once you have your API access set up, you can interact with your REDCap project: 
 
-.. attention::
-    This section is still to be implemented in the docuemntation.
-
 
 API Endpoints
 ----------------
@@ -36,9 +33,15 @@ The `import-records` command allows users to import records into REDCap.
 
 .. code-block:: bash
 
-    rarelink redcap import-records (to be implemented)
+    rarelink redcap upload-records
 
+**Validate HGVS** 
 
+The `validate-hgvs` command allows users to validate HGVS strings.
+
+.. code-block:: bash
+
+    rarelink redcap validate-hgvs
 
 
 

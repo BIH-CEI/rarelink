@@ -78,10 +78,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopackets.html">Phenopackets Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_fhir_module.html">FHIR Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_tools.html">REDCap Tools</a></li>
 </ul>
@@ -245,6 +245,20 @@ It must only be stored within your organisational site’s approved storage.
 Read here more about the REDCap project modes <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> and discuss this
 with your REDCap administrator.</p>
 </div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your dataset includes genetic HGVS mutations, please run
+<code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">redcap</span> <span class="pre">validate-hgvs</span></code> after downloading records to ensure proper
+phenopackets and genomics quality of the genetic data.</p>
+</div>
+<hr class="docutils" />
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rarelink redcap validate-hgvs</span>
+</pre></div>
+</div>
+<p>Validate and encode HGVS strings in the downloaded records to ensure proper
+phenopackets and genomics quality of the genetic data. This command will
+iterate through your downloaded data, validate all HGVS strings and give you a
+summary of the validation process.</p>
 <hr class="docutils" />
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rarelink redcap fetch-metadata</span>
 </pre></div>
@@ -340,7 +354,7 @@ redcap-api-setup start</cite> to set up a REDCap project and API access.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

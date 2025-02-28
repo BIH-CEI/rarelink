@@ -1,6 +1,5 @@
 import typer
 from pathlib import Path
-import json
 from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
@@ -11,15 +10,13 @@ from rarelink.cli.utils.string_utils import (
     success_text,
     error_text,
     hint_text,
+    format_command
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.loading import fetch_redcap_data
 from rarelink.utils.processing.schemas import redcap_to_linkml
-from rarelink.utils.validation import (
-    validate_linkml_data, 
-    validate_and_encode_hgvs
-)
+from rarelink.utils.validation import validate_linkml_data
 from rarelink_cdm.v2_0_0_dev1.mappings.redcap import MAPPING_FUNCTIONS
 import logging
 
@@ -93,21 +90,6 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         )
         fetch_redcap_data(api_url, api_token, project_name, output_dir)
 
-        # Read the fetched records
-        with open(records_file, 'r') as file:
-            records = json.load(file)
-
-        # Validate and encode HGVS strings in the records
-        typer.echo("🔄 Validating HGVS strings in the records...")
-        updated_records = [
-            validate_and_encode_hgvs(record, transcript_key="transcript")
-            for record in records
-        ]
-                
-        # Save updated records back to file
-        with open(records_file, 'w') as file:
-            json.dump(updated_records, file, indent=4)
-
         # Process REDCap data into LinkML format
         typer.echo(f"🔄 Processing records for project "
                    f"'{sanitized_project_name}'...")
@@ -122,6 +104,13 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
             success_text("✅ Validation successful!")
         else:
             error_text(f"❌ Validation failed for {processed_file}")
+        
+        # hint for hgvs validation
+        hint_text(
+            f"⚠️ NOTE: If genetic HGVS mutations are included in your "
+            f"dataset, please run {format_command('rarelink redcap validate-hgvs')}")
+        hint_text("to ensure proper phenopackets and genomics quality of the "
+                  "genetic data.")
 
     except Exception as e:
         error_text(f"❌ Error: {e}")

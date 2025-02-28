@@ -76,7 +76,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Phenopackets Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#get-started">Get started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rarelink-cdm-to-phenopackets">RareLink-CDM to Phenopackets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rarelink-phenopacket-module">RareLink-Phenopacket module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-phenopacket-engine">RareLink-Phenopacket engine</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4_4_fhir_module.html">FHIR Module</a></li>
@@ -121,10 +121,9 @@
              
   <section id="phenopackets-module">
 <span id="id1"></span><h1>Phenopackets Module<a class="headerlink" href="#phenopackets-module" title="Link to this heading"></a></h1>
-<p>The RareLink-Phenopacket module allows users to generate (validated) <a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#id1"><span class="std std-ref">GA4GH Phenopackets</span></a>
-from data stored in a local REDCap project. For the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>  all mappings and
-configurations except the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#family-history"><span class="std std-ref">(6.4) Family History (rarelink_6_4_family_history)</span></a> section are predefined so that
-Phenopackets can be instantly exported via the <a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#id1"><span class="std std-ref">RareLink CLI</span></a>.</p>
+<p>The RareLink-Phenopacket module allows users to generate <a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#id1"><span class="std std-ref">GA4GH Phenopackets</span></a>
+from data stored in a local REDCap project. For the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> the engine is
+preconfigured so that Phenopackets can be instantly exported via the <a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#id1"><span class="std std-ref">RareLink CLI</span></a>.</p>
 <p>The RareLink-Phenopacket module is designed to be modular and flexible so that
 it can be adapted to other REDCap data structures. Please see the section below.</p>
 <hr class="docutils" />
@@ -132,8 +131,10 @@ it can be adapted to other REDCap data structures. Please see the section below.
 <ul class="simple">
 <li><p><a class="reference internal" href="#get-started"><span class="std std-ref">Get started</span></a></p></li>
 <li><p><a class="reference internal" href="#rarelink-phenopacket-export"><span class="std std-ref">RareLink-CDM to Phenopackets</span></a></p></li>
-<li><p><a class="reference internal" href="#rarelink-phenopacket-module"><span class="std std-ref">RareLink-Phenopacket module</span></a></p>
+<li><p><a class="reference internal" href="#rarelink-phenopacket-engine"><span class="std std-ref">RareLink-Phenopacket engine</span></a></p>
 <ul>
+<li><p><a class="reference internal" href="#phenopacket-validation"><span class="std std-ref">Phenopackets validation</span></a></p></li>
+<li><p><a class="reference internal" href="#rarelink-phenopacket-preconfigurations"><span class="std std-ref">Preconfigurations</span></a></p></li>
 <li><p><a class="reference internal" href="#phenopackets-other-redcap-data-models"><span class="std std-ref">Usage for other REDCap data models</span></a></p></li>
 <li><p><a class="reference internal" href="#phenopacket-mappings"><span class="std std-ref">Mapping example to Phenopacket Blocks</span></a></p></li>
 <li><p><a class="reference internal" href="#label-dicts"><span class="std std-ref">Example for Label Dictionaries</span></a></p></li>
@@ -141,6 +142,7 @@ it can be adapted to other REDCap data structures. Please see the section below.
 </ul>
 </li>
 </ul>
+<hr class="docutils" />
 <section id="get-started">
 <span id="id2"></span><h2>Get started<a class="headerlink" href="#get-started" title="Link to this heading"></a></h2>
 <p>To use the Phenopacket export, you need a running REDCap project with API access
@@ -169,13 +171,24 @@ one Phenopacket JSON file per individual and can be used for further analysis.</
 exported to the configured output directory (default is your Downloads folder).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Make sure you comply with your local data protection regulations and ethical
-agreements before exporting the data!</p>
+<ul class="simple">
+<li><p>Make sure you <strong>comply with your local data protection regulations and ethical
+agreements</strong> before exporting the data!</p></li>
+<li><p>The section <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#family-history"><span class="std std-ref">(6.4) Family History (rarelink_6_4_family_history)</span></a> is not implemented yet. This section may
+be included in future versions of the RareLink-Phenopacket module.</p></li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Read the <a class="reference internal" href="#rarelink-phenopacket-preconfigurations"><span class="std std-ref">Preconfigurations</span></a> below to see how the
+RareLink-Phenopacket modules is configured to handle specific fields for
+dates, data privacy, and preferences over certain fields for the Phenopacket
+export.</p>
 </div>
 <hr class="docutils" />
 </section>
-<section id="rarelink-phenopacket-module">
-<span id="id3"></span><h2>RareLink-Phenopacket module<a class="headerlink" href="#rarelink-phenopacket-module" title="Link to this heading"></a></h2>
+<section id="rarelink-phenopacket-engine">
+<span id="id3"></span><h2>RareLink-Phenopacket engine<a class="headerlink" href="#rarelink-phenopacket-engine" title="Link to this heading"></a></h2>
 <p>The RareLink-Phenopacket module is developed in a modular way to allow for easy
 adaptation to other REDCap data structures. All data model specific
 configurations and mappings of the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> are within its <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm">GitHub folder</a>.
@@ -201,6 +214,41 @@ Contains the main function to generate Phenopackets from the processed data.</p>
 Contains the function to write the generated Phenopackets to a JSON file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">phenopacket</span> <span class="pre">pipeline</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py">GitHub Folder</a>):
 Contains the pipeline to generate Phenopackets from the processed data.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="phenopackets-validation">
+<span id="phenopacket-validation"></span><h3>Phenopackets validation<a class="headerlink" href="#phenopackets-validation" title="Link to this heading"></a></h3>
+<p>The engine utilizes the <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/python.html">Phenopackets Python Library</a>
+and its Python classes to generate Phenopackets. These classes include inherent
+validation mechanisms, which raise errors if a required field is missing or if a
+field is not in the correct format.</p>
+<p>If further validation is needed, you can use the
+<a class="reference external" href="https://monarch-initiative.github.io/pyphetools/api/validation/">Validation Module</a> of the
+<a class="reference external" href="https://monarch-initiative.github.io/pyphetools/">pyphetools Python Package</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="preconfigurations">
+<span id="rarelink-phenopacket-preconfigurations"></span><h3>Preconfigurations<a class="headerlink" href="#preconfigurations" title="Link to this heading"></a></h3>
+<p>The engine provides several preconfigurations to streamline data processing.
+These include:</p>
+<ul>
+<li><p><strong>Date Conversion</strong>: Automatically converting dates to an
+<a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage">ISO8601 duration</a>
+for the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PhenotypicFeature.onset</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PhenotypicFeature.resolution</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Disease.onset</span></code></p></li>
+</ul>
+<p>For example, the resulting ISO8601 duration is formatted as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">age</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">iso8601duration</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;P25Y3M2D&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>PhenotypicFeature.onset Preference</strong>: The engine prefers the ISO8601Duration defined in
+section 6.2.3 <em>Phenotype Determination</em> over the Age</p></li>
 </ul>
 <hr class="docutils" />
 </section>
@@ -374,7 +422,7 @@ Phenopacket-specific elements.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

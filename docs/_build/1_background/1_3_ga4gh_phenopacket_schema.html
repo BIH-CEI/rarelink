@@ -54,7 +54,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GA4GH Phenopackets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#phenopacket-blocks">Phenopacket Blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#phenopacket-tools">Phenopacket Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="1_4_hl7_fhir.html">HL7 FHIR</a></li>
@@ -76,10 +75,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_2_import_mapper.html">Semi-Automatic Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_3_phenopackets.html">Phenopackets Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_tofhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_4_fhir_module.html">FHIR Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_user_guide/4_6_redcap_tools.html">REDCap Tools</a></li>
 </ul>
@@ -127,27 +126,27 @@ phenotypic and genomic data. It is particularly useful for capturing rich
 clinical data and complex phenotypes in a structured format, making it ideal
 for rare disease (RD) research. The schema enables the precise description of
 a patient’s clinical features, genetic information, diagnoses, and disease
-progression, all of which are critical for understanding rare diseases.
+progression, all of which are critical for understanding RDs.
 Phenopackets are widely adopted in bioinformatics pipelines to ensure the
 standardization of data across different institutions and studies, enhancing
 data reusability and interoperability.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <dl class="simple">
-<dt>Read the GA4GH Phenopacket Schema Paper here:</dt><dd><p><a class="reference external" href="https://www.nature.com/articles/s41587-022-01357-4">The GA4GH Phenopacket schema defines a computable representation of clinical data</a></p>
+<dt>Read the GA4GH Phenopacket Schema Paper here:</dt><dd><p><a class="reference external" href="https://www.nature.com/articles/s41587-022-01357-4">The GA4GH Phenopacket schema defines a computable representation of clinical data.</a></p>
 </dd>
 </dl>
 </div>
 <section id="phenopacket-blocks">
 <h2>Phenopacket Blocks<a class="headerlink" href="#phenopacket-blocks" title="Link to this heading"></a></h2>
 <p>The GA4GH Phenopcaket Schema v2.0:</p>
-<figure class="align-default" id="id3">
+<figure class="align-default" id="id4">
 <img alt="../_images/phenopacket-schema-v2-overview.svg" src="../_images/phenopacket-schema-v2-overview.svg" />
 <figcaption>
 <p><span class="caption-text">Overview of v2.0 of the schema. Lines between elements indicate composition. Note that the OntologyClass and TimeElement
 links have been omitted for legibility. The colour scheme represents: <span class="color-base">base classes</span>, <span class="color-interpretation">interpretation classes</span>,
 <span class="color-measurement">measurement classes</span>, <span class="color-genomic-vrs">genomic/vrs classes</span>, <span class="color-pedigree">pedigree classes</span>,
-<span class="color-top-level">top-level classes</span>, <span class="color-medical-action">medical-action classes</span></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<span class="color-top-level">top-level classes</span>, <span class="color-medical-action">medical-action classes</span></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -159,9 +158,9 @@ and pedigree, enabling a rich representation of data that can easily integrate
 into larger schemas for specific use cases.</p>
 <p>Central to the Phenopacket schema is the <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/phenotype.html">PhenotypicFeature</a>,
 which describes various characteristics such as signs, symptoms, and laboratory
-findings using ontology, like the Human Phenotype Ontology (HPO). The schema
+findings using ontologies, like the Human Phenotype Ontology (HPO). The schema
 also allows for the documentation of exclusions, severity, frequency, and onset
-of features. Other essential components inclute <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/measurement.html">Measurement</a>,
+of features. Other essential components include <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/measurement.html">Measurement</a>,
 for capturing data, <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/biosample.html">Biosample</a>,
 for biological materials, and <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/medical-action.html">MedicalAction</a>,
 which includes the hierarchical representation of medical interventions.
@@ -169,9 +168,9 @@ The <a class="reference external" href="https://phenopacket-schema.readthedocs.i
 element encompasses a range of therapeutic agents, from medications to advanced
 therapies. Together, these building blocks create a comprehensive framework for
 clinical information.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/index.html">Here you find the GA4GH Phenopacket Schema Documentation</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/index.html">Here you can find the GA4GH Phenopacket Schema Documentation</a></p>
 </div>
 </section>
 <section id="phenopacket-tools">
@@ -185,15 +184,18 @@ variants associated with phenotypic data encoded in Phenopackets. These tools
 have helped to broaden the impact of Phenopackets in RD research by promoting
 data accuracy, accessibility, and reusability across multiple platforms and
 projects.</p>
-</section>
+<ul class="simple">
+<li><p><a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0285433">Phenopacket-tools: Building and validating GA4GH Phenopackets</a></p></li>
+</ul>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<h3>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.nature.com/articles/s41587-022-01357-4">The GA4GH Phenopacket schema defines a computable representation of clinical data</a></p></li>
 <li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/ggn2.202200016">GA4GH Phenopackets: A Practical Introduction</a></p></li>
 <li><p><a class="reference external" href="https://www.medrxiv.org/content/10.1101/2024.05.29.24308104v1">A corpus of GA4GH Phenopackets: case-level phenotyping for genomic diagnostics and discovery</a></p></li>
 <li><p><a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0285433">Phenopacket-tools: Building and validating GA4GH Phenopackets</a></p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -208,7 +210,7 @@ projects.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

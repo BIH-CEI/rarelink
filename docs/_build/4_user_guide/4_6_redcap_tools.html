@@ -120,10 +120,6 @@
   <section id="redcap-tools">
 <span id="id1"></span><h1>REDCap Tools<a class="headerlink" href="#redcap-tools" title="Link to this heading"></a></h1>
 <p>Once you have your API access set up, you can interact with your REDCap project:</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This section is still to be implemented in the docuemntation.</p>
-</div>
 <section id="api-endpoints">
 <h2>API Endpoints<a class="headerlink" href="#api-endpoints" title="Link to this heading"></a></h2>
 <p><strong>Export Records</strong></p>
@@ -138,7 +134,12 @@
 </div>
 <p><strong>Import Records</strong></p>
 <p>The <cite>import-records</cite> command allows users to import records into REDCap.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap<span class="w"> </span>import-records<span class="w"> </span><span class="o">(</span>to<span class="w"> </span>be<span class="w"> </span>implemented<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap<span class="w"> </span>upload-records
+</pre></div>
+</div>
+<p><strong>Validate HGVS</strong></p>
+<p>The <cite>validate-hgvs</cite> command allows users to validate HGVS strings.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>redcap<span class="w"> </span>validate-hgvs
 </pre></div>
 </div>
 </section>
@@ -155,7 +156,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -57,7 +57,8 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         )
         phenotypic_features = map_phenotypic_features(
             data,
-            phenotypic_feature_processor
+            phenotypic_feature_processor,
+            dob = individual.date_of_birth
         )
         
         # Measurements ------------------------------------------------------------
@@ -69,7 +70,7 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         # Disease -----------------------------------------------------------------
         # DiseaseBlock
         disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
-        diseases = map_diseases(data, disease_processor)
+        diseases = map_diseases(data, disease_processor, dob = individual.date_of_birth)
         
         # Genetics ----------------------------------------------------------------
         ## Variation Descriptor

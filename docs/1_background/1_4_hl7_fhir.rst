@@ -3,10 +3,7 @@
 HL7 FHIR
 ==========
 
-.. image:: ../_static/res/fhir_release4_logo.jpg
-    :alt: HL7 FHIR Logo
-    :width: 400px
-    :align: center
+________
 
 FHIR (Fast Healthcare Interoperability Resources) is an international standard
 developed by HL7 for exchanging healthcare information electronically. Initially

@@ -59,12 +59,13 @@ The following codesystems are used in the RareLink Core Framework:
 
 :`SNOMED CT <https://www.snomed.org/>`_: 
     The **Systematized Nomenclature of Medicine Clinical Terms** is a 
-    comprehensive clinical health terminology providing codes, terms, and 
+    comprehensive clinical healthcare terminology providing codes, terms, and 
     definitions used in documentation.
 
 :`LOINC <https://loinc.org/>`_: 
     **Logical Observation Identifiers Names and Codes** is widely used 
-    terminology for clinical observations and laboratory identifiers.
+    terminology for clinical observations and laboratory findings by 
+    providing identifiers.
 
 :`UO <http://purl.obolibrary.org/obo/uo.owl>`_: 
     The **Units of Measurement Ontology** is an ontology for units of 

@@ -14,6 +14,7 @@ from rarelink.utils.loading import (
 )
 from google.protobuf.timestamp_pb2 import Timestamp
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 import logging
 
 logger = logging.getLogger(__name__)
@@ -106,6 +107,32 @@ class DataProcessor:
             return timestamp
         except Exception as e:
             logger.error(f"Error converting date to Timestamp: {e}")
+            raise
+        
+    @staticmethod
+    def convert_date_to_iso_age(event_date_str: str, dob_str: str) -> str:
+        """
+        Convert an event date and a date of birth into an ISO8601 duration string
+        using only years and months (e.g., "P38Y7M").
+        
+        Args:
+            event_date_str (str): The date string of the event (e.g., onset), in ISO8601 format.
+            dob_str (str): The individual's date of birth as an ISO8601 string.
+            
+        Returns:
+            str: An ISO8601 duration string representing the age difference with year and month precision.
+        """
+        try:
+            # Convert both dates from ISO format to datetime objects.
+            dob = datetime.fromisoformat(dob_str)
+            event_date = datetime.fromisoformat(event_date_str)
+            # Calculate the difference using relativedelta to get years and months.
+            delta = relativedelta(event_date, dob)
+            # Build the ISO8601 duration string with only years and months.
+            iso_age = f"P{delta.years}Y{delta.months}M"
+            return iso_age
+        except Exception as e:
+            logger.error(f"Error calculating ISO age: {e}")
             raise
 
     @staticmethod
