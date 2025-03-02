@@ -270,6 +270,14 @@ RareLink-CDM SSSOM Template File
    ADR003	"Patient ADR003"	rarelink:snomedct_184099003	"2.1 Date of birth"	        1965-11-05	            1965-11-05	            lexical	        2023-01-01	    manual
    ADR003	"Patient ADR003"	rarelink:snomedct_281053000	"2.2 Sex at birth"	        SNOMEDCT:248152002	    Female	    lexical	        2023-01-01	    manual
 
+.. tip:: 
+   You can view and download all the example csv and sssom mapping files here: 
+   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
+
+
+____
+
+
 2. Semantic Ontology Annotation
 _________________________________
 
@@ -286,7 +294,9 @@ encodings and the codesystems required for the encoding.
    the quality of your mappings! In the above section on components you find 
    more details.
 
-Write the results into the SSSOM mapping file using the template provided above.
+Write the results into the SSSOM mapping file using the template provided above
+into the columns ``object_id`` and ``object_label`` while selecting the correct 
+``predicate_id`` and ``predicate_label`` from the RareLink-CDM schema.
 
 ____
 
@@ -413,7 +423,11 @@ schema.
    ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0010526	      Fabry Disease	    lexical	    2025-01-01	    manual
    ADR002	    "Patient ADR002"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2021-12-15	                2021-12-15	                lexical	    2025-01-01	    manual
 
-   ____
+.. tip:: 
+   You can view and download all the example csv and sssom mapping files here: 
+   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
+
+____
 
 Example 2: Pediatric Rare Disease Study
 ____________________________________________
@@ -468,6 +482,10 @@ RareLink-CDM format for pediatric rare disease research.
    PEDS102	    "Patient PEDS102"	    rarelink_cdm:loinc_48019_4	                "6.1.13 DNA Change Type"	            LOINC:LA6692-3	                    Deletion	                    lexical	        2025-01-01	    manual
    PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0008171	    "Nephronophthisis confirmed"	    lexical	        2025-01-01	    manual
 
+
+.. tip:: 
+   You can view and download all the example csv and sssom mapping files here: 
+   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
 
 ______
 
