@@ -1,5 +1,5 @@
 # Auto generated from rarelink_cdm.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-02T17:06:57
+# Generation date: 2025-03-02T17:08:56
 # Schema: rarelink_cdm
 #
 # id: https://github.com/BIH-CEI/RareLink/rarelink_cdm.yaml

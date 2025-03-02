@@ -1,0 +1,33 @@
+# Adult Rare Disease Registry SSSOM Mapping Template
+# This template maps key fields from an adult rare disease registry CSV file
+# to the RareLink-CDM target schema.
+#
+subject_id   subject_label           predicate_id                                    predicate_label                         object_id                           object_label                            match_type  mapping_date    mapping_tool
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_422549004                 "1.1 Pseudonym"                             ADR001                          ADR001                          lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_184099003                 "2.1 Date of birth"                     1970-02-15                      1970-02-15                      lexical         2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_281053000                 "2.2 Sex at birth"                      SNOMEDCT:248152002              Female                              lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_263493000                 "2.4 Gender Identity"                       SNOMEDCT:446141000124107                "Female gender identity"                lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0012345                   "Wilson Disease"                        lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_278844005                 "3.1 Vital Status"                      SNOMEDCT:438949009              Alive                               lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:ncit_c82577                        "6.3.5 Time Observed"                       2022-10-01                          2022-10-01                      lexical         2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:loinc_lp7824_8                 "6.1 Genetic Mutation String"           ATP7B:c.3207C>A             ATP7B:c.3207C>A                 lexical         2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:loinc_53034_5                  "6.1.11 Zygosity"                           LOINC:LA6706-1                      Heterozygous                    lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:loinc_48019_4_other                    "6.1.13 DNA Change Type"                    LOINC:LA6698-0                          Missense                        lexical         2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0010200    Wilson Disease             lexical         2025-01-01      manual
+# Repeating elements: Patient ADR001 has two phenotypic features.
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006                   "6.2.1 Phenotypic Feature"              HP:0001250                  "Epistaxis"                     lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006                   "6.2.1 Phenotypic Feature"              HP:0001249                  "Telangiectasia on lips"                lexical     2025-01-01      manual
+ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006_onset         "6.2.3 Determination Date"                  2019-05-10                  2019-05-10                      lexical     2025-01-01      manual
+# Mappings for a second patient (ADR002)
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_422549004                 "1.1 Pseudonym"                             ADR002                          ADR002                          lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_184099003                 "2.1 Date of birth"                     1982-07-30                      1982-07-30                      lexical         2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_281053000                 "2.2 Sex at birth"                      SNOMEDCT:248153007              Male                                lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_278844005                 "3.1 Vital Status"                      SNOMEDCT:438949009              Alive                               lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0023456                   "Cystic Fibrosis (atypical)"        lexical         2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:loinc_lp7824_8                 "6.1 Genetic Mutation String"           CFTR:c.1521_1523delCTT          CFTR:c.1521_1523delCTT          lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:loinc_53034_5                  "6.1.11 Zygosity"                           LOINC:LA6707-9                      Hemizygous                      lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:loinc_48019_4                  "6.1.13 DNA Change Type"                    Splice site variant         Splice site variant             lexical     2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0010526         Fabry Disease         lexical         2025-01-01      manual
+ADR002           "Patient ADR002"        rarelink_cdm:ncit_c82577                        "6.3.5 Time Observed"                       2021-12-15                      2021-12-15                      lexical     2025-01-01      manual
+
+____

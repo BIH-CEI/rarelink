@@ -21,5 +21,5 @@ Previous versions (up to v2.0):
 --------------------------------
 
 - The ERKER project was the previous version of RareLink and can still be found
-  in the `ERKER GitHub repository <>`_. However, the ERKER project is no longer
+  in the `ERKER GitHub repository <https://github.com/BIH-CEI/ERKER>`_. However, the ERKER project is no longer
   maintained and has been replaced by RareLink.
