@@ -332,6 +332,8 @@ this is the actual value (e.g., “1970-02-15”). For coded fields, such as
 sex, the object_id is the standardized code from the value set
 (e.g., “SNOMEDCT:248152002” for female) or the code from the code system defined
 by the data element (e.g., “HP:0001250” for a phenotype in element 6.2.1).</p></li>
+<li><p><strong>object_label</strong>: The human-readable label for the target value either from the
+RareLink-CDM value sets or the code system defined by the data element.</p></li>
 <li><p><strong>match_type</strong>:
 Describes the type of mapping used. Commonly this is set to “lexical”
 when the mapping is based on a direct textual match.</p></li>
@@ -360,35 +362,36 @@ integration in the RareLink-CDM.</p>
 # predicate_id:      Fully qualified target element (e.g., rarelink:snomedct_184099003).
 # predicate_label:   The title of the target element from the schema (e.g., &quot;2.1 Date of birth&quot;).
 # object_id:         The target value (literal for dates or standardized code for coded fields).
+# object_label:      The human-readable label for the target value.
 # match_type:        How the mapping was derived (e.g., &quot;lexical&quot;).
 # mapping_date:      Date when the mapping was created.
 # mapping_tool:      Method used to create the mapping (e.g., &quot;manual&quot;).
 
-subject_id   subject_label   predicate_id            predicate_label             object_id               match_type      mapping_date            mapping_tool
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;         &lt;date_literal&gt;              lexical         2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;          SNOMEDCT:248152002      lexical             2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_1296886006    &quot;2.3 Karyotypic Sex&quot;        &lt;karyotypic_value&gt;      lexical             2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_263493000     &quot;2.4 Gender Identity&quot;       SNOMEDCT:446141000124107    lexical     2023-01-01      manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_370159000     &quot;2.5 Country of birth&quot;      &lt;country_code&gt;              lexical         2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_422549004     &quot;1.1 Pseudonym&quot;         &lt;pseudonym&gt;                 lexical             2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_278844005     &quot;3.1 Vital Status&quot;              &lt;vital_status&gt;          lexical         2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_64572001_mondo        &quot;5.1 Disease [MONDO]&quot;   &lt;mondo_code&gt;            lexical         2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:loinc_lp7824_8     &quot;6.1 Genetic Mutation String&quot;       &lt;mutation_literal&gt;      lexical         2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  &lt;phenotype&gt;                 lexical             2023-01-01          manual
-&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:ncit_c82577            &quot;6.3.5 Time Observed&quot;       &lt;time_literal&gt;              lexical         2023-01-01          manual
+subject_id   subject_label   predicate_id            predicate_label             object_id               object_label                    match_type  mapping_date    mapping_tool
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;         &lt;date_literal&gt;              &lt;date_literal&gt;          lexical         2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;          SNOMEDCT:248152002      Female          lexical             2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_1296886006    &quot;2.3 Karyotypic Sex&quot;        &lt;karyotypic_value&gt;      &lt;karyotypic_label&gt;      lexical             2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_263493000     &quot;2.4 Gender Identity&quot;       SNOMEDCT:446141000124107    Female gender identity          lexical         2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_370159000     &quot;2.5 Country of birth&quot;      &lt;country_code&gt;              &lt;country_code&gt;          lexical         2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_422549004     &quot;1.1 Pseudonym&quot;         &lt;pseudonym&gt;                 &lt;pseudonym&gt;             lexical             2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_278844005     &quot;3.1 Vital Status&quot;              &lt;vital_status&gt;          &lt;vital_status&gt;          lexical         2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_64572001_mondo        &quot;5.1 Disease [MONDO]&quot;   &lt;mondo_code&gt;            &lt;mondo_code&gt;            lexical         2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:loinc_lp7824_8     &quot;6.1 Genetic Mutation String&quot;       &lt;mutation_literal&gt;      &lt;mutation_literal&gt;          lexical             2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  &lt;phenotype&gt;                 &lt;phenotype&gt;             lexical             2023-01-01          manual
+&lt;record_id&gt;  &lt;Source Record Identifier&gt;      rarelink:ncit_c82577            &quot;6.3.5 Time Observed&quot;       &lt;time_literal&gt;              &lt;time_literal&gt;          lexical         2023-01-01          manual
 
 # --- Example of Repeating Elements ---
 # The same patient (e.g., ADR001) can have multiple entries for repeated elements.
 # For instance, if ADR001 has two phenotypic features, include two rows with the same subject_id.
-ADR001       &quot;Patient ADR001&quot;        rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  HP:0001250                  lexical             2023-01-01          manual
-ADR001       &quot;Patient ADR001&quot;        rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  HP:0003674                  lexical             2023-01-01          manual
+ADR001       &quot;Patient ADR001&quot;        rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  HP:0001250                  Epistaxis               lexical             2023-01-01          manual
+ADR001       &quot;Patient ADR001&quot;        rarelink:snomedct_8116006           &quot;6.2.1 Phenotypic Feature&quot;  HP:0003674                  Telangiectasia on lips      lexical         2023-01-01          manual
 
 # --- Example of Multiple Patients ---
 # Each row with a different subject_id represents a mapping for a different patient.
-ADR002       &quot;Patient ADR002&quot;        rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;             1982-07-30                  lexical             2023-01-01          manual
-ADR002       &quot;Patient ADR002&quot;        rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;              SNOMEDCT:248153007          lexical             2023-01-01          manual
-ADR003       &quot;Patient ADR003&quot;        rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;             1965-11-05                  lexical             2023-01-01          manual
-ADR003       &quot;Patient ADR003&quot;        rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;              SNOMEDCT:248152002          lexical             2023-01-01          manual
+ADR002       &quot;Patient ADR002&quot;        rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;             1982-07-30                  1982-07-30              lexical             2023-01-01          manual
+ADR002       &quot;Patient ADR002&quot;        rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;              SNOMEDCT:248153007          Male            lexical             2023-01-01          manual
+ADR003       &quot;Patient ADR003&quot;        rarelink:snomedct_184099003     &quot;2.1 Date of birth&quot;             1965-11-05                  1965-11-05              lexical             2023-01-01          manual
+ADR003       &quot;Patient ADR003&quot;        rarelink:snomedct_281053000     &quot;2.2 Sex at birth&quot;              SNOMEDCT:248152002          Female          lexical             2023-01-01          manual
 </pre></div>
 </div>
 </section>
