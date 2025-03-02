@@ -102,15 +102,15 @@ components:
   Contains all the mappings from the REDCap data model to the 
   respective blocks in the Phenopacket schema without containing data-model 
   specific values or codes.
-- ``DataProcessor`` Class (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py>`_):
+- ``DataProcessor`` (`Python Class <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py>`_):
   Contains all functions to process any REDCap data to Phenopacket-compliant 
   data, including *field fetching*, *data drocessing*, *data validation*, 
   *Label & Mapping*, *repeated element*, and *generation* methods.
-- ``create`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py>`_):
+- ``create`` (`Python function <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py>`_):
   Contains the main function to generate Phenopackets from the processed data.
-- ``write`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/write.py>`_):
+- ``write`` (`Python function <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/write.py>`_):
   Contains the function to write the generated Phenopackets to a JSON file.
-- ``phenopacket pipeline`` (`GitHub Folder <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py>`_):
+- ``phenopacket pipeline`` (`Python function <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py>`_):
   Contains the pipeline to generate Phenopackets from the processed data.
 
 ________
@@ -139,23 +139,38 @@ ____________________
 The engine provides several preconfigurations to streamline data processing. 
 These include:
 
-- **Date Conversion**: Automatically converting dates to an
-  `ISO8601 duration <https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage>`_
-  for the following elements:
+1. **Date conversions** 
 
+  The engine converts dates to an
+  `a Phenopacket Age element as a ISO8601 duration <https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage>`_
+  with
+
+  - **Year** and 
+  - **Month** 
+
+  ... for the following elements:
+
+  - ``Individual.timeAtLastEncounter``
+  - ``VitalStatus.timeOfDeath``
   - ``PhenotypicFeature.onset``
   - ``PhenotypicFeature.resolution``
   - ``Disease.onset``
 
-  For example, the resulting ISO8601 duration is formatted as follows:
+    For example, the resulting ISO8601 duration is formatted as follows:
 
   .. code-block:: yaml
 
       age:
-        iso8601duration: "P25Y3M2D"
+        iso8601duration: "P25Y3M"
 
-- **PhenotypicFeature.onset Preference**: The engine prefers the ISO8601Duration defined in
-  section 6.2.3 *Phenotype Determination* over the Age 
+  - the ``Individual.dateOfBirth`` must be a Phenopacket TimeStamp element. 
+    Therefore, for data privacy only the year and month are exported from REDCap.
+
+
+2. **Preferences**: 
+
+  ``PhenotypicFeature.onset``: The engine prefers the ISO8601Duration
+  defined in section 6.2.3 *Phenotype Determination* over the Age 
 _________
 
 

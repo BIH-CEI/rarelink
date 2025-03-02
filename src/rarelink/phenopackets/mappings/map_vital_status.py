@@ -1,18 +1,20 @@
 import logging
-from phenopackets import VitalStatus, OntologyClass
+from phenopackets import VitalStatus, OntologyClass, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
 from rarelink.utils.loading import get_highest_instance 
 
 logger = logging.getLogger(__name__)
 
 def map_vital_status(data: dict,
-                     processor: DataProcessor) -> VitalStatus:
+                     processor: DataProcessor,
+                     dob: str) -> VitalStatus:
     """
     Maps patient data to the VitalStatus block using a DataProcessor.
 
     Args:
         data (dict): Input data from the RareLink-CDM schema (or similar).
         processor (DataProcessor): Handles all data processing logic.
+        dob (str): The individual's date of birth as an ISO8601 string.
 
     Returns:
         VitalStatus: A Phenopacket VitalStatus block.
@@ -48,8 +50,14 @@ def map_vital_status(data: dict,
         status_label = processor.fetch_mapping_value(
             "map_vital_status", status_field) if status_field \
                 else "UNKNOWN_STATUS"
-        time_of_death = processor.process_time_element(
-            time_of_death_field) if time_of_death_field else None
+        time_of_death = None
+        if time_of_death_field and dob:
+            try:
+                iso_age = processor.convert_date_to_iso_age(time_of_death_field, dob)
+                time_of_death = TimeElement(age=Age(iso8601duration=iso_age))
+            except Exception as e:
+                logger.error(f"Error processing time of death for ISO age: {e}")
+
         cause_of_death = (
             OntologyClass(
                 id=cause_of_death_field,

@@ -204,15 +204,15 @@ components:</p>
 Contains all the mappings from the REDCap data model to the
 respective blocks in the Phenopacket schema without containing data-model
 specific values or codes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> Class (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py">GitHub Folder</a>):
+<li><p><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py">Python Class</a>):
 Contains all functions to process any REDCap data to Phenopacket-compliant
 data, including <em>field fetching</em>, <em>data drocessing</em>, <em>data validation</em>,
 <em>Label &amp; Mapping</em>, <em>repeated element</em>, and <em>generation</em> methods.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py">GitHub Folder</a>):
+<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py">Python function</a>):
 Contains the main function to generate Phenopackets from the processed data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/write.py">GitHub Folder</a>):
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/write.py">Python function</a>):
 Contains the function to write the generated Phenopackets to a JSON file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">phenopacket</span> <span class="pre">pipeline</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py">GitHub Folder</a>):
+<li><p><code class="docutils literal notranslate"><span class="pre">phenopacket</span> <span class="pre">pipeline</span></code> (<a class="reference external" href="https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/pipeline.py">Python function</a>):
 Contains the pipeline to generate Phenopackets from the processed data.</p></li>
 </ul>
 <hr class="docutils" />
@@ -232,24 +232,43 @@ field is not in the correct format.</p>
 <span id="rarelink-phenopacket-preconfigurations"></span><h3>Preconfigurations<a class="headerlink" href="#preconfigurations" title="Link to this heading"></a></h3>
 <p>The engine provides several preconfigurations to streamline data processing.
 These include:</p>
-<ul>
-<li><p><strong>Date Conversion</strong>: Automatically converting dates to an
-<a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage">ISO8601 duration</a>
-for the following elements:</p>
+<ol class="arabic simple">
+<li><p><strong>Date conversions</strong></p></li>
+</ol>
+<blockquote>
+<div><p>The engine converts dates to an
+<a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/age.html#rstage">a Phenopacket Age element as a ISO8601 duration</a>
+with</p>
 <ul class="simple">
+<li><p><strong>Year</strong> and</p></li>
+<li><p><strong>Month</strong></p></li>
+</ul>
+<p>… for the following elements:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Individual.timeAtLastEncounter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VitalStatus.timeOfDeath</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PhenotypicFeature.onset</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PhenotypicFeature.resolution</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Disease.onset</span></code></p></li>
-</ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Disease.onset</span></code></p>
 <p>For example, the resulting ISO8601 duration is formatted as follows:</p>
+</li>
+</ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">age</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">iso8601duration</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;P25Y3M2D&quot;</span>
+<span class="w">  </span><span class="nt">iso8601duration</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;P25Y3M&quot;</span>
 </pre></div>
 </div>
-</li>
-<li><p><strong>PhenotypicFeature.onset Preference</strong>: The engine prefers the ISO8601Duration defined in
-section 6.2.3 <em>Phenotype Determination</em> over the Age</p></li>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Individual.dateOfBirth</span></code> must be a Phenopacket TimeStamp element.
+Therefore, for data privacy only the year and month are exported from REDCap.</p></li>
 </ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><strong>Preferences</strong>:</p></li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">PhenotypicFeature.onset</span></code>: The engine prefers the ISO8601Duration
+defined in section 6.2.3 <em>Phenotype Determination</em> over the Age</p>
+</div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="usage-for-other-redcap-data-models">

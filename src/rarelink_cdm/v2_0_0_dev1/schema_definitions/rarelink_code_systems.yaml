@@ -15,7 +15,7 @@ enums:
     code_set: https://www.ncbi.nlm.nih.gov/taxonomy
     code_set_version: "2024-07-03"
 
-  SNOMED:
+  SNOMEDCT:
     description: SNOMED CT
     code_set: https://www.snomed.org/snomed-ct
     code_set_version: "2024-09-01"
@@ -119,9 +119,9 @@ classes:
         description: NCBI organismal classification
         range: NCBITaxon
         required: true
-      snomed:
+      SNOMEDCT:
         description: SNOMED CT
-        range: SNOMED
+        range: SNOMEDCT
         required: true
       mondo:
         description: Monarch Disease Ontology

@@ -1,5 +1,5 @@
 import logging
-from phenopackets import Individual, OntologyClass, VitalStatus
+from phenopackets import Individual, OntologyClass, VitalStatus, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
 
 logger = logging.getLogger(__name__)
@@ -33,9 +33,17 @@ def map_individual(data: dict,
         time_at_last_encounter_field = processor.get_field(
             data, "time_at_last_encounter_field"
         )
-        time_at_last_encounter = processor.process_time_element(
-            time_at_last_encounter_field
-        )
+        
+        time_at_last_encounter = None
+        if date_of_birth_field and time_at_last_encounter_field:
+            try:
+                iso_age = processor.convert_date_to_iso_age(
+                    time_at_last_encounter_field, 
+                    date_of_birth_field)
+                time_at_last_encounter = TimeElement(age=Age(
+                    iso8601duration=iso_age))
+            except Exception as e:
+                logger.error(f"Error calculating time at last encounter: {e}")
 
         # Sex
         sex_field = processor.get_field(data, "sex_field")

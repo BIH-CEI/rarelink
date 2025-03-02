@@ -4,7 +4,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
   hl7fhir: http://hl7.org/fhir/
-  snomed: http://snomed.info/sct/
+  SNOMEDCT: http://snomed.info/sct/
 imports:
   - linkml:types
   - rarelink_types
@@ -28,44 +28,51 @@ classes:
 
 slots:
   snomedct_309370004:
+    title: 7.1 Consent Status
     description: >
-      The status of the consent provided.
+      Indicates the current status of the consent.
     range: ConsentStatus
     required: true
 
   hl7fhir_consent_datetime:
+    title: 7.2 Consent Date
     description: >
-      The date when the consent was provided.
+      Records the date when the consent was given.
     range: union_date_string
     required: false
 
   snomedct_386318002:
+    title: 7.3 Health Policy Monitoring
     description: >
-      Indicates consent for health policy monitoring.
+      The references to the policies that are included in this consent scope. Policies may be organisational, but are often defined jurisdictionally, or in law. For example: Your entity or organization having regulatory jurisdiction or accountability for enforcing policies pertaining to Consent Directives.
     range: string
     required: true
 
   rarelink_consent_contact:
+    title: 7.4 Agreement to be contacted for research purposes
     description: >
-      Indicates agreement to be contacted for research purposes.
+      Indicates whether the patient agrees to be contacted for research purposes.
     range: YesNoUnknown
     required: true
 
   rarelink_consent_data:
+    title: 7.5 Consent to the reuse of data
     description: >
-      Indicates consent for the reuse of data for research.
+      Indicates whether the patient consents to the reuse of their data.
     range: YesNoUnknown
     required: true
 
   snomedct_123038009:
+    title: 7.6 Biological sample
     description: >
-      Indicates whether consent includes biological samples.
+      Indicates whether a patient's biological sample is available for research.
     range: YesNoUnknown
     required: false
 
   rarelink_biobank_link:
+    title: 7.7 Biobank Link
     description: >
-      Link to a biobank where biological samples are stored.
+      If there is a biological sample, this data element indicates the link to the biobank of the patient's biological sample..
     range: string
     required: false
 
@@ -105,13 +112,13 @@ enums:
     permissible_values:
       snomedct_373066001:
         description: Yes
-        meaning: snomed:373066001
+        meaning: SNOMEDCT:373066001
       snomedct_373067005:
         description: No
-        meaning: snomed:373067005
+        meaning: SNOMEDCT:373067005
       snomedct_261665006:
         description: Unknown
-        meaning: snomed:261665006
+        meaning: SNOMEDCT:261665006
       '':
         description: No value provided
         meaning: null

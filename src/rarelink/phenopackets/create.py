@@ -39,17 +39,24 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         
 
         # Individual ---------------------------------------------------------------
-        # VitalStatus Block
+        # First, create an individual processor to extract the date of birth
+        individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
+        dob_field = individual_processor.get_field(data, "date_of_birth_field")
+        dob_str = dob_field
+
+        # VitalStatusBlock
         vital_status_processor = DataProcessor(mapping_config=VITAL_STATUS_BLOCK)
-        vital_status = map_vital_status(data, vital_status_processor)
+        vital_status = map_vital_status(
+            data, 
+            vital_status_processor, 
+            dob=dob_str)
 
         # IndividualBlock
-        individual_processor = DataProcessor(mapping_config=INDIVIDUAL_BLOCK)
         individual = map_individual(
-            data,
-            individual_processor,
-            vital_status=vital_status
-        )
+            data, 
+            individual_processor, 
+            vital_status=vital_status)
+
         
         # PhenotypicFeature -------------------------------------------------------
         phenotypic_feature_processor = DataProcessor(
@@ -65,12 +72,18 @@ def create_phenopacket(data: dict, created_by: str) -> Phenopacket:
         measurement_processor = DataProcessor(
             mapping_config=MEASUREMENT_BLOCK
         )
-        measurements = map_measurements(data, measurement_processor)
+        measurements = map_measurements(
+            data, 
+            measurement_processor, 
+            dob=individual.date_of_birth
+        )  
 
         # Disease -----------------------------------------------------------------
         # DiseaseBlock
         disease_processor = DataProcessor(mapping_config=DISEASE_BLOCK)
-        diseases = map_diseases(data, disease_processor, dob = individual.date_of_birth)
+        diseases = map_diseases(data, 
+                                disease_processor,
+                                dob = individual.date_of_birth)
         
         # Genetics ----------------------------------------------------------------
         ## Variation Descriptor

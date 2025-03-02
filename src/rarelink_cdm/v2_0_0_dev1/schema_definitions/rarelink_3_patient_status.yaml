@@ -3,7 +3,7 @@ name: rarelink_3_patient_status
 prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
-  SNOMED: http://snomed.info/sct/
+  SNOMEDCT: http://snomed.info/sct/
   ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
   - linkml:types
@@ -39,28 +39,33 @@ slots:
     required: false
 
   snomedct_398299004:
+    title: 3.2 Time of Death
     description: If deceased, the individual’s date of death. If unknown, use the 1st day/month.
     range: union_date_string
     required: false
 
   snomedct_184305005:
+    title: 3.3 Cause of Death [ICD10CM]
     description: The individual’s primary cause of death (e.g., ICD-10-CM).
     range: string
     required: false
 
   snomedct_105727008:
+    title: 3.4 Age Category
     description: The individual's age category at the time of data capture
     range: AgeCategory
     required: false
 
   snomedct_412726003:
-    description: The duration of the pregnancy in weeks+days (XX+X)
+    title: 3.5 Length of Gestation at Birth [weeks+days]
+    description: The duration of the pregnancy in weeks and days, from the first day of the last menstrual period to the day of delivery, formatted as XX+X (weeks+days).
     range: string
     required: false
 
   snomedct_723663001:
+    title: 3.6 Undiagnosed RD Case
     description: Identifies cases where an RD diagnosis has not been established
-    range: Boolean
+    range: boolean
     required: false
     
   rarelink_3_patient_status_complete:
@@ -74,19 +79,19 @@ enums:
     permissible_values:
       snomedct_438949009:
         description: Alive
-        meaning: SNOMED:438949009
+        meaning: SNOMEDCT:438949009
       snomedct_419099009:
         description: Dead
-        meaning: SNOMED:419099009
+        meaning: SNOMEDCT:419099009
       snomedct_399307001:
         description: Unknown - Lost in follow-up
-        meaning: SNOMED:399307001
+        meaning: SNOMEDCT:399307001
       snomedct_185924006:
         description: Unknown - Opted-out
-        meaning: SNOMED:185924006
+        meaning: SNOMEDCT:185924006
       snomedct_261665006:
         description: Unknown - Other Reason
-        meaning: SNOMED:261665006
+        meaning: SNOMEDCT:261665006
       '':
         description: No value provided
         meaning: null
@@ -95,28 +100,28 @@ enums:
     permissible_values:
       snomedct_3658006:
         description: Infancy
-        meaning: SNOMED:3658006
+        meaning: SNOMEDCT:3658006
       snomedct_713153009:
         description: Toddler
-        meaning: SNOMED:713153009
+        meaning: SNOMEDCT:713153009
       snomedct_255398004:
         description: Childhood
-        meaning: SNOMED:255398004
+        meaning: SNOMEDCT:255398004
       snomedct_263659003:
         description: Adolescence
-        meaning: SNOMED:263659003
+        meaning: SNOMEDCT:263659003
       snomedct_41847000:
         description: Adulthood
-        meaning: SNOMED:41847000
+        meaning: SNOMEDCT:41847000
       snomedct_303112003:
         description: Fetal period
-        meaning: SNOMED:303112003
+        meaning: SNOMEDCT:303112003
       snomedct_419099009:
         description: Dead
-        meaning: SNOMED:419099009
+        meaning: SNOMEDCT:419099009
       snomedct_261665006:
         description: Unknown
-        meaning: SNOMED:261665006
+        meaning: SNOMEDCT:261665006
       '':
         description: No value provided
         meaning: null

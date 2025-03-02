@@ -102,6 +102,7 @@ class DataProcessor:
         try:
             # Parse the date and create a Timestamp object
             dt = datetime.fromisoformat(date_input)
+            dt = dt.replace(day=1)  # Set the day to "01" to only include year and month
             timestamp = Timestamp()
             timestamp.FromDatetime(dt)
             return timestamp

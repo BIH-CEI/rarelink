@@ -1,7 +1,6 @@
 import logging
 from phenopackets import Disease, OntologyClass, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
-from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 

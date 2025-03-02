@@ -1,13 +1,21 @@
 import logging
-from phenopackets import Measurement, OntologyClass, Value, Quantity, TimeElement, Procedure
+from phenopackets import (
+    Measurement, 
+    OntologyClass, 
+    Value, 
+    Quantity, 
+    TimeElement, 
+    Procedure, 
+    Age
+)
 from rarelink.utils.processor import DataProcessor
-from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 
 def map_measurements(
     data: dict, 
-    processor: DataProcessor) -> list:
+    processor: DataProcessor,
+    dob: str) -> list:
     """
     Maps phenotype data to the Phenopacket schema Disease block fetching the 
     data elements from the repeated elements in the input data.
@@ -97,17 +105,28 @@ def map_measurements(
             time_observed_field = measurement_data.get(
                 processor.mapping_config["time_observed_field"])
             time_observed = None
-            if time_observed_field:
+            if time_observed_field and dob:
                 try:
-                    timestamp = processor.process_date(time_observed_field)
-                    if isinstance(timestamp, Timestamp):
-                        time_observed = TimeElement(timestamp=timestamp)
+                    # Ensure time_observed_field is a string
+                    if not isinstance(time_observed_field, str):
+                        time_observed_str = time_observed_field.ToDatetime().isoformat()\
+                            if hasattr(time_observed_field, "ToDatetime") \
+                                else str(time_observed_field)
                     else:
-                        raise TypeError(
-                            "Processed date is not a Timestamp object.")
+                        time_observed_str = time_observed_field
+
+                    # Ensure dob is a string
+                    if not isinstance(dob, str):
+                        dob_str = dob.ToDatetime().isoformat() \
+                            if hasattr(dob, "ToDatetime") else str(dob)
+                    else:
+                        dob_str = dob
+
+                    iso_age = processor.convert_date_to_iso_age(
+                        time_observed_str, dob_str)
+                    time_observed = TimeElement(age=Age(iso8601duration=iso_age))
                 except Exception as e:
                     logger.error(f"Error processing time observed: {e}")
-            
 
             # Measurement.procedure
             # ------------------------------------------------------------------
