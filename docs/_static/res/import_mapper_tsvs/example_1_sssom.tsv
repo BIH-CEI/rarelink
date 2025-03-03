@@ -2,32 +2,137 @@
 # This template maps key fields from an adult rare disease registry CSV file
 # to the RareLink-CDM target schema.
 #
-subject_id   subject_label           predicate_id                                    predicate_label                         object_id                           object_label                            match_type  mapping_date    mapping_tool
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_422549004                 "1.1 Pseudonym"                             ADR001                          ADR001                          lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_184099003                 "2.1 Date of birth"                     1970-02-15                      1970-02-15                      lexical         2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_281053000                 "2.2 Sex at birth"                      SNOMEDCT:248152002              Female                              lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_263493000                 "2.4 Gender Identity"                       SNOMEDCT:446141000124107                "Female gender identity"                lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0012345                   "Wilson Disease"                        lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_278844005                 "3.1 Vital Status"                      SNOMEDCT:438949009              Alive                               lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:ncit_c82577                        "6.3.5 Time Observed"                       2022-10-01                          2022-10-01                      lexical         2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:loinc_lp7824_8                 "6.1 Genetic Mutation String"           ATP7B:c.3207C>A             ATP7B:c.3207C>A                 lexical         2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:loinc_53034_5                  "6.1.11 Zygosity"                           LOINC:LA6706-1                      Heterozygous                    lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:loinc_48019_4_other                    "6.1.13 DNA Change Type"                    LOINC:LA6698-0                          Missense                        lexical         2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0010200    Wilson Disease             lexical         2025-01-01      manual
+subject_id	subject_label	predicate_id	predicate_label	object_id	object_label	match_type	mapping_date	mapping_tool
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR001	ADR001	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1970-02-15	-	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248152002	Female	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446141000124107	Female gender identity	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0012345	Wilson Disease	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:confirmed	Confirmed	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0012345	Wilson Disease	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	ATP7B:c.3207C>A	-	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6706-1	Heterozygous	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	LOINC:LA6698-0	Missense	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	"Active"	lexical	2025-01-01	manual
 # Repeating elements: Patient ADR001 has two phenotypic features.
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006                   "6.2.1 Phenotypic Feature"              HP:0001250                  "Epistaxis"                     lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006                   "6.2.1 Phenotypic Feature"              HP:0001249                  "Telangiectasia on lips"                lexical     2025-01-01      manual
-ADR001           "Patient ADR001"        rarelink_cdm:snomedct_8116006_onset         "6.2.3 Determination Date"                  2019-05-10                  2019-05-10                      lexical     2025-01-01      manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0002480	hepatic encephalopathy	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-03-10	-	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0001337	tremors	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-04-15	-	lexical	2025-01-01	manual
+# Repeating elements: Patient ADR001 has two measurements.
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:2064-4	Ceruloplasmin [Mass/volume]	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	12	12	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-03-12	-	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:1742-6	Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	85	-	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0000179	unit per liter	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-03-12	-	lexical	2025-01-01	manual
+#
 # Mappings for a second patient (ADR002)
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_422549004                 "1.1 Pseudonym"                             ADR002                          ADR002                          lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_184099003                 "2.1 Date of birth"                     1982-07-30                      1982-07-30                      lexical         2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_281053000                 "2.2 Sex at birth"                      SNOMEDCT:248153007              Male                                lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_278844005                 "3.1 Vital Status"                      SNOMEDCT:438949009              Alive                               lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0023456                   "Cystic Fibrosis (atypical)"        lexical         2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:loinc_lp7824_8                 "6.1 Genetic Mutation String"           CFTR:c.1521_1523delCTT          CFTR:c.1521_1523delCTT          lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:loinc_53034_5                  "6.1.11 Zygosity"                           LOINC:LA6707-9                      Hemizygous                      lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:loinc_48019_4                  "6.1.13 DNA Change Type"                    Splice site variant         Splice site variant             lexical     2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:snomedct_64572001_mondo                "5.1 Disease [MONDO]"                   MONDO:0010526         Fabry Disease         lexical         2025-01-01      manual
-ADR002           "Patient ADR002"        rarelink_cdm:ncit_c82577                        "6.3.5 Time Observed"                       2021-12-15                      2021-12-15                      lexical     2025-01-01      manual
-
-____
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR002	ADR002	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1982-07-30	1982-07-30	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248153007	Male	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:differential	Differential	lexical	2025-01-01	manual
+ADR001	"Patient ADR001"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	GLA:c.936+919G>A	-	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6707-9	Hemizygous	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:loinc_48019_4	"6.1.13 DNA Change Type"	LOINC:LA6692-3	Deletion	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	"Active"	lexical	2025-01-01	manual
+# Repeating elements: Patient ADR002 has two phenotypic features.
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0001071	Angiokeratoma corporis diffusum	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2019-06-20	-	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0031006	Acroparesthesias	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2019-07-01	-	lexical	2025-01-01	manual
+# Repeating elements: Patient ADR002 has two measurements.
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:55908-8	Alpha galactosidase A [Enzymatic activity/volume] in DBS	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	NCIT:C78801	Value Below Reference Range	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2019-06-22	-	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:2160-0	Creatinine [Mass/volume] in Serum or Plasma	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	1.2	-	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+ADR002	"Patient ADR002"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2019-06-22	-	lexical	2025-01-01	manual
+#
+# Patient ADR003
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR003	ADR003	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1965-11-05	1965-11-05	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248152002	Female	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446141000124107	Female gender identity	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:419099009	Dead	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0012345	Wilson Disease confirmed	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:confirmed	Confirmed	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0012345	Wilson Disease confirmed	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	-	ATP7B:c.2304insG	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6705-3	Homozygous	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	LOINC:LA6694-9	Frameshift	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_rejected	Rejected	lexical	2025-01-01	manual
+# Repeating elements – Phenotypic Features (Symptoms)
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0000952	Jaundice	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2018-02-05	-	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0001757	High-frequency sensorineural hearing impairment	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2018-03-10	-	lexical	2025-01-01	manual
+# Repeating elements – Lab Measurements
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:2064-4	Ceruloplasmin [Mass/volume]	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	9	-	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2018-02-07	-	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:42719-5	Bilirubin.total [Mass/volume]	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	3.2	-	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+ADR003	"Patient ADR003"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2018-02-07	-	lexical	2025-01-01	manual
+#
+# Patient ADR0004
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR004	ADR004	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1978-04-10	1978-04-10	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248152002	Female	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446141000124107	Female gender identity	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:confirmed	Confirmed	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0010526	Fabry Disease confirmed	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	-	GLA:c.937G>T	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6707-9	Hemizygous	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	LA6699-8	Nonsense	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	Active	lexical	2025-01-01	manual
+# Repeating elements – Phenotypic Features
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0500008	Corneal verticillata	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2021-01-15	-	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0009830	Peripheral neuropathy	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2021-01-20	-	lexical	2025-01-01	manual
+# Repeating elements – Lab Measurements
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:55908-8	Alpha galactosidase A [Enzymatic activity/volume] in DBS	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	NCIT:C78800	Value Above Reference Range	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2021-01-16	2021-01-16	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:ins	ECG	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	NCIT:C78802	Abnormal Reference Range	lexical	2025-01-01	manual
+ADR004	"Patient ADR004"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2021-01-16	2021-01-16	lexical	2025-01-01	manual
+#
+# Patient ADR005
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR005	ADR005	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1980-12-20	1980-12-20	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248153007	Male	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446151000124109	Male gender identity	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0010526	Fabry Disease confirmed	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:confirmed	Confirmed	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0010526	Fabry Disease confirmed	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	GLA:c.937G>A	-	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6707-9	Hemizygous	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	LA6698-0	Missense	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	Active	lexical	2025-01-01	manual
+# Repeating elements – Phenotypic Features
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0000083	Renal insufficiency	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-11-05	-	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0034833	Cardiac lipoma	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-11-05	-	lexical	2025-01-01	manual
+# Repeating elements – Lab Measurements
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:55908-8	Alpha galactosidase A [Enzymatic activity/volume] in DBS	lexical	2025-01-01	manual
+ADR005	"Patient ADR002"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	NCIT:C78801	Value Below Reference Range	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-11-06	-	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:62238-1	eGFR	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	4500	-	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0000271	microliters per minute	lexical	2025-01-01	manual
+ADR005	"Patient ADR005"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-11-06	-	lexical	2025-01-01	manual

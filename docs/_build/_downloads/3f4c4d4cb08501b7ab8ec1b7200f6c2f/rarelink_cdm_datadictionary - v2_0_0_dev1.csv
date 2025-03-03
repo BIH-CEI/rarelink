@@ -395,6 +395,13 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.method
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_81304_8_other,rarelink_6_1_genetic_findings,,text,6.1.4 Other Structural Variant Analysis Method [LOINC],BIOPORTAL:LOINC,Please seach for the method in here (Tip: use OLS or LOINC to search for the code and type it in here).,,,,,[loinc_81304_8] = 'loinc_la46-8',,,,,,"Variable: 
+LOINC:81304-8 | Structural Variant Analysis Method Other
+Version(s): 
+- LOINC Version 2.78
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.method
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
 loinc_62374_4,rarelink_6_1_genetic_findings,,dropdown,6.1.5 Reference Genome,"loinc_la14032-9, NCBI Build 34 (hg16) | loinc_la14029-5, GRCh37 (hg19) | loinc_la14030-3, NCBI Build 36.1 (hg18) | loinc_la14031-1, NCBI Build 35 (hg17) | loinc_la26806-2, GRCh38 (hg38)",The reference genome used for analysing the genetic variant.,,,,,,,,,,,"Variable: 
 LOINC:62374-4 | Reference Genome
 Choices: 
@@ -696,7 +703,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
-hp_0012823_snomed,rarelink_6_2_phenotypic_feature,,text,"6.2.8E If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite in SNOMED and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
+hp_0012823_snomedct,rarelink_6_2_phenotypic_feature,,text,"6.2.8E If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite in SNOMED and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
 GA4GH:phenotypicfeature.modifier | Modifier  
 Choices: 
 n/a  
@@ -791,7 +798,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed"
-procedure,rarelink_6_3_measurements,,dropdown,Procedure as NCIT or SNOMED?,"ncit, NCIT | snomed, SNOMEDCT",,,,,,[measurement_category] != 'procedure',,,,,,
+procedure,rarelink_6_3_measurements,,dropdown,Procedure as NCIT or SNOMEDCT?,"ncit, NCIT | snomed, SNOMEDCT",,,,,,[measurement_category] != 'procedure',,,,,,
 snomedct_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],BIOPORTAL:NCIT,Please search for the procedure in NCIT and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'ncit',,,,,,"Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
@@ -800,7 +807,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
-snomedct_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMED],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'snomed',,,,,,"Variable: SNOMED:122869004 | Procedure
+snomedct_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'snomed',,,,,,"Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -809,7 +816,7 @@ Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
 snomedct_122869004_descr,rarelink_6_3_measurements,,descriptive,"<p>If the measurement category ""procedure"" is selected, the following information will be displayed within the <a href=""https://build.fhir.org/ig/HL7/fhir-ips/StructureDefinition-Procedure-uv-ips.html"">FHIR-IPS Procedure Profile</a></p> <ul> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">Please use a code from the following: </span><a href=""https://build.fhir.org/ig/HL7/fhir-ips/ValueSet-procedures-uv-ips.html"">IPS Procedures Value Set</a> and if possible from </span><a href=""https://hl7.org/fhir/R4/valueset-body-site.html"">SNOMED BodyStructures </a>.</li> </ul>",BIOPORTAL:SNOMEDCT,,,,,,[measurement_category] = 'procedure',,,,,,
-snomedct_122869004,rarelink_6_3_measurements,,text,6.3.7 Procedure [SNOMED],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED,,,,,[measurement_category] = 'procedure',y,,,,,"Variable: SNOMED:122869004 | Procedure
+snomedct_122869004,rarelink_6_3_measurements,,text,6.3.7 Procedure [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED,,,,,[measurement_category] = 'procedure',y,,,,,"Variable: SNOMED:122869004 | Procedure
 Choices: 
 - n/a
 Version(s):
@@ -817,7 +824,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
-snomedct_122869004_bdsite,rarelink_6_3_measurements,,text,6.3.7A Body Site [SNOMED],BIOPORTAL:SNOMEDCT,Please search for the body site in SNOMED,,,,,[measurement_category] = 'procedure',,,,,,"Variable: SNOMED:122869004 - BodySite | Procedure - Body Site
+snomedct_122869004_bdsite,rarelink_6_3_measurements,,text,6.3.7A Body Site [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the body site in SNOMED,,,,,[measurement_category] = 'procedure',,,,,,"Variable: SNOMED:122869004 - BodySite | Procedure - Body Site
 Choices: 
 - n/a
 Version(s):
@@ -825,7 +832,7 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.bodySite
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
-snomedct_122869004_status,rarelink_6_3_measurements,,dropdown,6.3.7B Procedure Status [SNOMED],"preparation, Preparation | in-progress, In Progress | not-done, Not Done | on-hold, On Hold | stopped, Stopped | completed, Completed | entered-in-error, Entered in Error | unknown, Unknown
+snomedct_122869004_status,rarelink_6_3_measurements,,dropdown,6.3.7B Procedure Status [SNOMEDCT],"preparation, Preparation | in-progress, In Progress | not-done, Not Done | on-hold, On Hold | stopped, Stopped | completed, Completed | entered-in-error, Entered in Error | unknown, Unknown
 ",The status of the procedure,,,,,[measurement_category] = 'procedure',y,,,,,"Variable: SNOMED:122869004 - EventStatus | Procedure - Event Status
 Choices:
 - preparation | Preparation
@@ -1021,9 +1028,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Consent.policy  
 - GA4GH Phenopacket Schema v2.0 Element: n/a "
-rarelink_consent_contact,rarelink_7_consent,,dropdown,"7.4 Agreement to be
-contacted for
-research purposes","snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
+rarelink_consent_contact,rarelink_7_consent,,dropdown,7.4 Agreement to be contacted for research purposes,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
 ",Indicates whether the patient agrees to be contacted for research purposes.,,,,,,y,,,,,"Variable: 
 RareLinkCode:consent_contact_research | Agreement to be contacted for research purposes  
 Choices: 
@@ -1036,8 +1041,7 @@ Version(s):
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Consent.scope.coding  
 - GA4GH Phenopacket Schema v2.0 Element: n/a  "
-rarelink_consent_data,rarelink_7_consent,,dropdown,"7.5 Consent to the reuse
-of data","snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
+rarelink_consent_data,rarelink_7_consent,,dropdown,7.5 Consent to the reuse of data,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
 ",Indicates whether the patient consents to the reuse of their data.,,,,,,y,,,,,"Variable: 
 RareLinkCode:conset_data_reuse | Consent to the reuse of data  
 Choices: 

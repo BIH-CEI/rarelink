@@ -146,7 +146,7 @@ the data model and its derivate in REDCap in detail:
 
 - :ref:`1_5`
 - Read the `paper on the RareLink-CDM <https://www.nature.com/articles/s41597-025-04558-z>`_
-- :ref:`2_2` and its :ref:`_rarelink_cdm_linkml`
+- :ref:`2_2` and its :ref:`rarelink_cdm_linkml`
 
 .. note:: 
    When selecting one data field from a REDCap instrument, you must also map 
@@ -182,8 +182,8 @@ The template contains the following columns:
   for the mapping and helps users quickly identify the data element.
 
 - **predicate_id**:  
-  The mapping relation that specifies the target element in the LinkML model of 
-  the RareLink-CDM.  Use the ``default_prefix:slot_name`` from the
+  The mapping relation that specifies the target element in the :ref:`rarelink_cdm_linkml` of 
+  the :ref:`2_2`. Use the ``default_prefix:slot_name`` from the
   RareLink-CDM schema, for example:
 
   - ``rarelink_cdm:snomedct_184099003`` for 2.1 Date of birth, or 
@@ -203,7 +203,8 @@ The template contains the following columns:
   by the data element (e.g., "HP:0001250" for a phenotype in element 6.2.1).
 
 - **object_label**: The human-readable label for the target value either from the
-  RareLink-CDM value sets or the code system defined by the data element.
+  RareLink-CDM value sets or the code system defined by the data element. In 
+  the case of dates, a "-" is sufficient.
 
 - **match_type**:  
   Describes the type of mapping used. Commonly this is set to "lexical" 
@@ -217,6 +218,10 @@ The template contains the following columns:
   The tool or method used to generate the mapping. For example, "manual" 
   indicates that the mapping was curated by a human expert.
 
+.. hint::
+
+   :download:`Download the RareLink-CDM SSSOM template file <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
+
 This template provides a minimal yet robust framework for defining your 
 mappings. It ensures that each mapping row clearly specifies which source 
 element is linked to which target element and how that connection was made. 
@@ -224,56 +229,91 @@ By following this template, you can ensure that your mappings are consistent,
 interoperable, and well-documented—key requirements for successful data 
 integration in the RareLink-CDM.
 
-____
-
-RareLink-CDM SSSOM Template File
-""""""""""""""""""""""""""""""""""
+Below you can find a **snippet of the RareLink-CDM SSSOM Template File:**
 
 .. code-block:: tsv
 
    # RareLink-CDM SSSOM Template File
-   # This template maps source data elements to target RareLink-CDM schema elements.
-   # The following columns are included:
-   # subject_id:        Unique identifier for the source record.
-   # subject_label:     Human-readable label for the source record.
-   # predicate_id:      Fully qualified target element (e.g., rarelink:snomedct_184099003).
-   # predicate_label:   The title of the target element from the schema (e.g., "2.1 Date of birth").
-   # object_id:         The target value (literal for dates or standardized code for coded fields).
-   # object_label:      The human-readable label for the target value.
-   # match_type:        How the mapping was derived (e.g., "lexical").
-   # mapping_date:      Date when the mapping was created.
-   # mapping_tool:      Method used to create the mapping (e.g., "manual").
-
-   subject_id	subject_label	predicate_id	        predicate_label	            object_id	            object_label	            match_type	mapping_date	mapping_tool
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_184099003	"2.1 Date of birth"	    <date_literal>	        <date_literal>	        lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_281053000	"2.2 Sex at birth"	    SNOMEDCT:248152002	    Female	    lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_1296886006	"2.3 Karyotypic Sex"	    <karyotypic_value>	    <karyotypic_label>	    lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_263493000	"2.4 Gender Identity"	    SNOMEDCT:446141000124107	Female gender identity	        lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_370159000	"2.5 Country of birth"	    <country_code>	        <country_code>	        lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_422549004	"1.1 Pseudonym"	        <pseudonym>	            <pseudonym>	            lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_278844005	"3.1 Vital Status"	        <vital_status>	        <vital_status>	        lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	<mondo_code>	        <mondo_code>	        lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:loinc_lp7824_8	    "6.1 Genetic Mutation String"	<mutation_literal>	<mutation_literal>	    lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:snomedct_8116006	    "6.2.1 Phenotypic Feature"	<phenotype>	            <phenotype>	            lexical	        2023-01-01	    manual
-   <record_id>	<Source Record Identifier>	rarelink:ncit_c82577	        "6.3.5 Time Observed"	    <time_literal>	        <time_literal>	        lexical	        2023-01-01	    manual
-
-   # --- Example of Repeating Elements ---
-   # The same patient (e.g., ADR001) can have multiple entries for repeated elements.
-   # For instance, if ADR001 has two phenotypic features, include two rows with the same subject_id.
-   ADR001	"Patient ADR001"	rarelink:snomedct_8116006	    "6.2.1 Phenotypic Feature"	HP:0001250	            Epistaxis	            lexical	        2023-01-01	    manual
-   ADR001	"Patient ADR001"	rarelink:snomedct_8116006	    "6.2.1 Phenotypic Feature"	HP:0003674	            Telangiectasia on lips	lexical	        2023-01-01	    manual
-
-   # --- Example of Multiple Patients ---
-   # Each row with a different subject_id represents a mapping for a different patient.
-   ADR002	"Patient ADR002"	rarelink:snomedct_184099003	"2.1 Date of birth"	        1982-07-30	            1982-07-30	            lexical	        2023-01-01	    manual
-   ADR002	"Patient ADR002"	rarelink:snomedct_281053000	"2.2 Sex at birth"	        SNOMEDCT:248153007	    Male	    lexical	        2023-01-01	    manual
-   ADR003	"Patient ADR003"	rarelink:snomedct_184099003	"2.1 Date of birth"	        1965-11-05	            1965-11-05	            lexical	        2023-01-01	    manual
-   ADR003	"Patient ADR003"	rarelink:snomedct_281053000	"2.2 Sex at birth"	        SNOMEDCT:248152002	    Female	    lexical	        2023-01-01	    manual
+   # This template maps source data elements from a registry CSV file to the target RareLink-CDM schema.
+   # SSSOM documentation: https://mapping-commons.github.io/sssom/
+   # RareLink-CDM LinkML schema: https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/schema_definitions
+   #
+   # Columns:
+   #   subject_id      : Unique identifier for the source record (<record_id>).
+   #   subject_label   : Human-readable label for the source record (<source_label>).
+   #   predicate_id    : Fully qualified target element (e.g., rarelink_cdm:snomedct_184099003).
+   #   predicate_label : Title of the target element from the schema.
+   #   object_id       : Target value – a literal (e.g., date, numeric) or a standardized code with prefix.
+   #   object_label    : Human-readable label for the target value (use "-" for dates/numerics when no label is needed).
+   #   match_type      : Mapping derivation type (e.g., "lexical").
+   #   mapping_date    : Date when the mapping was created (<mapping_date>).
+   #   mapping_tool    : Method used to create the mapping (e.g., "manual").
+   #
+   subject_id	subject_label	predicate_id	predicate_label	object_id	object_label	match_type	mapping_date	mapping_tool
+   # === Formal Criteria (Singular) ===
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	<record_id>	<record_id>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_399423000	"1.2 Date of admission"	<record_id>	<record_id>	lexical	<mapping_date>	manual
+   #
+   # === Personal Information (Singular) ===
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	<dob>	-	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	<SNOMEDCT_sex_code>	<sex_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_1296886006	"2.3 Karyotypic Sex"	<karyotype_code>	<karyotype_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	<SNOMEDCT_gender_code>	<gender_identity_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_370159000	"2.5 Country of birth"	<ISO3166_code>	<ISO3166_code>	lexical	<mapping_date>	manual
+   #
+   # === Patient Status (Repeating Allowed) ===
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	<vital_status_code>	<vital_status_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_398299004	"3.2 Time of Death"	<death_date>	<death_date>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_184305005	"3.3 Cause of Death"	<cause_of_death_code>	<cause_of_death_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_105727008	"3.4 Age Category"	<age_category_code>	<age_category_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_412726003	"3.5 Length of Gestation at Birth"	<gestation_length>	<gestation_length>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_723663001	"3.6 Undiagnosed RD Case"	<undiagnosed_flag>	<undiagnosed_flag>	lexical	<mapping_date>	manual
+   #
+   # === Care Pathway (Repeating Allowed) ===
+   <record_id>	"<source_label>"	rarelink_cdm:hl7fhir_enc_period_start	"4.1 Encounter Start"	<encounter_start_date>	-	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:hl7fhir_enc_period_end	"4.2 Encounter End"	<encounter_end_date>	-	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_305058001	"4.3 Encounter Status"	<encounter_status_code>	<encounter_status_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:hl7fhir_encounter_class	"4.4 Encounter Class"	<encounter_class_code>	<encounter_class_label>	lexical	<mapping_date>	manual
+   #
+   # === Disease Information (Repeating Allowed) ===
+   <record_id>	"<source_label>"	rarelink_cdm:disease_coding	"5.0 Disease Coding System"	<disease_coding>	<disease_coding>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	<disease_mondocode>	<disease_label>	lexical	<mapping_date>	manual
+   # [...]
+   # === Phenotypic Features (Repeating Allowed) ===
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	<phenotype1_code>	<phenotype1_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_363778006	"6.2.2 Phenotypic Feature Status"	<phenotype1_status_code>	<phenotype1_status_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	<phenotype1_onset>	-	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_resolut	"6.2.4 Resolution Date"	<phenotype1_resolution>	-	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:hp_0003674	"6.2.5 Age of Onset"	<phenotype_age_onset>	<phenotype_age_onset>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:hp_0011008	"6.2.6 Temporal Pattern"	<temporal_pattern_code>	<temporal_pattern_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:hp_0012824	"6.2.7 Phenotype Severity"	<phenotype_severity_code>	<phenotype_severity_label>	lexical	<mapping_date>	manual
+   # additional phenotype (if applicable)
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	<phenotype2_code>	<phenotype2_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	<phenotype2_onset>	-	lexical	<mapping_date>	manual
+   #
+   # === Measurements (Repeating Allowed) ===
+   # Measurement 1 
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	<assay_A_code>	<assay_A_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	<measurement_A_value>	<measurement_A_value>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	<unit_A_code>	<unit_A_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	<measurement_A_interpretation_code>	<measurement_A_interpretation_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	<time_A_observed>	-	lexical	<mapping_date>	manual
+   # Measurement 2 
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	<assay_B_code>	<assay_B_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	<measurement_B_value>	<measurement_B_value>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	<unit_B_code>	<unit_B_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	<measurement_B_interpretation_code>	<measurement_B_interpretation_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	<time_B_observed>	-	lexical	<mapping_date>	manual
+   # [...]
+   #
+   # you cn find the entire template file here: https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs
 
 .. tip:: 
-   You can view and download all the example csv and sssom mapping files here: 
-   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
-
+   You can view and download all the example csv and sssom mapping files:
+   
+   - `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_ or
+   
+   - :download:`download the TSV template file directly <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
 
 ____
 
@@ -282,21 +322,32 @@ ____
 _________________________________
 
 According to your mappings, you must encode each data element with its 
-recommended ontology term of its value set or an ontology term of the coding system
-defined. This step ensures that the semantic meaning of your 
+recommended ontology term of its 
+
+- **value set** (e.g.: 2.2. Sex at Birth) or 
+- **an ontology term of the coding system** defined (e.g. 5.1 Disease [MONDO]).
+
+This step ensures that the semantic meaning of your 
 data is preserved and that the mappings are interoperable. Within the 
 :ref:`2_2`'s :ref:`rarelink_cdm_linkml` you will find the slot names, the value set 
 encodings and the codesystems required for the encoding.
 
 .. note:: 
 
-   As explained above, the **ISO/TS 21564 MapQual** should be followed to ensure
-   the quality of your mappings! In the above section on components you find 
-   more details.
+   As explained above, the `ISO/TS 21564 MapQual <https://www.iso.org/standard/71088.html>`_
+   should be followed to ensure the quality of your mappings! In the above 
+   section on components you find more details.
 
-Write the results into the SSSOM mapping file using the template provided above
+Then, write the results into the SSSOM mapping file using the template provided above
 into the columns ``object_id`` and ``object_label`` while selecting the correct 
-``predicate_id`` and ``predicate_label`` from the RareLink-CDM schema.
+``predicate_id`` and ``predicate_label`` from the RareLink-CDM schema's data elements. 
+
+.. tip:: 
+   
+   Use the user-friendly Ontology Lookup Service (OLS) to find the correct 
+   ontology terms for your data elements. You can access the OLS here: https://www.ebi.ac.uk/ols4/ontologies.
+   Do not forget to note the versions of the ontologies used and save it as 
+   metadata for your dataset.
 
 ____
 
@@ -358,9 +409,8 @@ ____
 
 Examples
 ----------
-We provide three examples of semi-structured tabular databases along with 
-their corresponding SSSOM mapping files. Each example illustrates different 
-data types and mapping scenarios.
+Below we provide an example of a semi-structured tabular database with five 
+individuals along with their corresponding SSSOM mapping files.
 
 .. tip:: 
    You can view and download all the example csv and sssom mapping files here: 
@@ -368,7 +418,7 @@ data types and mapping scenarios.
 
 ____
 
-Example 1: Adult Rare Disease Registry
+Example: Adult Rare Disease Registry
 ____________________________________________
 
 Includes clinical, laboratory, patient status, and genetic data.
@@ -376,8 +426,8 @@ Includes clinical, laboratory, patient status, and genetic data.
 .. code-block:: csv
 
    Pseudonym,Sex,Gender,DOB,Disease_Diagnosis,Symptoms,Symptom_Dates,Lab_Measurements,Lab_Measurement_Dates,Patient_Status,Time_at_Last_Visit,Consent_Given,Genetic_Mutation,Zygosity,Mutation_Type,Genomic_Diagnosis
-   ADR001,Female,Female,1970-02-15,Wilson Disease,"Hepatic dysfunction; Neurological tremors","2020-03-10;2020-04-15","Serum ceruloplasmin:12 mg/dL; ALT:85 U/L","2020-03-12;2020-03-12",Alive,2022-10-01,Y,ATP7B:c.3207C>A,Heterozygous,Missense,Wilson Disease confirmed
-   ADR002,Male,Male,1982-07-30,Fabry Disease,"Angiokeratomas; Acroparesthesias","2019-06-20;2019-07-01","α-Gal A activity:Low; Creatinine:1.2 mg/dL","2019-06-22;2019-06-22",Alive,2021-12-15,Y,GLA:c.936+919G>A,Hemizygous,Splice site variant,Fabry Disease suspected
+   ADR001,Female,Female,1970-02-15,Wilson Disease,"Hepatic dysfunction; tremors","2020-03-10;2020-04-15","Serum ceruloplasmin:12 mg/dL; ALT:85 U/L","2020-03-12;2020-03-12",Alive,2022-10-01,Y,ATP7B:c.3207C>A,Heterozygous,Missense,Wilson Disease confirmed
+   ADR002,Male,Male,1982-07-30,Fabry Disease,"Angiokeratomas; Acroparesthesias","2019-06-20;2019-07-01","α-Gal A activity:Low; Creatinine:1.2 mg/dL","2019-06-22;2019-06-22",Alive,2021-12-15,Y,GLA:c.936+919G>A,Hemizygous,Deletion,Fabry Disease suspected
    ADR003,Female,Female,1965-11-05,Wilson Disease,"Jaundice; Neurological impairment","2018-02-05;2018-03-10","Serum ceruloplasmin:9 mg/dL; Bilirubin:3.2 mg/dL","2018-02-07;2018-02-07",Dead,2018-03-15,N,ATP7B:c.2304insG,Homozygous,Frameshift,Wilson Disease confirmed
    ADR004,Female,Female,1978-04-10,Fabry Disease,"Corneal verticillata; Peripheral neuropathy","2021-01-15;2021-01-20","α-Gal A activity:Borderline; ECG:Abnormal","2021-01-16;2021-01-16",Alive,2022-05-10,Y,GLA:c.937G>T,Hemizygous,Nonsense,Fabry Disease confirmed
    ADR005,Male,Male,1980-12-20,Fabry Disease,"Renal insufficiency; Cardiac issues","2020-11-05;2020-11-05","α-Gal A activity:Low; eGFR:45 mL/min","2020-11-06;2020-11-06",Alive,2022-08-22,Y,GLA:c.937G>A,Hemizygous,Missense,Fabry Disease confirmed
@@ -393,159 +443,63 @@ schema.
 
    # Adult Rare Disease Registry SSSOM Mapping Template
    # This template maps key fields from an adult rare disease registry CSV file
-   # to the RareLink-CDM target schema. 
+   # to the RareLink-CDM target schema.
    #
-   subject_id	subject_label	        predicate_id	                                predicate_label	                        object_id	                    object_label	                    match_type	mapping_date	mapping_tool
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_422549004	            "1.1 Pseudonym"	                        ADR001	                        ADR001	                        lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    1970-02-15	                    1970-02-15	                    lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_281053000	            "2.2 Sex at birth"	                    SNOMEDCT:248152002	            Female	                        lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_263493000	            "2.4 Gender Identity"	                SNOMEDCT:446141000124107	        "Female gender identity"	        lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0012345	                "Wilson Disease"	                lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            Alive	                        lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2022-10-01	                    2022-10-01	                    lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        ATP7B:c.3207C>A	            ATP7B:c.3207C>A	            lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:loinc_53034_5	                "6.1.11 Zygosity"	                    LOINC:LA6706-1	                Heterozygous	                lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:loinc_48019_4_other	                "6.1.13 DNA Change Type"	            LOINC:LA6698-0	                    Missense	                    lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0010200    Wilson Disease 	    lexical	    2025-01-01	    manual
+   subject_id	subject_label	predicate_id	predicate_label	object_id	object_label	match_type	mapping_date	mapping_tool
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR001	ADR001	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1970-02-15	-	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248152002	Female	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446141000124107	Female gender identity	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0012345	Wilson Disease	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:confirmed	Confirmed	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0012345	Wilson Disease	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	ATP7B:c.3207C>A	-	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6706-1	Heterozygous	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	LOINC:LA6698-0	Missense	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	"Active"	lexical	2025-01-01	manual
    # Repeating elements: Patient ADR001 has two phenotypic features.
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0001250	                "Epistaxis"	                lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0001249	                "Telangiectasia on lips"	        lexical	    2025-01-01	    manual
-   ADR001	    "Patient ADR001"	    rarelink_cdm:snomedct_8116006_onset	        "6.2.3 Determination Date"	            2019-05-10	                2019-05-10	                lexical	    2025-01-01	    manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0002480	hepatic encephalopathy	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-03-10	-	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0001337	tremors	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2020-04-15	-	lexical	2025-01-01	manual
+   # Repeating elements: Patient ADR001 has two measurements.
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:2064-4	Ceruloplasmin [Mass/volume]	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	12	12	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-03-12	-	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:1742-6	Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	85	-	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0000179	unit per liter	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2020-03-12	-	lexical	2025-01-01	manual
+   #
    # Mappings for a second patient (ADR002)
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_422549004	            "1.1 Pseudonym"	                        ADR002	                        ADR002	                        lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    1982-07-30	                    1982-07-30	                    lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_281053000	            "2.2 Sex at birth"	                    SNOMEDCT:248153007	            Male	                        lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            Alive	                        lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0023456	                "Cystic Fibrosis (atypical)"	    lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        CFTR:c.1521_1523delCTT	        CFTR:c.1521_1523delCTT	        lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:loinc_53034_5	                "6.1.11 Zygosity"	                    LOINC:LA6707-9	                Hemizygous	                lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:loinc_48019_4	                "6.1.13 DNA Change Type"	            Splice site variant	        Splice site variant	        lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0010526	      Fabry Disease	    lexical	    2025-01-01	    manual
-   ADR002	    "Patient ADR002"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2021-12-15	                2021-12-15	                lexical	    2025-01-01	    manual
-
-.. tip:: 
-   You can view and download all the example csv and sssom mapping files here: 
-   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
-
-____
-
-Example 2: Pediatric Rare Disease Study
-____________________________________________
-
-Includes multiple symptom dates, lab measurements, and fields for consent.
-
-.. code-block:: csv
-
-   Patient_ID,Sex,Gender,DOB,RD_Diagnosis,Symptoms,Symptom_Dates,Lab_Measurements,Lab_Measurement_Dates,Patient_Status,Time_at_Last_Visit,Consent_Given,Genetic_Mutation,Zygosity,Mutation_Type,Genomic_Diagnosis
-   PEDS101,Female,Female,2012-05-05,Tuberous Sclerosis Complex,"Seizures; Skin hypomelanotic macules","2018-07-10;2018-07-10","EEG:Abnormal; CT:Subependymal calcifications","2018-07-11;2018-07-11",Alive,2022-11-01,Y,TSC2:c.1832G>A,Heterozygous,Missense,TSC confirmed
-   PEDS102,Male,,2013-08-15,Nephronophthisis,"Polyuria; Polydipsia; Growth retardation","2019-03-20;2019-03-20;2019-03-20","Serum creatinine:0.8 mg/dL; Urinalysis:Dilute","2019-03-22;2019-03-22",Alive,2022-10-05,Y,NPHP1:del,Homozygous,Deletion,Nephronophthisis confirmed
-   PEDS103,Female,Female,2011-11-30,Tuberous Sclerosis Complex,"Infantile spasms; Cardiac rhabdomyomas","2017-01-05;2017-01-05","EEG:Hypsarrhythmia; Echo:Multiple masses","2017-01-06;2017-01-06",Alive,2022-09-10,Y,TSC1:c.214C>T,Heterozygous,Nonsense,TSC confirmed
-   PEDS104,Male,Male,2012-02-28,Nephronophthisis,"Polyuria; Anemia","2018-08-15;2018-08-15","Hemoglobin:10.5 g/dL; Creatinine:0.9 mg/dL","2018-08-16;2018-08-16",Alive,2022-07-20,N,NPHP4:c.320del,Heterozygous,Frameshift,Nephronophthisis suspected
-   PEDS105,Female,,2013-12-10,Tuberous Sclerosis Complex,"Cortical tubers; Seizures","2018-10-01;2018-10-01","MRI:Cortical dysplasia; EEG:Abnormal","2018-10-02;2018-10-02",Alive,2022-08-30,Y,TSC2:c.1456_1457del,Heterozygous,Frameshift,TSC confirmed
-
-This dataset focuses on pediatric patients with conditions like Tuberous Sclerosis  
-Complex and Nephronophthisis. It features multiple entries for symptom dates and  
-lab measurements, along with consent information and genetic data. The SSSOM mapping  
-template for this study is designed to help transform your tabular data into the  
-RareLink-CDM format for pediatric rare disease research.
-
-.. code-block:: tsv
-
-   # Pediatric Rare Disease Study SSSOM Mapping Template
-   # This template maps data from a pediatric rare disease study CSV file to the RareLink-CDM.
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR002	ADR002	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1982-07-30	1982-07-30	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248153007	Male	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:differential	Differential	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	GLA:c.936+919G>A	-	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	LOINC:LA6707-9	Hemizygous	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:loinc_48019_4	"6.1.13 DNA Change Type"	LOINC:LA6692-3	Deletion	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	hl7fhir_active	"Active"	lexical	2025-01-01	manual
+   # Repeating elements: Patient ADR002 has two phenotypic features.
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0001071	Angiokeratoma corporis diffusum	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2019-06-20	-	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	HP:0031006	Acroparesthesias	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	2019-07-01	-	lexical	2025-01-01	manual
+   # Repeating elements: Patient ADR002 has two measurements.
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:55908-8	Alpha galactosidase A [Enzymatic activity/volume] in DBS	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	NCIT:C78801	Value Below Reference Range	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2019-06-22	-	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	LOINC:2160-0	Creatinine [Mass/volume] in Serum or Plasma	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	1.2	-	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	UO:0010067	milligram per deciliter	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	2019-06-22	-	lexical	2025-01-01	manual
    #
-   subject_id	subject_label	        predicate_id	                                predicate_label	                        object_id	                        object_label	                        match_type	    mapping_date	    mapping_tool
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    2012-05-05	                    2012-05-05	                    lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:snomedct_281053000	            "2.2 Sex at birth"	                    SNOMEDCT:248152002	            Female	                        lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0034567	                    "Tuberous Sclerosis Complex"	    lexical	        2025-01-01	    manual
-   # Repeating element: Lab Measurements for PEDS101 (multiple assays)
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:ncit_c60819	                    "6.3.1 Assay"	                        LOINC:LP6239-0                    "EEG"	                lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2018-07-11	                    2018-07-11	                    lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:ncit_c60819	                    "6.3.1 Assay"	                        LOINC:LP12345	                    "CT"	          lexical	         2025-01-01        	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2018-07-11	                    2018-07-11	                    lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            Alive	                        lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2022-11-01	                    2022-11-01	                    lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:snomedct_309370004	            "7.1 Consent Status"	                hl7fhir_active	                "Active"	                    lexical	        2025-01-01	    manual
-   PEDS101	    "Patient PEDS101"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        TSC2:c.1832G>A	                TSC2:c.1832G>A	                lexical	        2025-01-01	    manual
-   # Mappings for a second pediatric patient
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    2013-08-15	                    2013-08-15	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_281053000	            "2.2 Sex at birth"	                    SNOMEDCT:248153007	            Male	                        lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0045678	                    "Nephronophthisis"	            lexical	        2025-01-01	    manual
-   # Repeating element: For PEDS102, add repeated lab measurement rows
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:ncit_c60819	                    "6.3.1 Assay"	                        LOINC:718-7	                    "Serum creatinine:0.8 mg/dL"	    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2019-03-22	                    2019-03-22	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            Alive	                        lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2022-10-05	                    2022-10-05	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_309370004	            "7.1 Consent Status"	                hl7fhir_active	                "Active"	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        NPHP1:del	                    NPHP1:del	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:loinc_53034_5	                "6.1.11 Zygosity"	                    LOINC:LA6705-3	                    Homozygous	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:loinc_48019_4	                "6.1.13 DNA Change Type"	            LOINC:LA6692-3	                    Deletion	                    lexical	        2025-01-01	    manual
-   PEDS102	    "Patient PEDS102"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0008171	    "Nephronophthisis confirmed"	    lexical	        2025-01-01	    manual
-
-
-.. tip:: 
-   You can view and download all the example csv and sssom mapping files here: 
-   `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_.
-
-______
-
-Example 3: Genetic Analysis of Rare Conditions
-_____________________________________________________
-
-Contains extensive genetic details such as mutation type, zygosity, and genomic diagnosis.
-
-.. code-block:: csv
-   
-   ID,Gender,DOB,RD_Diagnosis,Symptoms,Symptom_Dates,Lab_Measurements,Lab_Measurement_Dates,Patient_Status,Time_at_Last_Visit,Consent_Given,Genetic_Mutation,Zygosity,Mutation_Type,Genomic_Diagnosis,Additional_Genetic_Info
-   GEN201,Female,1980-03-15,Hereditary Hemorrhagic Telangiectasia,"Epistaxis; Telangiectasia on lips","2019-05-10;2019-05-10","Hemoglobin:13.5 g/dL; Iron:Low","2019-05-11;2019-05-11",Alive,2022-11-30,Y,ENG:c.100A>T,Heterozygous,Missense,HHT confirmed,"Variant of uncertain significance"
-   GEN202,Male,1975-06-20,Cystic Fibrosis (atypical),"Chronic cough; Recurrent respiratory infections","2018-12-05;2018-12-05","Sweat chloride:65 mmol/L; FEV1:55%","2018-12-06;2018-12-06",Alive,2022-10-15,Y,CFTR:c.1521_1523delCTT,Homozygous,In-frame deletion,Cystic Fibrosis confirmed,"Classic mutation"
-   GEN203,Female,1988-09-10,Gaucher Disease Type 1,"Bone pain; Hepatosplenomegaly","2020-04-10;2020-04-10","Chitotriosidase:Elevated; Platelet count:100K/uL","2020-04-11;2020-04-11",Alive,2022-12-01,Y,GBA:c.1226A>G,Heterozygous,Missense,Gaucher Disease suspected,"Compound heterozygosity not ruled out"
-   GEN204,Female,1979-11-25,Hereditary Angioedema,"Recurrent abdominal pain; Swelling episodes","2017-08-15;2017-08-15","C1-INH:Low; C4:Low","2017-08-16;2017-08-16",Alive,2022-09-20,N,SERPING1:c.710_711del,Heterozygous,Frameshift,Hereditary Angioedema confirmed,"Likely pathogenic"
-   GEN205,Male,1982-01-05,Cystic Fibrosis (atypical),"Pancreatic insufficiency; Frequent lung infections","2019-03-10;2019-03-10","Sweat chloride:60 mmol/L; BMI:18","2019-03-11;2019-03-11",Alive,2022-08-30,Y,CFTR:c.1652G>A,Heterozygous,Missense,Cystic Fibrosis atypical,"Mild phenotype observed"
-
-This dataset is tailored for advanced genomic research, including detailed genetic  
-information such as mutation types, zygosity, and genomic diagnosis for conditions  
-like Hereditary Hemorrhagic Telangiectasia and atypical Cystic Fibrosis. In addition  
-to clinical data, it provides extensive genetic annotations necessary for in-depth  
-analysis. The provided SSSOM mapping template demonstrates how to map these rich data  
-elements into the RareLink-CDM schema.
-
-.. code-block:: tsv
-
-   # Genetic Analysis of Rare Conditions SSSOM Mapping Template
-   # This template maps data from a genetic analysis study CSV file to the RareLink-CDM.
-   #
-   subject_id	subject_label	        predicate_id	                                predicate_label	                        object_id	                        object_label	                        match_type	    mapping_date	    mapping_tool
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    1980-03-15	                    1980-03-15	                    lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_263495000	            "2.4 Gender Identity"	                SNOMEDCT:446141000124107	        "Female gender identity"	        lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0012345	                    "Hereditary Hemorrhagic Telangiectasia"	lexical	2025-01-01	    manual
-   # Repeating phenotypic features for GEN201
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0001250	                    "Epistaxis"	                    lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0001249	                    "Telangiectasia on lips"	        lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_8116006_onset	        "6.2.3 Determination Date"	            2019-05-10	                    2019-05-10	                    lexical	    2025-01-01	    manual
-   # Lab measurement for GEN201 (example: Hemoglobin)
-   GEN201	    "Patient GEN201"	    rarelink_cdm:ncit_c25712	                    "6.3.2 Measurement Value"	        13.5	                    "13.5"	                        lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:ncit_c92571	                    "6.3.3 Unit"	                        LOINC:LP14458-6	                "g/dL"	                        lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            "Alive"	                        lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2022-11-30	                    2022-11-30	                    lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:snomedct_309370004	            "7.1 Consent Status"	                hl7fhir_active	                "Active"	                    lexical	    2025-01-01	    manual
-   GEN201	    "Patient GEN201"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        ENG:c.100A>T	                    ENG:c.100A>T	                    lexical	    2025-01-01	    manual
-   # GEN202: Second patient in Genetic Analysis with repeated phenotypic features
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_184099003	            "2.1 Date of birth"	                    1975-06-20	                    1975-06-20	                    lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_263495000	            "2.4 Gender Identity"	                SNOMEDCT:446151000124109	        "Male gender identity"	        lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_64572001_mondo	        "5.1 Disease [MONDO]"	                MONDO:0009061	                    Cystic Fibrosis	               lexical	    2025-01-01	    manual
-   # Repeating phenotypic features for GEN202:
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0012735	                    "Chronic cough"	                lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_8116006	            "6.2.1 Phenotypic Feature"	            HP:0002208	                    "Recurrent respiratory infections"	lexical	2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_8116006_onset	        "6.2.3 Determination Date"	            2018-12-05	                    2018-12-05	                    lexical	    2025-01-01	    manual
-   # Lab measurement for GEN202: abnormal EEG
-   GEN202	    "Patient GEN202"	    rarelink_cdm:ncit_c60819	                    "6.3.2 Measurement Assay"	        LOINC:LP6239-0	            "EEG"	                lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:ncit_c41255	                    "6.3.4 Interpretation"	            NCIT:C25401	            "Abnormal"	                lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_278844005	            "3.1 Vital Status"	                    SNOMEDCT:438949009	            "Alive"	                        lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:ncit_c82577	                    "6.3.5 Time Observed"	                2022-10-15	                    2022-10-15	                    lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:snomedct_309370004	            "7.1 Consent Status"	                hl7fhir_active	                "Active"	                    lexical	    2025-01-01	    manual
-   GEN202	    "Patient GEN202"	    rarelink_cdm:loinc_lp7824_8	                "6.1 Genetic Mutation String"	        CFTR:c.1521_1523delCTT	        CFTR:c.1521_1523delCTT	        lexical	    2025-01-01	    manual
-
+   # Mappings for Patient three, four and five are within the file below.
 
 .. tip:: 
    You can view and download all the example csv and sssom mapping files here: 
@@ -559,3 +513,5 @@ Additional Resources
 - `SSSOM Specification <https://mapping-commons.github.io/sssom/>`_
 - `RareLink-CDM Documentation <https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm.html>`_
 - `RareLink GitHub Repository <https://github.com/BIH-CEI/rarelink>`_
+- `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_
+- :download:`Download the RareLink-CDM SSSOM template file <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`
