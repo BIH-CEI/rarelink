@@ -94,7 +94,7 @@ html_static_path = ['_static']
 
 html_theme_options = {
     # Collapse all navigation entries by default
-    "collapse_navigation": True,
+    "collapse_navigation": False,
     # Disable sticky navigation (sidebar won't follow as you scroll)
     "sticky_navigation": False,
     # Limit the depth of the sidebar tree
