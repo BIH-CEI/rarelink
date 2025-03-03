@@ -9,7 +9,8 @@ from .rarelink_code_systems import CodeSystemsContainer
 # from .rarelink_cdm_fields import RarelinkCDMFields
 
 __all__ = [
-    "CodeSystemsContainer"
+    "CodeSystemsContainer",
+    "CodeSystem"
 ]
 #     "RarelinkCDMEntities",
 #     "RarelinkCDMFields",
