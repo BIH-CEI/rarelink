@@ -11,13 +11,13 @@ RareLink-CDM
 
 In this section, we provide an overview of the instruments that are part of the
 RareLink Common Data Model (CDM), which is based on the :ref:`1_5`. 
-We have implemented the :ref:`1_5`'s definitions, codes, and mappins 
+We have implemented the :ref:`1_5`'s definitions, codes, and mappings 
 into the REDCap instruments by encoding the variables and value sets in the
 REDCap data dictionary. Each section of the model corresponds to a distinct
 instrument, ensuring consistency and comprehensive data capture.
 
 .. hint:: 
-    - Read the :ref:`1_6` page to understand how REDCap instruments data dictionaries work.
+    - Read the :ref:`1_6` page to understand how REDCap instruments & data dictionaries work.
     - Read the :ref:`1_5` page for more information on the Rare Disease Common Data Model.
 
 
@@ -55,7 +55,7 @@ ________________
     rarelink setup keys
     rarelink setup data-dictionary
 
-Return to `Top <#top>`_.
+Return to `top <#top>`_.
 
 _____________________________________________________________________________________
 
@@ -90,9 +90,9 @@ modules, for example:
 - Since our RareLink-CDM is modeled and defined with LinkML, we can make use 
   of the `LinkML Schema Automator <https://github.com/linkml/schema-automator>`_ 
   for :ref:`4_2` from existing (tabular) databases. This allows import it into
-  a REDCap project and allow you to :ref:`4_3` or :ref:`4_4`. 
+  a REDCap project and allows you to :ref:`4_3` or :ref:`4_4`. 
 
-LinkML - furhther links
+LinkML - further links
 ________________________
 
 To know more about LinkML, check out:
@@ -117,15 +117,15 @@ Rules for REDCap codes and codesystems
 
 REDCap variables and choice codes have specific limitations and requirements:
 
-- REDCap recommends a maximum of 26 characters for variable names. We have 
+- *REDCap* recommends a **maximum of 26 characters for variable names**. We have 
   shortened the variable names to adhere to this limitation.
-- REDCap variables must be unique and must not contain spaces or special 
+- **REDCap variables** must be unique and must not contain spaces or special 
   characters, i.e. only alphanumeric characters and underscores.
-- REDCap choice codes must be unique and must not contain spaces or special 
+- **REDCap choice codes** must be unique and must not contain spaces or special 
   characters, i.e. only alphanumeric characters and underscores.
 
 To address these, we have defined a set of rules for the REDCap variables and
-choice codes in the RareLink CDM Data Dictionary. The rules are as follows:
+choice codes in the RareLink-CDM Data Dictionary. The rules are as follows:
 
 1) The REDCap variable names are based on the :ref:`1_5` codes and display names.
 2) The REDCap choices are based on the :ref:`1_5` codes and display names.
@@ -144,7 +144,7 @@ ________________________________________________________________________________
 REDCap Field Annotations
 -------------------------
 
-Witin the Field Annotation field of each REDCap element, we have defined each 
+Within the Field Annotation field of each REDCap element, we have defined each 
 element's metadata according to the :ref:`1_5` standard, including the following:
 
 - **Variable**: Corresponding to the data element code, codesystem, and display name.
@@ -184,9 +184,10 @@ into REDCap instruments. Slight adjustments to the RD-CDM were made to comply
 with REDCap's :ref:`rule_set`, the data dictionary requirements and to ensure
 alignment with:
 
-- international registries (e.g., the `European Rare Disease Registry Infrastructure (ERDRI) <https://eu-rd-platform.jrc.ec.europa.eu/erdri-description_en>`_),
-- the `HL7 FHIR International Patient Summary (IPS) <https://build.fhir.org/ig/HL7/fhir-ips/>`_,
-- & the `GA4GH Phenopacket Schema <https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html>`_.
+- international registries (e.g., the `European Reference Networks (ERNs) <https://health.ec.europa.eu/rare-diseases-and-european-reference-networks/european-reference-networks_en>`_),
+- the `HL7 FHIR International Patient Summary (IPS) v2.0.0 <https://build.fhir.org/ig/HL7/fhir-ips/>`_,
+- the `HL7 Genomics Reporting v3.0.0 Profiles <https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html>`_,  and
+- the `GA4GH Phenopacket Schema <https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html>`_.
 
 Each instrument corresponds to a specific section of the RD-CDM and its 
 adpations are described in the section below for each section: 
@@ -206,29 +207,41 @@ adpations are described in the section below for each section:
 Return to `Top <#top>`_.
 
 .. tip:: 
-  When capturing data manually in you REDCap project, we recommend using the 
-  :ref:`4_1`! The information below rather details the structure of the :ref:`1_5`
+  When capturing data manually in you REDCap project, we recommend using the Guide
+  for :ref:`4_1`! The information below rather details the structure of the :ref:`1_5`
   within REDCap (i.e. therefore as the RareLink-CDM).
 
 _____________________________________________________________________________________
 
+
 Legend: Structure of the Schema below
-"""""""""""""""""""""""""""""""""""""""
+______________________________________
 
 Each instrument follows a consistent format for documentation and representation
- of variables. Below is an explanation of the sections and terms used:
+of variables. Below is an explanation of the sections and terms used:
 
 **Instrument Header**
+""""""""""""""""""""""""""""""""
 
 Each instrument begins with:
+
 - **Title**: The name of the instrument and its corresponding REDCap identifier 
   in parentheses (e.g., ``rarelink_1_formal_criteria``).
 - **Purpose**: A brief description of the instrument's objective.
-- **Sheet type**: Indicates whether the instrument is a **Single-Entry Form** 
-  (used once per individual) or a **Repeating Form** (used multiple times per 
-  individual).
+- A box indicating whether the instrument is a **Single-Entry Form** (used once per individual):
+
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+ 
+
+... or a **Repeating Form** (used multiple times per individual): 
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**
+""""""""""""""""""""""""""""""""
 
 Each variable is documented with the following attributes:
 
@@ -240,14 +253,23 @@ Each variable is documented with the following attributes:
 
 2. **Cardinality**:
 
-   - Specifies whether the variable is **Required** or **Optional** and its occurrence 
-     (e.g., ``1..1`` for exactly one occurrence).
+   - Specifies whether the variable is **Required** or **Optional** and its occurrence:
+
+     - ``1..1`` for exactly one occurrence, 
+     - ``0..1`` for one optional occurence, or 
+     - ``1..*`` / ``0..*`` for multiple required/optional occurences.
 
 3. **Validation**:
 
    - Describes the expected format or encoding for the variable 
-     (e.g., **Free Text**, **Dropdown (choices encoded according to ref:`1_5`)**, 
+     (e.g., **Free Text**, **Dropdown (choices encoded according to** :ref:`1_5`), 
      or specific ontology references like ``BIOPORTAL:MONDO``).
+
+.. note:: 
+
+  All repeating forms are optional, therefore the cardinality is always ``0..*``.
+  However, as soon as an instrument is used, specific elements may be required (``1..1``)
+  to comply with specific HL7 FHIR or Phenopacket requirements.
 
 _____________________________________________________________________________________
 
@@ -257,7 +279,10 @@ ________________________________________________________________________________
 ______________________________________________________
 
 **Purpose**: Captures eligibility and registration information for individuals.
-**Sheet type**: Single-Entry Form
+
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+ 
 
 **Variables & Adjustments**:
 
@@ -282,7 +307,10 @@ ________________________________________________________________________________
 ______________________________________________________________
 
 **Purpose**: Captures demographic and personal details of individuals.
-**Sheet type**: Single-Entry Form
+
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+ 
 
 **Variables & Adjustments**:
 
@@ -294,17 +322,17 @@ ______________________________________________________________
 - 2.2 Sex at Birth (``snomedct_281053000``)
 
   - Cardinality: Optional
-  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+  - Validation: Dropdown (choices encoded according to :ref:`1_5`)
 
 - 2.3 Karyotypic Sex (``snomedct_1296886006``)
 
   - Cardinality: Optional
-  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+  - Validation: Dropdown (choices encoded according to :ref:`1_5`)
 
 - 2.4 Gender Identity (``snomedct_263495000``)
 
   - Cardinality: Optional
-  - Validation: Dropdown (choices encoded according to ref:`1_5`)
+  - Validation: Dropdown (choices encoded according to :ref:`1_5`)
 
 - 2.5 Country of Birth (``snomedct_370159000``)
 
@@ -322,7 +350,10 @@ ________________________________________________________________________________
 ____________________________________________________
 
 **Purpose**: Tracks changes in patient conditions over time.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**:
 
@@ -374,7 +405,10 @@ ________________________________________________________________________________
 ____________________________________________________
 
 **Purpose**: Tracks details of individual encounters in the care pathway.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**:
 
@@ -411,7 +445,10 @@ ____________________________________________________
 
 **Purpose**: Captures detailed information about the diseases affecting 
 individuals.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**:
 
@@ -505,7 +542,10 @@ ________________________________________________________________________________
 ____________________________________________________
 
 **Purpose**: Captures information about genetic variants and their clinical significance.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**:
 
@@ -647,7 +687,10 @@ ______________________________________________________________
 
 **Purpose**: Captures observed physical and clinical characteristics using 
 standardized terminologies.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
 
 **Variables & Adjustments**:
 
@@ -736,7 +779,11 @@ ________________________________________________________________________________
 ____________________________________________________
 
 **Purpose**: Captures various types of measurements including vital signs, laboratory tests, imaging, procedures, and more, aligned with IPS and Phenopackets profiles.
-**Sheet type**: Repeating form
+
++-------------------+
+| **Repeated Form** |
++-------------------+
+
 **Key Adjustments**:
 
 1. **Vital Signs Panel**: Added ``6.3.1A Vital Signs Panel`` and 
@@ -843,17 +890,22 @@ ________________________________________________________________________________
 (6.4) Family History (``rarelink_6_4_family_history``)
 ____________________________________________________
 
-**Purpose**: Captures family history details of the individual, including relationships, health statuses, and genetic information.
-**Sheet type**: Repeating form
+**Purpose**: Captures family history details of the individual, including 
+relationships, health statuses, and genetic information.
+
++-------------------+
+| **Repeated Form** |
++-------------------+
+
 **Key Adjustments**:
 
 1. **Pseudonym Field**: Added ``family_history_pseudonym`` to identify family 
    members across records.
 2. **Required Fields**: Marked fields like ``family_history_pseudonym``, 
    ``snomedct_444018008``, and ``hl7fhir_fmh_status`` as mandatory for FHIR 
-   Family History Basic Resource compatibility.
+   base resource FamilyMemberHistory compatibility.
 3. **Branching Logic**: Added logic for deceased family members to ensure fields
-    like ``loinc_54112_8`` and ``loinc_92662_6`` are completed if applicable.
+   like ``loinc_54112_8`` and ``loinc_92662_6`` are completed if applicable.
 
 
 **Variables & Adjustments**:
@@ -935,7 +987,11 @@ ____________________________________
 
 **Purpose**: Captures the status and scope of consent provided by the patient 
 for research, data reuse, and other purposes.
-**Sheet type**: Single-entry form
+
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+ 
+
 **Key Adjustments**:
 
 1. **Required Fields**: Fields like ``snomedct_309370004``, 
@@ -995,7 +1051,11 @@ ________________________________________________________________________________
 __________________________________________
 
 **Purpose**: Captures information related to the classification of an individual's functioning and disability.
-**Sheet type**: Single-entry form
+
++-----------------------+
+| **Single-Entry Form** |
++-----------------------+ 
+
 **Key Adjustments**:
 
 1. **ICF Integration**: The variable ``rarelink_icf_score`` allows for the 

@@ -15,7 +15,7 @@ surrounding preconfigured pipelines and software architecture. This framework
 ensures that data capture is both consistent and compliant with HL7 FHIR and 
 GA4GH Phenopackets, without the need for additional coding or mapping. 
 As a result, RareLink allows researchers and clinicians to collect and process
-rare disease data seamlessly within the REDCap environment.
+RD data seamlessly within the REDCap environment.
 
 .. figure:: ../_static/res/rarelink_overview.svg
 
@@ -50,8 +50,8 @@ ______________________
 
     .. admonition:: Continue here...
 
-        - Guide for the :ref:`3_4`
-        - User guide for :ref:`4_2`
+        - Guide for the :ref:`3_4`.
+        - User guide for :ref:`4_2`.
 
 _____________________________________________________________________________________
 
@@ -62,13 +62,13 @@ ___________________
     and user guides for manual data capture to ensure precision and correctness
     of data captured. Further, RareLink defines guidelines for developing more 
     specialised REDCap sheets around the RD-CDM so that the data captured can 
-    also be processed by our framework to generate FHIR resources and Phenopackets. 
+    also be processed by our framework to generate FHIR Resources and Phenopackets. 
 
     .. admonition:: Continue here...
 
-        - Guide to install the :ref:`3_1`
-        - Guide to develop the :ref:`3_2`
-        - User guide for :ref:`4_1`
+        - Guide to install the :ref:`3_1`.
+        - Guide to develop the :ref:`3_2`.
+        - User guide for :ref:`4_1`.
 
 _____________________________________________________________________________________
 
@@ -78,12 +78,12 @@ __________________________________
     RareLink is designed to be deployed and installed in a local REDCap instance. 
     Using the guidelines provided, or using our preconfigured RareLink-REDCap and 
     setting up the RareLink API, you can ensure that the data captured is compliant
-    with the our framework to generate FHIR resources and Phenopackets.
+    with the our framework to generate FHIR Resources and Phenopackets.
 
     .. admonition:: Continue here...
         
-        - How to set up the :ref:`3_3`
-        - How to deploy the :ref:`3_4`
+        - How to :ref:`3_3`.
+        - How to deploy and :ref:`3_4`.
     
 _____________________________________________________________________________________
 
@@ -97,8 +97,8 @@ _______________________
 
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_1` and the :ref:`3_4`
-        - Guide to :ref:`4_3`
+        - How to set up the :ref:`3_1` and the :ref:`3_4`.
+        - Guide to :ref:`4_3`.
         - Phenopacket Mapper Repository: https://github.com/BIH-CEI/phenopacket_mapper 
         - Documentation: https://bih-cei.github.io/phenopacket_mapper/latest/ 
 
@@ -106,18 +106,19 @@ _______________________
 RareLink & toFHIR
 __________________
 
-    RareLink utilises toFHIR from SRDC to convert the data captured
-    in REDCap into FHIR resources. The RD-CDM and the corresponding RareLink
+    RareLink utilises `toFHIR <https://github.com/srdc/tofhir?tab=readme-ov-file>`_ 
+    from `SRDC <https://www.srdc.com.tr/en/>`_ to convert the data captured
+    in REDCap into FHIR Resources. The RD-CDM and the corresponding RareLink
     instruments are preconfigured within our GitHub repository to generate 
     International Patient Summary (IPS) v2.0, Genomoic Reporting v3.0.0, and 
-    FHIR v4.0.1-base profile compliant FHIR resources automatically. Below you 
+    FHIR v4.0.1-base profile compliant FHIR Resources automatically. Below you 
     can find more information on how to set up the RareLink API and toFHIR 
-    module in your local REDCap project to generate FHIR resources.
+    module in your local REDCap project to generate FHIR Resources.
     
     .. admonition:: Continue here...
 
-        - How to set up the :ref:`3_1` and the :ref:`3_4` 
-        - Guide to :ref:`4_4`
+        - How to set up the :ref:`3_1` and the :ref:`3_4`.
+        - Guide to :ref:`4_4`.
         - toFHIR Repository: https://github.com/srdc/tofhirs
         - Website: https://onfhir.io/tofhir/
 
@@ -128,11 +129,11 @@ RareLink & FHIR Import
 _______________________
 
     RareLink provides a detailed guide on how to link a FHIR server and import
-    FHIR resources into REDCap utilising the REDCap modules Clinical Data 
+    FHIR Resources into REDCap utilising the REDCap modules Clinical Data 
     Interoperability Services (CDIS). 
     This module must be installed and activated at your local REDCap site by the
     REDCap administrator. The guide includes a step by step guide on how to 
-    import FHIR resources into REDCap and how to map the FHIR resources to the 
+    import FHIR Resources into REDCap and how to map the FHIR Resources to the 
     RD-CDM.
 
     .. admonition:: Continue here..

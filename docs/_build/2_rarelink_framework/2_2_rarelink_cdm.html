@@ -132,14 +132,14 @@ the latest updates and guidance.</p>
 </div>
 <p>In this section, we provide an overview of the instruments that are part of the
 RareLink Common Data Model (CDM), which is based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>.
-We have implemented the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>’s definitions, codes, and mappins
+We have implemented the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>’s definitions, codes, and mappings
 into the REDCap instruments by encoding the variables and value sets in the
 REDCap data dictionary. Each section of the model corresponds to a distinct
 instrument, ensuring consistency and comprehensive data capture.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <ul class="simple">
-<li><p>Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> page to understand how REDCap instruments data dictionaries work.</p></li>
+<li><p>Read the <a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> page to understand how REDCap instruments &amp; data dictionaries work.</p></li>
 <li><p>Read the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> page for more information on the Rare Disease Common Data Model.</p></li>
 </ul>
 </div>
@@ -170,7 +170,7 @@ your REDCap project using the <a class="reference internal" href="2_3_rarelink_c
 rarelink<span class="w"> </span>setup<span class="w"> </span>data-dictionary
 </pre></div>
 </div>
-<p>Return to <a class="reference external" href="#top">Top</a>.</p>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -200,11 +200,11 @@ systems, versions and codes within one RareLink-CDM version and its mappings.</p
 <li><p>Since our RareLink-CDM is modeled and defined with LinkML, we can make use
 of the <a class="reference external" href="https://github.com/linkml/schema-automator">LinkML Schema Automator</a>
 for <a class="reference internal" href="../4_user_guide/4_2_import_mapper.html#id1"><span class="std std-ref">Semi-Automatic Import</span></a> from existing (tabular) databases. This allows import it into
-a REDCap project and allow you to <a class="reference internal" href="../4_user_guide/4_3_phenopackets.html#id1"><span class="std std-ref">Phenopackets Module</span></a> or <a class="reference internal" href="../4_user_guide/4_4_fhir_module.html#id1"><span class="std std-ref">FHIR Module</span></a>.</p></li>
+a REDCap project and allows you to <a class="reference internal" href="../4_user_guide/4_3_phenopackets.html#id1"><span class="std std-ref">Phenopackets Module</span></a> or <a class="reference internal" href="../4_user_guide/4_4_fhir_module.html#id1"><span class="std std-ref">FHIR Module</span></a>.</p></li>
 </ul>
 </section>
-<section id="linkml-furhther-links">
-<h3>LinkML - furhther links<a class="headerlink" href="#linkml-furhther-links" title="Link to this heading"></a></h3>
+<section id="linkml-further-links">
+<h3>LinkML - further links<a class="headerlink" href="#linkml-further-links" title="Link to this heading"></a></h3>
 <p>To know more about LinkML, check out:</p>
 <ul class="simple">
 <li><p>The <a class="reference external" href="https://github.com/linkml/linkml">LinkML GitHub repository</a>  or</p></li>
@@ -220,15 +220,15 @@ community or our colleagues from the <a class="reference external" href="https:/
 <span id="rule-set"></span><h2>Rules for REDCap codes and codesystems<a class="headerlink" href="#rules-for-redcap-codes-and-codesystems" title="Link to this heading"></a></h2>
 <p>REDCap variables and choice codes have specific limitations and requirements:</p>
 <ul class="simple">
-<li><p>REDCap recommends a maximum of 26 characters for variable names. We have
+<li><p><em>REDCap</em> recommends a <strong>maximum of 26 characters for variable names</strong>. We have
 shortened the variable names to adhere to this limitation.</p></li>
-<li><p>REDCap variables must be unique and must not contain spaces or special
+<li><p><strong>REDCap variables</strong> must be unique and must not contain spaces or special
 characters, i.e. only alphanumeric characters and underscores.</p></li>
-<li><p>REDCap choice codes must be unique and must not contain spaces or special
+<li><p><strong>REDCap choice codes</strong> must be unique and must not contain spaces or special
 characters, i.e. only alphanumeric characters and underscores.</p></li>
 </ul>
 <p>To address these, we have defined a set of rules for the REDCap variables and
-choice codes in the RareLink CDM Data Dictionary. The rules are as follows:</p>
+choice codes in the RareLink-CDM Data Dictionary. The rules are as follows:</p>
 <ol class="arabic simple">
 <li><p>The REDCap variable names are based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> codes and display names.</p></li>
 <li><p>The REDCap choices are based on the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> codes and display names.</p></li>
@@ -243,7 +243,7 @@ choice codes in the RareLink CDM Data Dictionary. The rules are as follows:</p>
 </section>
 <section id="redcap-field-annotations">
 <span id="field-anotations"></span><h2>REDCap Field Annotations<a class="headerlink" href="#redcap-field-annotations" title="Link to this heading"></a></h2>
-<p>Witin the Field Annotation field of each REDCap element, we have defined each
+<p>Within the Field Annotation field of each REDCap element, we have defined each
 element’s metadata according to the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a> standard, including the following:</p>
 <ul class="simple">
 <li><p><strong>Variable</strong>: Corresponding to the data element code, codesystem, and display name.</p></li>
@@ -277,9 +277,10 @@ into REDCap instruments. Slight adjustments to the RD-CDM were made to comply
 with REDCap’s <span class="xref std std-ref">rule_set</span>, the data dictionary requirements and to ensure
 alignment with:</p>
 <ul class="simple">
-<li><p>international registries (e.g., the <a class="reference external" href="https://eu-rd-platform.jrc.ec.europa.eu/erdri-description_en">European Rare Disease Registry Infrastructure (ERDRI)</a>),</p></li>
-<li><p>the <a class="reference external" href="https://build.fhir.org/ig/HL7/fhir-ips/">HL7 FHIR International Patient Summary (IPS)</a>,</p></li>
-<li><p>&amp; the <a class="reference external" href="https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a>.</p></li>
+<li><p>international registries (e.g., the <a class="reference external" href="https://health.ec.europa.eu/rare-diseases-and-european-reference-networks/european-reference-networks_en">European Reference Networks (ERNs)</a>),</p></li>
+<li><p>the <a class="reference external" href="https://build.fhir.org/ig/HL7/fhir-ips/">HL7 FHIR International Patient Summary (IPS) v2.0.0</a>,</p></li>
+<li><p>the <a class="reference external" href="https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html">HL7 Genomics Reporting v3.0.0 Profiles</a>,  and</p></li>
+<li><p>the <a class="reference external" href="https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopacket Schema</a>.</p></li>
 </ul>
 <p>Each instrument corresponds to a specific section of the RD-CDM and its
 adpations are described in the section below for each section:</p>
@@ -299,28 +300,40 @@ adpations are described in the section below for each section:</p>
 <p>Return to <a class="reference external" href="#top">Top</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When capturing data manually in you REDCap project, we recommend using the
-<a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a>! The information below rather details the structure of the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>
+<p>When capturing data manually in you REDCap project, we recommend using the Guide
+for <a class="reference internal" href="../4_user_guide/4_1_manual_data_capture.html#id1"><span class="std std-ref">Manual Data Capture</span></a>! The information below rather details the structure of the <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>
 within REDCap (i.e. therefore as the RareLink-CDM).</p>
 </div>
 <hr class="docutils" />
-<dl class="simple">
-<dt>Each instrument follows a consistent format for documentation and representation</dt><dd><p>of variables. Below is an explanation of the sections and terms used:</p>
-</dd>
-</dl>
-<p><strong>Instrument Header</strong></p>
-<p>Each instrument begins with:
-- <strong>Title</strong>: The name of the instrument and its corresponding REDCap identifier</p>
-<blockquote>
-<div><p>in parentheses (e.g., <code class="docutils literal notranslate"><span class="pre">rarelink_1_formal_criteria</span></code>).</p>
-</div></blockquote>
+<section id="legend-structure-of-the-schema-below">
+<h3>Legend: Structure of the Schema below<a class="headerlink" href="#legend-structure-of-the-schema-below" title="Link to this heading"></a></h3>
+<p>Each instrument follows a consistent format for documentation and representation
+of variables. Below is an explanation of the sections and terms used:</p>
+<section id="instrument-header">
+<h4><strong>Instrument Header</strong><a class="headerlink" href="#instrument-header" title="Link to this heading"></a></h4>
+<p>Each instrument begins with:</p>
 <ul class="simple">
+<li><p><strong>Title</strong>: The name of the instrument and its corresponding REDCap identifier
+in parentheses (e.g., <code class="docutils literal notranslate"><span class="pre">rarelink_1_formal_criteria</span></code>).</p></li>
 <li><p><strong>Purpose</strong>: A brief description of the instrument’s objective.</p></li>
-<li><p><strong>Sheet type</strong>: Indicates whether the instrument is a <strong>Single-Entry Form</strong>
-(used once per individual) or a <strong>Repeating Form</strong> (used multiple times per
-individual).</p></li>
+<li><p>A box indicating whether the instrument is a <strong>Single-Entry Form</strong> (used once per individual):</p></li>
 </ul>
-<p><strong>Variables &amp; Adjustments</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>… or a <strong>Repeating Form</strong> (used multiple times per individual):</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variables-adjustments">
+<h4><strong>Variables &amp; Adjustments</strong><a class="headerlink" href="#variables-adjustments" title="Link to this heading"></a></h4>
 <p>Each variable is documented with the following attributes:</p>
 <ol class="arabic simple">
 <li><p><strong>Variable Name and Description</strong>:</p>
@@ -332,23 +345,41 @@ individual).</p></li>
 </li>
 <li><p><strong>Cardinality</strong>:</p>
 <ul class="simple">
-<li><p>Specifies whether the variable is <strong>Required</strong> or <strong>Optional</strong> and its occurrence
-(e.g., <code class="docutils literal notranslate"><span class="pre">1..1</span></code> for exactly one occurrence).</p></li>
+<li><p>Specifies whether the variable is <strong>Required</strong> or <strong>Optional</strong> and its occurrence:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">1..1</span></code> for exactly one occurrence,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0..1</span></code> for one optional occurence, or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1..*</span></code> / <code class="docutils literal notranslate"><span class="pre">0..*</span></code> for multiple required/optional occurences.</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p><strong>Validation</strong>:</p>
 <ul class="simple">
 <li><p>Describes the expected format or encoding for the variable
-(e.g., <strong>Free Text</strong>, <strong>Dropdown (choices encoded according to ref:`1_5`)</strong>,
+(e.g., <strong>Free Text</strong>, <strong>Dropdown (choices encoded according to</strong> <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>),
 or specific ontology references like <code class="docutils literal notranslate"><span class="pre">BIOPORTAL:MONDO</span></code>).</p></li>
 </ul>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All repeating forms are optional, therefore the cardinality is always <code class="docutils literal notranslate"><span class="pre">0..*</span></code>.
+However, as soon as an instrument is used, specific elements may be required (<code class="docutils literal notranslate"><span class="pre">1..1</span></code>)
+to comply with specific HL7 FHIR or Phenopacket requirements.</p>
+</div>
 <hr class="docutils" />
+</section>
+</section>
 <section id="formal-criteria-rarelink-1-formal-criteria">
 <span id="formal-criteria"></span><h3>(1) Formal Criteria (<code class="docutils literal notranslate"><span class="pre">rarelink_1_formal_criteria</span></code>)<a class="headerlink" href="#formal-criteria-rarelink-1-formal-criteria" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures eligibility and registration information for individuals.
-<strong>Sheet type</strong>: Single-Entry Form</p>
+<p><strong>Purpose</strong>: Captures eligibility and registration information for individuals.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>1.1 Pseudonym (<code class="docutils literal notranslate"><span class="pre">snomedct_422549004</span></code>)</p>
@@ -370,8 +401,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="personal-information-rarelink-2-personal-information">
 <span id="personal-information"></span><h3>(2) Personal Information (<code class="docutils literal notranslate"><span class="pre">rarelink_2_personal_information</span></code>)<a class="headerlink" href="#personal-information-rarelink-2-personal-information" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures demographic and personal details of individuals.
-<strong>Sheet type</strong>: Single-Entry Form</p>
+<p><strong>Purpose</strong>: Captures demographic and personal details of individuals.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>2.1 Date of Birth (<code class="docutils literal notranslate"><span class="pre">snomedct_184099003</span></code>)</p>
@@ -383,19 +419,19 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 <li><p>2.2 Sex at Birth (<code class="docutils literal notranslate"><span class="pre">snomedct_281053000</span></code>)</p>
 <ul>
 <li><p>Cardinality: Optional</p></li>
-<li><p>Validation: Dropdown (choices encoded according to ref:<cite>1_5</cite>)</p></li>
+<li><p>Validation: Dropdown (choices encoded according to <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>)</p></li>
 </ul>
 </li>
 <li><p>2.3 Karyotypic Sex (<code class="docutils literal notranslate"><span class="pre">snomedct_1296886006</span></code>)</p>
 <ul>
 <li><p>Cardinality: Optional</p></li>
-<li><p>Validation: Dropdown (choices encoded according to ref:<cite>1_5</cite>)</p></li>
+<li><p>Validation: Dropdown (choices encoded according to <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>)</p></li>
 </ul>
 </li>
 <li><p>2.4 Gender Identity (<code class="docutils literal notranslate"><span class="pre">snomedct_263495000</span></code>)</p>
 <ul>
 <li><p>Cardinality: Optional</p></li>
-<li><p>Validation: Dropdown (choices encoded according to ref:<cite>1_5</cite>)</p></li>
+<li><p>Validation: Dropdown (choices encoded according to <a class="reference internal" href="../1_background/1_5_rd_cdm.html#id1"><span class="std std-ref">RD-CDM</span></a>)</p></li>
 </ul>
 </li>
 <li><p>2.5 Country of Birth (<code class="docutils literal notranslate"><span class="pre">snomedct_370159000</span></code>)</p>
@@ -411,8 +447,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="patient-status-rarelink-3-patient-status">
 <span id="patient-status"></span><h3>(3) Patient Status (<code class="docutils literal notranslate"><span class="pre">rarelink_3_patient_status</span></code>)<a class="headerlink" href="#patient-status-rarelink-3-patient-status" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Tracks changes in patient conditions over time.
-<strong>Sheet type</strong>: Repeating form</p>
+<p><strong>Purpose</strong>: Tracks changes in patient conditions over time.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>Date of Completion for the Sheet (<code class="docutils literal notranslate"><span class="pre">patient_status_date</span></code>)</p>
@@ -465,8 +506,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="care-pathway-rarelink-4-care-pathway">
 <span id="care-pathway"></span><h3>(4) Care Pathway (<code class="docutils literal notranslate"><span class="pre">rarelink_4_care_pathway</span></code>)<a class="headerlink" href="#care-pathway-rarelink-4-care-pathway" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Tracks details of individual encounters in the care pathway.
-<strong>Sheet type</strong>: Repeating form</p>
+<p><strong>Purpose</strong>: Tracks details of individual encounters in the care pathway.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>4.1 Encounter Start (<code class="docutils literal notranslate"><span class="pre">hl7fhir_enc_period_start</span></code>)</p>
@@ -501,8 +547,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 <section id="disease-rarelink-5-disease">
 <span id="disease"></span><h3>(5) Disease (<code class="docutils literal notranslate"><span class="pre">rarelink_5_disease</span></code>)<a class="headerlink" href="#disease-rarelink-5-disease" title="Link to this heading"></a></h3>
 <p><strong>Purpose</strong>: Captures detailed information about the diseases affecting
-individuals.
-<strong>Sheet type</strong>: Repeating form</p>
+individuals.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>Disease Coding (<code class="docutils literal notranslate"><span class="pre">disease_coding</span></code>)</p>
@@ -605,8 +656,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="genetic-findings-rarelink-6-1-genetic-findings">
 <span id="genetic-findings"></span><h3>(6.1) Genetic Findings (<code class="docutils literal notranslate"><span class="pre">rarelink_6_1_genetic_findings</span></code>)<a class="headerlink" href="#genetic-findings-rarelink-6-1-genetic-findings" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures information about genetic variants and their clinical significance.
-<strong>Sheet type</strong>: Repeating form</p>
+<p><strong>Purpose</strong>: Captures information about genetic variants and their clinical significance.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>Genetic Diagnosis Code (<code class="docutils literal notranslate"><span class="pre">genetic_diagnosis_code</span></code>)</p>
@@ -767,8 +823,13 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 <section id="phenotypic-feature-rarelink-6-2-phenotypic-feature">
 <span id="phenotypic-features"></span><h3>(6.2) Phenotypic Feature (<code class="docutils literal notranslate"><span class="pre">rarelink_6_2_phenotypic_feature</span></code>)<a class="headerlink" href="#phenotypic-feature-rarelink-6-2-phenotypic-feature" title="Link to this heading"></a></h3>
 <p><strong>Purpose</strong>: Captures observed physical and clinical characteristics using
-standardized terminologies.
-<strong>Sheet type</strong>: Repeating form</p>
+standardized terminologies.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
 <li><p>6.2.1 Phenotypic Feature (<code class="docutils literal notranslate"><span class="pre">snomedct_8116006</span></code>)</p>
@@ -864,9 +925,14 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="measurements-rarelink-6-3-measurements">
 <span id="measurements"></span><h3>(6.3) Measurements (<code class="docutils literal notranslate"><span class="pre">rarelink_6_3_measurements</span></code>)<a class="headerlink" href="#measurements-rarelink-6-3-measurements" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures various types of measurements including vital signs, laboratory tests, imaging, procedures, and more, aligned with IPS and Phenopackets profiles.
-<strong>Sheet type</strong>: Repeating form
-<strong>Key Adjustments</strong>:</p>
+<p><strong>Purpose</strong>: Captures various types of measurements including vital signs, laboratory tests, imaging, procedures, and more, aligned with IPS and Phenopackets profiles.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Adjustments</strong>:</p>
 <ol class="arabic simple">
 <li><p><strong>Vital Signs Panel</strong>: Added <code class="docutils literal notranslate"><span class="pre">6.3.1A</span> <span class="pre">Vital</span> <span class="pre">Signs</span> <span class="pre">Panel</span></code> and
 <code class="docutils literal notranslate"><span class="pre">6.3.1A</span> <span class="pre">Other</span> <span class="pre">Vital</span> <span class="pre">Sign</span></code> to align with the IPS vital status profile.</p></li>
@@ -985,20 +1051,23 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="family-history-rarelink-6-4-family-history">
 <span id="family-history"></span><h3>(6.4) Family History (<code class="docutils literal notranslate"><span class="pre">rarelink_6_4_family_history</span></code>)<a class="headerlink" href="#family-history-rarelink-6-4-family-history" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures family history details of the individual, including relationships, health statuses, and genetic information.
-<strong>Sheet type</strong>: Repeating form
-<strong>Key Adjustments</strong>:</p>
+<p><strong>Purpose</strong>: Captures family history details of the individual, including
+relationships, health statuses, and genetic information.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Adjustments</strong>:</p>
 <ol class="arabic simple">
 <li><p><strong>Pseudonym Field</strong>: Added <code class="docutils literal notranslate"><span class="pre">family_history_pseudonym</span></code> to identify family
 members across records.</p></li>
 <li><p><strong>Required Fields</strong>: Marked fields like <code class="docutils literal notranslate"><span class="pre">family_history_pseudonym</span></code>,
 <code class="docutils literal notranslate"><span class="pre">snomedct_444018008</span></code>, and <code class="docutils literal notranslate"><span class="pre">hl7fhir_fmh_status</span></code> as mandatory for FHIR
-Family History Basic Resource compatibility.</p></li>
-<li><dl class="simple">
-<dt><strong>Branching Logic</strong>: Added logic for deceased family members to ensure fields</dt><dd><p>like <code class="docutils literal notranslate"><span class="pre">loinc_54112_8</span></code> and <code class="docutils literal notranslate"><span class="pre">loinc_92662_6</span></code> are completed if applicable.</p>
-</dd>
-</dl>
-</li>
+base resource FamilyMemberHistory compatibility.</p></li>
+<li><p><strong>Branching Logic</strong>: Added logic for deceased family members to ensure fields
+like <code class="docutils literal notranslate"><span class="pre">loinc_54112_8</span></code> and <code class="docutils literal notranslate"><span class="pre">loinc_92662_6</span></code> are completed if applicable.</p></li>
 </ol>
 <p><strong>Variables &amp; Adjustments</strong>:</p>
 <ul class="simple">
@@ -1088,9 +1157,14 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 <section id="consent-rarelink-7-consent">
 <span id="consent"></span><h3>(7) Consent (<code class="docutils literal notranslate"><span class="pre">rarelink_7_consent</span></code>)<a class="headerlink" href="#consent-rarelink-7-consent" title="Link to this heading"></a></h3>
 <p><strong>Purpose</strong>: Captures the status and scope of consent provided by the patient
-for research, data reuse, and other purposes.
-<strong>Sheet type</strong>: Single-entry form
-<strong>Key Adjustments</strong>:</p>
+for research, data reuse, and other purposes.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Adjustments</strong>:</p>
 <ol class="arabic simple">
 <li><p><strong>Required Fields</strong>: Fields like <code class="docutils literal notranslate"><span class="pre">snomedct_309370004</span></code>,
 <code class="docutils literal notranslate"><span class="pre">snomedct_386318002</span></code>, <code class="docutils literal notranslate"><span class="pre">rarelink_consent_contact</span></code>, and
@@ -1152,9 +1226,14 @@ Return to <a class="reference external" href="#top">top</a>.</p>
 </section>
 <section id="disability-rarelink-8-disability">
 <span id="disability"></span><h3>(8) Disability (<code class="docutils literal notranslate"><span class="pre">rarelink_8_disability</span></code>)<a class="headerlink" href="#disability-rarelink-8-disability" title="Link to this heading"></a></h3>
-<p><strong>Purpose</strong>: Captures information related to the classification of an individual’s functioning and disability.
-<strong>Sheet type</strong>: Single-entry form
-<strong>Key Adjustments</strong>:</p>
+<p><strong>Purpose</strong>: Captures information related to the classification of an individual’s functioning and disability.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Adjustments</strong>:</p>
 <ol class="arabic simple">
 <li><p><strong>ICF Integration</strong>: The variable <code class="docutils literal notranslate"><span class="pre">rarelink_icf_score</span></code> allows for the
 classification of functioning and disability using the International

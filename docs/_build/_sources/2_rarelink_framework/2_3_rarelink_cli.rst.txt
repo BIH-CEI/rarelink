@@ -95,8 +95,8 @@ ________________________________________________________________________________
     rarelink setup keys 
 
 - Configure the RareLink framework by setting up API keys and variables. This
- process ensures the .env file contains necessary configurations - see :ref:`3_4`
- for more details, functionalities, and instructions.
+  process ensures the .env file contains necessary configurations - see :ref:`3_4`
+  for more details, functionalities, and instructions.
 
 _____________________________________________________________________________________
 
@@ -106,7 +106,7 @@ ________________________________________________________________________________
     rarelink setup dictionary
 
 - Upload the most current RareLink-CDM Data Dictionary to an existing 
-REDCap project.
+  REDCap project.
 
 _____________________________________________________________________________________
 
@@ -158,7 +158,7 @@ Download records from your REDCap project as JSON files and save them locally.
 .. attention::
     If your project is in PRODUCTION mode, the downloaded data might be sensitive.
     It must only be stored within your organisational site's approved storage.
-    Read here more about the REDCap project modes :ref:`1_6` and discuss this
+    Read here more about the :ref:`1_6` project modes and discuss this
     with your REDCap administrator.
 
 .. hint::
@@ -247,7 +247,7 @@ ________________________________________________________________________________
 
     rarelink fhir export
 
-- Export data to the configured FHIR server using the ToFHIR pipeline.
+- Export data to the configured FHIR server using the toFHIR pipeline.
 
 
 .. note::
