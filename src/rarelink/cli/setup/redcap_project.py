@@ -37,7 +37,7 @@ def app():
     )
     typer.echo(
         "1. Contact your local REDCap administrator to create your REDCap "
-        "project."
+        "project with BioPortal ontology service enabled (required for RareLink!)"
     )
     typer.echo(
         "2. Name your REDCap project, e.g.: 'RareLink - NameofyourInstitution'."

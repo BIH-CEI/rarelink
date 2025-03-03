@@ -5,8 +5,8 @@ from phenopackets import (
     OntologyClass,
     Expression,
     GeneDescriptor,
-    Extension,
-    VcfRecord
+    Extension
+    # VcfRecord
 )
 
 logger = logging.getLogger(__name__)
@@ -74,21 +74,24 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
                 ]
             ]
 
-            # Fetching VCF Record fields
-            # potentially add chromosome, position, reference, and
-            #  alternate alleles with pyhgvs in future versions
-            genome_assembly_id = variation_descriptor_data.get(
-                processor.mapping_config["genome_assembly_field"])
-            genome_assembly = processor.fetch_label(
-                genome_assembly_id, enum_class="ReferenceGenome")
+            # excluded for now as for the VcFRecord fields only the 
+            # gneome_assembly is available in the data
+            # ------------------------------------------------------------------
+            # # Fetching VCF Record fields
+            # # potentially add chromosome, position, reference, and
+            # #  alternate alleles with pyhgvs in future versions
+            # genome_assembly_id = variation_descriptor_data.get(
+            #     processor.mapping_config["genome_assembly_field"])
+            # genome_assembly = processor.fetch_label(
+            #     genome_assembly_id, enum_class="ReferenceGenome")
 
-            vcf_record = VcfRecord(
-                genome_assembly=genome_assembly,
-                chrom="unknown",
-                pos=0,
-                ref="unknown",
-                alt="unknown",
-            )
+            # vcf_record = VcfRecord(
+            #     genome_assembly=genome_assembly,
+            #     chrom="unknown",
+            #     pos=0,
+            #     ref="unknown",
+            #     alt="unknown",
+            # )
 
             # VariationDescriptor.allelic_state
             # ------------------------------------------------------------------
@@ -148,7 +151,7 @@ def map_variation_descriptor(data: dict, processor: DataProcessor) -> dict:
             variation_descriptor = VariationDescriptor(
                 id=id,
                 expressions=expressions,
-                vcf_record=vcf_record,
+                # vcf_record=vcf_record,
                 allelic_state=allelic_state,
                 structural_type=structural_type,
                 gene_context=gene_context,

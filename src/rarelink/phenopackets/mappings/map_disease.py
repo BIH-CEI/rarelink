@@ -1,13 +1,14 @@
 import logging
-from phenopackets import Disease, OntologyClass, TimeElement
+from phenopackets import Disease, OntologyClass, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
-from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 
 def map_diseases(
     data: dict, 
-    processor: DataProcessor) -> list:
+    processor: DataProcessor,
+    dob: str
+    ) -> list:
     """
     Maps disease data to the Phenopacket schema Disease block fetching the 
     data elements from the repeated elements in the input data.
@@ -65,14 +66,21 @@ def map_diseases(
 
             if onset_date:
                 try:
-                    timestamp = processor.process_date(onset_date)
-                    if isinstance(timestamp, Timestamp):
-                        onset = TimeElement(timestamp=timestamp)
+                    # Validate the onset_date using process_date (this ensures a valid ISO8601 date)
+                    _ = processor.process_date(onset_date)
+                    
+                    # Ensure dob is an ISO8601 string.
+                    if not isinstance(dob, str):
+                        dob_str = dob.ToDatetime().isoformat()
                     else:
-                        raise TypeError(
-                            "Processed date is not a Timestamp object.")
+                        dob_str = dob
+
+                    # Calculate the ISO8601 duration using only years and months.
+                    iso_age = processor.convert_date_to_iso_age(onset_date, dob_str)
+                    # Create the TimeElement with the age element.
+                    onset = TimeElement(age=Age(iso8601duration=iso_age))
                 except Exception as e:
-                    logger.error(f"Error processing onset date: {e}")
+                    logger.error(f"Error processing onset date for ISO age: {e}")
 
             if not onset and onset_category_field:
                 try:

@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FHIR Module &mdash; RareLink REDCap Documentation 2.0.0.dev1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=81abe19b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Develop REDCap Instruments" href="4_5_develop_redcap_instruments.html" />
+    <link rel="prev" title="Phenopackets Module" href="4_3_phenopackets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Phenopackets Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FHIR Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-cdm-fhir-profiles">RareLink-CDM FHIR Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-cli-fhir-commands">RareLink-CLI FHIR Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-commandsss">Docker Commandsss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-fhir-to-redcap">Importing FHIR to REDCap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FHIR Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/4_user_guide/4_4_fhir_module.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fhir-module">
+<span id="id1"></span><h1>FHIR Module<a class="headerlink" href="#fhir-module" title="Link to this heading"></a></h1>
+<p>The RareLink FHIR module implements the <a class="reference external" href="https://github.com/srdc/tofhir">open-source toFHIR engine</a>
+which converts all data from the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> into FHIR resources. This section details the commands available in the RareLink CLI to manage the
+FHIR module and associated pipelines.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>Please ensure you are <strong>authorized to export (real-world) data</strong> to
+the configured FHIR server. This includes verifying compliance with
+the ethical agreement and data protection regulations of your study
+or registry</p></li>
+<li><p>Be aware of your projects <strong>development and production mode</strong>. Read the
+<a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a> section and discuss this with your FHIR server administrator!</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<p><strong>Overview</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-started"><span class="std std-ref">Getting started</span></a></p></li>
+<li><p><a class="reference internal" href="#fhir-profiles"><span class="std std-ref">RareLink-CDM FHIR Profiles</span></a></p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#cli-fhir-commands"><span class="std std-ref">RareLink-CLI FHIR Commands</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#setup-command"><span class="std std-ref">1. Setup Command</span></a></p></li>
+<li><p><a class="reference internal" href="#hapi-server-command"><span class="std std-ref">2. HAPI Server Command</span></a></p></li>
+<li><p><a class="reference internal" href="#export-command"><span class="std std-ref">3. Export Command</span></a></p></li>
+<li><p><a class="reference internal" href="#restart-docker-command"><span class="std std-ref">4. Restart Docker Command</span></a></p></li>
+<li><p><a class="reference internal" href="#docker-commands"><span class="std std-ref">Docker Commandsss</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="#cdis-module"><span class="std std-ref">Importing FHIR to REDCap</span></a></p></li>
+</ul>
+<hr class="docutils" />
+<section id="getting-started">
+<span id="get-started"></span><h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>To use these functionalities, you need a running REDCap project with API access
+and the RareLink-CDM instruments. You also need the framework and all its
+components running. You can run the following commands to set everything up:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">framework</span> <span class="pre">update</span></code> to update the framework and all components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">redcap-project</span></code> to set up a REDCap project with your REDCap
+administrator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">keys</span></code> to set up the REDCap API access locally.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="rarelink-cdm-fhir-profiles">
+<span id="fhir-profiles"></span><h2>RareLink-CDM FHIR Profiles<a class="headerlink" href="#rarelink-cdm-fhir-profiles" title="Link to this heading"></a></h2>
+<p>These FHIR resources generated are based on the HL7 FHIR <a class="reference external" href="https://www.hl7.org/fhir/ips.html">International Patient Summary (IPS)</a>
+and <a class="reference external" href="https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html">Genomoics Reporting</a>
+profiles. The <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> FHIR profiles include these dependencies to generate
+the FHIR resources that are compliant with the IPS and the GenomicsReporting
+profiles. For more information on FHIR, please read the background section
+<a class="reference internal" href="../1_background/1_4_hl7_fhir.html#id1"><span class="std std-ref">HL7 FHIR</span></a>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can check out the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> FHIR Profiles in <strong>draft</strong> <a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/fsh/input/fsh">here</a></p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="rarelink-cli-fhir-commands">
+<span id="cli-fhir-commands"></span><h2>RareLink-CLI FHIR Commands<a class="headerlink" href="#rarelink-cli-fhir-commands" title="Link to this heading"></a></h2>
+<section id="setup-command">
+<span id="id2"></span><h3>1. Setup Command<a class="headerlink" href="#setup-command" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>fhir<span class="w"> </span>setup
+</pre></div>
+</div>
+<p><strong>What it does</strong>:</p>
+<ul class="simple">
+<li><p>Configures the <cite>toFHIR</cite> pipeline for RareLink.</p></li>
+<li><p>Validates required setup files (<cite>.env</cite>, <cite>redcap-projects.json</cite>).</p></li>
+<li><p>Prompts for the FHIR server URL and saves it to <cite>.env</cite>.</p></li>
+</ul>
+<p><strong>Requirements</strong>:</p>
+<ul class="simple">
+<li><p>Docker and Docker Compose must be installed.</p></li>
+<li><p>A FHIR server must be accessible or created locally using <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">fhir</span> <span class="pre">hapi-server</span></code>.</p></li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Ensure the <cite>.env</cite> file exists and contains:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BIOPORTAL_API_TOKEN:&lt;your_bioportal_api_token&gt;
+REDCAP_URL:&lt;your_redcap_url&gt;
+REDCAP_PROJECT_ID:&lt;your_redcap_project_id&gt;
+REDCAP_API_TOKEN:&lt;your_redcap_api_token&gt;
+</pre></div>
+</div>
+<p>… otherwise run <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">setup</span> <span class="pre">keys</span></code> to set them up.</p>
+<ol class="arabic simple" start="2">
+<li><p>Run the command and provide the FHIR server URL.</p></li>
+<li><p>Confirm Docker is installed, or follow prompts to install it.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="hapi-server-command">
+<span id="id3"></span><h3>2. HAPI Server Command<a class="headerlink" href="#hapi-server-command" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>fhir<span class="w"> </span>hapi-server
+</pre></div>
+</div>
+<p><strong>What it does</strong>:</p>
+<ul class="simple">
+<li><p>Sets up a local HAPI FHIR server using Docker.</p></li>
+<li><p>Creates a Docker network (<cite>shared-network</cite>) if not present.</p></li>
+<li><p>Runs the HAPI FHIR server container.</p></li>
+</ul>
+<p><strong>Requirements</strong>:</p>
+<ul class="simple">
+<li><p>Docker must be installed.</p></li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Run the command.</p></li>
+<li><p>If the server container already exists, it restarts it.</p></li>
+<li><p>Access the server at <cite>http://localhost:8080</cite>.</p></li>
+</ol>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li><p>Data is stored in the Docker container. Avoid removing it to preserve data.</p></li>
+<li><p>Use this command if no external FHIR server is available.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="export-command">
+<span id="id4"></span><h3>3. Export Command<a class="headerlink" href="#export-command" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>fhir<span class="w"> </span><span class="nb">export</span>
+</pre></div>
+</div>
+<p><strong>What it does</strong>:</p>
+<ul class="simple">
+<li><p>Exports data from REDCap to the configured FHIR server.</p></li>
+<li><p>Validates <cite>.env</cite> and <cite>redcap-projects.json</cite> files.</p></li>
+<li><p>Runs the ToFHIR pipeline using Docker Compose.</p></li>
+</ul>
+<p><strong>Requirements</strong>:</p>
+<ul class="simple">
+<li><p><cite>.env</cite> and <cite>redcap-projects.json</cite> must be valid.</p></li>
+<li><p>Docker and Docker Compose must be installed.</p></li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Validate setup files using <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">fhir</span> <span class="pre">setup</span></code>.</p></li>
+<li><p>Ensure the ethical agreement for exporting data is fulfilled.</p></li>
+<li><p>Run the command to start the ToFHIR pipeline.</p></li>
+</ol>
+<p><strong>Logs</strong>:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">-f</span> <span class="pre">tofhir</span></code> to monitor the export process in real time.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="restart-docker-command">
+<span id="id5"></span><h3>4. Restart Docker Command<a class="headerlink" href="#restart-docker-command" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rarelink<span class="w"> </span>fhir<span class="w"> </span>restart-dockers
+</pre></div>
+</div>
+<p><strong>What it does</strong>:</p>
+<ul class="simple">
+<li><p>Stops all running Docker containers.</p></li>
+<li><p>Removes stopped containers.</p></li>
+<li><p>Restarts the necessary containers using <cite>docker-compose</cite>.</p></li>
+</ul>
+<p><strong>Steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Run the command.</p></li>
+<li><p>Monitor logs if needed (e.g., <cite>docker logs -f &lt;container&gt;</cite>).</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+</section>
+<section id="docker-commandsss">
+<span id="docker-commands"></span><h2>Docker Commandsss<a class="headerlink" href="#docker-commandsss" title="Link to this heading"></a></h2>
+<p>These commands help manage Docker containers used in the RareLink framework.</p>
+<ul>
+<li><p><strong>Stop All Containers</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>stop<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>ps<span class="w"> </span>-q<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Remove Stopped Containers</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>rm<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>ps<span class="w"> </span>-aq<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Restart Containers with Docker Compose</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>down
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Inspect a Running Container</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>View Logs</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container_name&gt;
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>tofhir
+</pre></div>
+</div>
+<p>This shows real-time logs for the <cite>tofhir</cite> export process.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Copy Files from a Container</strong>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>cp<span class="w"> </span>&lt;container_name&gt;:/path/to/file<span class="w"> </span>/local/destination
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<section id="importing-fhir-to-redcap">
+<span id="cdis-module"></span><h2>Importing FHIR to REDCap<a class="headerlink" href="#importing-fhir-to-redcap" title="Link to this heading"></a></h2>
+<p><strong>Clinical Data Interoperability Services (CDIS)</strong> is a module in REDCap that
+lets your project pull clinical data from an external electronic health record
+(EHR) system. With CDIS, you can use standard FHIR APIs or custom web services
+to import data into your REDCap project. This guide is intended to help users
+understand how to implement and use the CDIS modules for RareLink and the
+<a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CDIS modules can only be enabled by a REDCap administrator. If you need
+access to these modules, please contact your REDCap administrator.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>For more information please read:</p>
+<ul class="simple">
+<li><p>CDIS REDCap: <a class="reference external" href="https://projectredcap.org/software/cdis/">https://projectredcap.org/software/cdis/</a></p></li>
+<li><p>CDIS Paper: <a class="reference external" href="https://doi.org/10.1016/j.jbi.2021.103871">https://doi.org/10.1016/j.jbi.2021.103871</a></p></li>
+</ul>
+</div>
+<p>CDIS is divided into three modules:</p>
+<ul class="simple">
+<li><p><strong>Clinical Data Pull (CDP)</strong></p></li>
+<li><p><strong>Clinical Data Mart (CDM)</strong></p></li>
+<li><p><strong>Dynamic Data Pull (DDP)</strong></p></li>
+</ul>
+<p>Each module has its own process for mapping data from the EHR to your REDCap
+forms. This guide explains how to use each module and shows where to add your
+model-specific mapping details.</p>
+<hr class="docutils" />
+<section id="modules-overview">
+<h3>Modules Overview<a class="headerlink" href="#modules-overview" title="Link to this heading"></a></h3>
+<section id="clinical-data-pull-cdp">
+<h4>Clinical Data Pull (CDP)<a class="headerlink" href="#clinical-data-pull-cdp" title="Link to this heading"></a></h4>
+<p>The CDP module is used for importing clinical data for one patient at a time.
+It requires you to:</p>
+<ol class="arabic">
+<li><p><strong>Create REDCap Instruments:</strong></p>
+<p><a class="reference internal" href="../3_installation/3_3_data_dictionary.html#id1"><span class="std std-ref">Set up the Data Dictionary</span></a>, i.e. the corresponding REDCap forms you want to use from the
+<a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> before using CDP.</p>
+<ul class="simple">
+<li><p>If you developed your own forms, ensure they to use the
+<a class="reference internal" href="#fhir-profiles"><span class="std std-ref">RareLink-CDM FHIR Profiles</span></a> for its core and develop extensional forms
+using the <a class="reference internal" href="4_5_develop_redcap_instruments.html#id1"><span class="std std-ref">Develop REDCap Instruments</span></a> guide.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic" start="2">
+<li><p><strong>Field Mappings:</strong></p>
+<p>After creating your forms, navigate to the CDP Mapping page. Here, you map
+fixed EHR source fields to the fields in your REDCap forms.</p>
+<ul class="simple">
+<li><p><strong>REDCap Field</strong>: this column lists the variables in your REDCap forms</p></li>
+<li><p><strong>External Source Field</strong>: this column lists the available source fields
+in the EHR</p></li>
+<li><p><strong>Date/Time</strong>: The date field which is associated with the temporal fields.
+It is disabled by default, and it will be enabled if you select a temporal
+field from External Source Field list.</p></li>
+<li><p><strong>Preselect Strategy</strong>: this column indicates how the data is fetched</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mapping is mandatory for the patient identifier
+(e.g., Medical Record Number) which corresponds to element 1.1 in the
+<a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>. The rest of the fields are optional.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Check out either the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#cdm-overview"><span class="std std-ref">RareLink-CDM Instruments</span></a> or the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML Schema</span></a>
+sections in our docs to find all the field variables and forms of the
+<a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>.</p>
+</div>
+<p>A sample mapping table with values from the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a> might look like:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------+---------------------+------------------------+
+<span class="o">|</span> <span class="gs">**External Source Field**</span> | <span class="gs">**REDCap Field**</span>     | <span class="gs">**Date/Time Field**</span> | <span class="gs">**Preselect Strategy**</span> |
++===========================+======================+=====================+========================+
+<span class="o">|</span> MedicalRecordNumber       | snomedct_422549004   |                     | N/A                    |
++---------------------------+----------------------+---------------------+------------------------+
+<span class="o">|</span> DOB                       | snomedct_399423000   |                     | Latest Value           |
++---------------------------+----------------------+---------------------+------------------------+
+<span class="o">|</span> Glucose [Presence]        | ncit_c60819          | ncit_c82577         | Nearest Timestamp      |
++---------------------------+----------------------+---------------------+------------------------+
+</pre></div>
+</div>
+<p><em>In this example, these RareLink-CDM elements in REDCap are mapped to
+the corresponding EHR source field names:</em></p>
+<ul class="simple">
+<li><p><strong>1.1 Pseudnoym</strong> <code class="docutils literal notranslate"><span class="pre">snomedct_42254900</span></code> <em>corresponds to</em> <code class="docutils literal notranslate"><span class="pre">MedicalRecordNumber</span></code> in the EHR system.</p></li>
+<li><p><strong>1.2 Date of Birth</strong> <code class="docutils literal notranslate"><span class="pre">snomedct_399423000</span></code> <em>corresponds to</em> <code class="docutils literal notranslate"><span class="pre">DOB</span></code> in the EHR system.</p></li>
+<li><p><strong>6.3.1 Assay</strong> <code class="docutils literal notranslate"><span class="pre">ncit_c60819</span></code> &amp; <strong>6.3.5 Time Observed</strong> <code class="docutils literal notranslate"><span class="pre">ncit_c82577</span></code>
+<em>correspond to</em>  <code class="docutils literal notranslate"><span class="pre">Glucose</span> <span class="pre">[Presence]</span></code> in the EHR system.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p><strong>Adjudication:</strong>
+Adjudication refers to the process in which EHR data is manually reviewed
+and approved by a user before it is officially saved and stored in the REDCap
+project. Once mapping is complete, users review and approve (adjudicate)
+the data fetched from the EHR before it is saved into the REDCap project.
+This helps ensure data accuracy.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can find more information on the <strong>adjudication process</strong> with pictures in
+the <em>2.6 Data adjudication in CDP</em> Methods section of the <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1532046421002008">paper by Cheng A.C., et al.</a>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="clinical-data-mart-cdm">
+<h4>Clinical Data Mart (CDM)<a class="headerlink" href="#clinical-data-mart-cdm" title="Link to this heading"></a></h4>
+<p>The CDM module enables bulk import of EHR data into REDCap. It is set up
+during project creation, and a REDCap administrator must be involved to
+enable and configure this feature.</p>
+<p><em>Steps:</em></p>
+<ol class="arabic simple">
+<li><p><strong>Project Creation:</strong>
+Select the “Clinical Data Mart” option on the project creation page.
+(Note: REDCap administrator approval is required.)</p></li>
+<li><p><strong>Automatic Instrument Creation:</strong>
+REDCap auto-generates instruments for each selected source field
+category (e.g., Demography, Labs, Condition).</p></li>
+<li><p><strong>Optional Filters:</strong></p>
+<ul class="simple">
+<li><p><strong>Time Range:</strong> Set a date filter to limit data (e.g., for lab results).</p></li>
+<li><p><strong>Patient ID:</strong> Optionally, specify patient identifiers (MRNs) to fetch data
+for specific patients.</p></li>
+</ul>
+</li>
+<li><p><strong>RareLink-CDM Mapping Configuration:</strong> please see the information above for
+the step <em>2. Field Mappings</em> in the CDP module section on how to develop
+your specific mapping table.</p></li>
+</ol>
+<p>After setup, use the <code class="docutils literal notranslate"><span class="pre">Fetch</span> <span class="pre">all</span> <span class="pre">records</span></code> button on the Clinical Data Mart page
+to retrieve and populate the instruments with EHR data.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can find more information on the <strong>Clinical Data Mart</strong> in the <em>2.2. Defining
+initial use cases and operational data flow requirements</em> Methods section of
+the <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1532046421002008">paper by Cheng A.C., et al.</a>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="dynamic-data-pull-ddp">
+<h4>Dynamic Data Pull (DDP)<a class="headerlink" href="#dynamic-data-pull-ddp" title="Link to this heading"></a></h4>
+<p>The DDP module is used when the list of source fields may change over time.
+Unlike CDP, which uses a fixed field list from the EHR’s FHIR API, DDP uses
+web services to dynamically retrieve fields and data.</p>
+<ol class="arabic simple">
+<li><p><strong>Metadata Web Service:</strong>
+Retrieves a dynamic list of available source fields.</p></li>
+<li><p><strong>Data Web Service:</strong>
+Fetches the actual patient data from the external system.</p></li>
+</ol>
+<p>Before enabling DDP, a REDCap administrator must implement and configure these
+web services (set the metadata and data web service URLs) as described in the
+official documentation. Once configured, DDP follows a similar flow to CDP:
+create your REDCap forms, set up field mappings, and adjudicate the fetched data.</p>
+<p><strong>RareLink-DDP Mapping Configuration:</strong>
+please see the information above for
+the step <em>2. Field Mappings</em> in the CDP module section on how to develop your
+specific mapping table.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can find more information on the <strong>Dynamic Data Pull</strong> in the
+<a class="reference external" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5543341/">paper by Campion Jr Thomas R, et al.</a>.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modules-comparison">
+<h3>Modules Comparison<a class="headerlink" href="#modules-comparison" title="Link to this heading"></a></h3>
+<p>Below is a summary comparison of the three CDIS modules:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>CDP</strong></p></th>
+<th class="head"><p><strong>CDM</strong></p></th>
+<th class="head"><p><strong>DDP</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Data Mapping</p></td>
+<td><p>User-defined mappings per record</p></td>
+<td><p>Predefined instrument mappings</p></td>
+<td><p>Custom mapping via dynamic metadata</p></td>
+</tr>
+<tr class="row-odd"><td><p>Activation Process</p></td>
+<td><p>REDCap admin must enable CDP</p></td>
+<td><p>User permission required</p></td>
+<td><p>REDCap admin must enable DDP</p></td>
+</tr>
+<tr class="row-even"><td><p>Data Pull Process</p></td>
+<td><p>Fetched during record creation</p></td>
+<td><p>Fetched in bulk upon user action</p></td>
+<td><p>Pulled from web service during record creation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Adjudication</p></td>
+<td><p>Manual review before saving</p></td>
+<td><p>Manual review before saving</p></td>
+<td><p>Manual review before saving (post web service mapping)</p></td>
+</tr>
+<tr class="row-even"><td><p>When to Use</p></td>
+<td><p>When custom mapping is needed</p></td>
+<td><p>When default mappings suffice</p></td>
+<td><p>When standard source fields are insufficient or when
+dynamic mapping is required</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_3_phenopackets.html" class="btn btn-neutral float-left" title="Phenopackets Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_5_develop_redcap_instruments.html" class="btn btn-neutral float-right" title="Develop REDCap Instruments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

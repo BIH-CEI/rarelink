@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Data Capture &mdash; RareLink REDCap Documentation 2.0.0.dev1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=81abe19b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=01f29f62"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Semi-Automatic Import" href="4_2_import_mapper.html" />
+    <link rel="prev" title="Set up the REDCap API" href="../3_installation/3_4_redcap_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RareLink REDCap Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Manual Data Capture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-information-please-read">General Information (please read!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formal-criteria">(1) Formal Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#personal-information">(2) Personal Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patient-status">(3) Patient Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#care-pathway">(4) Care Pathway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disease">(5) Disease</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genetic-findings">(6.1) Genetic Findings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phenotypic-features">(6.2) Phenotypic Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#measurements">(6.3) Measurements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#family-history">(6.4) Family History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consent">(7) Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disability">(8) Disability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Phenopackets Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_4_fhir_module.html">FHIR Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_5_develop_redcap_instruments.html">Develop REDCap Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_download_manifest.html">Downloads Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RareLink REDCap Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Manual Data Capture</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/4_user_guide/4_1_manual_data_capture.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="manual-data-capture">
+<span id="id1"></span><h1>Manual Data Capture<a class="headerlink" href="#manual-data-capture" title="Link to this heading"></a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This section offers detailed guidance for manually entering data into
+RareLink CDM forms:</p>
+<ul class="simple">
+<li><p>For more information about the RareLink CDM, visit <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>.</p></li>
+<li><p>Instructions for installing the RareLink CDM instruments in REDCap are available at <a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#id1"><span class="std std-ref">Set up the RareLink Framework</span></a>.</p></li>
+</ul>
+</div>
+<p><strong>Overview</strong></p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">manualguide_general_information</span></p></li>
+<li><p><a class="reference internal" href="#manualguide-formal-criteria"><span class="std std-ref">(1) Formal Criteria</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-personal-information"><span class="std std-ref">(2) Personal Information</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-patient-status"><span class="std std-ref">(3) Patient Status</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-care-pathway"><span class="std std-ref">(4) Care Pathway</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-disease"><span class="std std-ref">(5) Disease</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-genetic-findings"><span class="std std-ref">(6.1) Genetic Findings</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-phenotypic-features"><span class="std std-ref">(6.2) Phenotypic Features</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-measurements"><span class="std std-ref">(6.3) Measurements</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-family-history"><span class="std std-ref">(6.4) Family History</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-consent"><span class="std std-ref">(7) Consent</span></a></p></li>
+<li><p><a class="reference internal" href="#manualguide-disability"><span class="std std-ref">(8) Disability</span></a></p></li>
+</ul>
+<hr class="docutils" />
+<section id="general-information-please-read">
+<span id="general-information"></span><h2>General Information (please read!)<a class="headerlink" href="#general-information-please-read" title="Link to this heading"></a></h2>
+<p>This section provides general information about the manual data capture
+process:</p>
+<ul class="simple">
+<li><p><strong>Purpose</strong>: The manual data capture guide is designed to facilitate the
+entry of patient data into the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a>. It provides detailed instructions
+for completing each section of the RareLink CDM forms.</p></li>
+<li><p><strong>Feedback</strong>: If you encounter any issues or have suggestions for improving
+the manual data capture process, please find more information in the <a class="reference internal" href="../7_faq.html#id1"><span class="std std-ref">FAQ</span></a>
+section or <a class="reference external" href="https://github.com/BIH-CEI/rarelink/issues">write a GitHub issue</a>.
+RareLink is a collaborative effort, and we welcome your feedback.</p></li>
+<li><p><strong>ERDRI-CDS</strong>: The European Registry Registration requires specific fields to
+be completed. You can find the <a class="reference external" href="https://eu-rd-platform.jrc.ec.europa.eu/system/files/public/CDS/EU_RD_Platform_CDS_Final.pdf">ERDRI-CDS here</a>
+and the corresponding fields in the RareLink-CDM marked with <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>
+in the guide.</p></li>
+<li><p><strong>Data Security</strong>: Ensure your local REDCap project is set up, and everything
+is sorted with your local REDCap administrator. When capturing real patient
+data, ensure that the REDCap project is in <strong>Production Mode</strong>! Read the
+<a class="reference internal" href="../1_background/1_6_redcap.html#id1"><span class="std std-ref">REDCap</span></a>-Background section for more information and discuss this with your
+local REDCap administrator.</p></li>
+<li><p><strong>Searching Terminologies with</strong> <a class="reference external" href="https://bioportal.bioontology.org/">BioPortal</a>:
+Many RareLink sheets feature integrated BioPortal search functionality.
+When searching, consider using synonyms or abbreviations, as these are also
+indexed in BioPortal. If you cannot find the desired term, try searching for
+broader or related terms. Alternatively, use the
+<a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> to identify the
+correct code and display for the concept you are looking for.</p></li>
+<li><p><strong>Updates</strong>: This section will continue to evolve as RareLink documentation
+expands. Please  check the <a class="reference internal" href="../6_changelog.html#id1"><span class="std std-ref">Changelog</span></a> and <a class="reference internal" href="../7_faq.html#id1"><span class="std std-ref">FAQ</span></a> sections for updates and
+additional information.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="types-of-fields">
+<h3>Types of Fields:<a class="headerlink" href="#types-of-fields" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Mandatory Fields</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: Mandatory fields are marked within this guide with a red
+asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Ensure that all mandatory fields are completed before saving
+the form.</p></li>
+<li><p><strong>Optional Fields</strong>: Fields that are not mandatory can be left blank if the
+information is unknown or not required. This flexibility allows for partial
+data entry while maintaining focus on required fields.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="types-of-instruments">
+<h3>Types of Instruments:<a class="headerlink" href="#types-of-instruments" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>–&gt; These forms are designed for one-time data entry and capture information that
+is not expected to change over time, but can be re-edited if necessary.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>–&gt; These forms are designed for capturing information that may change over time,
+such as patient status, care pathway, and disease
+history. You can repeat these forms to reflect changes over time.</p>
+<ul class="simple">
+<li><p>If you are within the form, you can use the <strong>“Save and Add New Instance”</strong>
+at the end of the sheet button to create a new instance of the form directly.</p></li>
+<li><p>Alternatively when viewing the individual record, you can click the
+<strong>“+” button next to the form name</strong>. This action will create a new instance
+of the form, allowing you to capture additional data points for the same
+individual.</p></li>
+</ul>
+<div style="display: flex; justify-content: center; align-items: center; gap: 50px; text-align: center;">
+    <img src="../_static/res/redcap_gui_screenshots/repeating_buttons_2.jpg" style="width: 200px;" alt="Image 1">
+    <img src="../_static/res/redcap_gui_screenshots/repeating_buttons.jpg" style="width: 200px;" alt="Image 2">
+</div><p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="formal-criteria">
+<span id="manualguide-formal-criteria"></span><h2>(1) Formal Criteria<a class="headerlink" href="#formal-criteria" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>This section contains information related to the formal criteria of
+individuals:</p>
+<ul class="simple">
+<li><p><strong>Record ID</strong>: Unique identifier for the record automatically assigned by the
+local REDCap project. It is not editable, but can be used for reference within
+your REDCap project, study, or registry.</p></li>
+<li><p><strong>1.1 - Pseudonym</strong> (<code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): Unique identifier for the individual, often used as a local
+patient-related identification code or registry ID</p></li>
+<li><p><strong>1.2 - Date of Admission</strong> (<code class="docutils literal notranslate"><span class="pre">*</span></code>): The date of admission or data
+capture. Ensure the format is YYYY-MM-DD.</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="personal-information">
+<span id="manualguide-personal-information"></span><h2>(2) Personal Information<a class="headerlink" href="#personal-information" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>This section captures personal details about the individual.</p></li>
+<li><p>Fields that are not mandatory can be left blank if the information is
+unknown or not required.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>2.1 - Date of Birth</strong> (<code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): The individual’s date of birth.
+If exact dates are not allowed to be entered, enter approximate dates in the
+format <code class="docutils literal notranslate"><span class="pre">01.MM.YYYY</span></code> or <code class="docutils literal notranslate"><span class="pre">01.01.YYYY</span></code>.</p></li>
+<li><p><strong>2.2 - Sex at Birth</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>2.5 - Country of Birth</strong>: Refer to the <a class="reference external" href="https://www.iso.org/obp/ui/#search/code/">ISO 3166 Country Codes</a> to search for the country code. Enter only the three- letter ISO
+code (e.g., <code class="docutils literal notranslate"><span class="pre">CAN</span></code>, <code class="docutils literal notranslate"><span class="pre">TUR</span></code>).</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="patient-status">
+<span id="manualguide-patient-status"></span><h2>(3) Patient Status<a class="headerlink" href="#patient-status" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>This section tracks the status of the patient over time</p></li>
+<li><p>Forms can be <strong>repeated</strong> to reflect changes over time (e.g., vital status,
+rare disease cases).</p></li>
+<li><p>For ontology-specific searches, use <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> for a smoother experience.</p></li>
+<li><p>If exact dates are unknown, enter approximate dates in the format
+<code class="docutils literal notranslate"><span class="pre">01.MM.YYYY</span></code> or <code class="docutils literal notranslate"><span class="pre">01.01.YYYY</span></code>.</p></li>
+<li><p>Fields that are not mandatory can be left blank if the information is
+unknown or not required.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>patient_status_date</strong>: <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
+<li><p><strong>3.1 - Vital Status</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>3.2 - Time of Death</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>3.5 - Length of Gestation at Birth</strong>: specify exact weeks and days in the
+format <code class="docutils literal notranslate"><span class="pre">35+6</span></code>.</p></li>
+<li><p><strong>3.6 Undiagnosed RD Case</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="care-pathway">
+<span id="manualguide-care-pathway"></span><h2>(4) Care Pathway<a class="headerlink" href="#care-pathway" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>It is a <strong>repeated</strong> form, with one encounter per form.</p></li>
+<li><p>If possible, use the dates of the encounter.</p></li>
+<li><p>In relation to the <strong>Disease sheet</strong>, you can create a comprehensive overview
+of a patient’s disease history with encounters.</p></li>
+<li><p>If the specific month or day is not known, select the 1st day of the
+month or the 1st month of the year, respectively (e.g., <code class="docutils literal notranslate"><span class="pre">01.June.2022</span></code>,
+<code class="docutils literal notranslate"><span class="pre">01.01.2014</span></code>).</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>4.1 Encounter Date</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>4.3 Encounter Status</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: mandatory to ensure alignment with the
+IPS-FHIR profiles.</p></li>
+<li><p><strong>4.4 Encounter Type</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: mandatory to ensure alignment with the IPS-FHIR
+profiles - for <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>: please select <cite>RD specialist centre</cite>!</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="disease">
+<span id="manualguide-disease"></span><h2>(5) Disease<a class="headerlink" href="#disease" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you have difficlties finding the rare disease, use the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a>
+for ontology-specific searches, for example the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies/mondo">OLS-MONDO Search</a></p>
+</div>
+<ul class="simple">
+<li><p>It is a <strong>repeated</strong> form; you can enter as many diseases as you wish with one
+disease per form</p></li>
+<li><p>If information for a specific field is not known, leave it blank.</p></li>
+<li><p>If the specific month or day is not known, select the 1st day of the
+month or the 1st month of the year (e.g., <code class="docutils literal notranslate"><span class="pre">01.June.2022</span></code>, <code class="docutils literal notranslate"><span class="pre">01.01.2014</span></code>).</p></li>
+</ul>
+<ul>
+<li><p><strong>5.1 Disease</strong> (<code class="docutils literal notranslate"><span class="pre">*</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): one ontologies can be selected for
+encoding. We recommend using <em>MONDO</em> to encode a disease.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>To link a disease to genetic variant(s) in Section <strong>6.1 Genetic Findings</strong>,
+enter the same <em>MONDO</em> or <em>OMIM_p</em> codes here. (<em>OMIM_g</em> codes refer to genes,
+while <em>OMIM_p</em> codes refer to phenotypes (see <a class="reference external" href="https://www.omim.org/">OMIM</a>).)</p></li>
+<li><p>The <strong>ICD-11</strong> is not integrated into BioPortal; use the <a class="reference external" href="https://icd.who.int/browse/2024-01/mms/en">ICD-11 Browser</a> for codes like <cite>AA10</cite>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>5.3 Age at Onset</strong> and <strong>5.5 Age at Diagnosis</strong> (<code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): select
+“prenatal” or “birth” where applicable, and always enter dates if available.</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="genetic-findings">
+<span id="manualguide-genetic-findings"></span><h2>(6.1) Genetic Findings<a class="headerlink" href="#genetic-findings" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you have difficlties finding concepts, use the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> for
+ontology-specific search!</p>
+</div>
+<ul class="simple">
+<li><p>Fields that are not mandatory can be left blank if the information is
+unknown or not required .Fill in all other fields about the variant,
+depending on the information available and your current use case. It is a
+<strong>repeated</strong> form; you can enter as many variants as needed.</p></li>
+</ul>
+<ul>
+<li><p><strong>6.1.1 Genomic Diagnosis</strong> (<code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>):</p>
+<ul class="simple">
+<li><p>To link a variant to a genetic diagnosis, select the corresponding disease,
+if applicable, also to the <strong>5.1 Disease</strong>.</p></li>
+<li><p>You can also link multiple variants to a single disease
+by repeating the form!</p></li>
+</ul>
+</li>
+<li><p><strong>6.1.2 Progress Status of interpretaion</strong>: required when creating GA4GH
+Phenopackets - You can find the exact definitions here: <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus">GA4GH ProgressStatus</a></p></li>
+<li><p><strong>6.1.3 Interpretation Status</strong>: required when creating GA4GH Phenopackets -
+you can find the exact definitions here: <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus">GA4GH InterpretationStatus</a></p></li>
+<li><p><strong>6.1.6 Genetic Mutation String</strong>: If the variant is not validated or you are
+unsure how to validate, enter all information in this field.</p></li>
+<li><p><strong>6.1.7 - 6.1.9 Variant Expression [HGVS]</strong> (<code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): Please select
+the appropriate HGVS nomenclature for the variant.</p>
+<p>&gt; <strong>If you are unsure, prioritize</strong> <code class="docutils literal notranslate"><span class="pre">c.HGVS</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Provide validated HGVS values (<a class="reference external" href="https://hgvs-nomenclature.org/stable/">HGVS Nomenclature</a>) for genomic (g.HGVS), DNA (c.HGVS), or
+protein (p.HGVS) changes.</p></li>
+<li><p>If the variant is not validated or you are unsure how to validate, enter
+all information in the <strong>6.1.6 Genetic Mutation String</strong> field.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>HGVS Validation</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Validate mutations using <a class="reference external" href="https://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>
+or <a class="reference external" href="https://varsome.com/">Varsome</a></p></li>
+<li><p>Confirm the expression with the <a class="reference external" href="https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/">HGVS Validator</a>.</p></li>
+<li><p>If the validation fails, enter the details in the <strong>6.1.6 Genetic Mutation String</strong> field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: <strong>Are you sure the entered HGVS expression was validated using
+the variant validator?</strong> - this field is mandatory to ensure the
+validation status.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p><strong>6.1.15 Therapeutic Actionability</strong>: recommended when creating GA4GH
+Phenopackets - you can find the exact definitions here: <a class="reference external" href="https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability">GA4GH TherapeuticActionability</a></p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The quality of the variant’s validated HGVS expression is crucial for the
+correct interpretation of the genetic findings and creation of GA4GH
+Phenopackets. If you are unsure about the validation, enter all information
+in the <strong>6.1.6 Genetic Mutation String</strong> field and consult a geneticist.</p>
+</div>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="phenotypic-features">
+<span id="manualguide-phenotypic-features"></span><h2>(6.2) Phenotypic Features<a class="headerlink" href="#phenotypic-features" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try to define consistent guidelines for capturing phenotypic features and
+their modifiers within your cohort to improve subsequent analyses.</p>
+</div>
+<p>This section provides details about phenotypic features:</p>
+<ul class="simple">
+<li><p>Use the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> for
+ontology-specific searches, or visit <a class="reference external" href="https://hpo.jax.org/app/">HPO</a> for
+HPO codes.</p></li>
+</ul>
+<ul>
+<li><p><strong>6.2.1 Phenotypic Feature</strong> (<code class="docutils literal notranslate"><span class="pre">*</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): It is a
+<strong>repeated</strong> form; enter as many phenotypic features as needed.</p></li>
+<li><p><strong>6.2.2 Status</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: Always enter the status as either confirmed or refuted.</p></li>
+<li><p><strong>6.2.3 Determination Date</strong>: If the specific month or day is not known for
+the determination date, select the 1st day of the month or the 1st month of
+the year (e.g., <code class="docutils literal notranslate"><span class="pre">01.June.2022</span></code>, <code class="docutils literal notranslate"><span class="pre">01.01.2014</span></code>).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Note:</strong> If possible, capture the time a characteristic was observed by
+the individual, <em>not</em> the time it was recorded.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><strong>6.2.8 Clinical Modifiers</strong>: Encode modifiers for more detailed deep phenotyping, e.g.:</dt><dd><ul class="simple">
+<li><p>subclasses of <a class="reference external" href="https://hpo.jax.org/browse/term/HP:0012823">HP:0012823 (Clinical modifier)</a>,</p></li>
+<li><p>infectious agents using NCBITAXON,</p></li>
+<li><p>or the body site using SNOMED.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>6.2.9 Evidence</strong>: as recommended by the Phenopacket Scehma, try to provide
+the evidence code for the phenotypic feature, <em>e.g. ECO:0006017 (“author
+statement from published clinical study used in manual assertion”)</em>.</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="measurements">
+<span id="manualguide-measurements"></span><h2>(6.3) Measurements<a class="headerlink" href="#measurements" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Define a set of rules for capturing measurements within a cohort to
+improve subsequent analyses.</p>
+</div>
+<ul class="simple">
+<li><p>It is a <strong>repeated</strong> form; capture information for one measurement and
+repeat as many times as necessary. - Fields that are not mandatory can be left
+blank if the information is unknown or not required.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>6.3.0 Category</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: mandatory to ensure alignment with the IPS-FHIR profiles.</p></li>
+<li><p><strong>6.3.1 Assay</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: encoded with LOINC codes. Use the <a class="reference external" href="https://loinc.org/search/">LOINC Search</a>
+to find the correct code if you cannot find it in the embedded search.</p></li>
+<li><p><strong>6.3.2 Value</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: must be a value two digit decimal number.</p></li>
+<li><p><strong>6.3.3 Value Unit</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: encoded with the Units of measurement ontology (UO)
+codes. Use the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies/uo">OLS-UO Search</a> to
+find the correct code if you cannot find it in the embedded search.</p></li>
+<li><p><strong>6.3.4 Interpretation</strong>: NCIT encoded interpretation of the measurement. Try
+remain consistent with the interpretation codes used in your cohort,
+for example using the concepts <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies/ncit/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C78800">Above Refernce Range</a>
+or <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies/ncit/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C78801?lang=en">Below Reference Range</a>.</p></li>
+<li><p><strong>6.3.5 Time Observed</strong>: <code class="docutils literal notranslate"><span class="pre">*</span></code>: mandatory to ensure alignment with the IPS-FHIR profiles.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> for
+ontology-specific searches if you cannot find the concepts you are looking for.</p>
+</div>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="family-history">
+<span id="manualguide-family-history"></span><h2>(6.4) Family History<a class="headerlink" href="#family-history" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Repeated Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>It is a <strong>repeated</strong> form; capture information for one family member per
+sheet. Fields that are not mandatory can be left blank if the information is
+unknown or not required.</p></li>
+<li><p>Use the <a class="reference external" href="https://www.ebi.ac.uk/ols4/ontologies">OLS Platform</a> for
+ontology-specific searches.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>6.4.0 Pseudonym</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: The pseudonym assigned to the family member must be
+entered.</p></li>
+<li><p><strong>6.4.4 Family Member Relationship</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: the relationship of the family
+member to the individual captured - mandatory to ensure alignment with the
+IPS-FHIR profiles.</p></li>
+<li><p><strong>6.4.5 Family Member Record Status</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: the record’s status - mandatory
+to ensure alignment with the IPS-FHIR profiles.</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="consent">
+<span id="manualguide-consent"></span><h2>(7) Consent<a class="headerlink" href="#consent" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>This section captures consent-specific data:</p>
+<ul class="simple">
+<li><p>Specify consent details for registry use.</p></li>
+<li><p>The fields marked with <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code> are required for the European Registry
+Registration.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>7.1 Consent Status</strong>: <code class="docutils literal notranslate"><span class="pre">*`</span></code></p></li>
+<li><p><strong>7.3 Health Policy Monitoring</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code>: if unsure, you can enter any string
+that indicates an unknown status for this field.</p></li>
+<li><p><strong>7.4 Agreement to be contacted for research purposes</strong>: <code class="docutils literal notranslate"><span class="pre">*</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>7.5 Consent to the reuse of data</strong>: <code class="docutils literal notranslate"><span class="pre">*</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>7.6 Biological sample</strong> : <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+<li><p><strong>7.7 Link to a biobank</strong> (<code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code>): If applicable, provide a link to
+the BioBank, if applicable.</p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+<section id="disability">
+<span id="manualguide-disability"></span><h2>(8) Disability<a class="headerlink" href="#disability" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Single-Entry Form</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>This section provides details about disabilities:</p>
+<ul class="simple">
+<li><p>Enter the disability code from the ICF (International Classification of
+Functioning, Disability, and Health).</p></li>
+<li><p>Ensure the data corresponds to the date of admission or data entry.</p></li>
+<li><p><strong>8.1 Disability</strong>: <code class="docutils literal notranslate"><span class="pre">ERDRI-CDS</span></code></p></li>
+</ul>
+<p>Return to <a class="reference external" href="#top">top</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../3_installation/3_4_redcap_api.html" class="btn btn-neutral float-left" title="Set up the REDCap API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_2_import_mapper.html" class="btn btn-neutral float-right" title="Semi-Automatic Import" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

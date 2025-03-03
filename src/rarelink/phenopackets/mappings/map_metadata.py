@@ -2,7 +2,7 @@ from phenopackets import MetaData, Resource
 from datetime import datetime
 import dataclasses
 from rarelink.utils.processing.dates.timestamp import date_to_timestamp
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer, CodeSystem
+from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
 
 def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaData:
     """
@@ -25,12 +25,12 @@ def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaDat
     resources = []
     for field in dataclasses.fields(CodeSystemsContainer):
         value = getattr(code_systems, field.name, None)
-
-        if not value or not isinstance(value, CodeSystem):
+        # Skip if value is None or doesn't have a 'name' attribute
+        if not value or not hasattr(value, "name"):
             continue
 
         resource = Resource(
-            id=field.name.lower(), 
+            id=field.name.lower(),
             name=value.name,
             url=value.url,
             version=value.version,
@@ -38,7 +38,7 @@ def map_metadata(created_by: str, code_systems: CodeSystemsContainer) -> MetaDat
             iri_prefix=value.iri_prefix,
         )
         resources.append(resource)
-
+        
     # Create MetaData block
     # --------------------------------------------------------------------------
     return MetaData(

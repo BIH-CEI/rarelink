@@ -4,7 +4,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   rarelink: https://github.com/BIH-CEI/rarelink/
   HL7FHIR: http://hl7.org/fhir/
-  SNOMED: http://snomed.info/sct/
+  SNOMEDCT: http://snomed.info/sct/
 imports:
   - linkml:types
   - rarelink_types
@@ -26,6 +26,7 @@ classes:
 
 slots:
   hl7fhir_enc_period_start:
+    title: 4.1 Encounter Start
     description: >
       The beginning of an encounter of the individual. If the specific month or 
       day is not known, select the 1st day of the month or the 1st month of the year.
@@ -33,6 +34,7 @@ slots:
     required: false
 
   hl7fhir_enc_period_end:
+    title: 4.2 Encounter End
     description: >
       The end of an encounter of the individual. If the specific month or 
       day is not known, select the 1st day of the month or the 1st month of the year.
@@ -40,12 +42,14 @@ slots:
     required: false
 
   snomedct_305058001:
+    title: 4.3 Encounter Status
     description: >
       The status of an encounter of the individual at the time of data capture.
     range: EncounterStatus
     required: true
 
   hl7fhir_encounter_class:
+    title: 4.4 Encounter Class
     description: >
       The class of an encounter of the individual at the time of data capture.
     range: EncounterClass
@@ -112,4 +116,4 @@ enums:
         meaning: rarelink:rdc
       snomedct_261665006:
         description: Unknown
-        meaning: SNOMED:261665006
+        meaning: SNOMEDCT:261665006

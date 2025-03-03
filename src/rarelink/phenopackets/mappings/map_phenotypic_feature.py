@@ -1,21 +1,23 @@
 import logging
-from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence
+from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence, Age
 from rarelink.utils.processor import DataProcessor
-from google.protobuf.timestamp_pb2 import Timestamp
 
 logger = logging.getLogger(__name__)
 
 def map_phenotypic_features(
     data: dict, 
-    processor: DataProcessor) -> list:
+    processor: DataProcessor,
+    dob: str 
+) -> list:
     """
-    Maps phenotype data to the Phenopacket schema Disease block fetching the 
-    data elements from the repeated elements in the input data.
-
+    Maps phenotype data to the Phenopacket schema PhenotypicFeature block,
+    now utilizing the individual's date of birth to calculate ISO age.
+    
     Args:
         data (dict): Input data from the RareLink-CDM schema (or similar).
         processor (DataProcessor): Handles all data processing logic.
-
+        dob (str): The individual's date of birth (ISO8601 string).
+    
     Returns:
         list: A list of Phenopacket PhenotypicFeature blocks.
     """
@@ -67,8 +69,8 @@ def map_phenotypic_features(
                 else:
                     excluded = None
             
-            # PhenotypicFeature.onset ( -> prefer date over category)
-            # ------------------------------------------------------------------
+            # PhenotypicFeature.onset (-> prefer onset.date[IsoAge] over onset.category)
+            # ------------------------------------------------------------------------
             onset_date= phenotypic_feature_data.get(
                 processor.mapping_config["onset_date_field"])
             onset_age_field = phenotypic_feature_data.get(
@@ -77,15 +79,21 @@ def map_phenotypic_features(
             
             if onset_date:
                 try:
-                    timestamp = processor.process_date(onset_date)
-                    if isinstance(timestamp, Timestamp):
-                        onset = TimeElement(timestamp=timestamp)
+                    # First, process the date to ensure it’s a valid ISO8601 date string.
+                    _ = processor.process_date(onset_date)
+                    
+                    # convert to Iso Date Time
+                    if not isinstance(dob, str):
+                        dob_str = dob.ToDatetime().isoformat()
                     else:
-                        raise TypeError(
-                            "Processed date is not a Timestamp object.")
+                        dob_str = dob
+                    # convert to ISO8601duration Age 
+                    iso_age = processor.convert_date_to_iso_age(onset_date, dob_str)
+                    
+                    onset = TimeElement(age=Age(iso8601duration=iso_age))
                 except Exception as e:
-                    logger.error(f"Error processing onset date: {e}")
-            
+                    logger.error(f"Error processing onset date for ISO age: {e}")
+                                
             if not onset and onset_age_field:
                 try:
                     onset_label = processor.fetch_label(
@@ -100,23 +108,30 @@ def map_phenotypic_features(
                         )
                 except Exception as e:
                     logger.error(f"Error processing onset age: {e}")
+
                     
             # PhenotypicFeature.resolution
             # ------------------------------------------------------------------
             resolution = None
             resolution_field = phenotypic_feature_data.get(
                 processor.mapping_config["resolution_field"])
-            if resolution_field: 
+            if resolution_field:
                 try:
-                    resolution_timestamp = processor.process_date(
-                                                        resolution_field)
-                    if isinstance(resolution_timestamp, Timestamp):
-                        resolution = TimeElement(timestamp=resolution_timestamp)
+                    # Optionally, validate the resolution_field date
+                    _ = processor.process_date(resolution_field)
+                    
+                    # Ensure dob is an ISO8601 string
+                    if not isinstance(dob, str):
+                        dob_str = dob.ToDatetime().isoformat()
                     else:
-                        raise TypeError(
-                            "Processed date is not a Timestamp object.")
+                        dob_str = dob
+
+                    # Calculate the ISO8601 duration for resolution using only years and months.
+                    iso_age = processor.convert_date_to_iso_age(resolution_field, dob_str)
+                    resolution = TimeElement(age=Age(iso8601duration=iso_age))
                 except Exception as e:
-                    logger.error(f"Error processing resolution date: {e}")
+                    logger.error(f"Error processing resolution date for ISO age: {e}")
+
 
             # PhenotypicFeature.severity
             # ------------------------------------------------------------------

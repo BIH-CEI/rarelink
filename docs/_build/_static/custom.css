@@ -1,0 +1,56 @@
+.list-table {
+    max-width: 100px; /* Adjust as needed */
+    width: 50%;      /* Make it responsive */
+}
+
+/* Adjust the logo size and alignment */
+/* .wy-side-nav-search {
+    background-image: url("../res/RareLink SpinxDocs Logo.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding-top: 100px; /* Adjust as needed to ensure no overlap */
+/* } */ */
+
+.logo {
+    max-width: 50px; /* Set the maximum width (adjust as needed) */
+    height: 50px;     /* Maintain the aspect ratio */
+    margin: 50px;   /* Center the logo if necessary */
+    display: 50px;   /* Ensures proper centering and layout */
+}
+
+.wy-menu a[href*="background.html"] {
+    display: none;
+}
+
+/* Prevent unnecessary scrolling by restricting parent container height */
+.wy-side-nav-search {
+    padding-top: 0;
+    scroll-behavior: auto; /* Remove unnecessary padding */
+}
+
+.wy-nav-side {
+    margin-top: 0; /* Remove unnecessary margins */
+    overflow: hidden; /* Prevent extra scrolling */
+}
+
+.rst-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+/* Control the overall layout to remove extra space */
+body {
+    overflow-y: auto; /* Ensure vertical scrolling only when needed */
+}
+
+
+.literal-custom {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #007ACC;           /* Dark blue text color */
+    font-weight: bold;        /* Bold text */
+    padding: 2px 4px;         /* Padding for better readability */
+    border-radius: 3px;       /* Rounded corners */
+    font-family: "Courier New", Courier, monospace; /* Monospace font */
+}
+

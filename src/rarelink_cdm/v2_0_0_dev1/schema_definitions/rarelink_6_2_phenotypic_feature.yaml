@@ -29,85 +29,98 @@ classes:
       - hp_0012823_hp2
       - hp_0012823_hp3
       - hp_0012823_ncbitaxon
-      - hp_0012823_snomed
+      - hp_0012823_snomedct
       - phenotypicfeature_evidence
       - rarelink_6_2_phenotypic_feature_complete
 
 slots:
   snomedct_8116006:
+    title: 6.2.1 Phenotypic Feature
     description: >
       An observed physical and clinical characteristic encoded with HPO.
     range: string
     required: true
 
   snomedct_363778006:
+    title: 6.2.2 Phenotypic Feature Status
     description: >
       The current status of the phenotypic feature, indicating whether it is confirmed or refuted.
     range: PhenotypicFeatureStatus
     required: false
 
   snomedct_8116006_onset:
+    title: 6.2.3 Determination Date
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
-    range: untion_date_string
+    range: date
     required: false
 
   snomedct_8116006_resolut:
+    title: 6.2.4 Resolution Date
     description: >
       Time at which the feature resolved or abated.
     range: union_date_string
     required: false
 
   hp_0003674:
+    title: 6.2.5 Age of Onset
     description: >
       The age of onset of the phenotypic feature, encoded with HPO.
     range: AgeOfOnset
     required: false
 
   hp_0011008:
+    title: 6.2.6 Temporal Pattern
     description: >
       The temporal pattern of the phenotypic feature, encoded with HPO.
     range: TemporalPattern
     required: false
 
   hp_0012824:
+    title: 6.2.7 Phenotype Severity
     description: >
       The severity of the phenotypic feature, encoded with HPO.
     range: PhenotypeSeverity
     required: false
 
   hp_0012823_hp1:
+    title: 6.2.8A Clinical Modifier [HP]
     description: >
       Further clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
   hp_0012823_hp2:
+    title: 6.2.8B Clinical Modifier [HP]
     description: >
       Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
   hp_0012823_hp3:
+    title: 6.2.8C Clinical Modifier [HP]
     description: >
       Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
     range: string
     required: false
 
   hp_0012823_ncbitaxon:
+    title: 6.2.8D Causing Organism [NCBITaxon]
     description: >
       The causing organism, if applicable, encoded with NCBITaxon.
     range: string
     required: false
 
-  hp_0012823_snomed:
+  hp_0012823_snomedct:
+    title: 6.2.8E Primary Body Site
     description: >
       The primary body site affected by the phenotypic feature, encoded with SNOMED.
     range: string
     required: false
 
   phenotypicfeature_evidence:
+    title: 6.2.9 Evidence for the phenotype [ECO]
     description: >
       The evidence for an assertion of the observation of a type, defined within the
       Evidence & Conclusion Ontology (ECO).

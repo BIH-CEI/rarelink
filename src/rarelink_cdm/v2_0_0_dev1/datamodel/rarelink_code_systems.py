@@ -1,5 +1,5 @@
 # Auto generated from rarelink_code_systems.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T23:56:16
+# Generation date: 2025-03-02T17:05:11
 # Schema: code_systems_data
 #
 # id: https://github.com/BIH-CEI/RareLink/code_systems_data
@@ -9,20 +9,17 @@
 import dataclasses
 from dataclasses import dataclass
 from typing import (
-    Any,
     ClassVar,
-    Dict,
     List,
-    Optional,
     Union
 )
-from linkml_runtime.linkml_model.meta import EnumDefinition
+
+from linkml_runtime.linkml_model.meta import (
+    EnumDefinition
+)
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from linkml_runtime.utils.metamodelcore import (
-    empty_list
-)
 from linkml_runtime.utils.slot import Slot
 from linkml_runtime.utils.yamlutils import (
     YAMLRoot
@@ -57,6 +54,8 @@ class UnionDateString(String):
 
 # Class references
 
+
+
 @dataclass(repr=False)
 class CodeSystemsContainer(YAMLRoot):
     """
@@ -70,9 +69,9 @@ class CodeSystemsContainer(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = RARELINK.CodeSystemsContainer
 
     ncbi_taxon: Union[str, "NCBITaxon"] = None
-    snomed: Union[str, "SNOMED"] = None
+    SNOMEDCT: Union[str, "SNOMEDCT"] = None
     mondo: Union[str, "MONDO"] = None
-    hpo: Union[str, "HPO"] = None
+    hpo: Union[str, "HP"] = None
     loinc: Union[str, "LOINC"] = None
     omim: Union[str, "OMIM"] = None
     orpha: Union[str, "ORPHA"] = None
@@ -87,58 +86,8 @@ class CodeSystemsContainer(YAMLRoot):
     icd10gm: Union[str, "ICD10GM"] = None
     so: Union[str, "SO"] = None
     geno: Union[str, "GENO"] = None
-    icd9: Union[str, "ICD9"] = None
     iso3166: Union[str, "ISO3166"] = None
     icf: Union[str, "ICF"] = None
-
-@dataclass(repr=False)
-class CodeSystem(YAMLRoot):
-    """
-    A class that represents a CodeSystem, including metadata such as name, prefix, URL, version, and synonyms. This is
-    reusable across schemas that involve code system definitions.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = RARELINK["CodeSystem"]
-    class_class_curie: ClassVar[str] = "rarelink:CodeSystem"
-    class_name: ClassVar[str] = "CodeSystem"
-    class_model_uri: ClassVar[URIRef] = RARELINK.CodeSystem
-
-    name: str = None
-    prefix: str = None
-    version: str = None
-    url: Optional[str] = None
-    iri_prefix: Optional[str] = None
-    synonyms: Optional[Union[str, List[str]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self._is_empty(self.prefix):
-            self.MissingRequiredField("prefix")
-        if not isinstance(self.prefix, str):
-            self.prefix = str(self.prefix)
-
-        if self._is_empty(self.version):
-            self.MissingRequiredField("version")
-        if not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        if self.url is not None and not isinstance(self.url, str):
-            self.url = str(self.url)
-
-        if self.iri_prefix is not None and not isinstance(self.iri_prefix, str):
-            self.iri_prefix = str(self.iri_prefix)
-
-        if not isinstance(self.synonyms, list):
-            self.synonyms = [self.synonyms] if self.synonyms is not None else []
-        self.synonyms = [v if isinstance(v, str) else str(v) for v in self.synonyms]
-
-        super().__post_init__(**kwargs)
-
 
 # Enumerations
 class NCBITaxon(EnumDefinitionImpl):
@@ -151,12 +100,12 @@ class NCBITaxon(EnumDefinitionImpl):
         code_set_version="2024-07-03",
     )
 
-class SNOMED(EnumDefinitionImpl):
+class SNOMEDCT(EnumDefinitionImpl):
     """
     SNOMED CT
     """
     _defn = EnumDefinition(
-        name="SNOMED",
+        name="SNOMEDCT",
         description="SNOMED CT",
         code_set_version="2024-09-01",
     )
@@ -171,12 +120,12 @@ class MONDO(EnumDefinitionImpl):
         code_set_version="2024-09-03",
     )
 
-class HPO(EnumDefinitionImpl):
+class HP(EnumDefinitionImpl):
     """
     Human Phenotype Ontology
     """
     _defn = EnumDefinition(
-        name="HPO",
+        name="HP",
         description="Human Phenotype Ontology",
         code_set_version="2024-08-13",
     )
@@ -321,16 +270,6 @@ class GENO(EnumDefinitionImpl):
         code_set_version="2023-10-08",
     )
 
-class ICD9(EnumDefinitionImpl):
-    """
-    International Classification of Diseases, Ninth Revision
-    """
-    _defn = EnumDefinition(
-        name="ICD9",
-        description="International Classification of Diseases, Ninth Revision",
-        code_set_version="2024-09-01",
-    )
-
 class ISO3166(EnumDefinitionImpl):
     """
     ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
@@ -355,35 +294,17 @@ class ICF(EnumDefinitionImpl):
 class slots:
     pass
 
-slots.name = Slot(uri=RARELINK.name, name="name", curie=RARELINK.curie('name'),
-                   model_uri=RARELINK.name, domain=None, range=str)
-
-slots.prefix = Slot(uri=RARELINK.prefix, name="prefix", curie=RARELINK.curie('prefix'),
-                   model_uri=RARELINK.prefix, domain=None, range=str)
-
-slots.url = Slot(uri=RARELINK.url, name="url", curie=RARELINK.curie('url'),
-                   model_uri=RARELINK.url, domain=None, range=Optional[str])
-
-slots.version = Slot(uri=RARELINK.version, name="version", curie=RARELINK.curie('version'),
-                   model_uri=RARELINK.version, domain=None, range=str)
-
-slots.iri_prefix = Slot(uri=RARELINK.iri_prefix, name="iri_prefix", curie=RARELINK.curie('iri_prefix'),
-                   model_uri=RARELINK.iri_prefix, domain=None, range=Optional[str])
-
-slots.synonyms = Slot(uri=RARELINK.synonyms, name="synonyms", curie=RARELINK.curie('synonyms'),
-                   model_uri=RARELINK.synonyms, domain=None, range=Optional[Union[str, List[str]]])
-
 slots.codeSystemsContainer__ncbi_taxon = Slot(uri=RARELINK.ncbi_taxon, name="codeSystemsContainer__ncbi_taxon", curie=RARELINK.curie('ncbi_taxon'),
                    model_uri=RARELINK.codeSystemsContainer__ncbi_taxon, domain=None, range=Union[str, "NCBITaxon"])
 
-slots.codeSystemsContainer__snomed = Slot(uri=RARELINK.snomed, name="codeSystemsContainer__snomed", curie=RARELINK.curie('snomed'),
-                   model_uri=RARELINK.codeSystemsContainer__snomed, domain=None, range=Union[str, "SNOMED"])
+slots.codeSystemsContainer__SNOMEDCT = Slot(uri=RARELINK.SNOMEDCT, name="codeSystemsContainer__SNOMEDCT", curie=RARELINK.curie('SNOMEDCT'),
+                   model_uri=RARELINK.codeSystemsContainer__SNOMEDCT, domain=None, range=Union[str, "SNOMEDCT"])
 
 slots.codeSystemsContainer__mondo = Slot(uri=RARELINK.mondo, name="codeSystemsContainer__mondo", curie=RARELINK.curie('mondo'),
                    model_uri=RARELINK.codeSystemsContainer__mondo, domain=None, range=Union[str, "MONDO"])
 
 slots.codeSystemsContainer__hpo = Slot(uri=RARELINK.hpo, name="codeSystemsContainer__hpo", curie=RARELINK.curie('hpo'),
-                   model_uri=RARELINK.codeSystemsContainer__hpo, domain=None, range=Union[str, "HPO"])
+                   model_uri=RARELINK.codeSystemsContainer__hpo, domain=None, range=Union[str, "HP"])
 
 slots.codeSystemsContainer__loinc = Slot(uri=RARELINK.loinc, name="codeSystemsContainer__loinc", curie=RARELINK.curie('loinc'),
                    model_uri=RARELINK.codeSystemsContainer__loinc, domain=None, range=Union[str, "LOINC"])
@@ -426,9 +347,6 @@ slots.codeSystemsContainer__so = Slot(uri=RARELINK.so, name="codeSystemsContaine
 
 slots.codeSystemsContainer__geno = Slot(uri=RARELINK.geno, name="codeSystemsContainer__geno", curie=RARELINK.curie('geno'),
                    model_uri=RARELINK.codeSystemsContainer__geno, domain=None, range=Union[str, "GENO"])
-
-slots.codeSystemsContainer__icd9 = Slot(uri=RARELINK.icd9, name="codeSystemsContainer__icd9", curie=RARELINK.curie('icd9'),
-                   model_uri=RARELINK.codeSystemsContainer__icd9, domain=None, range=Union[str, "ICD9"])
 
 slots.codeSystemsContainer__iso3166 = Slot(uri=RARELINK.iso3166, name="codeSystemsContainer__iso3166", curie=RARELINK.curie('iso3166'),
                    model_uri=RARELINK.codeSystemsContainer__iso3166, domain=None, range=Union[str, "ISO3166"])

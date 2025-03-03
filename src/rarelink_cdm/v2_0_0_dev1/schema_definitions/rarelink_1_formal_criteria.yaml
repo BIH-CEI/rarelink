@@ -18,12 +18,14 @@ classes:
 
 slots:
   snomedct_422549004:
+    title: 1.1 Pseudonym
     description: The (local) patient-related identification code
     range: string
     required: true
     identifier: true
 
   snomedct_399423000:
+    title: 1.2 Date of admission
     description: The date of admission or data capture of the individual
     range: date
     required: true

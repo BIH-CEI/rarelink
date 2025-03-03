@@ -1,4 +1,13 @@
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer, CodeSystem
+from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
+from dataclasses import dataclass
+
+@dataclass
+class CodeSystem:
+    name: str
+    prefix: str
+    version: str
+    url: str
+    iri_prefix: str
 
 # Define the CodeSystemsContainer with all code systems
 RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
@@ -86,7 +95,7 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
         url="https://www.ga4gh.org/",
         iri_prefix="https://www.ga4gh.org/"
     ),
-    snomed=CodeSystem(
+    SNOMEDCT=CodeSystem(
         name="Systematized Medical Nomenclature for Medicine–Clinical Terminology",
         prefix="SNOMEDCT",
         version="2024-09-01",

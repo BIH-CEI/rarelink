@@ -27,6 +27,7 @@ classes:
       - ga4gh_progress_status
       - ga4gh_interp_status
       - loinc_81304_8
+      - loinc_81304_8_other
       - loinc_62374_4
       - loinc_lp7824_8
       - variant_expression
@@ -47,112 +48,140 @@ classes:
 
 slots:
   genetic_diagnosis_code:
+    title: 6.1.0 Genetic Diagnosis Code System
     description: The encoding system used for the genetic diagnosis (e.g., MONDO, OMIM)
     range: string
     required: true
 
   snomedct_106221001_mondo:
-    description: Genomic diagnosis code using MONDO
+    title: 6.1.1 Genetic Diagnosis [MONDO]
+    description: The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.
     range: string
     required: false
 
   snomedct_106221001_omim_p:
-    description: Genomic diagnosis code using OMIM_p
+    title: 6.1.1 Genetic Diagnosis [OMIM_p]
+    description: The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.
     range: string
     required: false
 
   ga4gh_progress_status:
-    description: Progress status of the interpretation
+    title: 6.1.2 Progress Status of Interpretation
+    description: ​​The interpretation has a ProgressStatus that refers to the status of the attempted diagnosis.
     range: InterpretationProgressStatus
     required: false
 
   ga4gh_interp_status:
-    description: Interpretation status
+    title: 6.1.3 Interpretation Status
+    description: An enumeration that describes the conclusion made about the genomic interpretation.
     range: InterpretationStatus
     required: false
 
   loinc_81304_8:
-    description: Structural variant analysis method
+    title: 6.1.4 Structural Variant Analysis Method
+    description: The method used to analyse structural variants in the genome.
     range: StructuralVariantMethod
     required: false
 
+  loinc_81304_8_other:
+    title: 6.1.4 Structural Variant Analysis Method - Other [LOINC]
+    description: Please search for a different structural variant analysis method in LOINC.
+    range: string
+    required: false
+
   loinc_62374_4:
-    description: Reference genome used for analysis
+    title: 6.1.5 Reference Genome
+    description: The reference genome used for analysing the genetic variant.
     range: ReferenceGenome
     required: false
 
   loinc_lp7824_8:
-    description: Genetic mutation string (HGVS)
+    title: 6.1.6 Genetic Mutation String
+    description: An unvalidated (HGVS) string that describes the variant change.
     range: string
     required: false
 
   variant_expression:
-    description: Type of validated HGVS expression
+    title: Validated HGVS Variant Expression Type
+    description: We recommend using sequence DNA change expressions (c.HGVS) if possible.
     range: VariantExpressionType
     required: false
 
   loinc_81290_9:
-    description: Genomic DNA change using g.HGVS
+    title: 6.1.7 Genomic DNA Change [g.HGVS]
+    description: The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression.
     range: string
     required: false
 
   loinc_48004_6:
-    description: Sequence DNA change using c.HGVS
+    title: 6.1.8 Sequence DNA Change [c.HGVS]
+    description: The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression
     range: string
     required: false
 
   loinc_48005_3:
-    description: Amino acid change using p.HGVS
+    title: 6.1.9 Amino Acid Change [p.HGVS]
+    description: The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression
     range: string
     required: false
 
   variant_validation:
-    description: Whether the HGVS expression was validated
-    range: Boolean
+    title: HGVS Validation Confirmation 
+    description: Are you sure the entered HGVS expression was validated using the variant validator?
+    range: boolean
     required: false
 
   loinc_48018_6:
-    description: Gene identifier (HGNC-NR)
+    title: 6.1.10 Gene [HGNC-NR]
+    description: The specific gene or genes that were analysed or identified in the study.
     range: string
     required: false
 
   loinc_53034_5:
-    description: Zygosity of the genetic variant
+    title: 6.1.11 Zygosity
+    description: The zygosity of the genetic variant.
     range: Zygosity
     required: false
 
   loinc_53034_5_other:
-    description: Zygosity (Other)
+    title: 6.1.11A Zygosity - Other [LOINC]
+    description: Please search for a different zygosity in LOINC.
     range: string
     required: false
 
   loinc_48002_0:
-    description: Genomic source class
+    title: 6.1.12 Genomic Source Class
+    description: The classification of the genomic source, such as germline, somatic, or other origins.
     range: GenomicSourceClass
     required: false
 
   loinc_48019_4:
-    description: DNA change type
+    title: 6.1.13 DNA Change Type
+    description: The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.
     range: DNAChangeType
     required: false
 
   loinc_48019_4_other:
-    description: DNA change type (Other)
+    title: 6.1.13A DNA Change Type - Other [LOINC]
+    description: Please search for a different DNA change typ in LOINC.
     range: string
     required: false
 
   loinc_53037_8:
-    description: Clinical significance (ACMG)
+    title: 6.1.14 Clinical Significance [ACMG]
+    description: The clinical significance of the genetic variant, indicating its impact on health and disease.
     range: ClinicalSignificance
     required: false
 
   ga4gh_therap_action:
-    description: Therapeutic actionability of the variant
+    title: 6.1.15 Therapeutic Actionability
+    description: An enumeration flagging the variant as being a candidate for treatment/ clinical intervention of the disorder caused by this variant, which could improve the clinical outcome.
     range: TherapeuticActionability
     required: false
 
   loinc_93044_6:
-    description: Clinical annotation level of evidence
+    title: 6.1.16 Clinical Annotation Level Of Evidence
+    description: The level of evidence supporting the clinical annotation of the genetic variant.
     range: LevelOfEvidence
     required: false
 

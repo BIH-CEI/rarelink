@@ -48,7 +48,7 @@ def export():
     except Exception as e:
         typer.secho(
             error_text(f"❌ Validation of .env file failed: {str(e)}. "
-                       f"Please run {format_command('rarelink setup api-keys')} "
+                       f"Please run {format_command('rarelink setup keys')} "
                        "to configure the required keys."),
             fg=typer.colors.RED,
         )
