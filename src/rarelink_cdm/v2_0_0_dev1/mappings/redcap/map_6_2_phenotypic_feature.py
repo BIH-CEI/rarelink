@@ -24,7 +24,7 @@ FIELD_MAPPINGS = {
     "hp_0012823_hp2": "hp_0012823_hp2",
     "hp_0012823_hp3": "hp_0012823_hp3",
     "hp_0012823_ncbitaxon": "hp_0012823_ncbitaxon",
-    "hp_0012823_snomed": "hp_0012823_snomed",
+    "hp_0012823_snomedct": "hp_0012823_snomedct",
     "phenotypicfeature_evidence": "phenotypicfeature_evidence",
     "rarelink_6_2_phenotypic_feature_complete": "rarelink_6_2_phenotypic_feature_complete",
 }
@@ -32,7 +32,7 @@ FIELD_MAPPINGS = {
 # Additional processing for prefix additions.
 ADDITIONAL_PROCESSING = {
     "hp_0012823_ncbitaxon": lambda x: add_prefix_to_code(x, "NCBITAXON"),
-    "hp_0012823_snomed": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "hp_0012823_snomedct": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
 }
 
 def map_phenotypic_feature(entry):

@@ -53,7 +53,7 @@ slots:
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
-    range: date
+    range: union_date_string
     required: false
 
   snomedct_8116006_resolut:

@@ -75,7 +75,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup --help
+    rarelink setup --help
 
 - guided project setup, documentation links, admin instructions
 

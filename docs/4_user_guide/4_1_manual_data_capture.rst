@@ -112,6 +112,18 @@ history. You can repeat these forms to reflect changes over time.
    </div>
 
 
+.. important:: 
+  
+  When creating a record, the minimal fields that must to be filled in are: 
+
+  - 1.1 Psuedonym
+  - 1.2 Date of Admission
+  - 2.1 Date (or Year) of Birth
+  - 7.1 Consent Status
+
+  ... please find below more information about the fields.
+
+
 Return to `top <#top>`_.
 
 _________________________________________________________________________________
