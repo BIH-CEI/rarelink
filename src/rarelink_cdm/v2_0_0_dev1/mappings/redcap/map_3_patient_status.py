@@ -9,7 +9,7 @@ for Boolean conversions and prefix additions.
 """
 
 from rarelink.utils.mapping import map_entry
-from rarelink.utils.processing.codes import add_prefix_to_code
+from rarelink.utils.processing.codes import add_prefix_to_code, convert_to_boolean
 
 # Metadata for the schema
 IS_REPEATING = True  # Mark as repeating schema
@@ -27,6 +27,8 @@ FIELD_MAPPINGS = {
 
 ADDITIONAL_PROCESSING = {
     "snomedct_184305005": lambda x: add_prefix_to_code(x, "ICD10CM"),
+    "snomedct_723663001": lambda x: convert_to_boolean(x, 
+                {"snomedct_373066001": True, "snomedct_373067005": False})
 }
 
 def map_patient_status(entry):

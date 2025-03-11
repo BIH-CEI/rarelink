@@ -104,6 +104,9 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
             success_text("✅ Validation successful!")
         else:
             error_text(f"❌ Validation failed for {processed_file}")
+            hint_text(
+                f"👉 Run {format_command('linkml-validate --schema <path_to:rarelink_cdm/v_2_0_0_dev1_schema_definitions/rarelink_cdm.yaml> <path_to_processed_linkml_data.json>')}"
+                f" to see the detailed validation errors.")
         
         # hint for hgvs validation
         hint_text(
