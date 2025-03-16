@@ -74,12 +74,24 @@ documentation = "https://rarelink.readthedocs.io/en/latest/"
 bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [tool.setuptools]
-# Use find-packages instead of listing packages manually
 package-dir = { "" = "src" }
-
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["rarelink*"]  # Include all rarelink packages and subpackages
+packages = [
+    "rarelink",
+    "rarelink.cli",
+    "rarelink.cli.utils",
+    "rarelink.utils",
+    "rarelink.utils.processor",
+    "rarelink.utils.processing",
+    "rarelink.utils.processing.codes",
+    "rarelink.utils.processing.dates",
+    "rarelink.utils.processing.schemas",
+    "rarelink.utils.loading",
+    "rarelink.utils.mapping",
+    "rarelink.utils.validation",
+    "rarelink.phenopackets",
+    "rarelink.phenopackets.mappings",
+    "rarelink.tofhir"
+]
 
 [tool.setuptools.dynamic]
 version = { attr = "rarelink.__version__" }
