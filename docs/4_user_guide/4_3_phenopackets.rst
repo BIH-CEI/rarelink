@@ -189,40 +189,138 @@ you can follow these steps:
 2. (OPTIONAL): Convert your REDCap data model to a :ref:`LinkML schema <rarelink_cdm_linkml>`. 
    This can be done by following the instructions in the :ref:`2_2` section.
 
-3. Convert your REDCap data model using the ``redcap_to_linkml`` function you 
-   in the RareLink Utils. This will convert your REDCap data to a
-   JSON schema that handles repeating elements more inherently. This allows
-   the ``mappings`` to handle repeating elements and Phenopacket Blocks.
+3. Convert your REDCap data model using the ``redcap_to_linkml`` function. This will convert 
+   your REDCap data to a JSON schema that handles repeating elements more inherently.
 
-4. Write the specific mappings from your REDCap data model to the Phenopacket
-   schema, using the templates for the mappings below (:ref:`phenopacket-mappings`).
+4. Create mapping configurations for your data model.
 
-5. Develop label dictionaries for all value sets of your data model, 
-   mapping codes to human-readable labels (best to use the ontologie's 
-   `preferred label`) . Use the templates for the label dictionaries below (
-   :ref:`label-dicts`). This will allow the ``DataProcessor`` class to fetch 
-   the labels for the codes in your data model using the ``fetch_label`` method.
-   
-   - For REDCap fields that are connected to BIOPORTAL directly, the label will
-     be automatically fetched via the BIOPORTAL API.  
+Mapping Configuration for Custom Data Models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6. Develop mapping dictionaries for your data model, mapping codes to 
-   standardized terms or enums. Use the templates for the mapping dictionaries 
-   below (:ref:`mapping-dicts`).
+To create a custom mapping configuration, develop a Python file with a 
+``create_phenopacket_mappings()`` function. Here's an example structure:
 
-7. Use the mappings in the ``mappings`` folder of the RareLink-Phenopacket
-   module as a template to adapt the mappings to other Phenopacket blocks or 
-   extensions in your model.
+.. code-block:: python
 
-8. Adapt the ``create`` function to your needs, if necessary extending it with
-   the relevant Phenopacket blocks and elements and importing your additional 
-   mapping dictionaries.
+    def create_phenopacket_mappings():
+        """
+        Create a comprehensive mapping configuration for Phenopacket creation.
 
-9. Run the Phenopacket pipleine by running: 
+        Returns:
+            Dict: Mapping configurations for Phenopacket generation
+        """
+        return {
+            "individual": {
+                "instrument_name": "your_instrument_name",
+                "mapping_block": {
+                    "id_field": "your_id_field",
+                    "date_of_birth_field": "your_dob_field",
+                    # ... other field mappings
+                },
+                "label_dicts": {
+                    "GenderIdentity": {
+                        "code1": "label1",
+                        "code2": "label2",
+                        # ... other labels
+                    }
+                },
+                "mapping_dicts": {
+                    "map_sex": {
+                        "code1": "FEMALE",
+                        "code2": "MALE",
+                        # ... other mappings
+                    }
+                }
+            },
+            # Add other blocks: vitalStatus, diseases, phenotypicFeatures, etc.
+            "metadata": {
+                "code_systems": {
+                    # Optional: custom code systems
+                }
+            }
+        }
 
-.. code:: bash
+Command-Line Usage
+~~~~~~~~~~~~~~~~~~
 
+Export Phenopackets using the following command-line options:
+
+.. code-block:: bash
+
+    # Basic export using default RareLink mappings
     rarelink phenopackets export
+
+    # Specify a custom input file
+    rarelink phenopackets export --input-path /path/to/custom/input.json
+
+    # Specify a custom output directory
+    rarelink phenopackets export --output-dir /path/to/custom/output
+
+    # Use custom mapping configuration
+    rarelink phenopackets export --mappings /path/to/custom_mappings.py
+
+Mapping Configuration Structure
+-------------------------------
+
+The mapping configuration is a nested dictionary with the following key components:
+
+1. **Block-level Configuration**
+   - ``instrument_name``: REDCap instrument name for repeated elements
+   - ``mapping_block``: Dictionary mapping REDCap fields to Phenopacket schema
+   - ``label_dicts``: Dictionaries for human-readable labels
+   - ``mapping_dicts``: Dictionaries for code mappings
+
+2. **Supported Blocks**
+   - ``individual``
+   - ``vitalStatus``
+   - ``diseases``
+   - ``phenotypicFeatures``
+   - ``measurements``
+   - ``variationDescriptor``
+   - ``interpretations``
+   - ``metadata``
+
+Mapping Strategies
+------------------
+
+1. **Label Dictionaries**
+   Provide human-readable labels for codes:
+
+   .. code-block:: python
+
+       "label_dicts": {
+           "GenderIdentity": {
+               "code1": "Female",
+               "code2": "Male"
+           }
+       }
+
+2. **Mapping Dictionaries**
+   Map local codes to standardized terms:
+
+   .. code-block:: python
+
+       "mapping_dicts": {
+           "map_sex": {
+               "local_code1": "FEMALE",
+               "local_code2": "MALE"
+           }
+       }
+
+3. **Instrument Names**
+   Specify the correct REDCap instrument for repeated elements:
+
+   .. code-block:: python
+
+       "instrument_name": "your_repeat_instrument_name"
+
+Best Practices
+--------------
+
+- Use ontology codes where possible
+- Provide comprehensive label and mapping dictionaries
+- Ensure instrument names match REDCap configuration
+- Use the RareLink-CDM as a reference for mapping structure
 
 _____________________________________________________________________________________
 
