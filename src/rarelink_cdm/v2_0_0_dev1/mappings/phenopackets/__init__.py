@@ -17,8 +17,7 @@ from .disease import DISEASE_BLOCK
 from .measurements import MEASUREMENT_BLOCK
 from .resources import RARELINK_CODE_SYSTEMS
 from .ontology_paths import ONTOLOGY_PATHS
-
-
+from .combined import create_rarelink_phenopacket_mappings
 
 
 __all__ = [
@@ -32,5 +31,6 @@ __all__ = [
     "MEASUREMENT_BLOCK",
     "RARELINK_CODE_SYSTEMS",
     "VARIATION_DESCRIPTOR_BLOCK",
-    "ONTOLOGY_PATHS"
+    "ONTOLOGY_PATHS",
+    "create_rarelink_phenopacket_mappings"
 ]
