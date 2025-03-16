@@ -1,22 +1,11 @@
-from rarelink.utils.processing.dates import (
-    create_time_element_from_date
-)
-from rarelink.utils.processing.codes import (
-    process_redcap_code, 
-    fetch_label_directly
-)
-from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import (
-    get_mapping_by_name
-)
-from rarelink.utils.loading import (
-    get_nested_field, 
-    fetch_description_from_label_dict
-)
+# Import standard libraries first
 from google.protobuf.timestamp_pb2 import Timestamp
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import logging
+import uuid
 
+# Define logger at module level
 logger = logging.getLogger(__name__)
 
 class DataProcessor:
@@ -44,6 +33,9 @@ class DataProcessor:
         Returns:
             Any: The value of the requested field or None if not found.
         """
+        # Import here to avoid circular import
+        from rarelink.utils.loading import get_nested_field
+        
         field_path = self.mapping_config.get(field_name)
         if field_path is None:
             logger.warning(f"Field '{field_name}' not found in mapping_config.")
@@ -147,6 +139,8 @@ class DataProcessor:
         Returns:
             dict: A dictionary representing the time element.
         """
+        # Import here to avoid circular import
+        from rarelink.utils.processing.dates import create_time_element_from_date
         return create_time_element_from_date(date_input)
 
     @staticmethod
@@ -160,6 +154,8 @@ class DataProcessor:
         Returns:
             str: The processed code.
         """
+        # Import here to avoid circular import
+        from rarelink.utils.processing.codes import process_redcap_code
         return process_redcap_code(code)
 
     # --------------------------------------
@@ -180,6 +176,9 @@ class DataProcessor:
         """
         if enum_class:
             return self.load_label(code, enum_class)
+        
+        # Import here to avoid circular import
+        from rarelink.utils.processing.codes import fetch_label_directly
         return fetch_label_directly(code)
 
     def load_label(self, code: str, enum_class):
@@ -195,6 +194,8 @@ class DataProcessor:
             str: The label (description) for the code, or None if not found.
         """
         try:
+            # Import here to avoid circular import
+            from rarelink.utils.loading import fetch_description_from_label_dict
             return fetch_description_from_label_dict(enum_class, code)
         except KeyError:
             return None
@@ -214,6 +215,8 @@ class DataProcessor:
             boolean), or None if not found.
         """
         try:
+            # Import here to avoid circular import
+            from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import get_mapping_by_name
             mapping = get_mapping_by_name(mapping_name)
             value = mapping.get(code, None)
             return value
@@ -260,8 +263,6 @@ class DataProcessor:
         Returns:
             str: A unique random string of the specified length.
         """
-        import uuid
-
         if used_ids is None:
             used_ids = set()  # Initialize if not provided
 
