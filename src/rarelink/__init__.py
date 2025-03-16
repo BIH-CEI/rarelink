@@ -7,6 +7,14 @@ linking registry use, FHIR, and Phenopackets.
 
 __version__ = "2.0.0.dev1"
 
+# Import submodules to make them available
+from . import cli
+from . import utils
+from . import phenopackets
+from . import tofhir
+
+__all__ = ["cli", "utils", "phenopackets", "tofhir", "__version__"]
+
 from typer import Typer
 
 # Initialize the Typer app for CLI commands
