@@ -38,11 +38,28 @@ def create_phenopacket(
         raise ValueError("Mapping configurations are required")
 
     try:
+        # Flexible mapping configuration with default fallbacks
+        def get_mapping_config(block_name: str, default_instrument: str = "") -> Dict[str, Any]:
+            """
+            Retrieve mapping configuration with flexible handling
+            
+            Args:
+                block_name (str): Name of the block (e.g., 'individual', 'diseases')
+                default_instrument (str, optional): Default instrument name if not specified
+            
+            Returns:
+                Dict: Processed mapping configuration
+            """
+            block_config = mapping_configs.get(block_name, {})
+            
+            # If no instrument name is provided, use the default
+            if 'instrument_name' not in block_config and default_instrument:
+                block_config['instrument_name'] = default_instrument
+            
+            return block_config
+
         # Individual Block ------------------------------------------------------
-        individual_config = mapping_configs.get("individual", {})
-        if not individual_config:
-            raise ValueError("Individual mapping configuration is missing")
-        
+        individual_config = get_mapping_config("individual")
         individual_processor = DataProcessor(
             mapping_config=individual_config.get("mapping_block", {})
         )
@@ -52,14 +69,14 @@ def create_phenopacket(
         dob_str = dob_field
 
         # Vital Status Block ----------------------------------------------------
-        vital_status_config = mapping_configs.get("vitalStatus", {})
+        vital_status_config = get_mapping_config("vitalStatus", "noVitalStatusIncluded")
         vital_status_processor = DataProcessor(
             mapping_config=vital_status_config.get("mapping_block", {})
         )
         
-        # Set instrument name for repeated elements processing
+        # Dynamically set instrument name
         vital_status_processor.mapping_config["instrument_name"] = \
-            vital_status_config.get("instrument_name", "")
+            vital_status_config.get("instrument_name", "noVitalStatusIncluded")
         
         vital_status = map_vital_status(
             data, 
@@ -75,7 +92,7 @@ def create_phenopacket(
         )
 
         # Phenotypic Features Block --------------------------------------------
-        phenotypic_feature_config = mapping_configs.get("phenotypicFeatures", {})
+        phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
         phenotypic_feature_processor = DataProcessor(
             mapping_config=phenotypic_feature_config.get("mapping_block", {})
         )
@@ -89,7 +106,7 @@ def create_phenopacket(
         )
         
         # Measurements Block ----------------------------------------------------
-        measurement_config = mapping_configs.get("measurements", {})
+        measurement_config = get_mapping_config("measurements")
         measurement_processor = DataProcessor(
             mapping_config=measurement_config.get("mapping_block", {})
         )
@@ -103,7 +120,7 @@ def create_phenopacket(
         )  
 
         # Disease Block ---------------------------------------------------------
-        disease_config = mapping_configs.get("diseases", {})
+        disease_config = get_mapping_config("diseases")
         disease_processor = DataProcessor(
             mapping_config=disease_config.get("mapping_block", {})
         )
@@ -118,7 +135,7 @@ def create_phenopacket(
         
         # Genetics Block --------------------------------------------------------
         # Variation Descriptor
-        variation_descriptor_config = mapping_configs.get("variationDescriptor", {})
+        variation_descriptor_config = get_mapping_config("variationDescriptor")
         variation_descriptor_processor = DataProcessor(
             mapping_config=variation_descriptor_config.get("mapping_block", {})
         )
@@ -131,7 +148,7 @@ def create_phenopacket(
         )
         
         # Interpretations
-        interpretation_config = mapping_configs.get("interpretations", {})
+        interpretation_config = get_mapping_config("interpretations")
         interpretation_processor = DataProcessor(
             mapping_config=interpretation_config.get("mapping_block", {})
         )
