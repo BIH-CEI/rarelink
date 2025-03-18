@@ -604,20 +604,6 @@ def _extract_modifiers(data: dict, processor: DataProcessor) -> List[OntologyCla
     """Extracts modifier information from the data."""
     modifiers = []
     
-    # Temporal pattern modifier
-    temp_pattern_field = processor.mapping_config.get("modifier_temp_pattern_field")
-    if temp_pattern_field:
-        temp_pattern_value = _get_field_value(data, temp_pattern_field)
-        if temp_pattern_value:
-            temp_pattern_id = processor.process_code(temp_pattern_value)
-            temp_pattern_label = processor.fetch_label(temp_pattern_value, "TemporalPattern")
-            if temp_pattern_label:
-                modifiers.append(OntologyClass(
-                    id=temp_pattern_id,
-                    label=temp_pattern_label
-                ))
-    
-    # Other modifiers
     for i in range(1, 6):
         modifier_field = processor.mapping_config.get(f"modifier_field_{i}")
         if not modifier_field:
