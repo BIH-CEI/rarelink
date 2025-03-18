@@ -7,6 +7,7 @@ from cieinr.mappings.phenopackets.individual import INDIVIDUAL_BLOCK
 from cieinr.mappings.phenopackets.phenotypes import PHENOTYPIC_FEATURES_BLOCK
 from cieinr.mappings.phenopackets.procedure import PROCEDURE_BLOCK
 from cieinr.mappings.phenopackets.resources import CIEINR_CODE_SYSTEMS
+from cieinr.mappings.phenopackets.genetics import INTERPRETATION_BLOCK, VARIATION_DESCRIPTOR_BLOCK
 from cieinr.mappings.phenopackets.mapping_dicts import mapping_dicts
 from cieinr.mappings.phenopackets.label_dicts import label_dicts
 
@@ -67,6 +68,27 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         "procedures": {
             "instrument_name": "basic_form",
             "mapping_block": PROCEDURE_BLOCK
+        },
+        "variationDescriptor": {
+            "instrument_name": "genetic_information",
+            "mapping_block": VARIATION_DESCRIPTOR_BLOCK,
+            "label_dicts": {
+                "Zygosity": label_dicts.get("Zygosity", {}),
+                "DNAChangeType": label_dicts.get("DNAChangeType", {}),
+                "ReferenceGenome": label_dicts.get("ReferenceGenome", {})
+            },
+            "mapping_dicts": {}
+        },
+        "interpretations": {
+            "instrument_name": "genetic_information",
+            "mapping_block": INTERPRETATION_BLOCK,
+            "label_dicts": {},
+            "mapping_dicts": {
+                "map_progress_status": mapping_dict_lookup.get("map_progress_status", {}),
+                "map_interpretation_status": mapping_dict_lookup.get("map_interpretation_status", {}),
+                "map_acmg_classification": mapping_dict_lookup.get("map_acmg_classification", {}),
+                "map_therapeutic_actionability": mapping_dict_lookup.get("map_therapeutic_actionability", {})
+            }
         },
         "metadata": {
             "code_systems": CIEINR_CODE_SYSTEMS

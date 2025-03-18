@@ -63,7 +63,9 @@ def map_interpretations(
                 interpretation_data.get(processor.mapping_config[
                                                     "diagnosis_field_1"]) or
                 interpretation_data.get(processor.mapping_config[
-                                                    "diagnosis_field_2"])
+                                                    "diagnosis_field_2"]) or 
+                interpretation_data.get(processor.mapping_config[
+                                                    "diagnosis_field_3"])
             )
             diagnosis_label = processor.fetch_label(diagnosis_id)
 

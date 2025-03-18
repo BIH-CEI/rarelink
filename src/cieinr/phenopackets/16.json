@@ -76,6 +76,46 @@
       ]
     }
   ],
+  "interpretations": [
+    {
+      "id": "16",
+      "diagnosis": {
+        "disease": {
+          "id": "mondo_0011383",
+          "label": "autoimmune lymphoproliferative syndrome type 2A"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "16",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "variationDescriptor": {
+                "id": "cf38cdf499e84abab03c64e0a3ea1a",
+                "geneContext": {
+                  "valueId": "HGNC:1500",
+                  "symbol": "CASP10"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_032977.3:c.-360T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:la6688-1",
+                  "label": "Insertion/Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:la6706-1",
+                  "label": "(simple) Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
   "diseases": [
     {
       "term": {
@@ -85,7 +125,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-18T18:19:41.824719Z",
+    "created": "2025-03-18T19:28:07.167770Z",
     "createdBy": "Adam G.",
     "resources": [
       {
