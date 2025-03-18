@@ -1,5 +1,5 @@
 import logging
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional
 from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence, Age
 from rarelink.utils.processor import DataProcessor
 
