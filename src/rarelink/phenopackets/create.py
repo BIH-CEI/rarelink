@@ -1,6 +1,9 @@
+# src/rarelink/phenopackets/create.py
 from phenopackets import Phenopacket
 import logging
 from typing import Dict, Any, Optional
+import traceback
+import importlib
 
 from rarelink.utils.processor import DataProcessor
 from rarelink.phenopackets.mappings import (
@@ -19,16 +22,19 @@ logger = logging.getLogger(__name__)
 def create_phenopacket(
     data: dict, 
     created_by: str, 
-    mapping_configs: Optional[Dict[str, Any]] = None
+    mapping_configs: Optional[Dict[str, Any]] = None,
+    debug: bool = False
 ) -> Phenopacket:
     """
     Creates a Phenopacket for an individual record with flexible mapping configurations.
+    Enhanced to handle different data models and improve error tracking.
 
     Args:
-        data (dict): Input dictionary containing all data.
+        data (dict): Input data dictionary containing all data.
         created_by (str): Creator's name for metadata.
         mapping_configs (dict, optional): Dictionary of mapping configurations 
             for different Phenopacket blocks.
+        debug (bool): Enable debug mode for verbose logging
 
     Returns:
         Phenopacket: A fully constructed Phenopacket.
@@ -37,15 +43,20 @@ def create_phenopacket(
     if not mapping_configs:
         raise ValueError("Mapping configurations are required")
 
+    # Set up debug mode
+    logging_level = logging.DEBUG if debug else logging.INFO
+    logger.setLevel(logging_level)
+
     try:
         # Flexible mapping configuration with default fallbacks
-        def get_mapping_config(block_name: str, default_instrument: str = "") -> Dict[str, Any]:
+        def get_mapping_config(block_name: str, default_instrument: str = "", required=False) -> Dict[str, Any]:
             """
             Retrieve mapping configuration with flexible handling
             
             Args:
                 block_name (str): Name of the block (e.g., 'individual', 'diseases')
                 default_instrument (str, optional): Default instrument name if not specified
+                required (bool): Whether this mapping configuration is required
             
             Returns:
                 Dict: Processed mapping configuration
@@ -56,122 +67,237 @@ def create_phenopacket(
             if 'instrument_name' not in block_config and default_instrument:
                 block_config['instrument_name'] = default_instrument
             
+            # Check if this is a required config
+            if required and (not block_config or 'mapping_block' not in block_config):
+                raise ValueError(f"Required mapping configuration '{block_name}' missing or incomplete")
+                
             return block_config
 
+        # Record ID --------------------------------------------------------------
+        record_id = data.get("record_id", "unknown")
+        if debug:
+            logger.debug(f"Processing record ID: {record_id}")
+            logger.debug(f"Data structure: {type(data)}")
+            logger.debug(f"Top-level keys: {list(data.keys())}")
+
         # Individual Block ------------------------------------------------------
-        individual_config = get_mapping_config("individual")
-        individual_processor = DataProcessor(
-            mapping_config=individual_config.get("mapping_block", {})
-        )
-        
-        # Extract date of birth for subsequent blocks
-        dob_field = individual_processor.get_field(data, "date_of_birth_field")
-        dob_str = dob_field
+        try:
+            individual_config = get_mapping_config("individual", required=True)
+            
+            if debug:
+                logger.debug(f"Individual config: {individual_config}")
+                
+            individual_processor = DataProcessor(
+                mapping_config=individual_config.get("mapping_block", {})
+            )
+            individual_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(individual_processor, individual_config.get("enum_classes", {}))
+            
+            # Extract date of birth for subsequent blocks
+            try:
+                dob_field = individual_processor.get_field(data, "date_of_birth_field")
+                dob_str = dob_field
+                
+                if debug:
+                    logger.debug(f"Extracted DOB field: {dob_field}")
+            except Exception as e:
+                if debug:
+                    logger.debug(f"Error extracting DOB: {e}")
+                dob_str = None
 
-        # Vital Status Block ----------------------------------------------------
-        vital_status_config = get_mapping_config("vitalStatus", "noVitalStatusIncluded")
-        vital_status_processor = DataProcessor(
-            mapping_config=vital_status_config.get("mapping_block", {})
-        )
-        
-        # Dynamically set instrument name
-        vital_status_processor.mapping_config["instrument_name"] = \
-            vital_status_config.get("instrument_name", "noVitalStatusIncluded")
-        
-        vital_status = map_vital_status(
-            data, 
-            vital_status_processor, 
-            dob=dob_str
-        )
+            # Vital Status Block ----------------------------------------------------
+            try:
+                vital_status_config = get_mapping_config("vitalStatus")
+                vital_status_processor = DataProcessor(
+                    mapping_config=vital_status_config.get("mapping_block", {})
+                )
+                vital_status_processor.enable_debug(debug)
+                
+                # Add enum classes if present
+                _add_enum_classes_to_processor(vital_status_processor, vital_status_config.get("enum_classes", {}))
+                
+                # Dynamically set instrument name
+                if "instrument_name" in vital_status_config:
+                    vital_status_processor.mapping_config["instrument_name"] = \
+                        vital_status_config.get("instrument_name", "")
+                
+                vital_status = map_vital_status(
+                    data, 
+                    vital_status_processor, 
+                    dob=dob_str
+                )
+            except Exception as e:
+                if debug:
+                    logger.debug(f"Error mapping vital status: {e}")
+                vital_status = None
 
-        # Individual Block with Vital Status ------------------------------------
-        individual = map_individual(
-            data, 
-            individual_processor, 
-            vital_status=vital_status
-        )
+            # Individual Block with Vital Status ------------------------------------
+            individual = map_individual(
+                data, 
+                individual_processor, 
+                vital_status=vital_status
+            )
+        except Exception as e:
+            logger.error(f"Error in individual block processing: {e}")
+            if debug:
+                logger.error(traceback.format_exc())
+            raise ValueError(f"Failed to create Individual block: {str(e)}")
 
         # Phenotypic Features Block --------------------------------------------
-        phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
-        phenotypic_feature_processor = DataProcessor(
-            mapping_config=phenotypic_feature_config.get("mapping_block", {})
-        )
-        phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = \
-            phenotypic_feature_config.get("instrument_name", "")
-        
-        phenotypic_features = map_phenotypic_features(
-            data,
-            phenotypic_feature_processor,
-            dob=individual.date_of_birth
-        )
+        try:
+            phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
+            phenotypic_feature_processor = DataProcessor(
+                mapping_config=phenotypic_feature_config.get("mapping_block", {})
+            )
+            phenotypic_feature_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(phenotypic_feature_processor, phenotypic_feature_config.get("enum_classes", {}))
+            
+            phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = \
+                phenotypic_feature_config.get("instrument_name", "")
+            
+            phenotypic_features = map_phenotypic_features(
+                data,
+                phenotypic_feature_processor,
+                dob=individual.date_of_birth
+            )
+            
+            if debug:
+                logger.debug(f"Generated {len(phenotypic_features)} phenotypic features")
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping phenotypic features: {e}")
+                logger.debug(traceback.format_exc())
+            phenotypic_features = []
         
         # Measurements Block ----------------------------------------------------
-        measurement_config = get_mapping_config("measurements")
-        measurement_processor = DataProcessor(
-            mapping_config=measurement_config.get("mapping_block", {})
-        )
-        measurement_processor.mapping_config["redcap_repeat_instrument"] = \
-            measurement_config.get("instrument_name", "")
-        
-        measurements = map_measurements(
-            data, 
-            measurement_processor, 
-            dob=individual.date_of_birth
-        )  
+        try:
+            measurement_config = get_mapping_config("measurements")
+            measurement_processor = DataProcessor(
+                mapping_config=measurement_config.get("mapping_block", {})
+            )
+            measurement_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(measurement_processor, measurement_config.get("enum_classes", {}))
+            
+            measurement_processor.mapping_config["redcap_repeat_instrument"] = \
+                measurement_config.get("instrument_name", "")
+            
+            measurements = map_measurements(
+                data, 
+                measurement_processor, 
+                dob=individual.date_of_birth
+            )  
+            
+            if debug:
+                logger.debug(f"Generated {len(measurements)} measurements")
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping measurements: {e}")
+                logger.debug(traceback.format_exc())
+            measurements = []
 
         # Disease Block ---------------------------------------------------------
-        disease_config = get_mapping_config("diseases")
-        disease_processor = DataProcessor(
-            mapping_config=disease_config.get("mapping_block", {})
-        )
-        disease_processor.mapping_config["redcap_repeat_instrument"] = \
-            disease_config.get("instrument_name", "")
-        
-        diseases = map_diseases(
-            data, 
-            disease_processor,
-            dob=individual.date_of_birth
-        )
+        try:
+            disease_config = get_mapping_config("diseases")
+            disease_processor = DataProcessor(
+                mapping_config=disease_config.get("mapping_block", {})
+            )
+            disease_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(disease_processor, disease_config.get("enum_classes", {}))
+            
+            # Only set redcap_repeat_instrument if instrument_name is specified
+            if "instrument_name" in disease_config and disease_config["instrument_name"] not in ["__dummy__", ""]:
+                disease_processor.mapping_config["redcap_repeat_instrument"] = \
+                    disease_config.get("instrument_name", "")
+            
+            diseases = map_diseases(
+                data, 
+                disease_processor,
+                dob=individual.date_of_birth
+            )
+            
+            if debug:
+                logger.debug(f"Generated {len(diseases)} diseases")
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping diseases: {e}")
+                logger.debug(traceback.format_exc())
+            diseases = []
         
         # Genetics Block --------------------------------------------------------
         # Variation Descriptor
-        variation_descriptor_config = get_mapping_config("variationDescriptor")
-        variation_descriptor_processor = DataProcessor(
-            mapping_config=variation_descriptor_config.get("mapping_block", {})
-        )
-        variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = \
-            variation_descriptor_config.get("instrument_name", "")
-        
-        variation_descriptor = map_variation_descriptor(
-            data,
-            variation_descriptor_processor
-        )
+        try:
+            variation_descriptor_config = get_mapping_config("variationDescriptor")
+            variation_descriptor_processor = DataProcessor(
+                mapping_config=variation_descriptor_config.get("mapping_block", {})
+            )
+            variation_descriptor_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(variation_descriptor_processor, variation_descriptor_config.get("enum_classes", {}))
+            
+            variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = \
+                variation_descriptor_config.get("instrument_name", "")
+            
+            variation_descriptor = map_variation_descriptor(
+                data,
+                variation_descriptor_processor
+            )
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping variation descriptor: {e}")
+                logger.debug(traceback.format_exc())
+            variation_descriptor = {}
         
         # Interpretations
-        interpretation_config = get_mapping_config("interpretations")
-        interpretation_processor = DataProcessor(
-            mapping_config=interpretation_config.get("mapping_block", {})
-        )
-        interpretation_processor.mapping_config["redcap_repeat_instrument"] = \
-            interpretation_config.get("instrument_name", "")
-        
-        interpretations = map_interpretations(
-            data,
-            interpretation_processor,
-            subject_id=individual.id,
-            variation_descriptor=variation_descriptor
-        )
+        try:
+            interpretation_config = get_mapping_config("interpretations")
+            interpretation_processor = DataProcessor(
+                mapping_config=interpretation_config.get("mapping_block", {})
+            )
+            interpretation_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(interpretation_processor, interpretation_config.get("enum_classes", {}))
+            
+            interpretation_processor.mapping_config["redcap_repeat_instrument"] = \
+                interpretation_config.get("instrument_name", "")
+            
+            interpretations = map_interpretations(
+                data,
+                interpretation_processor,
+                subject_id=individual.id,
+                variation_descriptor=variation_descriptor
+            )
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping interpretations: {e}")
+                logger.debug(traceback.format_exc())
+            interpretations = []
         
         # Metadata --------------------------------------------------------------
-        metadata_config = mapping_configs.get("metadata", {})
-        metadata = map_metadata(
-            created_by=created_by,
-            code_systems=metadata_config.get("code_systems")
-        )
+        try:
+            metadata_config = mapping_configs.get("metadata", {})
+            metadata = map_metadata(
+                created_by=created_by,
+                code_systems=metadata_config.get("code_systems")
+            )
+        except Exception as e:
+            logger.error(f"Error creating metadata: {e}")
+            if debug:
+                logger.error(traceback.format_exc())
+            raise ValueError(f"Failed to create metadata: {str(e)}")
 
         # Construct Phenopacket -------------------------------------------------
-        return Phenopacket(
-            id=data.get("record_id", "unknown"),
+        phenopacket = Phenopacket(
+            id=record_id,
             subject=individual,
             phenotypic_features=phenotypic_features,
             measurements=measurements,
@@ -179,7 +305,29 @@ def create_phenopacket(
             meta_data=metadata,
             interpretations=interpretations
         )
+        
+        if debug:
+            logger.debug(f"Successfully created phenopacket for record {record_id}")
+            
+        return phenopacket
      
     except Exception as e:
         logger.error(f"Error creating Phenopacket: {e}")
+        if debug:
+            logger.error(traceback.format_exc())
         raise
+
+def _add_enum_classes_to_processor(processor, enum_classes_config):
+    """
+    Add enum classes from the config to the processor.
+    
+    Args:
+        processor (DataProcessor): The processor to add enum classes to
+        enum_classes_config (dict): Configuration with prefix to enum class mappings
+    """
+    if not enum_classes_config:
+        return
+        
+    for prefix, enum_class_or_path in enum_classes_config.items():
+        if enum_class_or_path:
+            processor.add_enum_class(prefix, enum_class_or_path)

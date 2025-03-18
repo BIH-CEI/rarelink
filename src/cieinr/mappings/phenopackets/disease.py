@@ -1,4 +1,6 @@
-# Disease block mapping - designed to work with non-repeated elements
+# src/cieinr/mappings/phenopackets/disease.py
+
+# Disease block mapping for CIEINR - getting disease from basic_form (non-repeating)
 DISEASE_BLOCK = {
     "term_field_1": "basic_form.iei_deficiency_basic", 
     "term_field_2": "basic_form.other_iei_deficiency",

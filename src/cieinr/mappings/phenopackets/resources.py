@@ -1,4 +1,4 @@
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
+# src/cieinr/mappings/phenopackets/resources.py
 from dataclasses import dataclass
 
 @dataclass
@@ -10,10 +10,16 @@ class CodeSystem:
     iri_prefix: str
 
 
+class CodeSystemsContainer:
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+
 CIEINR_CODE_SYSTEMS = CodeSystemsContainer(
     hpo=CodeSystem(
         name="Human Phenotype Ontology",
-        prefix="HPO",
+        prefix="HP",
         version="2024-08-13",
         url="http://purl.obolibrary.org/obo/hp.owl",
         iri_prefix="http://purl.obolibrary.org/obo/HP_"

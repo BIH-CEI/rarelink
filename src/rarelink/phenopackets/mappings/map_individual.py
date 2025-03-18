@@ -1,6 +1,8 @@
+# src/rarelink/phenopackets/mappings/map_individual.py
 import logging
 from phenopackets import Individual, OntologyClass, VitalStatus, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
+from phenopackets.schema.v2 import VitalStatus as VitalStatusEnum  # Import enum directly
 
 logger = logging.getLogger(__name__)
 
@@ -9,19 +11,19 @@ def map_individual(data: dict,
                    vital_status: VitalStatus = None) -> Individual:
     """
     Maps patient data to the Individual block using a DataProcessor.
+    Enhanced to properly handle vital status using direct enum values.
 
     Args:
-        data (dict): Input data from the RareLink-CDM schema (or similar).
+        data (dict): Input data from any schema.
         processor (DataProcessor): Handles all data processing logic.
+        vital_status (VitalStatus, optional): Pre-constructed vital status.
 
     Returns:
         Individual: A Phenopacket Individual block.
     """
-    # Single instance data
-    # --------------------------------------------------------------------------
     try:
-    # Individual data fields
-    # --------------------------------------------------------------------------
+        # Individual data fields
+        # --------------------------------------------------------------------------
         # ID
         id_field = processor.get_field(data, "id_field")
 
@@ -75,6 +77,31 @@ def map_individual(data: dict,
             label="Homo sapiens"
         )
 
+        # Handle vital status directly with enum value
+        # --------------------------------------------
+        # Since we know UNKNOWN_STATUS is not working correctly through the normal
+        # VitalStatus constructor, we'll create the VitalStatus with a direct enum value
+        # which is more reliable for protobuf serialization
+        
+        # Define enum mapping
+        status_enum_map = {
+            "UNKNOWN_STATUS": VitalStatusEnum.Status.UNKNOWN_STATUS,
+            "ALIVE": VitalStatusEnum.Status.ALIVE,
+            "DECEASED": VitalStatusEnum.Status.DECEASED
+        }
+        
+        # Use existing vital status or create a new one with UNKNOWN_STATUS
+        if vital_status is None:
+            logger.debug("Creating new VitalStatus with UNKNOWN_STATUS")
+            # Create VitalStatus with explicit enum value
+            vital_status = VitalStatus(status="UNKNOWN_STATUS")
+            vital_status.status = status_enum_map["UNKNOWN_STATUS"]
+        elif not vital_status.status:
+            logger.debug("Setting existing VitalStatus to UNKNOWN_STATUS")
+            vital_status.status = status_enum_map["UNKNOWN_STATUS"]
+            
+        logger.debug(f"Final vital status: {vital_status}")
+
         # Creating the Individual block
         # ----------------------------------------------------------------------
         individual = Individual(
@@ -88,7 +115,7 @@ def map_individual(data: dict,
             taxonomy=taxonomy,
         )
 
-        logger.info(f"Successfully mapped individual: {individual}")
+        logger.info(f"Successfully mapped individual: {individual.id}")
         return individual
 
     except Exception as e:

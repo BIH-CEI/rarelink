@@ -1,7 +1,14 @@
+# src/rarelink/cli/phenopackets/export.py
 import json
 import typer
 import os
+import sys
+import importlib.util
+import importlib.machinery
 from pathlib import Path
+from typing import Optional
+import logging
+
 from rarelink.cli.utils.terminal_utils import (
     between_section_separator,
     end_of_section_separator
@@ -16,7 +23,6 @@ from rarelink.cli.utils.validation_utils import (
     validate_env
 )
 from rarelink.phenopackets import phenopacket_pipeline
-from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import create_rarelink_phenopacket_mappings
 
 app = typer.Typer()
 
@@ -26,78 +32,70 @@ DEFAULT_OUTPUT_DIR = Path.home() / "Downloads"
 
 @app.command()
 def export(
-    input_path: Path = None,
-    output_dir: Path = None,
-    mappings: Path = None
+    input_path: Path = typer.Option(None, "--input-path", "-i", help="Path to the input LinkML JSON file"),
+    output_dir: Path = typer.Option(None, "--output-dir", "-o", help="Directory to save Phenopackets"),
+    mappings: Path = typer.Option(None, "--mappings", "-m", help="Path to custom mapping configuration module"),
+    debug: bool = typer.Option(False, "--debug", "-d", help="Enable debug mode for verbose logging"),
+    skip_validation: bool = typer.Option(False, "--skip-validation", help="Skip environment validation"),
+    created_by: Optional[str] = typer.Option(None, "--created-by", help="Override CREATED_BY from .env"),
+    timeout: int = typer.Option(3600, "--timeout", "-t", help="Timeout in seconds (default: 3600)")
 ):
     """
     CLI command to export data to a cohort of Phenopackets.
-
-    Args:
-        input_path (Path, optional): Path to the input LinkML JSON file.
-        output_dir (Path, optional): Directory to save Phenopackets.
-        mappings (Path, optional): Path to custom mapping configuration.
+    
+    Enhanced to support different data models through custom mapping configurations.
     """
+    # Configure logging
+    log_level = logging.DEBUG if debug else logging.INFO
+    logging.basicConfig(level=log_level)
+    logger = logging.getLogger("rarelink.cli.phenopackets.export")
+    
     format_header("REDCap to Phenopackets Export")
     
-    # Step 1: Validate setup files
-    typer.echo("🔄 Validating setup files...")
-    typer.echo("🔄 Validating the .env file...")
-    try:
-        validate_env([
-            "BIOPORTAL_API_TOKEN",
-            "REDCAP_URL",
-            "REDCAP_PROJECT_ID",
-            "REDCAP_API_TOKEN",
-            "REDCAP_PROJECT_NAME",
-            "CREATED_BY"
-        ])
-        typer.secho(success_text("✅ Everything is set up - let's proceed.")) 
-    except Exception as e:
-        typer.secho(
-            error_text(f"❌ Validation of .env file failed: {str(e)}. "
-                       f"Please run {format_command('rarelink setup api-keys')} "
-                       "to configure the required keys."),
-            fg=typer.colors.RED,
-        )
-        raise typer.Exit(1)
+    # Step 1: Validate setup files (only if not skipped)
+    if not skip_validation:
+        typer.echo("🔄 Validating setup files...")
+        typer.echo("🔄 Validating the .env file...")
+        try:
+            validate_env([
+                "BIOPORTAL_API_TOKEN",
+                "CREATED_BY"
+            ])
+            typer.secho(success_text("✅ Environment validation successful.")) 
+        except Exception as e:
+            typer.secho(
+                error_text(f"❌ Validation of .env file failed: {str(e)}. "
+                        f"Please run {format_command('rarelink setup api-keys')} "
+                        "to configure the required keys."),
+                fg=typer.colors.RED,
+            )
+            typer.secho(
+                "💡 You can use --skip-validation to bypass environment validation.",
+                fg=typer.colors.YELLOW
+            )
+            raise typer.Exit(1)
     
     between_section_separator()
 
-    # Fetch required environment variables
-    project_name = os.getenv("REDCAP_PROJECT_NAME")
-    created_by = os.getenv("CREATED_BY")
-    if not project_name or not created_by:
+    # Fetch required environment variables or use provided arguments
+    _created_by = created_by or os.getenv("CREATED_BY")
+    if not _created_by and not skip_validation:
         typer.secho(
-            error_text("❌ Missing required environment variables: "
-                       "REDCAP_PROJECT_NAME or CREATED_BY."),
+            error_text("❌ Missing CREATED_BY environment variable or --created-by argument."),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
 
-    # Handle spaces in project name by replacing them with underscores
-    sanitized_project_name = project_name.replace(" ", "_")
-
     # Step 2: Determine input file path
     if input_path is None:
-        # Generate dynamic paths based on REDCAP_PROJECT_NAME
-        input_file_name = f"{sanitized_project_name}-linkml-records.json"
-        input_path = DEFAULT_INPUT_DIR / input_file_name
-
-        typer.echo(f"📂 Default input file location: {input_path}")
-        is_correct_path = typer.confirm("Is this the correct input file path?")
-        if not is_correct_path:
-            custom_input_path = typer.prompt(
-                "Enter the path to the validated linkml-json file",
-                type=Path
-            )
-            input_path = custom_input_path
+        input_path = typer.prompt(
+            "Enter the path to the validated linkml-json file",
+            type=Path
+        )
 
     if not input_path.exists():
         typer.secho(
-            error_text(f"❌ Input file not found: {input_path}. "
-                       "Ensure the records have been validated using "
-                       f"{format_command('rarelink redcap download records')}."),
+            error_text(f"❌ Input file not found: {input_path}."),
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
@@ -106,17 +104,19 @@ def export(
 
     # Step 3: Determine output directory
     if output_dir is None:
-        output_dir_name = f"{sanitized_project_name}_phenopackets"
-        output_dir = DEFAULT_OUTPUT_DIR / output_dir_name
-
-        typer.echo(f"📂 Default output directory: {output_dir}")
+        # Try to infer a suitable output directory name
+        input_stem = input_path.stem
+        suggested_dir = Path.cwd() / f"{input_stem}_phenopackets"
+        
+        typer.echo(f"📂 Suggested output directory: {suggested_dir}")
         is_correct_output_dir = typer.confirm("Do you want to use this directory?")
         if not is_correct_output_dir:
-            custom_output_dir = typer.prompt(
+            output_dir = typer.prompt(
                 "Enter the path to save Phenopackets",
                 type=Path
             )
-            output_dir = custom_output_dir
+        else:
+            output_dir = suggested_dir
 
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -127,56 +127,109 @@ def export(
     mapping_configs = None
     if mappings:
         try:
-            # Attempt to load custom mappings if provided
-            import importlib.util
-            spec = importlib.util.spec_from_file_location("custom_mappings", mappings)
-            custom_mappings_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(custom_mappings_module)
+            logger.info(f"Loading custom mappings from: {mappings}")
             
-            # Attempt to find a function that returns mappings
-            if hasattr(custom_mappings_module, 'create_phenopacket_mappings'):
-                mapping_configs = custom_mappings_module.create_phenopacket_mappings()
+            # Method 1: Try loading as a regular module
+            if str(mappings).endswith('.py'):
+                # Calculate the module name from the file path
+                module_name = mappings.stem
+                
+                # Use importlib machinery to load the module
+                loader = importlib.machinery.SourceFileLoader(module_name, str(mappings))
+                custom_mappings_module = loader.load_module()
+                
+                # Check if the module has the expected function
+                if hasattr(custom_mappings_module, 'create_phenopacket_mappings'):
+                    mapping_configs = custom_mappings_module.create_phenopacket_mappings()
+                    logger.info("Successfully loaded custom mappings")
+                else:
+                    logger.warning("No create_phenopacket_mappings function found in module")
+            # Method 2: Try loading as a JSON file
+            elif str(mappings).endswith('.json'):
+                with open(mappings, 'r') as f:
+                    mapping_configs = json.load(f)
+                logger.info("Successfully loaded mappings from JSON file")
             else:
                 typer.secho(
-                    error_text("❌ No create_phenopacket_mappings function found in the custom mappings file."),
-                    fg=typer.colors.YELLOW
+                    error_text("❌ Unsupported mapping file format. Use .py or .json files."),
+                    fg=typer.colors.RED
                 )
+                raise typer.Exit(1)
+                
         except Exception as e:
             typer.secho(
                 error_text(f"❌ Failed to load custom mappings: {str(e)}"),
-                fg=typer.colors.YELLOW
+                fg=typer.colors.RED
             )
-    
-    # Use default RareLink mappings if no custom mappings provided
-    if mapping_configs is None:
-        mapping_configs = create_rarelink_phenopacket_mappings()
+            raise typer.Exit(1)
+    else:
+        # No custom mappings provided, prompt user
+        try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink mappings?")
+        if try_default:
+            try:
+                from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import create_rarelink_phenopacket_mappings
+                mapping_configs = create_rarelink_phenopacket_mappings()
+                logger.info("Using default RareLink mappings")
+            except ImportError:
+                typer.secho(
+                    error_text("❌ Default RareLink mappings not available."),
+                    fg=typer.colors.RED
+                )
+                raise typer.Exit(1)
+        else:
+            typer.secho(
+                error_text("❌ Mapping configurations are required."),
+                fg=typer.colors.RED
+            )
+            raise typer.Exit(1)
+
+    if debug:
+        logger.debug("Using the following mapping configurations:")
+        for key, value in mapping_configs.items():
+            logger.debug(f"- {key}: {list(value.keys()) if isinstance(value, dict) else type(value)}")
 
     typer.echo("Note - This pipeline fetches labels from BIOPORTAL. "
             "Ensure you have an internet connection as this may take a while.")
 
     try:
-        typer.echo("🚀 Processing your REDCap records to Phenopackets...")
+        typer.echo("🚀 Processing your records to Phenopackets...")
 
         # Load the JSON data from the file
         with open(input_path, "r") as f:
             input_data = json.load(f)
 
-        # Use the number of records in input_data for the progress bar
-        phenopacket_pipeline(
+        # Run the pipeline with enhanced error handling and debug support
+        phenopackets = phenopacket_pipeline(
             input_data=input_data, 
             output_dir=str(output_dir), 
-            created_by=created_by,
-            mapping_configs=mapping_configs
+            created_by=_created_by,
+            mapping_configs=mapping_configs,
+            timeout=timeout,
+            debug=debug
         )
         
         typer.secho(success_text("✅ Phenopackets successfully created!"))
         typer.echo(f"📂 Find your Phenopackets here: {output_dir}")
+        
+        # Report counts
+        typer.echo(f"📊 Summary: {len(phenopackets)} Phenopackets created from {len(input_data)} input records")
+        
+        # Check for failure report
+        failure_file = os.path.join(output_dir, "failures.json")
+        if os.path.exists(failure_file):
+            typer.secho(
+                f"⚠️ Some records failed to process. See {failure_file} for details.",
+                fg=typer.colors.YELLOW
+            )
         
     except Exception as e:
         typer.secho(
             error_text(f"❌ Failed to export Phenopackets: {str(e)}"),
             fg=typer.colors.RED,
         )
+        if debug:
+            import traceback
+            traceback.print_exc()
         raise typer.Exit(1)
 
     end_of_section_separator()
