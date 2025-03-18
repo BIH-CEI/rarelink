@@ -5,6 +5,7 @@ from typing import Dict, Any
 from cieinr.mappings.phenopackets.disease import DISEASE_BLOCK
 from cieinr.mappings.phenopackets.individual import INDIVIDUAL_BLOCK
 from cieinr.mappings.phenopackets.phenotypes import PHENOTYPIC_FEATURES_BLOCK
+from cieinr.mappings.phenopackets.procedure import PROCEDURE_BLOCK
 from cieinr.mappings.phenopackets.resources import CIEINR_CODE_SYSTEMS
 from cieinr.mappings.phenopackets.mapping_dicts import mapping_dicts
 from cieinr.mappings.phenopackets.label_dicts import label_dicts
@@ -62,6 +63,10 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
             },
             "enum_classes": {}
+        },
+        "procedures": {
+            "instrument_name": "basic_form",
+            "mapping_block": PROCEDURE_BLOCK
         },
         "metadata": {
             "code_systems": CIEINR_CODE_SYSTEMS
