@@ -88,6 +88,10 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "map_interpretation_status": mapping_dict_lookup.get("map_interpretation_status", {}),
                 "map_acmg_classification": mapping_dict_lookup.get("map_acmg_classification", {}),
                 "map_therapeutic_actionability": mapping_dict_lookup.get("map_therapeutic_actionability", {})
+            },
+            "enum_classes": {
+                # Reference the IUIS2024MONDOEnum class by import path
+                "mondo_": "cieinr.datamodel.form_1_basic.IUIS2024MONDOEnum"
             }
         },
         "metadata": {

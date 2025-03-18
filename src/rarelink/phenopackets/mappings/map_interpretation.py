@@ -59,7 +59,7 @@ def map_interpretations(
             
             # Genomic Diagnosis
             # ------------------------------------------------------------------
-            diagnosis_id = (
+            diagnosis_code = (
                 interpretation_data.get(processor.mapping_config[
                                                     "diagnosis_field_1"]) or
                 interpretation_data.get(processor.mapping_config[
@@ -67,7 +67,9 @@ def map_interpretations(
                 interpretation_data.get(processor.mapping_config[
                                                     "diagnosis_field_3"])
             )
-            diagnosis_label = processor.fetch_label(diagnosis_id)
+            diagnosis_label = processor.fetch_label(diagnosis_code)
+            diagnosis_id = processor.process_code(diagnosis_code)
+            logger.debug(f"Processed disease term ID: {diagnosis_id}")
 
             # Progress Status
             # ------------------------------------------------------------------

@@ -257,6 +257,29 @@ class DataProcessor:
             if self.debug_mode:
                 logger.error(f"Error processing code '{code}': {e}")
             return code  # Return original code as fallback
+        
+    def normalize_hgnc_id(value):
+        """
+        Normalize HGNC identifiers to the format "HGNC:1234".
+        
+        Args:
+            value (str): The HGNC identifier in any format
+            
+        Returns:
+            str: Normalized HGNC identifier or original value if not an HGNC identifier
+        """
+        if not value:
+            return value
+            
+        # Check if "HGNC:" appears in the string
+        if "HGNC:" in value:
+            # Extract the pattern HGNC:number
+            import re
+            match = re.search(r'HGNC:(\d+)', value)
+            if match:
+                return f"HGNC:{match.group(1)}"
+        
+        return value
 
     # --------------------------------------
     # Label and Mapping Methods
