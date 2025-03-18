@@ -94,7 +94,7 @@ def phenopacket_pipeline(
                 logger.warning(f"Error: {fail['error']}")
 
         return phenopackets
-
+    
     except TimeoutException as te:
         logger.error(f"Timeout occurred: {te}")
         print(f"WARNING: Processing timed out after {timeout/3600} hour(s).")
