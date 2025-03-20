@@ -18,6 +18,8 @@ from .project_and_schema import load_project_and_schema_info
 from .nested_json_data import get_nested_field  
 from .label_from_enum import fetch_description_from_label_dict
 from .highest_instance import get_highest_instance
+from .multiple_instruments import _get_field_value
+from .multiple_map import generic_map_entities, _get_multi_instrument_field_value
 
 __all__ = [
     "load_schema",
@@ -25,5 +27,8 @@ __all__ = [
     "load_project_and_schema_info",
     "get_nested_field",
     "fetch_description_from_label_dict",
-    "get_highest_instance"
+    "get_highest_instance",
+    "_get_multi_instrument_field_value",
+    "_get_field_value",
+    "generic_map_entities"
 ]
