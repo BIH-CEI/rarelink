@@ -19,6 +19,21 @@ from rarelink.phenopackets.mappings import (
 
 logger = logging.getLogger(__name__)
 
+def _add_enum_classes_to_processor(processor, enum_classes_config):
+    """
+    Add enum classes from the config to the processor.
+    
+    Args:
+        processor (DataProcessor): The processor to add enum classes to
+        enum_classes_config (dict): Configuration with prefix to enum class mappings
+    """
+    if not enum_classes_config:
+        return
+        
+    for prefix, enum_class_or_path in enum_classes_config.items():
+        if enum_class_or_path:
+            processor.add_enum_class(prefix, enum_class_or_path)
+
 def create_phenopacket(
     data: dict, 
     created_by: str, 
@@ -27,7 +42,7 @@ def create_phenopacket(
 ) -> Phenopacket:
     """
     Creates a Phenopacket for an individual record with flexible mapping configurations.
-    Enhanced to handle different data models and improve error tracking.
+    Enhanced to handle different data models, multiple instruments, and improve error tracking.
 
     Args:
         data (dict): Input data dictionary containing all data.
@@ -120,8 +135,15 @@ def create_phenopacket(
                 
                 # Dynamically set instrument name
                 if "instrument_name" in vital_status_config:
-                    vital_status_processor.mapping_config["instrument_name"] = \
-                        vital_status_config.get("instrument_name", "")
+                    # Handle multiple instruments
+                    instrument_name = vital_status_config.get("instrument_name")
+                    if isinstance(instrument_name, (list, set)):
+                        # For now, just use the first instrument if there are multiple
+                        instrument_list = list(instrument_name)
+                        if instrument_list:
+                            vital_status_processor.mapping_config["instrument_name"] = instrument_list[0]
+                    else:
+                        vital_status_processor.mapping_config["instrument_name"] = instrument_name
                 
                 vital_status = map_vital_status(
                     data, 
@@ -156,8 +178,16 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(phenotypic_feature_processor, phenotypic_feature_config.get("enum_classes", {}))
             
-            phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = \
-                phenotypic_feature_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = phenotypic_feature_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Copy the set/list to avoid modifying the original
+                phenotypic_feature_processor.mapping_config["instrument_names"] = list(instrument_name)
+                # For backwards compatibility, use the first instrument as the primary
+                if list(instrument_name):
+                    phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            else:
+                phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
             
             phenotypic_features = map_phenotypic_features(
                 data,
@@ -184,8 +214,16 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(measurement_processor, measurement_config.get("enum_classes", {}))
             
-            measurement_processor.mapping_config["redcap_repeat_instrument"] = \
-                measurement_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = measurement_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Copy the set/list to avoid modifying the original
+                measurement_processor.mapping_config["instrument_names"] = list(instrument_name)
+                # For backwards compatibility, use the first instrument as the primary
+                if list(instrument_name):
+                    measurement_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            else:
+                measurement_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
             
             measurements = map_measurements(
                 data, 
@@ -212,10 +250,18 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(medical_action_processor, medical_action_config.get("enum_classes", {}))
             
-            # Only set redcap_repeat_instrument if instrument_name is specified
-            if "instrument_name" in medical_action_config and medical_action_config["instrument_name"] not in ["__dummy__", ""]:
-                medical_action_processor.mapping_config["redcap_repeat_instrument"] = \
-                    medical_action_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = medical_action_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Copy the set/list to avoid modifying the original
+                medical_action_processor.mapping_config["instrument_names"] = list(instrument_name)
+                # For backwards compatibility, use the first instrument as the primary
+                if list(instrument_name):
+                    instrument_name_str = list(instrument_name)[0]
+                    if instrument_name_str not in ["__dummy__", ""]:
+                        medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name_str
+            elif instrument_name and instrument_name not in ["__dummy__", ""]:
+                medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
             
             # Add mapping dicts to the configuration
             if "mapping_dicts" in medical_action_config:
@@ -250,10 +296,19 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(disease_processor, disease_config.get("enum_classes", {}))
             
-            # Only set redcap_repeat_instrument if instrument_name is specified
-            if "instrument_name" in disease_config and disease_config["instrument_name"] not in ["__dummy__", ""]:
-                disease_processor.mapping_config["redcap_repeat_instrument"] = \
-                    disease_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = disease_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Store the full list of instruments in the config for use by the mapper
+                disease_processor.mapping_config["instrument_name"] = instrument_name
+                # For backwards compatibility with repeated elements, use the first instrument
+                if list(instrument_name):
+                    instrument_name_str = list(instrument_name)[0]
+                    if instrument_name_str not in ["__dummy__", ""]:
+                        disease_processor.mapping_config["redcap_repeat_instrument"] = instrument_name_str
+            elif instrument_name and instrument_name not in ["__dummy__", ""]:
+                disease_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                disease_processor.mapping_config["instrument_name"] = instrument_name
             
             diseases = map_diseases(
                 data, 
@@ -281,8 +336,16 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(variation_descriptor_processor, variation_descriptor_config.get("enum_classes", {}))
             
-            variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = \
-                variation_descriptor_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = variation_descriptor_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Store the full list of instruments for reference
+                variation_descriptor_processor.mapping_config["instrument_names"] = list(instrument_name)
+                # For backwards compatibility, use the first instrument
+                if list(instrument_name):
+                    variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            else:
+                variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
             
             variation_descriptor = map_variation_descriptor(
                 data,
@@ -305,8 +368,16 @@ def create_phenopacket(
             # Add enum classes if present
             _add_enum_classes_to_processor(interpretation_processor, interpretation_config.get("enum_classes", {}))
             
-            interpretation_processor.mapping_config["redcap_repeat_instrument"] = \
-                interpretation_config.get("instrument_name", "")
+            # Handle instrument name(s)
+            instrument_name = interpretation_config.get("instrument_name")
+            if isinstance(instrument_name, (list, set)):
+                # Store the full list of instruments for reference
+                interpretation_processor.mapping_config["instrument_names"] = list(instrument_name)
+                # For backwards compatibility, use the first instrument
+                if list(instrument_name):
+                    interpretation_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            else:
+                interpretation_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
             
             interpretations = map_interpretations(
                 data,

@@ -230,7 +230,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "ec3c49ed3b054b95b1d7d8b6e0a1c7",
+                "id": "bf213beec94b479e91d8f4ed9f8d3a",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -261,6 +261,11 @@
       "term": {
         "id": "MONDO:0007843",
         "label": "Kabuki Syndrome 1 due to KMT2D deficiency - KMT2D (MLL2)"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-1Y-11M"
+        }
       }
     }
   ],
@@ -283,7 +288,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-20T15:09:35.153412Z",
+    "created": "2025-03-20T15:30:30.257776Z",
     "createdBy": "Adam G.",
     "resources": [
       {

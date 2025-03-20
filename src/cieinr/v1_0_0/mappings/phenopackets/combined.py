@@ -14,6 +14,7 @@ from cieinr.v1_0_0.mappings.phenopackets import (
 def create_phenopacket_mappings() -> Dict[str, Any]:
     """
     Create a comprehensive mapping configuration for CIEINR Phenopacket creation.
+    Now supports multiple instruments per mapping block.
 
     Returns:
         Dict[str, Any]: Combined mapping configurations
@@ -24,7 +25,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         for mapping in mapping_dicts
     }
 
-      # Create a comprehensive mapping structure
+    # Create a comprehensive mapping structure
     return {
         "individual": {
             "instrument_name": "patient_demographics_initial_form",
@@ -39,7 +40,8 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "enum_classes": {}
         },
         "diseases": {
-            "instrument_name": "basic_form",
+            # Using a set for multiple instruments
+            "instrument_name": {"basic_form", "patient_demographics_initial_form"},
             "mapping_block": DISEASE_BLOCK,
             "enum_classes": {
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
@@ -55,12 +57,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "mapping_dicts": {
                 "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
             },
-            "multi_onset": True, 
-            "onset_date_fields": ["infection_date", "infection_date_2", 
-                          "infection_date_3", "infection_date_4", 
-                          "infection_date_5", "infection_date_6", 
-                          "infection_date_7", "infection_date_8", 
-                          "infection_date_9", "infection_date_10"],
             "enum_classes": {}
         },
         "procedures": {

@@ -1,4 +1,6 @@
 
+
+
 def _get_field_value(data, field_path):
     """Get a field value from data, handling direct and nested access."""
     if not field_path or not data:

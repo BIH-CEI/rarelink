@@ -1,3 +1,8 @@
+"""
+Fixed field access utility functions for multi-instrument support.
+These functions improve field access across multiple instruments in the data structure.
+"""
+
 import logging
 from typing import Callable, Any, List, Dict, Union, Set
 
@@ -84,57 +89,6 @@ def _get_multi_instrument_field_value(
     logger.debug("No value found across specified instruments and field paths")
     return None
 
-
-def _extract_instruments(mapping_config: Dict[str, Any], processor: Any = None) -> List[str]:
-    """
-    Extract instruments from the mapping configuration.
-    
-    Args:
-        mapping_config (dict): Mapping configuration dictionary
-        processor (optional): Processor object or configuration
-    
-    Returns:
-        List of instrument names
-    """
-    # Try to extract instruments from mapping configuration
-    instruments = None
-    
-    # Try getting instrument_name if mapping_config is a dictionary
-    if isinstance(mapping_config, dict):
-        instruments = mapping_config.get('instrument_name')
-    
-    # If no instruments found, try getting from processor
-    if not instruments and processor:
-        # Handle different types of processor input
-        if hasattr(processor, 'mapping_config'):
-            # If processor is an object with mapping_config attribute
-            config = getattr(processor, 'mapping_config', {})
-            if isinstance(config, dict):
-                instruments = config.get('instrument_name')
-        elif isinstance(processor, dict):
-            # If processor is a dictionary
-            instruments = processor.get('instrument_name')
-    
-    # Normalize to list
-    if isinstance(instruments, str):
-        instruments = [instruments]
-    elif isinstance(instruments, set):
-        instruments = list(instruments)
-    
-    # If still no instruments, try finding plausible instrument keys
-    if not instruments:
-        # Try to find keys that look like instruments
-        possible_instruments = [
-            key for key in (mapping_config.keys() if isinstance(mapping_config, dict) else [])
-            if key not in ['instrument_name', 'mapping_block', 'label_dicts', 'mapping_dicts', 'enum_classes']
-        ]
-        instruments = possible_instruments
-    
-    # Log for debugging
-    logger.debug(f"Extracted instruments: {instruments}")
-    
-    return instruments or []
-
 def generic_map_entities(
     data: Dict[str, Any], 
     processor: Any,
@@ -210,14 +164,16 @@ def generic_map_entities(
         
         # If no field paths found, try to derive from mapping block
         if not field_paths and instruments:
-            # Look for fields that match our instruments
+            # Look for fields that match our instruments or are direct fields
             for key, value in mapping_block.items():
                 if value and isinstance(value, str):
-                    # Only include fields that match our instruments pattern
-                    for instrument in instruments:
-                        if value.startswith(f"{instrument}.") or "." not in value:
+                    # Include fields that match our instruments pattern or have no dot
+                    if "." not in value:
+                        field_paths.append(value)
+                    else:
+                        instrument, _ = value.split(".", 1)
+                        if instrument in instruments:
                             field_paths.append(value)
-                            break
         
         # If still no field paths, return empty list
         if not field_paths:
