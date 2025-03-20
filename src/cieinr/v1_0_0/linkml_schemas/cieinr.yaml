@@ -15,6 +15,7 @@ imports:
   - form_1_basic
   - form_2_demographics_initial
   - form_3_infections_initial
+  - form_4_conditions
 
 default_prefix: cieinr
 default_range: string
@@ -46,6 +47,19 @@ slots:
   form_2_demographics_initial:
     description: Initial patient demographics data
     range: PatientDemographicsInitial
+    required: false
+    inlined: true
+
+  form_3_infections_initial:
+    description: >
+      Initial infections form with types, severity, onset dates, and patterns 
+    range: InfectionsInitial
+    required: false
+    inlined: true
+
+  form_4_conditions:
+    description: Initial conditions form with types, severity, and patterns 
+    range: ConditionsInitial
     required: false
     inlined: true
 

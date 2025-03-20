@@ -1,4 +1,4 @@
-id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_3_infections_initial_form.yaml
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_3_conditions_initial_form.yaml
 name: conditions_initial
 description: >
   Initial conditions form with types, severity, onset dates, 
@@ -9,7 +9,7 @@ prefixes:
   SNOMEDCT: http://snomed.info/sct/
   MONDO: https://purl.obolibrary.org/obo/MONDO_
   HP: https://purl.obolibrary.org/obo/HP_
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  NCIT: http://purl.obolibrary.org/obo/NCIT/
   NCBITAXON: https://www.ncbi.nlm.nih.gov/taxonomy
 imports:
   - linkml:types
@@ -18,12 +18,1004 @@ imports:
 default_range: string
 default_prefix: cieinr
 
-
-classes: 
+classes:
   ConditionsInitial:
     description: >
-      Initial conditions form with types, severity, and patterns for Phenopackets export
+      Initial conditions form with types, severity, onset dates,
+      and patterns for Phenopackets export.
     slots:
-      
-    
+      - type_of_condition
+      - snomedct_95320005
+      - snomedct_118938008
+      - snomedct_50043002
+      - snomedct_49601007
+      - mondo_0005570
+      - snomedct_928000
+      - snomedct_119292006
+      - mondo_0005265_evidence
+      - snomedct_362969004
+      - snomedct_42030000
+      - snomedct_55342001
+      - hp_0012539_modifier
+      - hp_0012189_modifier
+      - hp_0005523_modifier
+      - snomedct_85828009
+      - hp_0025142
+      - snomedct_5294002
+      - condition_other_hp
+      - new_condition
+      - condition_severity
+      - condition_presence
+      - condition_temp_pattern
+      - condition_date
+      - condition_date_1
+      - conditions_initial_form_complete
 
+slots:
+  type_of_condition:
+    title: Condition type
+    description: The type of condition that the participant experienced.
+    range: ConditionTypeEnum
+    required: false
+
+  snomedct_95320005:
+    title: Skin Condition
+    description: >
+      Specific skin condition that the participant experienced.
+      [type_of_condition] = 'snomedct_95320005'
+    range: SkinConditionEnum
+    required: false
+
+  snomedct_118938008:
+    title: Dental/Oral Condition
+    description: >
+      Specific dental/oral condition that the participant experienced.
+      [type_of_condition] = 'snomedct_118938008'
+    range: DentalConditionEnum
+    required: false
+
+  snomedct_50043002:
+    title: Sino-Pulmonary Condition
+    description: >
+      Specific sino‐pulmonary condition that the participant experienced.
+      [type_of_condition] = 'snomedct_50043002'
+    range: SinoPulmonaryConditionEnum
+    required: false
+
+  snomedct_49601007:
+    title: Cardiovascular Condition
+    description: >
+      Specific cardiovascular condition that the participant experienced.
+      [type_of_condition] = 'snomedct_49601007'
+    range: CardiovascularConditionEnum
+    required: false
+
+  mondo_0005570:
+    title: Hematologic-Lymphoid Condition
+    description: >
+      Specific hematologic-lymphoid condition that the participant experienced.
+      [type_of_condition] = 'mondo_0005570'
+    range: HematologicLymphoidConditionEnum
+    required: false
+
+  snomedct_928000:
+    title: Musculoskeletal Condition
+    description: >
+      Specific musculoskeletal condition that the participant experienced.
+      [type_of_condition] = 'snomedct_928000'
+    range: MusculoskeletalConditionEnum
+    required: false
+
+  snomedct_119292006:
+    title: Gastrointestinal Condition
+    description: >
+      Specific gastrointestinal condition that the participant experienced.
+      [type_of_condition] = 'snomedct_119292006'
+    range: GastrointestinalConditionEnum
+    required: false
+
+  mondo_0005265_evidence:
+    title: IBD Diagnosis Evidence
+    description: >
+      Type of diagnosis for Inflammatory Bowel Disease (IBD).
+      [snomedct_119292006] = 'mondo_0005265'
+    range: IBDEvidenceEnum
+    required: false
+
+  snomedct_362969004:
+    title: Endocrine-Metabolic Condition
+    description: >
+      Specific endocrine-metabolic condition that the participant experienced.
+      [type_of_condition] = 'snomedct_362969004'
+    range: EndocrineMetabolicConditionEnum
+    required: false
+
+  snomedct_42030000:
+    title: Genitourinary Condition
+    description: >
+      Specific genitourinary condition that the participant experienced.
+      [type_of_condition] = 'snomedct_42030000'
+    range: GenitourinaryConditionEnum
+    required: false
+
+  snomedct_55342001:
+    title: Neoplastic Condition
+    description: >
+      Specific neoplastic condition that the participant experienced.
+      [type_of_condition] = 'snomedct_55342001'
+    range: NeoplasticConditionEnum
+    required: false
+
+  hp_0012539_modifier:
+    title: Non-Hodgkin's Lymphoma - EBV Status
+    description: >
+      EBV status for Non-Hodgkin's Lymphoma.
+      [snomedct_55342001] = 'hp_0012539'
+    range: EBVStatusEnum
+    required: false
+
+  hp_0012189_modifier:
+    title: Hodgkin Lymphoma - EBV Status
+    description: >
+      EBV status for Hodgkin's Lymphoma.
+      [snomedct_55342001] = 'hp_0012189'
+    range: EBVStatusEnum
+    required: false
+
+  hp_0005523_modifier:
+    title: Polyclonal Lymphoproliferation - EBV Status
+    description: >
+      EBV status for Polyclonal Lymphoproliferation.
+      [snomedct_55342001] = 'hp_0005523'
+    range: EBVStatusEnum
+    required: false
+
+  snomedct_85828009:
+    title: Autoimmune Condition
+    description: >
+      Specific autoimmune condition that the participant experienced.
+      [type_of_condition] = 'snomedct_85828009'
+    range: AutoimmuneConditionEnum
+    required: false
+
+  hp_0025142:
+    title: Constitutional Condition
+    description: >
+      Specific constitutional condition that the participant experienced.
+      [type_of_condition] = 'hp_0025142'
+    range: ConstitutionalConditionEnum
+    required: false
+
+  snomedct_5294002:
+    title: Growth and Development Condition
+    description: >
+      Specific growth and development condition that the participant experienced.
+      [type_of_condition] = 'snomedct_5294002'
+    range: GrowthDevelopmentConditionEnum
+    required: false
+
+  condition_other_hp:
+    title: Other Condition [HPO]
+    description: >
+      Other condition (HPO) not listed above. Search in BIOPORTAL:HP.
+      [type_of_condition] = 'other' or [snomedct_95320005] = 'snomedct_95320005_other' or [snomedct_118938008] = 'snomedct_118938008_other' or [snomedct_50043002] = 'snomedct_50043002_other' or [snomedct_49601007] = 'snomedct_49601007_other' or [mondo_0005570] = 'mondo_0005570_other' or [snomedct_928000] = 'snomedct_928000_other' or [snomedct_119292006] = 'snomedct_119292006_other' or [snomedct_362969004] = 'snomedct_362969004_other' or [snomedct_42030000] = 'snomedct_42030000_other' or [snomedct_55342001] = 'snomedct_55342001_other' or [snomedct_85828009] = 'snomedct_85828009_other' or [hp_0025142] = 'hp_0025142_other' or [snomedct_5294002] = 'snomedct_5294002_other'
+    range: string
+    required: false
+
+  new_condition:
+    title: New Condition
+    description: >
+      If you cannot find the condition above, please specify it.
+    range: string
+    required: false
+
+  condition_severity:
+    title: Condition severity
+    description: >
+      Was the condition a prominent feature for the patient?
+    range: ConditionSeverityEnum
+    required: false
+
+  condition_presence:
+    title: Condition presence
+    description: >
+      Was the condition present at or before diagnosis?
+    range: PresenceEnum
+    required: false
+
+  condition_temp_pattern:
+    title: Condition temporal pattern
+    description: >
+      Was a temporal pattern observed in the condition?
+    range: ConditionTemporalPatternEnum
+    required: false
+
+  condition_date:
+    title: Condition onset date known
+    description: >
+      Do you know the approximate date of onset for the condition? (Only years and months suffice.)
+    range: YesNoEnum
+    required: false
+
+  condition_date_1:
+    title: Condition onset date
+    description: >
+      Month-Year of onset (format: 01-M-Y).
+      [condition_date] = 'yes'
+    range: union_date_string
+    required: false
+
+  conditions_initial_form_complete:
+    title: Form completion status
+    description: Indicates the completion status of the conditions initial form.
+    range: CompletionStatusEnum
+    required: true
+
+enums:
+  ConditionTypeEnum:
+    description: Types of conditions
+    permissible_values:
+      snomedct_95320005:
+        description: Skin Conditions
+        meaning: SNOMEDCT:95320005
+      snomedct_118938008:
+        description: Dental/Oral Conditions
+        meaning: SNOMEDCT:118938008
+      snomedct_50043002:
+        description: Sino-Pulmonary Conditions
+        meaning: SNOMEDCT:50043002
+      snomedct_49601007:
+        description: Cardiovascular Conditions
+        meaning: SNOMEDCT:49601007
+      mondo_0005570:
+        description: Hematologic-Lymphoid Conditions
+        meaning: MONDO:0005570
+      snomedct_928000:
+        description: Musculoskeletal Conditions
+        meaning: SNOMEDCT:928000
+      snomedct_119292006:
+        description: Gastrointestinal Conditions
+        meaning: SNOMEDCT:119292006
+      snomedct_362969004:
+        description: Endocrine-Metabolic Conditions
+        meaning: SNOMEDCT:362969004
+      snomedct_42030000:
+        description: Genitourinary Conditions
+        meaning: SNOMEDCT:42030000
+      snomedct_55342001:
+        description: Neoplastic Conditions
+        meaning: SNOMEDCT:55342001
+      snomedct_85828009:
+        description: Autoimmune Conditions
+        meaning: SNOMEDCT:85828009
+      hp_0025142:
+        description: Constitutional Conditions
+        meaning: HP:0025142
+      snomedct_5294002:
+        description: Growth and Development Conditions
+        meaning: SNOMEDCT:5294002
+      other:
+        description: Other
+        meaning: other
+
+  SkinConditionEnum:
+    description: Types of skin conditions
+    permissible_values:
+      hp_0001595:
+        description: Abnormal Hair
+        meaning: HP:0001595
+      hp_0001596:
+        description: Alopecia
+        meaning: HP:0001596
+      hp_0000968:
+        description: Anhydrotic Ectodermal Dysplasia
+        meaning: HP:0000968
+      hp_0000964:
+        description: Atopic Dermatitis/Eczema
+        meaning: HP:0000964
+      hp_0000966:
+        description: Hypohidrosis / Decreased Sweating
+        meaning: HP:0000966
+      hp_0032434:
+        description: Delayed Separation of Umbilical Cord
+        meaning: HP:0032434
+      hp_0001058:
+        description: Delayed Wound Healing
+        meaning: HP:0001058
+      hp_0007417:
+        description: Discoid Lupus
+        meaning: HP:0007417
+      hp_0001019:
+        description: Erythroderma
+        meaning: HP:0001019
+      hp_0032252:
+        description: Granulomas
+        meaning: HP:0032252
+      mondo_0013730:
+        description: GVHD or GVHD-like rash
+        meaning: MONDO:0013730
+      hp_0001597:
+        description: Nail Defects
+        meaning: HP:0001597
+      hp_0000989:
+        description: Pruritis
+        meaning: HP:0000989
+      hp_0003765:
+        description: Psoriasis
+        meaning: HP:0003765
+      hp_0001009:
+        description: Telangiectasia
+        meaning: HP:0001009
+      snomedct_95320005_other:
+        description: Other
+        meaning: SNOMEDCT:95320005_other
+
+  DentalConditionEnum:
+    description: Types of dental/oral conditions
+    permissible_values:
+      hp_0006482:
+        description: Abnormal Tooth Morphology
+        meaning: HP:0006482
+      hp_0032154:
+        description: Apthous Ulcers
+        meaning: HP:0032154
+      hp_0000670:
+        description: Caries (excessive)
+        meaning: HP:0000670
+      hp_0000175:
+        description: Cleft Palate
+        meaning: HP:0000175
+      hp_0000698:
+        description: Cone/Peg Teeth
+        meaning: HP:0000698
+      hp_0000684:
+        description: Delayed Eruption of Teeth
+        meaning: HP:0000684
+      hp_0006335:
+        description: Delayed Shedding of Teeth
+        meaning: HP:0006335
+      hp_0000230:
+        description: Gingivitis
+        meaning: HP:0000230
+      hp_0000668:
+        description: Hypodontia
+        meaning: HP:0000668
+      hp_0000706:
+        description: Missing Teeth (Eruption failure)
+        meaning: HP:0000706
+      snomedct_118938008_other:
+        description: Other
+        meaning: SNOMEDCT:118938008_other
+
+  SinoPulmonaryConditionEnum:
+    description: Types of sino‐pulmonary conditions
+    permissible_values:
+      mondo_0004979:
+        description: Asthma
+        meaning: MONDO:0004979
+      mondo_0005607:
+        description: Bronchitis (chronic)
+        meaning: MONDO:0005607
+      hp_0002110:
+        description: Bronchiectasis
+        meaning: HP:0002110
+      hp_0011946:
+        description: Bronchiolitis Obliterans
+        meaning: HP:0011946
+      hp_0011945:
+        description: Bronchiolitis Obliterans Organizing
+        meaning: HP:0011945
+      hp_0001217:
+        description: Clubbing
+        meaning: HP:0001217
+      hp_0006510:
+        description: COPD
+        meaning: HP:0006510
+      hp_0002097:
+        description: Emphysema
+        meaning: HP:0002097
+      hp_0032252:
+        description: Granulomas
+        meaning: HP:0032252
+      hp_0006530:
+        description: Interstitial Lung Disease
+        meaning: HP:0006530
+      hp_0002204:
+        description: Pulmonary Embolism
+        meaning: HP:0002204
+      snomedct_50043002_other:
+        description: Other
+        meaning: SNOMEDCT:50043002_other
+
+  CardiovascularConditionEnum:
+    description: Types of cardiovascular conditions
+    permissible_values:
+      hp_0001627:
+        description: Congenital Heart Disease
+        meaning: HP:0001627
+      hp_0002563:
+        description: Constrictive Pericarditis
+        meaning: HP:0002563
+      hp_0000822:
+        description: Hypertension
+        meaning: HP:0000822
+      hp_0001658:
+        description: Myocardial Infarction
+        meaning: HP:0001658
+      hp_0001297:
+        description: Stroke (CVA)
+        meaning: HP:0001297
+      hp_0001977:
+        description: Thrombosis
+        meaning: HP:0001977
+      hp_0002326:
+        description: Transient Ischemic Attack
+        meaning: HP:0002326
+      hp_0025015:
+        description: Vascular Malformation
+        meaning: HP:0025015
+      snomedct_49601007_other:
+        description: Other
+        meaning: SNOMEDCT:49601007_other
+
+  HematologicLymphoidConditionEnum:
+    description: Types of hematologic-lymphoid conditions
+    permissible_values:
+      hp_0002732:
+        description: Lymph node hypoplasia
+        meaning: HP:0002732
+      customcode_lymphnodeabsence:
+        description: Lymph node absence
+        meaning: CUSTOM:lymphnodeabsence
+      hp_0005359:
+        description: Absent Thymus Shadow
+        meaning: HP:0005359
+      hp_0030813:
+        description: Absent Tonsils
+        meaning: HP:0030813
+      hp_0001903:
+        description: Anemia
+        meaning: HP:0001903
+      hp_0001915:
+        description: Aplastic Anemia
+        meaning: HP:0001915
+      snomedct_82545002:
+        description: Blood Transfusion Reaction
+        meaning: SNOMEDCT:82545002
+      hp_0031035:
+        description: Chronic Infection
+        meaning: HP:0031035
+      hp_0003256:
+        description: Coagulopathy
+        meaning: HP:0003256
+      customcode_engraftment_maternalcells:
+        description: Engraftment by Maternal Cells
+        meaning: CUSTOM:engraftment_maternalcells
+      hp_0000421:
+        description: Epistaxis
+        meaning: HP:0000421
+      hp_0032252:
+        description: Granulomas
+        meaning: HP:0032252
+      hp_0005261:
+        description: Hemarthrosis
+        meaning: HP:0005261
+      hp_0001971:
+        description: Hypersplenism
+        meaning: HP:0001971
+      hp_0001890:
+        description: Autoimmune hemolytic anemia
+        meaning: HP:0001890
+      hp_0001891:
+        description: Iron Deficiency
+        meaning: HP:0001891
+      hp_0001974:
+        description: Leukocytosis
+        meaning: HP:0001974
+      hp_0002716:
+        description: Lymphadenopathy
+        meaning: HP:0002716
+      hp_0001888:
+        description: Lymphopenia
+        meaning: HP:0001888
+      hp_0002863:
+        description: Myelodysplasia
+        meaning: HP:0002863
+      hp_0001875:
+        description: Neutropenia
+        meaning: HP:0001875
+      mondo_0008228:
+        description: Pernicious Anemia
+        meaning: MONDO:0008228
+      hp_0000967:
+        description: Petechia
+        meaning: HP:0000967
+      hp_0001744:
+        description: Splenomegaly
+        meaning: HP:0001744
+      hp_0001873:
+        description: Thrombocytopenia
+        meaning: HP:0001873
+      hp_0001973:
+        description: Thrombocytopenia - immune
+        meaning: HP:0001973
+      hp_0001977:
+        description: Thrombosis
+        meaning: HP:0001977
+      mondo_0018896:
+        description: Thrombotic Thrombocytopenia Purpura
+        meaning: MONDO:0018896
+      mondo_0005570_other:
+        description: Other
+        meaning: MONDO:0005570_other
+
+  MusculoskeletalConditionEnum:
+    description: Types of musculoskeletal conditions
+    permissible_values:
+      hp_0002829:
+        description: Arthralgia
+        meaning: HP:0002829
+      hp_0001369:
+        description: Arthritis
+        meaning: HP:0001369
+      hp_0002757:
+        description: Frequent Fractures
+        meaning: HP:0002757
+      hp_0005261:
+        description: Hemarthrosis
+        meaning: HP:0005261
+      hp_0001382:
+        description: Hyperextensibility
+        meaning: HP:0001382
+      hp_0005681:
+        description: Juvenile Idiopathic Arthritis
+        meaning: HP:0005681
+      hp_0100614:
+        description: Myositis
+        meaning: HP:0100614
+      hp_0002758:
+        description: Osteoarthritis
+        meaning: HP:0002758
+      hp_0000939:
+        description: Osteoporosis
+        meaning: HP:0000939
+      hp_0001370:
+        description: Rheumatoid Arthritis
+        meaning: HP:0001370
+      hp_0002650:
+        description: Scoliosis
+        meaning: HP:0002650
+      hp_0004322:
+        description: Short Stature
+        meaning: HP:0004322
+      hp_0000924:
+        description: Skeletal Abnormality
+        meaning: HP:0000924
+      hp_0010754:
+        description: Temporal-Mandibular Joint Dysfunction
+        meaning: HP:0010754
+      hp_0001324:
+        description: Muscle weakness
+        meaning: HP:0001324
+      snomedct_928000_other:
+        description: Other
+        meaning: SNOMEDCT:928000_other
+
+  GastrointestinalConditionEnum:
+    description: Types of gastrointestinal conditions
+    permissible_values:
+      hp_0002027:
+        description: Abdominal Pain
+        meaning: HP:0002027
+      hp_0032154:
+        description: Aphthous Ulcers
+        meaning: HP:0032154
+      hp_6000143:
+        description: Appendicitis
+        meaning: HP:6000143
+      mondo_0016264:
+        description: Autoimmune Hepatitis
+        meaning: MONDO:0016264
+      hp_0002608:
+        description: Celiac Disease
+        meaning: HP:0002608
+      mondo_0005154:
+        description: Liver Disease
+        meaning: MONDO:0005154
+      hp_0001394:
+        description: Cirrhosis
+        meaning: HP:0001394
+      hp_0002583:
+        description: Colitis
+        meaning: HP:0002583
+      hp_0002019:
+        description: Constipation
+        meaning: HP:0002019
+      hp_4000055:
+        description: Enteritis
+        meaning: HP:4000055
+      hp_0410151:
+        description: Eosinophilic Esophagitis
+        meaning: HP:0410151
+      hp_0100819:
+        description: Fistula
+        meaning: HP:0100819
+      hp_0005264:
+        description: Gall Bladder Disease
+        meaning: HP:0005264
+      hp_0001081:
+        description: Gall Stones
+        meaning: HP:0001081
+      hp_0004386:
+        description: Gastroenteritis
+        meaning: HP:0004386
+      hp_0002020:
+        description: GE Reflux
+        meaning: HP:0002020
+      hp_0002240:
+        description: Hepatomegaly
+        meaning: HP:0002240
+      hp_0002037:
+        description: Inflammatory Bowel Disease
+        meaning: HP:0002037
+      hp_0011956:
+        description: Intestinal Nodular Lymphoid Hyperplasia
+        meaning: HP:0011956
+      hp_0001399:
+        description: Liver Failure
+        meaning: HP:0001399
+      hp_0001410:
+        description: Liver Function Abnormalities
+        meaning: HP:0001410
+      hp_0002024:
+        description: Malabsorption
+        meaning: HP:0002024
+      hp_0004796:
+        description: Obstruction
+        meaning: HP:0004796
+      hp_0005218:
+        description: Anoperineal fistula
+        meaning: HP:0005218
+      hp_0002586:
+        description: Peritonitis
+        meaning: HP:0002586
+      mondo_0005538:
+        description: Proctitis
+        meaning: MONDO:0005538
+      hp_0002243:
+        description: Protein Losing Gastroenteropathy
+        meaning: HP:0002243
+      hp_0030991:
+        description: Sclerosing Cholangitis
+        meaning: HP:0030991
+      hp_0001746:
+        description: Asplenia
+        meaning: HP:0001746
+      hp_0001744:
+        description: Splenomegaly
+        meaning: HP:0001744
+      snomedct_119292006_other:
+        description: Other
+        meaning: SNOMEDCT:119292006_other
+
+  IBDEvidenceEnum:
+    description: Evidence for IBD diagnosis
+    permissible_values:
+      snomedct_39154008:
+        description: Clinical diagnosis
+        meaning: SNOMEDCT:39154008
+      snomedct_88101002:
+        description: Pathology diagnosis (Biopsy-proven)
+        meaning: SNOMEDCT:88101002
+
+  EndocrineMetabolicConditionEnum:
+    description: Types of endocrine-metabolic conditions
+    permissible_values:
+      hp_0000846:
+        description: Adrenal Insufficiency
+        meaning: HP:0000846
+      hp_0003118:
+        description: Cushing's Disease
+        meaning: HP:0003118
+      hp_0100651:
+        description: Diabetes-Type 1
+        meaning: HP:0100651
+      hp_0005978:
+        description: Diabetes-Type 2
+        meaning: HP:0005978
+      hp_0034323:
+        description: Growth Hormone Deficiency
+        meaning: HP:0034323
+      hp_0000872:
+        description: Hashimoto's Thyroiditis
+        meaning: HP:0000872
+      hp_0003072:
+        description: Hypercalcemia
+        meaning: HP:0003072
+      hp_0002901:
+        description: Hypocalcemia
+        meaning: HP:0002901
+      hp_0000836:
+        description: Hyperthyroidism
+        meaning: HP:0000836
+      hp_0000821:
+        description: Hypothyroidism
+        meaning: HP:0000821
+      hp_0040075:
+        description: Pituitary Insufficiency
+        meaning: HP:0040075
+      hp_0008209:
+        description: Primary Ovarian Failure
+        meaning: HP:0008209
+      snomedct_362969004_other:
+        description: Other
+        meaning: SNOMEDCT:362969004_other
+
+  GenitourinaryConditionEnum:
+    description: Types of genitourinary conditions
+    permissible_values:
+      hp_0100577:
+        description: Cystitis (non-infectious)
+        meaning: HP:0100577
+      hp_0000031:
+        description: Epididymitis
+        meaning: HP:0000031
+      hp_0000099:
+        description: Glomerulonephritis
+        meaning: HP:0000099
+      hp_0000790:
+        description: Hematuria
+        meaning: HP:0000790
+      hp_0005575:
+        description: Hemolytic Uremic Syndrome
+        meaning: HP:0005575
+      hp_0000123:
+        description: Nephritis (unspecified)
+        meaning: HP:0000123
+      hp_0000100:
+        description: Nephrosis
+        meaning: HP:0000100
+      hp_0100796:
+        description: Orchitis
+        meaning: HP:0100796
+      hp_0000024:
+        description: Prostatitis
+        meaning: HP:0000024
+      hp_0000083:
+        description: Renal Failure
+        meaning: HP:0000083
+      hp_0000787:
+        description: Renal Stone
+        meaning: HP:0000787
+      hp_0041047:
+        description: Urinary Outlet Obstruction
+        meaning: HP:0041047
+      snomedct_42030000_other:
+        description: Other
+        meaning: SNOMEDCT:42030000_other
+
+  NeoplasticConditionEnum:
+    description: Types of neoplastic conditions
+    permissible_values:
+      hp_0006721:
+        description: Acute Lymphocytic Leukemia (ALL)
+        meaning: HP:0006721
+      hp_0004808:
+        description: Acute Myelogenous Leukemia (AML)
+        meaning: HP:0004808
+      hp_0005550:
+        description: Chronic Lymphocytic Leukemia (CLL)
+        meaning: HP:0005550
+      hp_0005506:
+        description: Chronic Myelogenous Leukemia (CML)
+        meaning: HP:0005506
+      hp_0001909:
+        description: Unspecified Leukemia
+        meaning: HP:0001909
+      hp_0012539:
+        description: Lymphoma - Non-Hodgkin's
+        meaning: HP:0012539
+      hp_0012189:
+        description: Lymphoma - Hodgkin's
+        meaning: HP:0012189
+      hp_0031047:
+        description: Monoclonal Gammopathy
+        meaning: HP:0031047
+      hp_0005523:
+        description: Polyclonal Lymphoproliferation
+        meaning: HP:0005523
+      hp_0002664:
+        description: Solid Tumor
+        meaning: HP:0002664
+      hp_0100522:
+        description: Thymoma
+        meaning: HP:0100522
+      snomedct_55342001_other:
+        description: Other
+        meaning: SNOMEDCT:55342001_other
+
+  EBVStatusEnum:
+    description: Epstein-Barr Virus status
+    permissible_values:
+      ncit_c129454:
+        description: Epstein-Barr Virus Positive
+        meaning: NCIT:C129454
+      ncit_c141321:
+        description: Epstein-Barr Virus Negative
+        meaning: NCIT:C141321
+
+  AutoimmuneConditionEnum:
+    description: Types of autoimmune conditions
+    permissible_values:
+      hp_0001904:
+        description: Autoimmune Neutropenia
+        meaning: HP:0001904
+      hp_0001890:
+        description: Autoimmune Hemolytic Anemia
+        meaning: HP:0001890
+      hp_0001973:
+        description: Autoimmune Thrombocytopenia
+        meaning: HP:0001973
+      mondo_0019167:
+        description: Henoch-Schonlein Purpura (HSP)
+        meaning: MONDO:0019167
+      hp_0001101:
+        description: Iritis
+        meaning: HP:0001101
+      hp_0100324:
+        description: Scleroderma
+        meaning: HP:0100324
+      hp_0002725:
+        description: Systemic Lupus Erythematosus (SLE)
+        meaning: HP:0002725
+      hp_0000554:
+        description: Uveitis
+        meaning: HP:0000554
+      hp_0005318:
+        description: Vasculitis - CNS
+        meaning: HP:0005318
+      hp_0005310:
+        description: Vasculitis - Large Vessel
+        meaning: HP:0005310
+      hp_0011944:
+        description: Vasculitis - Small Vessel
+        meaning: HP:0011944
+      snomedct_85828009_other:
+        description: Other
+        meaning: SNOMEDCT:85828009_other
+
+  ConstitutionalConditionEnum:
+    description: Types of constitutional conditions
+    permissible_values:
+      hp_0033047:
+        description: Aches
+        meaning: HP:0033047
+      hp_0012378:
+        description: Fatigue
+        meaning: HP:0012378
+      hp_0001945:
+        description: Fever
+        meaning: HP:0001945
+      hp_0033834:
+        description: Malaise
+        meaning: HP:0033834
+      hp_0002329:
+        description: Sleepiness
+        meaning: HP:0002329
+      hp_0100785:
+        description: Sleeplessness
+        meaning: HP:0100785
+      hp_0000975:
+        description: Sweating
+        meaning: HP:0000975
+      hp_0025142_other:
+        description: Other
+        meaning: HP:0025142_other
+
+  GrowthDevelopmentConditionEnum:
+    description: Types of growth and development conditions
+    permissible_values:
+      hp_0001263:
+        description: Delayed Developmental Milestones
+        meaning: HP:0001263
+      hp_0100555:
+        description: Dysmorphic Features
+        meaning: HP:0100555
+      hp_0001508:
+        description: Failure to Thrive
+        meaning: HP:0001508
+      hp_0001824:
+        description: Unintended Weight Loss
+        meaning: HP:0001824
+      hp_0000365:
+        description: Hearing Impairment (non-congenital)
+        meaning: HP:0000365
+      hp_0001249:
+        description: Intellectual Disability
+        meaning: HP:0001249
+      hp_0025502:
+        description: Over-Weight
+        meaning: HP:0025502
+      hp_0004322:
+        description: Short Stature
+        meaning: HP:0004322
+      hp_0004325:
+        description: Under-Weight
+        meaning: HP:0004325
+      snomedct_5294002_other:
+        description: Other
+        meaning: SNOMEDCT:5294002_other
+
+  ConditionSeverityEnum:
+    description: Severity levels of conditions
+    permissible_values:
+      hp_0012827:
+        description: Borderline
+        meaning: HP:0012827
+      hp_0012825:
+        description: Mild
+        meaning: HP:0012825
+      hp_0012826:
+        description: Moderate
+        meaning: HP:0012826
+      hp_0012829:
+        description: Profound
+        meaning: HP:0012829
+      hp_0012828:
+        description: Severe
+        meaning: HP:0012828
+
+  ConditionTemporalPatternEnum:
+    description: Temporal patterns of conditions
+    permissible_values:
+      hp_0011009:
+        description: Acute
+        meaning: HP:0011009
+      hp_0011011:
+        description: Subacute
+        meaning: HP:0011011
+      hp_0025297:
+        description: Prolonged
+        meaning: HP:0025297
+      hp_0025153:
+        description: Transient
+        meaning: HP:0025153
+      hp_0031796:
+        description: Recurrent
+        meaning: HP:0031796
+      hp_0011010:
+        description: Chronic
+        meaning: HP:0011010
+
+  PresenceEnum:
+    description: Indicates whether a condition was present at or before diagnosis
+    permissible_values:
+      "1":
+        description: yes
+        meaning: "1"
+      "2":
+        description: no
+        meaning: "2"
+
+  YesNoEnum:
+    description: Yes/No response
+    permissible_values:
+      yes:
+        description: Yes
+        meaning: yes
+      no:
+        description: No
+        meaning: no
+
+  CompletionStatusEnum:
+    description: Enumeration for form completion status
+    permissible_values:
+      "0":
+        description: Incomplete
+        meaning: "0"
+      "1":
+        description: Unverified
+        meaning: "1"
+      "2":
+        description: Complete
+        meaning: "2"

@@ -18,6 +18,7 @@ classes:
       The basic form containing the IEI diagnosis information needed for Phenopackets export.
     slots:
       - iei_deficiency_basic
+      - non_genetic_iei
       - basic_form_complete
       - igrt_basic
       - hct_basic_form
@@ -33,6 +34,13 @@ slots:
     comments: >
       This field contains an extensive list of IEI deficiencies with MONDO codes.
       Tip: use the IUIS 2024 classification. If not found, search in MONDO.
+
+  non_genetic_iei: 
+    title: Non-genetic IEI diagnosis
+    description: >
+      The non-genetic IEI diagnosis for the participant.
+    range: NonGeneticIEIEnum
+    required: false
 
   igrt_basic:
     title:  Immunoglobulin replacement therapy
@@ -1681,3 +1689,68 @@ enums:
       mondo_0030491:
         description: ZNFX1 deficiency - ZNFX1
         meaning: MONDO:0030491
+
+  NonGeneticIEIEnum:
+    description: >
+      Enumeration of non-genetic Inborn Errors of Immunity
+    permissible_values:
+      hp_000176: 
+        description: Asplenia
+        meaning: HP:000176
+      mondo_0015974:
+        description: (atypical) severe combined immunodeficiency
+        meaning: MONDO:0015974
+      mondo_0015977:
+        description: combined immunodeficiency
+        meaning: MONDO:0015977
+      early_onset_ibd:
+        description: Early-onset inflammatory bowel disease
+        meaning: CustomCode:early_onset_ibd
+      early_onset_mad:
+        description: Early-onset multi-organ autoimmune disease
+        meaning: CustomCode:early_onset_mad
+      ipex_like_disease:
+        description: IPEX-like disease
+        meaning: CustomCode:ipex_like_disease      
+      mondo_0013714:
+        description: mannose-binding lectin deficiency
+        meaning: MONDO:0013714
+      mondo_0011338:
+        description: Omenn syndrome
+        meaning: MONDO:0011338
+      mondo_0014226:
+        description: idiopathic CD4 lymphocytopenia
+        meaning: MONDO:0014226
+      mondo_0015977:
+        description: Agammaglobulinemia
+        meaning: MONDO:0015977
+      uncl_abd_def:
+        description: (Unclassified) antibody deficiency
+        meaning: CustomCode:uncl_abd_def
+      uncl_phag_dis:
+        description: (Unclassified) phagocytic disorder
+        meaning: CustomCode:uncl_phag_dis
+      ncit_c176595:
+        description: (Unclassified) disorders of immune dysregulation
+        meaning: NCIT:C176595
+      ordo_331193:
+        description: (Unclassified) defect in innate immunity
+        meaning: ORDO:331193
+      ncit_c4691:
+        description: (Unclassified) complement deficiency
+        meaning: NCIT:C4691
+      autoinflammatory_diseases:
+        description: (Unclassified) autoinflammatory disease
+        meaning: CustomCode:autoinflammatory_diseases
+      syndromic_immunodeficiencies:
+        description: (Unclassified) syndromic immunodeficiencies
+        meaning: CustomCode:syndromic_immunodeficiencies
+      other_t_cell_problem:
+        description: Unclassified/Other T cell proble
+        meaning: CustomCode:other_t_cell_problem
+      mondo_0001222:
+        description: congenital T-cell immunodeficiency / non-SCID
+        meaning: MONDO:0001222
+      mondo_0021094:
+        description: combined immunodeficiency
+        meaning: MONDO:0021094
