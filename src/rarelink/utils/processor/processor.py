@@ -183,35 +183,70 @@ class DataProcessor:
         using only years and months (e.g., "P38Y7M").
         
         Args:
-            event_date: The date of the event (e.g., onset), string or datetime
-            dob: The individual's date of birth, string or datetime
+            event_date: The event date (string or datetime). May be an ISO8601 string
+                        or a string like "seconds: 1646092800".
+            dob: The date of birth (string or datetime). May be an ISO8601 string
+                or a string like "seconds: 1646092800".
             
         Returns:
-            str: An ISO8601 duration string or None if conversion fails
+            str: An ISO8601 duration string (e.g. "P38Y7M") or None if conversion fails.
         """
-        if not event_date or not dob:
-            return None
+        
+        def _parse_date(date_input: str) -> datetime:
+            """
+            Parse a date input that may be an ISO8601 string or a string with a "seconds:" prefix.
             
+            Args:
+                date_input (str): The date string to parse.
+            
+            Returns:
+                datetime: The corresponding datetime object.
+            """
+            date_input = date_input.strip()
+            logger.debug(f"_parse_date: received date_input: {date_input}")
+            if "seconds:" in date_input.lower():
+                ts_str = date_input.lower().replace("seconds:", "").strip()
+                logger.debug(f"_parse_date: detected 'seconds:' prefix; extracted ts_str: {ts_str}")
+                ts = float(ts_str)
+                dt = datetime.fromtimestamp(ts)
+                logger.debug(f"_parse_date: converted timestamp {ts} to datetime: {dt}")
+                return dt
+            else:
+                dt = datetime.fromisoformat(date_input.rstrip('Z').strip())
+                logger.debug(f"_parse_date: converted ISO string to datetime: {dt}")
+                return dt
+            if not event_date or not dob:
+                logger.debug("convert_date_to_iso_age: Missing event_date or dob.")
+                return None
+
         try:
-            # Convert both dates to datetime objects if they're strings
+            # Parse dob
             if isinstance(dob, str):
-                dob_dt = datetime.fromisoformat(dob.rstrip('Z'))
+                dob_dt = _parse_date(dob)
             else:
                 dob_dt = dob
-                
+                logger.debug(f"convert_date_to_iso_age: using provided dob datetime: {dob_dt}")
+
+            # Parse event_date
             if isinstance(event_date, str):
-                event_date_dt = datetime.fromisoformat(event_date.rstrip('Z'))
+                event_date_dt = _parse_date(event_date)
             else:
                 event_date_dt = event_date
-                
-            # Calculate the difference using relativedelta to get years and months
+                logger.debug(f"convert_date_to_iso_age: using provided event_date datetime: {event_date_dt}")
+
+            # Calculate the difference in years and months
             delta = relativedelta(event_date_dt, dob_dt)
-            # Build the ISO8601 duration string with only years and months
             iso_age = f"P{delta.years}Y{delta.months}M"
+            logger.debug(f"convert_date_to_iso_age: Calculated ISO age: {iso_age} (Years: {delta.years}, Months: {delta.months})")
             return iso_age
         except Exception as e:
             logger.error(f"Error calculating ISO age: {e}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return None
+
+
+
         
     def process_code(self, code):
         """

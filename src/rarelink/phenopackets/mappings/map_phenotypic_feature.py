@@ -1,6 +1,7 @@
 import logging
 from typing import List, Dict, Any, Optional
 from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence, Age
+from cieinr.adapter.multi_onset import multi_onset_adapter
 from rarelink.utils.processor import DataProcessor
 
 logger = logging.getLogger(__name__)
@@ -191,17 +192,10 @@ def _map_infections(data: dict, processor: DataProcessor, dob: str = None) -> Li
         
         logger.debug(f"Found infection types: {infection_types}")
         
-        # Create a phenotypic feature for each infection type
         for type_value in infection_types:
-            feature = _create_phenotypic_feature(
-                feature_type=type_value,
-                feature_data=element_data,
-                processor=processor,
-                dob=dob
-            )
-            
-            if feature:
-                phenotypic_features.append(feature)
+            features = multi_onset_adapter(_create_phenotypic_feature, type_value, element_data, processor, dob)
+            if features:
+                phenotypic_features.extend(features)
     
     return phenotypic_features
 
@@ -236,19 +230,14 @@ def _map_standard_phenotypic_features(data: dict, processor: DataProcessor, dob:
         if not type_value:
             logger.debug(f"No value found for type field '{type_field_path}'")
             continue
-        
         logger.debug(f"Found type value: {type_value}")
-        
-        # Create a phenotypic feature for the type
-        feature = _create_phenotypic_feature(
-            feature_type=type_value,
-            feature_data=element_data,
-            processor=processor,
-            dob=dob
-        )
-        
-        if feature:
-            phenotypic_features.append(feature)
+
+        # Use the adapter to create one or more features per phenotype code.
+        features = multi_onset_adapter(_create_phenotypic_feature, type_value, 
+                                       element_data, processor, dob)
+        if features:
+            phenotypic_features.extend(features)
+
     
     return phenotypic_features
 

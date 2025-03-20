@@ -33,6 +33,18 @@ def map_infections(record):
         "infection_temp_pattern": record.get("infection_temp_pattern", ""),
         "infection_times_obseverd": record.get("infection_times_obseverd", ""),
         
+        # infection dates
+        "infection_date": record.get("infection_date", ""),
+        "infection_date_2": record.get("infection_date_2", ""),
+        "infection_date_3": record.get("infection_date_3", ""),
+        "infection_date_4": record.get("infection_date_4", ""),
+        "infection_date_5": record.get("infection_date_5", ""),
+        "infection_date_6": record.get("infection_date_6", ""),
+        "infection_date_7": record.get("infection_date_7", ""),
+        "infection_date_8": record.get("infection_date_8", ""),
+        "infection_date_9": record.get("infection_date_9", ""),
+        "infection_date_10": record.get("infection_date_10", ""),
+        
         # Form completion status
         "infections_initial_form_complete": record.get("infections_initial_form_complete", "0")
     }

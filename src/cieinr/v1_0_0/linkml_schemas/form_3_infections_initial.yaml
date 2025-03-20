@@ -34,7 +34,18 @@ classes:
       - infection_severity
       - infection_temp_pattern
       - infection_times_obseverd
+      - infection_date
+      - infection_date_2
+      - infection_date_3
+      - infection_date_4
+      - infection_date_5
+      - infection_date_6
+      - infection_date_7
+      - infection_date_8
+      - infection_date_9
+      - infection_date_10
       - infections_initial_form_complete
+
 
 slots:
   type_of_infection:
@@ -121,6 +132,66 @@ slots:
     range: InfectionFrequencyEnum
     required: false
 
+  infection_date: 
+    title: Infection date
+    description: The date the infection was first observed.
+    range: union_date_string
+    required: false
+
+  infection_date_2:
+    title: Infection date 2
+    description: The date the infection was second observed.
+    range: union_date_string
+    required: false
+
+  infection_date_3:
+    title: Infection date 3
+    description: The date the infection was third observed.
+    range: union_date_string
+    required: false
+
+  infection_date_4:
+    title: Infection date 4
+    description: The date the infection was fourth observed.
+    range: union_date_string
+    required: false
+  
+  infection_date_5:
+    title: Infection date 5
+    description: The date the infection was fifth observed.
+    range: union_date_string
+    required: false
+  
+  infection_date_6:
+    title: Infection date 6
+    description: The date the infection was sixth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_7:
+    title: Infection date 7
+    description: The date the infection was seventh observed.
+    range: union_date_string
+    required: false
+
+  infection_date_8:
+    title: Infection date 8
+    description: The date the infection was eighth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_9:
+    title: Infection date 9
+    description: The date the infection was ninth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_10:
+    title: Infection date 10
+    description: The date the infection was tenth observed.
+    range: union_date_string
+    required: false
+    
   infections_initial_form_complete:
     title: Form completion status
     description: Indicates the completion status of the infections initial form.

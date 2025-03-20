@@ -11,7 +11,11 @@ PHENOTYPIC_FEATURES_BLOCK = {
     "type_field_9": "snomedct_21514008",
     "type_field_10":"snomedct_31099001",
     "excluded_field": None,
-    "onset_date_field": None,
+    "onset_date_fields": ["infection_date", "infection_date_2", 
+                          "infection_date_3", "infection_date_4", 
+                          "infection_date_5", "infection_date_6", 
+                          "infection_date_7", "infection_date_8", 
+                          "infection_date_9", "infection_date_10"],
     "resolution_field": None,
     "severity_field": "infection_severity",
     "modifier_field_1": "type_of_infection",
@@ -20,4 +24,5 @@ PHENOTYPIC_FEATURES_BLOCK = {
     "modifier_field_4": None,
     "modifier_field_5": None,
     "evidence_field": None,
+    "multi_onset": True  
 }
