@@ -1,4 +1,4 @@
-id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_3_conditions_initial_form.yaml
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_4_conditions.yaml)
 name: conditions_initial
 description: >
   Initial conditions form with types, severity, onset dates, 
@@ -45,7 +45,6 @@ classes:
       - condition_other_hp
       - new_condition
       - condition_severity
-      - condition_presence
       - condition_temp_pattern
       - condition_date
       - condition_date_1
@@ -249,7 +248,7 @@ slots:
     title: Form completion status
     description: Indicates the completion status of the conditions initial form.
     range: CompletionStatusEnum
-    required: true
+    required: false
 
 enums:
   ConditionTypeEnum:
