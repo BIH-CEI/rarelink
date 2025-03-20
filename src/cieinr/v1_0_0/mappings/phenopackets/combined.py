@@ -39,20 +39,13 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "enum_classes": {}
         },
         "diseases": {
-            "instrument_name": "basic_form",
+            "instrument_name": ["basic_form", "patient_demographics_initial_form"],   
             "mapping_block": DISEASE_BLOCK,
-            "label_dicts": {
-                "AgeAtOnset": label_dicts.get("AgeAtOnset", {})
-            },
-            "mapping_dicts": {
-                "map_disease_verification_status": mapping_dict_lookup.get("map_disease_verification_status", {})
-            },
             "enum_classes": {
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
         "phenotypicFeatures": {
-            # Map infections_initial_form to phenotypic features
             "instrument_name": "infections_initial_form",
             "mapping_block": PHENOTYPIC_FEATURES_BLOCK,
             "label_dicts": {
