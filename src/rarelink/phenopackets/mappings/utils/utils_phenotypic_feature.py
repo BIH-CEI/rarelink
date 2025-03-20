@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Optional
 from rarelink.utils.processor.processor import DataProcessor
 import logging
 from phenopackets import OntologyClass, Evidence, TimeElement, Age
+from rarelink.utils.loading import _get_multi_instrument_field_value
 
 logger = logging.getLogger(__name__)
 
@@ -25,13 +26,15 @@ def _get_field_value(data: dict, field_path: str) -> Any:
         return data.get(parts[0]).get(parts[1])
     return data.get(field_path)
 
-def _get_single_type(data: dict, processor: DataProcessor) -> List[str]:
+def _get_single_type(data: dict, processor: DataProcessor, all_instruments: List[str] = None) -> List[str]:
     """
     Extracts a single type value from data using the configured 'type_field'.
+    Enhanced to support multi-instrument field access.
     
     Args:
         data (dict): Input element data.
         processor (DataProcessor): Data processor.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
     
     Returns:
         List[str]: List with a single type value if found, else an empty list.
@@ -40,15 +43,34 @@ def _get_single_type(data: dict, processor: DataProcessor) -> List[str]:
     if not type_field:
         logger.debug("No type field configured")
         return []
-    value = _get_field_value(data, type_field)
+    
+    value = None
+    
+    # Try multi-instrument lookup first if available
+    if all_instruments and hasattr(processor, 'mapping_config') and 'all_instruments' in processor.mapping_config:
+        # Use the full data and all instruments for lookup
+        full_data = processor.mapping_config.get('full_data', {})
+        value = _get_multi_instrument_field_value(
+            data=full_data,
+            instruments=all_instruments,
+            field_paths=[type_field]
+        )
+    
+    # If not found or multi-instrument lookup not available, use direct field access
+    if value is None:
+        value = _get_field_value(data, type_field)
+    
     if not value:
         logger.debug(f"No value found for type field '{type_field}'")
         return []
+    
+    logger.debug(f"Found type value: {value}")
     return [value]
 
 def _determine_data_model(processor: DataProcessor, instrument_name: str) -> str:
     """
     Determines which data model to use based on configuration and instrument name.
+    Updated to recognize systemic/organ-specific conditions instruments.
     
     Args:
         processor (DataProcessor): Data processor.
@@ -61,9 +83,18 @@ def _determine_data_model(processor: DataProcessor, instrument_name: str) -> str
     if explicit_model:
         logger.debug(f"Using explicitly defined data model: {explicit_model}")
         return explicit_model
-    has_multiple = any(f"type_field_{i}" in processor.mapping_config for i in range(2, 11))
+    
+    has_multiple = any(f"type_field_{i}" in processor.mapping_config for i in range(2, 20))
     is_infection = ("infection" in instrument_name.lower() or instrument_name == "infections_initial_form")
-    return "infections" if (has_multiple or is_infection) else "standard"
+    
+    # Add support for systemic/organ-specific conditions
+    is_condition = (
+        "systemic" in instrument_name.lower() or
+        "organ_specific" in instrument_name.lower() or
+        "patients_systemic_or_organ_specific_conditions" == instrument_name
+    )
+    
+    return "infections" if (has_multiple or is_infection or is_condition) else "standard"
 
 def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]:
     """
@@ -99,13 +130,15 @@ def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]
         return [data]
     return elements
 
-def _get_infection_types(data: dict, processor: DataProcessor) -> List[str]:
+def _get_infection_types(data: dict, processor: DataProcessor, all_instruments: List[str] = None) -> List[str]:
     """
     Extracts infection type values from the data, handling multiple type fields.
+    Enhanced to support multi-instrument field access.
     
     Args:
         data (dict): The data to extract from.
         processor (DataProcessor): The data processor with mapping configuration.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
         
     Returns:
         List[str]: A list of infection type values.
@@ -130,7 +163,22 @@ def _get_infection_types(data: dict, processor: DataProcessor) -> List[str]:
     
     logger.debug(f"Checking {len(type_fields)} type fields for values")
     for key, field_path in type_fields.items():
-        value = _get_field_value(data, field_path)
+        value = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and hasattr(processor, 'mapping_config') and 'all_instruments' in processor.mapping_config:
+            # Use the full data and all instruments for lookup
+            full_data = processor.mapping_config.get('full_data', {})
+            value = _get_multi_instrument_field_value(
+                data=full_data,
+                instruments=all_instruments,
+                field_paths=[field_path]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if value is None:
+            value = _get_field_value(data, field_path)
+        
         if value:
             logger.debug(f"Found value '{value}' for type field '{key}'")
             type_values.append(value)
@@ -138,7 +186,7 @@ def _get_infection_types(data: dict, processor: DataProcessor) -> List[str]:
     # If no explicit type fields yielded a value, scan the keys using common patterns.
     if not type_values:
         scan_patterns = processor.mapping_config.get("scan_patterns", [
-            "infection_", "disease_", "phenotype_", "symptom_", "finding_"
+            "infection_", "disease_", "phenotype_", "symptom_", "finding_", "hp_", "type_of_"
         ])
         for field_name, value in data.items():
             if isinstance(value, str) and value and any(pattern in field_name.lower() for pattern in scan_patterns):
@@ -150,13 +198,42 @@ def _get_infection_types(data: dict, processor: DataProcessor) -> List[str]:
     
     return type_values
 
-
-
-def _extract_excluded_status(data: dict, processor: DataProcessor) -> Optional[bool]:
+def _extract_excluded_status(
+    data: dict, 
+    processor: DataProcessor,
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> Optional[bool]:
+    """
+    Extracts excluded status from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        Optional[bool]: True if excluded, False if not, None if not specified.
+    """
     excluded = None
     field = processor.mapping_config.get("excluded_field")
     if field:
-        val = _get_field_value(data, field)
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             mapped = processor.fetch_mapping_value("phenotypic_feature_status", val)
             if mapped == "true":
@@ -165,12 +242,46 @@ def _extract_excluded_status(data: dict, processor: DataProcessor) -> Optional[b
                 excluded = False
     return excluded
 
-def _extract_onset(data: dict, processor: DataProcessor, dob: str = None) -> Optional[TimeElement]:
+def _extract_onset(
+    data: dict, 
+    processor: DataProcessor, 
+    dob: str = None, 
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> Optional[TimeElement]:
+    """
+    Extracts onset information from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        dob (str, optional): Date of birth for age calculations.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        Optional[TimeElement]: Onset time element or None.
+    """
     onset = None
     field = processor.mapping_config.get("onset_date_field")
     alt_field = processor.mapping_config.get("onset_age_field")
+    
     if field and dob:
-        val = _get_field_value(data, field)
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             try:
                 onset_str = val if isinstance(val, str) else (val.ToDatetime().isoformat() if hasattr(val, "ToDatetime") else str(val))
@@ -181,20 +292,69 @@ def _extract_onset(data: dict, processor: DataProcessor, dob: str = None) -> Opt
                     onset = TimeElement(age=Age(iso8601duration=iso_age))
             except Exception as e:
                 logger.error(f"Error processing onset date: {e}")
+    
     if not onset and alt_field:
-        alt_val = _get_field_value(data, alt_field)
+        alt_val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            alt_val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[alt_field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if alt_val is None:
+            alt_val = _get_field_value(data, alt_field)
+        
         if alt_val:
             label = processor.fetch_label(alt_val, "AgeOfOnset")
             pid = processor.process_code(alt_val)
             if label:
                 onset = TimeElement(ontology_class=OntologyClass(id=pid, label=label))
+    
     return onset
 
-def _extract_resolution(data: dict, processor: DataProcessor, dob: str = None) -> Optional[TimeElement]:
+def _extract_resolution(
+    data: dict, 
+    processor: DataProcessor, 
+    dob: str = None, 
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> Optional[TimeElement]:
+    """
+    Extracts resolution information from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        dob (str, optional): Date of birth for age calculations.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        Optional[TimeElement]: Resolution time element or None.
+    """
     resolution = None
     field = processor.mapping_config.get("resolution_field")
+    
     if field and dob:
-        val = _get_field_value(data, field)
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             try:
                 res_str = val if isinstance(val, str) else (val.ToDatetime().isoformat() if hasattr(val, "ToDatetime") else str(val))
@@ -205,42 +365,143 @@ def _extract_resolution(data: dict, processor: DataProcessor, dob: str = None) -
                     resolution = TimeElement(age=Age(iso8601duration=iso_age))
             except Exception as e:
                 logger.error(f"Error processing resolution date: {e}")
+    
     return resolution
 
-def _extract_severity(data: dict, processor: DataProcessor) -> Optional[OntologyClass]:
+def _extract_severity(
+    data: dict, 
+    processor: DataProcessor, 
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> Optional[OntologyClass]:
+    """
+    Extracts severity information from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        Optional[OntologyClass]: Severity ontology class or None.
+    """
     severity = None
     field = processor.mapping_config.get("severity_field")
+    
     if field:
-        val = _get_field_value(data, field)
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             sid = processor.process_code(val)
             label = processor.fetch_label(val, "PhenotypeSeverity")
             if label:
                 severity = OntologyClass(id=sid, label=label)
+    
     return severity
 
-def _extract_evidence(data: dict, processor: DataProcessor) -> Optional[List[Evidence]]:
+def _extract_evidence(
+    data: dict, 
+    processor: DataProcessor, 
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> Optional[List[Evidence]]:
+    """
+    Extracts evidence information from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        Optional[List[Evidence]]: List of evidence or None.
+    """
     evidence_list = None
     field = processor.mapping_config.get("evidence_field")
+    
     if field:
-        val = _get_field_value(data, field)
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             eid = processor.process_code(val)
             label = processor.fetch_label(val)
             evidence = Evidence(evidence_code=OntologyClass(id=eid, label=label or "Unknown Evidence"))
             evidence_list = [evidence]
+    
     return evidence_list
 
-def _extract_modifiers(data: dict, processor: DataProcessor) -> List[OntologyClass]:
+def _extract_modifiers(
+    data: dict, 
+    processor: DataProcessor, 
+    all_instruments: List[str] = None,
+    data_context: dict = None
+) -> List[OntologyClass]:
+    """
+    Extracts modifier information from the data.
+    Enhanced to support multi-instrument field access.
+    
+    Args:
+        data (dict): The data to extract from.
+        processor (DataProcessor): The data processor.
+        all_instruments (List[str], optional): List of all instruments for field lookup.
+        data_context (dict, optional): Additional data context for field lookup.
+        
+    Returns:
+        List[OntologyClass]: List of modifiers.
+    """
     modifiers = []
-    for i in range(1, 6):
+    
+    for i in range(1, 10):
         field = processor.mapping_config.get(f"modifier_field_{i}")
         if not field:
             continue
-        val = _get_field_value(data, field)
+        
+        val = None
+        
+        # Try multi-instrument lookup first if available
+        if all_instruments and data_context:
+            val = _get_multi_instrument_field_value(
+                data=data_context,
+                instruments=all_instruments,
+                field_paths=[field]
+            )
+        
+        # If not found or multi-instrument lookup not available, use direct field access
+        if val is None:
+            val = _get_field_value(data, field)
+        
         if val:
             mid = processor.process_code(val)
             label = processor.fetch_label(val)
             if label:
                 modifiers.append(OntologyClass(id=mid, label=label))
+    
     return modifiers

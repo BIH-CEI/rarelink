@@ -57,7 +57,20 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "mapping_dicts": {
                 "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
             },
-            "enum_classes": {}
+            "enum_classes": {
+                "type_of_infection": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionTypeEnum",
+                "snomedct_61274003": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.OpportunisticInfectionEnum",
+                "snomedct_21483005": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.CNSInfectionEnum",
+                "snomedct_81745001": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.EyeInfectionEnum",
+                "snomedct_385383008": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.ENTInfectionEnum",
+                "snomedct_127856007": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.SkinInfectionEnum",
+                "snomedct_110522009": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.BoneJointInfectionEnum",
+                "snomedct_20139000": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.RespiratoryInfectionEnum",
+                "snomedct_303699009": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.GIInfectionEnum",
+                "snomedct_21514008": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.GUInfectionEnum",
+                "snomedct_31099001": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.SystemicInfectionEnum",
+                "infection_severity": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionSeverityEnum"
+            }
         },
         "procedures": {
             "instrument_name": "basic_form",

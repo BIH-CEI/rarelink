@@ -1,6 +1,8 @@
 id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_3_infections_initial_form.yaml
 name: infections_initial
-description: Initial infections form with infection types, severity, and patterns for Phenopackets export
+description: >
+  Initial infections form with infection types, severity, onset dates,
+  causing agents, and patterns for Phenopackets export.
 prefixes:
   linkml: https://w3id.org/linkml/
   cieinr: https://github.com/BIH-CEI/cieinr
@@ -8,6 +10,7 @@ prefixes:
   MONDO: https://purl.obolibrary.org/obo/MONDO_
   HP: https://purl.obolibrary.org/obo/HP_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
+  NCBITAXON: https://www.ncbi.nlm.nih.gov/taxonomy
 imports:
   - linkml:types
   - cieinr_types
@@ -33,6 +36,11 @@ classes:
       - snomedct_31099001
       - infection_severity
       - infection_temp_pattern
+      - causing_agent
+      - causing_agent_viral
+      - causing_agent_bacterial
+      - causing_agent_mycotic
+      - causing_organism_other
       - infection_times_obseverd
       - infection_date
       - infection_date_2
@@ -45,7 +53,6 @@ classes:
       - infection_date_9
       - infection_date_10
       - infections_initial_form_complete
-
 
 slots:
   type_of_infection:
@@ -124,6 +131,36 @@ slots:
     title: Infection temporal pattern
     description: The temporal pattern observed in the infection.
     range: InfectionTemporalPatternEnum
+    required: false
+
+  causing_agent:
+    title: Causing agent
+    description: The agent that caused the infection.
+    range: CausingAgentEnum
+    required: false
+  
+  causing_agent_viral:
+    title: Viral causing agent
+    description: The viral agent that caused the infection.
+    range: ViralCausingAgentEnum
+    required: false
+
+  causing_agent_bacterial:
+    title: Bacterial causing agent
+    description: The bacterial agent that caused the infection.
+    range: BacterialCausingAgentEnum
+    required: false
+  
+  causing_agent_mycotic:
+    title: Mycotic causing agent
+    description: The mycotic agent that caused the infection.
+    range: MycoticCausingAgentEnum
+    required: false
+
+  causing_organism_other:
+    title: Other causing organism
+    description: The other organism that caused the infection.
+    range: string
     required: false
 
   infection_times_obseverd:
@@ -410,6 +447,154 @@ enums:
       ncit_c66836:
         description: 5
         meaning: NCIT:C66836
+
+  CausingAgentEnum:
+    description: Classes of causing agents
+    permissible_values:
+      ncbitaxon_10239:
+        description: Viral
+        meaning: NCBITAXON:10239
+      ncbitaxon_2:
+        description: Bacterial
+        meaning: Bacterial
+      ncbitaxon_4751:
+        description: Mycotic
+        meaning: NCBITAXON:4751
+      other:
+        description: Other
+        meaning: Other
+      unknown:
+        description: unknown
+        meaning: unknown
+
+ViralCausingAgentEnum:
+  description: Classes of viral causing agents
+  permissible_values:
+    ncbitaxon_10508:
+      description: Adenovirus
+      meaning: NCBITaxon:10508
+    ncbitaxon_2697049:
+      description: Adenovirus
+      meaning: NCBITAXON:2697049
+    ncbitaxon_10358:
+      description: COVID 19
+      meaning: NCBITAXON:10358
+    ebv_virus:
+      description: EBV virus
+      meaning: EBV_VIRUS
+    ncbitaxon_12059:
+      description: Entero/rhinovirus
+      meaning: NCBITaxon:12059
+    ncbitaxon_10407:
+      description: Hepatitis B virus
+      meaning: NCBITAXON:10407
+    ncbitaxon_12092:
+      description: Hepatitis A virus
+      meaning: NCBITAXON:12092
+    ncbitaxon_10294:
+      description: Herpes Simplex virus
+      meaning: NCBITAXON:10294
+    ncbitaxon_11320:
+      description: Influenza A virus
+      meaning: NCBITAXON:11320
+    ncbitaxon_11520:
+      description: Influenza B virus
+      meaning: NCBITaxon:11520
+    ncbitaxon_142786:
+      description: Norovirus
+      meaning: NCBITAXON:142786
+    ncbitaxon_12814:
+      description: Respiratory syncytial virus
+      meaning: NCBITAXON:12814
+    ncbitaxon_10912:
+      description: Rotavirus
+      meaning: NCBITAXON:10912
+    ncbitaxon_10335:
+      description: Varicella Zoster
+      meaning: NCBITAXON:10335
+    causing_agent_viral_other:
+      description: Other
+      meaning: causing_agent_viral_other
+
+  BacterialCausingAgentEnum:
+    description: Classes of bacterial causing agents
+    permissible_values:
+      ncbitaxon_31979:
+        description: Clostridium diff
+        meaning: NCBITAXON:31979
+      ncbitaxon_91347:
+        description: Enterobacter
+        meaning: NCBITAXON:91347
+      ncbitaxon_81852:
+        description: Enterococcus (including E. coli)
+        meaning: NCBITAXON:81852
+      ncbitaxon_724:
+        description: Haemophilus
+        meaning: NCBITAXON:724
+      snomedct_75032006:
+        description: Klebsiella
+        meaning: SNOMED:75032006
+      ncbitaxon_33958:
+        description: Lactobacillaceae
+        meaning: NCBITAXON:33958
+      ncbitaxon_445:
+        description: Legionella
+        meaning: NCBITAXON:445
+      ncbitaxon_186820:
+        description: Listeriaceae
+        meaning: NCBITAXON:186820
+      ncbitaxon_2093:
+        description: Mycoplasma
+        meaning: NCBITAXON:2093
+      ncbitaxon_482:
+        description: Neisseria meningitis
+        meaning: NCBITAXON:482
+      ncbitaxon_90964:
+        description: Staphylococcus
+        meaning: NCBITAXON:90964
+      ncbitaxon_1300:
+        description: Streptococcus
+        meaning: NCBITAXON:1300
+      causing_agent_bacterial_other:
+        description: Other
+        meaning: causing_agent_bacterial_other
+
+  MycoticCausingAgentEnum:
+    description: Classes of mycotic causing agents
+    permissible_values:
+      ncbitaxon_5052:
+        description: Aspergillus
+        meaning: NCBITAXON:5052
+      ncbitaxon_5475:
+        description: Candida
+        meaning: NCBITAXON:5475
+      ncbitaxon_470132:
+        description: Catenulostroma chromoblastomycosum
+        meaning: NCBITAXON:470132
+      ncbitaxon_3027:
+        description: Cryptophyceae
+        meaning: NCBITAXON:3027
+      ncbitaxon_2231446:
+        description: Dermatophyllum
+        meaning: NCBITAXON:2231446
+      ncbitaxon_5036:
+        description: Histoplasma
+        meaning: NCBITAXON:5036
+      ncbitaxon_370836:
+        description: Pityriasis
+        meaning: NCBITAXON:370836
+      ncbitaxon_4753:
+        description: Pneumocystis
+        meaning: NCBITAXON:4753
+      ncbitaxon_184471:
+        description: Sporotrichum
+        meaning: NCBITAXON:184471
+      ncbitaxon_41013:
+        description: Tinea (including tinea corporis)
+        meaning: NCBITAXON:41013
+      causing_agent_mycotic_other:
+        description: Other
+        meaning: causing_agent_mycotic_other
 
   CompletionStatusEnum:
     description: >
