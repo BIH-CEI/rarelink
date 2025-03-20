@@ -1,0 +1,3288 @@
+# Auto generated from cieinr.yaml by pythongen.py version: 0.0.1
+# Generation date: 2025-03-15T19:08:36
+# Schema: cieinr
+#
+# id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/cieinr.yaml
+# description: National Inborn Errors of Immunity Registry in Canada - Simplified Model for Phenopackets Export
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+
+import dataclasses
+import re
+from dataclasses import dataclass
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from typing import (
+    Any,
+    ClassVar,
+    Dict,
+    List,
+    Optional,
+    Union
+)
+
+from jsonasobj2 import (
+    JsonObj,
+    as_dict
+)
+from linkml_runtime.linkml_model.meta import (
+    EnumDefinition,
+    PermissibleValue,
+    PvFormulaOptions
+)
+from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.formatutils import (
+    camelcase,
+    sfx,
+    underscore
+)
+from linkml_runtime.utils.metamodelcore import (
+    bnode,
+    empty_dict,
+    empty_list
+)
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot,
+    extended_float,
+    extended_int,
+    extended_str
+)
+from rdflib import (
+    Namespace,
+    URIRef
+)
+
+from linkml_runtime.linkml_model.types import Float, Integer, String
+
+metamodel_version = "1.7.0"
+version = None
+
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
+
+# Namespaces
+MONDO = CurieNamespace('MONDO', 'https://purl.obolibrary.org/obo/MONDO_')
+SNOMEDCT = CurieNamespace('SNOMEDCT', 'http://snomed.info/sct/')
+CIEINR = CurieNamespace('cieinr', 'https://github.com/BIH-CEI/cieinr')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = CIEINR
+
+
+# Types
+class UnionDateString(String):
+    """ A field that allows both dates and empty strings. """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "union_date_string"
+    type_model_uri = CIEINR.UnionDateString
+
+
+class AgeInYears(Integer):
+    """ Age in completed years """
+    type_class_uri = XSD["integer"]
+    type_class_curie = "xsd:integer"
+    type_name = "age_in_years"
+    type_model_uri = CIEINR.AgeInYears
+
+
+class AgeInMonths(Integer):
+    """ Age in completed months """
+    type_class_uri = XSD["integer"]
+    type_class_curie = "xsd:integer"
+    type_name = "age_in_months"
+    type_model_uri = CIEINR.AgeInMonths
+
+
+class Percent(Float):
+    """ A percentage value """
+    type_class_uri = XSD["float"]
+    type_class_curie = "xsd:float"
+    type_name = "percent"
+    type_model_uri = CIEINR.Percent
+
+
+class IeiCode(String):
+    """ A code for an Inborn Error of Immunity """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "iei_code"
+    type_model_uri = CIEINR.IeiCode
+
+
+class LabValue(Float):
+    """ A laboratory measurement value, can be negative in some cases """
+    type_class_uri = XSD["float"]
+    type_class_curie = "xsd:float"
+    type_name = "lab_value"
+    type_model_uri = CIEINR.LabValue
+
+
+class PositiveLabValue(Float):
+    """ A laboratory measurement value that cannot be negative """
+    type_class_uri = XSD["float"]
+    type_class_curie = "xsd:float"
+    type_name = "positive_lab_value"
+    type_model_uri = CIEINR.PositiveLabValue
+
+
+class NonNegativeInteger(Integer):
+    """ An integer value that cannot be negative """
+    type_class_uri = XSD["integer"]
+    type_class_curie = "xsd:integer"
+    type_name = "non_negative_integer"
+    type_model_uri = CIEINR.NonNegativeInteger
+
+
+class TextOrNull(String):
+    """ A text field that can be empty or null """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "text_or_null"
+    type_model_uri = CIEINR.TextOrNull
+
+
+class CodedValue(String):
+    """ A coded value from a standardized terminology """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "coded_value"
+    type_model_uri = CIEINR.CodedValue
+
+
+class RedcapCheckbox(String):
+    """ REDCap checkbox field (contains checked values as comma-separated list) """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "redcap_checkbox"
+    type_model_uri = CIEINR.RedcapCheckbox
+
+
+class RedcapCompletionStatus(String):
+    """ REDCap form completion status """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "redcap_completion_status"
+    type_model_uri = CIEINR.RedcapCompletionStatus
+
+
+class BooleanAsInteger(Integer):
+    """ Boolean represented as 0 (false) or 1 (true) """
+    type_class_uri = XSD["integer"]
+    type_class_curie = "xsd:integer"
+    type_name = "boolean_as_integer"
+    type_model_uri = CIEINR.BooleanAsInteger
+
+
+# Class references
+class RecordRecordId(extended_str):
+    pass
+
+
+@dataclass(repr=False)
+class Record(YAMLRoot):
+    """
+    Base class for all records, containing only fields needed for Phenopackets export.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["Record"]
+    class_class_curie: ClassVar[str] = "cieinr:Record"
+    class_name: ClassVar[str] = "Record"
+    class_model_uri: ClassVar[URIRef] = CIEINR.Record
+
+    record_id: Union[str, RecordRecordId] = None
+    form_1_basic: Optional[Union[dict, "BasicForm"]] = None
+    form_2_demographics_initial: Optional[Union[dict, "PatientDemographicsInitial"]] = None
+    cieinr_repeated_elements: Optional[Union[dict, "RepeatedElement"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.record_id):
+            self.MissingRequiredField("record_id")
+        if not isinstance(self.record_id, RecordRecordId):
+            self.record_id = RecordRecordId(self.record_id)
+
+        if self.form_1_basic is not None and not isinstance(self.form_1_basic, BasicForm):
+            self.form_1_basic = BasicForm(**as_dict(self.form_1_basic))
+
+        if self.form_2_demographics_initial is not None and not isinstance(self.form_2_demographics_initial, PatientDemographicsInitial):
+            self.form_2_demographics_initial = PatientDemographicsInitial(**as_dict(self.form_2_demographics_initial))
+
+        if self.cieinr_repeated_elements is not None and not isinstance(self.cieinr_repeated_elements, RepeatedElement):
+            self.cieinr_repeated_elements = RepeatedElement(**as_dict(self.cieinr_repeated_elements))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CodeSystemsContainer(YAMLRoot):
+    """
+    A container class for all code systems used in CIEINR.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["CodeSystemsContainer"]
+    class_class_curie: ClassVar[str] = "cieinr:CodeSystemsContainer"
+    class_name: ClassVar[str] = "CodeSystemsContainer"
+    class_model_uri: ClassVar[URIRef] = CIEINR.CodeSystemsContainer
+
+    ncbi_taxon: Union[str, "NCBITaxon"] = None
+    snomedct: Union[str, "SNOMEDCT"] = None
+    mondo: Union[str, "MONDO"] = None
+    hpo: Union[str, "HP"] = None
+    loinc: Union[str, "LOINC"] = None
+    omim: Union[str, "OMIM"] = None
+    orpha: Union[str, "ORPHA"] = None
+    ncit: Union[str, "NCIT"] = None
+    uo: Union[str, "UO"] = None
+    hgnc: Union[str, "HGNC"] = None
+    hgvs: Union[str, "HGVS"] = None
+    ga4gh: Union[str, "GA4GH"] = None
+    hl7fhir: Union[str, "HL7FHIR"] = None
+    icd11: Union[str, "ICD11"] = None
+    icd10cm: Union[str, "ICD10CM"] = None
+    bioportal: Union[str, "BIOPORTAL"] = None
+    iuis: Union[str, "IUIS"] = None
+
+@dataclass(repr=False)
+class RepeatedElement(YAMLRoot):
+    """
+    A generic container for repeated elements used for Phenopackets export.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["RepeatedElement"]
+    class_class_curie: ClassVar[str] = "cieinr:RepeatedElement"
+    class_name: ClassVar[str] = "RepeatedElement"
+    class_model_uri: ClassVar[URIRef] = CIEINR.RepeatedElement
+
+    redcap_repeat_instrument: Optional[str] = None
+    redcap_repeat_instance: Optional[int] = None
+    form_3_infections_initial: Optional[Union[dict, "InfectionsInitial"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.redcap_repeat_instrument is not None and not isinstance(self.redcap_repeat_instrument, str):
+            self.redcap_repeat_instrument = str(self.redcap_repeat_instrument)
+
+        if self.redcap_repeat_instance is not None and not isinstance(self.redcap_repeat_instance, int):
+            self.redcap_repeat_instance = int(self.redcap_repeat_instance)
+
+        if self.form_3_infections_initial is not None and not isinstance(self.form_3_infections_initial, InfectionsInitial):
+            self.form_3_infections_initial = InfectionsInitial(**as_dict(self.form_3_infections_initial))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class BasicForm(YAMLRoot):
+    """
+    The basic form containing the IEI diagnosis information needed for Phenopackets export.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["BasicForm"]
+    class_class_curie: ClassVar[str] = "cieinr:BasicForm"
+    class_name: ClassVar[str] = "BasicForm"
+    class_model_uri: ClassVar[URIRef] = CIEINR.BasicForm
+
+    basic_form_complete: Union[str, "CompletionStatusEnumBasicForm"] = None
+    iei_deficiency_basic: Optional[Union[str, "IUIS2024MONDOEnum"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.basic_form_complete):
+            self.MissingRequiredField("basic_form_complete")
+        if not isinstance(self.basic_form_complete, CompletionStatusEnumBasicForm):
+            self.basic_form_complete = CompletionStatusEnumBasicForm(self.basic_form_complete)
+
+        if self.iei_deficiency_basic is not None and not isinstance(self.iei_deficiency_basic, IUIS2024MONDOEnum):
+            self.iei_deficiency_basic = IUIS2024MONDOEnum(self.iei_deficiency_basic)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class PatientDemographicsInitial(YAMLRoot):
+    """
+    Initial patient demographics information with dates of birth, diagnosis and symptom onset for Phenopackets export.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["PatientDemographicsInitial"]
+    class_class_curie: ClassVar[str] = "cieinr:PatientDemographicsInitial"
+    class_name: ClassVar[str] = "PatientDemographicsInitial"
+    class_model_uri: ClassVar[URIRef] = CIEINR.PatientDemographicsInitial
+
+    patient_demographics_initial_form_complete: Union[str, "CompletionStatusEnumInfectionsInitial"] = None
+    snomedct_184099003: Optional[Union[str, UnionDateString]] = None
+    snomedct_432213005: Optional[Union[str, UnionDateString]] = None
+    snomedct_298059007: Optional[Union[str, UnionDateString]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.patient_demographics_initial_form_complete):
+            self.MissingRequiredField("patient_demographics_initial_form_complete")
+        if not isinstance(self.patient_demographics_initial_form_complete, CompletionStatusEnumInfectionsInitial):
+            self.patient_demographics_initial_form_complete = CompletionStatusEnumInfectionsInitial(self.patient_demographics_initial_form_complete)
+
+        if self.snomedct_184099003 is not None and not isinstance(self.snomedct_184099003, UnionDateString):
+            self.snomedct_184099003 = UnionDateString(self.snomedct_184099003)
+
+        if self.snomedct_432213005 is not None and not isinstance(self.snomedct_432213005, UnionDateString):
+            self.snomedct_432213005 = UnionDateString(self.snomedct_432213005)
+
+        if self.snomedct_298059007 is not None and not isinstance(self.snomedct_298059007, UnionDateString):
+            self.snomedct_298059007 = UnionDateString(self.snomedct_298059007)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class InfectionsInitial(YAMLRoot):
+    """
+    Initial infection information with infection types, severity, and patterns for Phenopackets export.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CIEINR["InfectionsInitial"]
+    class_class_curie: ClassVar[str] = "cieinr:InfectionsInitial"
+    class_name: ClassVar[str] = "InfectionsInitial"
+    class_model_uri: ClassVar[URIRef] = CIEINR.InfectionsInitial
+
+    infections_initial_form_complete: Union[str, "CompletionStatusEnum"] = None
+    type_of_infection: Optional[Union[str, "InfectionTypeEnum"]] = None
+    snomedct_61274003: Optional[Union[str, "OpportunisticInfectionEnum"]] = None
+    snomedct_21483005: Optional[Union[str, "CNSInfectionEnum"]] = None
+    snomedct_81745001: Optional[Union[str, "EyeInfectionEnum"]] = None
+    snomedct_385383008: Optional[Union[str, "ENTInfectionEnum"]] = None
+    snomedct_127856007: Optional[Union[str, "SkinInfectionEnum"]] = None
+    snomedct_110522009: Optional[Union[str, "BoneJointInfectionEnum"]] = None
+    snomedct_20139000: Optional[Union[str, "RespiratoryInfectionEnum"]] = None
+    snomedct_303699009: Optional[Union[str, "GIInfectionEnum"]] = None
+    snomedct_21514008: Optional[Union[str, "GUInfectionEnum"]] = None
+    snomedct_31099001: Optional[Union[str, "SystemicInfectionEnum"]] = None
+    infection_severity: Optional[Union[str, "InfectionSeverityEnum"]] = None
+    infection_temp_pattern: Optional[Union[str, "InfectionTemporalPatternEnum"]] = None
+    infection_times_obseverd: Optional[Union[str, "InfectionFrequencyEnum"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.infections_initial_form_complete):
+            self.MissingRequiredField("infections_initial_form_complete")
+        if not isinstance(self.infections_initial_form_complete, CompletionStatusEnum):
+            self.infections_initial_form_complete = CompletionStatusEnum(self.infections_initial_form_complete)
+
+        if self.type_of_infection is not None and not isinstance(self.type_of_infection, InfectionTypeEnum):
+            self.type_of_infection = InfectionTypeEnum(self.type_of_infection)
+
+        if self.snomedct_61274003 is not None and not isinstance(self.snomedct_61274003, OpportunisticInfectionEnum):
+            self.snomedct_61274003 = OpportunisticInfectionEnum(self.snomedct_61274003)
+
+        if self.snomedct_21483005 is not None and not isinstance(self.snomedct_21483005, CNSInfectionEnum):
+            self.snomedct_21483005 = CNSInfectionEnum(self.snomedct_21483005)
+
+        if self.snomedct_81745001 is not None and not isinstance(self.snomedct_81745001, EyeInfectionEnum):
+            self.snomedct_81745001 = EyeInfectionEnum(self.snomedct_81745001)
+
+        if self.snomedct_385383008 is not None and not isinstance(self.snomedct_385383008, ENTInfectionEnum):
+            self.snomedct_385383008 = ENTInfectionEnum(self.snomedct_385383008)
+
+        if self.snomedct_127856007 is not None and not isinstance(self.snomedct_127856007, SkinInfectionEnum):
+            self.snomedct_127856007 = SkinInfectionEnum(self.snomedct_127856007)
+
+        if self.snomedct_110522009 is not None and not isinstance(self.snomedct_110522009, BoneJointInfectionEnum):
+            self.snomedct_110522009 = BoneJointInfectionEnum(self.snomedct_110522009)
+
+        if self.snomedct_20139000 is not None and not isinstance(self.snomedct_20139000, RespiratoryInfectionEnum):
+            self.snomedct_20139000 = RespiratoryInfectionEnum(self.snomedct_20139000)
+
+        if self.snomedct_303699009 is not None and not isinstance(self.snomedct_303699009, GIInfectionEnum):
+            self.snomedct_303699009 = GIInfectionEnum(self.snomedct_303699009)
+
+        if self.snomedct_21514008 is not None and not isinstance(self.snomedct_21514008, GUInfectionEnum):
+            self.snomedct_21514008 = GUInfectionEnum(self.snomedct_21514008)
+
+        if self.snomedct_31099001 is not None and not isinstance(self.snomedct_31099001, SystemicInfectionEnum):
+            self.snomedct_31099001 = SystemicInfectionEnum(self.snomedct_31099001)
+
+        if self.infection_severity is not None and not isinstance(self.infection_severity, InfectionSeverityEnum):
+            self.infection_severity = InfectionSeverityEnum(self.infection_severity)
+
+        if self.infection_temp_pattern is not None and not isinstance(self.infection_temp_pattern, InfectionTemporalPatternEnum):
+            self.infection_temp_pattern = InfectionTemporalPatternEnum(self.infection_temp_pattern)
+
+        if self.infection_times_obseverd is not None and not isinstance(self.infection_times_obseverd, InfectionFrequencyEnum):
+            self.infection_times_obseverd = InfectionFrequencyEnum(self.infection_times_obseverd)
+
+        super().__post_init__(**kwargs)
+
+
+# Enumerations
+class NCBITaxon(EnumDefinitionImpl):
+    """
+    NCBI organismal classification
+    """
+    _defn = EnumDefinition(
+        name="NCBITaxon",
+        description="NCBI organismal classification",
+        code_set_version="2024-07-03",
+    )
+
+class SNOMEDCT(EnumDefinitionImpl):
+    """
+    SNOMED CT
+    """
+    _defn = EnumDefinition(
+        name="SNOMEDCT",
+        description="SNOMED CT",
+        code_set_version="2024-09-01",
+    )
+
+class MONDO(EnumDefinitionImpl):
+    """
+    Monarch Disease Ontology
+    """
+    _defn = EnumDefinition(
+        name="MONDO",
+        description="Monarch Disease Ontology",
+        code_set_version="2024-09-03",
+    )
+
+class HP(EnumDefinitionImpl):
+    """
+    Human Phenotype Ontology
+    """
+    _defn = EnumDefinition(
+        name="HP",
+        description="Human Phenotype Ontology",
+        code_set_version="2024-08-13",
+    )
+
+class LOINC(EnumDefinitionImpl):
+    """
+    Logical Observation Identifiers Names and Codes
+    """
+    _defn = EnumDefinition(
+        name="LOINC",
+        description="Logical Observation Identifiers Names and Codes",
+        code_set_version="2.78",
+    )
+
+class OMIM(EnumDefinitionImpl):
+    """
+    Online Mendelian Inheritance
+    """
+    _defn = EnumDefinition(
+        name="OMIM",
+        description="Online Mendelian Inheritance",
+        code_set_version="2024-09-12",
+    )
+
+class ORPHA(EnumDefinitionImpl):
+    """
+    Orphanet Rare Disease Ontology
+    """
+    _defn = EnumDefinition(
+        name="ORPHA",
+        description="Orphanet Rare Disease Ontology",
+        code_set_version="2024-09-12",
+    )
+
+class NCIT(EnumDefinitionImpl):
+    """
+    NCI Thesaurus OBO Edition
+    """
+    _defn = EnumDefinition(
+        name="NCIT",
+        description="NCI Thesaurus OBO Edition",
+        code_set_version="24.04e",
+    )
+
+class UO(EnumDefinitionImpl):
+    """
+    Units of Measurement Ontology
+    """
+    _defn = EnumDefinition(
+        name="UO",
+        description="Units of Measurement Ontology",
+        code_set_version="2024-09-12",
+    )
+
+class HGNC(EnumDefinitionImpl):
+    """
+    HUGO Gene Nomenclature Committee
+    """
+    _defn = EnumDefinition(
+        name="HGNC",
+        description="HUGO Gene Nomenclature Committee",
+        code_set_version="2024-08-23",
+    )
+
+class HGVS(EnumDefinitionImpl):
+    """
+    Human Genome Variation Society
+    """
+    _defn = EnumDefinition(
+        name="HGVS",
+        description="Human Genome Variation Society",
+        code_set_version="21.0.0",
+    )
+
+class GA4GH(EnumDefinitionImpl):
+    """
+    Global Alliance for Genomics and Health
+    """
+    _defn = EnumDefinition(
+        name="GA4GH",
+        description="Global Alliance for Genomics and Health",
+        code_set_version="v2.0",
+    )
+
+class HL7FHIR(EnumDefinitionImpl):
+    """
+    Health Level 7 Fast Healthcare Interoperability Resources
+    """
+    _defn = EnumDefinition(
+        name="HL7FHIR",
+        description="Health Level 7 Fast Healthcare Interoperability Resources",
+        code_set_version="v4.0.1",
+    )
+
+class ICD11(EnumDefinitionImpl):
+    """
+    International Classification of Diseases, Eleventh Revision
+    """
+    _defn = EnumDefinition(
+        name="ICD11",
+        description="International Classification of Diseases, Eleventh Revision",
+        code_set_version="2024-09-01",
+    )
+
+class ICD10CM(EnumDefinitionImpl):
+    """
+    International Classification of Diseases, Tenth Revision, Clinical Modification
+    """
+    _defn = EnumDefinition(
+        name="ICD10CM",
+        description="International Classification of Diseases, Tenth Revision, Clinical Modification",
+        code_set_version="2024-09-01",
+    )
+
+class BIOPORTAL(EnumDefinitionImpl):
+    """
+    BioPortal ontology repository
+    """
+    _defn = EnumDefinition(
+        name="BIOPORTAL",
+        description="BioPortal ontology repository",
+        code_set_version="2024-09-01",
+    )
+
+class IUIS(EnumDefinitionImpl):
+    """
+    International Union of Immunological Societies Classification
+    """
+    _defn = EnumDefinition(
+        name="IUIS",
+        description="International Union of Immunological Societies Classification",
+        code_set_version="2024",
+    )
+
+class CompletionStatusEnumBasicForm(EnumDefinitionImpl):
+    """
+    Enumeration for form completion status
+    """
+    _defn = EnumDefinition(
+        name="CompletionStatusEnumBasicForm",
+        description="""Enumeration for form completion status""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "0",
+            PermissibleValue(
+                text="0",
+                description="Incomplete"))
+        setattr(cls, "1",
+            PermissibleValue(
+                text="1",
+                description="Unverified"))
+        setattr(cls, "2",
+            PermissibleValue(
+                text="2",
+                description="Complete"))
+
+class IUIS2024MONDOEnum(EnumDefinitionImpl):
+    """
+    Enumeration of Inborn Errors of Immunity based on IUIS 2024 classification
+    """
+    mondo_0800045 = PermissibleValue(
+        text="mondo_0800045",
+        description="A20 deficiency",
+        meaning=MONDO["0800045"])
+    mondo_0014561 = PermissibleValue(
+        text="mondo_0014561",
+        description="3-Methylglutaconic aciduria (AR)",
+        meaning=MONDO["0014561"])
+    mondo_0859237 = PermissibleValue(
+        text="mondo_0859237",
+        description="3-Methylglutaconic aciduria (AD)",
+        meaning=MONDO["0859237"])
+    mondo_0007818 = PermissibleValue(
+        text="mondo_0007818",
+        description="AD-HIES Job syndrome",
+        meaning=MONDO["0007818"])
+    mondo_0007064 = PermissibleValue(
+        text="mondo_0007064",
+        description="Adenosine deaminase (ADA) deficiency",
+        meaning=MONDO["0007064"])
+    mondo_0011528 = PermissibleValue(
+        text="mondo_0011528",
+        description="AID deficiency",
+        meaning=MONDO["0011528"])
+    mondo_0014306 = PermissibleValue(
+        text="mondo_0014306",
+        description="ADA2 deficiency",
+        meaning=MONDO["0014306"])
+    mondo_0013693 = PermissibleValue(
+        text="mondo_0013693",
+        description="ADAM17 deficiency",
+        meaning=MONDO["0013693"])
+    mondo_0014007 = PermissibleValue(
+        text="mondo_0014007",
+        description="ADAR1 deficiency (AGS6)",
+        meaning=MONDO["0014007"])
+    mondo_0033554 = PermissibleValue(
+        text="mondo_0033554",
+        description="Activated RAC2 defect",
+        meaning=MONDO["0033554"])
+    mondo_0014230 = PermissibleValue(
+        text="mondo_0014230",
+        description="ACT1 deficiency",
+        meaning=MONDO["0014230"])
+    mondo_0014659 = PermissibleValue(
+        text="mondo_0014659",
+        description="Acute liver failure due to NBAS deficiency",
+        meaning=MONDO["0014659"])
+    mondo_0011953 = PermissibleValue(
+        text="mondo_0011953",
+        description="Acute necrotizing encephalopathy",
+        meaning=MONDO["0011953"])
+    mondo_0035370 = PermissibleValue(
+        text="mondo_0035370",
+        description="ALPI deficiency",
+        meaning=MONDO["0035370"])
+    mondo_0011383 = PermissibleValue(
+        text="mondo_0011383",
+        description="ALPS-Caspase10",
+        meaning=MONDO["0011383"])
+    mondo_0011804 = PermissibleValue(
+        text="mondo_0011804",
+        description="ALPS-Caspase 8",
+        meaning=MONDO["0011804"])
+    mondo_0011158 = PermissibleValue(
+        text="mondo_0011158",
+        description="ALPS-FAS (AD / AR)",
+        meaning=MONDO["0011158"])
+    alps_faslg = PermissibleValue(
+        text="alps_faslg",
+        description="ALPS-FASLG",
+        meaning=CIEINR["alps_faslg"])
+    mondo_0009411 = PermissibleValue(
+        text="mondo_0009411",
+        description="APECED (APS-1), autoimmune polyendocrinopathy with candidiasis and ectodermal dystrophy",
+        meaning=MONDO["0009411"])
+    mondo_0014494 = PermissibleValue(
+        text="mondo_0014494",
+        description="AP1S3 deficiency",
+        meaning=MONDO["0014494"])
+    mondo_0032763 = PermissibleValue(
+        text="mondo_0032763",
+        description="ARHGEF1 deficiency",
+        meaning=MONDO["0032763"])
+    mondo_0957920 = PermissibleValue(
+        text="mondo_0957920",
+        description="ARPC5 deficiency",
+        meaning=MONDO["0957920"])
+    mondo_0060583 = PermissibleValue(
+        text="mondo_0060583",
+        description="ARPC1B deficiency",
+        meaning=MONDO["0060583"])
+    mondo_0014958 = PermissibleValue(
+        text="mondo_0014958",
+        description="ATAD3A deficiency (AD)",
+        meaning=MONDO["0014958"])
+    mondo_0032931 = PermissibleValue(
+        text="mondo_0032931",
+        description="ATAD3A deficiency (AR)",
+        meaning=MONDO["0032931"])
+    atg4a_deficiency = PermissibleValue(
+        text="atg4a_deficiency",
+        description="ATG4A",
+        meaning=CIEINR["atg4a_deficiency"])
+    mondo_0016419 = PermissibleValue(
+        text="mondo_0016419",
+        description="Ataxia-telangiectasia",
+        meaning=MONDO["0016419"])
+    mondo_0008840 = PermissibleValue(
+        text="mondo_0008840",
+        description="Ataxia-telangiectasia",
+        meaning=MONDO["0008840"])
+    mondo_0008038 = PermissibleValue(
+        text="mondo_0008038",
+        description="Ataxia Pancytopenia Syndrome",
+        meaning=MONDO["0008038"])
+    mondo_0010504 = PermissibleValue(
+        text="mondo_0010504",
+        description="ATP6AP1 deficiency",
+        meaning=MONDO["0010504"])
+    mondo_0009308 = PermissibleValue(
+        text="mondo_0009308",
+        description="Autosomal recessive CGD p22phox",
+        meaning=MONDO["0009308"])
+    mondo_0030066 = PermissibleValue(
+        text="mondo_0030066",
+        description="Autosomal recessive CGD EROS",
+        meaning=MONDO["0030066"])
+    mondo_0009310 = PermissibleValue(
+        text="mondo_0009310",
+        description="Autosomal recessive CGD p67phox",
+        meaning=MONDO["0009310"])
+    mondo_0013507 = PermissibleValue(
+        text="mondo_0013507",
+        description="Autosomal recessive CGD p40phox",
+        meaning=MONDO["0013507"])
+    mondo_0009309 = PermissibleValue(
+        text="mondo_0009309",
+        description="Autosomal recessive CGD p47phox",
+        meaning=MONDO["0009309"])
+    mondo_0009039 = PermissibleValue(
+        text="mondo_0009039",
+        description="Baller-Gerold Syndrome",
+        meaning=MONDO["0009039"])
+    mondo_0013284 = PermissibleValue(
+        text="mondo_0013284",
+        description="BAFF receptor deficiency",
+        meaning=MONDO["0013284"])
+    mondo_0032723 = PermissibleValue(
+        text="mondo_0032723",
+        description="BACH2 deficiency",
+        meaning=MONDO["0032723"])
+    mondo_0009470 = PermissibleValue(
+        text="mondo_0009470",
+        description="b actin deficiency",
+        meaning=MONDO["0009470"])
+    mondo_0010543 = PermissibleValue(
+        text="mondo_0010543",
+        description="Barth Syndrome (3-Methylglutaconic aciduria type II)",
+        meaning=MONDO["0010543"])
+    mondo_0014981 = PermissibleValue(
+        text="mondo_0014981",
+        description="BCL11B deficiency",
+        meaning=MONDO["0014981"])
+    mondo_0014491 = PermissibleValue(
+        text="mondo_0014491",
+        description="BCL10 deficiency",
+        meaning=MONDO["0014491"])
+    mondo_0014645 = PermissibleValue(
+        text="mondo_0014645",
+        description="CARD11 GOF",
+        meaning=MONDO["0014645"])
+    mondo_0013289 = PermissibleValue(
+        text="mondo_0013289",
+        description="BLNK deficiency",
+        meaning=MONDO["0013289"])
+    mondo_0008876 = PermissibleValue(
+        text="mondo_0008876",
+        description="Bloom Syndrome",
+        meaning=MONDO["0008876"])
+    mondo_0008523 = PermissibleValue(
+        text="mondo_0008523",
+        description="Blau syndrome",
+        meaning=MONDO["0008523"])
+    mondo_0014317 = PermissibleValue(
+        text="mondo_0014317",
+        description="BMFS2 (Hebo deficiency)",
+        meaning=MONDO["0014317"])
+    mondo_0013851 = PermissibleValue(
+        text="mondo_0013851",
+        description="BMFS1 (SRP72-deficiency)",
+        meaning=MONDO["0013851"])
+    mondo_0032573 = PermissibleValue(
+        text="mondo_0032573",
+        description="BMFS5",
+        meaning=MONDO["0032573"])
+    mondo_0010421 = PermissibleValue(
+        text="mondo_0010421",
+        description="BTK deficiency, X-linked agammaglobulinemia (XLA)",
+        meaning=MONDO["0010421"])
+    mondo_0030378 = PermissibleValue(
+        text="mondo_0030378",
+        description="C2orf69 deficiency",
+        meaning=MONDO["0030378"])
+    mondo_0958182 = PermissibleValue(
+        text="mondo_0958182",
+        description="C1q deficiency due to defects in C1QA",
+        meaning=MONDO["0958182"])
+    mondo_0958187 = PermissibleValue(
+        text="mondo_0958187",
+        description="C1q deficiency due to defects in C1QB",
+        meaning=MONDO["0958187"])
+    mondo_0958188 = PermissibleValue(
+        text="mondo_0958188",
+        description="C1q deficiency due to defects in C1QC",
+        meaning=MONDO["0958188"])
+    mondo_0009005 = PermissibleValue(
+        text="mondo_0009005",
+        description="C1r deficiency",
+        meaning=MONDO["0009005"])
+    mondo_0020684 = PermissibleValue(
+        text="mondo_0020684",
+        description="C1r Periodontal Ehlers Danlos",
+        meaning=MONDO["0020684"])
+    mondo_0013419 = PermissibleValue(
+        text="mondo_0013419",
+        description="C1s deficiency",
+        meaning=MONDO["0013419"])
+    mondo_0014954 = PermissibleValue(
+        text="mondo_0014954",
+        description="C1s Periodontal Ehlers Danlos",
+        meaning=MONDO["0014954"])
+    mondo_0009006 = PermissibleValue(
+        text="mondo_0009006",
+        description="C2 deficiency",
+        meaning=MONDO["0009006"])
+    mondo_0013417 = PermissibleValue(
+        text="mondo_0013417",
+        description="C3 deficiency (LOF)",
+        meaning=MONDO["0013417"])
+    mondo_0013043 = PermissibleValue(
+        text="mondo_0013043",
+        description="C3 GOF",
+        meaning=MONDO["0013043"])
+    mondo_0033946 = PermissibleValue(
+        text="mondo_0033946",
+        description="C1 inhibitor deficiency",
+        meaning=MONDO["0033946"])
+    complete_c4_deficiency = PermissibleValue(
+        text="complete_c4_deficiency",
+        description="Complete C4 deficiency",
+        meaning=CIEINR["complete_c4_deficiency"])
+    mondo_0012295 = PermissibleValue(
+        text="mondo_0012295",
+        description="C5 deficiency",
+        meaning=MONDO["0012295"])
+    mondo_0012908 = PermissibleValue(
+        text="mondo_0012908",
+        description="C6 deficiency",
+        meaning=MONDO["0012908"])
+    mondo_0012412 = PermissibleValue(
+        text="mondo_0012412",
+        description="C7 deficiency",
+        meaning=MONDO["0012412"])
+    mondo_0013422 = PermissibleValue(
+        text="mondo_0013422",
+        description="C8a deficiency",
+        meaning=MONDO["0013422"])
+    mondo_0013421 = PermissibleValue(
+        text="mondo_0013421",
+        description="C8b deficiency",
+        meaning=MONDO["0013421"])
+    c8g_deficiency = PermissibleValue(
+        text="c8g_deficiency",
+        description="C8g deficiency",
+        meaning=CIEINR["c8g_deficiency"])
+    mondo_0013445 = PermissibleValue(
+        text="mondo_0013445",
+        description="C9 deficiency",
+        meaning=MONDO["0013445"])
+    mondo_0011269 = PermissibleValue(
+        text="mondo_0011269",
+        description="CAMPS (CARD14 mediated psoriasis)",
+        meaning=MONDO["0011269"])
+    mondo_0008905 = PermissibleValue(
+        text="mondo_0008905",
+        description="CARD9 deficiency",
+        meaning=MONDO["0008905"])
+    mondo_0054697 = PermissibleValue(
+        text="mondo_0054697",
+        description="CARD11 DN LOF",
+        meaning=MONDO["0054697"])
+    mondo_0014081 = PermissibleValue(
+        text="mondo_0014081",
+        description="CARD11 deficiency (LOF)",
+        meaning=MONDO["0014081"])
+    cd137_deficiency_41bb = PermissibleValue(
+        text="cd137_deficiency_41bb",
+        description="CD137 deficiency (41BB)",
+        meaning=CIEINR["cd137_deficiency_41bb"])
+    cd28_deficiency = PermissibleValue(
+        text="cd28_deficiency",
+        description="CD28 deficiency",
+        meaning=CIEINR["cd28_deficiency"])
+    mondo_0014054 = PermissibleValue(
+        text="mondo_0014054",
+        description="CD27 deficiency",
+        meaning=MONDO["0014054"])
+    mondo_0014313 = PermissibleValue(
+        text="mondo_0014313",
+        description="CD16 deficiency",
+        meaning=MONDO["0014313"])
+    mondo_0013283 = PermissibleValue(
+        text="mondo_0013283",
+        description="CD19 deficiency",
+        meaning=MONDO["0013283"])
+    mondo_0013285 = PermissibleValue(
+        text="mondo_0013285",
+        description="CD20 deficiency",
+        meaning=MONDO["0013285"])
+    mondo_0013862 = PermissibleValue(
+        text="mondo_0013862",
+        description="CD21 deficiency",
+        meaning=MONDO["0013862"])
+    mondo_0011664 = PermissibleValue(
+        text="mondo_0011664",
+        description="CD25 deficiency",
+        meaning=MONDO["0011664"])
+    mondo_0032782 = PermissibleValue(
+        text="mondo_0032782",
+        description="CD122 deficiency",
+        meaning=MONDO["0032782"])
+    mondo_0013286 = PermissibleValue(
+        text="mondo_0013286",
+        description="CD81 deficiency",
+        meaning=MONDO["0013286"])
+    mondo_0800104 = PermissibleValue(
+        text="mondo_0800104",
+        description="CD45 deficiency",
+        meaning=MONDO["0800104"])
+    mondo_0034054 = PermissibleValue(
+        text="mondo_0034054",
+        description="CD70 deficiency",
+        meaning=MONDO["0034054"])
+    mondo_0012161 = PermissibleValue(
+        text="mondo_0012161",
+        description="CD8 deficiency",
+        meaning=MONDO["0012161"])
+    mondo_0009174 = PermissibleValue(
+        text="mondo_0009174",
+        description="CD55 deficiency (CHAPEL disease)",
+        meaning=MONDO["0009174"])
+    mondo_0957388 = PermissibleValue(
+        text="mondo_0957388",
+        description="CBLB deficiency",
+        meaning=MONDO["0957388"])
+    mondo_0009060 = PermissibleValue(
+        text="mondo_0009060",
+        description="CCR2 deficiency",
+        meaning=MONDO["0009060"])
+    mondo_0014757 = PermissibleValue(
+        text="mondo_0014757",
+        description="CDC42 defects",
+        meaning=MONDO["0014757"])
+    mondo_0014276 = PermissibleValue(
+        text="mondo_0014276",
+        description="CD3g deficiency",
+        meaning=MONDO["0014276"])
+    mondo_0014280 = PermissibleValue(
+        text="mondo_0014280",
+        description="CD3d deficiency",
+        meaning=MONDO["0014280"])
+    mondo_0014278 = PermissibleValue(
+        text="mondo_0014278",
+        description="CD3e deficiency",
+        meaning=MONDO["0014278"])
+    mondo_0012426 = PermissibleValue(
+        text="mondo_0012426",
+        description="CD3z deficiency",
+        meaning=MONDO["0012426"])
+    mondo_0044207 = PermissibleValue(
+        text="mondo_0044207",
+        description="CEBPE defects",
+        meaning=MONDO["0044207"])
+    mondo_0012650 = PermissibleValue(
+        text="mondo_0012650",
+        description="Cernunnos/XLF deficiency",
+        meaning=MONDO["0012650"])
+    charge_syndrome_sema3e = PermissibleValue(
+        text="charge_syndrome_sema3e",
+        description="CHARGE syndrome due to SEMA3E deficiency",
+        meaning=CIEINR["charge_syndrome_sema3e"])
+    mondo_0008965 = PermissibleValue(
+        text="mondo_0008965",
+        description="CHARGE syndrome due to CHD7 deficiency",
+        meaning=MONDO["0008965"])
+    mondo_0008963 = PermissibleValue(
+        text="mondo_0008963",
+        description="Chediak-Higashi syndrome",
+        meaning=MONDO["0008963"])
+    mondo_0007315 = PermissibleValue(
+        text="mondo_0007315",
+        description="Cherubism",
+        meaning=MONDO["0007315"])
+    mondo_0007838 = PermissibleValue(
+        text="mondo_0007838",
+        description="Chromosome 11q deletion syndrome (Jacobsen syndrome)",
+        meaning=MONDO["0007838"])
+    mondo_0011055 = PermissibleValue(
+        text="mondo_0011055",
+        description="Chromosome 10p13-p14 deletion Syndrome (10p13-p14DS)",
+        meaning=MONDO["0011055"])
+    mondo_0008564 = PermissibleValue(
+        text="mondo_0008564",
+        description="Chromosome 22q11.2 deletion Syndrome (22q11.2DS) (AKA DiGeorge/velocardiofacial syndrome)",
+        meaning=MONDO["0008564"])
+    mondo_0032644 = PermissibleValue(
+        text="mondo_0032644",
+        description="CIB1 deficiency",
+        meaning=MONDO["0032644"])
+    mondo_0011405 = PermissibleValue(
+        text="mondo_0011405",
+        description="Clericuzio syndrome (Poikiloderma with neutropenia)",
+        meaning=MONDO["0011405"])
+    mondo_0012676 = PermissibleValue(
+        text="mondo_0012676",
+        description="CLCN7 deficiency associated osteopetrosis (AR)",
+        meaning=MONDO["0012676"])
+    mondo_0008156 = PermissibleValue(
+        text="mondo_0008156",
+        description="CLCN7 deficiency associated osteopetrosis (AD)",
+        meaning=MONDO["0008156"])
+    mondo_0024564 = PermissibleValue(
+        text="mondo_0024564",
+        description="Coats plus syndrome due to CTC1 deficiency",
+        meaning=MONDO["0024564"])
+    mondo_0015026 = PermissibleValue(
+        text="mondo_0015026",
+        description="Coats plus syndrome due to STN1 deficiency",
+        meaning=MONDO["0015026"])
+    mondo_0008999 = PermissibleValue(
+        text="mondo_0008999",
+        description="Cohen syndrome",
+        meaning=MONDO["0008999"])
+    mondo_0009595 = PermissibleValue(
+        text="mondo_0009595",
+        description="Cartilage hair hypoplasia (CHH)",
+        meaning=MONDO["0009595"])
+    mondo_0054698 = PermissibleValue(
+        text="mondo_0054698",
+        description="CANDLE (chronic atypical neutrophilic dermatitis with lipodystrophy) Gene (PSMB8) (AD / AR)",
+        meaning=MONDO["0054698"])
+    mondo_0030931 = PermissibleValue(
+        text="mondo_0030931",
+        description="CANDLE (chronic atypical neutrophilic dermatitis with lipodystrophy) (Gene PSMG2)",
+        meaning=MONDO["0030931"])
+    mondo_0019093 = PermissibleValue(
+        text="mondo_0019093",
+        description="Specific antibody deficiency with normal Ig levels and normal B cells",
+        meaning=MONDO["0019093"])
+    mondo_0014168 = PermissibleValue(
+        text="mondo_0014168",
+        description="Coronin-1A deficiency",
+        meaning=MONDO["0014168"])
+    mondo_0800136 = PermissibleValue(
+        text="mondo_0800136",
+        description="COPG1 deficiency",
+        meaning=MONDO["0800136"])
+    mondo_0014629 = PermissibleValue(
+        text="mondo_0014629",
+        description="COPA defect",
+        meaning=MONDO["0014629"])
+    mondo_0958177 = PermissibleValue(
+        text="mondo_0958177",
+        description="CRMO3 IL1R1 disorder",
+        meaning=MONDO["0958177"])
+    mondo_0010424 = PermissibleValue(
+        text="mondo_0010424",
+        description="Congenital pulmonary alveolar proteinosis due to CSF2RA mutations",
+        meaning=MONDO["0010424"])
+    mondo_0013712 = PermissibleValue(
+        text="mondo_0013712",
+        description="Congenital pulmonary alveolar proteinosis due to CSF2RB mutations",
+        meaning=MONDO["0013712"])
+    mondo_0030798 = PermissibleValue(
+        text="mondo_0030798",
+        description="CTNNBL1 deficiency",
+        meaning=MONDO["0030798"])
+    mondo_0014391 = PermissibleValue(
+        text="mondo_0014391",
+        description="CTPS1 deficiency",
+        meaning=MONDO["0014391"])
+    mondo_0014493 = PermissibleValue(
+        text="mondo_0014493",
+        description="CTLA4 deficiency (ALPSV)",
+        meaning=MONDO["0014493"])
+    mondo_0030374 = PermissibleValue(
+        text="mondo_0030374",
+        description="CXCR2 deficiency",
+        meaning=MONDO["0030374"])
+    mondo_0009061 = PermissibleValue(
+        text="mondo_0009061",
+        description="Cystic fibrosis",
+        meaning=MONDO["0009061"])
+    cvid_no_genedef_specified = PermissibleValue(
+        text="cvid_no_genedef_specified",
+        description="Common variable immune deficiency with no gene defect specified (CVID)",
+        meaning=CIEINR["cvid_no_genedef_specified"])
+    mondo_0800134 = PermissibleValue(
+        text="mondo_0800134",
+        description="CRACR2A deficiency",
+        meaning=MONDO["0800134"])
+    dbf4_deficiency = PermissibleValue(
+        text="dbf4_deficiency",
+        description="DBF4 deficiency",
+        meaning=CIEINR["dbf4_deficiency"])
+    mondo_0030334 = PermissibleValue(
+        text="mondo_0030334",
+        description="DBR1 deficiency",
+        meaning=MONDO["0030334"])
+    mondo_0011225 = PermissibleValue(
+        text="mondo_0011225",
+        description="DCLRE1C (Artemis) deficiency",
+        meaning=MONDO["0011225"])
+    mondo_0030457 = PermissibleValue(
+        text="mondo_0030457",
+        description="DEF6 deficiency",
+        meaning=MONDO["0030457"])
+    mondo_0007485 = PermissibleValue(
+        text="mondo_0007485",
+        description="DKCA1",
+        meaning=MONDO["0007485"])
+    mondo_0013521 = PermissibleValue(
+        text="mondo_0013521",
+        description="DKCA2",
+        meaning=MONDO["0013521"])
+    mondo_0013522 = PermissibleValue(
+        text="mondo_0013522",
+        description="DKCA3",
+        meaning=MONDO["0013522"])
+    mondo_0014076 = PermissibleValue(
+        text="mondo_0014076",
+        description="DKCA4",
+        meaning=MONDO["0014076"])
+    mondo_0014690 = PermissibleValue(
+        text="mondo_0014690",
+        description="DKCA6 (AD / AR)",
+        meaning=MONDO["0014690"])
+    mondo_0009136 = PermissibleValue(
+        text="mondo_0009136",
+        description="DKCB1",
+        meaning=MONDO["0009136"])
+    mondo_0013519 = PermissibleValue(
+        text="mondo_0013519",
+        description="DKCB2",
+        meaning=MONDO["0013519"])
+    mondo_0013520 = PermissibleValue(
+        text="mondo_0013520",
+        description="DKCB3",
+        meaning=MONDO["0013520"])
+    mondo_0027353 = PermissibleValue(
+        text="mondo_0027353",
+        description="DKCB4",
+        meaning=MONDO["0027353"])
+    mondo_0014600 = PermissibleValue(
+        text="mondo_0014600",
+        description="DKCB6",
+        meaning=MONDO["0014600"])
+    mondo_0010584 = PermissibleValue(
+        text="mondo_0010584",
+        description="DKCX1",
+        meaning=MONDO["0010584"])
+    mondo_0859319 = PermissibleValue(
+        text="mondo_0859319",
+        description="DKC DCLRE1B",
+        meaning=MONDO["0859319"])
+    mondo_0013021 = PermissibleValue(
+        text="mondo_0013021",
+        description="DIRA (Deficiency of the Interleukin 1 Receptor Antagonist)",
+        meaning=MONDO["0013021"])
+    mondo_0013626 = PermissibleValue(
+        text="mondo_0013626",
+        description="DITRA (Deficiency of IL-36 receptor antagonist)",
+        meaning=MONDO["0013626"])
+    mondo_0014714 = PermissibleValue(
+        text="mondo_0014714",
+        description="DIAPH1 deficiency",
+        meaning=MONDO["0014714"])
+    mondo_0957494 = PermissibleValue(
+        text="mondo_0957494",
+        description="DOCK11 deficiency",
+        meaning=MONDO["0957494"])
+    mondo_0014637 = PermissibleValue(
+        text="mondo_0014637",
+        description="DOCK2 deficiency",
+        meaning=MONDO["0014637"])
+    mondo_0009478 = PermissibleValue(
+        text="mondo_0009478",
+        description="DOCK8 deficiency",
+        meaning=MONDO["0009478"])
+    mondo_0957229 = PermissibleValue(
+        text="mondo_0957229",
+        description="DPP9 deficiency",
+        meaning=MONDO["0957229"])
+    mondo_0011686 = PermissibleValue(
+        text="mondo_0011686",
+        description="DNA ligase IV deficiency",
+        meaning=MONDO["0011686"])
+    mondo_0014423 = PermissibleValue(
+        text="mondo_0014423",
+        description="DNA PKcs deficiency",
+        meaning=MONDO["0014423"])
+    mondo_0013743 = PermissibleValue(
+        text="mondo_0013743",
+        description="DNASE1L3 deficiency",
+        meaning=MONDO["0013743"])
+    mondo_0800132 = PermissibleValue(
+        text="mondo_0800132",
+        description="DNASE2 deficiency",
+        meaning=MONDO["0800132"])
+    dnjac21_deficiency = PermissibleValue(
+        text="dnjac21_deficiency",
+        description="Schwachman Diamond syndrome due to DNAJC21 deficiency",
+        meaning=CIEINR["dnjac21_deficiency"])
+    mondo_0032806 = PermissibleValue(
+        text="mondo_0032806",
+        description="EDA-ID due to IKBA GOF",
+        meaning=MONDO["0032806"])
+    mondo_0020740 = PermissibleValue(
+        text="mondo_0020740",
+        description="EDA-ID due to NEMO/IKBKG deficiency (ectodermal dysplasia, immune deficiency)",
+        meaning=MONDO["0020740"])
+    mondo_0032599 = PermissibleValue(
+        text="mondo_0032599",
+        description="EDA-ID due to IKBKB GOF mutation",
+        meaning=MONDO["0032599"])
+    mondo_0042490 = PermissibleValue(
+        text="mondo_0042490",
+        description="Elastase deficiency (SCN1)",
+        meaning=MONDO["0042490"])
+    mondo_0024770 = PermissibleValue(
+        text="mondo_0024770",
+        description="ELF deficiency",
+        meaning=MONDO["0024770"])
+    mondo_0044205 = PermissibleValue(
+        text="mondo_0044205",
+        description="Schwachman Diamond syndrome due to EFL1 deficiency",
+        meaning=MONDO["0044205"])
+    mondo_0958120 = PermissibleValue(
+        text="mondo_0958120",
+        description="ERBIN deficiency",
+        meaning=MONDO["0958120"])
+    mondo_0100045 = PermissibleValue(
+        text="mondo_0100045",
+        description="EVER1 deficiency",
+        meaning=MONDO["0100045"])
+    mondo_0032614 = PermissibleValue(
+        text="mondo_0032614",
+        description="EVER2 deficiency",
+        meaning=MONDO["0032614"])
+    mondo_0014758 = PermissibleValue(
+        text="mondo_0014758",
+        description="EVI1, MECOM deficiency",
+        meaning=MONDO["0014758"])
+    mondo_0013408 = PermissibleValue(
+        text="mondo_0013408",
+        description="FADD deficiency",
+        meaning=MONDO["0013408"])
+    faap24_deficiency = PermissibleValue(
+        text="faap24_deficiency",
+        description="FAAP24 deficiency",
+        meaning=CIEINR["faap24_deficiency"])
+    mondo_0012350 = PermissibleValue(
+        text="mondo_0012350",
+        description="Factor H deficiency (AR / AD)",
+        meaning=MONDO["0012350"])
+    factor_h_related_prot_def = PermissibleValue(
+        text="factor_h_related_prot_def",
+        description="Factor H –related protein deficiencies",
+        meaning=CIEINR["factor_h_related_prot_def"])
+    mondo_0012594 = PermissibleValue(
+        text="mondo_0012594",
+        description="Factor I deficiency (AR)",
+        meaning=MONDO["0012594"])
+    mondo_0013041 = PermissibleValue(
+        text="mondo_0013041",
+        description="Factor I deficiency (AD)",
+        meaning=MONDO["0013041"])
+    mondo_0013042 = PermissibleValue(
+        text="mondo_0013042",
+        description="Factor B GOF (AD)",
+        meaning=MONDO["0013042"])
+    mondo_0014255 = PermissibleValue(
+        text="mondo_0014255",
+        description="Factor B LOF (AR)",
+        meaning=MONDO["0014255"])
+    mondo_0013487 = PermissibleValue(
+        text="mondo_0013487",
+        description="Factor D deficiency",
+        meaning=MONDO["0013487"])
+    mondo_0007601 = PermissibleValue(
+        text="mondo_0007601",
+        description="Familial Mediterranean fever (AD)",
+        meaning=MONDO["0007601"])
+    mondo_0009572 = PermissibleValue(
+        text="mondo_0009572",
+        description="Familial Mediterranean fever (AR)",
+        meaning=MONDO["0009572"])
+    mondo_0007349 = PermissibleValue(
+        text="mondo_0007349",
+        description="Familial cold autoinflammatory syndrome 1",
+        meaning=MONDO["0007349"])
+    mondo_0012724 = PermissibleValue(
+        text="mondo_0012724",
+        description="Familial cold autoinflammatory syndrome 2",
+        meaning=MONDO["0012724"])
+    mondo_0013766 = PermissibleValue(
+        text="mondo_0013766",
+        description="familial cold autoinflammatory syndrome 3",
+        meaning=MONDO["0013766"])
+    mondo_0009215 = PermissibleValue(
+        text="mondo_0009215",
+        description="Fanconi Anemia Type A",
+        meaning=MONDO["0009215"])
+    mondo_0010351 = PermissibleValue(
+        text="mondo_0010351",
+        description="Fanconi Anemia Type B",
+        meaning=MONDO["0010351"])
+    mondo_0009213 = PermissibleValue(
+        text="mondo_0009213",
+        description="Fanconi Anemia Type C",
+        meaning=MONDO["0009213"])
+    mondo_0009214 = PermissibleValue(
+        text="mondo_0009214",
+        description="Fanconi Anemia Type D2",
+        meaning=MONDO["0009214"])
+    mondo_0011584 = PermissibleValue(
+        text="mondo_0011584",
+        description="Fanconi Anemia Type D1",
+        meaning=MONDO["0011584"])
+    mondo_0010953 = PermissibleValue(
+        text="mondo_0010953",
+        description="Fanconi Anemia Type E",
+        meaning=MONDO["0010953"])
+    mondo_0011325 = PermissibleValue(
+        text="mondo_0011325",
+        description="Fanconi Anemia Type F",
+        meaning=MONDO["0011325"])
+    mondo_0013565 = PermissibleValue(
+        text="mondo_0013565",
+        description="Fanconi Anemia Type G",
+        meaning=MONDO["0013565"])
+    mondo_0012186 = PermissibleValue(
+        text="mondo_0012186",
+        description="Fanconi Anemia Type I",
+        meaning=MONDO["0012186"])
+    mondo_0012187 = PermissibleValue(
+        text="mondo_0012187",
+        description="Fanconi Anemia Type J",
+        meaning=MONDO["0012187"])
+    mondo_0013566 = PermissibleValue(
+        text="mondo_0013566",
+        description="Fanconi Anemia Type L",
+        meaning=MONDO["0013566"])
+    mondo_0054862 = PermissibleValue(
+        text="mondo_0054862",
+        description="Fanconi Anemia Type M",
+        meaning=MONDO["0054862"])
+    mondo_0012565 = PermissibleValue(
+        text="mondo_0012565",
+        description="Fanconi Anemia Type N",
+        meaning=MONDO["0012565"])
+    mondo_0013248 = PermissibleValue(
+        text="mondo_0013248",
+        description="Fanconi Anemia Type O",
+        meaning=MONDO["0013248"])
+    mondo_0013499 = PermissibleValue(
+        text="mondo_0013499",
+        description="Fanconi Anemia Type P",
+        meaning=MONDO["0013499"])
+    mondo_0014108 = PermissibleValue(
+        text="mondo_0014108",
+        description="Fanconi Anemia Type Q",
+        meaning=MONDO["0014108"])
+    mondo_0014986 = PermissibleValue(
+        text="mondo_0014986",
+        description="Fanconi Anemia Type R",
+        meaning=MONDO["0014986"])
+    mondo_0054748 = PermissibleValue(
+        text="mondo_0054748",
+        description="Fanconi Anemia Type S",
+        meaning=MONDO["0054748"])
+    mondo_0014638 = PermissibleValue(
+        text="mondo_0014638",
+        description="Fanconi Anemia Type T",
+        meaning=MONDO["0014638"])
+    mondo_0014987 = PermissibleValue(
+        text="mondo_0014987",
+        description="Fanconi Anemia Type U",
+        meaning=MONDO["0014987"])
+    mondo_0014985 = PermissibleValue(
+        text="mondo_0014985",
+        description="Fanconi Anemia Type V",
+        meaning=MONDO["0014985"])
+    mondo_0044325 = PermissibleValue(
+        text="mondo_0044325",
+        description="Fanconia Anemia Type W",
+        meaning=MONDO["0044325"])
+    mondo_0030898 = PermissibleValue(
+        text="mondo_0030898",
+        description="FCHO1 deficiency",
+        meaning=MONDO["0030898"])
+    mondo_0008260 = PermissibleValue(
+        text="mondo_0008260",
+        description="FERMT1 deficiency (Kindler syndrome)",
+        meaning=MONDO["0008260"])
+    mondo_0013467 = PermissibleValue(
+        text="mondo_0013467",
+        description="Ficolin 3 deficiency",
+        meaning=MONDO["0013467"])
+    flt3l_deficiency = PermissibleValue(
+        text="flt3l_deficiency",
+        description="FLT3L deficiency",
+        meaning=CIEINR["flt3l_deficiency"])
+    mondo_0957955 = PermissibleValue(
+        text="mondo_0957955",
+        description="Folate malabsorption",
+        meaning=MONDO["0957955"])
+    mondo_0958194 = PermissibleValue(
+        text="mondo_0958194",
+        description="FOXI3 Haploinsufficiency",
+        meaning=MONDO["0958194"])
+    mondo_0011132 = PermissibleValue(
+        text="mondo_0011132",
+        description="Winged helix FOXN1 deficiency (Nude SCID)",
+        meaning=MONDO["0011132"])
+    mondo_0032928 = PermissibleValue(
+        text="mondo_0032928",
+        description="FOXN1 Haplosufficiency",
+        meaning=MONDO["0032928"])
+    mondo_0030528 = PermissibleValue(
+        text="mondo_0030528",
+        description="FNIP1 deficiency",
+        meaning=MONDO["0030528"])
+    mondo_0010480 = PermissibleValue(
+        text="mondo_0010480",
+        description="G6PD deficiency Class I",
+        meaning=MONDO["0010480"])
+    mondo_0012930 = PermissibleValue(
+        text="mondo_0012930",
+        description="G6PC3 deficiency (SCN4)",
+        meaning=MONDO["0012930"])
+    mondo_0014865 = PermissibleValue(
+        text="mondo_0014865",
+        description="G-CSF receptor deficiency",
+        meaning=MONDO["0014865"])
+    mondo_0013607 = PermissibleValue(
+        text="mondo_0013607",
+        description="GATA2 deficiency (MonoMac syndrome)",
+        meaning=MONDO["0013607"])
+    mondo_0010315 = PermissibleValue(
+        text="mondo_0010315",
+        description="gc deficiency (common gamma chain SCID, CD132 deficiency)",
+        meaning=MONDO["0010315"])
+    mondo_0013139 = PermissibleValue(
+        text="mondo_0013139",
+        description="GFI 1 deficiency (SCN2)",
+        meaning=MONDO["0013139"])
+    mondo_0011922 = PermissibleValue(
+        text="mondo_0011922",
+        description="GFI 1 deficiency (SCN2)",
+        meaning=MONDO["0011922"])
+    mondo_0030397 = PermissibleValue(
+        text="mondo_0030397",
+        description="GIMAP5 deficiency",
+        meaning=MONDO["0030397"])
+    gimap6_deficiency = PermissibleValue(
+        text="gimap6_deficiency",
+        description="GIMAP6 deficiency",
+        meaning=CIEINR["gimap6_deficiency"])
+    gins4_deficiency = PermissibleValue(
+        text="gins4_deficiency",
+        description="GINS4 deficiency",
+        meaning=CIEINR["gins4_deficiency"])
+    mondo_0009288 = PermissibleValue(
+        text="mondo_0009288",
+        description="Glycogen storage disease type 1b",
+        meaning=MONDO["0009288"])
+    mondo_0011872 = PermissibleValue(
+        text="mondo_0011872",
+        description="Griscelli syndrome, type 2",
+        meaning=MONDO["0011872"])
+    gtf3a_deficiency = PermissibleValue(
+        text="gtf3a_deficiency",
+        description="GTF3A deficiency",
+        meaning=CIEINR["gtf3a_deficiency"])
+    mondo_0012548 = PermissibleValue(
+        text="mondo_0012548",
+        description="HAX1 deficiency (Kostmann Disease) (SCN3)",
+        meaning=MONDO["0012548"])
+    mondo_0033551 = PermissibleValue(
+        text="mondo_0033551",
+        description="HEM1 (NCKAP1L) deficiency",
+        meaning=MONDO["0033551"])
+    mondo_0009337 = PermissibleValue(
+        text="mondo_0009337",
+        description="Hennekam-lymphangiectasia-lymphedema syndrome due to CCBE1 deficiency",
+        meaning=MONDO["0009337"])
+    mondo_0014454 = PermissibleValue(
+        text="mondo_0014454",
+        description="Hennekam-lymphangiectasia-lymphedema syndrome due to FAT4 deficiency",
+        meaning=MONDO["0014454"])
+    mondo_0011997 = PermissibleValue(
+        text="mondo_0011997",
+        description="Hermansky-Pudlak syndrome, type 2",
+        meaning=MONDO["0011997"])
+    mondo_0014885 = PermissibleValue(
+        text="mondo_0014885",
+        description="Hermansky-Pudlak syndrome, type 10",
+        meaning=MONDO["0014885"])
+    mondo_0800140 = PermissibleValue(
+        text="mondo_0800140",
+        description="ITPKB deficiency",
+        meaning=MONDO["0800140"])
+    mondo_0009305 = PermissibleValue(
+        text="mondo_0009305",
+        description="HYOU1 deficiency",
+        meaning=MONDO["0009305"])
+    mondo_0013536 = PermissibleValue(
+        text="mondo_0013536",
+        description="Isolated congenital asplenia (ICA) due to HMOX deficiency",
+        meaning=MONDO["0013536"])
+    mondo_0012243 = PermissibleValue(
+        text="mondo_0012243",
+        description="Hoffman syndrome/TOP2B deficiency",
+        meaning=MONDO["0012243"])
+    mondo_0011273 = PermissibleValue(
+        text="mondo_0011273",
+        description="Hyperpigmentation hypertrichosis, histiocytosis-lymphadenopathy plus syndrome SLC29A3 mutation",
+        meaning=MONDO["0011273"])
+    mondo_0011864 = PermissibleValue(
+        text="mondo_0011864",
+        description="ICOS deficiency",
+        meaning=MONDO["0011864"])
+    mondo_0970993 = PermissibleValue(
+        text="mondo_0970993",
+        description="ICOLG deficiency",
+        meaning=MONDO["0970993"])
+    mondo_0033541 = PermissibleValue(
+        text="mondo_0033541",
+        description="IFNG deficiency",
+        meaning=MONDO["0033541"])
+    mondo_0030970 = PermissibleValue(
+        text="mondo_0030970",
+        description="IFNAR1 deficiency",
+        meaning=MONDO["0030970"])
+    mondo_0014727 = PermissibleValue(
+        text="mondo_0014727",
+        description="IFNAR2 deficiency",
+        meaning=MONDO["0014727"])
+    mondo_0014828 = PermissibleValue(
+        text="mondo_0014828",
+        description="Immunodeficiency with centromeric instability and facial anomalies (ICF3)",
+        meaning=MONDO["0014828"])
+    mondo_0009454 = PermissibleValue(
+        text="mondo_0009454",
+        description="Immunodeficiency with centromeric instability and facial anomalies (ICF1)",
+        meaning=MONDO["0009454"])
+    mondo_0013553 = PermissibleValue(
+        text="mondo_0013553",
+        description="Immunodeficiency with centromeric instability and facial anomalies (ICF2)",
+        meaning=MONDO["0013553"])
+    mondo_0014829 = PermissibleValue(
+        text="mondo_0014829",
+        description="Immunodeficiency with centromeric instability and facial anomalies (ICF4)",
+        meaning=MONDO["0014829"])
+    mondo_0800030 = PermissibleValue(
+        text="mondo_0800030",
+        description="Immunodeficiency with multiple intestinal atresias",
+        meaning=MONDO["0800030"])
+    mondo_0044312 = PermissibleValue(
+        text="mondo_0044312",
+        description="Immunoskeletal dysplasia with neurodevelopmental abnormalities (EXTL3 Deficiency)",
+        meaning=MONDO["0044312"])
+    mondo_0014810 = PermissibleValue(
+        text="mondo_0014810",
+        description="IKAROS haplosufficiency / GOF / deficiency",
+        meaning=MONDO["0014810"])
+    ikzf2_dn = PermissibleValue(
+        text="ikzf2_dn",
+        description="IKZF2 DN",
+        meaning=CIEINR["ikzf2_dn"])
+    mondo_0800139 = PermissibleValue(
+        text="mondo_0800139",
+        description="IKZF2 deficiency (AD / AR)",
+        meaning=MONDO["0800139"])
+    mondo_0030333 = PermissibleValue(
+        text="mondo_0030333",
+        description="AIOLOS deficiency",
+        meaning=MONDO["0030333"])
+    mondo_0014267 = PermissibleValue(
+        text="mondo_0014267",
+        description="IKBKB deficiency (AR)",
+        meaning=MONDO["0014267"])
+    ikbke_deficiency = PermissibleValue(
+        text="ikbke_deficiency",
+        description="IKBKE deficiency",
+        meaning=CIEINR["ikbke_deficiency"])
+    mondo_0012163 = PermissibleValue(
+        text="mondo_0012163",
+        description="IL7Ra deficiency",
+        meaning=MONDO["0012163"])
+    mondo_0009413 = PermissibleValue(
+        text="mondo_0009413",
+        description="TACI deficiency (IL-21 deficiency)",
+        meaning=MONDO["0009413"])
+    mondo_0014082 = PermissibleValue(
+        text="mondo_0014082",
+        description="IL-21R deficiency",
+        meaning=MONDO["0014082"])
+    mondo_0014338 = PermissibleValue(
+        text="mondo_0014338",
+        description="IL-21 deficiency",
+        meaning=MONDO["0014338"])
+    mondo_0013153 = PermissibleValue(
+        text="mondo_0013153",
+        description="IL-10Ra deficiency",
+        meaning=MONDO["0013153"])
+    mondo_0012941 = PermissibleValue(
+        text="mondo_0012941",
+        description="IL-10Rb deficiency",
+        meaning=MONDO["0012941"])
+    mondo_0016542 = PermissibleValue(
+        text="mondo_0016542",
+        description="IL-10 deficiency",
+        meaning=MONDO["0016542"])
+    mondo_0013503 = PermissibleValue(
+        text="mondo_0013503",
+        description="IL-17F deficiency",
+        meaning=MONDO["0013503"])
+    mondo_0013500 = PermissibleValue(
+        text="mondo_0013500",
+        description="IL-17RA deficiency",
+        meaning=MONDO["0013500"])
+    mondo_0014642 = PermissibleValue(
+        text="mondo_0014642",
+        description="IL-17RC deficiency",
+        meaning=MONDO["0014642"])
+    mondo_0032809 = PermissibleValue(
+        text="mondo_0032809",
+        description="IL-18BP deficiency",
+        meaning=MONDO["0032809"])
+    mondo_0030069 = PermissibleValue(
+        text="mondo_0030069",
+        description="IL6 receptor deficiency",
+        meaning=MONDO["0030069"])
+    mondo_0800131 = PermissibleValue(
+        text="mondo_0800131",
+        description="IL6 signal transducer (IL6ST) deficiency (AR)",
+        meaning=MONDO["0800131"])
+    mondo_0032796 = PermissibleValue(
+        text="mondo_0032796",
+        description="IL6 signal transducer (IL6ST) deficiency (AD)",
+        meaning=MONDO["0032796"])
+    il_12rb2_deficiency = PermissibleValue(
+        text="il_12rb2_deficiency",
+        description="IL-12Rb2 deficiency",
+        meaning=CIEINR["il_12rb2_deficiency"])
+    mondo_0013954 = PermissibleValue(
+        text="mondo_0013954",
+        description="IL-12p40 (IL-12 and IL-23) deficiency",
+        meaning=MONDO["0013954"])
+    mondo_0013955 = PermissibleValue(
+        text="mondo_0013955",
+        description="IL-12 and IL-23 receptor b1 chain deficiency",
+        meaning=MONDO["0013955"])
+    il_23r_deficiency = PermissibleValue(
+        text="il_23r_deficiency",
+        description="IL-23R deficiency",
+        meaning=CIEINR["il_23r_deficiency"])
+    il_27ra_deficiency = PermissibleValue(
+        text="il_27ra_deficiency",
+        description="IL-27RA deficiency",
+        meaning=CIEINR["il_27ra_deficiency"])
+    mondo_0019464 = PermissibleValue(
+        text="mondo_0019464",
+        description="Ig heavy chain mutations and deletions",
+        meaning=MONDO["0019464"])
+    mondo_0013288 = PermissibleValue(
+        text="mondo_0013288",
+        description="Iga deficiency",
+        meaning=MONDO["0013288"])
+    mondo_0012987 = PermissibleValue(
+        text="mondo_0012987",
+        description="Igb deficiency",
+        meaning=MONDO["0012987"])
+    mondo_0001341 = PermissibleValue(
+        text="mondo_0001341",
+        description="Selective IgA deficiency",
+        meaning=MONDO["0001341"])
+    mondo_0001901 = PermissibleValue(
+        text="mondo_0001901",
+        description="Isolated IgG subclass deficiency",
+        meaning=MONDO["0001901"])
+    mondo_0013576 = PermissibleValue(
+        text="mondo_0013576",
+        description="Kappa chain deficiency / IgG subclass deficiency with IgA deficiency",
+        meaning=MONDO["0013576"])
+    mondo_0018039 = PermissibleValue(
+        text="mondo_0018039",
+        description="Selective IgM deficiency",
+        meaning=MONDO["0018039"])
+    mondo_0014680 = PermissibleValue(
+        text="mondo_0014680",
+        description="IRF3 deficiency",
+        meaning=MONDO["0014680"])
+    mondo_0958011 = PermissibleValue(
+        text="mondo_0958011",
+        description="IRF1 deficiency",
+        meaning=MONDO["0958011"])
+    mondo_0054691 = PermissibleValue(
+        text="mondo_0054691",
+        description="IRF2BP2 deficiency",
+        meaning=MONDO["0054691"])
+    irf4_haplosufficiency = PermissibleValue(
+        text="irf4_haplosufficiency",
+        description="IRF4 haplosufficiency",
+        meaning=CIEINR["irf4_haplosufficiency"])
+    irf4_multimorphic_r95t = PermissibleValue(
+        text="irf4_multimorphic_r95t",
+        description="IRF4 multimorphic R95T",
+        meaning=CIEINR["irf4_multimorphic_r95t"])
+    mondo_0013957 = PermissibleValue(
+        text="mondo_0013957",
+        description="IRF8 deficiency (AD)",
+        meaning=MONDO["0013957"])
+    mondo_0009194 = PermissibleValue(
+        text="mondo_0009194",
+        description="IRF8 deficiency (AR)",
+        meaning=MONDO["0009194"])
+    mondo_0014597 = PermissibleValue(
+        text="mondo_0014597",
+        description="IRF7 deficiency",
+        meaning=MONDO["0014597"])
+    mondo_0032848 = PermissibleValue(
+        text="mondo_0032848",
+        description="IRF9 deficiency",
+        meaning=MONDO["0032848"])
+    irak1_deficiency = PermissibleValue(
+        text="irak1_deficiency",
+        description="IRAK1 deficiency",
+        meaning=CIEINR["irak1_deficiency"])
+    mondo_0011888 = PermissibleValue(
+        text="mondo_0011888",
+        description="IRAK4 deficiency",
+        meaning=MONDO["0011888"])
+    irak4_disorder = PermissibleValue(
+        text="irak4_disorder",
+        description="IRAK4 disorder",
+        meaning=CIEINR["irak4_disorder"])
+    ire1a_deficiency = PermissibleValue(
+        text="ire1a_deficiency",
+        description="IRE1a deficiency",
+        meaning=CIEINR["ire1a_deficiency"])
+    mondo_0014502 = PermissibleValue(
+        text="mondo_0014502",
+        description="ISG15 deficiency",
+        meaning=MONDO["0014502"])
+    mondo_0013081 = PermissibleValue(
+        text="mondo_0013081",
+        description="ITK deficiency",
+        meaning=MONDO["0013081"])
+    mondo_0859311 = PermissibleValue(
+        text="mondo_0859311",
+        description="ITPR3",
+        meaning=MONDO["0859311"])
+    mondo_0013245 = PermissibleValue(
+        text="mondo_0013245",
+        description="ITCH deficiency",
+        meaning=MONDO["0013245"])
+    mondo_0033558 = PermissibleValue(
+        text="mondo_0033558",
+        description="JAK1 GOF / LOF",
+        meaning=MONDO["0033558"])
+    mondo_0010938 = PermissibleValue(
+        text="mondo_0010938",
+        description="JAK3 deficiency",
+        meaning=MONDO["0010938"])
+    mondo_0014456 = PermissibleValue(
+        text="mondo_0014456",
+        description="JAGN1 deficiency",
+        meaning=MONDO["0014456"])
+    mondo_0010465 = PermissibleValue(
+        text="mondo_0010465",
+        description="Kabuki Syndrome 2 due to KDM6A deficiency",
+        meaning=MONDO["0010465"])
+    mondo_0007843 = PermissibleValue(
+        text="mondo_0007843",
+        description="Kabuki Syndrome 1 due to KMT2D deficiency",
+        meaning=MONDO["0007843"])
+    mondo_0030893 = PermissibleValue(
+        text="mondo_0030893",
+        description="KARS1 deficiency",
+        meaning=MONDO["0030893"])
+    mondo_0044721 = PermissibleValue(
+        text="mondo_0044721",
+        description="LAT deficiency",
+        meaning=MONDO["0044721"])
+    mondo_0030693 = PermissibleValue(
+        text="mondo_0030693",
+        description="Ligase I deficiency",
+        meaning=MONDO["0030693"])
+    mondo_0013863 = PermissibleValue(
+        text="mondo_0013863",
+        description="LRBA deficiency",
+        meaning=MONDO["0013863"])
+    mondo_0007293 = PermissibleValue(
+        text="mondo_0007293",
+        description="Leukocyte adhesion deficiency type 1 (LAD1)",
+        meaning=MONDO["0007293"])
+    mondo_0009953 = PermissibleValue(
+        text="mondo_0009953",
+        description="Leukocyte adhesion deficiency type 2 (LAD2)",
+        meaning=MONDO["0009953"])
+    mondo_0013016 = PermissibleValue(
+        text="mondo_0013016",
+        description="Leukocyte adhesion deficiency type 3 (LAD3)",
+        meaning=MONDO["0013016"])
+    mondo_0030366 = PermissibleValue(
+        text="mondo_0030366",
+        description="LITAF deficiency",
+        meaning=MONDO["0030366"])
+    mondo_0012212 = PermissibleValue(
+        text="mondo_0012212",
+        description="Loeys Dietz syndrome due to TGFBR1 deficiency",
+        meaning=MONDO["0012212"])
+    mondo_0012427 = PermissibleValue(
+        text="mondo_0012427",
+        description="Loeys Dietz syndrome due to TGFBR2 deficiency",
+        meaning=MONDO["0012427"])
+    mondo_0018643 = PermissibleValue(
+        text="mondo_0018643",
+        description="Localized juvenile periodontitis",
+        meaning=MONDO["0018643"])
+    mondo_0013287 = PermissibleValue(
+        text="mondo_0013287",
+        description="l5 deficiency",
+        meaning=MONDO["0013287"])
+    mondo_0009109 = PermissibleValue(
+        text="mondo_0009109",
+        description="Lysinuric protein intolerance SLC7A7 deficiency",
+        meaning=MONDO["0009109"])
+    mondo_0957271 = PermissibleValue(
+        text="mondo_0957271",
+        description="LYN GOF disease",
+        meaning=MONDO["0957271"])
+    mondo_0010389 = PermissibleValue(
+        text="mondo_0010389",
+        description="gp91 phox deficiency Macrophage /  X-linked chronic granulomatous disease (CGD), gp91phox",
+        meaning=MONDO["0010389"])
+    mondo_0013040 = PermissibleValue(
+        text="mondo_0013040",
+        description="Membrane Cofactor Protein (CD46) deficiency (AD / AR)",
+        meaning=MONDO["0013040"])
+    mondo_0012858 = PermissibleValue(
+        text="mondo_0012858",
+        description="Membrane Attack Complex Inhibitor (CD59) deficiency",
+        meaning=MONDO["0012858"])
+    mondo_0013423 = PermissibleValue(
+        text="mondo_0013423",
+        description="MASP2 deficiency",
+        meaning=MONDO["0013423"])
+    mondo_0014197 = PermissibleValue(
+        text="mondo_0014197",
+        description="MALT1 deficiency",
+        meaning=MONDO["0014197"])
+    mondo_0020729 = PermissibleValue(
+        text="mondo_0020729",
+        description="m heavy chain deficiency",
+        meaning=MONDO["0020729"])
+    mondo_0800141 = PermissibleValue(
+        text="mondo_0800141",
+        description="MAN2B2 deficiency",
+        meaning=MONDO["0800141"])
+    mondo_0011629 = PermissibleValue(
+        text="mondo_0011629",
+        description="Mannosyl-oligosaccharide glucosidase deficiency (MOGS)",
+        meaning=MONDO["0011629"])
+    map1lc3b2_deficiency = PermissibleValue(
+        text="map1lc3b2_deficiency",
+        description="MAP1LC3B2",
+        meaning=CIEINR["map1lc3b2_deficiency"])
+    mondo_0800142 = PermissibleValue(
+        text="mondo_0800142",
+        description="MAPK8 deficiency",
+        meaning=MONDO["0800142"])
+    mondo_0030266 = PermissibleValue(
+        text="mondo_0030266",
+        description="MCM10 deficiency",
+        meaning=MONDO["0030266"])
+    mondo_0012383 = PermissibleValue(
+        text="mondo_0012383",
+        description="MCM4 deficiency",
+        meaning=MONDO["0012383"])
+    md2_deficiency = PermissibleValue(
+        text="md2_deficiency",
+        description="MD2 deficiency",
+        meaning=CIEINR["md2_deficiency"])
+    mondo_0958030 = PermissibleValue(
+        text="mondo_0958030",
+        description="MCTS1 deficiency",
+        meaning=MONDO["0958030"])
+    mondo_0060611 = PermissibleValue(
+        text="mondo_0060611",
+        description="Methylene-tetrahydrofolate dehydrogenase 1 (MTHFD1) deficiency",
+        meaning=MONDO["0060611"])
+    mondo_0009849 = PermissibleValue(
+        text="mondo_0009849",
+        description="Mevalonate kinase deficiency (Hyper IgD syndrome)",
+        meaning=MONDO["0009849"])
+    mondo_0009434 = PermissibleValue(
+        text="mondo_0009434",
+        description="MHC class I deficiency",
+        meaning=MONDO["0009434"])
+    mondo_0971006 = PermissibleValue(
+        text="mondo_0971006",
+        description="MHC class I deficiency (TAP1)",
+        meaning=MONDO["0971006"])
+    mondo_0971011 = PermissibleValue(
+        text="mondo_0971011",
+        description="MHC class I deficiency (TAP2)",
+        meaning=MONDO["0971011"])
+    mondo_0971012 = PermissibleValue(
+        text="mondo_0971012",
+        description="MHC class I deficiency (TAPBP)",
+        meaning=MONDO["0971012"])
+    mondo_0971005 = PermissibleValue(
+        text="mondo_0971005",
+        description="MHC class II deficiency group A",
+        meaning=MONDO["0971005"])
+    mondo_0971013 = PermissibleValue(
+        text="mondo_0971013",
+        description="MHC class II deficiency group B",
+        meaning=MONDO["0971013"])
+    mondo_0971014 = PermissibleValue(
+        text="mondo_0971014",
+        description="MHC class II deficiency group C",
+        meaning=MONDO["0971014"])
+    mondo_0971015 = PermissibleValue(
+        text="mondo_0971015",
+        description="MHC class II deficiency group D",
+        meaning=MONDO["0971015"])
+    mondo_0010514 = PermissibleValue(
+        text="mondo_0010514",
+        description="Moesin deficiency",
+        meaning=MONDO["0010514"])
+    mondo_0008871 = PermissibleValue(
+        text="mondo_0008871",
+        description="MOPD1 deficiency (Roifman syndrome)",
+        meaning=MONDO["0008871"])
+    mondo_0030841 = PermissibleValue(
+        text="mondo_0030841",
+        description="MSH6",
+        meaning=MONDO["0030841"])
+    mondo_0013934 = PermissibleValue(
+        text="mondo_0013934",
+        description="MST1 deficiency",
+        meaning=MONDO["0013934"])
+    mondo_0008633 = PermissibleValue(
+        text="mondo_0008633",
+        description="Muckle-Wells syndrome",
+        meaning=MONDO["0008633"])
+    mondo_0012839 = PermissibleValue(
+        text="mondo_0012839",
+        description="MyD88 deficiency",
+        meaning=MONDO["0012839"])
+    mondo_0020856 = PermissibleValue(
+        text="mondo_0020856",
+        description="MYSM1 deficiency",
+        meaning=MONDO["0020856"])
+    mondo_0012316 = PermissibleValue(
+        text="mondo_0012316",
+        description="Majeed syndrome",
+        meaning=MONDO["0012316"])
+    mondo_0007728 = PermissibleValue(
+        text="mondo_0007728",
+        description="NCSTN deficiency hidradenitis suppurativa",
+        meaning=MONDO["0007728"])
+    mondo_0007686 = PermissibleValue(
+        text="mondo_0007686",
+        description="NBEAL2 deficiency",
+        meaning=MONDO["0007686"])
+    mondo_0030013 = PermissibleValue(
+        text="mondo_0030013",
+        description="Neutropenia with combined immune deficiency due to MKL1 deficiency",
+        meaning=MONDO["0030013"])
+    nfat5_haploinsufficiency = PermissibleValue(
+        text="nfat5_haploinsufficiency",
+        description="NFAT5 haploinsufficiency",
+        meaning=CIEINR["nfat5_haploinsufficiency"])
+    mondo_0859369 = PermissibleValue(
+        text="mondo_0859369",
+        description="NFAT1 deficiency",
+        meaning=MONDO["0859369"])
+    nfatc1_deficiency = PermissibleValue(
+        text="nfatc1_deficiency",
+        description="NFATC1 deficiency",
+        meaning=CIEINR["nfatc1_deficiency"])
+    mondo_0014697 = PermissibleValue(
+        text="mondo_0014697",
+        description="NFKB1 deficiency",
+        meaning=MONDO["0014697"])
+    mondo_0014260 = PermissibleValue(
+        text="mondo_0014260",
+        description="NFKB2 deficiency",
+        meaning=MONDO["0014260"])
+    mondo_0060591 = PermissibleValue(
+        text="mondo_0060591",
+        description="NFE2L2 GOF",
+        meaning=MONDO["0060591"])
+    mondo_0957535 = PermissibleValue(
+        text="mondo_0957535",
+        description="NIK deficiency",
+        meaning=MONDO["0957535"])
+    mondo_0060457 = PermissibleValue(
+        text="mondo_0060457",
+        description="NLRP1 deficiency (AR)",
+        meaning=MONDO["0060457"])
+    mondo_0014089 = PermissibleValue(
+        text="mondo_0014089",
+        description="NLRP1 GOF (AD)",
+        meaning=MONDO["0014089"])
+    mondo_0011776 = PermissibleValue(
+        text="mondo_0011776",
+        description="""Neonatal onset multisystem inflammatory disease (NOMID) or chronic infantile neurologic cutaneous and articular syndrome (CINCA)""",
+        meaning=MONDO["0011776"])
+    nos2_deficiency = PermissibleValue(
+        text="nos2_deficiency",
+        description="NOS2 deficiency",
+        meaning=CIEINR["nos2_deficiency"])
+    mondo_0014984 = PermissibleValue(
+        text="mondo_0014984",
+        description="NSMCE3 deficiency",
+        meaning=MONDO["0014984"])
+    mondo_0009623 = PermissibleValue(
+        text="mondo_0009623",
+        description="Nijmegen breakage syndrome",
+        meaning=MONDO["0009623"])
+    nudcd3_deficiency = PermissibleValue(
+        text="nudcd3_deficiency",
+        description="NUDCD3 deficiency",
+        meaning=CIEINR["nudcd3_deficiency"])
+    mondo_0020840 = PermissibleValue(
+        text="mondo_0020840",
+        description="OAS1 deficiency / GOF",
+        meaning=MONDO["0020840"])
+    oas2_deficiency = PermissibleValue(
+        text="oas2_deficiency",
+        description="OAS2 deficiency",
+        meaning=CIEINR["oas2_deficiency"])
+    mondo_0009817 = PermissibleValue(
+        text="mondo_0009817",
+        description="OSTM1 deficiency associated osteopetrosis",
+        meaning=MONDO["0009817"])
+    mondo_0031030 = PermissibleValue(
+        text="mondo_0031030",
+        description="Otulin deficiency",
+        meaning=MONDO["0031030"])
+    otulin_haplosufficiency = PermissibleValue(
+        text="otulin_haplosufficiency",
+        description="Otulin haplosufficiency",
+        meaning=CIEINR["otulin_haplosufficiency"])
+    mondo_0014912 = PermissibleValue(
+        text="mondo_0014912",
+        description="Otulipenia/ORAS",
+        meaning=MONDO["0014912"])
+    mondo_0014268 = PermissibleValue(
+        text="mondo_0014268",
+        description="OX40 deficiency",
+        meaning=MONDO["0014268"])
+    mondo_0014389 = PermissibleValue(
+        text="mondo_0014389",
+        description="HOIL1 deficiency",
+        meaning=MONDO["0014389"])
+    mondo_0957981 = PermissibleValue(
+        text="mondo_0957981",
+        description="HOIP deficiency",
+        meaning=MONDO["0957981"])
+    mondo_0014383 = PermissibleValue(
+        text="mondo_0014383",
+        description="ORAI-1 deficiency",
+        meaning=MONDO["0014383"])
+    mondo_0012559 = PermissibleValue(
+        text="mondo_0012559",
+        description="P14/LAMTOR2 deficiency",
+        meaning=MONDO["0012559"])
+    mondo_0010455 = PermissibleValue(
+        text="mondo_0010455",
+        description="PAX1 deficiency",
+        meaning=MONDO["0010455"])
+    mondo_0100299 = PermissibleValue(
+        text="mondo_0100299",
+        description="PAX5 deficiency",
+        meaning=MONDO["0100299"])
+    mondo_0011462 = PermissibleValue(
+        text="mondo_0011462",
+        description="""Pyogenic sterile arthritis, pyoderma gangrenosum, acne (PAPA) syndrome, hyperzincemia and hypercalprotectinemia""",
+        meaning=MONDO["0011462"])
+    mondo_0009490 = PermissibleValue(
+        text="mondo_0009490",
+        description="Papillon-Lefèvre Syndrome",
+        meaning=MONDO["0009490"])
+    mondo_0021571 = PermissibleValue(
+        text="mondo_0021571",
+        description="PD1 deficiency",
+        meaning=MONDO["0021571"])
+    pd_l1_deficiency = PermissibleValue(
+        text="pd_l1_deficiency",
+        description="PD-L1 deficiency",
+        meaning=CIEINR["pd_l1_deficiency"])
+    mondo_0011337 = PermissibleValue(
+        text="mondo_0011337",
+        description="Perforin deficiency (FHL2)",
+        meaning=MONDO["0011337"])
+    mondo_0014353 = PermissibleValue(
+        text="mondo_0014353",
+        description="PGM3 deficiency",
+        meaning=MONDO["0014353"])
+    mondo_0957497 = PermissibleValue(
+        text="mondo_0957497",
+        description="Pansclerotic morphea",
+        meaning=MONDO["0957497"])
+    mondo_0023655 = PermissibleValue(
+        text="mondo_0023655",
+        description="PIK3CD deficiency (AR)",
+        meaning=MONDO["0023655"])
+    mondo_0014222 = PermissibleValue(
+        text="mondo_0014222",
+        description="PIK3CD mutation (GOF) APDS1 (AD)",
+        meaning=MONDO["0014222"])
+    mondo_0030717 = PermissibleValue(
+        text="mondo_0030717",
+        description="PIK3CG deficiency",
+        meaning=MONDO["0030717"])
+    mondo_0014083 = PermissibleValue(
+        text="mondo_0014083",
+        description="PIK3R1 deficiency (AR)",
+        meaning=MONDO["0014083"])
+    mondo_0014453 = PermissibleValue(
+        text="mondo_0014453",
+        description="PIK3R1 deficiency (LOF) APDS2",
+        meaning=MONDO["0014453"])
+    mondo_0012679 = PermissibleValue(
+        text="mondo_0012679",
+        description="PLEKHM1 deficiency associated osteopetrosis",
+        meaning=MONDO["0012679"])
+    mondo_0957790 = PermissibleValue(
+        text="mondo_0957790",
+        description="PLCG1 GOF disease",
+        meaning=MONDO["0957790"])
+    mondo_0013944 = PermissibleValue(
+        text="mondo_0013944",
+        description="PLAID (PLCg2 associated antibody deficiency and immune dysregulation) or APLAID (c2120A>C)",
+        meaning=MONDO["0013944"])
+    mondo_0030843 = PermissibleValue(
+        text="mondo_0030843",
+        description="PMS2 Deficiency",
+        meaning=MONDO["0030843"])
+    mondo_0970994 = PermissibleValue(
+        text="mondo_0970994",
+        description="Polymerase d 1 deficiency",
+        meaning=MONDO["0970994"])
+    pold2_deficiency = PermissibleValue(
+        text="pold2_deficiency",
+        description="Polymerase d 2 deficiency",
+        meaning=CIEINR["pold2_deficiency"])
+    pold3_deficiency = PermissibleValue(
+        text="pold3_deficiency",
+        description="Polymerase d 3 deficiency",
+        meaning=CIEINR["pold3_deficiency"])
+    mondo_0014058 = PermissibleValue(
+        text="mondo_0014058",
+        description="POLE1 (Polymerase ε subunit 1) deficiency (FILS syndrome)",
+        meaning=MONDO["0014058"])
+    mondo_0800128 = PermissibleValue(
+        text="mondo_0800128",
+        description="POLE2 (Polymerase ε subunit 2) deficiency",
+        meaning=MONDO["0800128"])
+    mondo_0009910 = PermissibleValue(
+        text="mondo_0009910",
+        description="RNA polymerase III deficiency due to POLR3A defects",
+        meaning=MONDO["0009910"])
+    polr3c_deficiency = PermissibleValue(
+        text="polr3c_deficiency",
+        description="RNA polymerase III deficiency due to POLR3C defects",
+        meaning=CIEINR["polr3c_deficiency"])
+    mondo_0030813 = PermissibleValue(
+        text="mondo_0030813",
+        description="RNA polymerase III deficiency due to POLR3F defects",
+        meaning=MONDO["0030813"])
+    mondo_0800146 = PermissibleValue(
+        text="mondo_0800146",
+        description="POU2AF1 deficiency",
+        meaning=MONDO["0800146"])
+    mondo_0054700 = PermissibleValue(
+        text="mondo_0054700",
+        description="PRAID",
+        meaning=MONDO["0054700"])
+    mondo_0030924 = PermissibleValue(
+        text="mondo_0030924",
+        description="PRAAS- CANDLE (PSMB10)",
+        meaning=MONDO["0030924"])
+    mondo_0054699 = PermissibleValue(
+        text="mondo_0054699",
+        description="PRAAS- CANDLE (PSMB4)",
+        meaning=MONDO["0054699"])
+    mondo_0968983 = PermissibleValue(
+        text="mondo_0968983",
+        description="PRAAS -like condition (AD, AR, and various)",
+        meaning=MONDO["0968983"])
+    mondo_0971001 = PermissibleValue(
+        text="mondo_0971001",
+        description="PSMB10 associated Omenn Syndrome",
+        meaning=MONDO["0971001"])
+    mondo_0054591 = PermissibleValue(
+        text="mondo_0054591",
+        description="PSMD12 disorder",
+        meaning=MONDO["0054591"])
+    mondo_0024516 = PermissibleValue(
+        text="mondo_0024516",
+        description="PSEN deficiency hidradenitis suppurativa",
+        meaning=MONDO["0024516"])
+    mondo_0013397 = PermissibleValue(
+        text="mondo_0013397",
+        description="PSENEN deficiency hidradenitis suppurativa",
+        meaning=MONDO["0013397"])
+    pten_deficiency = PermissibleValue(
+        text="pten_deficiency",
+        description="PTEN Deficiency (LOF)",
+        meaning=CIEINR["pten_deficiency"])
+    ptcra_deficiency = PermissibleValue(
+        text="ptcra_deficiency",
+        description="PTCRA deficiency",
+        meaning=CIEINR["ptcra_deficiency"])
+    mondo_0010713 = PermissibleValue(
+        text="mondo_0010713",
+        description="Properdin deficiency",
+        meaning=MONDO["0010713"])
+    mondo_0008221 = PermissibleValue(
+        text="mondo_0008221",
+        description="Prolidase deficiency",
+        meaning=MONDO["0008221"])
+    mondo_0013171 = PermissibleValue(
+        text="mondo_0013171",
+        description="Purine nucleoside phosphorylase (PNP) deficiency",
+        meaning=MONDO["0013171"])
+    mondo_0030529 = PermissibleValue(
+        text="mondo_0030529",
+        description="Pu.1 deficiency",
+        meaning=MONDO["0030529"])
+    mondo_0000572 = PermissibleValue(
+        text="mondo_0000572",
+        description="RAG1 deficiency",
+        meaning=MONDO["0000572"])
+    mondo_0000573 = PermissibleValue(
+        text="mondo_0000573",
+        description="RAG2 deficiency",
+        meaning=MONDO["0000573"])
+    mondo_0033555 = PermissibleValue(
+        text="mondo_0033555",
+        description="RAC2 deficiency (AR)",
+        meaning=MONDO["0033555"])
+    mondo_0011988 = PermissibleValue(
+        text="mondo_0011988",
+        description="Rac 2 deficiency (LOF)",
+        meaning=MONDO["0011988"])
+    mondo_0013118 = PermissibleValue(
+        text="mondo_0013118",
+        description="RAD50 deficiency",
+        meaning=MONDO["0013118"])
+    mondo_0032803 = PermissibleValue(
+        text="mondo_0032803",
+        description="RASGRP1 deficiency",
+        meaning=MONDO["0032803"])
+    mondo_0030498 = PermissibleValue(
+        text="mondo_0030498",
+        description="c-Rel deficiency",
+        meaning=MONDO["0030498"])
+    mondo_0032659 = PermissibleValue(
+        text="mondo_0032659",
+        description="RelA haplosufficiency",
+        meaning=MONDO["0032659"])
+    mondo_0054696 = PermissibleValue(
+        text="mondo_0054696",
+        description="RelB deficiency",
+        meaning=MONDO["0054696"])
+    rela_interferonopathy = PermissibleValue(
+        text="rela_interferonopathy",
+        description="RELA interferonopathy",
+        meaning=MONDO["0032659"])
+    mondo_0800147 = PermissibleValue(
+        text="mondo_0800147",
+        description="RHOG deficiency",
+        meaning=MONDO["0800147"])
+    mondo_0029134 = PermissibleValue(
+        text="mondo_0029134",
+        description="RLTPR (CARMIL2) deficiency",
+        meaning=MONDO["0029134"])
+    mondo_0017925 = PermissibleValue(
+        text="mondo_0017925",
+        description="Rhoh Deficiency",
+        meaning=MONDO["0017925"])
+    mondo_0020849 = PermissibleValue(
+        text="mondo_0020849",
+        description="RIPK1 deficiency (AR)",
+        meaning=MONDO["0020849"])
+    mondo_0030018 = PermissibleValue(
+        text="mondo_0030018",
+        description="RIPK1 deficiency (AD)",
+        meaning=MONDO["0030018"])
+    ripk3_deficiency = PermissibleValue(
+        text="ripk3_deficiency",
+        description="RIPK3 deficiency",
+        meaning=CIEINR["ripk3_deficiency"])
+    mondo_0009973 = PermissibleValue(
+        text="mondo_0009973",
+        description="Reticular dysgenesis",
+        meaning=MONDO["0009973"])
+    mondo_0013999 = PermissibleValue(
+        text="mondo_0013999",
+        description="Retinal dystrophy, optic nerve oedema, splenomegaly, anhidrosis, and headache (ROSAH)",
+        meaning=MONDO["0013999"])
+    mondo_0014710 = PermissibleValue(
+        text="mondo_0014710",
+        description="RORgt deficiency",
+        meaning=MONDO["0014710"])
+    mondo_0011098 = PermissibleValue(
+        text="mondo_0011098",
+        description="RNASEL deficiency",
+        meaning=MONDO["0011098"])
+    mondo_0014367 = PermissibleValue(
+        text="mondo_0014367",
+        description="Aicardi-Goutieres syndrome 7 (AGS7)",
+        meaning=MONDO["0014367"])
+    mondo_0012472 = PermissibleValue(
+        text="mondo_0012472",
+        description="RNASEH2A deficiency, AGS4",
+        meaning=MONDO["0012472"])
+    mondo_0012429 = PermissibleValue(
+        text="mondo_0012429",
+        description="RNASEH2B deficiency, AGS2",
+        meaning=MONDO["0012429"])
+    mondo_0012471 = PermissibleValue(
+        text="mondo_0012471",
+        description="RNASEH2C deficiency, AGS3",
+        meaning=MONDO["0012471"])
+    mondo_0012764 = PermissibleValue(
+        text="mondo_0012764",
+        description="RNF168 deficiency (RIDDLE Syndrome)",
+        meaning=MONDO["0012764"])
+    mondo_0030362 = PermissibleValue(
+        text="mondo_0030362",
+        description="RNU7-1 deficiency",
+        meaning=MONDO["0030362"])
+    mondo_0016369 = PermissibleValue(
+        text="mondo_0016369",
+        description="Rothmund-Thomson syndrome type 2",
+        meaning=MONDO["0016369"])
+    mondo_0009955 = PermissibleValue(
+        text="mondo_0009955",
+        description="Rapadilino Syndrome",
+        meaning=MONDO["0009955"])
+    mondo_0010066 = PermissibleValue(
+        text="mondo_0010066",
+        description="Isolated congenital asplenia (ICA) due to RPSA deficiency",
+        meaning=MONDO["0010066"])
+    mondo_0024781 = PermissibleValue(
+        text="mondo_0024781",
+        description="SASH3 deficiency",
+        meaning=MONDO["0024781"])
+    mondo_0014888 = PermissibleValue(
+        text="mondo_0014888",
+        description="SAMD9 (GOF)",
+        meaning=MONDO["0014888"])
+    mondo_0013059 = PermissibleValue(
+        text="mondo_0013059",
+        description="SAMHD1 deficiency, AGS5",
+        meaning=MONDO["0013059"])
+    mondo_0958013 = PermissibleValue(
+        text="mondo_0958013",
+        description="SEC61A1 deficiency",
+        meaning=MONDO["0958013"])
+    mondo_0044208 = PermissibleValue(
+        text="mondo_0044208",
+        description="SMARCD2 deficiency",
+        meaning=MONDO["0044208"])
+    mondo_0030313 = PermissibleValue(
+        text="mondo_0030313",
+        description="SNORA31 deficiency",
+        meaning=MONDO["0030313"])
+    mondo_0800149 = PermissibleValue(
+        text="mondo_0800149",
+        description="TNFSF13 (APRIL) deficiency",
+        meaning=MONDO["0800149"])
+    mondo_0008290 = PermissibleValue(
+        text="mondo_0008290",
+        description="PVMK deficiency",
+        meaning=MONDO["0008290"])
+    mondo_0024551 = PermissibleValue(
+        text="mondo_0024551",
+        description="SH2D1A (SAP) deficiency (XLP1)",
+        meaning=MONDO["0024551"])
+    mondo_0010296 = PermissibleValue(
+        text="mondo_0010296",
+        description="SH3KBP1 (CIN85) deficiency",
+        meaning=MONDO["0010296"])
+    sh2b3_deficiency = PermissibleValue(
+        text="sh2b3_deficiency",
+        description="SH2B3 deficiency",
+        meaning=CIEINR["sh2b3_deficiency"])
+    mondo_0968982 = PermissibleValue(
+        text="mondo_0968982",
+        description="SHARPIN deficiency",
+        meaning=MONDO["0968982"])
+    mondo_0009458 = PermissibleValue(
+        text="mondo_0009458",
+        description="Schimke Immuno-osseous Dysplasia",
+        meaning=MONDO["0009458"])
+    sbds_deficiency = PermissibleValue(
+        text="sbds_deficiency",
+        description="Shwachman-Diamond Syndrome due to SBDS deficiency",
+        meaning=CIEINR["sbds_deficiency"])
+    mondo_0009238 = PermissibleValue(
+        text="mondo_0009238",
+        description="SLC46A1/PCFT deficiency causing hereditary folate malabsorption",
+        meaning=MONDO["0009238"])
+    mondo_0030519 = PermissibleValue(
+        text="mondo_0030519",
+        description="SLC39A7 (ZIP7) deficiency",
+        meaning=MONDO["0030519"])
+    mondo_0030302 = PermissibleValue(
+        text="mondo_0030302",
+        description="SLP76 deficiency",
+        meaning=MONDO["0030302"])
+    mondo_0014040 = PermissibleValue(
+        text="mondo_0014040",
+        description="SNX10 deficiency associated osteopetrosis",
+        meaning=MONDO["0014040"])
+    mondo_0800130 = PermissibleValue(
+        text="mondo_0800130",
+        description="SOCS1 deficiency",
+        meaning=MONDO["0800130"])
+    mondo_0030448 = PermissibleValue(
+        text="mondo_0030448",
+        description="SPPL2a deficiency",
+        meaning=MONDO["0030448"])
+    mondo_0009842 = PermissibleValue(
+        text="mondo_0009842",
+        description="Specific granule deficiency",
+        meaning=MONDO["0009842"])
+    srp19_deficiency = PermissibleValue(
+        text="srp19_deficiency",
+        description="SRP19 deficiency",
+        meaning=CIEINR["srp19_deficiency"])
+    mondo_0032899 = PermissibleValue(
+        text="mondo_0032899",
+        description="SRP54 deficiency",
+        meaning=MONDO["0032899"])
+    srpra_deficiency = PermissibleValue(
+        text="srpra_deficiency",
+        description="SRPRA deficiency",
+        meaning=CIEINR["srpra_deficiency"])
+    mondo_0013008 = PermissibleValue(
+        text="mondo_0013008",
+        description="STIM1 deficiency",
+        meaning=MONDO["0013008"])
+    mondo_0013599 = PermissibleValue(
+        text="mondo_0013599",
+        description="STAT1 GOF",
+        meaning=MONDO["0013599"])
+    mondo_0013956 = PermissibleValue(
+        text="mondo_0013956",
+        description="STAT1 deficiency (AD LOF)",
+        meaning=MONDO["0013956"])
+    mondo_0013427 = PermissibleValue(
+        text="mondo_0013427",
+        description="STAT1 deficiency (AR LOF)",
+        meaning=MONDO["0013427"])
+    mondo_0014715 = PermissibleValue(
+        text="mondo_0014715",
+        description="STAT2 deficiency",
+        meaning=MONDO["0014715"])
+    mondo_0030044 = PermissibleValue(
+        text="mondo_0030044",
+        description="STAT2 GOF",
+        meaning=MONDO["0030044"])
+    mondo_0014414 = PermissibleValue(
+        text="mondo_0014414",
+        description="STAT3 GOF mutation",
+        meaning=MONDO["0014414"])
+    mondo_0100211 = PermissibleValue(
+        text="mondo_0100211",
+        description="STAT5b deficiency (AR)",
+        meaning=MONDO["0100211"])
+    mondo_0100219 = PermissibleValue(
+        text="mondo_0100219",
+        description="STAT5b deficiency (AD)",
+        meaning=MONDO["0100219"])
+    mondo_0957807 = PermissibleValue(
+        text="mondo_0957807",
+        description="STAT6 disorder",
+        meaning=MONDO["0957807"])
+    mondo_0033203 = PermissibleValue(
+        text="mondo_0033203",
+        description="SGPL1 deficiency",
+        meaning=MONDO["0033203"])
+    mondo_0011336 = PermissibleValue(
+        text="mondo_0011336",
+        description="Syntaxin 11 deficiency (FHL4)",
+        meaning=MONDO["0011336"])
+    mondo_0013135 = PermissibleValue(
+        text="mondo_0013135",
+        description="STXBP2 / Munc18-2 deficiency (FHL5)",
+        meaning=MONDO["0013135"])
+    mondo_0030308 = PermissibleValue(
+        text="mondo_0030308",
+        description="SYK disease",
+        meaning=MONDO["0030308"])
+    mondo_0013818 = PermissibleValue(
+        text="mondo_0013818",
+        description="Tricho-hepato-enteric syndrome due to SKIV2L mutations",
+        meaning=MONDO["0013818"])
+    mondo_0009735 = PermissibleValue(
+        text="mondo_0009735",
+        description="Comel-Netherton syndrome",
+        meaning=MONDO["0009735"])
+    mondo_0054754 = PermissibleValue(
+        text="mondo_0054754",
+        description="TBK1 deficiency (AD)",
+        meaning=MONDO["0054754"])
+    mondo_0800148 = PermissibleValue(
+        text="mondo_0800148",
+        description="TBK1 deficiency (AR)",
+        meaning=MONDO["0800148"])
+    mondo_0030483 = PermissibleValue(
+        text="mondo_0030483",
+        description="TBX21 deficiency",
+        meaning=MONDO["0030483"])
+    mondo_0014160 = PermissibleValue(
+        text="mondo_0014160",
+        description="TCRα deficiency",
+        meaning=MONDO["0014160"])
+    mondo_0030858 = PermissibleValue(
+        text="mondo_0030858",
+        description="TET2 deficiency",
+        meaning=MONDO["0030858"])
+    mondo_0014760 = PermissibleValue(
+        text="mondo_0014760",
+        description="TFRC deficiency",
+        meaning=MONDO["0014760"])
+    mondo_0013723 = PermissibleValue(
+        text="mondo_0013723",
+        description="TIRAP deficiency",
+        meaning=MONDO["0013723"])
+    mondo_0800187 = PermissibleValue(
+        text="mondo_0800187",
+        description="TLR3 deficiency (AD / AR)",
+        meaning=MONDO["0800187"])
+    mondo_0859083 = PermissibleValue(
+        text="mondo_0859083",
+        description="TLR7 deficiency (AD)",
+        meaning=MONDO["0859083"])
+    mondo_0026767 = PermissibleValue(
+        text="mondo_0026767",
+        description="TLR7 deficiency (X-Linked)",
+        meaning=MONDO["0026767"])
+    mondo_0024777 = PermissibleValue(
+        text="mondo_0024777",
+        description="TLR8 disease",
+        meaning=MONDO["0024777"])
+    tlr4_deficiency = PermissibleValue(
+        text="tlr4_deficiency",
+        description="TLR4 deficiency",
+        meaning=CIEINR["tlr4_deficiency"])
+    mondo_0015698 = PermissibleValue(
+        text="mondo_0015698",
+        description="Transient hypogammaglobulinemia of infancy",
+        meaning=MONDO["0015698"])
+    mondo_0010149 = PermissibleValue(
+        text="mondo_0010149",
+        description="Transcobalamin 2 deficiency",
+        meaning=MONDO["0010149"])
+    mondo_0013920 = PermissibleValue(
+        text="mondo_0013920",
+        description="TRAF3 deficiency / haplosufficiency",
+        meaning=MONDO["0013920"])
+    mondo_0012931 = PermissibleValue(
+        text="mondo_0012931",
+        description="Trypanosomiasis susceptibility",
+        meaning=MONDO["0012931"])
+    mondo_0013921 = PermissibleValue(
+        text="mondo_0013921",
+        description="TRIF deficiency (AD / AR)",
+        meaning=MONDO["0013921"])
+    mondo_0035362 = PermissibleValue(
+        text="mondo_0035362",
+        description="TRIM22",
+        meaning=MONDO["0035362"])
+    mondo_0014487 = PermissibleValue(
+        text="mondo_0014487",
+        description="TRNT1 deficiency",
+        meaning=MONDO["0014487"])
+    tripeptidyl_peptidase_ii_deficiency = PermissibleValue(
+        text="tripeptidyl_peptidase_ii_deficiency",
+        description="Tripeptidyl-Peptidase II Deficiency",
+        meaning=CIEINR["tripeptidyl_peptidase_ii_deficiency"])
+    mondo_0024541 = PermissibleValue(
+        text="mondo_0024541",
+        description="Tricho-hepato-enteric syndrome due to TTC37 mutations",
+        meaning=MONDO["0024541"])
+    mondo_0009815 = PermissibleValue(
+        text="mondo_0009815",
+        description="TCIRG1 deficiency associated osteopetrosis",
+        meaning=MONDO["0009815"])
+    mondo_0007727 = PermissibleValue(
+        text="mondo_0007727",
+        description="TNF receptor-associated periodic syndrome (TRAPS)",
+        meaning=MONDO["0007727"])
+    mondo_0012859 = PermissibleValue(
+        text="mondo_0012859",
+        description="TNFRSF11A deficiency associated osteopetrosis",
+        meaning=MONDO["0012859"])
+    mondo_0009816 = PermissibleValue(
+        text="mondo_0009816",
+        description="TNFSF11 deficiency associated osteopetrosis",
+        meaning=MONDO["0009816"])
+    tweak_deficiency = PermissibleValue(
+        text="tweak_deficiency",
+        description="TWEAK deficiency",
+        meaning=CIEINR["tweak_deficiency"])
+    mondo_0012682 = PermissibleValue(
+        text="mondo_0012682",
+        description="Tyk2 deficiency / P1104A TYK2 homozygosity",
+        meaning=MONDO["0012682"])
+    mondo_0012146 = PermissibleValue(
+        text="mondo_0012146",
+        description="UNC13D / Munc13-4 deficiency (FHL3)",
+        meaning=MONDO["0012146"])
+    mondo_0011971 = PermissibleValue(
+        text="mondo_0011971",
+        description="UNG deficiency",
+        meaning=MONDO["0011971"])
+    mondo_0024563 = PermissibleValue(
+        text="mondo_0024563",
+        description="UNC93B1 deficiency",
+        meaning=MONDO["0024563"])
+    mondo_0018828 = PermissibleValue(
+        text="mondo_0018828",
+        description="USP18 deficiency",
+        meaning=MONDO["0018828"])
+    mondo_0009452 = PermissibleValue(
+        text="mondo_0009452",
+        description="Vici syndrome due to EPG5 deficiency",
+        meaning=MONDO["0009452"])
+    mondo_0009338 = PermissibleValue(
+        text="mondo_0009338",
+        description="Hepatic veno-occlusive disease with immunodeficiency (VODI)",
+        meaning=MONDO["0009338"])
+    mondo_0014118 = PermissibleValue(
+        text="mondo_0014118",
+        description="VPS45 deficiency (SCN5)",
+        meaning=MONDO["0014118"])
+    mondo_0007883 = PermissibleValue(
+        text="mondo_0007883",
+        description="WDR1 deficiency (Lazy leukocyte)",
+        meaning=MONDO["0007883"])
+    mondo_0010518 = PermissibleValue(
+        text="mondo_0010518",
+        description="Wiskott-Aldrich syndrome (WAS LOF)",
+        meaning=MONDO["0010518"])
+    mondo_0013779 = PermissibleValue(
+        text="mondo_0013779",
+        description="WIP deficiency",
+        meaning=MONDO["0013779"])
+    mondo_8000006 = PermissibleValue(
+        text="mondo_8000006",
+        description="WHIM (Warts, Hypogammaglobulinemia, infections, Myelokathexis) syndrome",
+        meaning=MONDO["8000006"])
+    mondo_0011518 = PermissibleValue(
+        text="mondo_0011518",
+        description="Widemann-Steiner syndrome",
+        meaning=MONDO["0011518"])
+    mondo_0010385 = PermissibleValue(
+        text="mondo_0010385",
+        description="XIAP deficiency (XLP2)",
+        meaning=MONDO["0010385"])
+    mondo_0010523 = PermissibleValue(
+        text="mondo_0010523",
+        description="X-linked reticulate pigmentary disorder-POLA1",
+        meaning=MONDO["0010523"])
+    mondo_0010294 = PermissibleValue(
+        text="mondo_0010294",
+        description="X-linked neutropenia/myelodysplasia WAS GOF",
+        meaning=MONDO["0010294"])
+    mondo_0010023 = PermissibleValue(
+        text="mondo_0010023",
+        description="ZAP-70 deficiency (ZAP70 LOF)",
+        meaning=MONDO["0010023"])
+    mondo_0014861 = PermissibleValue(
+        text="mondo_0014861",
+        description="ZAP70 combined hypomorphic GOF",
+        meaning=MONDO["0014861"])
+    mondo_0032654 = PermissibleValue(
+        text="mondo_0032654",
+        description="ZNF341 deficiency AR-HIES",
+        meaning=MONDO["0032654"])
+    mondo_0030491 = PermissibleValue(
+        text="mondo_0030491",
+        description="ZNFX1 deficiency",
+        meaning=MONDO["0030491"])
+
+    _defn = EnumDefinition(
+        name="IUIS2024MONDOEnum",
+        description="""Enumeration of Inborn Errors of Immunity based on IUIS 2024 classification""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "4-1_bbl_deficiency",
+            PermissibleValue(
+                text="4-1_bbl_deficiency",
+                description="4-1 BBL deficiency",
+                meaning=CIEINR["4-1_bbl_deficiency"]))
+
+class CompletionStatusEnumInfectionsInitial(EnumDefinitionImpl):
+    """
+    Enumeration for form completion status
+    """
+    _defn = EnumDefinition(
+        name="CompletionStatusEnumInfectionsInitial",
+        description="""Enumeration for form completion status""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "0",
+            PermissibleValue(
+                text="0",
+                description="Incomplete"))
+        setattr(cls, "1",
+            PermissibleValue(
+                text="1",
+                description="Unverified"))
+        setattr(cls, "2",
+            PermissibleValue(
+                text="2",
+                description="Complete"))
+
+class InfectionTypeEnum(EnumDefinitionImpl):
+    """
+    Types of infections
+    """
+    snomedct_61274003 = PermissibleValue(
+        text="snomedct_61274003",
+        description="Opportunistic Infection",
+        meaning=SNOMEDCT["61274003"])
+    snomedct_21483005 = PermissibleValue(
+        text="snomedct_21483005",
+        description="CNS Infection",
+        meaning=SNOMEDCT["21483005"])
+    snomedct_81745001 = PermissibleValue(
+        text="snomedct_81745001",
+        description="Eye Infection",
+        meaning=SNOMEDCT["81745001"])
+    snomedct_385383008 = PermissibleValue(
+        text="snomedct_385383008",
+        description="ENT Infection",
+        meaning=SNOMEDCT["385383008"])
+    snomedct_127856007 = PermissibleValue(
+        text="snomedct_127856007",
+        description="Skin and Soft Tissue Infection",
+        meaning=SNOMEDCT["127856007"])
+    snomedct_110522009 = PermissibleValue(
+        text="snomedct_110522009",
+        description="Bone and Joint Infection",
+        meaning=SNOMEDCT["110522009"])
+    snomedct_20139000 = PermissibleValue(
+        text="snomedct_20139000",
+        description="Respiratory Infection",
+        meaning=SNOMEDCT["20139000"])
+    snomedct_303699009 = PermissibleValue(
+        text="snomedct_303699009",
+        description="Gastrointestinal Infection",
+        meaning=SNOMEDCT["303699009"])
+    snomedct_21514008 = PermissibleValue(
+        text="snomedct_21514008",
+        description="Genitourinary Infections",
+        meaning=SNOMEDCT["21514008"])
+    snomedct_31099001 = PermissibleValue(
+        text="snomedct_31099001",
+        description="Systemic Infection",
+        meaning=SNOMEDCT["31099001"])
+
+    _defn = EnumDefinition(
+        name="InfectionTypeEnum",
+        description="Types of infections",
+    )
+
+class OpportunisticInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of opportunistic infections
+    """
+    mondo_0002026 = PermissibleValue(
+        text="mondo_0002026",
+        description="Candidiasis",
+        meaning=MONDO["0002026"])
+    mondo_0005132 = PermissibleValue(
+        text="mondo_0005132",
+        description="CMV (cytomegalovirus)",
+        meaning=MONDO["0005132"])
+    mondo_0005724 = PermissibleValue(
+        text="mondo_0005724",
+        description="Cryptococcosis",
+        meaning=MONDO["0005724"])
+
+    _defn = EnumDefinition(
+        name="OpportunisticInfectionEnum",
+        description="Types of opportunistic infections",
+    )
+
+class CNSInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of CNS infections
+    """
+    hp_0030049 = PermissibleValue(
+        text="hp_0030049",
+        description="Brain Abscess",
+        meaning=HP["0030049"])
+    hp_0002383 = PermissibleValue(
+        text="hp_0002383",
+        description="Encephalitis",
+        meaning=HP["0002383"])
+    hp_0001287 = PermissibleValue(
+        text="hp_0001287",
+        description="Meningitis",
+        meaning=HP["0001287"])
+
+    _defn = EnumDefinition(
+        name="CNSInfectionEnum",
+        description="Types of CNS infections",
+    )
+
+class EyeInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of eye infections
+    """
+    hp_0000509 = PermissibleValue(
+        text="hp_0000509",
+        description="Conjunctivitis",
+        meaning=HP["0000509"])
+
+    _defn = EnumDefinition(
+        name="EyeInfectionEnum",
+        description="Types of eye infections",
+    )
+
+class ENTInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of ENT infections
+    """
+    hp_0000265 = PermissibleValue(
+        text="hp_0000265",
+        description="Mastoiditis",
+        meaning=HP["0000265"])
+    hp_0000388 = PermissibleValue(
+        text="hp_0000388",
+        description="Otitis Media",
+        meaning=HP["0000388"])
+    hp_0025439 = PermissibleValue(
+        text="hp_0025439",
+        description="Pharyngitis",
+        meaning=HP["0025439"])
+    hp_0012384 = PermissibleValue(
+        text="hp_0012384",
+        description="Rhinitis",
+        meaning=HP["0012384"])
+    hp_0001731 = PermissibleValue(
+        text="hp_0001731",
+        description="Sinusitis",
+        meaning=HP["0001731"])
+
+    _defn = EnumDefinition(
+        name="ENTInfectionEnum",
+        description="Types of ENT infections",
+    )
+
+class SkinInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of skin and soft tissue infections
+    """
+    hp_0100658 = PermissibleValue(
+        text="hp_0100658",
+        description="Cellulitis",
+        meaning=HP["0100658"])
+    mondo_0015908 = PermissibleValue(
+        text="mondo_0015908",
+        description="Fungal Dermatitis",
+        meaning=MONDO["0015908"])
+    mondo_0043653 = PermissibleValue(
+        text="mondo_0043653",
+        description="Herpes Labialis (cold sores)",
+        meaning=MONDO["0043653"])
+
+    _defn = EnumDefinition(
+        name="SkinInfectionEnum",
+        description="Types of skin and soft tissue infections",
+    )
+
+class BoneJointInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of bone and joint infections
+    """
+    hp_0002754 = PermissibleValue(
+        text="hp_0002754",
+        description="Osteomyelitis",
+        meaning=HP["0002754"])
+    hp_0003095 = PermissibleValue(
+        text="hp_0003095",
+        description="Septic Arthritis",
+        meaning=HP["0003095"])
+
+    _defn = EnumDefinition(
+        name="BoneJointInfectionEnum",
+        description="Types of bone and joint infections",
+    )
+
+class RespiratoryInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of respiratory infections
+    """
+    hp_0012387 = PermissibleValue(
+        text="hp_0012387",
+        description="Bronchitis, acute",
+        meaning=HP["0012387"])
+    hp_0004469 = PermissibleValue(
+        text="hp_0004469",
+        description="Pneumonia",
+        meaning=HP["0004469"])
+
+    _defn = EnumDefinition(
+        name="RespiratoryInfectionEnum",
+        description="Types of respiratory infections",
+    )
+
+class GIInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of gastrointestinal infections
+    """
+    mondo_0005790 = PermissibleValue(
+        text="mondo_0005790",
+        description="Hepatitis A",
+        meaning=MONDO["0005790"])
+    mondo_0005344 = PermissibleValue(
+        text="mondo_0005344",
+        description="Hepatitis B",
+        meaning=MONDO["0005344"])
+    mondo_0005231 = PermissibleValue(
+        text="mondo_0005231",
+        description="Hepatitis C",
+        meaning=MONDO["0005231"])
+    hp_0002014 = PermissibleValue(
+        text="hp_0002014",
+        description="Diarrhea",
+        meaning=HP["0002014"])
+
+    _defn = EnumDefinition(
+        name="GIInfectionEnum",
+        description="Types of gastrointestinal infections",
+    )
+
+class GUInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of genitourinary infections
+    """
+    mondo_0021697 = PermissibleValue(
+        text="mondo_0021697",
+        description="Chlamydia",
+        meaning=MONDO["0021697"])
+    hp_0100577 = PermissibleValue(
+        text="hp_0100577",
+        description="Cystitis",
+        meaning=HP["0100577"])
+    mondo_0005770 = PermissibleValue(
+        text="mondo_0005770",
+        description="Genital Herpes",
+        meaning=MONDO["0005770"])
+    mondo_0004277 = PermissibleValue(
+        text="mondo_0004277",
+        description="Gonorrhea",
+        meaning=MONDO["0004277"])
+
+    _defn = EnumDefinition(
+        name="GUInfectionEnum",
+        description="Types of genitourinary infections",
+    )
+
+class SystemicInfectionEnum(EnumDefinitionImpl):
+    """
+    Types of systemic infections
+    """
+    hp_0031864 = PermissibleValue(
+        text="hp_0031864",
+        description="Bacteremia",
+        meaning=HP["0031864"])
+    mondo_0024619 = PermissibleValue(
+        text="mondo_0024619",
+        description="Central Venous Line Infections",
+        meaning=MONDO["0024619"])
+    mondo_0005132 = PermissibleValue(
+        text="mondo_0005132",
+        description="CMV",
+        meaning=MONDO["0005132"])
+
+    _defn = EnumDefinition(
+        name="SystemicInfectionEnum",
+        description="Types of systemic infections",
+    )
+
+class InfectionSeverityEnum(EnumDefinitionImpl):
+    """
+    Severity levels of infections
+    """
+    hp_0012825 = PermissibleValue(
+        text="hp_0012825",
+        description="Mild (localized or oral intervention required)",
+        meaning=HP["0012825"])
+    hp_0012826 = PermissibleValue(
+        text="hp_0012826",
+        description="Moderate (IV medication required)",
+        meaning=HP["0012826"])
+    hp_0012828 = PermissibleValue(
+        text="hp_0012828",
+        description="Severe (hospitalization required or prolonged)",
+        meaning=HP["0012828"])
+
+    _defn = EnumDefinition(
+        name="InfectionSeverityEnum",
+        description="Severity levels of infections",
+    )
+
+class InfectionTemporalPatternEnum(EnumDefinitionImpl):
+    """
+    Temporal patterns of infections
+    """
+    hp_0011009 = PermissibleValue(
+        text="hp_0011009",
+        description="Acute (< 2 weeks, rapid progression)",
+        meaning=HP["0011009"])
+    hp_0011011 = PermissibleValue(
+        text="hp_0011011",
+        description="Subacute (2 weeks to 3 months, slow increase)",
+        meaning=HP["0011011"])
+    hp_0011010 = PermissibleValue(
+        text="hp_0011010",
+        description="Chronic (> 3 months)",
+        meaning=HP["0011010"])
+    hp_0031796 = PermissibleValue(
+        text="hp_0031796",
+        description="Recurrent",
+        meaning=HP["0031796"])
+
+    _defn = EnumDefinition(
+        name="InfectionTemporalPatternEnum",
+        description="Temporal patterns of infections",
+    )
+
+class InfectionFrequencyEnum(EnumDefinitionImpl):
+    """
+    Frequency of infection
+    """
+    ncit_c64576 = PermissibleValue(
+        text="ncit_c64576",
+        description="1",
+        meaning=NCIT["C64576"])
+    ncit_c65134 = PermissibleValue(
+        text="ncit_c65134",
+        description="2",
+        meaning=NCIT["C65134"])
+    ncit_c156502 = PermissibleValue(
+        text="ncit_c156502",
+        description="3",
+        meaning=NCIT["C156502"])
+    ncit_c200364 = PermissibleValue(
+        text="ncit_c200364",
+        description="4",
+        meaning=NCIT["C200364"])
+    ncit_c66836 = PermissibleValue(
+        text="ncit_c66836",
+        description="5",
+        meaning=NCIT["C66836"])
+
+    _defn = EnumDefinition(
+        name="InfectionFrequencyEnum",
+        description="Frequency of infection",
+    )
+
+class CompletionStatusEnum(EnumDefinitionImpl):
+    """
+    Enumeration for form completion status
+    """
+    _defn = EnumDefinition(
+        name="CompletionStatusEnum",
+        description="""Enumeration for form completion status""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "0",
+            PermissibleValue(
+                text="0",
+                description="Incomplete"))
+        setattr(cls, "1",
+            PermissibleValue(
+                text="1",
+                description="Unverified"))
+        setattr(cls, "2",
+            PermissibleValue(
+                text="2",
+                description="Complete"))
+
+# Slots
+class slots:
+    pass
+
+slots.record_id = Slot(uri=CIEINR.record_id, name="record_id", curie=CIEINR.curie('record_id'),
+                   model_uri=CIEINR.record_id, domain=None, range=URIRef)
+
+slots.form_1_basic = Slot(uri=CIEINR.form_1_basic, name="form_1_basic", curie=CIEINR.curie('form_1_basic'),
+                   model_uri=CIEINR.form_1_basic, domain=None, range=Optional[Union[dict, BasicForm]])
+
+slots.form_2_demographics_initial = Slot(uri=CIEINR.form_2_demographics_initial, name="form_2_demographics_initial", curie=CIEINR.curie('form_2_demographics_initial'),
+                   model_uri=CIEINR.form_2_demographics_initial, domain=None, range=Optional[Union[dict, PatientDemographicsInitial]])
+
+slots.cieinr_repeated_elements = Slot(uri=CIEINR.cieinr_repeated_elements, name="cieinr_repeated_elements", curie=CIEINR.curie('cieinr_repeated_elements'),
+                   model_uri=CIEINR.cieinr_repeated_elements, domain=None, range=Optional[Union[dict, RepeatedElement]])
+
+slots.redcap_repeat_instrument = Slot(uri=CIEINR.redcap_repeat_instrument, name="redcap_repeat_instrument", curie=CIEINR.curie('redcap_repeat_instrument'),
+                   model_uri=CIEINR.redcap_repeat_instrument, domain=None, range=Optional[str])
+
+slots.redcap_repeat_instance = Slot(uri=CIEINR.redcap_repeat_instance, name="redcap_repeat_instance", curie=CIEINR.curie('redcap_repeat_instance'),
+                   model_uri=CIEINR.redcap_repeat_instance, domain=None, range=Optional[int])
+
+slots.form_3_infections_initial = Slot(uri=CIEINR.form_3_infections_initial, name="form_3_infections_initial", curie=CIEINR.curie('form_3_infections_initial'),
+                   model_uri=CIEINR.form_3_infections_initial, domain=None, range=Optional[Union[dict, InfectionsInitial]])
+
+slots.iei_deficiency_basic = Slot(uri=CIEINR.iei_deficiency_basic, name="iei_deficiency_basic", curie=CIEINR.curie('iei_deficiency_basic'),
+                   model_uri=CIEINR.iei_deficiency_basic, domain=None, range=Optional[Union[str, "IUIS2024MONDOEnum"]])
+
+slots.basic_form_complete = Slot(uri=CIEINR.basic_form_complete, name="basic_form_complete", curie=CIEINR.curie('basic_form_complete'),
+                   model_uri=CIEINR.basic_form_complete, domain=None, range=Union[str, "CompletionStatusEnumBasicForm"])
+
+slots.snomedct_184099003 = Slot(uri=CIEINR.snomedct_184099003, name="snomedct_184099003", curie=CIEINR.curie('snomedct_184099003'),
+                   model_uri=CIEINR.snomedct_184099003, domain=None, range=Optional[Union[str, UnionDateString]])
+
+slots.snomedct_432213005 = Slot(uri=CIEINR.snomedct_432213005, name="snomedct_432213005", curie=CIEINR.curie('snomedct_432213005'),
+                   model_uri=CIEINR.snomedct_432213005, domain=None, range=Optional[Union[str, UnionDateString]])
+
+slots.snomedct_298059007 = Slot(uri=CIEINR.snomedct_298059007, name="snomedct_298059007", curie=CIEINR.curie('snomedct_298059007'),
+                   model_uri=CIEINR.snomedct_298059007, domain=None, range=Optional[Union[str, UnionDateString]])
+
+slots.patient_demographics_initial_form_complete = Slot(uri=CIEINR.patient_demographics_initial_form_complete, name="patient_demographics_initial_form_complete", curie=CIEINR.curie('patient_demographics_initial_form_complete'),
+                   model_uri=CIEINR.patient_demographics_initial_form_complete, domain=None, range=Union[str, "CompletionStatusEnumInfectionsInitial"])
+
+slots.type_of_infection = Slot(uri=CIEINR.type_of_infection, name="type_of_infection", curie=CIEINR.curie('type_of_infection'),
+                   model_uri=CIEINR.type_of_infection, domain=None, range=Optional[Union[str, "InfectionTypeEnum"]])
+
+slots.snomedct_61274003 = Slot(uri=CIEINR.snomedct_61274003, name="snomedct_61274003", curie=CIEINR.curie('snomedct_61274003'),
+                   model_uri=CIEINR.snomedct_61274003, domain=None, range=Optional[Union[str, "OpportunisticInfectionEnum"]])
+
+slots.snomedct_21483005 = Slot(uri=CIEINR.snomedct_21483005, name="snomedct_21483005", curie=CIEINR.curie('snomedct_21483005'),
+                   model_uri=CIEINR.snomedct_21483005, domain=None, range=Optional[Union[str, "CNSInfectionEnum"]])
+
+slots.snomedct_81745001 = Slot(uri=CIEINR.snomedct_81745001, name="snomedct_81745001", curie=CIEINR.curie('snomedct_81745001'),
+                   model_uri=CIEINR.snomedct_81745001, domain=None, range=Optional[Union[str, "EyeInfectionEnum"]])
+
+slots.snomedct_385383008 = Slot(uri=CIEINR.snomedct_385383008, name="snomedct_385383008", curie=CIEINR.curie('snomedct_385383008'),
+                   model_uri=CIEINR.snomedct_385383008, domain=None, range=Optional[Union[str, "ENTInfectionEnum"]])
+
+slots.snomedct_127856007 = Slot(uri=CIEINR.snomedct_127856007, name="snomedct_127856007", curie=CIEINR.curie('snomedct_127856007'),
+                   model_uri=CIEINR.snomedct_127856007, domain=None, range=Optional[Union[str, "SkinInfectionEnum"]])
+
+slots.snomedct_110522009 = Slot(uri=CIEINR.snomedct_110522009, name="snomedct_110522009", curie=CIEINR.curie('snomedct_110522009'),
+                   model_uri=CIEINR.snomedct_110522009, domain=None, range=Optional[Union[str, "BoneJointInfectionEnum"]])
+
+slots.snomedct_20139000 = Slot(uri=CIEINR.snomedct_20139000, name="snomedct_20139000", curie=CIEINR.curie('snomedct_20139000'),
+                   model_uri=CIEINR.snomedct_20139000, domain=None, range=Optional[Union[str, "RespiratoryInfectionEnum"]])
+
+slots.snomedct_303699009 = Slot(uri=CIEINR.snomedct_303699009, name="snomedct_303699009", curie=CIEINR.curie('snomedct_303699009'),
+                   model_uri=CIEINR.snomedct_303699009, domain=None, range=Optional[Union[str, "GIInfectionEnum"]])
+
+slots.snomedct_21514008 = Slot(uri=CIEINR.snomedct_21514008, name="snomedct_21514008", curie=CIEINR.curie('snomedct_21514008'),
+                   model_uri=CIEINR.snomedct_21514008, domain=None, range=Optional[Union[str, "GUInfectionEnum"]])
+
+slots.snomedct_31099001 = Slot(uri=CIEINR.snomedct_31099001, name="snomedct_31099001", curie=CIEINR.curie('snomedct_31099001'),
+                   model_uri=CIEINR.snomedct_31099001, domain=None, range=Optional[Union[str, "SystemicInfectionEnum"]])
+
+slots.infection_severity = Slot(uri=CIEINR.infection_severity, name="infection_severity", curie=CIEINR.curie('infection_severity'),
+                   model_uri=CIEINR.infection_severity, domain=None, range=Optional[Union[str, "InfectionSeverityEnum"]])
+
+slots.infection_temp_pattern = Slot(uri=CIEINR.infection_temp_pattern, name="infection_temp_pattern", curie=CIEINR.curie('infection_temp_pattern'),
+                   model_uri=CIEINR.infection_temp_pattern, domain=None, range=Optional[Union[str, "InfectionTemporalPatternEnum"]])
+
+slots.infection_times_obseverd = Slot(uri=CIEINR.infection_times_obseverd, name="infection_times_obseverd", curie=CIEINR.curie('infection_times_obseverd'),
+                   model_uri=CIEINR.infection_times_obseverd, domain=None, range=Optional[Union[str, "InfectionFrequencyEnum"]])
+
+slots.infections_initial_form_complete = Slot(uri=CIEINR.infections_initial_form_complete, name="infections_initial_form_complete", curie=CIEINR.curie('infections_initial_form_complete'),
+                   model_uri=CIEINR.infections_initial_form_complete, domain=None, range=Union[str, "CompletionStatusEnum"])
+
+slots.codeSystemsContainer__ncbi_taxon = Slot(uri=CIEINR.ncbi_taxon, name="codeSystemsContainer__ncbi_taxon", curie=CIEINR.curie('ncbi_taxon'),
+                   model_uri=CIEINR.codeSystemsContainer__ncbi_taxon, domain=None, range=Union[str, "NCBITaxon"])
+
+slots.codeSystemsContainer__snomedct = Slot(uri=CIEINR.snomedct, name="codeSystemsContainer__snomedct", curie=CIEINR.curie('snomedct'),
+                   model_uri=CIEINR.codeSystemsContainer__snomedct, domain=None, range=Union[str, "SNOMEDCT"])
+
+slots.codeSystemsContainer__mondo = Slot(uri=CIEINR.mondo, name="codeSystemsContainer__mondo", curie=CIEINR.curie('mondo'),
+                   model_uri=CIEINR.codeSystemsContainer__mondo, domain=None, range=Union[str, "MONDO"])
+
+slots.codeSystemsContainer__hpo = Slot(uri=CIEINR.hpo, name="codeSystemsContainer__hpo", curie=CIEINR.curie('hpo'),
+                   model_uri=CIEINR.codeSystemsContainer__hpo, domain=None, range=Union[str, "HP"])
+
+slots.codeSystemsContainer__loinc = Slot(uri=CIEINR.loinc, name="codeSystemsContainer__loinc", curie=CIEINR.curie('loinc'),
+                   model_uri=CIEINR.codeSystemsContainer__loinc, domain=None, range=Union[str, "LOINC"])
+
+slots.codeSystemsContainer__omim = Slot(uri=CIEINR.omim, name="codeSystemsContainer__omim", curie=CIEINR.curie('omim'),
+                   model_uri=CIEINR.codeSystemsContainer__omim, domain=None, range=Union[str, "OMIM"])
+
+slots.codeSystemsContainer__orpha = Slot(uri=CIEINR.orpha, name="codeSystemsContainer__orpha", curie=CIEINR.curie('orpha'),
+                   model_uri=CIEINR.codeSystemsContainer__orpha, domain=None, range=Union[str, "ORPHA"])
+
+slots.codeSystemsContainer__ncit = Slot(uri=CIEINR.ncit, name="codeSystemsContainer__ncit", curie=CIEINR.curie('ncit'),
+                   model_uri=CIEINR.codeSystemsContainer__ncit, domain=None, range=Union[str, "NCIT"])
+
+slots.codeSystemsContainer__uo = Slot(uri=CIEINR.uo, name="codeSystemsContainer__uo", curie=CIEINR.curie('uo'),
+                   model_uri=CIEINR.codeSystemsContainer__uo, domain=None, range=Union[str, "UO"])
+
+slots.codeSystemsContainer__hgnc = Slot(uri=CIEINR.hgnc, name="codeSystemsContainer__hgnc", curie=CIEINR.curie('hgnc'),
+                   model_uri=CIEINR.codeSystemsContainer__hgnc, domain=None, range=Union[str, "HGNC"])
+
+slots.codeSystemsContainer__hgvs = Slot(uri=CIEINR.hgvs, name="codeSystemsContainer__hgvs", curie=CIEINR.curie('hgvs'),
+                   model_uri=CIEINR.codeSystemsContainer__hgvs, domain=None, range=Union[str, "HGVS"])
+
+slots.codeSystemsContainer__ga4gh = Slot(uri=CIEINR.ga4gh, name="codeSystemsContainer__ga4gh", curie=CIEINR.curie('ga4gh'),
+                   model_uri=CIEINR.codeSystemsContainer__ga4gh, domain=None, range=Union[str, "GA4GH"])
+
+slots.codeSystemsContainer__hl7fhir = Slot(uri=CIEINR.hl7fhir, name="codeSystemsContainer__hl7fhir", curie=CIEINR.curie('hl7fhir'),
+                   model_uri=CIEINR.codeSystemsContainer__hl7fhir, domain=None, range=Union[str, "HL7FHIR"])
+
+slots.codeSystemsContainer__icd11 = Slot(uri=CIEINR.icd11, name="codeSystemsContainer__icd11", curie=CIEINR.curie('icd11'),
+                   model_uri=CIEINR.codeSystemsContainer__icd11, domain=None, range=Union[str, "ICD11"])
+
+slots.codeSystemsContainer__icd10cm = Slot(uri=CIEINR.icd10cm, name="codeSystemsContainer__icd10cm", curie=CIEINR.curie('icd10cm'),
+                   model_uri=CIEINR.codeSystemsContainer__icd10cm, domain=None, range=Union[str, "ICD10CM"])
+
+slots.codeSystemsContainer__bioportal = Slot(uri=CIEINR.bioportal, name="codeSystemsContainer__bioportal", curie=CIEINR.curie('bioportal'),
+                   model_uri=CIEINR.codeSystemsContainer__bioportal, domain=None, range=Union[str, "BIOPORTAL"])
+
+slots.codeSystemsContainer__iuis = Slot(uri=CIEINR.iuis, name="codeSystemsContainer__iuis", curie=CIEINR.curie('iuis'),
+                   model_uri=CIEINR.codeSystemsContainer__iuis, domain=None, range=Union[str, "IUIS"])

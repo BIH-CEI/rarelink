@@ -1,0 +1,77 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/cieinr_types
+name: cieinr_types
+description: Type definitions for the National IEI Registry in Canada data model
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+imports:
+  - linkml:types
+default_prefix: cieinr
+default_range: string
+
+types:
+  union_date_string:
+    typeof: string
+    description: A field that allows both dates and empty strings.
+    pattern: ^(\d{4}-\d{2}-\d{2}|)$
+
+  age_in_years:
+    typeof: integer
+    description: Age in completed years
+    minimum_value: 0
+    maximum_value: 150
+
+  age_in_months:
+    typeof: integer
+    description: Age in completed months
+    minimum_value: 0
+    maximum_value: 1800  # 150 years * 12 months
+
+  percent:
+    typeof: float
+    description: A percentage value
+    minimum_value: 0.0
+    maximum_value: 100.0
+
+  iei_code:
+    typeof: string
+    description: A code for an Inborn Error of Immunity
+    pattern: ^(mondo_\d+|[A-Za-z0-9_]+)$
+
+  lab_value:
+    typeof: float
+    description: A laboratory measurement value, can be negative in some cases
+    
+  positive_lab_value:
+    typeof: float
+    description: A laboratory measurement value that cannot be negative
+    minimum_value: 0.0
+    
+  non_negative_integer:
+    typeof: integer
+    description: An integer value that cannot be negative
+    minimum_value: 0
+    
+  text_or_null:
+    typeof: string
+    description: A text field that can be empty or null
+    
+  coded_value:
+    typeof: string
+    description: A coded value from a standardized terminology
+    
+  redcap_checkbox:
+    typeof: string
+    description: REDCap checkbox field (contains checked values as comma-separated list)
+    pattern: ^([0-9]+(,[0-9]+)*)?$
+    
+  redcap_completion_status:
+    typeof: string
+    description: REDCap form completion status
+    pattern: ^[0-2]$
+
+  boolean_as_integer:
+    typeof: integer
+    description: Boolean represented as 0 (false) or 1 (true)
+    minimum_value: 0
+    maximum_value: 1
