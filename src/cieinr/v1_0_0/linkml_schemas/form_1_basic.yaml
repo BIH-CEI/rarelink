@@ -19,6 +19,8 @@ classes:
     slots:
       - iei_deficiency_basic
       - basic_form_complete
+      - igrt_basic
+      - hct_basic_form
 
 slots:
   iei_deficiency_basic:
@@ -31,6 +33,20 @@ slots:
     comments: >
       This field contains an extensive list of IEI deficiencies with MONDO codes.
       Tip: use the IUIS 2024 classification. If not found, search in MONDO.
+
+  igrt_basic:
+    title:  Immunoglobulin replacement therapy
+    description: >
+      Has the patient ever received Immunoglobulin replacement therapy?
+    range: IGRTStatusEnumBasicForm
+    required: false
+
+  hct_basic_form:
+    title: Hematopoietic cell transplantation
+    description: >
+      Has the patient ever received Hematopoietic cell transplantation?
+    range: HCTStatusEnumBasicForm
+    required: false
 
   basic_form_complete:
     title: Form completion status
@@ -50,6 +66,20 @@ enums:
         description: Unverified
       "2":
         description: Complete
+
+  IGRTStatusEnumBasicForm:
+    description: >
+      Enumeration for Immunoglobulin replacement therapy status in the basic form
+    permissible_values:
+      ncit_c62710:
+        description: Immunoglobulin Therapy
+
+  HCTStatusEnumBasicForm:
+    description: >
+      Enumeration for Hematopoietic cell transplantation status in the basic form
+    permissible_values:
+      ncit_c15431:
+        description: Hematopoietic Cell Transplantation
 
   IUIS2024MONDOEnum:
     description: >

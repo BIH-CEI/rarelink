@@ -3,7 +3,6 @@ from phenopackets import Phenopacket
 import logging
 from typing import Dict, Any, Optional
 import traceback
-import importlib
 
 from rarelink.utils.processor import DataProcessor
 from rarelink.phenopackets.mappings import (

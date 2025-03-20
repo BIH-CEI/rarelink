@@ -2,14 +2,17 @@
 from typing import Dict, Any
 
 # Use absolute imports instead of relative ones
-from cieinr.mappings.phenopackets.disease import DISEASE_BLOCK
-from cieinr.mappings.phenopackets.individual import INDIVIDUAL_BLOCK
-from cieinr.mappings.phenopackets.phenotypes import PHENOTYPIC_FEATURES_BLOCK
-from cieinr.mappings.phenopackets.procedure import PROCEDURE_BLOCK
-from cieinr.mappings.phenopackets.resources import CIEINR_CODE_SYSTEMS
-from cieinr.mappings.phenopackets.genetics import INTERPRETATION_BLOCK, VARIATION_DESCRIPTOR_BLOCK
-from cieinr.mappings.phenopackets.mapping_dicts import mapping_dicts
-from cieinr.mappings.phenopackets.label_dicts import label_dicts
+from . import (
+    DISEASE_BLOCK, 
+    INDIVIDUAL_BLOCK, 
+    PHENOTYPIC_FEATURES_BLOCK, 
+    PROCEDURE_BLOCK,
+    CIEINR_CODE_SYSTEMS,
+    INTERPRETATION_BLOCK, 
+    VARIATION_DESCRIPTOR_BLOCK,
+    mapping_dicts,
+    label_dicts
+)
 
 def create_phenopacket_mappings() -> Dict[str, Any]:
     """
@@ -49,7 +52,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             },
             "enum_classes": {
                 # Reference the IUIS2024MONDOEnum class by import path
-                "mondo_": "cieinr.datamodel.form_1_basic.IUIS2024MONDOEnum"
+                "mondo_": "cieinr.v1_0_0.python_schemas_form_1_basic.IUIS2024MONDOEnum"
             }
         },
         "phenotypicFeatures": {
@@ -67,7 +70,9 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         },
         "procedures": {
             "instrument_name": "basic_form",
-            "mapping_block": PROCEDURE_BLOCK
+            "mapping_block": PROCEDURE_BLOCK,
+            "enum_classes": {
+                "ncit_": "cieinr.v1_0_0.python_schemas_form_1_basic.IUIS2024MONDOEnum"},
         },
         "variationDescriptor": {
             "instrument_name": "genetic_information",

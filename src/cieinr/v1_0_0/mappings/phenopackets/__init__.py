@@ -1,50 +1,28 @@
-"""Phenopackets mapping modules for CIEINR v1.0.0."""
-from typing import Dict, Any
+# src/cieinr/mappings/phenopackets/__init__.py
+"""
+CIEINR specific mapping to the Phenopacket schema blocks.
+"""
 
-# Import mapping blocks and metadata
-from .metadata import CIEINR_CODE_SYSTEMS_CONTAINER
-from .mapping_blocks import (
-    INDIVIDUAL_BLOCK, 
-    DISEASE_BLOCK, 
-    PHENOTYPIC_FEATURES_BLOCK, 
-    VITAL_STATUS_BLOCK
-)
-
-def create_cieinr_phenopacket_mappings() -> Dict[str, Any]:
-    """
-    Create a comprehensive mapping configuration for Phenopacket creation from CIEINR data.
-
-    Returns:
-        Dict[str, Any]: Combined mapping configurations
-    """
-    return {
-        "individual": {
-            "instrument_name": "patient_demographics_initial_form",
-            "mapping_block": INDIVIDUAL_BLOCK,
-        },
-        "vitalStatus": {
-            "instrument_name": "__dummy__",  # Special marker for our patched function
-            "mapping_block": VITAL_STATUS_BLOCK
-        },
-        "diseases": {
-            "instrument_name": "basic_form",
-            "mapping_block": DISEASE_BLOCK
-        },
-        "phenotypicFeatures": {
-            "instrument_name": "infections_initial_form",
-            "mapping_block": PHENOTYPIC_FEATURES_BLOCK
-        },
-        "metadata": {
-            "code_systems": CIEINR_CODE_SYSTEMS_CONTAINER
-        }
-    }
+from .mapping_dicts import mapping_dicts, get_mapping_by_name
+from .label_dicts import label_dicts
+from .individual import INDIVIDUAL_BLOCK
+from .disease import DISEASE_BLOCK
+from .phenotypes import PHENOTYPIC_FEATURES_BLOCK
+from .procedure import PROCEDURE_BLOCK
+from .genetics import INTERPRETATION_BLOCK, VARIATION_DESCRIPTOR_BLOCK
+from .resources import CIEINR_CODE_SYSTEMS
+from .combined import create_phenopacket_mappings
 
 __all__ = [
-    "generate_metadata",
+    "mapping_dicts",
+    "get_mapping_by_name",
+    "label_dicts",
     "INDIVIDUAL_BLOCK",
     "DISEASE_BLOCK",
     "PHENOTYPIC_FEATURES_BLOCK",
-    "VITAL_STATUS_BLOCK",
-    "CIEINR_CODE_SYSTEMS_CONTAINER",
-    "create_cieinr_phenopacket_mappings"
+    "INTERPRETATION_BLOCK",
+    "VARIATION_DESCRIPTOR_BLOCK",
+    "PROCEDURE_BLOCK",
+    "CIEINR_CODE_SYSTEMS",
+    "create_phenopacket_mappings"
 ]

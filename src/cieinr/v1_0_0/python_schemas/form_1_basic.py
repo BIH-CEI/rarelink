@@ -1,5 +1,5 @@
 # Auto generated from form_1_basic.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-18T20:19:01
+# Generation date: 2025-03-20T10:12:53
 # Schema: basic_form
 #
 # id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_1_basic.yaml
@@ -196,6 +196,8 @@ class BasicForm(YAMLRoot):
 
     basic_form_complete: Union[str, "CompletionStatusEnumBasicForm"] = None
     iei_deficiency_basic: Optional[Union[str, "IUIS2024MONDOEnum"]] = None
+    igrt_basic: Optional[Union[str, "IGRTStatusEnumBasicForm"]] = None
+    hct_basic_form: Optional[Union[str, "HCTStatusEnumBasicForm"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.basic_form_complete):
@@ -205,6 +207,12 @@ class BasicForm(YAMLRoot):
 
         if self.iei_deficiency_basic is not None and not isinstance(self.iei_deficiency_basic, IUIS2024MONDOEnum):
             self.iei_deficiency_basic = IUIS2024MONDOEnum(self.iei_deficiency_basic)
+
+        if self.igrt_basic is not None and not isinstance(self.igrt_basic, IGRTStatusEnumBasicForm):
+            self.igrt_basic = IGRTStatusEnumBasicForm(self.igrt_basic)
+
+        if self.hct_basic_form is not None and not isinstance(self.hct_basic_form, HCTStatusEnumBasicForm):
+            self.hct_basic_form = HCTStatusEnumBasicForm(self.hct_basic_form)
 
         super().__post_init__(**kwargs)
 
@@ -263,6 +271,32 @@ class CompletionStatusEnumBasicForm(EnumDefinitionImpl):
             PermissibleValue(
                 text="2",
                 description="Complete"))
+
+class IGRTStatusEnumBasicForm(EnumDefinitionImpl):
+    """
+    Enumeration for Immunoglobulin replacement therapy status in the basic form
+    """
+    ncit_c62710 = PermissibleValue(
+        text="ncit_c62710",
+        description="Immunoglobulin Therapy")
+
+    _defn = EnumDefinition(
+        name="IGRTStatusEnumBasicForm",
+        description="""Enumeration for Immunoglobulin replacement therapy status in the basic form""",
+    )
+
+class HCTStatusEnumBasicForm(EnumDefinitionImpl):
+    """
+    Enumeration for Hematopoietic cell transplantation status in the basic form
+    """
+    ncit_c15431 = PermissibleValue(
+        text="ncit_c15431",
+        description="Hematopoietic Cell Transplantation")
+
+    _defn = EnumDefinition(
+        name="HCTStatusEnumBasicForm",
+        description="""Enumeration for Hematopoietic cell transplantation status in the basic form""",
+    )
 
 class IUIS2024MONDOEnum(EnumDefinitionImpl):
     """
@@ -2578,6 +2612,12 @@ class slots:
 
 slots.iei_deficiency_basic = Slot(uri=CIEINR.iei_deficiency_basic, name="iei_deficiency_basic", curie=CIEINR.curie('iei_deficiency_basic'),
                    model_uri=CIEINR.iei_deficiency_basic, domain=None, range=Optional[Union[str, "IUIS2024MONDOEnum"]])
+
+slots.igrt_basic = Slot(uri=CIEINR.igrt_basic, name="igrt_basic", curie=CIEINR.curie('igrt_basic'),
+                   model_uri=CIEINR.igrt_basic, domain=None, range=Optional[Union[str, "IGRTStatusEnumBasicForm"]])
+
+slots.hct_basic_form = Slot(uri=CIEINR.hct_basic_form, name="hct_basic_form", curie=CIEINR.curie('hct_basic_form'),
+                   model_uri=CIEINR.hct_basic_form, domain=None, range=Optional[Union[str, "HCTStatusEnumBasicForm"]])
 
 slots.basic_form_complete = Slot(uri=CIEINR.basic_form_complete, name="basic_form_complete", curie=CIEINR.curie('basic_form_complete'),
                    model_uri=CIEINR.basic_form_complete, domain=None, range=Union[str, "CompletionStatusEnumBasicForm"])
