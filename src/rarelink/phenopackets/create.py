@@ -13,7 +13,8 @@ from rarelink.phenopackets.mappings import (
     map_interpretations,
     map_variation_descriptor,
     map_phenotypic_features,
-    map_measurements
+    map_measurements,
+    map_medical_actions
 )
 
 logger = logging.getLogger(__name__)
@@ -200,6 +201,44 @@ def create_phenopacket(
                 logger.debug(traceback.format_exc())
             measurements = []
 
+        # Medical Actions Block --------------------------------------------------------
+        try:
+            medical_action_config = get_mapping_config("procedures")
+            medical_action_processor = DataProcessor(
+                mapping_config=medical_action_config.get("mapping_block", {})
+            )
+            medical_action_processor.enable_debug(debug)
+            
+            # Add enum classes if present
+            _add_enum_classes_to_processor(medical_action_processor, medical_action_config.get("enum_classes", {}))
+            
+            # Only set redcap_repeat_instrument if instrument_name is specified
+            if "instrument_name" in medical_action_config and medical_action_config["instrument_name"] not in ["__dummy__", ""]:
+                medical_action_processor.mapping_config["redcap_repeat_instrument"] = \
+                    medical_action_config.get("instrument_name", "")
+            
+            # Add mapping dicts to the configuration
+            if "mapping_dicts" in medical_action_config:
+                medical_action_processor.mapping_config.update(medical_action_config.get("mapping_dicts", {}))
+            
+            # Add enum classes to the configuration
+            if "enum_classes" in medical_action_config:
+                medical_action_processor.mapping_config["enum_classes"] = medical_action_config.get("enum_classes", {})
+            
+            medical_actions = map_medical_actions(
+                data, 
+                medical_action_processor,
+                dob=individual.date_of_birth
+            )
+            
+            if debug:
+                logger.debug(f"Generated {len(medical_actions)} medical actions")
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error mapping medical actions: {e}")
+                logger.debug(traceback.format_exc())
+            medical_actions = []
+
         # Disease Block ---------------------------------------------------------
         try:
             disease_config = get_mapping_config("diseases")
@@ -301,6 +340,7 @@ def create_phenopacket(
             phenotypic_features=phenotypic_features,
             measurements=measurements,
             diseases=diseases,
+            medical_actions=medical_actions,
             meta_data=metadata,
             interpretations=interpretations
         )

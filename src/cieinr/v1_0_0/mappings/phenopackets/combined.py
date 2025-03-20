@@ -1,8 +1,5 @@
-# src/cieinr/mappings/phenopackets/combined.py
 from typing import Dict, Any
-
-# Use absolute imports instead of relative ones
-from . import (
+from cieinr.v1_0_0.mappings.phenopackets import (
     DISEASE_BLOCK, 
     INDIVIDUAL_BLOCK, 
     PHENOTYPIC_FEATURES_BLOCK, 
@@ -51,8 +48,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "map_disease_verification_status": mapping_dict_lookup.get("map_disease_verification_status", {})
             },
             "enum_classes": {
-                # Reference the IUIS2024MONDOEnum class by import path
-                "mondo_": "cieinr.v1_0_0.python_schemas_form_1_basic.IUIS2024MONDOEnum"
+                "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
         "phenotypicFeatures": {
@@ -71,8 +67,16 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         "procedures": {
             "instrument_name": "basic_form",
             "mapping_block": PROCEDURE_BLOCK,
+            "label_dicts": {
+                "ProcedureType": label_dicts.get("ProcedureType", {})
+            },
+            "mapping_dicts": {
+                "procedure_status": mapping_dict_lookup.get("procedure_status", {})
+            },
             "enum_classes": {
-                "ncit_": "cieinr.v1_0_0.python_schemas_form_1_basic.IUIS2024MONDOEnum"},
+                "ncit_c62710": "cieinr.v1_0_0.python_schemas.form_1_basic.IGRTStatusEnumBasicForm",
+                "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
+            }
         },
         "variationDescriptor": {
             "instrument_name": "genetic_information",
@@ -96,13 +100,14 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             },
             "enum_classes": {
                 # Reference the IUIS2024MONDOEnum class by import path
-                "mondo_": "cieinr.datamodel.form_1_basic.IUIS2024MONDOEnum"
+                "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
         "metadata": {
             "code_systems": CIEINR_CODE_SYSTEMS
         }
     }
+    
 
 def get_mapping_for_block(
     block_name: str, 

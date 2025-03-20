@@ -90,7 +90,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "f3b3a576d36b4bcdbcca8860db59ab",
+                "id": "c3802e8234124923a170c1c7151bc2",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -102,11 +102,11 @@
                   }
                 ],
                 "structuralType": {
-                  "id": "LOINC:la6688-1",
+                  "id": "LOINC:LA6688-1",
                   "label": "Insertion/Deletion"
                 },
                 "allelicState": {
-                  "id": "LOINC:la6706-1",
+                  "id": "LOINC:LA6706-1",
                   "label": "(simple) Heterozygous"
                 }
               }
@@ -124,8 +124,26 @@
       }
     }
   ],
+  "medicalActions": [
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C62710",
+          "label": "Immunoglobulin Therapy"
+        }
+      }
+    },
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C15431",
+          "label": "Hematopoietic Cell Transplantation"
+        }
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-03-18T19:48:29.770939Z",
+    "created": "2025-03-20T10:02:38.026430Z",
     "createdBy": "Adam G.",
     "resources": [
       {

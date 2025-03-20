@@ -12,7 +12,7 @@ from .map_interpretation import map_interpretations
 from .map_variation_descriptor import map_variation_descriptor
 from .map_phenotypic_feature import map_phenotypic_features
 from .map_measurements import map_measurements
-
+from .map_medical_action import map_medical_actions
 
 
 __all__ = [
@@ -23,5 +23,6 @@ __all__ = [
     "map_interpretations",
     "map_variation_descriptor",
     "map_phenotypic_features",
-    "map_measurements"
+    "map_measurements",
+    "map_medical_actions"
 ]

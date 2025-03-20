@@ -63,12 +63,21 @@ def process_redcap_code(code: str) -> str:
         # Replace the first "_" with ":"
         processed_code = f"{prefix_upper}:{rest}"
 
-        # Special handling for LOINC: Replace subsequent "_" with "-" and ensure uppercase
         if prefix_upper == "LOINC":
-            processed_code = f"{prefix_upper}:{rest.replace('_', '-').upper()}"
-            
+            # Handle LOINC codes with LA pattern
+            if rest.lower().startswith('la'):
+                # Make sure LA is uppercase along with the rest of the identifier
+                processed_code = f"{prefix_upper}:{rest.upper().replace('_', '-')}"
+            else:
+                # Standard handling for other LOINC codes
+                processed_code = f"{prefix_upper}:{rest.replace('_', '-').upper()}"
+                
+        # Create standardized code
         if prefix_upper == "NCIT":
-            processed_code = f"{prefix_upper}:{rest.upper()}"
+            # Special handling for NCIT codes - capitalize the C after the colon
+            if rest.lower().startswith('c'):
+                rest = rest.upper()  # Make the entire rest uppercase if it starts with 'c'
+            processed_code = f"{prefix_upper}:{rest}"
 
         # Special handling for ICD codes: Replace subsequent "_" with "."
         elif prefix_upper in ["ICD10CM", "ICD11", "ICD10", "ICD9"]:

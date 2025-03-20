@@ -5,7 +5,6 @@ from dateutil.relativedelta import relativedelta
 import logging
 import uuid
 import importlib
-import sys
 import json
 
 # Define logger at module level
@@ -213,8 +212,8 @@ class DataProcessor:
         except Exception as e:
             logger.error(f"Error calculating ISO age: {e}")
             return None
-
-    def process_code(self, code: str):
+        
+    def process_code(self, code):
         """
         Processes a code into the expected format with enhanced ontology handling.
 
@@ -245,19 +244,73 @@ class DataProcessor:
             if code.lower().startswith(prefix):
                 # Extract the number part
                 number_part = code[len(prefix):]
+                
+                # Special handling for NCIT codes
+                if prefix == "ncit_":
+                    # Make the 'C' uppercase if it starts with 'c'
+                    if number_part.lower().startswith('c'):
+                        number_part = number_part.upper()
+                
+                # Special handling for LOINC codes
+                if prefix == "loinc_":
+                    # Handle LOINC codes with LA pattern
+                    if number_part.lower().startswith('la'):
+                        number_part = number_part.upper().replace('_', '-')
+                    else:
+                        number_part = number_part.replace('_', '-').upper()
+                
                 # Return the correctly formatted code
                 return f"{replacement}{number_part}"
+        
+        # If already has a prefix:colon format
+        if ":" in code:
+            prefix, rest = code.split(":", 1)
+            prefix_upper = prefix.upper()
+            
+            # Special handling for NCIT codes
+            if prefix_upper == "NCIT":
+                # If the identifier starts with 'c', make it uppercase
+                if rest.lower().startswith('c'):
+                    rest = rest.upper()
+                return f"{prefix_upper}:{rest}"
+            
+            # Special handling for LOINC codes
+            if prefix_upper == "LOINC":
+                # Handle LOINC codes with LA pattern
+                if rest.lower().startswith('la'):
+                    return f"{prefix_upper}:{rest.upper().replace('_', '-')}"
+                else:
+                    return f"{prefix_upper}:{rest.replace('_', '-').upper()}"
+            
+            return f"{prefix_upper}:{rest}"
             
         # If no direct match, try the standard processing
         try:
             # Import here to avoid circular import
             from rarelink.utils.processing.codes import process_redcap_code
-            return process_redcap_code(code)
+            processed_code = process_redcap_code(code)
+            
+            # Additional checks for specific code types after standard processing
+            if ":" in processed_code:
+                prefix, rest = processed_code.split(":", 1)
+                
+                # Check for NCIT codes
+                if prefix == "NCIT" and rest.lower().startswith('c'):
+                    return f"NCIT:{rest.upper()}"
+                    
+                # Check for LOINC codes
+                if prefix == "LOINC" and rest.lower().startswith('la'):
+                    return f"LOINC:{rest.upper()}"
+                
+            return processed_code
         except Exception as e:
-            if self.debug_mode:
+            if hasattr(self, 'debug_mode') and self.debug_mode:
+                import logging
+                logger = logging.getLogger(__name__)
                 logger.error(f"Error processing code '{code}': {e}")
             return code  # Return original code as fallback
-        
+    
+    @staticmethod
     def normalize_hgnc_id(value):
         """
         Normalize HGNC identifiers to the format "HGNC:1234".
@@ -271,14 +324,23 @@ class DataProcessor:
         if not value:
             return value
             
-        # Check if "HGNC:" appears in the string
+        # Convert to string in case it's a numeric value
+        value = str(value)
+        
+        # Check if "HGNC:" appears in the string (standard format)
         if "HGNC:" in value:
-            # Extract the pattern HGNC:number
             import re
             match = re.search(r'HGNC:(\d+)', value)
             if match:
                 return f"HGNC:{match.group(1)}"
         
+        # Simple case - if it starts with "!/hgnc_id/" and contains "HGNC:"
+        if value.startswith("!/hgnc_id/") and "HGNC:" in value:
+            # Find the position of "HGNC:" and return everything from that point
+            pos = value.find("HGNC:")
+            return value[pos:]
+        
+            
         return value
 
     # --------------------------------------

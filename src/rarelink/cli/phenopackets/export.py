@@ -2,7 +2,6 @@
 import json
 import typer
 import os
-import sys
 import importlib.util
 import importlib.machinery
 from pathlib import Path
