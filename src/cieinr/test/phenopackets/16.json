@@ -90,7 +90,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "7df5431b257a4d74a3643f09ec77ed",
+                "id": "d383b3db4def45dfb42754ab70d74c",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -116,6 +116,14 @@
       }
     }
   ],
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0007843",
+        "label": "Kabuki Syndrome 1 due to KMT2D deficiency - KMT2D (MLL2)"
+      }
+    }
+  ],
   "medicalActions": [
     {
       "procedure": {
@@ -135,7 +143,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-20T11:46:42.396781Z",
+    "created": "2025-03-20T11:53:13.921317Z",
     "createdBy": "Adam G.",
     "resources": [
       {

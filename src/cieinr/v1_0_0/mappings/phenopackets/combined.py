@@ -39,7 +39,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "enum_classes": {}
         },
         "diseases": {
-            "instrument_name": ["basic_form", "patient_demographics_initial_form"],   
+            "instrument_name": "basic_form",   
             "mapping_block": DISEASE_BLOCK,
             "enum_classes": {
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
