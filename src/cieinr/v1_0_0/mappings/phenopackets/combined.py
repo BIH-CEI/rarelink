@@ -48,87 +48,96 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
-        "phenotypicFeatures": {
-            # Use instrument_configs for instrument-specific configurations
-            "instrument_configs": {
-                "infections_initial_form": {
-                    "mapping_block": INFECTIONS_FEATURES_BLOCK,
-                    "data_model": "infections",
-                    "label_dicts": {
-                        "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                        "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                    },
-                    # Explicit list of type fields ONLY - no additional scanning
-                    "type_fields": [
-                        "snomedct_61274003",   # Opportunistic infections
-                        "snomedct_21483005",   # CNS infections
-                        "snomedct_81745001",   # Eye infections
-                        "snomedct_385383008",  # ENT infections
-                        "snomedct_127856007",  # Skin/soft tissue
-                        "snomedct_110522009",  # Bone/joint
-                        "snomedct_20139000",   # Respiratory
-                        "snomedct_303699009",  # GI
-                        "snomedct_21514008",   # GU
-                        "snomedct_31099001",   # Systemic
-                        "other_infection_hpo",
-                        "other_infection_mondo"
-                    ],
-                    # Explicitly disable any field scanning to prevent non-type fields
-                    "enable_field_scanning": False,
-                    "enum_classes": {
-                        "type_of_infection": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionTypeEnum",
-                        "snomedct_61274003": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.OpportunisticInfectionEnum",
-                        # Other infection enums...
-                    },
-                    "multi_onset": True,
+        # Use separate configurations for each phenotypic feature type 
+        # Instead of using instrument_configs which might not be processed correctly
+        "phenotypicFeatures": [
+            # Infections config
+            {
+                "instrument_name": "infections_initial_form",
+                "mapping_block": INFECTIONS_FEATURES_BLOCK,
+                "data_model": "infections",
+                "label_dicts": {
+                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
+                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
                 },
-                "patients_systemic_or_organ_specific_conditions": {
-                    "mapping_block": CONDITIONS_FEATURES_BLOCK,
-                    "data_model": "conditions",
-                    "label_dicts": {
-                        "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                        "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                    },
-                    # Explicit list of type fields ONLY - no additional scanning
-                    "type_fields": [
-                        "snomedct_128477000",  # Systemic condition
-                        "snomedct_95320005",   # Allergy
-                        "snomedct_118938008",  # Neoplasm
-                        "snomedct_50043002",   # Endocrine disorder
-                        "snomedct_49601007",   # Cardiovascular disorder
-                        "mondo_0005570",       # Autoimmune disorder
-                        "snomedct_928000",     # Gastrointestinal disorder
-                        "snomedct_119292006",  # Genitourinary disorder
-                        "snomedct_362969004",  # Metabolic disorder
-                        "snomedct_42030000",   # Renal system disorder
-                        "snomedct_55342001",   # Skeletal disorder
-                        "snomedct_85828009",   # Trauma
-                        "hp_0025142",          # Constitutional symptom
-                        "snomedct_5294002",    # Developmental delay
-                        "condition_other_hp"
-                    ],
-                    # Explicitly disable any field scanning
-                    "enable_field_scanning": False,
-                    "enum_classes": {
-                        "type_of_condition": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConditionTypeEnum",
-                        # Other condition enums...
-                    }
+                "mapping_dicts": {
+                    "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
+                },
+                # Explicit list of type fields to scan
+                "type_fields": [
+                    "snomedct_61274003",   # Opportunistic infections
+                    "snomedct_21483005",   # CNS infections
+                    "snomedct_81745001",   # Eye infections
+                    "snomedct_385383008",  # ENT infections
+                    "snomedct_127856007",  # Skin/soft tissue
+                    "snomedct_110522009",  # Bone/joint
+                    "snomedct_20139000",   # Respiratory
+                    "snomedct_303699009",  # GI
+                    "snomedct_21514008",   # GU
+                    "snomedct_31099001",   # Systemic
+                    "other_infection_hpo",
+                    "other_infection_mondo"
+                ],
+                # Enable multi-onset for infections
+                "multi_onset": True,
+                # Disable field scanning
+                "enable_field_scanning": False,
+                # Enum classes
+                "enum_classes": {
+                    "type_of_infection": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionTypeEnum",
+                    "snomedct_61274003": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.OpportunisticInfectionEnum",
+                    "snomedct_21483005": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.CNSInfectionEnum",
+                    "snomedct_81745001": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.EyeInfectionEnum",
+                    "snomedct_385383008": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.ENTInfectionEnum",
+                    "snomedct_127856007": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.SkinInfectionEnum",
+                    "snomedct_110522009": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.BoneJointInfectionEnum",
+                    "snomedct_20139000": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.RespiratoryInfectionEnum",
+                    "snomedct_303699009": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.GIInfectionEnum",
+                    "snomedct_21514008": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.GUInfectionEnum",
+                    "snomedct_31099001": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.SystemicInfectionEnum",
+                    "infection_severity": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionSeverityEnum",
                 }
             },
-            # List both instruments to process
-            "instrument_name": ["infections_initial_form", "patients_systemic_or_organ_specific_conditions"],
-            # Common label dictionaries
-            "label_dicts": {
-                "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-            },
-            # Common mapping dictionaries 
-            "mapping_dicts": {
-                "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
-            },
-            # Global disable of field scanning
-            "enable_field_scanning": False
-        },
+            # Conditions config
+            {
+                "instrument_name": "patients_systemic_or_organ_specific_conditions",
+                "mapping_block": CONDITIONS_FEATURES_BLOCK,
+                "data_model": "conditions",
+                "label_dicts": {
+                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
+                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
+                },
+                "mapping_dicts": {
+                    "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
+                },
+                # Explicit list of type fields to scan
+                "type_fields": [
+                    "snomedct_128477000",  # Systemic condition
+                    "snomedct_95320005",   # Allergy
+                    "snomedct_118938008",  # Neoplasm
+                    "snomedct_50043002",   # Endocrine disorder
+                    "snomedct_49601007",   # Cardiovascular disorder
+                    "mondo_0005570",       # Autoimmune disorder
+                    "snomedct_928000",     # Gastrointestinal disorder
+                    "snomedct_119292006",  # Genitourinary disorder
+                    "snomedct_362969004",  # Metabolic disorder
+                    "snomedct_42030000",   # Renal system disorder
+                    "snomedct_55342001",   # Skeletal disorder
+                    "snomedct_85828009",   # Trauma
+                    "hp_0025142",          # Constitutional symptom
+                    "snomedct_5294002",    # Developmental delay
+                    "condition_other_hp"
+                ],
+                # Disable multi-onset for conditions
+                "multi_onset": False,
+                # Disable field scanning
+                "enable_field_scanning": False,
+                # Enum classes
+                "enum_classes": {
+                    "type_of_condition": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConditionTypeEnum"
+                }
+            }
+        ],
         "procedures": {
             "instrument_name": "basic_form",
             "mapping_block": PROCEDURE_BLOCK,

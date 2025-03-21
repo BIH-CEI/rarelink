@@ -14,10 +14,12 @@ from rarelink.phenopackets.mappings.utils.utils_phenotypic_feature import (
     _get_data_elements,
     _get_infection_types,
     _get_condition_types,
-    _get_single_type    
+    _get_single_type,
 )
 
 logger = logging.getLogger(__name__)
+
+# This is a patch to be added to the map_phenotypic_features function in map_phenotypic_feature.py
 
 def map_phenotypic_features(
     data: dict, 
@@ -41,6 +43,36 @@ def map_phenotypic_features(
     # Store the full data for multi-instrument field access
     mapping_config['full_data'] = data
     
+    # Check if this is a direct single instrument configuration
+    current_instrument = mapping_config.get("current_instrument") or mapping_config.get("redcap_repeat_instrument")
+    if current_instrument:
+        logger.info(f"Processing single instrument: {current_instrument}")
+        data_model = _determine_data_model(processor, current_instrument)
+        logger.debug(f"Using data model: {data_model} with instrument: {current_instrument}")
+        
+        # Choose the type extractor based on the model
+        if data_model == "infections":
+            logger.debug(f"Using infection type extractor for {current_instrument}")
+            type_extractor = _get_infection_types
+        elif data_model == "conditions":
+            logger.debug(f"Using condition type extractor for {current_instrument}") 
+            type_extractor = _get_condition_types
+        else:
+            # Default to generic type extractor
+            logger.debug(f"Using generic type extractor for {current_instrument}")
+            type_extractor = _get_single_type
+            
+        # Extract all instrument names for multi-instrument field access
+        all_instruments = mapping_config.get("all_instruments", [])
+        if current_instrument and current_instrument not in all_instruments:
+            all_instruments.append(current_instrument)
+            
+        # Map features for this instrument
+        features = _map_features(data, processor, dob, type_extractor, all_instruments)
+        logger.debug(f"Found {len(features)} features for instrument {current_instrument}")
+        return features
+    
+    # Below this is the original multi-instrument handling which can remain as fallback
     # Get advanced instrument configs or a simple instrument list.
     instrument_configs = mapping_config.get("instrument_configs", {})
     instruments: List[Tuple[str, DataProcessor]] = []
@@ -68,12 +100,6 @@ def map_phenotypic_features(
     
     # Filter out invalid instruments
     all_instruments = [i for i in all_instruments if i and i != "__dummy__"]
-    
-    # Force both instruments to be included (temporary debug fix)
-    if "infections_initial_form" not in all_instruments:
-        all_instruments.append("infections_initial_form")
-    if "patients_systemic_or_organ_specific_conditions" not in all_instruments:
-        all_instruments.append("patients_systemic_or_organ_specific_conditions")
     
     # Store all instruments in the mapping config for field access
     mapping_config["all_instruments"] = all_instruments
@@ -137,7 +163,6 @@ def map_phenotypic_features(
     
     logger.debug(f"Total phenotypic features mapped: {len(all_features)}")
     return all_features
-
 def _create_phenotypic_feature(
     feature_type: str, 
     feature_data: dict,
@@ -164,6 +189,9 @@ def _create_phenotypic_feature(
     
     type_id = processor.process_code(feature_type)
     type_label = processor.fetch_label(feature_type)
+    
+    logger.debug(f"Creating feature for type: {feature_type} -> {type_id} ({type_label})")
+    
     type_obj = OntologyClass(id=type_id, label=type_label or "Unknown Phenotypic Feature")
     
     # Extract feature properties with multi-instrument support
@@ -174,15 +202,38 @@ def _create_phenotypic_feature(
     evidence = _extract_evidence(feature_data, processor, all_instruments, data_context=feature_data)
     modifiers = _extract_modifiers(feature_data, processor, all_instruments, data_context=feature_data)
     
-    return PhenotypicFeature(
-        type=type_obj,
-        excluded=excluded,
-        onset=onset,
-        resolution=resolution,
-        severity=severity,
-        evidence=evidence,
-        modifiers=modifiers if modifiers else None
-    )
+    # Check if multi-onset is enabled
+    if processor.mapping_config.get("multi_onset", False):
+        logger.debug(f"Multi-onset enabled for type {feature_type}")
+        
+        # Use the multi_onset_adapter to create multiple features if needed
+        return multi_onset_adapter(
+            mapping_func=lambda t, d, p, b: PhenotypicFeature(
+                type=type_obj,
+                excluded=excluded,
+                onset=onset,
+                resolution=resolution,
+                severity=severity,
+                evidence=evidence,
+                modifiers=modifiers if modifiers else None
+            ),
+            feature_type=feature_type,
+            feature_data=feature_data,
+            processor=processor,
+            dob=dob
+        )[0]  # Return the first feature - multi_onset_adapter will be called again for each date
+    else:
+        # Create a standard single feature
+        logger.debug(f"Creating standard single feature for type {feature_type}")
+        return PhenotypicFeature(
+            type=type_obj,
+            excluded=excluded,
+            onset=onset,
+            resolution=resolution,
+            severity=severity,
+            evidence=evidence,
+            modifiers=modifiers if modifiers else None
+        )
 
 
 def _map_features(
@@ -231,49 +282,54 @@ def _map_features(
         
         # Process each type value
         for t in type_values:
-            # Check if multi-onset is enabled (for infections)
-            multi_onset = processor.mapping_config.get("multi_onset", False)
-            if multi_onset:
-                # Get onset date fields from configuration
+            try:
+                # Check for multi-onset support
+                multi_onset = processor.mapping_config.get("multi_onset", False)
                 onset_fields = processor.mapping_config.get("onset_date_fields", [])
-                logger.debug(f"Multi-onset enabled with fields: {onset_fields}")
                 
-                # Extract dates directly from the element
-                dates = []
-                for field in onset_fields:
-                    # Handle fields with or without instrument prefix
-                    field_name = field
-                    if "." in field:
-                        field_name = field.split(".", 1)[1]
+                if multi_onset and onset_fields:
+                    logger.debug(f"Processing multi-onset for type {t}")
                     
-                    if field_name in element and element[field_name]:
-                        dates.append((field_name, element[field_name]))
-                
-                logger.debug(f"Found {len(dates)} onset dates for type {t}")
-                
-                if dates:
-                    # Create a feature for each date
-                    for field_name, date_value in dates:
-                        # Create a copy of the element with only this date
-                        modified_element = element.copy()
-                        # Set all other date fields to empty
-                        for other_field in [f for f, _ in dates if f != field_name]:
-                            modified_element[other_field] = ""
-                        
-                        # Create the feature with the single date
-                        feature = _create_phenotypic_feature(t, modified_element, processor, dob, all_instruments)
+                    # Extract all onset dates from the element
+                    onset_dates = []
+                    for field in onset_fields:
+                        field_name = field.split(".")[-1] if "." in field else field
+                        if field_name in element and element[field_name]:
+                            onset_dates.append((field_name, element[field_name]))
+                    
+                    logger.debug(f"Found {len(onset_dates)} onset dates for type {t}")
+                    
+                    if onset_dates:
+                        # Create a feature for each date
+                        for field_name, date_value in onset_dates:
+                            # Create a modified element with only this date
+                            modified_element = element.copy()
+                            
+                            # Set all other date fields to empty
+                            for other_field, _ in onset_dates:
+                                if other_field != field_name:
+                                    modified_element[other_field] = ""
+                            
+                            # Create the feature with just this date
+                            feature = _create_phenotypic_feature(t, modified_element, processor, dob, all_instruments)
+                            if feature:
+                                features.append(feature)
+                                logger.debug(f"Added feature with onset date {date_value} for type {t}")
+                    else:
+                        # No dates, create a single feature
+                        feature = _create_phenotypic_feature(t, element, processor, dob, all_instruments)
                         if feature:
                             features.append(feature)
-                            logger.debug(f"Added feature with onset date {date_value} for type {t}")
+                            logger.debug(f"Added single feature (no dates) for type {t}")
                 else:
-                    # No dates, create a single feature
+                    # Standard single feature creation
                     feature = _create_phenotypic_feature(t, element, processor, dob, all_instruments)
                     if feature:
                         features.append(feature)
-            else:
-                # Standard single feature creation
-                feature = _create_phenotypic_feature(t, element, processor, dob, all_instruments)
-                if feature:
-                    features.append(feature)
+                        logger.debug(f"Added standard feature for type {t}")
+            except Exception as e:
+                logger.error(f"Error processing type {t}: {str(e)}")
+                import traceback
+                logger.debug(traceback.format_exc())
     
     return features

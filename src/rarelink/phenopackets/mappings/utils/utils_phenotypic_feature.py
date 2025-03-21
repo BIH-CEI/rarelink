@@ -76,6 +76,23 @@ def _get_single_type(data: dict, processor: DataProcessor, all_instruments: List
     Returns:
         List[str]: List with a single type value if found, else an empty list.
     """
+    # Check for specific type fields
+    type_values = []
+    
+    # Check if we have type fields defined
+    type_fields = processor.mapping_config.get("type_fields", [])
+    if type_fields:
+        # If we have explicitly defined type fields, use those
+        for field in type_fields:
+            value = _get_field_value(data, field)
+            if value:
+                logger.debug(f"Found value '{value}' for explicit type field '{field}'")
+                type_values.append(value)
+        
+        if type_values:
+            return type_values
+    
+    # If no explicit type fields or no values found, try the type_field
     type_field = processor.mapping_config.get("type_field")
     if not type_field:
         logger.debug("No type field configured")
@@ -98,7 +115,17 @@ def _get_single_type(data: dict, processor: DataProcessor, all_instruments: List
         value = _get_field_value(data, type_field)
     
     if not value:
-        logger.debug(f"No value found for type field '{type_field}'")
+        # Try type_field_2, type_field_3, etc. if defined
+        for i in range(2, 20):  # Check up to type_field_19
+            field_key = f"type_field_{i}"
+            if field_key in processor.mapping_config:
+                field = processor.mapping_config[field_key]
+                value = _get_field_value(data, field)
+                if value:
+                    logger.debug(f"Found value {value} for field {field}")
+                    return [value]
+        
+        logger.debug(f"No value found for type field '{type_field}' or alternates")
         return []
     
     logger.debug(f"Found type value: {value}")
@@ -134,6 +161,7 @@ def _determine_data_model(processor: DataProcessor, instrument_name: str) -> str
     is_condition = (
         "systemic" in instrument_name.lower() or
         "organ_specific" in instrument_name.lower() or
+        "condition" in instrument_name.lower() or
         "patients_systemic_or_organ_specific_conditions" == instrument_name
     )
     
@@ -193,7 +221,15 @@ def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]
     
     # If we still haven't found anything, as a fallback check if the data itself has relevant fields
     if not elements and isinstance(data, dict):
-        for field in ["snomedct_21483005", "snomedct_61274003", "mondo_0005570", "snomedct_362969004"]:
+        # Check for important fields that would indicate this is the right data
+        indicator_fields = [
+            # Infections fields
+            "snomedct_21483005", "snomedct_61274003", "snomedct_127856007", "snomedct_20139000",
+            # Conditions fields 
+            "mondo_0005570", "snomedct_362969004"
+        ]
+        
+        for field in indicator_fields:
             if field in data:
                 logger.debug(f"Found field {field} directly in data, treating data itself as an element")
                 elements.append(data)
@@ -216,7 +252,7 @@ def _get_infection_types(data: dict, processor: DataProcessor, all_instruments: 
         List[str]: A list of infection type values.
     """
     # Define infection type fields to check
-    infection_type_fields = [
+    infection_type_fields = processor.mapping_config.get("type_fields", [
         "snomedct_61274003",   # Opportunistic infections
         "snomedct_21483005",   # CNS infections
         "snomedct_81745001",   # Eye infections
@@ -229,7 +265,7 @@ def _get_infection_types(data: dict, processor: DataProcessor, all_instruments: 
         "snomedct_31099001",   # Systemic
         "other_infection_hpo",
         "other_infection_mondo"
-    ]
+    ])
     
     # Storage for found type values
     type_values = []
@@ -273,7 +309,7 @@ def _get_condition_types(data: dict, processor: DataProcessor, all_instruments: 
         List[str]: A list of condition type values.
     """
     # Define condition type fields to check
-    condition_type_fields = [
+    condition_type_fields = processor.mapping_config.get("type_fields", [
         "snomedct_128477000",  # Systemic condition
         "snomedct_95320005",   # Allergy
         "snomedct_118938008",  # Neoplasm
@@ -289,7 +325,7 @@ def _get_condition_types(data: dict, processor: DataProcessor, all_instruments: 
         "hp_0025142",          # Constitutional symptom
         "snomedct_5294002",    # Developmental delay
         "condition_other_hp"
-    ]
+    ])
     
     # Storage for found type values
     type_values = []

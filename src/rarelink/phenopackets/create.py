@@ -170,30 +170,82 @@ def create_phenopacket(
         # Phenotypic Features Block --------------------------------------------
         try:
             phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
-            phenotypic_feature_processor = DataProcessor(
-                mapping_config=phenotypic_feature_config.get("mapping_block", {})
-            )
-            phenotypic_feature_processor.enable_debug(debug)
+            phenotypic_features = []
             
-            # Add enum classes if present
-            _add_enum_classes_to_processor(phenotypic_feature_processor, phenotypic_feature_config.get("enum_classes", {}))
-            
-            # Handle instrument name(s)
-            instrument_name = phenotypic_feature_config.get("instrument_name")
-            if isinstance(instrument_name, (list, set)):
-                # Copy the set/list to avoid modifying the original
-                phenotypic_feature_processor.mapping_config["instrument_names"] = list(instrument_name)
-                # For backwards compatibility, use the first instrument as the primary
-                if list(instrument_name):
-                    phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            # Handle multiple configurations for phenotypicFeatures
+            if isinstance(phenotypic_feature_config, list):
+                logger.debug(f"Found {len(phenotypic_feature_config)} phenotypic feature configurations")
+                
+                # Process each configuration separately
+                for index, config in enumerate(phenotypic_feature_config):
+                    try:
+                        # Create a processor for this specific config
+                        feature_processor = DataProcessor(
+                            mapping_config=config.get("mapping_block", {})
+                        )
+                        feature_processor.enable_debug(debug)
+                        
+                        # Copy configuration from the config to the processor
+                        for key, value in config.items():
+                            if key != "mapping_block":
+                                feature_processor.mapping_config[key] = value
+                        
+                        # Add enum classes if present
+                        _add_enum_classes_to_processor(feature_processor, config.get("enum_classes", {}))
+                        
+                        # Set the instrument name
+                        instrument_name = config.get("instrument_name")
+                        if isinstance(instrument_name, (list, set)):
+                            # Copy the set/list to avoid modifying the original
+                            feature_processor.mapping_config["instrument_names"] = list(instrument_name)
+                            # For backwards compatibility, use the first instrument as the primary
+                            if list(instrument_name):
+                                feature_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+                        else:
+                            feature_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                        
+                        # Process features for this configuration
+                        logger.debug(f"Processing phenotypic features for instrument: {instrument_name}")
+                        config_features = map_phenotypic_features(
+                            data,
+                            feature_processor,
+                            dob=individual.date_of_birth
+                        )
+                        
+                        if config_features:
+                            phenotypic_features.extend(config_features)
+                            logger.debug(f"Added {len(config_features)} features from config {index+1}")
+                    except Exception as e:
+                        logger.error(f"Error processing phenotypic feature config {index+1}: {e}")
+                        if debug:
+                            logger.debug(traceback.format_exc())
             else:
-                phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
-            
-            phenotypic_features = map_phenotypic_features(
-                data,
-                phenotypic_feature_processor,
-                dob=individual.date_of_birth
-            )
+                # Fall back to the original single configuration processing
+                logger.debug("Using single phenotypic feature configuration")
+                phenotypic_feature_processor = DataProcessor(
+                    mapping_config=phenotypic_feature_config.get("mapping_block", {})
+                )
+                phenotypic_feature_processor.enable_debug(debug)
+                
+                # Add enum classes if present
+                _add_enum_classes_to_processor(phenotypic_feature_processor, phenotypic_feature_config.get("enum_classes", {}))
+                
+                # Handle instrument name(s)
+                instrument_name = phenotypic_feature_config.get("instrument_name")
+                if isinstance(instrument_name, (list, set)):
+                    # Copy the set/list to avoid modifying the original
+                    phenotypic_feature_processor.mapping_config["instrument_names"] = list(instrument_name)
+                    # For backwards compatibility, use the first instrument as the primary
+                    if list(instrument_name):
+                        phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+                else:
+                    phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                
+                phenotypic_features = map_phenotypic_features(
+                    data,
+                    phenotypic_feature_processor,
+                    dob=individual.date_of_birth
+                )
             
             if debug:
                 logger.debug(f"Generated {len(phenotypic_features)} phenotypic features")
