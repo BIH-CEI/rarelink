@@ -86,6 +86,14 @@ def _get_multi_instrument_field_value(
                     logger.debug(f"Found value {value} for field {field_name} in instrument {instrument_name}")
                     return value
     
+    # Also check for fields directly in full_data to support legacy mappings
+    for field_path in field_paths:
+        if "." not in field_path and field_path in data:
+            value = data.get(field_path)
+            if value is not None:
+                logger.debug(f"Found value {value} in top-level data for field {field_path}")
+                return value
+    
     logger.debug("No value found across specified instruments and field paths")
     return None
 

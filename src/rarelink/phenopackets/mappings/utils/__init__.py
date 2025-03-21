@@ -13,6 +13,7 @@ from .utils_phenotypic_feature import (
     _determine_data_model,
     _get_field_value,
     _get_infection_types,
+    _get_condition_types,
     _get_single_type
 )
 __all__ = [
@@ -25,5 +26,6 @@ __all__ = [
     "_determine_data_model",
     "_get_field_value",
     "_get_infection_types",
+    "_get_condition_types",
     "_get_single_type"
 ]
