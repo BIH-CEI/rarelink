@@ -63,21 +63,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
-                # Explicit list of type fields to scan
-                "type_fields": [
-                    "snomedct_61274003",   # Opportunistic infections
-                    "snomedct_21483005",   # CNS infections
-                    "snomedct_81745001",   # Eye infections
-                    "snomedct_385383008",  # ENT infections
-                    "snomedct_127856007",  # Skin/soft tissue
-                    "snomedct_110522009",  # Bone/joint
-                    "snomedct_20139000",   # Respiratory
-                    "snomedct_303699009",  # GI
-                    "snomedct_21514008",   # GU
-                    "snomedct_31099001",   # Systemic
-                    "other_infection_hpo",
-                    "other_infection_mondo"
-                ],
                 # Enable multi-onset for infections
                 "multi_onset": True,
                 # Disable field scanning
@@ -110,24 +95,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
-                # Explicit list of type fields to scan
-                "type_fields": [
-                    "snomedct_128477000",  # Systemic condition
-                    "snomedct_95320005",   # Allergy
-                    "snomedct_118938008",  # Neoplasm
-                    "snomedct_50043002",   # Endocrine disorder
-                    "snomedct_49601007",   # Cardiovascular disorder
-                    "mondo_0005570",       # Autoimmune disorder
-                    "snomedct_928000",     # Gastrointestinal disorder
-                    "snomedct_119292006",  # Genitourinary disorder
-                    "snomedct_362969004",  # Metabolic disorder
-                    "snomedct_42030000",   # Renal system disorder
-                    "snomedct_55342001",   # Skeletal disorder
-                    "snomedct_85828009",   # Trauma
-                    "hp_0025142",          # Constitutional symptom
-                    "snomedct_5294002",    # Developmental delay
-                    "condition_other_hp"
-                ],
                 # Disable multi-onset for conditions
                 "multi_onset": False,
                 # Disable field scanning

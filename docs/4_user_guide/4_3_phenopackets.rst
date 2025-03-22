@@ -198,7 +198,11 @@ Mapping Configuration for Custom Data Models
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To create a custom mapping configuration, develop a Python file with a 
-``create_phenopacket_mappings()`` function. Here's an example structure:
+``create_phenopacket_mappings()`` function. You can use either a single configuration 
+approach (standard dictionary) or a multi-configuration approach (list of dictionaries)
+for more complex data models.
+
+**Single Configuration Approach (Standard):**
 
 .. code-block:: python
 
@@ -240,10 +244,58 @@ To create a custom mapping configuration, develop a Python file with a
             }
         }
 
+**Multi-Configuration Approach (For Complex Data Models):**
+
+If your data model has multiple instruments for the same phenopacket block (e.g., different
+instruments for different types of phenotypic features), you can use the multi-configuration approach:
+
+.. code-block:: python
+
+    def create_phenopacket_mappings():
+        """
+        Create a comprehensive mapping configuration for Phenopacket creation
+        with support for multiple instruments per block.
+
+        Returns:
+            Dict: Mapping configurations for Phenopacket generation
+        """
+        return {
+            # Standard blocks
+            "individual": {
+                # Standard configuration as above
+            },
+            
+            # Multi-configuration for phenotypic features
+            "phenotypicFeatures": [
+                # First instrument configuration
+                {
+                    "instrument_name": "first_instrument",
+                    "mapping_block": FIRST_FEATURES_BLOCK,
+                    "data_model": "first_model",
+                    "label_dicts": {
+                        # Label dictionaries
+                    },
+                    "mapping_dicts": {
+                        # Mapping dictionaries
+                    },
+                    # Additional configuration
+                },
+                # Second instrument configuration
+                {
+                    "instrument_name": "second_instrument",
+                    "mapping_block": SECOND_FEATURES_BLOCK,
+                    "data_model": "second_model",
+                    # Other configuration
+                }
+            ],
+            
+            # Other blocks follow the standard configuration
+        }
+
 Command-Line Usage
 ~~~~~~~~~~~~~~~~~~
 
-Export Phenopackets using the following command-line options:
+Export Phenopackets using the command-line interface with various options:
 
 .. code-block:: bash
 
@@ -258,6 +310,105 @@ Export Phenopackets using the following command-line options:
 
     # Use custom mapping configuration
     rarelink phenopackets export --mappings /path/to/custom_mappings.py
+    
+    # Enable debug mode for verbose logging
+    rarelink phenopackets export --debug
+    
+    # Skip environment validation
+    rarelink phenopackets export --skip-validation
+    
+    # Override CREATED_BY from .env
+    rarelink phenopackets export --created-by "Your Name"
+    
+    # Set custom timeout (in seconds)
+    rarelink phenopackets export --timeout 7200
+
+All Command-Line Options
+------------------------
+
+.. list-table::
+   :widths: 20 10 15 55
+   :header-rows: 1
+
+   * - Option
+     - Short Flag
+     - Type
+     - Description
+   * - ``--input-path``
+     - ``-i``
+     - PATH
+     - Path to the input LinkML JSON file
+   * - ``--output-dir``
+     - ``-o``
+     - PATH
+     - Directory to save Phenopackets
+   * - ``--mappings``
+     - ``-m``
+     - PATH
+     - Path to custom mapping configuration module
+   * - ``--debug``
+     - ``-d``
+     - FLAG
+     - Enable debug mode for verbose logging
+   * - ``--skip-validation``
+     - 
+     - FLAG
+     - Skip environment validation
+   * - ``--created-by``
+     - 
+     - TEXT
+     - Override CREATED_BY from .env
+   * - ``--timeout``
+     - ``-t``
+     - INTEGER
+     - Timeout in seconds (default: 3600)
+   * - ``--help``
+     -
+     - FLAG
+     - Show help message and exit
+
+Data Model Compatibility
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The Phenopacket engine is designed to work with multiple data models:
+
+**RareLink CDM Structure**:
+   In the RareLink CDM, data is organized by instrument name with a specific data field:
+
+   .. code-block:: json
+
+      {
+        "repeated_elements": [
+          {
+            "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+            "redcap_repeat_instance": 1,
+            "phenotypic_feature": {
+              "snomedct_8116006": "HP:0001059",
+              "other_fields": "..."
+            }
+          }
+        ]
+      }
+
+**Custom Data Model Structure**:
+   For custom data models like CIEINR, data may be organized differently:
+
+   .. code-block:: json
+
+      {
+        "repeated_elements": [
+          {
+            "redcap_repeat_instrument": "infections_initial_form",
+            "redcap_repeat_instance": 1,
+            "infections_initial_form": {
+              "snomedct_21483005": "hp_0002383",
+              "other_fields": "..."
+            }
+          }
+        ]
+      }
+
+The engine automatically detects the data model structure and accesses the fields accordingly.
 
 Mapping Configuration Structure
 -------------------------------
@@ -279,6 +430,57 @@ The mapping configuration is a nested dictionary with the following key componen
    - ``variationDescriptor``
    - ``interpretations``
    - ``metadata``
+
+Advanced Configuration Options
+-------------------------------
+
+1. **Multiple Instruments**
+   
+   You can specify multiple instruments for a block using a set or list:
+
+   .. code-block:: python
+
+       "instrument_name": {"instrument1", "instrument2"}
+
+2. **Data Model Specification**
+   
+   For custom data models, specify the model:
+
+   .. code-block:: python
+
+       "data_model": "infections"  # or "conditions", "rarelink_cdm", etc.
+
+3. **Type Fields**
+   
+   Specify explicit type fields to scan:
+
+   .. code-block:: python
+
+       "type_fields": [
+           "field1",
+           "field2",
+           "field3"
+       ]
+
+4. **Multi-onset Support**
+   
+   Enable multi-onset for features with multiple onset dates:
+
+   .. code-block:: python
+
+       "multi_onset": True,
+       "onset_date_fields": [
+           "onset_date_1",
+           "onset_date_2"
+       ]
+
+5. **Field Scanning Control**
+   
+   Disable automatic field scanning:
+
+   .. code-block:: python
+
+       "enable_field_scanning": False
 
 Mapping Strategies
 ------------------
@@ -321,6 +523,9 @@ Best Practices
 - Provide comprehensive label and mapping dictionaries
 - Ensure instrument names match REDCap configuration
 - Use the RareLink-CDM as a reference for mapping structure
+- Enable multi-onset for features with multiple occurrence dates
+- Set appropriate data model for specialized instruments
+- Use explicit type fields to control which fields generate features
 
 _____________________________________________________________________________________
 
@@ -359,12 +564,29 @@ and `Individual <https://phenopacket-schema.readthedocs.io/en/latest/individual.
         "primary_site_field": "<primary_site>",
     }
 
+    PHENOTYPIC_FEATURES_BLOCK = {
+        "redcap_repeat_instrument": "<instrument_name>",
+        "type_field": "<feature_type_field>",
+        "excluded_field": "<excluded_feature_field>",
+        "onset_date_field": "<onset_date_field>",
+        "onset_age_field": "<onset_age_field>",
+        "resolution_field": "<resolution_field>",
+        "severity_field": "<severity_field>",
+        "evidence_field": "<evidence_field>",
+        "modifier_field_1": "<modifier_field_1>",
+        "modifier_field_2": "<modifier_field_2>",
+        # For multi-onset support
+        "multi_onset": True,
+        "onset_date_fields": ["<date_field_1>", "<date_field_2>", "<date_field_3>"]
+    }
+
 **Notes**:
 
 - Replace `<instrument_name>` and other placeholders with the specific field 
   names or codes used in your REDCap project or dataset.
 - For repeating blocks, ensure the `redcap_repeat_instrument` value matches the 
   instrument name configured in REDCap.
+- For multi-onset features, set "multi_onset": True and provide a list of date fields.
 - Customize as needed for other field mappings.
 
 
@@ -456,5 +678,96 @@ placeholders with relevant codes and Phenopacket terms.
   Phenopacket-specific elements.
 
 
+_____________________________________________________________________________________
 
+.. _factory-approach:
 
+Using the Factory Approach
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For more advanced use cases, you can use the PhenopacketMappingFactory to create
+mappings for different data models:
+
+.. code-block:: python
+
+    from rarelink.phenopackets.factory import PhenopacketMappingFactory, get_phenopacket_mappings
+
+    # Get mappings for RareLink CDM (default)
+    rarelink_mappings = get_phenopacket_mappings()
+
+    # Get mappings for a custom data model
+    custom_mappings = get_phenopacket_mappings(model_name="your_model")
+
+    # Creating phenopackets with specific model mappings
+    from rarelink.phenopackets import create_phenopacket
+
+    # Create phenopacket using the specified mappings
+    phenopacket = create_phenopacket(
+        data=record_data,
+        created_by="Your Name",
+        mapping_configs=custom_mappings
+    )
+
+The factory approach provides additional helper functions for working with different
+data models:
+
+1. **Converting to Multi-Instrument Format**
+   
+   .. code-block:: python
+   
+       updated_config = PhenopacketMappingFactory.convert_to_multi_instrument_format(
+           config=mappings,
+           block_name="phenotypicFeatures"
+       )
+
+2. **Merging Configurations**
+   
+   .. code-block:: python
+   
+       merged_config = PhenopacketMappingFactory.merge_configurations(
+           base_config=base_mappings,
+           override_config=custom_overrides
+       )
+
+_____________________________________________________________________________________
+
+.. _troubleshooting:
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+Common issues and their solutions:
+
+1. **No phenotypic features or diseases are generated**
+
+   - Check that the instrument names in your mapping configuration match the actual 
+     instrument names in your data
+   - Verify that the field paths in your mapping block point to the correct fields
+   - Enable debug mode (``--debug``) for more detailed logs
+
+2. **Field values not found**
+
+   - For RareLink CDM, remember that data is in a field named differently from the 
+     instrument (e.g., "rarelink_5_disease" instrument has data in "disease" field)
+   - For CIEINR-like models, data is in a field with the same name as the instrument
+
+3. **Multi-onset features not working**
+
+   - Ensure "multi_onset" is set to True in your configuration
+   - Verify that "onset_date_fields" contains the correct field names
+   - Check that the date fields contain valid date values
+
+4. **Error: "No mapping found for name"**
+
+   - Ensure your mapping dictionaries include the requested mapping name
+   - Verify that the get_mapping_by_name function is properly implemented
+
+5. **Timeout errors**
+
+   - Increase the timeout value with ``--timeout 7200`` or higher
+   - Process fewer records at a time
+
+6. **Missing labels for codes**
+
+   - Add the codes to your label dictionaries
+   - Check BIOPORTAL API access if using external label lookups

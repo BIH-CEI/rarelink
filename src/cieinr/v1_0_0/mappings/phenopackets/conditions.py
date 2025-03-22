@@ -52,11 +52,10 @@ INFECTIONS_FEATURES_BLOCK = {
     "severity_field": "infection_severity",
     "modifier_field_1": "type_of_infection",
     "modifier_field_2": "infection_temp_pattern",
-    "modifier_field_3": "causing_agent",
-    "modifier_field_4": "causing_agent_viral",
-    "modifier_field_5": "causing_agent_bacterial",
-    "modifier_field_6": "causing_agent_mycotic",
-    "modifier_field_7": "causing_organism_other",
+    "modifier_field_3": "causing_agent_viral",
+    "modifier_field_4": "causing_agent_bacterial",
+    "modifier_field_5": "causing_agent_mycotic",
+    "modifier_field_6": "causing_organism_other",
     
     # Enable multi-onset for infections
     "multi_onset": True,
