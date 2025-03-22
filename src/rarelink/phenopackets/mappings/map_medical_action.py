@@ -8,7 +8,6 @@ from phenopackets import (
     OntologyClass,
     TimeElement,
     Age,
-    DoseInterval,
     Quantity
 )
 from datetime import datetime
@@ -556,7 +555,7 @@ def _create_treatment(
                 iso_age = f"P{years}Y{months}M"
                 logger.debug(f"Calculated ISO age: {iso_age}")
                 
-                time_element = TimeElement(age=Age(iso8601duration=iso_age))
+                time_element = TimeElement(age=Age(iso8601duration=iso_age))  # noqa: F841
             except Exception as inner_e:
                 logger.error(f"Error in manual date calculation: {inner_e}")
                 # Fallback method if needed
