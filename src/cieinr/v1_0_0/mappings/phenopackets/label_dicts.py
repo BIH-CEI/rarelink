@@ -72,6 +72,36 @@ label_dicts = {
         "hp_0012826": "Moderate",
         "hp_0012829": "Profound",
         "hp_0012828": "Severe"
+    },
+    "InactivatedVaccineType": {
+        "vo_0000738": "DTap (Diphtheria, Tetanus, Acellular Pertussis)",
+        "vo_0000662": "Haemophilus Influenza Type b",
+        "vo_0010211": "PrevNar/Pneu-C-13",
+        "vo_0006041": "PrevNar/Pneu-C-15",
+        "vo_0010356": "PrevNar/Pneu-C-20",
+        "vo_0010440": "V116, Pneu-21",
+        "vo_0006033": "Men-C",
+        "vo_0010205": "Men-B",
+        "vo_0010727": "Meningococcal Quadrivalent Vaccine",
+        "vo_0000667": "HPV",
+        "vo_0000644": "Hepatitis B",
+        "vo_0003196": "Acellular Pertussis",
+        "vo_0000664": "IPV (Polio)",
+        "vo_0000088": "Pneumovax",
+        "vo_0004908": "COVID-19",
+        "vo_0000642": "Flu",
+        "other": "Other"
+    },
+    "LiveVaccineType": {
+        "vo_0010209": "Oral Polio vaccine",
+        "vo_0000731": "MMR (Measles, Mumps, Rubella)",
+        "vo_0021165": "Varicella",
+        "vo_0000433": "Vaccinia",
+        "vo_0000771": "BCG",
+        "vo_0000123": "Yellow Fever",
+        "vo_0003495": "Influenza",
+        "vo_0000658": "Rotavirus",
+        "other": "Other"
     }
 }
 

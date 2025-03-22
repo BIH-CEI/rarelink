@@ -307,44 +307,168 @@ def create_phenopacket(
 
         # Medical Actions Block --------------------------------------------------------
         try:
+            medical_actions = []
+            
+            # PROCEDURES: Process traditional medical procedures
             medical_action_config = get_mapping_config("procedures")
-            medical_action_processor = DataProcessor(
-                mapping_config=medical_action_config.get("mapping_block", {})
-            )
-            medical_action_processor.enable_debug(debug)
+            if medical_action_config:
+                medical_action_processor = DataProcessor(
+                    mapping_config=medical_action_config.get("mapping_block", {})
+                )
+                medical_action_processor.enable_debug(debug)
+                
+                # Add enum classes if present
+                _add_enum_classes_to_processor(medical_action_processor, medical_action_config.get("enum_classes", {}))
+                
+                # Handle instrument name(s)
+                instrument_name = medical_action_config.get("instrument_name")
+                if isinstance(instrument_name, (list, set)):
+                    # Copy the set/list to avoid modifying the original
+                    medical_action_processor.mapping_config["instrument_names"] = list(instrument_name)
+                    # For backwards compatibility, use the first instrument as the primary
+                    if list(instrument_name):
+                        instrument_name_str = list(instrument_name)[0]
+                        if instrument_name_str not in ["__dummy__", ""]:
+                            medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name_str
+                elif instrument_name and instrument_name not in ["__dummy__", ""]:
+                    medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                
+                # Add mapping dicts to the configuration
+                if "mapping_dicts" in medical_action_config:
+                    medical_action_processor.mapping_config.update(medical_action_config.get("mapping_dicts", {}))
+                
+                # Add enum classes to the configuration
+                if "enum_classes" in medical_action_config:
+                    medical_action_processor.mapping_config["enum_classes"] = medical_action_config.get("enum_classes", {})
+                
+                # Map procedures
+                procedure_actions = map_medical_actions(
+                    data, 
+                    medical_action_processor,
+                    dob=individual.date_of_birth
+                )
+                
+                if procedure_actions:
+                    medical_actions.extend(procedure_actions)
+                    if debug:
+                        logger.debug(f"Generated {len(procedure_actions)} procedure-based medical actions")
             
-            # Add enum classes if present
-            _add_enum_classes_to_processor(medical_action_processor, medical_action_config.get("enum_classes", {}))
+            # TREATMENTS: Process treatments (including vaccines)
+            # Directly access treatments from mapping_configs to avoid dict structure issues
+            treatments_config = mapping_configs.get("treatments")
             
-            # Handle instrument name(s)
-            instrument_name = medical_action_config.get("instrument_name")
-            if isinstance(instrument_name, (list, set)):
-                # Copy the set/list to avoid modifying the original
-                medical_action_processor.mapping_config["instrument_names"] = list(instrument_name)
-                # For backwards compatibility, use the first instrument as the primary
-                if list(instrument_name):
-                    instrument_name_str = list(instrument_name)[0]
-                    if instrument_name_str not in ["__dummy__", ""]:
-                        medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name_str
-            elif instrument_name and instrument_name not in ["__dummy__", ""]:
-                medical_action_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+            # Debug to see actual structure
+            if debug:
+                logger.debug(f"Treatments config structure: {type(treatments_config)}")
+                if treatments_config:
+                    try:
+                        import json
+                        # Try to create a safe representation for logging
+                        logger.debug(f"Treatments config keys: {list(treatments_config.keys()) if isinstance(treatments_config, dict) else 'not a dict'}")
+                    except Exception as e:
+                        logger.debug(f"Could not log treatments config details: {e}")
             
-            # Add mapping dicts to the configuration
-            if "mapping_dicts" in medical_action_config:
-                medical_action_processor.mapping_config.update(medical_action_config.get("mapping_dicts", {}))
-            
-            # Add enum classes to the configuration
-            if "enum_classes" in medical_action_config:
-                medical_action_processor.mapping_config["enum_classes"] = medical_action_config.get("enum_classes", {})
-            
-            medical_actions = map_medical_actions(
-                data, 
-                medical_action_processor,
-                dob=individual.date_of_birth
-            )
+            # Check if treatments_config exists
+            if treatments_config:
+                # Extract and process treatment configurations in a manner similar to phenotypic features
+                
+                # Handle treatments as a list like phenotypicFeatures
+                if isinstance(treatments_config, list):
+                    logger.debug("Treating treatments config as a list of configurations")
+                    treatments_list = treatments_config
+                # Handle special case of malformed dictionary structure (common with the way Python represents nested dicts)
+                elif isinstance(treatments_config, dict):
+                    logger.debug("Converting treatments dictionary to list of configurations")
+                    treatments_list = []
+                    
+                    # Extract values that are actual configurations
+                    try:
+                        for key, value in treatments_config.items():
+                            # If the value is a dictionary, it's a proper configuration
+                            if isinstance(value, dict):
+                                logger.debug(f"Adding treatment config from key {key}")
+                                # Ensure instrument_name is set
+                                if "instrument_name" not in value and not isinstance(key, dict):
+                                    value["instrument_name"] = key
+                                treatments_list.append(value)
+                            # Special case: if the key itself is a dictionary (happens in some serialized formats)
+                            elif isinstance(key, dict):
+                                logger.debug("Found dictionary as key - adding to treatments list")
+                                treatments_list.append(key)
+                    except TypeError as e:
+                        # Handle case where dict contains unhashable types
+                        logger.warning(f"Error processing treatments dict: {e}")
+                        try:
+                            # Hacky way to extract dictionaries from the object if normal iteration fails
+                            treatments_str = str(treatments_config)
+                            logger.debug(f"Attempting to extract configs from: {treatments_str[:200]}")
+                            if "{" in treatments_str:
+                                # Try direct access to treatments config as a sequence
+                                logger.debug("Trying to access treatments as a sequence")
+                                try:
+                                    # Try to iterate through it as a sequence
+                                    for item in treatments_config:
+                                        if isinstance(item, dict):
+                                            logger.debug(f"Adding treatment item from sequence: {item.get('instrument_name', 'no-name')}")
+                                            treatments_list.append(item)
+                                except Exception as e2:
+                                    logger.warning(f"Could not iterate treatments config: {e2}")
+                        except Exception as str_err:
+                            logger.warning(f"Could not process treatments config as string: {str_err}")
+                else:
+                    # Default to empty list if treatments_config is not a recognizable structure
+                    logger.warning(f"Unrecognized treatments config type: {type(treatments_config)}")
+                    treatments_list = []
+                    
+                # Process each treatment configuration in the list
+                logger.debug(f"Processing {len(treatments_list)} treatment configurations")
+                for i, treatment_config in enumerate(treatments_list):
+                    try:
+                        if debug:
+                            logger.debug(f"Processing treatment config {i+1}: {treatment_config.get('instrument_name', 'unknown')}")
+                        
+                        # Create a processor for this treatment configuration
+                        mapping_block = treatment_config.get("mapping_block", {})
+                        treatment_processor = DataProcessor(mapping_config=mapping_block)
+                        treatment_processor.enable_debug(debug)
+                        
+                        # Add any enum classes configured for this treatment
+                        _add_enum_classes_to_processor(treatment_processor, treatment_config.get("enum_classes", {}))
+                        
+                        # Make sure enum classes from the mapping block are also added to the processor
+                        # This is a key step to ensure proper label fetching
+                        if "enum_classes" in mapping_block:
+                            for prefix, enum_class_path in mapping_block.get("enum_classes", {}).items():
+                                treatment_processor.add_enum_class(prefix, enum_class_path)
+                                logger.debug(f"Added enum class for prefix '{prefix}' from mapping block")
+                        
+                        # Set the instrument name in the processor config
+                        instrument_name = treatment_config.get("instrument_name")
+                        if instrument_name:
+                            treatment_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                        
+                        # Copy over label_dicts if present
+                        if "label_dicts" in treatment_config:
+                            treatment_processor.mapping_config["label_dicts"] = treatment_config.get("label_dicts", {})
+                        
+                        # Process this treatment configuration
+                        treatment_actions = map_medical_actions(
+                            data,
+                            treatment_processor,
+                            dob=individual.date_of_birth
+                        )
+                        
+                        # Add the resulting actions to our list - ONLY ONCE!
+                        if treatment_actions:
+                            medical_actions.extend(treatment_actions)
+                            logger.debug(f"Added {len(treatment_actions)} actions from treatment config {i+1} for {instrument_name}")
+                    except Exception as e:
+                        logger.error(f"Error processing treatment config {i+1}: {e}")
+                        if debug:
+                            logger.debug(traceback.format_exc())
             
             if debug:
-                logger.debug(f"Generated {len(medical_actions)} medical actions")
+                logger.debug(f"Generated {len(medical_actions)} total medical actions")
         except Exception as e:
             if debug:
                 logger.debug(f"Error mapping medical actions: {e}")
@@ -389,7 +513,7 @@ def create_phenopacket(
                 logger.debug(f"Error mapping diseases: {e}")
                 logger.debug(traceback.format_exc())
             diseases = []
-        
+            
         # Genetics Block --------------------------------------------------------
         # Variation Descriptor
         try:
@@ -469,6 +593,12 @@ def create_phenopacket(
             if debug:
                 logger.error(traceback.format_exc())
             raise ValueError(f"Failed to create metadata: {str(e)}")
+        
+        # Debug count of medical actions
+        if debug:
+            procedure_count = sum(1 for a in medical_actions if hasattr(a, 'procedure') and a.procedure)
+            treatment_count = sum(1 for a in medical_actions if hasattr(a, 'treatment') and a.treatment)
+            logger.debug(f"Final medical actions breakdown: {procedure_count} procedures + {treatment_count} treatments = {len(medical_actions)} total")
 
         # Construct Phenopacket -------------------------------------------------
         phenopacket = Phenopacket(
@@ -492,18 +622,3 @@ def create_phenopacket(
         if debug:
             logger.error(traceback.format_exc())
         raise
-
-def _add_enum_classes_to_processor(processor, enum_classes_config):
-    """
-    Add enum classes from the config to the processor.
-    
-    Args:
-        processor (DataProcessor): The processor to add enum classes to
-        enum_classes_config (dict): Configuration with prefix to enum class mappings
-    """
-    if not enum_classes_config:
-        return
-        
-    for prefix, enum_class_or_path in enum_classes_config.items():
-        if enum_class_or_path:
-            processor.add_enum_class(prefix, enum_class_or_path)

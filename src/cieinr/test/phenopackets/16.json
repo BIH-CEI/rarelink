@@ -329,7 +329,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "0fbec0474d034241b8c1226b6ed72f",
+                "id": "cbcf42fd125f4b4080e1962ed1523b",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -384,10 +384,106 @@
           "label": "Hematopoietic Cell Transplantation"
         }
       }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010440",
+          "label": "V116, Pneu-21"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 3.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0410256",
+          "label": "Infection associated neutropenia"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010205",
+          "label": "Men-B"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 2.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0012302",
+          "label": "Herpes simplex encephalitis"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0000123",
+          "label": "Yellow Fever"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 1.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0001945",
+          "label": "Fever"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0020189",
+          "label": "Unknown Agent"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 2.0
+        }
+      },
+      "responseToTreatment": {
+        "id": "SNOMEDCT:365589000",
+        "label": "Antibody titer - finding"
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        }
+      ]
     }
   ],
   "metaData": {
-    "created": "2025-03-22T09:59:34.981877Z",
+    "created": "2025-03-22T16:46:19.149930Z",
     "createdBy": "Adam G.",
     "resources": [
       {
