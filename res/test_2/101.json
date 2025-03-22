@@ -132,7 +132,7 @@
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000276",
+            "id": "UO:0000276",
             "label": "amount per container"
           },
           "value": 5.01
@@ -145,7 +145,8 @@
       },
       "procedure": {
         "code": {
-          "id": "Thesaurus:C17610"
+          "id": "THESAURUS:C17610",
+          "label": "Unknown Procedure"
         }
       }
     },
@@ -157,7 +158,7 @@
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000178",
+            "id": "UO:0000178",
             "label": "unit per milliliter"
           },
           "value": 4.56
@@ -187,7 +188,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "de9d50579dca42fca7e81d7881159e",
+                "id": "3a960d4fd3634d538eb007a0f3c91f",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -260,7 +261,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-22T09:47:43.209399Z",
+    "created": "2025-03-22T17:59:59.842670Z",
     "createdBy": "Adam G.",
     "resources": [
       {

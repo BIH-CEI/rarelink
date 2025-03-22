@@ -8,50 +8,50 @@ CBC_MEASUREMENT_BLOCK = {
             "assay": "cbc_haemoglobin", 
             "value": "cbc_haemoglobin_val", 
             "unit": "cbc_haemoglobin_unit", 
-            "range": "cbc_haemoglobin_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_haemoglobin_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_platelets", 
             "value": "cbc_platelets_val", 
             "unit": "cbc_platelets_unit", 
-            "range": "cbc_platelets_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_platelets_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_leukocytes", 
             "value": "cbc_leukocytes_val", 
             "unit": "cbc_leukocytes_unit", 
-            "range": "cbc_leukocytes_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_leukocytes_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_neutrophils", 
             "value": "cbc_neutrophils_val", 
             "unit": "cbc_neutrophils_unit", 
-            "range": "cbc_neutrophils_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_neutrophils_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_eosinophils", 
             "value": "cbc_eosinophils_val", 
             "unit": "cbc_eosinophils_unit", 
-            "range": "cbc_eosinophils_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_eosinophils_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_lymphocytes", 
             "value": "cbc_lymphocytes_val", 
             "unit": "cbc_lymphocytes_unit", 
-            "range": "cbc_lymphocytes_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_lymphocytes_range", 
+            "value_type": "dual"
         },
         {
             "assay": "cbc_monocytes", 
             "value": "cbc_monocytes_val", 
             "unit": "cbc_monocytes_unit", 
-            "range": "cbc_monocytes_range", 
-            "value_type": "quantity"
+            "interpretation": "cbc_monocytes_range", 
+            "value_type": "dual"
         }
     ]
 }

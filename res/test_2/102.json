@@ -90,7 +90,7 @@
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0010046",
+            "id": "UO:0010046",
             "label": "united states customary cup"
           },
           "value": 1.54
@@ -103,7 +103,8 @@
       },
       "procedure": {
         "code": {
-          "id": "Thesaurus:C12434"
+          "id": "THESAURUS:C12434",
+          "label": "Unknown Procedure"
         }
       }
     }
@@ -125,7 +126,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "80329439640546bab1ea6a62de6d5b",
+                "id": "cc495df514994cd7af27181d4b2872",
                 "geneContext": {
                   "valueId": "HGNC:4238",
                   "symbol": "GFI1B"
@@ -184,7 +185,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-22T09:48:06.014619Z",
+    "created": "2025-03-22T18:00:22.932498Z",
     "createdBy": "Adam G.",
     "resources": [
       {

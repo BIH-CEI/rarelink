@@ -100,11 +100,11 @@ def _map_instrument_measurements(data: dict, processor: DataProcessor, dob: str 
         # Process all measurement elements
         measurements = []
         for element in measurement_elements:
-            element_data = element.get(instrument_name)
+            # Try both direct access (CIEINR) and nested "measurements" field (RareLink CDM)
+            element_data = element.get(instrument_name) or element.get("measurements")
             if not element_data:
                 logger.debug(f"No data found for element with instrument {instrument_name}")
                 continue
-                
             # Handle multi-measurement
             if multi_measurement and measurement_fields:
                 # Process measurements field by field
