@@ -1,5 +1,5 @@
 import logging
-from typing import List, Any, Optional, Dict
+from typing import List
 from phenopackets import (
     Measurement, 
     OntologyClass, 
@@ -10,7 +10,6 @@ from phenopackets import (
     Age
 )
 from rarelink.utils.processor import DataProcessor
-from rarelink.utils.loading import _get_multi_instrument_field_value
 
 logger = logging.getLogger(__name__)
 

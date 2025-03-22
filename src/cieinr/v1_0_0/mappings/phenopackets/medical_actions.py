@@ -32,7 +32,7 @@ INACTIVATE_VACCINE_BLOCK = {
     "response_field_2": "inactiv_vax_response",
     "previous_pneumococcal_vaccine": "vo_0000424_before_pneu",
     "enum_classes": {
-        "vo_": "cieinr.v1_0_0.python_schemas.vaccines.LiveVaccineTypeEnum"
+        "vo_": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
     }
 }
 # Live vaccine mapping
@@ -50,6 +50,6 @@ LIVE_VACCINE_BLOCK = {
     "response_field_3": "mumps_response",
     "response_field_4": "rubella_response",
     "enum_classes": {
-        "vo_": "cieinr.v1_0_0.python_schemas.vaccines.LiveVaccineTypeEnum"
+        "vo_": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
     }
 }

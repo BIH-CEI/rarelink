@@ -102,24 +102,24 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "enable_field_scanning": False,
                 # Enum classes
                 "enum_classes": {
-                    "type_of_condition": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConditionTypeEnum",
-                    "snomedct_95320005": "cieinr.v1_0_0.python_schemas.form_4_conditions.SkinConditionEnum",
-                    "snomedct_118938008": "cieinr.v1_0_0.python_schemas.form_4_conditions.DentalConditionEnum",
-                    "snomedct_50043002": "cieinr.v1_0_0.python_schemas.form_4_conditions.SinoPulmonaryConditionEnum",
-                    "snomedct_49601007": "cieinr.v1_0_0.python_schemas.form_4_conditions.CardiovascularConditionEnum",
-                    "mondo_0005570": "cieinr.v1_0_0.python_schemas.form_4_conditions.HematologicLymphoidConditionEnum",
-                    "snomedct_928000": "cieinr.v1_0_0.python_schemas.form_4_conditions.MusculoskeletalConditionEnum",
-                    "snomedct_119292006": "cieinr.v1_0_0.python_schemas.form_4_conditions.GastrointestinalConditionEnum",
-                    "mondo_0005265_evidence": "cieinr.v1_0_0.python_schemas.form_4_conditions.IBDEvidenceEnum",
-                    "snomedct_362969004": "cieinr.v1_0_0.python_schemas.form_4_conditions.EndocrineMetabolicConditionEnum",
-                    "snomedct_42030000": "cieinr.v1_0_0.python_schemas.form_4_conditions.GenitourinaryConditionEnum",
-                    "snomedct_55342001": "cieinr.v1_0_0.python_schemas.form_4_conditions.NeoplasticConditionEnum",
-                    "snomedct_85828009": "cieinr.v1_0_0.python_schemas.form_4_conditions.AutoimmuneConditionEnum",
-                    "hp_0025142": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConstitutionalConditionEnum",
-                    "snomedct_5294002": "cieinr.v1_0_0.python_schemas.form_4_conditions.GrowthDevelopmentConditionEnum",
-                    "modifier_field_3": "cieinr.v1_0_0.python_schemas.form_4_conditions.EBVStatusEnum",
-                    "modifier_field_4": "cieinr.v1_0_0.python_schemas.form_4_conditions.EBVStatusEnum",
-                    "modifier_field_5": "cieinr.v1_0_0.python_schemas.form_4_conditions.EBVStatusEnum"
+                    "type_of_condition": "cieinr.v1_0_0.python_schemas.form_5_conditions.ConditionTypeEnum",
+                    "snomedct_95320005": "cieinr.v1_0_0.python_schemas.form_5_conditions.SkinConditionEnum",
+                    "snomedct_118938008": "cieinr.v1_0_0.python_schemas.form_5_conditions.DentalConditionEnum",
+                    "snomedct_50043002": "cieinr.v1_0_0.python_schemas.form_5_conditions.SinoPulmonaryConditionEnum",
+                    "snomedct_49601007": "cieinr.v1_0_0.python_schemas.form_5_conditions.CardiovascularConditionEnum",
+                    "mondo_0005570": "cieinr.v1_0_0.python_schemas.form_5_conditions.HematologicLymphoidConditionEnum",
+                    "snomedct_928000": "cieinr.v1_0_0.python_schemas.form_5_conditions.MusculoskeletalConditionEnum",
+                    "snomedct_119292006": "cieinr.v1_0_0.python_schemas.form_5_conditions.GastrointestinalConditionEnum",
+                    "mondo_0005265_evidence": "cieinr.v1_0_0.python_schemas.form_5_conditions.IBDEvidenceEnum",
+                    "snomedct_362969004": "cieinr.v1_0_0.python_schemas.form_5_conditions.EndocrineMetabolicConditionEnum",
+                    "snomedct_42030000": "cieinr.v1_0_0.python_schemas.form_5_conditions.GenitourinaryConditionEnum",
+                    "snomedct_55342001": "cieinr.v1_0_0.python_schemas.form_5_conditions.NeoplasticConditionEnum",
+                    "snomedct_85828009": "cieinr.v1_0_0.python_schemas.form_5_conditions.AutoimmuneConditionEnum",
+                    "hp_0025142": "cieinr.v1_0_0.python_schemas.form_5_conditions.ConstitutionalConditionEnum",
+                    "snomedct_5294002": "cieinr.v1_0_0.python_schemas.form_5_conditions.GrowthDevelopmentConditionEnum",
+                    "modifier_field_3": "cieinr.v1_0_0.python_schemas.form_5_conditions.EBVStatusEnum",
+                    "modifier_field_4": "cieinr.v1_0_0.python_schemas.form_5_conditions.EBVStatusEnum",
+                    "modifier_field_5": "cieinr.v1_0_0.python_schemas.form_5_conditions.EBVStatusEnum"
                 }
                 
             }
