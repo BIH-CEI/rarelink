@@ -25,8 +25,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         mapping['name']: mapping['mapping'] 
         for mapping in mapping_dicts
     }
-
-    # Create a comprehensive mapping structure
     return {
         "individual": {
             "instrument_name": "patient_demographics_initial_form",
@@ -41,15 +39,13 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "enum_classes": {}
         },
         "diseases": {
-            # Using a set for multiple instruments
             "instrument_name": {"basic_form", "patient_demographics_initial_form"},
             "mapping_block": DISEASE_BLOCK,
             "enum_classes": {
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
-        # Use separate configurations for each phenotypic feature type 
-        # Instead of using instrument_configs which might not be processed correctly
+        # separate configurations for each phenotypic feature type: Infections & Conditions
         "phenotypicFeatures": [
             # Infections config
             {

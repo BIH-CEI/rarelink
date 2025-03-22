@@ -1,0 +1,148 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_lymphopheno_annual.yaml
+name: lymphocytes_phenotype_2
+description: >
+  Annual lymphocyte phenotype form capturing immune cell measurements at a later time point 
+  (with updated values) for Phenopackets export.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  LOINC: http://loinc.org/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  LymphocytesPhenotypeAnnual:
+    description: >
+      Annual lymphocyte phenotype form capturing updated test timing and immune cell measurements 
+      (T cells, B cells, and Natural Killer cells).
+    slots:
+      - lympheno_test_date_v2
+      - lympheno_loinc_8122_4_int_v2
+      - lympheno_loinc_8122_4_unito_v2
+      - lympheno_loinc_24467_3_int_v2
+      - lympheno_loinc_24467_3_val_v2
+      - lympheno_loinc_14135_8_int_v2
+      - lympheno_loinc_14135_8_val_v2
+      - lympheno_loinc_8116_6_int_v2
+      - lympheno_loinc_8116_6_val_v2
+      - lympheno_loinc_9558_8_int_v2
+      - lympheno_loinc_9558_8_val_v2
+      - lympheno_loinc_9728_7_int_v2
+      - lympheno_loinc_9728_7_val_v2
+      - lymphopheno_other_v2
+      - lymphopheno_test_v2
+
+slots:
+  lympheno_test_date_v2:
+    title: Lymphocyte Phenotype Test Date
+    description: >
+      Date of the lymphocyte phenotype test (format: 01-M-Y).
+    range: date_dmy
+    required: false
+
+  lympheno_loinc_8122_4_int_v2:
+    title: CD3+ T cells interpretation
+    description: Interpretation of CD3+ T cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_8122_4_unito_v2:
+    title: CD3+ T Cells x10^9/l
+    description: Measurement of CD3+ T cells.
+    range: string
+    required: false
+
+  lympheno_loinc_24467_3_int_v2:
+    title: CD3+CD4+ T cells interpretation
+    description: Interpretation of CD3+CD4+ T cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_24467_3_val_v2:
+    title: CD3+CD4+ T cells x10^9/l
+    description: Value for CD3+CD4+ T cells.
+    range: decimal
+    required: false
+
+  lympheno_loinc_14135_8_int_v2:
+    title: CD3+CD8+ T cells interpretation
+    description: Interpretation of CD3+CD8+ T cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_14135_8_val_v2:
+    title: CD3+CD8+ T cells x10^9/l
+    description: Value for CD3+CD8+ T cells.
+    range: decimal
+    required: false
+
+  lympheno_loinc_8116_6_int_v2:
+    title: CD19+ B cells interpretation
+    description: Interpretation of CD19+ B cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_8116_6_val_v2:
+    title: CD19+ B cells x10^9/l
+    description: Value for CD19+ B cells.
+    range: decimal
+    required: false
+
+  lympheno_loinc_9558_8_int_v2:
+    title: CD20+ B cells interpretation
+    description: Interpretation of CD20+ B cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_9558_8_val_v2:
+    title: CD20+ B cells x10^9/l
+    description: Value for CD20+ B cells.
+    range: decimal
+    required: false
+
+  lympheno_loinc_9728_7_int_v2:
+    title: Natural Killer cells interpretation
+    description: Interpretation of CD3-CD16+CD56+ Natural Killer cells.
+    range: LabInterpretationEnum
+    required: false
+
+  lympheno_loinc_9728_7_val_v2:
+    title: Natural Killer cells x10^9/l
+    description: Value for CD3-CD16+CD56+ Natural Killer cells.
+    range: decimal
+    required: false
+
+  lymphopheno_other_v2:
+    title: Other lymphocyte phenotype
+    description: >
+      If other subsets were tested, type in data or upload a de-identified report and add comments.
+    range: notes
+    required: false
+
+  lymphopheno_test_v2:
+    title: Lymphocyte phenotype test file
+    description: >
+      Please upload the PDF results of the test. Remove patient’s personal information.
+    range: file
+    required: false
+
+enums:
+  LabInterpretationEnum:
+    description: Interpretation of lab values.
+    permissible_values:
+      ncit_c78801:
+        description: Below age-related reference range
+        meaning: NCIT:C78801
+      ncit_c78800:
+        description: Within age-related reference range
+        meaning: NCIT:C78800
+      ncit_c78727:
+        description: Above age-related reference range
+        meaning: NCIT:C78727
+      "1":
+        description: not done

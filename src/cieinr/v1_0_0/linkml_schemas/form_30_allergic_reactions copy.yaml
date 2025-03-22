@@ -1,0 +1,78 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_allergic_reactions.yaml
+name: allergic_reactions
+description: >
+  Allergic Reactions form capturing the date of form completion, whether the patient has had allergic reactions,
+  whether allergy testing was performed, and the date of the allergy test.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://purl.obolibrary.org/obo/SNOMEDCT_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  AllergicReactions:
+    description: >
+      Form for capturing allergic reaction data.
+    slots:
+      - completion_date_allergy
+      - allergic_yes
+      - procedure_7
+      - allergic_test_date
+
+slots:
+  completion_date_allergy:
+    title: Date of Completion
+    description: Date of completion of this form.
+    range: union_date_string
+    required: false
+
+  allergic_yes:
+    title: Allergic Reactions Present
+    description: Has the patient had any allergic reactions?
+    range: AllergicYesEnum
+    required: false
+
+  procedure_7:
+    title: Allergy Testing Performed
+    description: Has the patient been tested for allergy?
+    range: AllergyTestEnum
+    required: false
+
+  allergic_test_date:
+    title: Allergy Test Date
+    description: What is the date of the test? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+enums:
+  AllergicYesEnum:
+    description: Options for whether the patient had allergic reactions.
+    permissible_values:
+      "1":
+        description: Yes
+        meaning: "1"
+      "2":
+        description: No
+        meaning: "2"
+      "3":
+        description: Unknown
+        meaning: "3"
+
+  AllergyTestEnum:
+    description: Options for allergy testing.
+    permissible_values:
+      snomedct_165007007:
+        description: Yes
+        meaning: SNOMEDCT:165007007
+      snomedct_165008002:
+        description: No
+        meaning: SNOMEDCT:165008002
+      "3":
+        description: Unknown
+        meaning: "3"

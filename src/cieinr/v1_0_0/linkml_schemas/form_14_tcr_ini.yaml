@@ -1,0 +1,92 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_tcr_v_beta.yaml
+name: tcr_v_beta
+description: >
+  Initial TCR V Beta test form capturing whether the test was performed,
+  the test timing information, the test date, the TCR V Beta repertoire response,
+  and an option to upload a PDF test report.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  LOINC: http://loinc.org/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  TCRVBeta:
+    description: >
+      Initial TCR V Beta test information.
+    slots:
+      - tcr_test
+      - type_tcr_test
+      - date_tcr_test
+      - tcr_v_beta_response
+      - tcr_v_pdf_test
+
+slots:
+  tcr_test:
+    title: Was the TCR V Beta test performed?
+    description: ""
+    range: TCRTestEnum
+    required: false
+
+  type_tcr_test:
+    title: Test Timing for TCR V Beta
+    description: >
+      Please provide the following information at each designated time point if possible. Click on the time point you are reporting.
+    range: TCRTestTimingEnum
+    required: false
+
+  date_tcr_test:
+    title: Date of TCR V Beta Test
+    description: >
+      What is the date of the test? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+  tcr_v_beta_response:
+    title: TCR-V Beta Repertoire
+    description: >
+      TCR-V Beta Repertoire response.
+    range: TCRVBetaResponseEnum
+    required: false
+
+  tcr_v_pdf_test:
+    title: TCR V Beta Test PDF
+    description: >
+      Please upload the PDF test results (REMOVE PATIENT'S PERSONAL INFORMATION).
+    range: file
+    required: false
+
+enums:
+  TCRTestEnum:
+    description: Options for whether the TCR V Beta test was performed.
+    permissible_values:
+      ncit_c129657:
+        description: Yes
+      no:
+        description: No
+
+  TCRTestTimingEnum:
+    description: Options for test timing.
+    permissible_values:
+      ncit_c199317:
+        description: Test before the time of diagnosis (to remove)
+      ncit_c100059:
+        description: Test after diagnosis (to remove)
+      "1":
+        description: Before the time of diagnosis of IEI and initiation of any treatment, if available
+      "2":
+        description: Most recent test
+
+  TCRVBetaResponseEnum:
+    description: TCR V Beta repertoire response.
+    permissible_values:
+      ncit_c14165:
+        description: Normal
+      ncit_c25401:
+        description: Skewed

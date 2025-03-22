@@ -1,0 +1,64 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_surgeries_and_procedures.yaml
+name: surgeries_and_procedures
+description: >
+  Surgeries and Procedures form capturing the date of form completion, surgical treatment history,
+  the procedure date, and details about the procedure.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  SurgeriesAndProcedures:
+    description: >
+      Form for capturing surgical treatment and procedure details.
+    slots:
+      - completion_date_surgery
+      - procedure_13
+      - procedure_13_date
+      - surg_proced
+
+slots:
+  completion_date_surgery:
+    title: Date of Form Completion
+    description: Date of completing this form.
+    range: date_ymd
+    required: false
+
+  procedure_13:
+    title: Surgical Treatment History
+    description: Has the patient received any surgical treatment or procedure (e.g., splenectomy)?
+    range: SurgeryTestEnum
+    required: false
+
+  procedure_13_date:
+    title: Procedure Date
+    description: Please indicate the date of the procedure (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  surg_proced:
+    title: Surgical Procedure Details
+    description: Please indicate what surgical procedure was done and why.
+    range: string
+    required: false
+
+enums:
+  SurgeryTestEnum:
+    description: Options for surgical treatment.
+    permissible_values:
+      ncit_c15329:
+        description: Yes
+        meaning: NCIT:C15329
+      "0":
+        description: No
+        meaning: "0"
+      "2":
+        description: Unknown
+        meaning: "2"

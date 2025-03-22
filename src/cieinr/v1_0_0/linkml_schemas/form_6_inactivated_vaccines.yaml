@@ -1,0 +1,235 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/linkml_schemas/inactivated_vaccine.yaml
+name: inactivated_vaccine
+description: >
+  Schema for the inactivated vaccine history and specific immune response form.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://snomed.info/sct/
+  VO: https://purl.obolibrary.org/obo/VO_
+  HP: https://purl.obolibrary.org/obo/HP_
+  NCIT: http://purl.obolibrary.org/obo/NCIT/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  InactivatedVaccineHistory:
+    description: >
+      Form capturing inactivated vaccine history and specific immune response.
+    slots:
+      - completion_of_inact_vax
+      - inactiv_vax
+      - inactiv_vax_other
+      - inactiv_vax_dose
+      - inactiv_vax_ae
+      - inactiv_vax_ae_other
+      - inactiv_vax_ae_severity
+      - vo_0000424_before_pneu
+      - inactiv_vax_response
+      - inactiv_vax_response_date
+
+slots:
+  completion_of_inact_vax:
+    title: Date of Form Completion
+    description: Date of completing this form.
+    range: union_date_string
+    required: false
+
+  inactiv_vax:
+    title: Inactivated Vaccine Type
+    description: Please indicate what type of vaccine the participant received.
+    range: InactivatedVaccineTypeEnum
+    required: false
+
+  inactiv_vax_other:
+    title: Other Inactivated Vaccine
+    description: >
+      Indicate 'other' inactive vaccination [VO]. Please search in the Vaccine Ontology.
+    range: string
+    required: false
+    # Condition: [inactiv_vax] = 'other'
+
+  inactiv_vax_dose:
+    title: Inactivated Vaccine Doses
+    description: How many doses of the selected inactivated vaccine were given?
+    range: InactivatedVaccineDoseEnum
+    required: false
+
+  inactiv_vax_ae:
+    title: Adverse Event Observed
+    description: Was an adverse event observed after this vaccine?
+    range: AdverseEventEnum
+    required: false
+
+  inactiv_vax_ae_other:
+    title: Adverse Event Details
+    description: >
+      Please search in the HPO for the type of adverse events.
+    range: string
+    required: false
+    # Condition: [inactiv_vax_ae] = 'hp_0020085'
+
+  inactiv_vax_ae_severity:
+    title: Adverse Event Severity
+    description: How severe were the observed adverse events for this vaccine?
+    range: InactivatedVaccineAdverseEventSeverityEnum
+    required: false
+
+  vo_0000424_before_pneu:
+    title: Pre-Vaccination Pneumococcal Response
+    description: >
+      What was the Pneumococcal response measured before vaccination?
+    range: PneumococcalResponseEnum
+    required: false
+    # Condition: [inactiv_vax] in ('vo_0010211', 'vo_0006041', 'vo_0010356', 'vo_0000088')
+
+  inactiv_vax_response:
+    title: Post-Vaccination Response Evaluation
+    description: Post-vaccination response evaluation.
+    range: VaccineResponseEnum
+    required: false
+
+  inactiv_vax_response_date:
+    title: Vaccination Response Date
+    description: >
+      Please indicate month and year of specific vaccination response evaluation (format: 01-M-Y).
+    range: union_date_string
+    required: false
+    # Condition: [inactiv_vax_response] equals an applicable value
+
+enums:
+  InactivatedVaccineTypeEnum:
+    description: Types of inactivated vaccines.
+    permissible_values:
+      vo_0000738:
+        description: DTap (Diphtheria, Tetanus, Acellular Pertussis)
+        meaning: vo_0000738
+      vo_0000662:
+        description: Haemophilus Influenza Type b
+        meaning: vo_0000662
+      vo_0010211:
+        description: PrevNar/Pneu-C-13
+        meaning: vo_0010211
+      vo_0006041:
+        description: PrevNar/Pneu-C-15
+        meaning: vo_0006041
+      vo_0010356:
+        description: PrevNar/Pneu-C-20
+        meaning: vo_0010356
+      vo_0010440:
+        description: V116, Pneu-21
+        meaning: vo_0010440
+      vo_0006033:
+        description: Men-C
+        meaning: vo_0006033
+      vo_0010205:
+        description: Men-B
+        meaning: vo_0010205
+      vo_0010727:
+        description: Meningococcal Quadrivalent Vaccine
+        meaning: vo_0010727
+      vo_0000667:
+        description: HPV
+        meaning: vo_0000667
+      vo_0000644:
+        description: Hepatitis B
+        meaning: vo_0000644
+      vo_0003196:
+        description: Acellular Pertussis
+        meaning: vo_0003196
+      vo_0000664:
+        description: IPV (Polio)
+        meaning: vo_0000664
+      vo_0000088:
+        description: Pneumovax
+        meaning: vo_0000088
+      vo_0004908:
+        description: COVID-19
+        meaning: vo_0004908
+      vo_0000642:
+        description: Flu
+        meaning: vo_0000642
+      other:
+        description: Other
+        meaning: other
+
+  InactivatedVaccineDoseEnum:
+    description: Number of doses for inactivated vaccine.
+    permissible_values:
+      "1":
+        description: Dose 1
+        meaning: "1"
+      "2":
+        description: Dose 2
+        meaning: "2"
+      "3":
+        description: Dose 3
+        meaning: "3"
+      "4":
+        description: Dose 4
+        meaning: "4"
+      "5":
+        description: Dose 5 and more
+        meaning: "5"
+      "6":
+        description: Vaccine not received
+        meaning: "6"
+
+  AdverseEventEnum:
+    description: Adverse event observation for inactivated vaccine.
+    permissible_values:
+      hp_0020085:
+        description: Yes
+        meaning: hp_0020085
+      hp_0020085_exluded:
+        description: No
+        meaning: hp_0020085_exluded
+      snomedct_261665006:
+        description: Unknown
+        meaning: snomedct_261665006
+
+  InactivatedVaccineAdverseEventSeverityEnum:
+    description: Severity levels of adverse events.
+    permissible_values:
+      hp_0012825:
+        description: Mild
+        meaning: hp_0012825
+      hp_0012826:
+        description: Moderate/medically attended
+        meaning: hp_0012826
+      hp_0012828:
+        description: Life threatening/medically attended
+        meaning: hp_0012828
+
+  PneumococcalResponseEnum:
+    description: Pneumococcal response measured before vaccination.
+    permissible_values:
+      snomedct_365589000:
+        description: Adequate antibody response
+        meaning: snomedct_365589000
+      snomedct_266721009:
+        description: No antibody response
+        meaning: snomedct_266721009
+      snomedct_261665006:
+        description: Unknown
+        meaning: snomedct_261665006
+
+  VaccineResponseEnum:
+    description: Post-vaccination response evaluation.
+    permissible_values:
+      snomedct_365589000:
+        description: Adequate antibody response
+        meaning: snomedct_365589000
+      snomedct_266721009:
+        description: No antibody response
+        meaning: snomedct_266721009
+      snomedct_261665006:
+        description: Not measured/unknown
+        meaning: snomedct_261665006
+      other:
+        description: Other
+        meaning: other

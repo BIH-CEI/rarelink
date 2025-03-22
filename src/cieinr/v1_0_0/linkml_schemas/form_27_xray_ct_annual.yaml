@@ -1,0 +1,85 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_pft_chest_xray_ct_annual.yaml
+name: pft_test_chest_xray_chest_ctscan_2
+description: >
+  Annual form capturing updated details for PFT, chest x-ray, and CT thorax test.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://purl.obolibrary.org/obo/SNOMEDCT_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  PFTChestXrayCTAnnual:
+    description: >
+      Annual test form capturing updated details of PFT, chest x-ray, and CT thorax.
+    slots:
+      - completion_date_pft_v2
+      - procedure_1_v2
+      - date_pft_annual_v2
+      - fev1_annual_v2
+      - xray_results_annual_v2
+      - pdf_chest_xray_annual_v2
+      - hrct_result_annual_v2
+      - pdf_chest_ct_annual_v2
+      - other_investigations_1_v2
+
+slots:
+  completion_date_pft_v2:
+    title: Date of Completion of Form
+    description: Date of completion of this form (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  procedure_1_v2:
+    title: Test Performed
+    description: Please choose the test performed.
+    range: Procedure1Enum
+    required: false
+
+  date_pft_annual_v2:
+    title: Test Date
+    description: What was the date of the test? (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  fev1_annual_v2:
+    title: FEV1 (% of predicted)
+    description: What was the FEV1 (% of predicted)?
+    range: string
+    required: false
+
+  xray_results_annual_v2:
+    title: Chest X-ray Results
+    description: Please indicate the results of the chest x-ray.
+    range: XrayResultEnum
+    required: false
+
+  pdf_chest_xray_annual_v2:
+    title: Chest X-ray PDF
+    description: Please upload the chest x-ray pdf test results. REMOVE PATIENT'S PERSONAL INFORMATION.
+    range: file
+    required: false
+
+  hrct_result_annual_v2:
+    title: CT Thorax Results
+    description: Please indicate the results of the CT thorax.
+    range: CTResultEnum
+    required: false
+
+  pdf_chest_ct_annual_v2:
+    title: CT Thorax PDF
+    description: Please upload the CT thorax pdf test results. REMOVE PATIENT'S PERSONAL INFORMATION.
+    range: file
+    required: false
+
+  other_investigations_1_v2:
+    title: Other Investigations Comments
+    description: Please describe any other important instrumental test results (MRIs, CT scans, X-rays).
+    range: string
+    required: false

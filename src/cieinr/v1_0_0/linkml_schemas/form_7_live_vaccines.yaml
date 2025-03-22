@@ -1,0 +1,226 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/linkml_schemas/live_vaccine.yaml
+name: live_vaccine
+description: >
+  Schema for the live vaccine administration and specific immune response form.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://snomed.info/sct/
+  VO: https://purl.obolibrary.org/obo/VO_
+  HP: https://purl.obolibrary.org/obo/HP_
+  NCIT: http://purl.obolibrary.org/obo/NCIT/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  LiveVaccineHistory:
+    description: >
+      Form capturing live vaccine administration and specific immune response.
+    slots:
+      - completion_live_vax
+      - live_vax
+      - live_vax_other
+      - live_vax_dosages
+      - live_vax_ae
+      - ae_live_vax
+      - live_vax_ae_other
+      - live_vax_ae_severity
+      - live_vax_response
+      - life_vax_response_date
+      - measles_response
+      - mumps_response
+      - rubella_response
+
+slots:
+  completion_live_vax:
+    title: Date of Form Completion
+    description: Date of completion of this form.
+    range: union_date_string
+    required: false
+
+  live_vax:
+    title: Live Vaccine Type
+    description: Which kind of live vaccine was administered?
+    range: LiveVaccineTypeEnum
+    required: false
+
+  live_vax_other:
+    title: Other Live Vaccine
+    description: >
+      Please indicate 'other' Live Vaccination? [VO]. Please search in the Vaccine Ontology.
+    range: string
+    required: false
+
+  live_vax_dosages:
+    title: Live Vaccine Dosages
+    description: How many doses of the selected Live Vaccination?
+    range: LiveVaccineDosagesEnum
+    required: false
+
+  live_vax_ae:
+    title: Vaccine-associated Infection
+    description: >
+      Was a vaccine-associated infection observed to the selected live vaccine?
+    range: VaccineAssociatedInfectionEnum
+    required: false
+
+  ae_live_vax:
+    title: Adverse Event Observed
+    description: Was an adverse event observed?
+    range: AdverseEventObservationEnum
+    required: false
+
+  live_vax_ae_other:
+    title: Adverse Event Details
+    description: >
+      Please search in the HPO for the type of adverse events.
+    range: string
+    required: false
+
+  live_vax_ae_severity:
+    title: Adverse Event Severity
+    description: How severe were the observed adverse events for this vaccine?
+    range: LiveVaccineAdverseEventSeverityEnum
+    required: false
+
+  live_vax_response:
+    title: Post-Vaccination Response Evaluation
+    description: Response of the selected vaccine.
+    range: VaccineResponseEnum
+    required: false
+
+  life_vax_response_date:
+    title: Live Vaccine Response Date
+    description: >
+      What is the date of measurement of specific immune response to live vaccine?
+      (Do not include the day; indicate month and year only in format: 01_mm_yyy)
+    range: union_date_string
+    required: false
+
+  measles_response:
+    title: Measles Response
+    description: Measles response.
+    range: VaccineResponseEnum
+    required: false
+
+  mumps_response:
+    title: Mumps Response
+    description: Mumps response.
+    range: VaccineResponseEnum
+    required: false
+
+  rubella_response:
+    title: Rubella Response
+    description: Rubella response.
+    range: VaccineResponseEnum
+    required: false
+
+enums:
+  LiveVaccineTypeEnum:
+    description: Types of live vaccines.
+    permissible_values:
+      vo_0010209:
+        description: Oral Polio vaccine
+        meaning: vo_0010209
+      vo_0000731:
+        description: MMR (Measles, Mumps, Rubella)
+        meaning: vo_0000731
+      vo_0021165:
+        description: Varicella
+        meaning: vo_0021165
+      vo_0000433:
+        description: Vaccinia
+        meaning: vo_0000433
+      vo_0000771:
+        description: BCG
+        meaning: vo_0000771
+      vo_0000123:
+        description: Yellow Fever
+        meaning: vo_0000123
+      vo_0003495:
+        description: Influenza
+        meaning: vo_0003495
+      vo_0000658:
+        description: Rotavirus
+        meaning: vo_0000658
+      other:
+        description: Other
+        meaning: other
+
+  LiveVaccineDosagesEnum:
+    description: Number of doses for live vaccine.
+    permissible_values:
+      "1":
+        description: Dose 1
+        meaning: "1"
+      "2":
+        description: Dose 2
+        meaning: "2"
+      "3":
+        description: Dose 3
+        meaning: "3"
+      "4":
+        description: Dose 4
+        meaning: "4"
+      "5":
+        description: Dose 5 and more
+        meaning: "5"
+
+  VaccineAssociatedInfectionEnum:
+    description: Vaccine-associated infection observation.
+    permissible_values:
+      hp_0020085:
+        description: Vaccine-associated infection was observed
+        meaning: hp_0020085
+      hp_0020085_exluded:
+        description: No vaccine-associated infection was observed
+        meaning: hp_0020085_exluded
+      snomedct_261665006:
+        description: Unknown
+        meaning: snomedct_261665006
+
+  AdverseEventObservationEnum:
+    description: Adverse event observation for live vaccine.
+    permissible_values:
+      "1":
+        description: Yes
+        meaning: "1"
+      "2":
+        description: No
+        meaning: "2"
+      "3":
+        description: Unknown
+        meaning: "3"
+
+  LiveVaccineAdverseEventSeverityEnum:
+    description: Severity levels of adverse events for live vaccine.
+    permissible_values:
+      hp_0012825:
+        description: Mild
+        meaning: hp_0012825
+      hp_0012826:
+        description: Moderate/medically attended
+        meaning: hp_0012826
+      hp_0012828:
+        description: Life threatening/medically attended
+        meaning: hp_0012828
+
+  VaccineResponseEnum:
+    description: Vaccine response evaluation.
+    permissible_values:
+      snomedct_365589000:
+        description: Adequate antibody response
+        meaning: snomedct_365589000
+      snomedct_266721009:
+        description: No antibody response
+        meaning: snomedct_266721009
+      snomedct_261665006:
+        description: Not measured/unknown
+        meaning: snomedct_261665006
+      other:
+        description: Other
+        meaning: other

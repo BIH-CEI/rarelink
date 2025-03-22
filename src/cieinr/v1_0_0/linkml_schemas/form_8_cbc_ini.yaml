@@ -1,0 +1,365 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/cbc.yaml
+name: cbc
+description: >
+  Complete Blood Count (CBC) form capturing lab test information including test type, 
+  date, and measurements for haemoglobin, platelets, leukocytes, neutrophils, eosinophils, 
+  lymphocytes, and monocytes.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  LOINC: http://loinc.org/
+  UO: http://purl.obolibrary.org/obo/UO_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  CBC:
+    description: >
+      Complete Blood Count (CBC) measurements including the type of test performed, 
+      the capture date, and lab values for multiple blood components.
+    slots:
+      - cbc_type
+      - cbc_date
+      - cbc_haemoglobin
+      - cbc_haemoglobin_unit
+      - cbc_haemoglobin_range
+      - cbc_haemoglobin_val
+      - cbc_platelets
+      - cbc_platelets_unit
+      - cbc_platelets_range
+      - cbc_platelets_val
+      - cbc_leukocytes
+      - cbc_leukocytes_unit
+      - cbc_leukocytes_range
+      - cbc_leukocytes_val
+      - cbc_neutrophils
+      - cbc_neutrophils_unit
+      - cbc_neutrophils_range
+      - cbc_neutrophils_val
+      - cbc_eosinophils
+      - cbc_eosinophils_unit
+      - cbc_eosinophils_range
+      - cbc_eosinophils_val
+      - cbc_lymphocytes
+      - cbc_lymphocytes_unit
+      - cbc_lymphocytes_range
+      - cbc_lymphocytes_val
+      - cbc_monocytes
+      - cbc_monocytes_unit
+      - cbc_monocytes_range
+      - cbc_monocytes_val
+
+slots:
+  cbc_type:
+    title: CBC Type
+    description: >
+      Please select the appropriate box(es) depending on the information you are providing.
+    range: CBCTypeEnum
+    required: false
+
+  cbc_date:
+    title: CBC Date
+    description: Please enter the date of the CBC captured.
+    range: union_date_string
+    required: false
+
+  cbc_haemoglobin:
+    title: CBC - Haemoglobin
+    description: >
+      Hemoglobin test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: HaemoglobinTestEnum
+    required: false
+
+  cbc_haemoglobin_unit:
+    title: Haemoglobin Unit
+    description: Please select the unit for haemoglobin.
+    range: HaemoglobinUnitEnum
+    required: false
+    # Condition: [cbc_haemoglobin] <> ''
+
+  cbc_haemoglobin_range:
+    title: Haemoglobin Range
+    description: Please select the reference range for haemoglobin.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_haemoglobin] <> ''
+
+  cbc_haemoglobin_val:
+    title: Hemoglobin Value
+    description: Hemoglobin [g/dL] in Blood (Unit g/dL)
+    range: decimal
+    required: false
+    # Condition: [cbc_haemoglobin] <> ''
+
+  cbc_platelets:
+    title: CBC - Platelets
+    description: >
+      Platelets test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: PlateletsTestEnum
+    required: false
+
+  cbc_platelets_unit:
+    title: Platelets Unit
+    description: Please select the unit for platelets.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_platelets] <> ''
+
+  cbc_platelets_range:
+    title: Platelets Range
+    description: Please select the reference range for platelets.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_platelets] <> ''
+
+  cbc_platelets_val:
+    title: Platelets Value
+    description: Platelets [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_platelets] <> ''
+
+  cbc_leukocytes:
+    title: CBC - Leukocytes
+    description: >
+      Leukocytes test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: LeukocytesTestEnum
+    required: false
+
+  cbc_leukocytes_unit:
+    title: Leukocytes Unit
+    description: Please select the unit for leukocytes.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_leukocytes] <> ''
+
+  cbc_leukocytes_range:
+    title: Leukocytes Range
+    description: Please select the reference range for leukocytes.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_leukocytes] <> ''
+
+  cbc_leukocytes_val:
+    title: Leukocytes Value
+    description: Leukocytes [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_leukocytes] <> ''
+
+  cbc_neutrophils:
+    title: CBC - Neutrophils
+    description: >
+      Neutrophils test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: NeutrophilsTestEnum
+    required: false
+
+  cbc_neutrophils_unit:
+    title: Neutrophils Unit
+    description: Please select the unit for neutrophils.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_neutrophils] <> ''
+
+  cbc_neutrophils_range:
+    title: Neutrophils Range
+    description: Please select the reference range for neutrophils.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_neutrophils] <> ''
+
+  cbc_neutrophils_val:
+    title: Neutrophils Value
+    description: Neutrophils [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_neutrophils] <> ''
+
+  cbc_eosinophils:
+    title: CBC - Eosinophils
+    description: >
+      Eosinophils test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: EosinophilsTestEnum
+    required: false
+
+  cbc_eosinophils_unit:
+    title: Eosinophils Unit
+    description: Please select the unit for eosinophils.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_eosinophils] <> ''
+
+  cbc_eosinophils_range:
+    title: Eosinophils Range
+    description: Please select the reference range for eosinophils.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_eosinophils] <> ''
+
+  cbc_eosinophils_val:
+    title: Eosinophils Value
+    description: Eosinophils [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_eosinophils] <> ''
+
+  cbc_lymphocytes:
+    title: CBC - Lymphocytes
+    description: >
+      Lymphocytes test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: LymphocytesTestEnum
+    required: false
+
+  cbc_lymphocytes_unit:
+    title: Lymphocytes Unit
+    description: Please select the unit for lymphocytes.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_lymphocytes] <> ''
+
+  cbc_lymphocytes_range:
+    title: Lymphocytes Range
+    description: Please select the reference range for lymphocytes.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_lymphocytes] <> ''
+
+  cbc_lymphocytes_val:
+    title: Lymphocytes Value
+    description: Lymphocytes [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_lymphocytes] <> ''
+
+  cbc_monocytes:
+    title: CBC - Monocytes
+    description: >
+      Monocytes test. Upon selection please enter the value in the separate field below.
+      Click "reset" if the lab value was selected by mistake.
+    range: MonocytesTestEnum
+    required: false
+
+  cbc_monocytes_unit:
+    title: Monocytes Unit
+    description: Please select the unit for monocytes.
+    range: BloodCellUnitEnum
+    required: false
+    # Condition: [cbc_monocytes] <> ''
+
+  cbc_monocytes_range:
+    title: Monocytes Range
+    description: Please select the reference range for monocytes.
+    range: LabRangeEnum
+    required: false
+    # Condition: [cbc_monocytes] <> ''
+
+  cbc_monocytes_val:
+    title: Monocytes Value
+    description: Monocytes [10*9/L] in Blood (Unit 10*9/L).
+    range: decimal
+    required: false
+    # Condition: [cbc_monocytes] <> ''
+
+enums:
+  CBCTypeEnum:
+    description: Types of CBC tests.
+    permissible_values:
+      ncit_c199317:
+        description: Test before the time of diagnosis
+        meaning: NCIT:C199317
+      ncit_c158810:
+        description: Test at time of Diagnosis
+        meaning: NCIT:C158810
+      ncit_c100059:
+        description: Test after diagnosis
+        meaning: NCIT:C100059
+      ncit_c4647:
+        description: Annual test
+        meaning: NCIT:C4647
+
+  HaemoglobinTestEnum:
+    description: Hemoglobin test for CBC.
+    permissible_values:
+      loinc_718_7:
+        description: Hemoglobin [g/dL] in Blood
+        meaning: LOINC:718-7
+
+  PlateletsTestEnum:
+    description: Platelets test for CBC.
+    permissible_values:
+      loinc_777_3:
+        description: Platelets [10*9/L] in Blood
+        meaning: LOINC:777-3
+
+  LeukocytesTestEnum:
+    description: Leukocytes test for CBC.
+    permissible_values:
+      loinc_6690_2:
+        description: Leukocytes [10*9/L] in Blood
+        meaning: LOINC:6690-2
+
+  NeutrophilsTestEnum:
+    description: Neutrophils test for CBC.
+    permissible_values:
+      loinc_26499_4:
+        description: Neutrophils [10*9/L] in Blood
+        meaning: LOINC:26499-4
+
+  EosinophilsTestEnum:
+    description: Eosinophils test for CBC.
+    permissible_values:
+      loinc_26449_9:
+        description: Eosinophils [10*9/L] in Blood
+        meaning: LOINC:26449-9
+
+  LymphocytesTestEnum:
+    description: Lymphocytes test for CBC.
+    permissible_values:
+      loinc_26474_7:
+        description: Lymphocytes [10*9/L] in Blood
+        meaning: LOINC:26474-7
+
+  MonocytesTestEnum:
+    description: Monocytes test for CBC.
+    permissible_values:
+      loinc_26484_6:
+        description: Monocytes [10*9/L] in Blood
+        meaning: LOINC:26484-6
+
+  HaemoglobinUnitEnum:
+    description: Unit for haemoglobin.
+    permissible_values:
+      uo_0000208:
+        description: g/dL
+        meaning: UO:0000208
+
+  BloodCellUnitEnum:
+    description: Unit for blood cell counts.
+    permissible_values:
+      uo_0000179:
+        description: 10*9/L
+        meaning: UO:0000179
+
+  LabRangeEnum:
+    description: Interpretation of lab value ranges.
+    permissible_values:
+      ncit_c78801:
+        description: Below age-related reference range
+        meaning: NCIT:C78801
+      ncit_c78800:
+        description: Within age-related reference range
+        meaning: NCIT:C78800
+      ncit_c78727:
+        description: Above age-related reference range
+        meaning: NCIT:C78727

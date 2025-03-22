@@ -1,0 +1,77 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_death_form.yaml
+name: death_form
+description: >
+  Death form capturing the date of death, cause(s) of death, and additional details.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://purl.obolibrary.org/obo/SNOMEDCT_
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  DeathForm:
+    description: >
+      Form for capturing details about death.
+    slots:
+      - snomedct_398299004
+      - snomedct_184305005
+      - snomedct_184305005_other
+      - unknown_death
+
+slots:
+  snomedct_398299004:
+    title: Date of Death
+    description: >
+      Please indicate the date of death (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  snomedct_184305005:
+    title: Cause(s) of Death
+    description: >
+      Please indicate the cause(s) of death.
+    range: DeathCauseEnum
+    required: false
+
+  snomedct_184305005_other:
+    title: Other Cause of Death
+    description: >
+      Please describe the possible cause of death searching in MONDO.
+    range: string
+    required: false
+
+  unknown_death:
+    title: Unknown Death Details
+    description: >
+      Please describe the situation if the cause of death is unknown.
+    range: string
+    required: false
+
+enums:
+  DeathCauseEnum:
+    description: Cause(s) of death.
+    permissible_values:
+      snomedct_58606001:
+        description: Immunodeficiency
+        meaning: SNOMEDCT:58606001
+      mondo_0005070:
+        description: Malignancy
+        meaning: MONDO:0005070
+      mondo_0005550:
+        description: Infection
+        meaning: MONDO:0005550
+      "4":
+        description: Autoimmunity (to code)
+        meaning: "4"
+      other:
+        description: Other
+        meaning: OTHER
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006

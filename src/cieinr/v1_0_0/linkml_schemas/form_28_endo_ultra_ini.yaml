@@ -1,0 +1,145 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_endoscopy_abdominal_ultrasound.yaml
+name: endoscopy_abdominal_ultrasound_other_ultrasound
+description: >
+  Form capturing evaluations of endoscopy and abdominal ultrasound, including evaluation timing,
+  test date, evaluation results, and file uploads.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://purl.obolibrary.org/obo/SNOMEDCT_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  BIOPORTAL: http://bioportal.bioontology.org/ontologies/SNOMED
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  EndoscopyAbdominalUltrasound:
+    description: >
+      Form capturing details of endoscopy and abdominal ultrasound evaluations.
+    slots:
+      - endoscopy_us
+      - date_endoscopy_pre_dx
+      - time_endoscopy
+      - endoscopy_result_pre_dx
+      - ultrsouns_result
+      - resul_us
+      - pdf_endo_result_pre_dx
+      - pdf_abdominal_us_pre_dx
+      - procedure_6
+      - other_instrumental_results
+      - other_endoscopy
+
+slots:
+  endoscopy_us:
+    title: Test Performed
+    description: Please choose the test performed.
+    range: EndoscopyUSEnum
+    required: false
+
+  date_endoscopy_pre_dx:
+    title: Evaluation Date
+    description: What was the date of evaluation? (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  time_endoscopy:
+    title: Evaluation Timing
+    description: When was this evaluation done?
+    range: EndoscopyTimingEnum
+    required: false
+
+  endoscopy_result_pre_dx:
+    title: Endoscopy Results
+    description: Please indicate the results of the endoscopy.
+    range: EndoscopyResultEnum
+    required: false
+
+  ultrsouns_result:
+    title: Ultrasound Results
+    description: Please indicate the results of the ultrasound.
+    range: UltrasoundResultEnum
+    required: false
+
+  resul_us:
+    title: Additional Results Description
+    description: Briefly describe results, if abnormal.
+    range: string
+    required: false
+
+  pdf_endo_result_pre_dx:
+    title: Endoscopy PDF Report
+    description: Please upload the endoscopy pdf test results. REMOVE ALL IDENTIFYING PATIENT INFORMATION.
+    range: file
+    required: false
+
+  pdf_abdominal_us_pre_dx:
+    title: Ultrasound PDF Report
+    description: Please upload the ultrasound pdf test results. REMOVE ALL IDENTIFYING PATIENT INFORMATION.
+    range: file
+    required: false
+
+  procedure_6:
+    title: Other Ultrasound Procedure
+    description: Which other ultrasound was done? If possible, search for the ultrasound procedure in SNOMED.
+    range: string
+    required: false
+
+  other_instrumental_results:
+    title: Other Instrumental Evaluations
+    description: Please describe any other (colonoscopy, sigmoidoscopy) evaluations.
+    range: string
+    required: false
+
+  other_endoscopy:
+    title: Other Endoscopy Report
+    description: Please upload other pdf test results. REMOVE ALL IDENTIFYING PATIENT INFORMATION.
+    range: file
+    required: false
+
+enums:
+  EndoscopyUSEnum:
+    description: Options for test performed.
+    permissible_values:
+      snomedct_423827005:
+        description: Endoscopy
+        meaning: SNOMEDCT:423827005
+      snomedct_45036003:
+        description: Abdominal ultrasound test
+        meaning: SNOMEDCT:45036003
+      "3":
+        description: Other ultrasound
+        meaning: 3
+
+  EndoscopyTimingEnum:
+    description: Options for evaluation timing.
+    permissible_values:
+      ncit_c199317:
+        description: Test before the time of diagnosis
+        meaning: NCIT:C199317
+      ncit_c100059:
+        description: Test after diagnosis
+        meaning: NCIT:C100059
+
+  EndoscopyResultEnum:
+    description: Endoscopy result.
+    permissible_values:
+      ncit_c14165:
+        description: normal
+        meaning: NCIT:C14165
+      ncit_c25401:
+        description: abnormal
+        meaning: NCIT:C25401
+
+  UltrasoundResultEnum:
+    description: Ultrasound result.
+    permissible_values:
+      ncit_c14165:
+        description: normal
+        meaning: NCIT:C14165
+      ncit_c25401:
+        description: abnormal
+        meaning: NCIT:C25401
