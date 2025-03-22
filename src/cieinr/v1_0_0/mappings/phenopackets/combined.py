@@ -101,7 +101,21 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "enable_field_scanning": False,
                 # Enum classes
                 "enum_classes": {
-                    "type_of_condition": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConditionTypeEnum"
+                    "type_of_condition": "cieinr.v1_0_0.python_schemas.form_4_conditions.ConditionTypeEnum",
+                    "snomedct_95320005": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_118938008": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_50043002": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_49601007": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "mondo_0005570": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_928000": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_119292006": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "mondo_0005265_evidence": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_362969004": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_42030000": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_55342001": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_85828009": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "hp_0025142": "cieinr.v1_0_0.python_schemas.form_4_conditions.",
+                    "snomedct_5294002": "cieinr.v1_0_0.python_schemas.form_4_conditions."
                 }
             }
         ],

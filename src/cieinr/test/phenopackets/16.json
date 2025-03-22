@@ -229,8 +229,8 @@
     },
     {
       "type": {
-        "id": "HP:0030813",
-        "label": "Absent tonsils"
+        "id": "HP:0012539",
+        "label": "Non-Hodgkin lymphoma"
       },
       "severity": {
         "id": "HP:0012825",
@@ -238,8 +238,12 @@
       },
       "modifiers": [
         {
-          "id": "MONDO:0005570",
-          "label": "hematologic disorder"
+          "id": "SNOMEDCT:55342001",
+          "label": "Neoplastic disease"
+        },
+        {
+          "id": "NCIT:C129454",
+          "label": "Epstein-Barr Virus Positive"
         },
         {
           "id": "HP:0011011",
@@ -254,8 +258,8 @@
     },
     {
       "type": {
-        "id": "HP:0032252",
-        "label": "Granuloma"
+        "id": "HP:0002037",
+        "label": "Inflammation of the large intestine"
       },
       "severity": {
         "id": "HP:0012829",
@@ -263,8 +267,8 @@
       },
       "modifiers": [
         {
-          "id": "MONDO:0005570",
-          "label": "hematologic disorder"
+          "id": "SNOMEDCT:119292006",
+          "label": "Disorder of gastrointestinal tract"
         },
         {
           "id": "HP:0025297",
@@ -275,7 +279,15 @@
         "age": {
           "iso8601duration": "P2Y11M"
         }
-      }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "SNOMEDCT:88101002",
+            "label": "Pathology diagnosis"
+          }
+        }
+      ]
     },
     {
       "type": {
@@ -317,7 +329,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "d06ced58b507476cbbe36dc7c841d8",
+                "id": "50cecde6f7f9445fa353acf6201f7a",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -346,8 +358,8 @@
   "diseases": [
     {
       "term": {
-        "id": "MONDO:0007843",
-        "label": "Kabuki Syndrome 1 due to KMT2D deficiency - KMT2D (MLL2)"
+        "id": "MONDO:0011383",
+        "label": "ALPS-Caspase10 - CASP10"
       },
       "onset": {
         "age": {
@@ -375,7 +387,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-22T08:45:18.180584Z",
+    "created": "2025-03-22T09:39:54.477287Z",
     "createdBy": "Adam G.",
     "resources": [
       {

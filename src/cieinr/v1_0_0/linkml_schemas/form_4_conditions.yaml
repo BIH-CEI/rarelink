@@ -1,4 +1,4 @@
-id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_4_conditions.yaml)
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_4_conditions.yaml
 name: conditions_initial
 description: >
   Initial conditions form with types, severity, onset dates, 
@@ -32,7 +32,7 @@ classes:
       - mondo_0005570
       - snomedct_928000
       - snomedct_119292006
-      - mondo_0005265_evidence
+      - hp_0002037_evidence
       - snomedct_362969004
       - snomedct_42030000
       - snomedct_55342001
@@ -113,7 +113,7 @@ slots:
     range: GastrointestinalConditionEnum
     required: false
 
-  mondo_0005265_evidence:
+  hp_0002037_evidence:
     title: IBD Diagnosis Evidence
     description: >
       Type of diagnosis for Inflammatory Bowel Disease (IBD).
@@ -213,13 +213,6 @@ slots:
     description: >
       Was the condition a prominent feature for the patient?
     range: ConditionSeverityEnum
-    required: false
-
-  condition_presence:
-    title: Condition presence
-    description: >
-      Was the condition present at or before diagnosis?
-    range: PresenceEnum
     required: false
 
   condition_temp_pattern:
@@ -465,7 +458,7 @@ enums:
         meaning: HP:0002732
       customcode_lymphnodeabsence:
         description: Lymph node absence
-        meaning: CUSTOM:lymphnodeabsence
+        meaning: lymphnodeabsence
       hp_0005359:
         description: Absent Thymus Shadow
         meaning: HP:0005359
@@ -489,7 +482,7 @@ enums:
         meaning: HP:0003256
       customcode_engraftment_maternalcells:
         description: Engraftment by Maternal Cells
-        meaning: CUSTOM:engraftment_maternalcells
+        meaning: engraftment_maternalcells
       hp_0000421:
         description: Epistaxis
         meaning: HP:0000421
@@ -986,25 +979,15 @@ enums:
         description: Chronic
         meaning: HP:0011010
 
-  PresenceEnum:
-    description: Indicates whether a condition was present at or before diagnosis
-    permissible_values:
-      "1":
-        description: yes
-        meaning: "1"
-      "2":
-        description: no
-        meaning: "2"
-
   YesNoEnum:
     description: Yes/No response
     permissible_values:
       yes:
-        description: Yes
-        meaning: yes
+        description: "Yes"
+        meaning: "yes"
       no:
-        description: No
-        meaning: no
+        description: "No"
+        meaning: "no"
 
   CompletionStatusEnum:
     description: Enumeration for form completion status

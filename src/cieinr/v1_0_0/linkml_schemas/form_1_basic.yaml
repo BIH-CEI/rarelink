@@ -5,6 +5,10 @@ prefixes:
   linkml: https://w3id.org/linkml/
   cieinr: https://github.com/BIH-CEI/cieinr
   MONDO: https://purl.obolibrary.org/obo/MONDO_
+  HP: https://purl.obolibrary.org/obo/HP_
+  NCIT: http://purl.obolibrary.org/obo/NCIT/
+  ORDO: http://www.orpha.net/ORDO/
+  CustomCode: https://github.com/BIH-CEI/cieinr
 imports:
   - linkml:types
   - cieinr_types
@@ -1700,9 +1704,9 @@ enums:
       mondo_0015974:
         description: (atypical) severe combined immunodeficiency
         meaning: MONDO:0015974
-      mondo_0015977:
+      mondo_0015131:
         description: combined immunodeficiency
-        meaning: MONDO:0015977
+        meaning: MONDO:0015131
       early_onset_ibd:
         description: Early-onset inflammatory bowel disease
         meaning: CustomCode:early_onset_ibd

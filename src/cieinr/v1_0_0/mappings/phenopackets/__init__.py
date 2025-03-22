@@ -7,7 +7,7 @@ from .mapping_dicts import mapping_dicts, get_mapping_by_name
 from .label_dicts import label_dicts
 from .individual import INDIVIDUAL_BLOCK
 from .disease import DISEASE_BLOCK
-from .conditions import PHENOTYPIC_FEATURES_BLOCK, CONDITIONS_FEATURES_BLOCK, INFECTIONS_FEATURES_BLOCK
+from .phenotypes import CONDITIONS_FEATURES_BLOCK, INFECTIONS_FEATURES_BLOCK
 from .procedure import PROCEDURE_BLOCK
 from .genetics import INTERPRETATION_BLOCK, VARIATION_DESCRIPTOR_BLOCK
 from .resources import CIEINR_CODE_SYSTEMS
@@ -19,7 +19,6 @@ __all__ = [
     "label_dicts",
     "INDIVIDUAL_BLOCK",
     "DISEASE_BLOCK",
-    "PHENOTYPIC_FEATURES_BLOCK",
     "CONDITIONS_FEATURES_BLOCK",
     "INFECTIONS_FEATURES_BLOCK",
     "INTERPRETATION_BLOCK",

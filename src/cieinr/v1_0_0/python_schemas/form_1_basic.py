@@ -1,5 +1,5 @@
 # Auto generated from form_1_basic.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-20T18:28:50
+# Generation date: 2025-03-22T11:43:38
 # Schema: basic_form
 #
 # id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_1_basic.yaml
@@ -7,13 +7,7 @@
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
-import re
 from dataclasses import dataclass
-from datetime import (
-    date,
-    datetime,
-    time
-)
 from typing import (
     Any,
     ClassVar,
@@ -22,38 +16,16 @@ from typing import (
     Optional,
     Union
 )
-
-from jsonasobj2 import (
-    JsonObj,
-    as_dict
-)
 from linkml_runtime.linkml_model.meta import (
     EnumDefinition,
-    PermissibleValue,
-    PvFormulaOptions
+    PermissibleValue
 )
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from linkml_runtime.utils.formatutils import (
-    camelcase,
-    sfx,
-    underscore
-)
-from linkml_runtime.utils.metamodelcore import (
-    bnode,
-    empty_dict,
-    empty_list
-)
 from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.yamlutils import (
-    YAMLRoot,
-    extended_float,
-    extended_int,
-    extended_str
-)
+from linkml_runtime.utils.yamlutils import YAMLRoot
 from rdflib import (
-    Namespace,
     URIRef
 )
 
@@ -66,7 +38,11 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+CUSTOMCODE = CurieNamespace('CustomCode', 'https://github.com/BIH-CEI/cieinr')
+HP = CurieNamespace('HP', 'https://purl.obolibrary.org/obo/HP_')
 MONDO = CurieNamespace('MONDO', 'https://purl.obolibrary.org/obo/MONDO_')
+NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT/')
+ORDO = CurieNamespace('ORDO', 'http://www.orpha.net/ORDO/')
 CIEINR = CurieNamespace('cieinr', 'https://github.com/BIH-CEI/cieinr')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
@@ -196,6 +172,7 @@ class BasicForm(YAMLRoot):
 
     basic_form_complete: Union[str, "CompletionStatusEnumBasicForm"] = None
     iei_deficiency_basic: Optional[Union[str, "IUIS2024MONDOEnum"]] = None
+    non_genetic_iei: Optional[Union[str, "NonGeneticIEIEnum"]] = None
     igrt_basic: Optional[Union[str, "IGRTStatusEnumBasicForm"]] = None
     hct_basic_form: Optional[Union[str, "HCTStatusEnumBasicForm"]] = None
 
@@ -207,6 +184,9 @@ class BasicForm(YAMLRoot):
 
         if self.iei_deficiency_basic is not None and not isinstance(self.iei_deficiency_basic, IUIS2024MONDOEnum):
             self.iei_deficiency_basic = IUIS2024MONDOEnum(self.iei_deficiency_basic)
+
+        if self.non_genetic_iei is not None and not isinstance(self.non_genetic_iei, NonGeneticIEIEnum):
+            self.non_genetic_iei = NonGeneticIEIEnum(self.non_genetic_iei)
 
         if self.igrt_basic is not None and not isinstance(self.igrt_basic, IGRTStatusEnumBasicForm):
             self.igrt_basic = IGRTStatusEnumBasicForm(self.igrt_basic)
@@ -2436,6 +2416,96 @@ class IUIS2024MONDOEnum(EnumDefinitionImpl):
                 description="4-1 BBL deficiency - TNFSF9",
                 meaning=CIEINR["4-1_bbl_deficiency"]))
 
+class NonGeneticIEIEnum(EnumDefinitionImpl):
+    """
+    Enumeration of non-genetic Inborn Errors of Immunity
+    """
+    hp_000176 = PermissibleValue(
+        text="hp_000176",
+        description="Asplenia",
+        meaning=HP["000176"])
+    mondo_0015974 = PermissibleValue(
+        text="mondo_0015974",
+        description="(atypical) severe combined immunodeficiency",
+        meaning=MONDO["0015974"])
+    mondo_0015131 = PermissibleValue(
+        text="mondo_0015131",
+        description="combined immunodeficiency",
+        meaning=MONDO["0015131"])
+    early_onset_ibd = PermissibleValue(
+        text="early_onset_ibd",
+        description="Early-onset inflammatory bowel disease",
+        meaning=CIEINR["early_onset_ibd"])
+    early_onset_mad = PermissibleValue(
+        text="early_onset_mad",
+        description="Early-onset multi-organ autoimmune disease",
+        meaning=CIEINR["early_onset_mad"])
+    ipex_like_disease = PermissibleValue(
+        text="ipex_like_disease",
+        description="IPEX-like disease",
+        meaning=CIEINR["ipex_like_disease"])
+    mondo_0013714 = PermissibleValue(
+        text="mondo_0013714",
+        description="mannose-binding lectin deficiency",
+        meaning=MONDO["0013714"])
+    mondo_0011338 = PermissibleValue(
+        text="mondo_0011338",
+        description="Omenn syndrome",
+        meaning=MONDO["0011338"])
+    mondo_0014226 = PermissibleValue(
+        text="mondo_0014226",
+        description="idiopathic CD4 lymphocytopenia",
+        meaning=MONDO["0014226"])
+    mondo_0015977 = PermissibleValue(
+        text="mondo_0015977",
+        description="Agammaglobulinemia",
+        meaning=MONDO["0015977"])
+    uncl_abd_def = PermissibleValue(
+        text="uncl_abd_def",
+        description="(Unclassified) antibody deficiency",
+        meaning=CIEINR["uncl_abd_def"])
+    uncl_phag_dis = PermissibleValue(
+        text="uncl_phag_dis",
+        description="(Unclassified) phagocytic disorder",
+        meaning=CIEINR["uncl_phag_dis"])
+    ncit_c176595 = PermissibleValue(
+        text="ncit_c176595",
+        description="(Unclassified) disorders of immune dysregulation",
+        meaning=NCIT["C176595"])
+    ordo_331193 = PermissibleValue(
+        text="ordo_331193",
+        description="(Unclassified) defect in innate immunity",
+        meaning=ORDO["331193"])
+    ncit_c4691 = PermissibleValue(
+        text="ncit_c4691",
+        description="(Unclassified) complement deficiency",
+        meaning=NCIT["C4691"])
+    autoinflammatory_diseases = PermissibleValue(
+        text="autoinflammatory_diseases",
+        description="(Unclassified) autoinflammatory disease",
+        meaning=CIEINR["autoinflammatory_diseases"])
+    syndromic_immunodeficiencies = PermissibleValue(
+        text="syndromic_immunodeficiencies",
+        description="(Unclassified) syndromic immunodeficiencies",
+        meaning=CIEINR["syndromic_immunodeficiencies"])
+    other_t_cell_problem = PermissibleValue(
+        text="other_t_cell_problem",
+        description="Unclassified/Other T cell proble",
+        meaning=CIEINR["other_t_cell_problem"])
+    mondo_0001222 = PermissibleValue(
+        text="mondo_0001222",
+        description="congenital T-cell immunodeficiency / non-SCID",
+        meaning=MONDO["0001222"])
+    mondo_0021094 = PermissibleValue(
+        text="mondo_0021094",
+        description="combined immunodeficiency",
+        meaning=MONDO["0021094"])
+
+    _defn = EnumDefinition(
+        name="NonGeneticIEIEnum",
+        description="""Enumeration of non-genetic Inborn Errors of Immunity""",
+    )
+
 class NCBITaxon(EnumDefinitionImpl):
     """
     NCBI organismal classification
@@ -2612,6 +2682,9 @@ class slots:
 
 slots.iei_deficiency_basic = Slot(uri=CIEINR.iei_deficiency_basic, name="iei_deficiency_basic", curie=CIEINR.curie('iei_deficiency_basic'),
                    model_uri=CIEINR.iei_deficiency_basic, domain=None, range=Optional[Union[str, "IUIS2024MONDOEnum"]])
+
+slots.non_genetic_iei = Slot(uri=CIEINR.non_genetic_iei, name="non_genetic_iei", curie=CIEINR.curie('non_genetic_iei'),
+                   model_uri=CIEINR.non_genetic_iei, domain=None, range=Optional[Union[str, "NonGeneticIEIEnum"]])
 
 slots.igrt_basic = Slot(uri=CIEINR.igrt_basic, name="igrt_basic", curie=CIEINR.curie('igrt_basic'),
                    model_uri=CIEINR.igrt_basic, domain=None, range=Optional[Union[str, "IGRTStatusEnumBasicForm"]])
