@@ -4,95 +4,143 @@ These functions improve field access across multiple instruments in the data str
 """
 
 import logging
-from typing import Callable, Any, List, Dict, Union, Set
+from typing import Callable, Any, List, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
 def _get_multi_instrument_field_value(
-    data: Dict[str, Any], 
-    instruments: Union[List[str], Set[str], str], 
-    field_paths: List[str]
-) -> Any:
+    data: Dict[str, Any],
+    instruments: List[str],
+    field_paths: List[str],
+    traverse_nested: bool = True
+) -> Optional[Any]:
     """
-    Retrieve a field value from multiple instruments in order of priority.
-    Enhanced to handle both direct and prefixed field paths.
+    Gets a field value by checking across multiple instruments and field paths.
+    Enhanced to support RareLink CDM data structure with instrument-specific data fields.
     
     Args:
-        data (dict): The complete data dictionary
-        instruments (list/set/str): Instrument names to check, in order of priority
-        field_paths (list): List of field paths to check for each instrument
-    
+        data (Dict[str, Any]): The data to extract from
+        instruments (List[str]): List of instruments to check
+        field_paths (List[str]): List of field paths to check
+        traverse_nested (bool): Whether to traverse nested data
+        
     Returns:
-        The first non-None value found, or None if no value is found
+        Optional[Any]: The first valid field value found or None
     """
-    # Normalize instruments to a list
-    if isinstance(instruments, str):
-        instruments = [instruments]
-    elif isinstance(instruments, set):
-        instruments = list(instruments)
-    
-    # Validate inputs
     if not data or not instruments or not field_paths:
         return None
-    
+        
+    logger.debug(f"Using field paths: {field_paths}")
     logger.debug(f"Searching for field across instruments: {instruments}")
-    logger.debug(f"Field paths to check: {field_paths}")
     
-    # First, try direct access if any field path contains an instrument name
+    # Map instrument names to their data field names for RareLink CDM
+    rarelink_cdm_field_map = {
+        "rarelink_6_2_phenotypic_feature": "phenotypic_feature",
+        "rarelink_5_disease": "disease",
+        "rarelink_6_1_genetic_findings": "genetic_findings",
+        "rarelink_6_3_measurements": "measurements",
+        "rarelink_3_patient_status": "patient_status",
+        "rarelink_4_care_pathway": "care_pathway",
+        "rarelink_6_4_family_history": "family_history"
+    }
+    
     for field_path in field_paths:
-        if "." in field_path:
-            instrument_name, field_name = field_path.split(".", 1)
-            if instrument_name in data:
-                instrument_data = data[instrument_name]
-                if isinstance(instrument_data, dict) and field_name in instrument_data:
-                    value = instrument_data.get(field_name)
-                    if value is not None:
-                        logger.debug(f"Found value {value} using direct path: {field_path}")
-                        return value
-    
-    # Then try each instrument with extracted field names
-    for instrument_name in instruments:
-        logger.debug(f"Checking instrument: {instrument_name}")
+        logger.debug(f"Field paths to check: {[field_path]}")
         
-        # Check if the instrument exists in the data
-        if instrument_name not in data:
-            logger.debug(f"Instrument {instrument_name} not found in data")
-            continue
+        # Direct access for fields without instrument prefix
+        if "." not in field_path:
+            if field_path in data:
+                return data[field_path]
         
-        # Get the instrument-specific data
-        instrument_data = data[instrument_name]
-        if not isinstance(instrument_data, dict):
-            logger.debug(f"Instrument {instrument_name} data is not a dictionary")
-            continue
-        
-        # Try each field path for this instrument
-        for field_path in field_paths:
-            # Handle different field path formats
+        # Check in each instrument
+        for instrument in instruments:
+            logger.debug(f"Checking instrument: {instrument}")
             
-            # Case 1: Direct field in the instrument (no dot notation)
-            if "." not in field_path:
-                field_name = field_path
-            # Case 2: Field path with specified instrument
-            elif field_path.startswith(f"{instrument_name}."):
-                field_name = field_path.split(".", 1)[1]
-            # Case 3: Field path with different instrument - skip
-            else:
-                continue
+            # CASE 1: Check if the instrument exists directly in data
+            if instrument in data:
+                logger.debug(f"Instrument {instrument} found in data")
+                instrument_data = data[instrument]
                 
-            # Check if the field exists in this instrument
-            if field_name in instrument_data:
-                value = instrument_data.get(field_name)
-                if value is not None:
-                    logger.debug(f"Found value {value} for field {field_name} in instrument {instrument_name}")
+                # If field_path has instrument prefix, extract the field name
+                if "." in field_path:
+                    path_parts = field_path.split(".", 1)
+                    if path_parts[0] == instrument or path_parts[0] == rarelink_cdm_field_map.get(instrument, ""):
+                        field_name = path_parts[1]
+                    else:
+                        field_name = field_path
+                else:
+                    field_name = field_path
+                
+                # Check in the instrument data
+                if isinstance(instrument_data, dict) and field_name in instrument_data:
+                    value = instrument_data[field_name]
+                    logger.debug(f"Found value {value} for field {field_name} in instrument {instrument}")
                     return value
-    
-    # Also check for fields directly in full_data to support legacy mappings
-    for field_path in field_paths:
-        if "." not in field_path and field_path in data:
-            value = data.get(field_path)
-            if value is not None:
-                logger.debug(f"Found value {value} in top-level data for field {field_path}")
-                return value
+            else:
+                logger.debug(f"Instrument {instrument} not found in data")
+                
+            # CASE 2: Check in repeated_elements
+            if "repeated_elements" in data:
+                # Find all elements for the current instrument
+                instrument_elements = [
+                    element for element in data["repeated_elements"]
+                    if element.get("redcap_repeat_instrument") == instrument
+                ]
+                
+                if instrument_elements:
+                    logger.debug(f"Found {len(instrument_elements)} repeated elements for instrument {instrument}")
+                    
+                    # Check each element
+                    for element in instrument_elements:
+                        # Get the mapped data field name for RareLink CDM
+                        data_field = rarelink_cdm_field_map.get(instrument)
+                        
+                        # Try the RareLink CDM approach first
+                        if data_field and data_field in element:
+                            element_data = element[data_field]
+                            if isinstance(element_data, dict):
+                                # If field_path has instrument prefix, extract the field name
+                                if "." in field_path:
+                                    path_parts = field_path.split(".", 1)
+                                    if path_parts[0] == instrument or path_parts[0] == data_field:
+                                        field_name = path_parts[1]
+                                    else:
+                                        field_name = field_path
+                                else:
+                                    field_name = field_path
+                                    
+                                # Check in the element data
+                                if field_name in element_data:
+                                    value = element_data[field_name]
+                                    logger.debug(f"Found value {value} for field {field_name} in RareLink CDM element")
+                                    return value
+                        
+                        # Try the direct approach next
+                        if instrument in element:
+                            element_data = element[instrument]
+                            if isinstance(element_data, dict):
+                                # If field_path has instrument prefix, extract the field name
+                                if "." in field_path:
+                                    path_parts = field_path.split(".", 1)
+                                    if path_parts[0] == instrument:
+                                        field_name = path_parts[1]
+                                    else:
+                                        field_name = field_path
+                                else:
+                                    field_name = field_path
+                                    
+                                # Check in the element data
+                                if field_name in element_data:
+                                    value = element_data[field_name]
+                                    logger.debug(f"Found value {value} for field {field_name} in direct element")
+                                    return value
+                        
+                        # Also check if the field is directly in the element (for flattened data)
+                        field_name = field_path.split(".")[-1] if "." in field_path else field_path
+                        if field_name in element:
+                            value = element[field_name]
+                            logger.debug(f"Found value {value} for field {field_name} directly in element")
+                            return value
     
     logger.debug("No value found across specified instruments and field paths")
     return None

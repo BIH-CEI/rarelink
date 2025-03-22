@@ -17,6 +17,7 @@ from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import (
 def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
     """
     Create a comprehensive mapping configuration for Phenopacket creation.
+    Enhanced to support flexible configuration formats.
 
     Returns:
         Dict[str, Any]: Combined mapping configurations
@@ -58,6 +59,8 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
                 "map_disease_verification_status": mapping_dict_lookup.get("map_disease_verification_status", {})
             }
         },
+        # Standard single configuration for phenotypic features 
+        # (can be processed by both the original and enhanced pipeline)
         "phenotypicFeatures": {
             "instrument_name": "rarelink_6_2_phenotypic_feature",
             "mapping_block": PHENOTYPIC_FEATURES_BLOCK,
@@ -101,6 +104,27 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         }
     }
 
+def create_phenopacket_mappings_for_model(model_name: str, 
+                                        config_builder_func=None,
+                                        **kwargs) -> Dict[str, Any]:
+    """
+    Generic function to create phenopacket mappings for any data model.
+    
+    Args:
+        model_name (str): Name of the data model (e.g., 'rarelink_cdm', 'cieinr')
+        config_builder_func (callable, optional): Function to build model-specific configurations
+        **kwargs: Additional keyword arguments for the config builder
+        
+    Returns:
+        Dict[str, Any]: Complete mapping configuration for the model
+    """
+    # Default to standard RareLink CDM mappings
+    if model_name == "rarelink_cdm" or not config_builder_func:
+        return create_rarelink_phenopacket_mappings()
+    
+    # Use the provided builder function for other data models
+    return config_builder_func(**kwargs)
+
 def get_mapping_for_block(
     block_name: str, 
     mapping_type: str, 
@@ -124,6 +148,16 @@ def get_mapping_for_block(
     
     block_mappings = mappings.get(block_name, {})
     
+    # Handle both standard dictionary and list-based block configurations
+    if isinstance(block_mappings, list):
+        # For list-based configurations, combine all mappings of the requested type
+        combined_mappings = {}
+        for config in block_mappings:
+            if mapping_type in config:
+                combined_mappings.update(config[mapping_type].get(key, {}))
+        return combined_mappings
+    
+    # Standard dictionary configuration
     if mapping_type not in block_mappings:
         return {}
     

@@ -180,14 +180,7 @@ def _determine_data_model(processor: DataProcessor, instrument_name: str) -> str
 def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]:
     """
     Extracts the data elements to process for a given instrument.
-    Enhanced to properly handle nested data structures.
-    
-    Args:
-        data (dict): Input data.
-        instrument_name (str): Name of the instrument.
-    
-    Returns:
-        List[Dict[str, Any]]: List of data elements.
+    Enhanced to properly handle nested data structures including RareLink CDM.
     """
     logger.debug(f"Looking for data elements with instrument: {instrument_name}")
     logger.debug(f"Data keys: {list(data.keys()) if isinstance(data, dict) else 'not a dict'}")
@@ -199,15 +192,34 @@ def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]
         repeated_elements = data["repeated_elements"]
         logger.debug(f"Found repeated_elements with {len(repeated_elements)} items")
         
+        # Map instrument names to their data field names for RareLink CDM
+        # For example, "rarelink_6_2_phenotypic_feature" -> "phenotypic_feature"
+        rarelink_cdm_field_map = {
+            "rarelink_6_2_phenotypic_feature": "phenotypic_feature",
+            "rarelink_5_disease": "disease",
+            "rarelink_6_1_genetic_findings": "genetic_findings",
+            "rarelink_6_3_measurements": "measurements",
+            "rarelink_3_patient_status": "patient_status",
+            "rarelink_4_care_pathway": "care_pathway",
+            "rarelink_6_4_family_history": "family_history"
+        }
+        
+        # Get the data field name based on the instrument name
+        data_field = rarelink_cdm_field_map.get(instrument_name)
+        
         # Filter elements for the target instrument
         for element in repeated_elements:
             if element.get("redcap_repeat_instrument") == instrument_name:
-                # Extract the actual instrument data
-                if instrument_name in element and isinstance(element[instrument_name], dict):
-                    logger.debug(f"Found element with instrument {instrument_name} and keys: {list(element[instrument_name].keys())}")
+                # First try the RareLink CDM structure: look for the mapped data field
+                if data_field and data_field in element and isinstance(element[data_field], dict):
+                    logger.debug(f"Found RareLink CDM element with instrument {instrument_name} in field {data_field}")
+                    elements.append(element[data_field])
+                # Then try the instrument name directly (for other data models)
+                elif instrument_name in element and isinstance(element[instrument_name], dict):
+                    logger.debug(f"Found element with instrument {instrument_name} directly")
                     elements.append(element[instrument_name])
                 else:
-                    logger.debug(f"Element has instrument {instrument_name} but no nested data")
+                    logger.debug(f"Element has instrument {instrument_name} but no nested data found")
         
         if not elements:
             logger.debug(f"No elements found for instrument {instrument_name} in repeated_elements")
@@ -218,22 +230,6 @@ def _get_data_elements(data: dict, instrument_name: str) -> List[Dict[str, Any]]
     if not elements and instrument_name in data and isinstance(data[instrument_name], dict):
         logger.debug(f"Found direct instrument data with keys: {list(data[instrument_name].keys())}")
         elements.append(data[instrument_name])
-    
-    # If we still haven't found anything, as a fallback check if the data itself has relevant fields
-    if not elements and isinstance(data, dict):
-        # Check for important fields that would indicate this is the right data
-        indicator_fields = [
-            # Infections fields
-            "snomedct_21483005", "snomedct_61274003", "snomedct_127856007", "snomedct_20139000",
-            # Conditions fields 
-            "mondo_0005570", "snomedct_362969004"
-        ]
-        
-        for field in indicator_fields:
-            if field in data:
-                logger.debug(f"Found field {field} directly in data, treating data itself as an element")
-                elements.append(data)
-                break
     
     logger.debug(f"Returning {len(elements)} data elements for instrument {instrument_name}")
     return elements

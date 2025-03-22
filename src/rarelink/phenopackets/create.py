@@ -172,11 +172,10 @@ def create_phenopacket(
             phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
             phenotypic_features = []
             
-            # Handle multiple configurations for phenotypicFeatures
+            # Multi-configuration approach (list of configurations)
             if isinstance(phenotypic_feature_config, list):
-                logger.debug(f"Found {len(phenotypic_feature_config)} phenotypic feature configurations")
+                logger.debug(f"Processing {len(phenotypic_feature_config)} phenotypic feature configurations")
                 
-                # Process each configuration separately
                 for index, config in enumerate(phenotypic_feature_config):
                     try:
                         # Create a processor for this specific config
@@ -219,16 +218,30 @@ def create_phenopacket(
                         logger.error(f"Error processing phenotypic feature config {index+1}: {e}")
                         if debug:
                             logger.debug(traceback.format_exc())
+            # Single configuration approach (standard dictionary)
             else:
-                # Fall back to the original single configuration processing
+                # Original single configuration processing
                 logger.debug("Using single phenotypic feature configuration")
-                phenotypic_feature_processor = DataProcessor(
-                    mapping_config=phenotypic_feature_config.get("mapping_block", {})
-                )
+                
+                # Get the mapping block from the configuration
+                mapping_block = phenotypic_feature_config.get("mapping_block", {})
+                if not mapping_block:
+                    logger.warning("No mapping block found in phenotypic feature configuration")
+                
+                # Create the processor with the mapping block
+                phenotypic_feature_processor = DataProcessor(mapping_config=mapping_block)
                 phenotypic_feature_processor.enable_debug(debug)
                 
+                # Add additional configuration properties
+                for key, value in phenotypic_feature_config.items():
+                    if key != "mapping_block":
+                        phenotypic_feature_processor.mapping_config[key] = value
+                
                 # Add enum classes if present
-                _add_enum_classes_to_processor(phenotypic_feature_processor, phenotypic_feature_config.get("enum_classes", {}))
+                _add_enum_classes_to_processor(
+                    phenotypic_feature_processor, 
+                    phenotypic_feature_config.get("enum_classes", {})
+                )
                 
                 # Handle instrument name(s)
                 instrument_name = phenotypic_feature_config.get("instrument_name")
@@ -241,6 +254,7 @@ def create_phenopacket(
                 else:
                     phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
                 
+                # Map the phenotypic features
                 phenotypic_features = map_phenotypic_features(
                     data,
                     phenotypic_feature_processor,
@@ -248,7 +262,7 @@ def create_phenopacket(
                 )
             
             if debug:
-                logger.debug(f"Generated {len(phenotypic_features)} phenotypic features")
+                logger.debug(f"Total phenotypic features: {len(phenotypic_features)}")
         except Exception as e:
             if debug:
                 logger.debug(f"Error mapping phenotypic features: {e}")

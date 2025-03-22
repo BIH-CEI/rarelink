@@ -187,7 +187,7 @@
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "a0aac12c0fb24633bab6530cef8d35",
+                "id": "1a99f6b1329b43d4adf4c8d8e8145c",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -213,8 +213,57 @@
       }
     }
   ],
+  "diseases": [
+    {
+      "term": {
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-03-20T15:45:24.295509Z",
+    "created": "2025-03-22T08:34:52.167367Z",
     "createdBy": "Adam G.",
     "resources": [
       {

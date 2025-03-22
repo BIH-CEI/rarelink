@@ -125,7 +125,7 @@
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "78d9c22f48be4252bd8680c1dcc1c4",
+                "id": "a482b6b08f4b44b68f421b3fc06ada",
                 "geneContext": {
                   "valueId": "HGNC:4238",
                   "symbol": "GFI1B"
@@ -151,8 +151,40 @@
       }
     }
   ],
+  "diseases": [
+    {
+      "term": {
+        "id": "ORPHA:484",
+        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-5Y-4M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:788244004",
+        "label": "Entire hair follicle of head"
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:484",
+        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-5Y-4M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:788244004",
+        "label": "Entire hair follicle of head"
+      }
+    }
+  ],
   "metaData": {
-    "created": "2025-03-20T15:45:40.440595Z",
+    "created": "2025-03-22T08:35:15.980434Z",
     "createdBy": "Adam G.",
     "resources": [
       {
