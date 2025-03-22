@@ -272,33 +272,99 @@ def create_phenopacket(
         # Measurements Block ----------------------------------------------------
         try:
             measurement_config = get_mapping_config("measurements")
-            measurement_processor = DataProcessor(
-                mapping_config=measurement_config.get("mapping_block", {})
-            )
-            measurement_processor.enable_debug(debug)
+            measurements = []
             
-            # Add enum classes if present
-            _add_enum_classes_to_processor(measurement_processor, measurement_config.get("enum_classes", {}))
-            
-            # Handle instrument name(s)
-            instrument_name = measurement_config.get("instrument_name")
-            if isinstance(instrument_name, (list, set)):
-                # Copy the set/list to avoid modifying the original
-                measurement_processor.mapping_config["instrument_names"] = list(instrument_name)
-                # For backwards compatibility, use the first instrument as the primary
-                if list(instrument_name):
-                    measurement_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+            # Multi-configuration approach (list of configurations)
+            if isinstance(measurement_config, list):
+                logger.debug(f"Processing {len(measurement_config)} measurement configurations")
+                
+                for index, config in enumerate(measurement_config):
+                    try:
+                        # Create a processor for this specific config
+                        measurement_processor = DataProcessor(
+                            mapping_config=config.get("mapping_block", {})
+                        )
+                        measurement_processor.enable_debug(debug)
+                        
+                        # Copy configuration from the config to the processor
+                        for key, value in config.items():
+                            if key != "mapping_block":
+                                measurement_processor.mapping_config[key] = value
+                        
+                        # Add enum classes if present
+                        _add_enum_classes_to_processor(measurement_processor, config.get("enum_classes", {}))
+                        
+                        # Set the instrument name
+                        instrument_name = config.get("instrument_name")
+                        if isinstance(instrument_name, (list, set)):
+                            # Copy the set/list to avoid modifying the original
+                            measurement_processor.mapping_config["instrument_names"] = list(instrument_name)
+                            # For backwards compatibility, use the first instrument as the primary
+                            if list(instrument_name):
+                                measurement_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+                        else:
+                            measurement_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                        
+                        # Process measurements for this configuration
+                        logger.debug(f"Processing measurements for instrument: {instrument_name}")
+                        config_measurements = map_measurements(
+                            data,
+                            measurement_processor,
+                            dob=individual.date_of_birth
+                        )
+                        
+                        if config_measurements:
+                            measurements.extend(config_measurements)
+                            logger.debug(f"Added {len(config_measurements)} measurements from config {index+1}")
+                    except Exception as e:
+                        logger.error(f"Error processing measurement config {index+1}: {e}")
+                        if debug:
+                            logger.debug(traceback.format_exc())
+            # Single configuration approach (standard dictionary)
             else:
-                measurement_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
-            
-            measurements = map_measurements(
-                data, 
-                measurement_processor, 
-                dob=individual.date_of_birth
-            )  
+                # Original single configuration processing
+                logger.debug("Using single measurement configuration")
+                
+                # Get the mapping block from the configuration
+                mapping_block = measurement_config.get("mapping_block", {})
+                if not mapping_block:
+                    logger.warning("No mapping block found in measurement configuration")
+                
+                # Create the processor with the mapping block
+                measurement_processor = DataProcessor(mapping_config=mapping_block)
+                measurement_processor.enable_debug(debug)
+                
+                # Add additional configuration properties
+                for key, value in measurement_config.items():
+                    if key != "mapping_block":
+                        measurement_processor.mapping_config[key] = value
+                
+                # Add enum classes if present
+                _add_enum_classes_to_processor(
+                    measurement_processor, 
+                    measurement_config.get("enum_classes", {})
+                )
+                
+                # Handle instrument name(s)
+                instrument_name = measurement_config.get("instrument_name")
+                if isinstance(instrument_name, (list, set)):
+                    # Copy the set/list to avoid modifying the original
+                    measurement_processor.mapping_config["instrument_names"] = list(instrument_name)
+                    # For backwards compatibility, use the first instrument as the primary
+                    if list(instrument_name):
+                        measurement_processor.mapping_config["redcap_repeat_instrument"] = list(instrument_name)[0]
+                else:
+                    measurement_processor.mapping_config["redcap_repeat_instrument"] = instrument_name
+                
+                # Map the measurements
+                measurements = map_measurements(
+                    data,
+                    measurement_processor,
+                    dob=individual.date_of_birth
+                )
             
             if debug:
-                logger.debug(f"Generated {len(measurements)} measurements")
+                logger.debug(f"Total measurements: {len(measurements)}")
         except Exception as e:
             if debug:
                 logger.debug(f"Error mapping measurements: {e}")

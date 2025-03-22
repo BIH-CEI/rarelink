@@ -102,6 +102,52 @@ label_dicts = {
         "vo_0003495": "Influenza",
         "vo_0000658": "Rotavirus",
         "other": "Other"
+    },
+    "UnitOfMeasure": {
+        "uo_0000208": "gram per deciliter",
+        "uo_0000179": "count per microliter",
+        "uo_0000187": "percentage",
+        "uo_0000176": "picomole per liter",
+        "uo_0000098": "millimole per liter",
+        "uo_0000064": "microgram per deciliter",
+        "uo_0000228": "ratio",
+        "uo_0010004": "international unit per liter",
+        "uo_0000275": "nanogram per milliliter"
+    },
+    "LabAssayType": {
+        "loinc_718_7": "Hemoglobin Concentration",
+        "loinc_777-3": "Platelet Count",
+        "loinc_6690_2": "White Blood Cell Count",
+        "loinc_26499_4": "Neutrophil Count",
+        "loinc_26449_9": "Eosinophil Count",
+        "loinc_26474_7": "Lymphocyte Count",
+        "loinc_26484_6": "Monocyte Count", 
+        "loinc_8122_4": "CD3 Lymphocytes",
+        "loinc_24467_3": "CD4 Lymphocytes",
+        "loinc_14135_8": "CD8 Lymphocytes", 
+        "loinc_8116_6": "CD19 B-Lymphocytes",
+        "loinc_9558_8": "Natural Killer Cells",
+        "loinc_9728_7": "T-cell Function",
+        "ncit_c88791": "NK Cytotoxicity",
+        "ncit_c74017": "CD4 Function",
+        "ncit_c88774": "TNF Response to LPS",
+        "ncit_c88789": "IL-12 Response",
+        "ncit_c17166": "Lymphocyte Proliferation",
+        "ncit_c85185": "T-cell Response",
+        "ncit_c34541": "B-cell Function",
+        "ncit_c77163": "IFN-gamma Production",
+        "ncit_c116203": "STAT Phosphorylation"
+    },
+    "LabValueStatus": {
+        "ncit_c54722": "Low",
+        "ncit_c14165": "Normal",
+        "ncit_c48190": "Absent",
+        "ncit_c25482": "High"
+    },
+    "InterpretationStatus": {
+        "ncit_c78800": "Normal",
+        "ncit_c78801": "Abnormal",
+        "ncit_c78727": "Pending"
     }
 }
 

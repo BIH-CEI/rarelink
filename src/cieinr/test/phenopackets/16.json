@@ -315,6 +315,272 @@
       }
     }
   ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:718-7",
+        "label": "Hemoglobin:MCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000208",
+            "label": "gram per deciliter"
+          },
+          "value": 9.9
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:777-3",
+        "label": "Platelets:NCnc:Pt:Bld:Qn:Automated count"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 500.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:26499-4",
+        "label": "Neutrophils:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 57.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:14135-8",
+        "label": "Cells.CD3+CD8+:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78800",
+          "label": "Value Above Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:8116-6",
+        "label": "Cells.CD19:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78800",
+          "label": "Value Above Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:9728-7",
+        "label": "Cells.CD3-CD16+CD56+:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78727",
+          "label": "Normal Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88791",
+        "label": "Phytohemagglutinin"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C74017",
+        "label": "CD3/CD28 Costimulated Autologous T-Cells"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C14165",
+          "label": "Normal"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88774",
+        "label": "Concanavalin A"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88789",
+        "label": "Pokeweed Mitogen"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C17166",
+        "label": "Staphylococcus aureus Protein A"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C14165",
+          "label": "Normal"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C85185",
+        "label": "Tetanus"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C34541",
+        "label": "Diphtheria"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C77163",
+        "label": "Candida"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C116203",
+        "label": "Natural Killer Cell Activity Measurement"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    }
+  ],
   "interpretations": [
     {
       "id": "16",
@@ -329,7 +595,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "cbcf42fd125f4b4080e1962ed1523b",
+                "id": "54cdfdd2432140698083c451d8da22",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -483,7 +749,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-22T16:46:19.149930Z",
+    "created": "2025-03-22T17:51:42.209315Z",
     "createdBy": "Adam G.",
     "resources": [
       {

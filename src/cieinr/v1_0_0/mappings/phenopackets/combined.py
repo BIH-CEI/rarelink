@@ -8,6 +8,9 @@ from cieinr.v1_0_0.mappings.phenopackets import (
     INACTIVATE_VACCINE_BLOCK,
     LIVE_VACCINE_BLOCK,
     CIEINR_CODE_SYSTEMS,
+    CBC_MEASUREMENT_BLOCK,
+    LYMPHOCYTES_PHENOTYPE_BLOCK,
+    LYMPHOCYTE_FUNCTION_BLOCK,
     INTERPRETATION_BLOCK, 
     VARIATION_DESCRIPTOR_BLOCK,
     mapping_dicts,
@@ -135,6 +138,29 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                     "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
                 }
             },
+            "measurements": [
+                # CBC measurements config
+                {
+                    "instrument_name": "cbc",
+                    "mapping_block": CBC_MEASUREMENT_BLOCK,
+                    "label_dicts": {
+                        "UnitOfMeasure": label_dicts.get("UnitOfMeasure", {})
+                },
+                    "multi_measurement": True
+                },
+                # Lymphocytes phenotype config
+                {
+                    "instrument_name": "lymphocytes_phenotype",
+                    "mapping_block": LYMPHOCYTES_PHENOTYPE_BLOCK,
+                    "multi_measurement": True
+                },
+                # Lymphocyte function config
+                {
+                    "instrument_name": "lymphocyte_functionnk_cytotoxicity",
+                    "mapping_block": LYMPHOCYTE_FUNCTION_BLOCK,
+                    "multi_measurement": True
+                }
+            ],
         "treatments": [
             {
                 "instrument_name": "inactivated_vaccine_history_and_specific_immune_re", 
@@ -153,6 +179,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                     }
             }       
         ],
+        
         "variationDescriptor": {
             "instrument_name": "genetic_information",
             "mapping_block": VARIATION_DESCRIPTOR_BLOCK,
