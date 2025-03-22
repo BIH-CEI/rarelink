@@ -8,7 +8,11 @@ from .label_dicts import label_dicts
 from .individual import INDIVIDUAL_BLOCK
 from .disease import DISEASE_BLOCK
 from .phenotypes import CONDITIONS_FEATURES_BLOCK, INFECTIONS_FEATURES_BLOCK
-from .procedure import PROCEDURE_BLOCK
+from .medical_actions import (
+    BASIC_PROCEDURE_BLOCK,
+    INACTIVATE_VACCINE_BLOCK,
+    LIVE_VACCINE_BLOCK,
+)
 from .genetics import INTERPRETATION_BLOCK, VARIATION_DESCRIPTOR_BLOCK
 from .resources import CIEINR_CODE_SYSTEMS
 from .combined import create_phenopacket_mappings
@@ -23,7 +27,9 @@ __all__ = [
     "INFECTIONS_FEATURES_BLOCK",
     "INTERPRETATION_BLOCK",
     "VARIATION_DESCRIPTOR_BLOCK",
-    "PROCEDURE_BLOCK",
+    "BASIC_PROCEDURE_BLOCK",
+    "INACTIVATE_VACCINE_BLOCK",
+    "LIVE_VACCINE_BLOCK",
     "CIEINR_CODE_SYSTEMS",
     "create_phenopacket_mappings"
 ]

@@ -4,7 +4,9 @@ from cieinr.v1_0_0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK, 
     INFECTIONS_FEATURES_BLOCK,
     CONDITIONS_FEATURES_BLOCK,
-    PROCEDURE_BLOCK,
+    BASIC_PROCEDURE_BLOCK,
+    INACTIVATE_VACCINE_BLOCK,
+    LIVE_VACCINE_BLOCK,
     CIEINR_CODE_SYSTEMS,
     INTERPRETATION_BLOCK, 
     VARIATION_DESCRIPTOR_BLOCK,
@@ -116,18 +118,28 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             }
         ],
         "procedures": {
-            "instrument_name": "basic_form",
-            "mapping_block": PROCEDURE_BLOCK,
-            "label_dicts": {
-                "ProcedureType": label_dicts.get("ProcedureType", {})
+                "instrument_name": "basic_form",
+                "mapping_block": BASIC_PROCEDURE_BLOCK,
+                "label_dicts": {
+                    "ProcedureType": label_dicts.get("ProcedureType", {})
+                },
+                "mapping_dicts": {
+                    "procedure_status": mapping_dict_lookup.get("procedure_status", {})
+                },
+                "enum_classes": {
+                    "ncit_c62710": "cieinr.v1_0_0.python_schemas.form_1_basic.IGRTStatusEnumBasicForm",
+                    "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
+                }
             },
-            "mapping_dicts": {
-                "procedure_status": mapping_dict_lookup.get("procedure_status", {})
+        "treatments": {
+            {
+                "instrument_name": "inactivated_vaccine_history_and_specific_immune_re", 
+                "mapping_block": INACTIVATE_VACCINE_BLOCK,
             },
-            "enum_classes": {
-                "ncit_c62710": "cieinr.v1_0_0.python_schemas.form_1_basic.IGRTStatusEnumBasicForm",
-                "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
-            }
+            {
+                "instrument_name": "live_vaccine_and_specific_immune_response",
+                "mapping_block": LIVE_VACCINE_BLOCK,
+            }       
         },
         "variationDescriptor": {
             "instrument_name": "genetic_information",

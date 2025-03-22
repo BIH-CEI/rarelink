@@ -129,7 +129,6 @@ classes:
       - c9_antigen_int
       - c9_antigen_val
       - c9_antigen_unit
-      - compliment_pdf
 
 slots:
   complement_evaluation:
@@ -778,13 +777,6 @@ slots:
     title: C9 Antigen Value Unit
     description: ""
     range: string
-    required: false
-
-  compliment_pdf_v2:
-    title: Complement Test PDF
-    description: >
-      Please upload the pdf of this test. REMOVE ALL IDENTIFYING PATIENT INFORMATION (NAME, MRN, ULI, DOB).
-    range: file
     required: false
 
 enums:

@@ -213,6 +213,124 @@
         }
       },
       {
+        "redcap_repeat_instrument": "inactivated_vaccine_history_and_specific_immune_re",
+        "redcap_repeat_instance": 1,
+        "inactivated_vaccine_history_and_specific_immune_re": {
+          "completion_of_inact_vax": "2024-03-22",
+          "inactiv_vax": "vo_0010440",
+          "inactiv_vax_other": "",
+          "inactiv_vax_dose": "3",
+          "inactiv_vax_ae": "hp_0020085",
+          "inactiv_vax_ae_other": "HP:0410256",
+          "inactiv_vax_ae_severity": "hp_0012826",
+          "vo_0000424_before_pneu": "",
+          "inactiv_vax_response": "",
+          "inactiv_vax_response_date": "",
+          "other_specific_response": "",
+          "file_pneumo_response": ""
+        }
+      },
+      {
+        "redcap_repeat_instrument": "inactivated_vaccine_history_and_specific_immune_re",
+        "redcap_repeat_instance": 2,
+        "inactivated_vaccine_history_and_specific_immune_re": {
+          "completion_of_inact_vax": "2024-09-22",
+          "inactiv_vax": "vo_0010205",
+          "inactiv_vax_other": "",
+          "inactiv_vax_dose": "2",
+          "inactiv_vax_ae": "hp_0020085",
+          "inactiv_vax_ae_other": "HP:0012302",
+          "inactiv_vax_ae_severity": "hp_0012826",
+          "vo_0000424_before_pneu": "",
+          "inactiv_vax_response": "",
+          "inactiv_vax_response_date": "",
+          "other_specific_response": "",
+          "file_pneumo_response": ""
+        }
+      },
+      {
+        "redcap_repeat_instrument": "live_vaccine_and_specific_immune_response",
+        "redcap_repeat_instance": 1,
+        "live_vaccine_and_specific_immune_response": {
+          "completion_live_vax": "2025-03-22",
+          "live_vax": "vo_0000123",
+          "live_vax_other": "",
+          "live_vax_dosages": "1",
+          "live_vax_ae": "hp_0020085_exluded",
+          "ae_live_vax": "1",
+          "live_vax_ae_other": "HP:0001945",
+          "live_vax_ae_severity": "hp_0012825",
+          "live_vax_response": "",
+          "other_specific_live_response": "",
+          "life_vax_response_date": ""
+        }
+      },
+      {
+        "redcap_repeat_instrument": "live_vaccine_and_specific_immune_response",
+        "redcap_repeat_instance": 2,
+        "live_vaccine_and_specific_immune_response": {
+          "completion_live_vax": "2025-03-22",
+          "live_vax": "other",
+          "live_vax_other": "VO:0020189",
+          "live_vax_dosages": "2",
+          "live_vax_ae": "hp_0020085",
+          "ae_live_vax": "2",
+          "live_vax_ae_other": "",
+          "live_vax_ae_severity": "",
+          "live_vax_response": "snomedct_365589000",
+          "other_specific_live_response": "",
+          "life_vax_response_date": "2025-03-22"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "cbc",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "cbc",
+        "redcap_repeat_instance": 2
+      },
+      {
+        "redcap_repeat_instrument": "lymphocytes_phenotype",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "lymphocytes_phenotype",
+        "redcap_repeat_instance": 2
+      },
+      {
+        "redcap_repeat_instrument": "lymphocyte_functionnk_cytotoxicity",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "tcr_v_beta",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "trec_krec",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "phagocyte_function",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "autoantibodies",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "immunoglobulin_evaluation",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "isohemagglutinins_igg_subsets_mprotein_stat",
+        "redcap_repeat_instance": 1
+      },
+      {
+        "redcap_repeat_instrument": "complement_function",
+        "redcap_repeat_instance": 1
+      },
+      {
         "redcap_repeat_instrument": "genetic_information",
         "redcap_repeat_instance": 1,
         "genetic_findings": {
