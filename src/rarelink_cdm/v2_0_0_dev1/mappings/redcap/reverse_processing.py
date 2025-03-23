@@ -1,4 +1,4 @@
-from rarelink.utils.processing.codes import remove_prefix_from_code
+from rarelink.utils.code_processing import remove_prefix_from_code
 
 REVERSE_PROCESSING = {
     "snomedct_184305005": lambda x: remove_prefix_from_code(x, "ICD10CM"),

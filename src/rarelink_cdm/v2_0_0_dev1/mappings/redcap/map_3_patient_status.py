@@ -9,7 +9,7 @@ for Boolean conversions and prefix additions.
 """
 
 from rarelink.utils.mapping import map_entry
-from rarelink.utils.processing.codes import add_prefix_to_code, convert_to_boolean
+from rarelink.utils.code_processing import add_prefix_to_code, convert_to_boolean
 
 # Metadata for the schema
 IS_REPEATING = True  # Mark as repeating schema

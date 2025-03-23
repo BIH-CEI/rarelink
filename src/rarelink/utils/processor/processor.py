@@ -1,273 +1,171 @@
-# Import standard libraries first
-from google.protobuf.timestamp_pb2 import Timestamp
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
+# processor.py
+from typing import Any, Dict, List, Optional, Union
 import logging
 import uuid
+import importlib
+from datetime import datetime
+from google.protobuf.timestamp_pb2 import Timestamp
 
-# Define logger at module level
+from ..field_access import get_field_value, get_multi_instrument_field_value
+from ..code_processing import process_code, normalize_hgnc_id
+from ..label_fetching import (
+    fetch_label, 
+    fetch_label_from_enum, 
+    fetch_label_from_dict, 
+    fetch_label_from_bioportal
+)
+from ..date_handling import convert_date_to_iso_age, date_to_timestamp
+
 logger = logging.getLogger(__name__)
 
 class DataProcessor:
-    def __init__(self, mapping_config: dict):
-        self.mapping_config = mapping_config
-
-    # --------------------------------------
-    # Field Fetching Methods
-    # --------------------------------------
-
+    """
+    Data processor for phenopacket mapping that delegates to utility functions.
+    """
+    
+    def __init__(self, mapping_config: Dict[str, Any]):
+        self.mapping_config = mapping_config or {}
+        self.debug_mode = False
+        self.enum_classes = {}
+    
+    def enable_debug(self, enabled: bool = True) -> None:
+        """Enable debug mode for verbose logging"""
+        self.debug_mode = enabled
+    
     def get_field(self, 
-                  data: dict, 
-                  field_name: str, 
-                  highest_redcap_repeat_instance: bool = False):
-        """
-        Fetches a field value from nested input data based on the
-        mapping configuration.
-
-        Args:
-            data (dict): Input data dictionary.
-            field_name (str): The name of the field to fetch.
-            highest_redcap_repeat_instance (bool, optional): Whether to fetch  
-                            the value from the highest redcap_repeat_instance.
-
-        Returns:
-            Any: The value of the requested field or None if not found.
-        """
-        # Import here to avoid circular import
-        from rarelink.utils.loading import get_nested_field
-        
+                 data: Dict[str, Any], 
+                 field_name: str, 
+                 default_value: Any = None) -> Any:
+        """Get a field value using the mapping configuration"""
         field_path = self.mapping_config.get(field_name)
-        if field_path is None:
-            logger.warning(f"Field '{field_name}' not found in mapping_config.")
-            return None
-
-        logger.debug(f"Resolving field '{field_name}' with path: {field_path}")
-        logger.debug(f"Input data: {data}")
-
-        try:
-            return get_nested_field(
-                data, field_path, highest_redcap_repeat_instance)
-        except Exception as e:
-            logger.error(f"Failed to fetch field '{field_name}' \
-                with path '{field_path}': {e}")
-            return None
-
-    def prefer_non_empty_field(self, data: dict, fields: list) -> str:
-        """
-        Selects the first non-empty field from a list of fields.
-
-        Args:
-            data (dict): The input data dictionary.
-            fields (list): List of field paths to check.
-
-        Returns:
-            str: The value of the first non-empty field or None if all are empty.
-        """
-        for field in fields:
-            logger.debug(f"Attempting to resolve field: {field}")
-            value = self.get_field(data, field)
-            if isinstance(value, list):  # Handle repeated elements
-                for item in value:
-                    if item:
-                        return item
-            elif value:
-                return value
-        logger.warning(f"All fields empty or not found: {fields}")
-        return None
-
-
-    # --------------------------------------
-    # Data Processing Methods
-    # --------------------------------------
-
-    @staticmethod
-    def process_date(date_input: str) -> Timestamp:
-        """
-        Converts a date string into a protobuf Timestamp.
-
-        Args:
-            date_input (str): The date string to process (in ISO8601 format).
-
-        Returns:
-            Timestamp: A protobuf Timestamp object.
-        """
-        try:
-            # Parse the date and create a Timestamp object
-            dt = datetime.fromisoformat(date_input)
-            dt = dt.replace(day=1)  # Set the day to "01" to only include year and month
-            timestamp = Timestamp()
-            timestamp.FromDatetime(dt)
-            return timestamp
-        except Exception as e:
-            logger.error(f"Error converting date to Timestamp: {e}")
-            raise
+        if not field_path:
+            if self.debug_mode:
+                logger.debug(f"Field '{field_name}' not found in mapping config")
+            return default_value
         
-    @staticmethod
-    def convert_date_to_iso_age(event_date_str: str, dob_str: str) -> str:
-        """
-        Convert an event date and a date of birth into an ISO8601 duration string
-        using only years and months (e.g., "P38Y7M").
+        return get_field_value(data, field_path, default_value)
+    
+    def get_multi_instrument_field(self,
+                                  data: Dict[str, Any],
+                                  field_name: str,
+                                  default_value: Any = None) -> Any:
+        """Get a field value across multiple instruments"""
+        field_path = self.mapping_config.get(field_name)
+        if not field_path:
+            if self.debug_mode:
+                logger.debug(f"Field '{field_name}' not found in mapping config")
+            return default_value
         
-        Args:
-            event_date_str (str): The date string of the event (e.g., onset), in ISO8601 format.
-            dob_str (str): The individual's date of birth as an ISO8601 string.
-            
-        Returns:
-            str: An ISO8601 duration string representing the age difference with year and month precision.
-        """
-        try:
-            # Convert both dates from ISO format to datetime objects.
-            dob = datetime.fromisoformat(dob_str)
-            event_date = datetime.fromisoformat(event_date_str)
-            # Calculate the difference using relativedelta to get years and months.
-            delta = relativedelta(event_date, dob)
-            # Build the ISO8601 duration string with only years and months.
-            iso_age = f"P{delta.years}Y{delta.months}M"
-            return iso_age
-        except Exception as e:
-            logger.error(f"Error calculating ISO age: {e}")
-            raise
-
-    @staticmethod
-    def process_time_element(date_input: str):
-        """
-        Converts a date string into a time element.
-
-        Args:
-            date_input (str): The date string to process.
-
-        Returns:
-            dict: A dictionary representing the time element.
-        """
-        # Import here to avoid circular import
-        from rarelink.utils.processing.dates import create_time_element_from_date
-        return create_time_element_from_date(date_input)
-
-    @staticmethod
-    def process_code(code: str):
-        """
-        Processes a REDCap code into the expected format.
-
-        Args:
-            code (str): The code to process.
-
-        Returns:
-            str: The processed code.
-        """
-        # Import here to avoid circular import
-        from rarelink.utils.processing.codes import process_redcap_code
-        return process_redcap_code(code)
-
-    # --------------------------------------
-    # Label and Mapping Methods
-    # --------------------------------------
-
-    def fetch_label(self, code: str, enum_class=None):
-        """
-        Fetches the label (description) for a given code.
-
-        Args:
-            code (str): The code for which to fetch the label.
-            enum_class (EnumDefinitionImpl, optional): The EnumDefinition 
-            class to fetch labels from.
-
-        Returns:
-            str: The label (description) for the code, or None if not found.
-        """
-        if enum_class:
-            return self.load_label(code, enum_class)
+        # Get instruments from config
+        instruments = self._get_instruments()
+        if not instruments:
+            if self.debug_mode:
+                logger.debug("No instruments found in mapping config")
+            return get_field_value(data, field_path, default_value)
         
-        # Import here to avoid circular import
-        from rarelink.utils.processing.codes import fetch_label_directly
-        return fetch_label_directly(code)
-
-    def load_label(self, code: str, enum_class):
-        """
-        Loads the label for a given code from an EnumDefinition class.
-
-        Args:
-            code (str): The code for which to load the label.
-            enum_class (EnumDefinitionImpl): The EnumDefinition class to 
-            fetch labels from.
-
-        Returns:
-            str: The label (description) for the code, or None if not found.
-        """
-        try:
-            # Import here to avoid circular import
-            from rarelink.utils.loading import fetch_description_from_label_dict
-            return fetch_description_from_label_dict(enum_class, code)
-        except KeyError:
+        return get_multi_instrument_field_value(
+            data, instruments, [field_path], default_value)
+    
+    def _get_instruments(self) -> List[str]:
+        """Get instruments from mapping config"""
+        instruments = []
+        
+        # Get instrument_name(s)
+        instrument_name = self.mapping_config.get("instrument_name")
+        if isinstance(instrument_name, (list, set)):
+            instruments.extend(list(instrument_name))
+        elif instrument_name:
+            instruments.append(instrument_name)
+        
+        # Add redcap_repeat_instrument if present
+        repeat_instrument = self.mapping_config.get("redcap_repeat_instrument")
+        if repeat_instrument and repeat_instrument not in instruments:
+            instruments.append(repeat_instrument)
+        
+        return instruments
+    
+    def process_code(self, code: str) -> Optional[str]:
+        """Process a code to standard ontology format"""
+        return process_code(code)
+    
+    def normalize_hgnc_id(self, value: str) -> str:
+        """Normalize an HGNC identifier"""
+        return normalize_hgnc_id(value)
+    
+    def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
+        """Fetch a label for a code"""
+        if not code:
             return None
         
-    def fetch_mapping_value(self, mapping_name: str, code: str):
-        """
-        Fetches the mapped value for a code using the specified mapping name,
-        with an optional boolean conversion.
-
-        Args:
-            mapping_name (str): The name of the mapping to use.
-            code (str): The code to look up in the mapping.
-            to_boolean (bool): Whether to convert the mapped value to a boolean.
-
-        Returns:
-            str | bool | None: The mapped value (optionally converted to 
-            boolean), or None if not found.
-        """
+        # If enum_class is a string, try to get the actual class
+        if isinstance(enum_class, str) and enum_class in self.enum_classes:
+            enum_obj = self.enum_classes[enum_class]
+        else:
+            enum_obj = enum_class
+        
+        # Try hierarchical label fetching with enum class
+        return fetch_label(code, enum_obj)
+    
+    def fetch_label_from_enum(self, code: str, enum_class) -> Optional[str]:
+        """Fetch a label from an enum class"""
+        return fetch_label_from_enum(code, enum_class)
+    
+    def fetch_label_from_dict(self, code: str, label_dict: Dict[str, str]) -> Optional[str]:
+        """Fetch a label from a dictionary"""
+        return fetch_label_from_dict(code, label_dict)
+    
+    def fetch_label_from_bioportal(self, code: str) -> Optional[str]:
+        """Fetch a label from BioPortal API"""
+        return fetch_label_from_bioportal(code)
+    
+    def add_enum_class(self, prefix: str, enum_class_or_path) -> None:
+        """Add an enum class for label lookups"""
+        if not enum_class_or_path:
+            return
+        
+        if isinstance(enum_class_or_path, str):
+            # Import the class from the path
+            try:
+                module_path, class_name = enum_class_or_path.rsplit('.', 1)
+                module = importlib.import_module(module_path)
+                enum_class = getattr(module, class_name)
+                self.enum_classes[prefix] = enum_class
+            except Exception as e:
+                logger.error(f"Failed to import enum class: {e}")
+        else:
+            # Use the provided class directly
+            self.enum_classes[prefix] = enum_class_or_path
+    
+    def fetch_mapping_value(self, 
+                          mapping_name: str, 
+                          code: str, 
+                          default_value: Any = None) -> Any:
+        """Fetch a mapping value"""
+        if not code:
+            return default_value
+        
         try:
             # Import here to avoid circular import
             from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import get_mapping_by_name
             mapping = get_mapping_by_name(mapping_name)
-            value = mapping.get(code, None)
-            return value
-        except KeyError:
-            return None
-
-    # --------------------------------------
-    # Repeated Element Methods
-    # --------------------------------------
-
-    @staticmethod
-    def process_repeated_elements(data: list, processor, map_function):
-        """
-        Processes multiple repeated elements into Phenopacket sub-blocks.
-
-        Args:
-            data (list): The repeated elements data.
-            processor (DataProcessor): Processor for field mapping.
-            map_function (function): Mapping function to process each element.
-
-        Returns:
-            list: A list of processed Phenopacket sub-blocks.
-        """
-        processed_elements = []
-        for element in data:
-            try:
-                processed_elements.append(map_function(element, processor))
-            except Exception as e:
-                logger.warning(f"Failed to process repeated element: {e}")
-        return processed_elements
+            return mapping.get(code, default_value)
+        except Exception as e:
+            if self.debug_mode:
+                logger.error(f"Error fetching mapping value: {e}")
+            return default_value
     
-    # --------------------------------------
-    # Generation Methods
-    # --------------------------------------
+    def convert_date_to_iso_age(self, 
+                              event_date: Union[str, datetime], 
+                              dob: Union[str, datetime]) -> Optional[str]:
+        """Convert dates to ISO8601 duration string"""
+        return convert_date_to_iso_age(event_date, dob)
+    
+    def date_to_timestamp(self, 
+                        date_input: Union[str, datetime]) -> Optional[Timestamp]:
+        """Convert a date to a Protobuf Timestamp"""
+        return date_to_timestamp(date_input)
+    
     @staticmethod
-    def generate_unique_id(length=30, used_ids=None) -> str:
-        """
-        Generates a unique random string of the specified length and ensures it is unique within a document.
-
-        Args:
-            length (int): The desired length of the unique ID. Default is 30.
-            used_ids (set): A set of already-used IDs to ensure uniqueness.
-
-        Returns:
-            str: A unique random string of the specified length.
-        """
-        if used_ids is None:
-            used_ids = set()  # Initialize if not provided
-
-        while True:
-            unique_id = uuid.uuid4().hex[:length]  # Generate a random ID
-            if unique_id not in used_ids:  # Check uniqueness
-                used_ids.add(unique_id)  # Mark as used
-                return unique_id
+    def generate_unique_id(length: int = 30) -> str:
+        """Generate a unique ID"""
+        return uuid.uuid4().hex[:length]

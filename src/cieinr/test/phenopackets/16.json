@@ -1,0 +1,673 @@
+{
+  "id": "16",
+  "subject": {
+    "id": "16",
+    "dateOfBirth": "2022-03-01T00:00:00Z",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P3Y0M"
+      }
+    },
+    "vitalStatus": {},
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    }
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002383",
+        "label": "Infectious encephalitis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:21483005",
+          "label": "Structure of central nervous system"
+        },
+        {
+          "id": "NCBITAXON:81852",
+          "label": "Enterococcaceae"
+        },
+        {
+          "id": "NCBITAXON:2",
+          "label": "Bacteria"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y-1M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "MONDO:0043653",
+        "label": "herpes labialis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:127856007",
+          "label": "Skin and/or subcutaneous tissue structure"
+        },
+        {
+          "id": "NCBITAXON:10239",
+          "label": "Viruses"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y10M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002090",
+        "label": "Pneumonia"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:20139000",
+          "label": "Structure of respiratory system"
+        },
+        {
+          "id": "NCBITAXON:10239",
+          "label": "Viruses"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y1M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0012539",
+        "label": "Non-Hodgkin lymphoma"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:55342001",
+          "label": "Neoplastic disease"
+        },
+        {
+          "id": "NCIT:C129454",
+          "label": "Epstein-Barr Virus Positive"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002037",
+        "label": "Inflammation of the large intestine"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:119292006",
+          "label": "Disorder of gastrointestinal tract"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0100651",
+        "label": "Type I diabetes mellitus"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "SNOMEDCT:362969004",
+          "label": "Disorder of endocrine system"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:718-7",
+        "label": "Hemoglobin:MCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000208",
+            "label": "gram per deciliter"
+          },
+          "value": 9.9
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:777-3",
+        "label": "Platelets:NCnc:Pt:Bld:Qn:Automated count"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 500.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:26499-4",
+        "label": "Neutrophils:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 57.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:14135-8",
+        "label": "Cells.CD3+CD8+:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78800",
+          "label": "Value Above Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:8116-6",
+        "label": "Cells.CD19:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78800",
+          "label": "Value Above Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:9728-7",
+        "label": "Cells.CD3-CD16+CD56+:NCnc:Pt:Bld:Qn"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C78727",
+          "label": "Normal Reference Range"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88791",
+        "label": "Phytohemagglutinin"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C74017",
+        "label": "CD3/CD28 Costimulated Autologous T-Cells"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C14165",
+          "label": "Normal"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88774",
+        "label": "Concanavalin A"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C88789",
+        "label": "Pokeweed Mitogen"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C17166",
+        "label": "Staphylococcus aureus Protein A"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C14165",
+          "label": "Normal"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C85185",
+        "label": "Tetanus"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C34541",
+        "label": "Diphtheria"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C54722",
+          "label": "Low"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C77163",
+        "label": "Candida"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "NCIT:C116203",
+        "label": "Natural Killer Cell Activity Measurement"
+      },
+      "value": {
+        "ontologyClass": {
+          "id": "NCIT:C48190",
+          "label": "Absent"
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "16-interpretation-0",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0011383",
+          "label": "autoimmune lymphoproliferative syndrome type 2A"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "1",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "variationDescriptor": {
+                "id": "65fcf4625d5a4a5f955ba4c6d357e6",
+                "geneContext": {
+                  "valueId": "HGNC:1500",
+                  "symbol": "CASP10"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_032977.3:c.-360T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6688-1",
+                  "label": "Insertion/Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0011383",
+        "label": "autoimmune lymphoproliferative syndrome type 2A"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-1Y-11M"
+        }
+      }
+    }
+  ],
+  "medicalActions": [
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C62710",
+          "label": "Immunoglobulin Therapy"
+        }
+      }
+    },
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C15431",
+          "label": "Hematopoietic Cell Transplantation"
+        }
+      }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010440",
+          "label": "licensed human Japanese encephalitis virus vaccine"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 3.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0410256",
+          "label": "Infection associated neutropenia"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010205",
+          "label": "meningococcal B vaccine, fully recombinant"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 2.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0012302",
+          "label": "Herpes simplex encephalitis"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010440",
+          "label": "licensed human Japanese encephalitis virus vaccine"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 3.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0410256",
+          "label": "Infection associated neutropenia"
+        }
+      ]
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "VO:0010205",
+          "label": "meningococcal B vaccine, fully recombinant"
+        },
+        "cumulativeDose": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 2.0
+        }
+      },
+      "adverseEvents": [
+        {
+          "id": "HP:0020085",
+          "label": "Infection following live vaccination"
+        },
+        {
+          "id": "HP:0012302",
+          "label": "Herpes simplex encephalitis"
+        }
+      ]
+    }
+  ],
+  "metaData": {
+    "created": "2025-03-23T15:06:57.786366Z",
+    "createdBy": "Adam G.",
+    "resources": [
+      {
+        "id": "mondo",
+        "name": "Monarch Disease Ontology",
+        "url": "https://purl.obolibrary.org/obo/MONDO/",
+        "version": "2024-09-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+      },
+      {
+        "id": "hpo",
+        "name": "Human Phenotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2024-08-13",
+        "namespacePrefix": "HP",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "2.78",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "omim",
+        "name": "Online Mendelian Inheritance",
+        "url": "https://omim.org/",
+        "version": "2024-09-12",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "ncit",
+        "name": "NCI Thesaurus OBO Edition",
+        "url": "https://ncit.nci.nih.gov/",
+        "version": "24.04e",
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "2024-09-12",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org/",
+        "version": "2024-08-23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "hgvs",
+        "name": "Human Genome Variation Society",
+        "url": "https://varnomen.hgvs.org/",
+        "version": "21.0.0",
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0"
+  }
+}

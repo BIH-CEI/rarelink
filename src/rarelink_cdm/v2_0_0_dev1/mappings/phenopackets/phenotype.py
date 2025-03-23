@@ -1,5 +1,5 @@
 PHENOTYPIC_FEATURES_BLOCK = {
-    "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+    "redcap_repeat_instrument": "phenotypic_feature",
     "type_field": "snomedct_8116006",
     "excluded_field": "snomedct_363778006",
     "onset_age_field": "hp_0003674",

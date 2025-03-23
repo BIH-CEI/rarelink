@@ -1,0 +1,120 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_autoantibodies_annual.yaml
+name: autoantibodies_2
+description: >
+  Annual autoantibodies form capturing updated test date and autoantibody assay results.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  AutoantibodiesAnnual:
+    description: >
+      Annual autoantibodies test information.
+    slots:
+      - autoantibodies_test_date_v2
+      - autoanti_ana_val_v2
+      - autoanti_anca_val_v2
+      - autoanti_ena_val_v2
+      - autoanti_anti_tpo_val_v2
+      - autoanti_anti_neu_val_v2
+      - autoanti_anti_plat_val_v2
+      - autoanti_iga_ttg_val_v2
+      - autoanti_dat_val_v2
+      - other_autoanti_test_v2
+      - other_autoanti_val_v2
+
+slots:
+  autoantibodies_test_date_v2:
+    title: Autoantibodies Test Date
+    description: >
+      Please specify the date of the autoantibody test (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  autoanti_ana_val_v2:
+    title: ANA Test Result
+    description: >
+      ANA Test Result (only titers >1:180 are considered positive).
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_anca_val_v2:
+    title: ANCA Test Result
+    description: ANCA Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_ena_val_v2:
+    title: ENA Test Result
+    description: ENA Test Result.
+    range: AutoantibodyResultSimpleEnum
+    required: false
+
+  autoanti_anti_tpo_val_v2:
+    title: Anti TPO Test Result
+    description: Anti TPO (thyroid peroxidase) Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_anti_neu_val_v2:
+    title: Anti Neutrophil Antibody Test Result
+    description: Anti neutrophil antibody Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_anti_plat_val_v2:
+    title: Anti-platelet Antibody Test Result
+    description: Anti-platelet antibody Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_iga_ttg_val_v2:
+    title: IgA tTG Test Result
+    description: IgA tTG (tissue Transglutaminase/celiac screen) Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  autoanti_dat_val_v2:
+    title: DAT Test Result
+    description: DAT - Direct Antiglobulin test (direct Coombs test) Test Result.
+    range: AutoantibodyResultEnum
+    required: false
+
+  other_autoanti_test_v2:
+    title: Other Autoantibody Test
+    description: >
+      Please search for the other Autoantibody test (BIOPORTAL:NCIT).
+    range: string
+    required: false
+
+  other_autoanti_val_v2:
+    title: Other Autoantibody Test Result
+    description: What was the result of this test.
+    range: AutoantibodyResultSimpleEnum
+    required: false
+
+enums:
+  AutoantibodyResultEnum:
+    description: Autoantibody test result.
+    permissible_values:
+      ncit_c35682:
+        description: Positive Test
+      ncit_c35681:
+        description: Negative Test
+      "3":
+        description: not done
+
+  AutoantibodyResultSimpleEnum:
+    description: Autoantibody test result (simple).
+    permissible_values:
+      ncit_c35682:
+        description: Positive Test
+      ncit_c35681:
+        description: Negative Test

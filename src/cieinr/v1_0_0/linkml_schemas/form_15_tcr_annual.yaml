@@ -1,0 +1,71 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_tcr_v_beta_annual.yaml
+name: tcr_v_beta_2
+description: >
+  Annual TCR V Beta test form capturing updated information on whether the test was performed,
+  the test date, the TCR V Beta repertoire response, and an option to upload a PDF test report.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  LOINC: http://loinc.org/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  TCRVBetaAnnual:
+    description: >
+      Annual TCR V Beta test information.
+    slots:
+      - tcr_test_v2
+      - date_tcr_test_v2
+      - tcr_v_beta_response_v2
+      - tcr_v_pdf_test_v2
+
+slots:
+  tcr_test_v2:
+    title: Was the TCR V Beta test performed?
+    description: ""
+    range: TCRTestEnum
+    required: false
+
+  date_tcr_test_v2:
+    title: Date of TCR V Beta Test
+    description: >
+      What is the date of the test? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+  tcr_v_beta_response_v2:
+    title: TCR-V Beta Response
+    description: >
+      TCR-V Beta Response.
+    range: TCRVBetaResponseEnum
+    required: false
+
+  tcr_v_pdf_test_v2:
+    title: TCR V Beta Test PDF
+    description: >
+      Please upload the PDF test results (REMOVE PATIENT'S PERSONAL INFORMATION).
+    range: file
+    required: false
+
+enums:
+  TCRTestEnum:
+    description: Options for whether the TCR V Beta test was performed.
+    permissible_values:
+      ncit_c129657:
+        description: Yes
+      no:
+        description: No
+
+  TCRVBetaResponseEnum:
+    description: TCR V Beta repertoire response.
+    permissible_values:
+      ncit_c14165:
+        description: Normal
+      ncit_c25401:
+        description: Skewed

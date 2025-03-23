@@ -1,0 +1,147 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_trec_krec.yaml
+name: trec_krec
+description: >
+  TREC/KREC form capturing whether the TREC test was performed, its timing, date, result and level;
+  and similarly for the KREC test, with an option to upload the test report.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  LOINC: http://loinc.org/
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  TREC_KREC:
+    description: >
+      Form for capturing TREC and KREC test details.
+    slots:
+      - trec_test
+      - type_trec_test
+      - date_trec_test
+      - trectest_result
+      - trec_level
+      - krec_test
+      - type_krec_test
+      - date_krec
+      - krec_test_result
+      - krec_level_custom
+      - trec_pdf
+
+slots:
+  trec_test:
+    title: Was a TREC test performed?
+    description: TREC = T-Cell Receptor Excision Circle.
+    range: TREC_TestEnum
+    required: false
+
+  type_trec_test:
+    title: TREC Analysis Timing
+    description: When was the TREC analysis done?
+    range: TREC_TestTimingEnum
+    required: false
+
+  date_trec_test:
+    title: Date of TREC Test
+    description: What was the date of the TREC test? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+  trectest_result:
+    title: TREC Test Result
+    description: What is the TREC test result?
+    range: TREC_ResultEnum
+    required: false
+
+  trec_level:
+    title: TREC Level
+    description: TREC result, include units.
+    range: string
+    required: false
+
+  krec_test:
+    title: Was a KREC test performed?
+    description: KREC = Kappa‐deleting recombination excision circles.
+    range: KREC_TestEnum
+    required: false
+
+  type_krec_test:
+    title: KREC Analysis Timing
+    description: When was the KREC analysis done?
+    range: KREC_TestTimingEnum
+    required: false
+
+  date_krec:
+    title: Date of KREC Test
+    description: What was the date of the KREC test? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+  krec_test_result:
+    title: KREC Test Result
+    description: What is the KREC test result?
+    range: TREC_ResultEnum
+    required: false
+
+  krec_level_custom:
+    title: KREC Level
+    description: KREC result, include units. Please put the unit in [ ] after your value.
+    range: string
+    required: false
+
+  trec_pdf:
+    title: TREC/KREC Test Report
+    description: Please attach the test result (REMOVE ALL IDENTIFIED INFORMATION: MRN, DOB, Name).
+    range: file
+    required: false
+
+enums:
+  TREC_TestEnum:
+    description: Options for whether the TREC test was performed.
+    permissible_values:
+      ncit_c2561:
+        description: Yes
+      no:
+        description: No
+
+  TREC_TestTimingEnum:
+    description: Options for TREC analysis timing.
+    permissible_values:
+      ncit_c199317:
+        description: Test before the time of diagnosis
+      ncit_c100059:
+        description: Test after diagnosis
+      "1":
+        description: As part of newborn screening
+
+  TREC_ResultEnum:
+    description: TREC test result.
+    permissible_values:
+      ncit_c48190:
+        description: Absent
+      ncit_c54722:
+        description: Below normal range
+      ncit_c14165:
+        description: Within normal range
+
+  KREC_TestEnum:
+    description: Options for whether the KREC test was performed.
+    permissible_values:
+      customcode_krec:
+        description: Yes
+      no:
+        description: No
+
+  KREC_TestTimingEnum:
+    description: Options for KREC analysis timing.
+    permissible_values:
+      ncit_c199317:
+        description: Test before the time of diagnosis
+      ncit_c100059:
+        description: Test after diagnosis
+      "1":
+        description: As part of newborn screening

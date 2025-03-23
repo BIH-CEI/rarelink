@@ -1,0 +1,94 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_respiratory_support.yaml
+name: respiratory_support
+description: >
+  Respiratory Support form capturing the date of form completion, history of respiratory support,
+  the type(s) of support received, and the start date of support.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  RespiratorySupport:
+    description: >
+      Form for capturing respiratory support information.
+    slots:
+      - date_respiratory_support
+      - procedure_16
+      - procedure_16_type
+      - resp_other
+      - procedure_16_start
+
+slots:
+  date_respiratory_support:
+    title: Date of Form Completion
+    description: Date of completing this form (format: 01-M-Y).
+    range: union_date_string
+    required: false
+
+  procedure_16:
+    title: Respiratory Support History
+    description: Has the patient ever received respiratory support?
+    range: RespiratorySupportTestEnum
+    required: false
+
+  procedure_16_type:
+    title: Type of Respiratory Support
+    description: >
+      What type of respiratory support has the patient received? (Multiple selections allowed.)
+    range: RespiratorySupportTypeEnum
+    required: false
+
+  resp_other:
+    title: Other Respiratory Support
+    description: Please specify other respiratory support.
+    range: string
+    required: false
+
+  procedure_16_start:
+    title: Respiratory Support Start Date
+    description: When did the respiratory support begin? (format: 01-M-Y)
+    range: union_date_string
+    required: false
+
+enums:
+  RespiratorySupportTestEnum:
+    description: Options for respiratory support history.
+    permissible_values:
+      ncit_c15322:
+        description: Yes
+        meaning: NCIT:C15322
+      "0":
+        description: No
+        meaning: "0"
+      "2":
+        description: Unknown
+        meaning: "2"
+
+  RespiratorySupportTypeEnum:
+    description: Types of respiratory support received.
+    permissible_values:
+      ncit_c171507:
+        description: ECMO (extracorporeal membrane oxygenation)
+        meaning: NCIT:C171507
+      ncit_c37981:
+        description: Intubation > 2 days
+        meaning: NCIT:C37981
+      ncit_c124040:
+        description: CPAP
+        meaning: NCIT:C124040
+      ncit_c124039:
+        description: BiPAP
+        meaning: NCIT:C124039
+      ncit_c94624:
+        description: Oxygen
+        meaning: NCIT:C94624
+      "99":
+        description: Other
+        meaning: "99"

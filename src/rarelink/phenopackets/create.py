@@ -1,185 +1,309 @@
+# src/rarelink/phenopackets/create.py
 from phenopackets import Phenopacket
 import logging
+import traceback
 from typing import Dict, Any, Optional
-
 from rarelink.utils.processor import DataProcessor
-from rarelink.phenopackets.mappings import (
-    map_individual,
-    map_vital_status,
-    map_metadata,
-    map_diseases,
-    map_interpretations,
-    map_variation_descriptor,
-    map_phenotypic_features,
-    map_measurements
-)
+from rarelink.phenopackets.mappings.utils.common_utils import add_enum_classes_to_processor
+
+# Import new mapper classes
+from rarelink.phenopackets.mappings.individual_mapper import IndividualMapper
+from rarelink.phenopackets.mappings.vital_status_mapper import VitalStatusMapper
+from rarelink.phenopackets.mappings.phenotypic_feature_mapper import PhenotypicFeatureMapper
+from rarelink.phenopackets.mappings.measurement_mapper import MeasurementMapper
+from rarelink.phenopackets.mappings.medical_action_mapper import MedicalActionMapper
+from rarelink.phenopackets.mappings.disease_mapper import DiseaseMapper
+from rarelink.phenopackets.mappings.variation_descriptor_mapper import VariationDescriptorMapper
+from rarelink.phenopackets.mappings.interpretation_mapper import InterpretationMapper
+from rarelink.phenopackets.mappings.metadata_mapper import MetadataMapper
 
 logger = logging.getLogger(__name__)
 
 def create_phenopacket(
     data: dict, 
     created_by: str, 
-    mapping_configs: Optional[Dict[str, Any]] = None
+    mapping_configs: Optional[Dict[str, Any]] = None,
+    debug: bool = False
 ) -> Phenopacket:
     """
     Creates a Phenopacket for an individual record with flexible mapping configurations.
-
+    Refactored to use mapper classes for improved organization.
+    
     Args:
-        data (dict): Input dictionary containing all data.
-        created_by (str): Creator's name for metadata.
-        mapping_configs (dict, optional): Dictionary of mapping configurations 
-            for different Phenopacket blocks.
-
+        data (dict): Input data.
+        created_by (str): Creator's name.
+        mapping_configs (dict, optional): Mapping configurations for different blocks.
+        debug (bool): Enable debug mode.
+        
     Returns:
-        Phenopacket: A fully constructed Phenopacket.
+        Phenopacket: The constructed Phenopacket.
     """
-    # Validate and prepare mapping configurations
     if not mapping_configs:
-        raise ValueError("Mapping configurations are required")
+        raise ValueError("Mapping configurations are required.")
+
+    # Set logging level
+    logging_level = logging.DEBUG if debug else logging.INFO
+    logger.setLevel(logging_level)
 
     try:
-        # Flexible mapping configuration with default fallbacks
-        def get_mapping_config(block_name: str, default_instrument: str = "") -> Dict[str, Any]:
+        record_id = data.get("record_id", "unknown")
+        if debug:
+            logger.debug(f"Processing record ID: {record_id}")
+
+        # --- Helper: Create a processor by merging outer keys ---
+        def create_processor(block: str, required: bool = False):
             """
-            Retrieve mapping configuration with flexible handling
-            
-            Args:
-                block_name (str): Name of the block (e.g., 'individual', 'diseases')
-                default_instrument (str, optional): Default instrument name if not specified
-            
-            Returns:
-                Dict: Processed mapping configuration
+            Create a DataProcessor for a given block by merging the outer configuration keys
+            into the mapping config. If the block configuration is a list, use its first element.
+            Also, if 'instrument_name' is a collection, convert it to a list of strings and
+            set 'redcap_repeat_instrument' to the first element.
             """
-            block_config = mapping_configs.get(block_name, {})
+            config = mapping_configs.get(block, {})
+            # If the configuration is a list, use the first element as the base config.
+            if isinstance(config, list):
+                config = config[0]
+            if required and not config:
+                raise ValueError(f"Required mapping configuration '{block}' missing.")
+            # Start with a copy of the mapping block
+            mapping_block = config.get("mapping_block", {}).copy()
+            # Merge other keys from the outer config
+            for key, value in config.items():
+                if key != "mapping_block":
+                    mapping_block[key] = value
+            # Convert instrument_name to a list of strings if needed.
+            if "instrument_name" in mapping_block:
+                inst = mapping_block["instrument_name"]
+                if not isinstance(inst, str):
+                    # Convert set or list items to strings.
+                    inst_list = [str(x) for x in inst] if isinstance(inst, (list, set)) else [str(inst)]
+                    mapping_block["instrument_name"] = inst_list
+                else:
+                    mapping_block["instrument_name"] = [inst]  # wrap a single string in a list
+            # Ensure that "redcap_repeat_instrument" is set to the first instrument.
+            if "instrument_name" in mapping_block and "redcap_repeat_instrument" not in mapping_block:
+                mapping_block["redcap_repeat_instrument"] = mapping_block["instrument_name"][0]
+            processor = DataProcessor(mapping_config=mapping_block)
+            processor.enable_debug(debug)
+            add_enum_classes_to_processor(processor, config.get("enum_classes", {}))
+            return processor, config
+
+
+        # --- Individual & Vital Status ---
+        individual_processor, _ = create_processor("individual", required=True)
+        try:
+            dob_field = individual_processor.get_field(data, "date_of_birth_field")
+            if debug:
+                logger.debug(f"Extracted DOB: {dob_field}")
+        except Exception as e:
+            if debug:
+                logger.debug(f"Error extracting DOB: {e}")
+            dob_field = None
+
+        vital_status_processor, _ = create_processor("vitalStatus")
+        vital_status_mapper = VitalStatusMapper(vital_status_processor)
+        vital_status = vital_status_mapper.map(data, dob=dob_field)
+
+        individual_mapper = IndividualMapper(individual_processor)
+        individual = individual_mapper.map(data, vital_status=vital_status)
+
+        # --- Phenotypic Features ---
+        phenotypic_features = []
+        phenotypic_config = mapping_configs.get("phenotypicFeatures")
+        
+        # Ensure we store the full data context for proper modifier scoping
+        full_data = data  
+        
+        if isinstance(phenotypic_config, list):
+            logger.debug(f"Processing {len(phenotypic_config)} phenotypic feature configurations")
+            for i, config in enumerate(phenotypic_config):
+                try:
+                    # Start with base mapping block
+                    proc = DataProcessor(mapping_config=config.get("mapping_block", {}).copy())
+                    
+                    # Set full_data for proper feature & modifier scoping
+                    proc.mapping_config['full_data'] = full_data
+                    
+                    # Merge outer keys
+                    for key, value in config.items():
+                        if key != "mapping_block":
+                            proc.mapping_config[key] = value
+                    
+                    # Ensure repeat instrument is set
+                    if "instrument_name" in proc.mapping_config and "redcap_repeat_instrument" not in proc.mapping_config:
+                        proc.mapping_config["redcap_repeat_instrument"] = proc.mapping_config["instrument_name"]
+                    
+                    proc.enable_debug(debug)
+                    
+                    # Add enum classes
+                    add_enum_classes_to_processor(proc, config.get("enum_classes", {}))
+                    
+                    # Create mapper and map features
+                    feature_mapper = PhenotypicFeatureMapper(proc)
+                    feats = feature_mapper.map(data, dob=individual.date_of_birth)
+                    
+                    if feats:
+                        # Ensure each feature has appropriate modifiers only
+                        phenotypic_features.extend(feats)
+                        logger.debug(f"Added {len(feats)} features from config {i+1}")
+                except Exception as e:
+                    logger.error(f"Error processing phenotypic feature config {i+1}: {e}")
+                    if debug:
+                        logger.debug(traceback.format_exc())
+        else:
+            # Single configuration case
+            proc, _ = create_processor("phenotypicFeatures")
             
-            # If no instrument name is provided, use the default
-            if 'instrument_name' not in block_config and default_instrument:
-                block_config['instrument_name'] = default_instrument
+            # Set full_data for proper feature & modifier scoping
+            proc.mapping_config['full_data'] = full_data
             
-            return block_config
-
-        # Individual Block ------------------------------------------------------
-        individual_config = get_mapping_config("individual")
-        individual_processor = DataProcessor(
-            mapping_config=individual_config.get("mapping_block", {})
-        )
+            feature_mapper = PhenotypicFeatureMapper(proc)
+            phenotypic_features = feature_mapper.map(data, dob=individual.date_of_birth)
         
-        # Extract date of birth for subsequent blocks
-        dob_field = individual_processor.get_field(data, "date_of_birth_field")
-        dob_str = dob_field
-
-        # Vital Status Block ----------------------------------------------------
-        vital_status_config = get_mapping_config("vitalStatus", "noVitalStatusIncluded")
-        vital_status_processor = DataProcessor(
-            mapping_config=vital_status_config.get("mapping_block", {})
-        )
+        if debug:
+            logger.debug(f"Total phenotypic features: {len(phenotypic_features)}")
         
-        # Dynamically set instrument name
-        vital_status_processor.mapping_config["instrument_name"] = \
-            vital_status_config.get("instrument_name", "noVitalStatusIncluded")
+        # Validate and deduplicate features if needed
+        processed_features = []
+        feature_types_seen = set()
         
-        vital_status = map_vital_status(
-            data, 
-            vital_status_processor, 
-            dob=dob_str
-        )
-
-        # Individual Block with Vital Status ------------------------------------
-        individual = map_individual(
-            data, 
-            individual_processor, 
-            vital_status=vital_status
-        )
-
-        # Phenotypic Features Block --------------------------------------------
-        phenotypic_feature_config = get_mapping_config("phenotypicFeatures")
-        phenotypic_feature_processor = DataProcessor(
-            mapping_config=phenotypic_feature_config.get("mapping_block", {})
-        )
-        phenotypic_feature_processor.mapping_config["redcap_repeat_instrument"] = \
-            phenotypic_feature_config.get("instrument_name", "")
+        for feature in phenotypic_features:
+            # Skip invalid features
+            if not feature or not feature.type or not feature.type.id:
+                continue
+                
+            # For CIEINR/multi-instrument setups, deduplicate features by onset date
+            # This handles cases where the same feature appears in multiple configs
+            feature_key = (feature.type.id, getattr(feature.onset, 'iso8601duration', None) if hasattr(feature, 'onset') else None)
+            
+            if feature_key not in feature_types_seen:
+                feature_types_seen.add(feature_key)
+                processed_features.append(feature)
         
-        phenotypic_features = map_phenotypic_features(
+        phenotypic_features = processed_features
+        
+        # --- Measurements ---
+        measurements = []
+        measurement_config = mapping_configs.get("measurements")
+        if isinstance(measurement_config, list):
+            logger.debug(f"Processing {len(measurement_config)} measurement configurations")
+            for i, config in enumerate(measurement_config):
+                try:
+                    proc = DataProcessor(mapping_config=config.get("mapping_block", {}).copy())
+                    for key, value in config.items():
+                        if key != "mapping_block":
+                            proc.mapping_config[key] = value
+                    if "instrument_name" in proc.mapping_config and "redcap_repeat_instrument" not in proc.mapping_config:
+                        proc.mapping_config["redcap_repeat_instrument"] = proc.mapping_config["instrument_name"]
+                    proc.enable_debug(debug)
+                    add_enum_classes_to_processor(proc, config.get("enum_classes", {}))
+                    measurement_mapper = MeasurementMapper(proc)
+                    meas = measurement_mapper.map(data, dob=individual.date_of_birth)
+                    if meas:
+                        measurements.extend(meas)
+                        logger.debug(f"Added {len(meas)} measurements from config {i+1}")
+                except Exception as e:
+                    logger.error(f"Error processing measurement config {i+1}: {e}")
+                    if debug:
+                        logger.debug(traceback.format_exc())
+        else:
+            proc, _ = create_processor("measurements")
+            measurement_mapper = MeasurementMapper(proc)
+            measurements = measurement_mapper.map(data, dob=individual.date_of_birth)
+        if debug:
+            logger.debug(f"Total measurements: {len(measurements)}")
+
+        # --- Medical Actions (Procedures and Treatments) ---
+        medical_actions = []
+        proc_processor, _ = create_processor("procedures")
+        medical_action_mapper = MedicalActionMapper(proc_processor)
+        proc_actions = medical_action_mapper.map(data, dob=individual.date_of_birth)
+        if proc_actions:
+            medical_actions.extend(proc_actions)
+            logger.debug(f"Added {len(proc_actions)} procedure-based medical actions")
+
+        treatments_config = mapping_configs.get("treatments")
+        if treatments_config:
+            if isinstance(treatments_config, list):
+                for i, config in enumerate(treatments_config):
+                    try:
+                        # Use the helper to get a base processor from the first element of the treatments list.
+                        proc, _ = create_processor("treatments")
+                        # Merge the specific treatment config overrides
+                        for key, value in config.items():
+                            if key != "mapping_block":
+                                proc.mapping_config[key] = value
+                        proc.enable_debug(debug)
+                        add_enum_classes_to_processor(proc, config.get("enum_classes", {}))
+                        treatment_mapper = MedicalActionMapper(proc)
+                        treat_actions = treatment_mapper.map(data, dob=individual.date_of_birth)
+                        if treat_actions:
+                            medical_actions.extend(treat_actions)
+                            logger.debug(f"Added {len(treat_actions)} treatment actions from config {i+1}")
+                    except Exception as e:
+                        logger.error(f"Error processing treatment config {i+1}: {e}")
+                        if debug:
+                            logger.debug(traceback.format_exc())
+            elif isinstance(treatments_config, dict):
+                proc, _ = create_processor("treatments")
+                treatment_mapper = MedicalActionMapper(proc)
+                treat_actions = treatment_mapper.map(data, dob=individual.date_of_birth)
+                if treat_actions:
+                    medical_actions.extend(treat_actions)
+                    logger.debug(f"Added {len(treat_actions)} treatment actions")
+
+        if debug:
+            logger.debug(f"Total medical actions: {len(medical_actions)}")
+
+        # --- Diseases ---
+        disease_processor, _ = create_processor("diseases")
+        disease_mapper = DiseaseMapper(disease_processor)
+        diseases = disease_mapper.map(data, dob=individual.date_of_birth)
+        if debug:
+            logger.debug(f"Total diseases: {len(diseases)}")
+
+        # --- Genetics: Variation Descriptor and Interpretations ---
+        var_processor, _ = create_processor("variationDescriptor")
+        variation_mapper = VariationDescriptorMapper(var_processor)
+        variation_descriptors = variation_mapper.map(data)
+
+        interp_processor, _ = create_processor("interpretations")
+        interpretation_mapper = InterpretationMapper(interp_processor)
+        interpretations = interpretation_mapper.map(
             data,
-            phenotypic_feature_processor,
-            dob=individual.date_of_birth
-        )
-        
-        # Measurements Block ----------------------------------------------------
-        measurement_config = get_mapping_config("measurements")
-        measurement_processor = DataProcessor(
-            mapping_config=measurement_config.get("mapping_block", {})
-        )
-        measurement_processor.mapping_config["redcap_repeat_instrument"] = \
-            measurement_config.get("instrument_name", "")
-        
-        measurements = map_measurements(
-            data, 
-            measurement_processor, 
-            dob=individual.date_of_birth
-        )  
-
-        # Disease Block ---------------------------------------------------------
-        disease_config = get_mapping_config("diseases")
-        disease_processor = DataProcessor(
-            mapping_config=disease_config.get("mapping_block", {})
-        )
-        disease_processor.mapping_config["redcap_repeat_instrument"] = \
-            disease_config.get("instrument_name", "")
-        
-        diseases = map_diseases(
-            data, 
-            disease_processor,
-            dob=individual.date_of_birth
-        )
-        
-        # Genetics Block --------------------------------------------------------
-        # Variation Descriptor
-        variation_descriptor_config = get_mapping_config("variationDescriptor")
-        variation_descriptor_processor = DataProcessor(
-            mapping_config=variation_descriptor_config.get("mapping_block", {})
-        )
-        variation_descriptor_processor.mapping_config["redcap_repeat_instrument"] = \
-            variation_descriptor_config.get("instrument_name", "")
-        
-        variation_descriptor = map_variation_descriptor(
-            data,
-            variation_descriptor_processor
-        )
-        
-        # Interpretations
-        interpretation_config = get_mapping_config("interpretations")
-        interpretation_processor = DataProcessor(
-            mapping_config=interpretation_config.get("mapping_block", {})
-        )
-        interpretation_processor.mapping_config["redcap_repeat_instrument"] = \
-            interpretation_config.get("instrument_name", "")
-        
-        interpretations = map_interpretations(
-            data,
-            interpretation_processor,
             subject_id=individual.id,
-            variation_descriptor=variation_descriptor
+            variation_descriptors=variation_descriptors
         )
-        
-        # Metadata --------------------------------------------------------------
+
+        # --- Metadata ---
         metadata_config = mapping_configs.get("metadata", {})
-        metadata = map_metadata(
+        metadata_mapper = MetadataMapper(None)  # Metadata mapper doesn't need a processor
+        metadata = metadata_mapper.map(
+            data={},
             created_by=created_by,
             code_systems=metadata_config.get("code_systems")
         )
 
-        # Construct Phenopacket -------------------------------------------------
-        return Phenopacket(
-            id=data.get("record_id", "unknown"),
+        if debug:
+            logger.debug(f"Record {record_id}: {len(phenotypic_features)} phenotypic features, "
+                         f"{len(measurements)} measurements, {len(diseases)} diseases, "
+                         f"{len(medical_actions)} medical actions")
+
+        phenopacket = Phenopacket(
+            id=record_id,
             subject=individual,
             phenotypic_features=phenotypic_features,
             measurements=measurements,
             diseases=diseases,
+            medical_actions=medical_actions,
             meta_data=metadata,
             interpretations=interpretations
         )
-     
+        if debug:
+            logger.debug(f"Successfully created phenopacket for record {record_id}")
+        return phenopacket
+
     except Exception as e:
         logger.error(f"Error creating Phenopacket: {e}")
+        if debug:
+            logger.error(traceback.format_exc())
         raise

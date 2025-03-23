@@ -1,0 +1,39 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/cieinr_repeated_elements.yaml
+name: cieinr_repeated_elements
+description: Simplified definitions for repeatable elements for Phenopackets export
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+imports:
+  - linkml:types
+  - cieinr_code_systems
+  - cieinr_types
+  - form_3_infections_initial
+
+default_range: string
+default_prefix: cieinr
+
+classes:
+  RepeatedElement:
+    description: >
+      A generic container for repeated elements used for Phenopackets export.
+    slots:
+      - redcap_repeat_instrument
+      - redcap_repeat_instance
+      - form_3_infections_initial
+
+slots:
+  redcap_repeat_instrument:
+    description: The name of the REDCap instrument that is being repeated.
+    range: string
+    required: false
+
+  redcap_repeat_instance:
+    description: The instance number of the repeated instrument.
+    range: integer
+    required: false
+
+  form_3_infections_initial:
+    description: Initial infections data.
+    range: InfectionsInitial 
+    required: false

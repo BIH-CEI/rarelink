@@ -1,4 +1,4 @@
-from rarelink.utils.processing import process_redcap_code
+from rarelink.utils.code_processing import process_code
 
 def test_process_redcap_code():
     test_cases = [
@@ -31,4 +31,4 @@ def test_process_redcap_code():
     ]
 
     for code, expected in test_cases:
-        assert process_redcap_code(code) == expected
+        assert process_code(code) == expected

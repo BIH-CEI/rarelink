@@ -1,0 +1,608 @@
+id: https://github.com/BIH-CEI/cieinr/src/cieinr/v1_0_0/limkml_schemas/form_3_infections_initial_form.yaml
+name: infections_initial
+description: >
+  Initial infections form with infection types, severity, onset dates,
+  causing agents, and patterns for Phenopackets export.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cieinr: https://github.com/BIH-CEI/cieinr
+  SNOMEDCT: http://snomed.info/sct/
+  MONDO: https://purl.obolibrary.org/obo/MONDO_
+  HP: https://purl.obolibrary.org/obo/HP_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  NCBITAXON: https://www.ncbi.nlm.nih.gov/taxonomy
+imports:
+  - linkml:types
+  - cieinr_types
+  - cieinr_code_systems
+default_range: string
+default_prefix: cieinr
+
+classes:
+  InfectionsInitial:
+    description: >
+      Initial infection information with infection types, severity, and patterns for Phenopackets export.
+    slots:
+      - type_of_infection
+      - snomedct_61274003 
+      - snomedct_21483005
+      - snomedct_81745001
+      - snomedct_385383008
+      - snomedct_127856007
+      - snomedct_110522009
+      - snomedct_20139000
+      - snomedct_303699009
+      - snomedct_21514008
+      - snomedct_31099001
+      - infection_severity
+      - infection_temp_pattern
+      - causing_agent
+      - causing_agent_viral
+      - causing_agent_bacterial
+      - causing_agent_mycotic
+      - causing_organism_other
+      - infection_times_obseverd
+      - infection_date
+      - infection_date_2
+      - infection_date_3
+      - infection_date_4
+      - infection_date_5
+      - infection_date_6
+      - infection_date_7
+      - infection_date_8
+      - infection_date_9
+      - infection_date_10
+      - infections_initial_form_complete
+
+slots:
+  type_of_infection:
+    title: Infection type
+    description: The type of infection that the participant experienced.
+    range: InfectionTypeEnum
+    required: false
+
+  snomedct_61274003:
+    title: Opportunistic Infection
+    description: Specific opportunistic infection that the participant experienced.
+    range: OpportunisticInfectionEnum
+    required: false
+
+  snomedct_21483005:
+    title: CNS Infection
+    description: Specific CNS infection that the participant experienced.
+    range: CNSInfectionEnum
+    required: false
+
+  snomedct_81745001:
+    title: Eye Infection
+    description: Specific eye infection that the participant experienced.
+    range: EyeInfectionEnum
+    required: false
+
+  snomedct_385383008:
+    title: ENT Infection
+    description: Specific ENT infection that the participant experienced.
+    range: ENTInfectionEnum
+    required: false
+
+  snomedct_127856007:
+    title: Skin and Soft Tissue Infection
+    description: Specific skin and soft tissue infection that the participant experienced.
+    range: SkinInfectionEnum
+    required: false
+
+  snomedct_110522009:
+    title: Bone and Joint Infection
+    description: Specific bone and joint infection that the participant experienced.
+    range: BoneJointInfectionEnum
+    required: false
+
+  snomedct_20139000:
+    title: Respiratory Infection
+    description: Specific respiratory infection that the participant experienced.
+    range: RespiratoryInfectionEnum
+    required: false
+
+  snomedct_303699009:
+    title: Gastrointestinal Infection
+    description: Specific gastrointestinal infection that the participant experienced.
+    range: GIInfectionEnum
+    required: false
+
+  snomedct_21514008:
+    title: Genitourinary Infections
+    description: Specific genitourinary infection that the participant experienced.
+    range: GUInfectionEnum
+    required: false
+
+  snomedct_31099001:
+    title: Systemic Infection
+    description: Specific systemic infection that the participant experienced.
+    range: SystemicInfectionEnum
+    required: false
+
+  infection_severity:
+    title: Infection severity
+    description: The severity of the infection.
+    range: InfectionSeverityEnum
+    required: false
+
+  infection_temp_pattern:
+    title: Infection temporal pattern
+    description: The temporal pattern observed in the infection.
+    range: InfectionTemporalPatternEnum
+    required: false
+
+  causing_agent:
+    title: Causing agent
+    description: The agent that caused the infection.
+    range: CausingAgentEnum
+    required: false
+  
+  causing_agent_viral:
+    title: Viral causing agent
+    description: The viral agent that caused the infection.
+    range: ViralCausingAgentEnum
+    required: false
+
+  causing_agent_bacterial:
+    title: Bacterial causing agent
+    description: The bacterial agent that caused the infection.
+    range: BacterialCausingAgentEnum
+    required: false
+  
+  causing_agent_mycotic:
+    title: Mycotic causing agent
+    description: The mycotic agent that caused the infection.
+    range: MycoticCausingAgentEnum
+    required: false
+
+  causing_organism_other:
+    title: Other causing organism
+    description: The other organism that caused the infection.
+    range: string
+    required: false
+
+  infection_times_obseverd:
+    title: Infection frequency
+    description: The number of times the patient had this infection.
+    range: InfectionFrequencyEnum
+    required: false
+
+  infection_date: 
+    title: Infection date
+    description: The date the infection was first observed.
+    range: union_date_string
+    required: false
+
+  infection_date_2:
+    title: Infection date 2
+    description: The date the infection was second observed.
+    range: union_date_string
+    required: false
+
+  infection_date_3:
+    title: Infection date 3
+    description: The date the infection was third observed.
+    range: union_date_string
+    required: false
+
+  infection_date_4:
+    title: Infection date 4
+    description: The date the infection was fourth observed.
+    range: union_date_string
+    required: false
+  
+  infection_date_5:
+    title: Infection date 5
+    description: The date the infection was fifth observed.
+    range: union_date_string
+    required: false
+  
+  infection_date_6:
+    title: Infection date 6
+    description: The date the infection was sixth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_7:
+    title: Infection date 7
+    description: The date the infection was seventh observed.
+    range: union_date_string
+    required: false
+
+  infection_date_8:
+    title: Infection date 8
+    description: The date the infection was eighth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_9:
+    title: Infection date 9
+    description: The date the infection was ninth observed.
+    range: union_date_string
+    required: false
+
+  infection_date_10:
+    title: Infection date 10
+    description: The date the infection was tenth observed.
+    range: union_date_string
+    required: false
+    
+  infections_initial_form_complete:
+    title: Form completion status
+    description: Indicates the completion status of the infections initial form.
+    range: CompletionStatusEnum
+    required: true
+
+enums:
+  InfectionTypeEnum:
+    description: Types of infections
+    permissible_values:
+      snomedct_61274003:
+        description: Opportunistic Infection
+        meaning: SNOMEDCT:61274003
+      snomedct_21483005:
+        description: CNS Infection
+        meaning: SNOMEDCT:21483005
+      snomedct_81745001:
+        description: Eye Infection
+        meaning: SNOMEDCT:81745001
+      snomedct_385383008:
+        description: ENT Infection
+        meaning: SNOMEDCT:385383008
+      snomedct_127856007:
+        description: Skin and Soft Tissue Infection
+        meaning: SNOMEDCT:127856007
+      snomedct_110522009:
+        description: Bone and Joint Infection
+        meaning: SNOMEDCT:110522009
+      snomedct_20139000:
+        description: Respiratory Infection
+        meaning: SNOMEDCT:20139000
+      snomedct_303699009:
+        description: Gastrointestinal Infection
+        meaning: SNOMEDCT:303699009
+      snomedct_21514008:
+        description: Genitourinary Infections
+        meaning: SNOMEDCT:21514008
+      snomedct_31099001:
+        description: Systemic Infection
+        meaning: SNOMEDCT:31099001
+
+  OpportunisticInfectionEnum:
+    description: Types of opportunistic infections
+    permissible_values:
+      mondo_0002026:
+        description: Candidiasis
+        meaning: MONDO:0002026
+      mondo_0005132:
+        description: CMV (cytomegalovirus)
+        meaning: MONDO:0005132
+      mondo_0005724:
+        description: Cryptococcosis
+        meaning: MONDO:0005724
+
+  CNSInfectionEnum:
+    description: Types of CNS infections
+    permissible_values:
+      hp_0030049:
+        description: Brain Abscess
+        meaning: HP:0030049
+      hp_0002383:
+        description: Encephalitis
+        meaning: HP:0002383
+      hp_0001287:
+        description: Meningitis
+        meaning: HP:0001287
+
+  EyeInfectionEnum:
+    description: Types of eye infections
+    permissible_values:
+      hp_0000509:
+        description: Conjunctivitis
+        meaning: HP:0000509
+
+  ENTInfectionEnum:
+    description: Types of ENT infections
+    permissible_values:
+      hp_0000265:
+        description: Mastoiditis
+        meaning: HP:0000265
+      hp_0000388:
+        description: Otitis Media
+        meaning: HP:0000388
+      hp_0025439:
+        description: Pharyngitis
+        meaning: HP:0025439
+      hp_0012384:
+        description: Rhinitis
+        meaning: HP:0012384
+      hp_0001731:
+        description: Sinusitis
+        meaning: HP:0001731
+
+  SkinInfectionEnum:
+    description: Types of skin and soft tissue infections
+    permissible_values:
+      hp_0100658:
+        description: Cellulitis
+        meaning: HP:0100658
+      mondo_0015908:
+        description: Fungal Dermatitis
+        meaning: MONDO:0015908
+      mondo_0043653:
+        description: Herpes Labialis (cold sores)
+        meaning: MONDO:0043653
+
+  BoneJointInfectionEnum:
+    description: Types of bone and joint infections
+    permissible_values:
+      hp_0002754:
+        description: Osteomyelitis
+        meaning: HP:0002754
+      hp_0003095:
+        description: Septic Arthritis
+        meaning: HP:0003095
+
+  RespiratoryInfectionEnum:
+    description: Types of respiratory infections
+    permissible_values:
+      hp_0012387:
+        description: Bronchitis, acute
+        meaning: HP:0012387
+      hp_0004469:
+        description: Pneumonia
+        meaning: HP:0004469
+
+  GIInfectionEnum:
+    description: Types of gastrointestinal infections
+    permissible_values:
+      mondo_0005790:
+        description: Hepatitis A
+        meaning: MONDO:0005790
+      mondo_0005344:
+        description: Hepatitis B
+        meaning: MONDO:0005344
+      mondo_0005231:
+        description: Hepatitis C
+        meaning: MONDO:0005231
+      hp_0002014:
+        description: Diarrhea
+        meaning: HP:0002014
+
+  GUInfectionEnum:
+    description: Types of genitourinary infections
+    permissible_values:
+      mondo_0021697:
+        description: Chlamydia
+        meaning: MONDO:0021697
+      hp_0100577:
+        description: Cystitis
+        meaning: HP:0100577
+      mondo_0005770:
+        description: Genital Herpes
+        meaning: MONDO:0005770
+      mondo_0004277:
+        description: Gonorrhea
+        meaning: MONDO:0004277
+
+  SystemicInfectionEnum:
+    description: Types of systemic infections
+    permissible_values:
+      hp_0031864:
+        description: Bacteremia
+        meaning: HP:0031864
+      mondo_0024619:
+        description: Central Venous Line Infections
+        meaning: MONDO:0024619
+      mondo_0005132:
+        description: CMV
+        meaning: MONDO:0005132
+
+  InfectionSeverityEnum:
+    description: Severity levels of infections
+    permissible_values:
+      hp_0012825:
+        description: Mild (localized or oral intervention required)
+        meaning: HP:0012825
+      hp_0012826:
+        description: Moderate (IV medication required)
+        meaning: HP:0012826
+      hp_0012828:
+        description: Severe (hospitalization required or prolonged)
+        meaning: HP:0012828
+
+  InfectionTemporalPatternEnum:
+    description: Temporal patterns of infections
+    permissible_values:
+      hp_0011009:
+        description: Acute (< 2 weeks, rapid progression)
+        meaning: HP:0011009
+      hp_0011011:
+        description: Subacute (2 weeks to 3 months, slow increase)
+        meaning: HP:0011011
+      hp_0011010:
+        description: Chronic (> 3 months)
+        meaning: HP:0011010
+      hp_0031796:
+        description: Recurrent
+        meaning: HP:0031796
+
+  InfectionFrequencyEnum:
+    description: Frequency of infection
+    permissible_values:
+      ncit_c64576:
+        description: 1
+        meaning: NCIT:C64576
+      ncit_c65134:
+        description: 2
+        meaning: NCIT:C65134
+      ncit_c156502:
+        description: 3
+        meaning: NCIT:C156502
+      ncit_c200364:
+        description: 4
+        meaning: NCIT:C200364
+      ncit_c66836:
+        description: 5
+        meaning: NCIT:C66836
+
+  CausingAgentEnum:
+    description: Classes of causing agents
+    permissible_values:
+      ncbitaxon_10239:
+        description: Viral
+        meaning: NCBITAXON:10239
+      ncbitaxon_2:
+        description: Bacterial
+        meaning: Bacterial
+      ncbitaxon_4751:
+        description: Mycotic
+        meaning: NCBITAXON:4751
+      other:
+        description: Other
+        meaning: Other
+      unknown:
+        description: unknown
+        meaning: unknown
+
+ViralCausingAgentEnum:
+  description: Classes of viral causing agents
+  permissible_values:
+    ncbitaxon_10508:
+      description: Adenovirus
+      meaning: NCBITaxon:10508
+    ncbitaxon_2697049:
+      description: Adenovirus
+      meaning: NCBITAXON:2697049
+    ncbitaxon_10358:
+      description: COVID 19
+      meaning: NCBITAXON:10358
+    ebv_virus:
+      description: EBV virus
+      meaning: EBV_VIRUS
+    ncbitaxon_12059:
+      description: Entero/rhinovirus
+      meaning: NCBITaxon:12059
+    ncbitaxon_10407:
+      description: Hepatitis B virus
+      meaning: NCBITAXON:10407
+    ncbitaxon_12092:
+      description: Hepatitis A virus
+      meaning: NCBITAXON:12092
+    ncbitaxon_10294:
+      description: Herpes Simplex virus
+      meaning: NCBITAXON:10294
+    ncbitaxon_11320:
+      description: Influenza A virus
+      meaning: NCBITAXON:11320
+    ncbitaxon_11520:
+      description: Influenza B virus
+      meaning: NCBITaxon:11520
+    ncbitaxon_142786:
+      description: Norovirus
+      meaning: NCBITAXON:142786
+    ncbitaxon_12814:
+      description: Respiratory syncytial virus
+      meaning: NCBITAXON:12814
+    ncbitaxon_10912:
+      description: Rotavirus
+      meaning: NCBITAXON:10912
+    ncbitaxon_10335:
+      description: Varicella Zoster
+      meaning: NCBITAXON:10335
+    causing_agent_viral_other:
+      description: Other
+      meaning: causing_agent_viral_other
+
+  BacterialCausingAgentEnum:
+    description: Classes of bacterial causing agents
+    permissible_values:
+      ncbitaxon_31979:
+        description: Clostridium diff
+        meaning: NCBITAXON:31979
+      ncbitaxon_91347:
+        description: Enterobacter
+        meaning: NCBITAXON:91347
+      ncbitaxon_81852:
+        description: Enterococcus (including E. coli)
+        meaning: NCBITAXON:81852
+      ncbitaxon_724:
+        description: Haemophilus
+        meaning: NCBITAXON:724
+      snomedct_75032006:
+        description: Klebsiella
+        meaning: SNOMED:75032006
+      ncbitaxon_33958:
+        description: Lactobacillaceae
+        meaning: NCBITAXON:33958
+      ncbitaxon_445:
+        description: Legionella
+        meaning: NCBITAXON:445
+      ncbitaxon_186820:
+        description: Listeriaceae
+        meaning: NCBITAXON:186820
+      ncbitaxon_2093:
+        description: Mycoplasma
+        meaning: NCBITAXON:2093
+      ncbitaxon_482:
+        description: Neisseria meningitis
+        meaning: NCBITAXON:482
+      ncbitaxon_90964:
+        description: Staphylococcus
+        meaning: NCBITAXON:90964
+      ncbitaxon_1300:
+        description: Streptococcus
+        meaning: NCBITAXON:1300
+      causing_agent_bacterial_other:
+        description: Other
+        meaning: causing_agent_bacterial_other
+
+  MycoticCausingAgentEnum:
+    description: Classes of mycotic causing agents
+    permissible_values:
+      ncbitaxon_5052:
+        description: Aspergillus
+        meaning: NCBITAXON:5052
+      ncbitaxon_5475:
+        description: Candida
+        meaning: NCBITAXON:5475
+      ncbitaxon_470132:
+        description: Catenulostroma chromoblastomycosum
+        meaning: NCBITAXON:470132
+      ncbitaxon_3027:
+        description: Cryptophyceae
+        meaning: NCBITAXON:3027
+      ncbitaxon_2231446:
+        description: Dermatophyllum
+        meaning: NCBITAXON:2231446
+      ncbitaxon_5036:
+        description: Histoplasma
+        meaning: NCBITAXON:5036
+      ncbitaxon_370836:
+        description: Pityriasis
+        meaning: NCBITAXON:370836
+      ncbitaxon_4753:
+        description: Pneumocystis
+        meaning: NCBITAXON:4753
+      ncbitaxon_184471:
+        description: Sporotrichum
+        meaning: NCBITAXON:184471
+      ncbitaxon_41013:
+        description: Tinea (including tinea corporis)
+        meaning: NCBITAXON:41013
+      causing_agent_mycotic_other:
+        description: Other
+        meaning: causing_agent_mycotic_other
+
+  CompletionStatusEnum:
+    description: >
+      Enumeration for form completion status
+    permissible_values:
+      "0":
+        description: Incomplete
+      "1":
+        description: Unverified
+      "2":
+        description: Complete

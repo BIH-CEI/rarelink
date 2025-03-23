@@ -9,7 +9,7 @@ for prefix additions.
 """
 
 from rarelink.utils.mapping import map_entry
-from rarelink.utils.processing.codes import add_prefix_to_code
+from rarelink.utils.code_processing import add_prefix_to_code
 
 # Define mappings from REDCap fields to schema fields.
 FIELD_MAPPINGS = {
