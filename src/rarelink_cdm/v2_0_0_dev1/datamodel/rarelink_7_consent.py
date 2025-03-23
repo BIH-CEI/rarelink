@@ -1,8 +1,8 @@
-# Auto generated from rarelink_4_care_pathway.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-23T15:58:27
-# Schema: rarelink_4_care_pathway
+# Auto generated from rarelink_7_consent.yaml by pythongen.py version: 0.0.1
+# Generation date: 2025-03-23T16:00:22
+# Schema: rarelink_7_consent
 #
-# id: https://github.com/BIH-CEI/RareLink/rarelink_4_care_pathway.yaml
+# id: https://github.com/BIH-CEI/RareLink/rarelink_7_consent.yaml
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -16,6 +16,7 @@ from typing import (
     Optional,
     Union
 )
+
 from linkml_runtime.linkml_model.meta import (
     EnumDefinition,
     PermissibleValue
@@ -24,7 +25,10 @@ from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.yamlutils import YAMLRoot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot
+)
+
 from rdflib import (
     URIRef
 )
@@ -38,8 +42,8 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-HL7FHIR = CurieNamespace('HL7FHIR', 'http://hl7.org/fhir/')
 SNOMEDCT = CurieNamespace('SNOMEDCT', 'http://snomed.info/sct/')
+HL7FHIR = CurieNamespace('hl7fhir', 'http://hl7.org/fhir/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RARELINK = CurieNamespace('rarelink', 'https://github.com/BIH-CEI/rarelink/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
@@ -60,45 +64,60 @@ class UnionDateString(String):
 
 
 @dataclass(repr=False)
-class CarePathway(YAMLRoot):
+class Consent(YAMLRoot):
     """
-    The section Care Pathway (4) of the RareLink CDM, documenting encounters including their start and end dates,
-    status, and class.
+    The section Consent (7) of the RareLink CDM.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = RARELINK["CarePathway"]
-    class_class_curie: ClassVar[str] = "rarelink:CarePathway"
-    class_name: ClassVar[str] = "CarePathway"
-    class_model_uri: ClassVar[URIRef] = RARELINK.CarePathway
+    class_class_uri: ClassVar[URIRef] = RARELINK["Consent"]
+    class_class_curie: ClassVar[str] = "rarelink:Consent"
+    class_name: ClassVar[str] = "Consent"
+    class_model_uri: ClassVar[URIRef] = RARELINK.Consent
 
-    snomedct_305058001: Union[str, "EncounterStatus"] = None
-    hl7fhir_encounter_class: Union[str, "EncounterClass"] = None
-    rarelink_4_care_pathway_complete: str = None
-    hl7fhir_enc_period_start: Optional[Union[str, UnionDateString]] = None
-    hl7fhir_enc_period_end: Optional[Union[str, UnionDateString]] = None
+    snomedct_309370004: Union[str, "ConsentStatus"] = None
+    snomedct_386318002: str = None
+    rarelink_consent_contact: Union[str, "YesNoUnknown"] = None
+    rarelink_consent_data: Union[str, "YesNoUnknown"] = None
+    rarelink_7_consent_complete: str = None
+    hl7fhir_consent_datetime: Optional[Union[str, UnionDateString]] = None
+    snomedct_123038009: Optional[Union[str, "YesNoUnknown"]] = None
+    rarelink_biobank_link: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.snomedct_305058001):
-            self.MissingRequiredField("snomedct_305058001")
-        if not isinstance(self.snomedct_305058001, EncounterStatus):
-            self.snomedct_305058001 = EncounterStatus(self.snomedct_305058001)
+        if self._is_empty(self.snomedct_309370004):
+            self.MissingRequiredField("snomedct_309370004")
+        if not isinstance(self.snomedct_309370004, ConsentStatus):
+            self.snomedct_309370004 = ConsentStatus(self.snomedct_309370004)
 
-        if self._is_empty(self.hl7fhir_encounter_class):
-            self.MissingRequiredField("hl7fhir_encounter_class")
-        if not isinstance(self.hl7fhir_encounter_class, EncounterClass):
-            self.hl7fhir_encounter_class = EncounterClass(self.hl7fhir_encounter_class)
+        if self._is_empty(self.snomedct_386318002):
+            self.MissingRequiredField("snomedct_386318002")
+        if not isinstance(self.snomedct_386318002, str):
+            self.snomedct_386318002 = str(self.snomedct_386318002)
 
-        if self._is_empty(self.rarelink_4_care_pathway_complete):
-            self.MissingRequiredField("rarelink_4_care_pathway_complete")
-        if not isinstance(self.rarelink_4_care_pathway_complete, str):
-            self.rarelink_4_care_pathway_complete = str(self.rarelink_4_care_pathway_complete)
+        if self._is_empty(self.rarelink_consent_contact):
+            self.MissingRequiredField("rarelink_consent_contact")
+        if not isinstance(self.rarelink_consent_contact, YesNoUnknown):
+            self.rarelink_consent_contact = YesNoUnknown(self.rarelink_consent_contact)
 
-        if self.hl7fhir_enc_period_start is not None and not isinstance(self.hl7fhir_enc_period_start, UnionDateString):
-            self.hl7fhir_enc_period_start = UnionDateString(self.hl7fhir_enc_period_start)
+        if self._is_empty(self.rarelink_consent_data):
+            self.MissingRequiredField("rarelink_consent_data")
+        if not isinstance(self.rarelink_consent_data, YesNoUnknown):
+            self.rarelink_consent_data = YesNoUnknown(self.rarelink_consent_data)
 
-        if self.hl7fhir_enc_period_end is not None and not isinstance(self.hl7fhir_enc_period_end, UnionDateString):
-            self.hl7fhir_enc_period_end = UnionDateString(self.hl7fhir_enc_period_end)
+        if self._is_empty(self.rarelink_7_consent_complete):
+            self.MissingRequiredField("rarelink_7_consent_complete")
+        if not isinstance(self.rarelink_7_consent_complete, str):
+            self.rarelink_7_consent_complete = str(self.rarelink_7_consent_complete)
+
+        if self.hl7fhir_consent_datetime is not None and not isinstance(self.hl7fhir_consent_datetime, UnionDateString):
+            self.hl7fhir_consent_datetime = UnionDateString(self.hl7fhir_consent_datetime)
+
+        if self.snomedct_123038009 is not None and not isinstance(self.snomedct_123038009, YesNoUnknown):
+            self.snomedct_123038009 = YesNoUnknown(self.snomedct_123038009)
+
+        if self.rarelink_biobank_link is not None and not isinstance(self.rarelink_biobank_link, str):
+            self.rarelink_biobank_link = str(self.rarelink_biobank_link)
 
         super().__post_init__(**kwargs)
 
@@ -137,92 +156,72 @@ class CodeSystemsContainer(YAMLRoot):
     icf: Union[str, "ICF"] = None
 
 # Enumerations
-class EncounterStatus(EnumDefinitionImpl):
-
-    hl7fhir_planned = PermissibleValue(
-        text="hl7fhir_planned",
-        description="Planned",
-        meaning=HL7FHIR["planned"])
-    hl7fhir_arrived = PermissibleValue(
-        text="hl7fhir_arrived",
-        description="Arrived",
-        meaning=HL7FHIR["arrived"])
-    hl7fhir_triaged = PermissibleValue(
-        text="hl7fhir_triaged",
-        description="Triaged",
-        meaning=HL7FHIR["triaged"])
-    hl7fhir_onleave = PermissibleValue(
-        text="hl7fhir_onleave",
-        description="On Leave",
-        meaning=HL7FHIR["onleave"])
-    hl7fhir_finished = PermissibleValue(
-        text="hl7fhir_finished",
-        description="Finished",
-        meaning=HL7FHIR["finished"])
-    hl7fhir_cancelled = PermissibleValue(
-        text="hl7fhir_cancelled",
-        description="Cancelled",
-        meaning=HL7FHIR["cancelled"])
-    hl7fhir_unknown = PermissibleValue(
-        text="hl7fhir_unknown",
-        description="Unknown",
-        meaning=HL7FHIR["unknown"])
+class ConsentStatus(EnumDefinitionImpl):
+    """
+    The status of the consent provided.
+    """
+    hl7fhir_draft = PermissibleValue(
+        text="hl7fhir_draft",
+        description="Pending",
+        meaning=HL7FHIR["draft"])
+    hl7fhir_proposed = PermissibleValue(
+        text="hl7fhir_proposed",
+        description="Proposed",
+        meaning=HL7FHIR["proposed"])
+    hl7fhir_active = PermissibleValue(
+        text="hl7fhir_active",
+        description="Active",
+        meaning=HL7FHIR["active"])
+    hl7fhir_rejected = PermissibleValue(
+        text="hl7fhir_rejected",
+        description="Rejected",
+        meaning=HL7FHIR["rejected"])
+    hl7fhir_inactive = PermissibleValue(
+        text="hl7fhir_inactive",
+        description="Inactive",
+        meaning=HL7FHIR["inactive"])
 
     _defn = EnumDefinition(
-        name="EncounterStatus",
+        name="ConsentStatus",
+        description="""The status of the consent provided.""",
     )
 
     @classmethod
     def _addvals(cls):
-        setattr(cls, "hl7fhir_in-progress",
-            PermissibleValue(
-                text="hl7fhir_in-progress",
-                description="In Progress",
-                meaning=HL7FHIR["in-progress"]))
         setattr(cls, "hl7fhir_entered-in-error",
             PermissibleValue(
                 text="hl7fhir_entered-in-error",
                 description="Entered in Error",
                 meaning=HL7FHIR["entered-in-error"]))
 
-class EncounterClass(EnumDefinitionImpl):
-
-    hl7fhir_amb = PermissibleValue(
-        text="hl7fhir_amb",
-        description="Ambulatory",
-        meaning=HL7FHIR["amb"])
-    hl7fhir_imp = PermissibleValue(
-        text="hl7fhir_imp",
-        description="Inpatient",
-        meaning=HL7FHIR["imp"])
-    hl7fhir_obsenc = PermissibleValue(
-        text="hl7fhir_obsenc",
-        description="Observation",
-        meaning=HL7FHIR["obsenc"])
-    hl7fhir_emer = PermissibleValue(
-        text="hl7fhir_emer",
-        description="Emergency",
-        meaning=HL7FHIR["emer"])
-    hl7fhir_vr = PermissibleValue(
-        text="hl7fhir_vr",
-        description="Virtual",
-        meaning=HL7FHIR["vr"])
-    hl7fhir_hh = PermissibleValue(
-        text="hl7fhir_hh",
-        description="Home Health",
-        meaning=HL7FHIR["hh"])
-    rarelink_rdc = PermissibleValue(
-        text="rarelink_rdc",
-        description="RD Specialist Center",
-        meaning=RARELINK["rdc"])
+class YesNoUnknown(EnumDefinitionImpl):
+    """
+    Indicates yes, no, or unknown status.
+    """
+    snomedct_373066001 = PermissibleValue(
+        text="snomedct_373066001",
+        description="True",
+        meaning=SNOMEDCT["373066001"])
+    snomedct_373067005 = PermissibleValue(
+        text="snomedct_373067005",
+        description="False",
+        meaning=SNOMEDCT["373067005"])
     snomedct_261665006 = PermissibleValue(
         text="snomedct_261665006",
         description="Unknown",
         meaning=SNOMEDCT["261665006"])
 
     _defn = EnumDefinition(
-        name="EncounterClass",
+        name="YesNoUnknown",
+        description="""Indicates yes, no, or unknown status.""",
     )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "",
+            PermissibleValue(
+                text="",
+                description="No value provided"))
 
 class NCBITaxon(EnumDefinitionImpl):
     """
@@ -428,20 +427,29 @@ class ICF(EnumDefinitionImpl):
 class slots:
     pass
 
-slots.hl7fhir_enc_period_start = Slot(uri=RARELINK.hl7fhir_enc_period_start, name="hl7fhir_enc_period_start", curie=RARELINK.curie('hl7fhir_enc_period_start'),
-                   model_uri=RARELINK.hl7fhir_enc_period_start, domain=None, range=Optional[Union[str, UnionDateString]])
+slots.snomedct_309370004 = Slot(uri=RARELINK.snomedct_309370004, name="snomedct_309370004", curie=RARELINK.curie('snomedct_309370004'),
+                   model_uri=RARELINK.snomedct_309370004, domain=None, range=Union[str, "ConsentStatus"])
 
-slots.hl7fhir_enc_period_end = Slot(uri=RARELINK.hl7fhir_enc_period_end, name="hl7fhir_enc_period_end", curie=RARELINK.curie('hl7fhir_enc_period_end'),
-                   model_uri=RARELINK.hl7fhir_enc_period_end, domain=None, range=Optional[Union[str, UnionDateString]])
+slots.hl7fhir_consent_datetime = Slot(uri=RARELINK.hl7fhir_consent_datetime, name="hl7fhir_consent_datetime", curie=RARELINK.curie('hl7fhir_consent_datetime'),
+                   model_uri=RARELINK.hl7fhir_consent_datetime, domain=None, range=Optional[Union[str, UnionDateString]])
 
-slots.snomedct_305058001 = Slot(uri=RARELINK.snomedct_305058001, name="snomedct_305058001", curie=RARELINK.curie('snomedct_305058001'),
-                   model_uri=RARELINK.snomedct_305058001, domain=None, range=Union[str, "EncounterStatus"])
+slots.snomedct_386318002 = Slot(uri=RARELINK.snomedct_386318002, name="snomedct_386318002", curie=RARELINK.curie('snomedct_386318002'),
+                   model_uri=RARELINK.snomedct_386318002, domain=None, range=str)
 
-slots.hl7fhir_encounter_class = Slot(uri=RARELINK.hl7fhir_encounter_class, name="hl7fhir_encounter_class", curie=RARELINK.curie('hl7fhir_encounter_class'),
-                   model_uri=RARELINK.hl7fhir_encounter_class, domain=None, range=Union[str, "EncounterClass"])
+slots.rarelink_consent_contact = Slot(uri=RARELINK.rarelink_consent_contact, name="rarelink_consent_contact", curie=RARELINK.curie('rarelink_consent_contact'),
+                   model_uri=RARELINK.rarelink_consent_contact, domain=None, range=Union[str, "YesNoUnknown"])
 
-slots.rarelink_4_care_pathway_complete = Slot(uri=RARELINK.rarelink_4_care_pathway_complete, name="rarelink_4_care_pathway_complete", curie=RARELINK.curie('rarelink_4_care_pathway_complete'),
-                   model_uri=RARELINK.rarelink_4_care_pathway_complete, domain=None, range=str)
+slots.rarelink_consent_data = Slot(uri=RARELINK.rarelink_consent_data, name="rarelink_consent_data", curie=RARELINK.curie('rarelink_consent_data'),
+                   model_uri=RARELINK.rarelink_consent_data, domain=None, range=Union[str, "YesNoUnknown"])
+
+slots.snomedct_123038009 = Slot(uri=RARELINK.snomedct_123038009, name="snomedct_123038009", curie=RARELINK.curie('snomedct_123038009'),
+                   model_uri=RARELINK.snomedct_123038009, domain=None, range=Optional[Union[str, "YesNoUnknown"]])
+
+slots.rarelink_biobank_link = Slot(uri=RARELINK.rarelink_biobank_link, name="rarelink_biobank_link", curie=RARELINK.curie('rarelink_biobank_link'),
+                   model_uri=RARELINK.rarelink_biobank_link, domain=None, range=Optional[str])
+
+slots.rarelink_7_consent_complete = Slot(uri=RARELINK.rarelink_7_consent_complete, name="rarelink_7_consent_complete", curie=RARELINK.curie('rarelink_7_consent_complete'),
+                   model_uri=RARELINK.rarelink_7_consent_complete, domain=None, range=str)
 
 slots.codeSystemsContainer__ncbi_taxon = Slot(uri=RARELINK.ncbi_taxon, name="codeSystemsContainer__ncbi_taxon", curie=RARELINK.curie('ncbi_taxon'),
                    model_uri=RARELINK.codeSystemsContainer__ncbi_taxon, domain=None, range=Union[str, "NCBITaxon"])

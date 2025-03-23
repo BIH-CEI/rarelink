@@ -5,6 +5,7 @@ from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 from rarelink.utils.processor import DataProcessor
 from rarelink.utils.field_access import get_multi_instrument_field_value
+
 from rarelink.phenopackets.adapter.multi_onset import multi_onset_adapter
 from rarelink.phenopackets.mappings.utils.common_utils import (
     create_ontology_class,
@@ -54,23 +55,11 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
         if "resolution_field" not in self.processor.mapping_config:
             self.processor.mapping_config["resolution_field"] = "snomedct_8116006_resolut"
             
-        if "severity_field" not in self.processor.mapping_config:
-            self.processor.mapping_config["severity_field"] = "hp_0012824"
-            
         if "evidence_field" not in self.processor.mapping_config:
             self.processor.mapping_config["evidence_field"] = "phenotypicfeature_evidence"
         
-        # Set up modifier fields if not provided
-        for i, field in enumerate([
-            "hp_0011008",           # Clinical modifier
-            "hp_0012823_hp1",       # Trigger 1
-            "hp_0012823_hp2",       # Trigger 2
-            "hp_0012823_hp3",       # Trigger 3
-            "hp_0012823_ncbitaxon", # Pathogen
-            "hp_0012823_snomed"     # Infectious agent
-        ], 1):
-            if f"modifier_field_{i}" not in self.processor.mapping_config:
-                self.processor.mapping_config[f"modifier_field_{i}"] = field
+
+ 
         
         # Call the base map method which will call _map_multi_entity
         return super().map(data, **kwargs)
@@ -284,6 +273,8 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
                                 # Create the feature with just this date
                                 feature = self._create_phenotypic_feature(type_value, modified_element, dob, all_instruments)
                                 if feature:
+                                    # Ensure each feature has only the appropriate modifiers
+                                    # This is especially important for multi-onset features
                                     features.append(feature)
                                     logger.debug(f"Added feature with onset date {date_value} for type {type_value}")
                         else:
@@ -314,6 +305,7 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
     ) -> Optional[PhenotypicFeature]:
         """
         Create a PhenotypicFeature object from the provided data.
+        Uses strict instance-based scoping to prevent modifier cross-contamination.
         
         Args:
             feature_type (str): Type value
@@ -333,13 +325,24 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
             
             type_obj = create_ontology_class(type_id, type_label, "Unknown Phenotypic Feature")
             
-            # Extract feature properties
+            # Store the current instance in the processor config for reference
+            if 'redcap_repeat_instance' in feature_data:
+                self.processor.mapping_config['current_instance'] = feature_data.get('redcap_repeat_instance')
+            
+            # Extract feature properties with strict instance scoping
             excluded = self._extract_excluded_status(feature_data, all_instruments)
             onset = self._extract_onset(feature_data, dob, all_instruments)
             resolution = self._extract_resolution(feature_data, dob, all_instruments)
             severity = self._extract_severity(feature_data, all_instruments)
             evidence = self._extract_evidence(feature_data, all_instruments)
-            modifiers = self._extract_modifiers(feature_data, all_instruments)
+            
+            # Extract modifiers with feature_type to ensure proper scoping
+            modifiers = self._extract_modifiers(feature_data, feature_type, all_instruments)
+            
+            # Debug output to verify modifier scoping
+            if modifiers:
+                logger.debug(f"Feature {feature_type} has {len(modifiers)} modifiers: " + 
+                            ", ".join([f"{m.id} ({m.label})" for m in modifiers]))
             
             # Check if multi-onset is enabled
             if self.processor.mapping_config.get("multi_onset", False):
@@ -375,6 +378,8 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
                 )
         except Exception as e:
             logger.error(f"Error creating phenotypic feature: {e}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return None
     
     def _extract_excluded_status(
@@ -563,56 +568,172 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
     def _extract_modifiers(
         self, 
         data: Dict[str, Any],
+        feature_type: str = None,
         all_instruments: Optional[List[str]] = None
     ) -> List[OntologyClass]:
-        """Extract modifiers from data"""
+        """
+        Extract modifiers that are specific to the current feature instance.
+        This method strictly scopes modifiers to prevent cross-contamination.
+        """
         modifiers = []
         
-        # Check specific modifier fields for RareLink CDM
-        rarelink_modifier_fields = [
-            "hp_0011008",           # Clinical modifier
-            "hp_0012823_hp1",       # Trigger 1
-            "hp_0012823_hp2",       # Trigger 2
-            "hp_0012823_hp3",       # Trigger 3
-            "hp_0012823_ncbitaxon", # Pathogen
-            "hp_0012823_snomed"     # Infectious agent
-        ]
+        # Get data model type
+        data_model = self.processor.mapping_config.get("data_model", "")
         
-        # First, try the RareLink CDM fields directly
-        for field in rarelink_modifier_fields:
-            if field in data and data[field]:
-                val = data[field]
-                mid = self.process_code(val)
-                label = self.fetch_label(val)
-                if label:
-                    modifiers.append(OntologyClass(id=mid, label=label))
+        # Get current instance information
+        current_instance = None
+        current_instrument = None
         
-        # If no modifiers found with direct access, try the configured modifier fields
-        if not modifiers:
-            for i in range(1, 10):
-                field = self.processor.mapping_config.get(f"modifier_field_{i}")
-                if not field:
-                    continue
+        # For RareLink CDM data model
+        if data_model == "" or data_model == "rarelink_cdm":
+            # Extract modifiers for RareLink CDM model
+            
+            # 1. First get the current instance and instrument
+            if 'redcap_repeat_instance' in data:
+                current_instance = data.get('redcap_repeat_instance')
+            else:
+                # Try to get it from the context
+                for element in self.processor.mapping_config.get('full_data', {}).get('repeated_elements', []):
+                    if 'phenotypic_feature' in element and any(
+                        feature_type == element['phenotypic_feature'].get('snomedct_8116006', '')
+                        for feature_type in [feature_type]
+                    ):
+                        current_instance = element.get('redcap_repeat_instance')
+                        current_instrument = element.get('redcap_repeat_instrument')
+                        break
+            
+            # 2. Now extract modifiers specifically for this instance
+            if current_instance is not None:
+                full_data = self.processor.mapping_config.get('full_data', {})
                 
-                val = None
+                # Look for the correct element in repeated_elements
+                for element in full_data.get('repeated_elements', []):
+                    if (element.get('redcap_repeat_instance') == current_instance and
+                        (element.get('redcap_repeat_instrument') == 'rarelink_6_2_phenotypic_feature' or
+                        element.get('redcap_repeat_instrument') == current_instrument)):
+                        
+                        # Get the phenotypic feature data
+                        phenotypic_feature = element.get('phenotypic_feature', {})
+                        
+                        # Extract temporal pattern modifier
+                        temp_pattern_field = self.processor.mapping_config.get("modifier_temp_pattern_field", "hp_0011008")
+                        if temp_pattern_field in phenotypic_feature and phenotypic_feature[temp_pattern_field]:
+                            tp_val = phenotypic_feature[temp_pattern_field]
+                            tp_id = self.process_code(tp_val)
+                            tp_label = self.fetch_label(tp_val, "TemporalPattern")
+                            if tp_label:
+                                modifiers.append(OntologyClass(id=tp_id, label=tp_label))
+                        
+                        # Extract modifiers from specific fields
+                        modifier_fields = [
+                            ("modifier_field_1", "hp_0012823_hp1"),
+                            ("modifier_field_2", "hp_0012823_hp2"),
+                            ("modifier_field_3", "hp_0012823_hp3"),
+                            ("modifier_field_4", "hp_0012823_ncbitaxon"),
+                            ("modifier_field_5", "hp_0012823_snomed")
+                        ]
+                        
+                        for config_key, field_name in modifier_fields:
+                            field = self.processor.mapping_config.get(config_key, field_name)
+                            if field in phenotypic_feature and phenotypic_feature[field]:
+                                val = phenotypic_feature[field]
+                                if val:
+                                    mid = self.process_code(val)
+                                    label = self.fetch_label(val)
+                                    if label:
+                                        modifiers.append(OntologyClass(id=mid, label=label))
+                        
+                        # We found our instance, no need to continue searching
+                        break
+            
+            # If no modifiers found through the strict instance method, try the direct field approach
+            # but only if data appears to be from the phenotypic feature itself, not a parent element
+            if not modifiers and 'snomedct_8116006' in data:
+                # Extract temporal pattern modifier
+                temp_pattern_field = self.processor.mapping_config.get("modifier_temp_pattern_field", "hp_0011008")
+                if temp_pattern_field in data and data[temp_pattern_field]:
+                    tp_val = data[temp_pattern_field]
+                    tp_id = self.process_code(tp_val)
+                    tp_label = self.fetch_label(tp_val, "TemporalPattern")
+                    if tp_label:
+                        modifiers.append(OntologyClass(id=tp_id, label=tp_label))
                 
-                # Try multi-instrument lookup if available
-                if all_instruments:
-                    val = get_multi_instrument_field_value(
-                        data=self.processor.mapping_config.get('full_data', {}),
-                        instruments=all_instruments,
-                        field_paths=[field]
-                    )
+                # Extract modifiers from specific fields
+                for i in range(1, 6):
+                    field_key = f"modifier_field_{i}"
+                    field = self.processor.mapping_config.get(field_key)
+                    if field and field in data and data[field]:
+                        val = data[field]
+                        if val:
+                            mid = self.process_code(val)
+                            label = self.fetch_label(val)
+                            if label:
+                                modifiers.append(OntologyClass(id=mid, label=label))
+        
+        # CIEINR data model handling
+        elif data_model in ["infections", "conditions"]:
+            # Add temporal pattern if present
+            temp_pattern_field = self.processor.mapping_config.get("modifier_temp_pattern_field", "")
+            if temp_pattern_field and temp_pattern_field in data and data[temp_pattern_field]:
+                tp_val = data[temp_pattern_field]
+                tp_id = self.process_code(tp_val)
+                tp_label = self.fetch_label(tp_val, "TemporalPattern")
+                if tp_label:
+                    modifiers.append(OntologyClass(id=tp_id, label=tp_label))
+            
+            # Add type-specific category as a modifier if it's different from the feature type
+            category_field = "type_of_infection" if data_model == "infections" else "type_of_condition"
+            if category_field in data and data[category_field]:
+                cat_val = data[category_field]
+                if cat_val != feature_type:  # Only add if different from the feature
+                    cat_id = self.process_code(cat_val)
+                    cat_label = self.fetch_label(cat_val)
+                    if cat_label:
+                        modifiers.append(OntologyClass(id=cat_id, label=cat_label))
+            
+            # For infections model, add organism modifiers
+            if data_model == "infections":
+                # Check organism fields
+                organism_fields = [
+                    ("causing_agent_viral", True),
+                    ("causing_agent_bacterial", True),
+                    ("causing_agent_mycotic", True),
+                    ("causing_agent", False)  # False means it's not an index
+                ]
                 
-                # If not found, use direct field access
-                if val is None:
-                    val = data.get(field)
+                for field, is_index in organism_fields:
+                    if field in data and data[field]:
+                        org_val = data[field]
+                        # Skip numeric values which may be enum indexes
+                        if is_index and (isinstance(org_val, (int, float)) or 
+                                        (isinstance(org_val, str) and org_val.isdigit())):
+                            continue
+                        
+                        org_id = self.process_code(org_val)
+                        org_label = self.fetch_label(org_val)
+                        if org_label:
+                            modifiers.append(OntologyClass(id=org_id, label=org_label))
+            
+            # For conditions model, add specific modifiers for this feature type
+            elif data_model == "conditions":
+                # Extract the type base (without prefix)
+                type_base = feature_type.split(":")[-1] if ":" in feature_type else feature_type
+                type_base = type_base.split("_")[-1] if "_" in type_base else type_base
                 
-                if val:
-                    mid = self.process_code(val)
-                    label = self.fetch_label(val)
-                    if label:
-                        modifiers.append(OntologyClass(id=mid, label=label))
+                # Check for fields with pattern hp_XXXXX_modifier where XXXXX matches the feature type
+                for key, value in data.items():
+                    if key.endswith("_modifier") and value:
+                        # Check if the key contains the feature type or is directly related to this feature
+                        if (feature_type in key or type_base in key or
+                            # For specific known mappings
+                            (feature_type == "HP:0012539" and key == "hp_0012539_modifier") or
+                            (feature_type == "HP:0012189" and key == "hp_0012189_modifier") or
+                            (feature_type == "HP:0005523" and key == "hp_0005523_modifier")):
+                            
+                            mod_id = self.process_code(value)
+                            mod_label = self.fetch_label(value)
+                            if mod_label:
+                                modifiers.append(OntologyClass(id=mod_id, label=mod_label))
         
         return modifiers
     

@@ -8,6 +8,8 @@ prefixes:
   ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
   ICD11: https://id.who.int/icd/release/11/
   OMIM: https://omim.org/entry/
+  HL7FHIR: http://hl7.org/fhir/
+  SNOMEDCT: http://snomed.info/sct
 imports:
   - linkml:types
   - rarelink_types

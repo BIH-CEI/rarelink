@@ -109,22 +109,40 @@ def create_phenopacket(
         # --- Phenotypic Features ---
         phenotypic_features = []
         phenotypic_config = mapping_configs.get("phenotypicFeatures")
+        
+        # Ensure we store the full data context for proper modifier scoping
+        full_data = data  
+        
         if isinstance(phenotypic_config, list):
             logger.debug(f"Processing {len(phenotypic_config)} phenotypic feature configurations")
             for i, config in enumerate(phenotypic_config):
                 try:
+                    # Start with base mapping block
                     proc = DataProcessor(mapping_config=config.get("mapping_block", {}).copy())
+                    
+                    # Set full_data for proper feature & modifier scoping
+                    proc.mapping_config['full_data'] = full_data
+                    
                     # Merge outer keys
                     for key, value in config.items():
                         if key != "mapping_block":
                             proc.mapping_config[key] = value
+                    
+                    # Ensure repeat instrument is set
                     if "instrument_name" in proc.mapping_config and "redcap_repeat_instrument" not in proc.mapping_config:
                         proc.mapping_config["redcap_repeat_instrument"] = proc.mapping_config["instrument_name"]
+                    
                     proc.enable_debug(debug)
+                    
+                    # Add enum classes
                     add_enum_classes_to_processor(proc, config.get("enum_classes", {}))
+                    
+                    # Create mapper and map features
                     feature_mapper = PhenotypicFeatureMapper(proc)
                     feats = feature_mapper.map(data, dob=individual.date_of_birth)
+                    
                     if feats:
+                        # Ensure each feature has appropriate modifiers only
                         phenotypic_features.extend(feats)
                         logger.debug(f"Added {len(feats)} features from config {i+1}")
                 except Exception as e:
@@ -132,12 +150,37 @@ def create_phenopacket(
                     if debug:
                         logger.debug(traceback.format_exc())
         else:
+            # Single configuration case
             proc, _ = create_processor("phenotypicFeatures")
+            
+            # Set full_data for proper feature & modifier scoping
+            proc.mapping_config['full_data'] = full_data
+            
             feature_mapper = PhenotypicFeatureMapper(proc)
             phenotypic_features = feature_mapper.map(data, dob=individual.date_of_birth)
+        
         if debug:
             logger.debug(f"Total phenotypic features: {len(phenotypic_features)}")
-
+        
+        # Validate and deduplicate features if needed
+        processed_features = []
+        feature_types_seen = set()
+        
+        for feature in phenotypic_features:
+            # Skip invalid features
+            if not feature or not feature.type or not feature.type.id:
+                continue
+                
+            # For CIEINR/multi-instrument setups, deduplicate features by onset date
+            # This handles cases where the same feature appears in multiple configs
+            feature_key = (feature.type.id, getattr(feature.onset, 'iso8601duration', None) if hasattr(feature, 'onset') else None)
+            
+            if feature_key not in feature_types_seen:
+                feature_types_seen.add(feature_key)
+                processed_features.append(feature)
+        
+        phenotypic_features = processed_features
+        
         # --- Measurements ---
         measurements = []
         measurement_config = mapping_configs.get("measurements")

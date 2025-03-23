@@ -1,19 +1,18 @@
 {
-  "id": "102",
+  "id": "101",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "TEST_13JAN",
+    "dateOfBirth": "2020-01-05T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y10M"
+        "iso8601duration": "P5Y0M"
       }
     },
     "vitalStatus": {},
-    "sex": "MALE",
-    "karyotypicSex": "XXY",
+    "karyotypicSex": "XX",
     "gender": {
-      "id": "SNOMEDCT:446141000124107",
-      "label": "Identifies as female gender"
+      "id": "SNOMEDCT:394743007",
+      "label": "Gender unknown"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,70 +22,136 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
+        "id": "HP:0001059",
+        "label": "Pterygium"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012826",
+        "label": "Moderate"
       },
       "modifiers": [
         {
           "id": "HP:0025297",
           "label": "Prolonged"
+        },
+        {
+          "id": "HP:0012825",
+          "label": "Mild"
+        },
+        {
+          "id": "HP:0012828",
+          "label": "Severe"
+        },
+        {
+          "id": "HP:0031598",
+          "label": "Notched P wave"
+        },
+        {
+          "id": "NCBITAXON:90964",
+          "label": "Staphylococcaceae"
+        },
+        {
+          "id": "SNOMEDCT:303726000",
+          "label": "Shoulder joint prosthesis"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
     },
     {
       "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
+        "id": "HP:0002967",
+        "label": "Cubitus valgus"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "NCBITAXON:10376",
+          "label": "human gammaherpesvirus 4"
+        },
+        {
+          "id": "SNOMEDCT:31099001",
+          "label": "Systemic"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0004322",
+        "label": "Short stature"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
       },
       "modifiers": [
         {
@@ -96,37 +161,19 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
         }
       },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "onset": {
+      "resolution": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P5Y1M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
@@ -135,61 +182,76 @@
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
+        "id": "LOINC:LP7720-8",
+        "label": "White blood cells"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0010046",
-            "label": "united states customary cup"
+            "id": "UO:0000276",
+            "label": "amount per container"
           },
-          "value": 1.54
+          "value": 5.01
         }
       },
       "procedure": {
         "code": {
-          "id": "THESAURUS:C12434",
+          "id": "THESAURUS:C17610",
           "label": "Unknown Procedure"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP7536-8",
+        "label": "Red Blood Cells"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 4.56
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN-interpretation-0",
-      "progressStatus": "IN_PROGRESS",
+      "id": "TEST_13JAN-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "OMIM:241600",
+          "label": "IMMUNODEFICIENCY 43"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "REJECTED",
+            "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "d24713415a6d40a886b8a7ea6f035b",
+                "id": "441e03a34fb04d56915a94f3dff690",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:10853",
+                  "symbol": "SHOX"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NM_006883.2:c.-507G>C"
                   }
                 ],
                 "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
+                  "id": "LOINC:LP71749-3",
+                  "label": "Chromosomal nuclear Ab pattern"
                 },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:53034-5-OTHER",
+                  "label": "Unknown Allelic State"
                 }
               }
             }
@@ -201,37 +263,51 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P2Y10M"
         }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
       }
     },
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P2Y10M"
         }
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
       },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
       }
     }
   ],
   "metaData": {
-    "created": "2025-03-23T13:49:14.152524Z",
+    "created": "2025-03-23T14:52:07.871955Z",
     "createdBy": "Adam G.",
     "resources": [
       {
