@@ -1,3 +1,4 @@
+# src/rarelink/phenopackets/mappings/combined_cieinr.py
 from typing import Dict, Any
 from cieinr.v1_0_0.mappings.phenopackets import (
     DISEASE_BLOCK, 
@@ -21,15 +22,12 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
     """
     Create a comprehensive mapping configuration for CIEINR Phenopacket creation.
     Now supports multiple instruments per mapping block.
-
+    
     Returns:
         Dict[str, Any]: Combined mapping configurations
     """
     # Process mapping_dicts into a more accessible dictionary
-    mapping_dict_lookup = {
-        mapping['name']: mapping['mapping'] 
-        for mapping in mapping_dicts
-    }
+    mapping_dict_lookup = { mapping['name']: mapping['mapping'] for mapping in mapping_dicts }
     return {
         "individual": {
             "instrument_name": "patient_demographics_initial_form",
@@ -44,13 +42,13 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "enum_classes": {}
         },
         "diseases": {
+            # Change from a set to a list to avoid unhashable type error.
             "instrument_name": {"basic_form", "patient_demographics_initial_form"},
             "mapping_block": DISEASE_BLOCK,
             "enum_classes": {
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
-        # separate configurations for each phenotypic feature type: Infections & Conditions
         "phenotypicFeatures": [
             # Infections config
             {
@@ -64,11 +62,8 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
-                # Enable multi-onset for infections
                 "multi_onset": True,
-                # Disable field scanning
                 "enable_field_scanning": False,
-                # Enum classes
                 "enum_classes": {
                     "type_of_infection": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.InfectionTypeEnum",
                     "snomedct_61274003": "cieinr.v1_0_0.python_schemas.form_3_infections_initial.OpportunisticInfectionEnum",
@@ -96,11 +91,8 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
-                # Disable multi-onset for conditions
                 "multi_onset": False,
-                # Disable field scanning
                 "enable_field_scanning": False,
-                # Enum classes
                 "enum_classes": {
                     "type_of_condition": "cieinr.v1_0_0.python_schemas.form_5_conditions.ConditionTypeEnum",
                     "snomedct_95320005": "cieinr.v1_0_0.python_schemas.form_5_conditions.SkinConditionEnum",
@@ -121,65 +113,58 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                     "modifier_field_4": "cieinr.v1_0_0.python_schemas.form_5_conditions.EBVStatusEnum",
                     "modifier_field_5": "cieinr.v1_0_0.python_schemas.form_5_conditions.EBVStatusEnum"
                 }
-                
             }
         ],
         "procedures": {
-                "instrument_name": "basic_form",
-                "mapping_block": BASIC_PROCEDURE_BLOCK,
-                "label_dicts": {
-                    "ProcedureType": label_dicts.get("ProcedureType", {})
-                },
-                "mapping_dicts": {
-                    "procedure_status": mapping_dict_lookup.get("procedure_status", {})
-                },
-                "enum_classes": {
-                    "ncit_c62710": "cieinr.v1_0_0.python_schemas.form_1_basic.IGRTStatusEnumBasicForm",
-                    "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
-                }
+            "instrument_name": "basic_form",
+            "mapping_block": BASIC_PROCEDURE_BLOCK,
+            "label_dicts": {
+                "ProcedureType": label_dicts.get("ProcedureType", {})
             },
-            "measurements": [
-                # CBC measurements config
-                {
-                    "instrument_name": "cbc",
-                    "mapping_block": CBC_MEASUREMENT_BLOCK,
-                    "label_dicts": {
-                        "UnitOfMeasure": label_dicts.get("UnitOfMeasure", {})
+            "mapping_dicts": {
+                "procedure_status": mapping_dict_lookup.get("procedure_status", {})
+            },
+            "enum_classes": {
+                "ncit_c62710": "cieinr.v1_0_0.python_schemas.form_1_basic.IGRTStatusEnumBasicForm",
+                "ncit_c15431": "cieinr.v1_0_0.python_schemas.form_1_basic.HCTStatusEnumBasicForm"
+            }
+        },
+        "measurements": [
+            {
+                "instrument_name": "cbc",
+                "mapping_block": CBC_MEASUREMENT_BLOCK,
+                "label_dicts": {
+                    "UnitOfMeasure": label_dicts.get("UnitOfMeasure", {})
                 },
-                    "multi_measurement": True
-                },
-                # Lymphocytes phenotype config
-                {
-                    "instrument_name": "lymphocytes_phenotype",
-                    "mapping_block": LYMPHOCYTES_PHENOTYPE_BLOCK,
-                    "multi_measurement": True
-                },
-                # Lymphocyte function config
-                {
-                    "instrument_name": "lymphocyte_functionnk_cytotoxicity",
-                    "mapping_block": LYMPHOCYTE_FUNCTION_BLOCK,
-                    "multi_measurement": True
-                }
-            ],
+                "multi_measurement": True
+            },
+            {
+                "instrument_name": "lymphocytes_phenotype",
+                "mapping_block": LYMPHOCYTES_PHENOTYPE_BLOCK,
+                "multi_measurement": True
+            },
+            {
+                "instrument_name": "lymphocyte_functionnk_cytotoxicity",
+                "mapping_block": LYMPHOCYTE_FUNCTION_BLOCK,
+                "multi_measurement": True
+            }
+        ],
         "treatments": [
             {
                 "instrument_name": "inactivated_vaccine_history_and_specific_immune_re", 
                 "mapping_block": INACTIVATE_VACCINE_BLOCK,
-                "enum_classes": 
-                    {
-                        "vo_": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
-                    }
+                "enum_classes": {
+                    "vo_": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
+                }
             },
             {
                 "instrument_name": "live_vaccine_and_specific_immune_response",
                 "mapping_block": LIVE_VACCINE_BLOCK,
-                "enum_classes": 
-                    {
-                        "vo_": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
-                    }
-            }       
+                "enum_classes": {
+                    "vo_": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
+                }
+            }
         ],
-        
         "variationDescriptor": {
             "instrument_name": "genetic_information",
             "mapping_block": VARIATION_DESCRIPTOR_BLOCK,
@@ -201,7 +186,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "map_therapeutic_actionability": mapping_dict_lookup.get("map_therapeutic_actionability", {})
             },
             "enum_classes": {
-                # Reference the IUIS2024MONDOEnum class by import path
                 "mondo_": "cieinr.v1_0_0.python_schemas.form_1_basic.IUIS2024MONDOEnum"
             }
         },
@@ -209,7 +193,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             "code_systems": CIEINR_CODE_SYSTEMS
         }
     }
-    
 
 def get_mapping_for_block(
     block_name: str, 
@@ -219,13 +202,13 @@ def get_mapping_for_block(
 ) -> Dict[str, str]:
     """
     Retrieve a specific mapping or label dictionary from the comprehensive mappings.
-
+    
     Args:
         block_name (str): Name of the block (e.g., 'individual', 'diseases')
         mapping_type (str): Type of mapping ('label_dicts' or 'mapping_dicts')
         key (str): Specific mapping or label key (e.g., 'map_sex', 'GenderIdentity')
         mappings (Dict[str, Any], optional): Mappings to use. Defaults to CIEINR mappings.
-
+    
     Returns:
         Dict[str, str]: The requested mapping or label dictionary
     """
@@ -233,6 +216,13 @@ def get_mapping_for_block(
         mappings = create_phenopacket_mappings()
     
     block_mappings = mappings.get(block_name, {})
+    
+    if isinstance(block_mappings, list):
+        combined = {}
+        for config in block_mappings:
+            if mapping_type in config:
+                combined.update(config[mapping_type].get(key, {}))
+        return combined
     
     if mapping_type not in block_mappings:
         return {}
