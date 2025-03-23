@@ -1,5 +1,4 @@
 import json
-from rarelink.utils.processing.codes import remove_prefix_from_code
 
 def process_redcap_to_linkml(record, processing_rules):
     """

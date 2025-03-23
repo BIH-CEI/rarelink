@@ -1,10 +1,7 @@
 import logging
 from phenopackets import Disease, OntologyClass, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
-from rarelink.utils.loading import (
-    _get_multi_instrument_field_value, 
-    generic_map_entities
-)
+from rarelink.utils.field_access import get_multi_instrument_field_value, generic_map_entities
 
 logger = logging.getLogger(__name__)
 
@@ -165,7 +162,7 @@ def _create_disease_block(data, processor, dob, instruments=None):
                 
             # Use multi-instrument field access
             if instruments:
-                term_id = _get_multi_instrument_field_value(
+                term_id = get_multi_instrument_field_value(
                     data=data,
                     instruments=instruments,
                     field_paths=[field_path]
@@ -216,7 +213,7 @@ def _create_disease_block(data, processor, dob, instruments=None):
         excluded = None
         excluded_field = processor.mapping_config.get("excluded_field")
         if excluded_field:
-            excluded_value = _get_multi_instrument_field_value(
+            excluded_value = get_multi_instrument_field_value(
                 data=data,
                 instruments=instruments,
                 field_paths=[excluded_field]
@@ -237,7 +234,7 @@ def _create_disease_block(data, processor, dob, instruments=None):
         onset_category_field = processor.mapping_config.get("onset_category_field")
         
         if onset_date_field and dob:
-            onset_date = _get_multi_instrument_field_value(
+            onset_date = get_multi_instrument_field_value(
                 data=data,
                 instruments=instruments,
                 field_paths=[onset_date_field]
@@ -277,7 +274,7 @@ def _create_disease_block(data, processor, dob, instruments=None):
                     logger.debug(traceback.format_exc())
         
         if not onset and onset_category_field:
-            onset_category = _get_multi_instrument_field_value(
+            onset_category = get_multi_instrument_field_value(
                 data=data,
                 instruments=instruments,
                 field_paths=[onset_category_field]
@@ -298,7 +295,7 @@ def _create_disease_block(data, processor, dob, instruments=None):
         primary_site = None
         primary_site_field = processor.mapping_config.get("primary_site_field")
         if primary_site_field:
-            primary_site_id = _get_multi_instrument_field_value(
+            primary_site_id = get_multi_instrument_field_value(
                 data=data,
                 instruments=instruments,
                 field_paths=[primary_site_field]

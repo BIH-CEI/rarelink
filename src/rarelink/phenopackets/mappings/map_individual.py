@@ -29,7 +29,7 @@ def map_individual(data: dict,
 
         # Date of Birth
         date_of_birth_field = processor.get_field(data, "date_of_birth_field")
-        date_of_birth = processor.process_date(date_of_birth_field)
+        date_of_birth = processor.date_to_timestamp(date_of_birth_field)
 
         # Time at Last Encounter
         time_at_last_encounter_field = processor.get_field(

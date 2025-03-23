@@ -17,7 +17,7 @@ from rarelink.cli.utils.string_utils import (
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink_cdm.v2_0_0_dev1.mappings.redcap import REVERSE_PROCESSING
 from rarelink.utils.validation import validate_linkml_data
-from rarelink.utils.processing.schemas import linkml_to_redcap  
+from rarelink.utils.schema_processing import linkml_to_redcap  
 import logging
 
 logger = logging.getLogger(__name__)

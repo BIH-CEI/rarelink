@@ -2,7 +2,7 @@
 import logging
 from phenopackets import VitalStatus, OntologyClass, TimeElement, Age
 from rarelink.utils.processor import DataProcessor
-from rarelink.utils.loading import get_highest_instance
+from rarelink.utils.field_access import get_highest_instance
 from phenopackets.schema.v2 import VitalStatus as VitalStatusEnum  # Import enum directly
 
 logger = logging.getLogger(__name__)

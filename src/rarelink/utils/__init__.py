@@ -6,10 +6,20 @@ This module is the RareLink utilities used in various functionalities.
 - validation: Validation tools for RareLink data.
 """
 
-from . import processing
+from . import code_processing
 from . import validation
-from . import loading
+from . import redcap
 from . import mapping
 from . import processor
+from . import date_handling
+from . import label_fetching
 
-__all__ = ["processing", "validation", "loading", "mapping", "processor"]
+__all__ = ["code_processing", 
+           "validation", 
+           "redcap", 
+           "mapping", 
+           "processor",
+           "date_handling",
+           "label_fetching"
+    ]
+

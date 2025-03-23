@@ -8,7 +8,7 @@ Field mappings are explicitly defined, and additional processing is applied
 for Boolean conversions and prefix additions.
 """
 
-from rarelink.utils.processing.codes import add_prefix_to_code
+from rarelink.utils.code_processing import add_prefix_to_code
 
 """
 Mapping function for genetic findings REDCap data to LinkML format.
@@ -25,7 +25,6 @@ def map_genetic_findings(record):
         dict: The mapped data in LinkML format
     """
     # Fields that might contain HGNC identifiers
-    hgnc_fields = ["loinc_48018_6"]
     
     return {
         "g_iei_deficiency": record.get("g_iei_deficiency", ""),

@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Optional
 from rarelink.utils.processor.processor import DataProcessor
 import logging
 from phenopackets import OntologyClass, Evidence, TimeElement, Age
-from rarelink.utils.loading import _get_multi_instrument_field_value
+from rarelink.utils.field_access import get_multi_instrument_field_value
 
 logger = logging.getLogger(__name__)
 
@@ -104,7 +104,7 @@ def _get_single_type(data: dict, processor: DataProcessor, all_instruments: List
     if all_instruments and hasattr(processor, 'mapping_config') and 'all_instruments' in processor.mapping_config:
         # Use the full data and all instruments for lookup
         full_data = processor.mapping_config.get('full_data', {})
-        value = _get_multi_instrument_field_value(
+        value = get_multi_instrument_field_value(
             data=full_data,
             instruments=all_instruments,
             field_paths=[type_field]
@@ -377,7 +377,7 @@ def _extract_excluded_status(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]
@@ -425,7 +425,7 @@ def _extract_onset(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]
@@ -451,7 +451,7 @@ def _extract_onset(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            alt_val = _get_multi_instrument_field_value(
+            alt_val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[alt_field]
@@ -498,7 +498,7 @@ def _extract_resolution(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]
@@ -548,7 +548,7 @@ def _extract_severity(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]
@@ -593,7 +593,7 @@ def _extract_evidence(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]
@@ -641,7 +641,7 @@ def _extract_modifiers(
         
         # Try multi-instrument lookup first if available
         if all_instruments and data_context:
-            val = _get_multi_instrument_field_value(
+            val = get_multi_instrument_field_value(
                 data=data_context,
                 instruments=all_instruments,
                 field_paths=[field]

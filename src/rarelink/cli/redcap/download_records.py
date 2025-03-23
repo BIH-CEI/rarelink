@@ -14,8 +14,8 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
-from rarelink.utils.loading import fetch_redcap_data
-from rarelink.utils.processing.schemas import redcap_to_linkml
+from rarelink.utils.redcap import fetch_redcap_data
+from rarelink.utils.schema_processing import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
 from rarelink_cdm.v2_0_0_dev1.mappings.redcap import MAPPING_FUNCTIONS
 import logging

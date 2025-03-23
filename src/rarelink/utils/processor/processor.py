@@ -1,565 +1,171 @@
-# src/rarelink/utils/processor/processor.py
-from google.protobuf.timestamp_pb2 import Timestamp
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
+# processor.py
+from typing import Any, Dict, List, Optional, Union
 import logging
 import uuid
 import importlib
-import json
+from datetime import datetime
+from google.protobuf.timestamp_pb2 import Timestamp
 
-# Define logger at module level
+from ..field_access import get_field_value, get_multi_instrument_field_value
+from ..code_processing import process_code, normalize_hgnc_id
+from ..label_fetching import (
+    fetch_label, 
+    fetch_label_from_enum, 
+    fetch_label_from_dict, 
+    fetch_label_from_bioportal
+)
+from ..date_handling import convert_date_to_iso_age, date_to_timestamp
+
 logger = logging.getLogger(__name__)
 
 class DataProcessor:
-    def __init__(self, mapping_config: dict):
-        self.mapping_config = mapping_config
-        self.debug_mode = False  # Add a debug mode flag
-        self.fallback_values = {}  # Store fallback values for missing fields
-        self.enum_classes = {}  # Store enum classes for label lookups
-
-    # --------------------------------------
-    # Field Fetching Methods
-    # --------------------------------------
-
-    def get_field(self, 
-                  data: dict, 
-                  field_name: str, 
-                  highest_redcap_repeat_instance: bool = False,
-                  default_value=None):
-        """
-        Fetches a field value from nested input data based on the
-        mapping configuration with improved error handling and fallbacks.
-
-        Args:
-            data (dict): Input data dictionary.
-            field_name (str): The name of the field to fetch.
-            highest_redcap_repeat_instance (bool, optional): Whether to fetch  
-                            the value from the highest redcap_repeat_instance.
-            default_value: Value to return if field isn't found
-
-        Returns:
-            Any: The value of the requested field or default_value if not found.
-        """
-        # Import here to avoid circular import
-        from rarelink.utils.loading import get_nested_field
-        
-        field_path = self.mapping_config.get(field_name)
-        if field_path is None:
-            if self.debug_mode:
-                logger.warning(f"Field '{field_name}' not found in mapping_config.")
-            return default_value
-
-        if self.debug_mode:
-            logger.debug(f"Resolving field '{field_name}' with path: {field_path}")
-            logger.debug(f"Input data: {data}")
-
-        try:
-            # Try direct field access first
-            if "." not in field_path and field_path in data:
-                return data[field_path]
-                
-            # Try nested field resolution
-            value = get_nested_field(
-                data, field_path, highest_redcap_repeat_instance)
-                
-            if value is None and self.fallback_values.get(field_name):
-                return self.fallback_values[field_name]
-                
-            return value
-        except Exception as e:
-            if self.debug_mode:
-                logger.error(f"Failed to fetch field '{field_name}' with path '{field_path}': {e}")
-            return default_value
-
-    def set_fallback_value(self, field_name, value):
-        """
-        Sets a fallback value for a field if it's not found in the data.
-        
-        Args:
-            field_name (str): The field name to set a fallback for
-            value: The fallback value
-        """
-        self.fallback_values[field_name] = value
-
-    def enable_debug(self, enabled=True):
-        """Enable or disable debug mode for verbose logging"""
+    """
+    Data processor for phenopacket mapping that delegates to utility functions.
+    """
+    
+    def __init__(self, mapping_config: Dict[str, Any]):
+        self.mapping_config = mapping_config or {}
+        self.debug_mode = False
+        self.enum_classes = {}
+    
+    def enable_debug(self, enabled: bool = True) -> None:
+        """Enable debug mode for verbose logging"""
         self.debug_mode = enabled
-
-    def add_enum_class(self, prefix, enum_class_or_path):
-        """
-        Add an Enum class for label lookups.
+    
+    def get_field(self, 
+                 data: Dict[str, Any], 
+                 field_name: str, 
+                 default_value: Any = None) -> Any:
+        """Get a field value using the mapping configuration"""
+        field_path = self.mapping_config.get(field_name)
+        if not field_path:
+            if self.debug_mode:
+                logger.debug(f"Field '{field_name}' not found in mapping config")
+            return default_value
         
-        Args:
-            prefix (str): The prefix for codes that this enum handles (e.g., 'mondo_')
-            enum_class_or_path: Either an actual enum class or a string path to import it
-        """
-        if enum_class_or_path is None:
+        return get_field_value(data, field_path, default_value)
+    
+    def get_multi_instrument_field(self,
+                                  data: Dict[str, Any],
+                                  field_name: str,
+                                  default_value: Any = None) -> Any:
+        """Get a field value across multiple instruments"""
+        field_path = self.mapping_config.get(field_name)
+        if not field_path:
+            if self.debug_mode:
+                logger.debug(f"Field '{field_name}' not found in mapping config")
+            return default_value
+        
+        # Get instruments from config
+        instruments = self._get_instruments()
+        if not instruments:
+            if self.debug_mode:
+                logger.debug("No instruments found in mapping config")
+            return get_field_value(data, field_path, default_value)
+        
+        return get_multi_instrument_field_value(
+            data, instruments, [field_path], default_value)
+    
+    def _get_instruments(self) -> List[str]:
+        """Get instruments from mapping config"""
+        instruments = []
+        
+        # Get instrument_name(s)
+        instrument_name = self.mapping_config.get("instrument_name")
+        if isinstance(instrument_name, (list, set)):
+            instruments.extend(list(instrument_name))
+        elif instrument_name:
+            instruments.append(instrument_name)
+        
+        # Add redcap_repeat_instrument if present
+        repeat_instrument = self.mapping_config.get("redcap_repeat_instrument")
+        if repeat_instrument and repeat_instrument not in instruments:
+            instruments.append(repeat_instrument)
+        
+        return instruments
+    
+    def process_code(self, code: str) -> Optional[str]:
+        """Process a code to standard ontology format"""
+        return process_code(code)
+    
+    def normalize_hgnc_id(self, value: str) -> str:
+        """Normalize an HGNC identifier"""
+        return normalize_hgnc_id(value)
+    
+    def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
+        """Fetch a label for a code"""
+        if not code:
+            return None
+        
+        # If enum_class is a string, try to get the actual class
+        if isinstance(enum_class, str) and enum_class in self.enum_classes:
+            enum_obj = self.enum_classes[enum_class]
+        else:
+            enum_obj = enum_class
+        
+        # Try hierarchical label fetching with enum class
+        return fetch_label(code, enum_obj)
+    
+    def fetch_label_from_enum(self, code: str, enum_class) -> Optional[str]:
+        """Fetch a label from an enum class"""
+        return fetch_label_from_enum(code, enum_class)
+    
+    def fetch_label_from_dict(self, code: str, label_dict: Dict[str, str]) -> Optional[str]:
+        """Fetch a label from a dictionary"""
+        return fetch_label_from_dict(code, label_dict)
+    
+    def fetch_label_from_bioportal(self, code: str) -> Optional[str]:
+        """Fetch a label from BioPortal API"""
+        return fetch_label_from_bioportal(code)
+    
+    def add_enum_class(self, prefix: str, enum_class_or_path) -> None:
+        """Add an enum class for label lookups"""
+        if not enum_class_or_path:
             return
-            
+        
         if isinstance(enum_class_or_path, str):
-            # Try to import the class from the path
+            # Import the class from the path
             try:
                 module_path, class_name = enum_class_or_path.rsplit('.', 1)
                 module = importlib.import_module(module_path)
                 enum_class = getattr(module, class_name)
                 self.enum_classes[prefix] = enum_class
-                if self.debug_mode:
-                    logger.debug(f"Imported enum class {class_name} for prefix {prefix}")
             except Exception as e:
-                logger.error(f"Failed to import enum class from {enum_class_or_path}: {e}")
+                logger.error(f"Failed to import enum class: {e}")
         else:
-            # Directly use the provided class
+            # Use the provided class directly
             self.enum_classes[prefix] = enum_class_or_path
-            if self.debug_mode:
-                logger.debug(f"Added enum class {enum_class_or_path.__name__} for prefix {prefix}")
-
-    def prefer_non_empty_field(self, data: dict, fields: list, default_value=None):
-        """
-        Selects the first non-empty field from a list of fields.
-
-        Args:
-            data (dict): The input data dictionary.
-            fields (list): List of field paths to check.
-            default_value: Value to return if all fields are empty
-
-        Returns:
-            str: The value of the first non-empty field or default_value if all are empty.
-        """
-        for field in fields:
-            if self.debug_mode:
-                logger.debug(f"Attempting to resolve field: {field}")
-            value = self.get_field(data, field)
-            if isinstance(value, list):  # Handle repeated elements
-                for item in value:
-                    if item:
-                        return item
-            elif value:
-                return value
-        if self.debug_mode:
-            logger.warning(f"All fields empty or not found: {fields}")
-        return default_value
-
-    # --------------------------------------
-    # Data Processing Methods
-    # --------------------------------------
-
-    @staticmethod
-    def process_date(date_input):
-        """
-        Converts a date string into a protobuf Timestamp with improved error handling.
-
-        Args:
-            date_input: The date string to process (in ISO8601 format) or None.
-
-        Returns:
-            Timestamp: A protobuf Timestamp object or None if input is invalid.
-        """
-        if not date_input:
-            return None
-            
-        try:
-            # Handle different date types
-            if isinstance(date_input, datetime):
-                dt = date_input
-            elif isinstance(date_input, str):
-                dt = datetime.fromisoformat(date_input.rstrip('Z'))
-            else:
-                logger.error(f"Unsupported date type: {type(date_input)}")
-                return None
-                
-            # Set the day to "01" to only include year and month
-            dt = dt.replace(day=1)
-            timestamp = Timestamp()
-            timestamp.FromDatetime(dt)
-            return timestamp
-        except Exception as e:
-            logger.error(f"Error converting date to Timestamp: {e}")
-            return None
-        
-    @staticmethod
-    def convert_date_to_iso_age(event_date, dob):
-        """
-        Convert an event date and a date of birth into an ISO8601 duration string
-        using only years and months (e.g., "P38Y7M").
-        
-        Args:
-            event_date: The event date (string or datetime). May be an ISO8601 string
-                        or a string like "seconds: 1646092800".
-            dob: The date of birth (string or datetime). May be an ISO8601 string
-                or a string like "seconds: 1646092800".
-            
-        Returns:
-            str: An ISO8601 duration string (e.g. "P38Y7M") or None if conversion fails.
-        """
-        
-        def _parse_date(date_input: str) -> datetime:
-            """
-            Parse a date input that may be an ISO8601 string or a string with a "seconds:" prefix.
-            
-            Args:
-                date_input (str): The date string to parse.
-            
-            Returns:
-                datetime: The corresponding datetime object.
-            """
-            date_input = date_input.strip()
-            logger.debug(f"_parse_date: received date_input: {date_input}")
-            if "seconds:" in date_input.lower():
-                ts_str = date_input.lower().replace("seconds:", "").strip()
-                logger.debug(f"_parse_date: detected 'seconds:' prefix; extracted ts_str: {ts_str}")
-                ts = float(ts_str)
-                dt = datetime.fromtimestamp(ts)
-                logger.debug(f"_parse_date: converted timestamp {ts} to datetime: {dt}")
-                return dt
-            else:
-                dt = datetime.fromisoformat(date_input.rstrip('Z').strip())
-                logger.debug(f"_parse_date: converted ISO string to datetime: {dt}")
-                return dt
-            if not event_date or not dob:
-                logger.debug("convert_date_to_iso_age: Missing event_date or dob.")
-                return None
-
-        try:
-            # Parse dob
-            if isinstance(dob, str):
-                dob_dt = _parse_date(dob)
-            else:
-                dob_dt = dob
-                logger.debug(f"convert_date_to_iso_age: using provided dob datetime: {dob_dt}")
-
-            # Parse event_date
-            if isinstance(event_date, str):
-                event_date_dt = _parse_date(event_date)
-            else:
-                event_date_dt = event_date
-                logger.debug(f"convert_date_to_iso_age: using provided event_date datetime: {event_date_dt}")
-
-            # Calculate the difference in years and months
-            delta = relativedelta(event_date_dt, dob_dt)
-            iso_age = f"P{delta.years}Y{delta.months}M"
-            logger.debug(f"convert_date_to_iso_age: Calculated ISO age: {iso_age} (Years: {delta.years}, Months: {delta.months})")
-            return iso_age
-        except Exception as e:
-            logger.error(f"Error calculating ISO age: {e}")
-            import traceback
-            logger.debug(traceback.format_exc())
-            return None
-
-
-
-        
-    def process_code(self, code):
-        """
-        Processes a code into the expected format with enhanced ontology handling.
-
-        Args:
-            code (str): The code to process (e.g., "mondo_0007843").
-
-        Returns:
-            str: The processed code (e.g., "MONDO:0007843") or original code if processing fails.
-        """
-        if not code:
-            return None
-            
-        # Handle common ontology prefix patterns
-        patterns = {
-            "mondo_": "MONDO:",
-            "hp_": "HP:",
-            "ncit_": "NCIT:",
-            "snomedct_": "SNOMEDCT:",
-            "orpha_": "ORPHA:",
-            "omim_": "OMIM:",
-            "icd10_": "ICD10:",
-            "icd11_": "ICD11:",
-            "loinc_": "LOINC:"
-        }
-        
-        # Check for direct pattern matches first
-        for prefix, replacement in patterns.items():
-            if code.lower().startswith(prefix):
-                # Extract the number part
-                number_part = code[len(prefix):]
-                
-                # Special handling for NCIT codes
-                if prefix == "ncit_":
-                    # Make the 'C' uppercase if it starts with 'c'
-                    if number_part.lower().startswith('c'):
-                        number_part = number_part.upper()
-                
-                # Special handling for LOINC codes
-                if prefix == "loinc_":
-                    # Handle LOINC codes with LA pattern
-                    if number_part.lower().startswith('la'):
-                        number_part = number_part.upper().replace('_', '-')
-                    else:
-                        number_part = number_part.replace('_', '-').upper()
-                
-                # Return the correctly formatted code
-                return f"{replacement}{number_part}"
-        
-        # If already has a prefix:colon format
-        if ":" in code:
-            prefix, rest = code.split(":", 1)
-            prefix_upper = prefix.upper()
-            
-            # Special handling for NCIT codes
-            if prefix_upper == "NCIT":
-                # If the identifier starts with 'c', make it uppercase
-                if rest.lower().startswith('c'):
-                    rest = rest.upper()
-                return f"{prefix_upper}:{rest}"
-            
-            # Special handling for LOINC codes
-            if prefix_upper == "LOINC":
-                # Handle LOINC codes with LA pattern
-                if rest.lower().startswith('la'):
-                    return f"{prefix_upper}:{rest.upper().replace('_', '-')}"
-                else:
-                    return f"{prefix_upper}:{rest.replace('_', '-').upper()}"
-            
-            return f"{prefix_upper}:{rest}"
-            
-        # If no direct match, try the standard processing
-        try:
-            # Import here to avoid circular import
-            from rarelink.utils.processing.codes import process_redcap_code
-            processed_code = process_redcap_code(code)
-            
-            # Additional checks for specific code types after standard processing
-            if ":" in processed_code:
-                prefix, rest = processed_code.split(":", 1)
-                
-                # Check for NCIT codes
-                if prefix == "NCIT" and rest.lower().startswith('c'):
-                    return f"NCIT:{rest.upper()}"
-                    
-                # Check for LOINC codes
-                if prefix == "LOINC" and rest.lower().startswith('la'):
-                    return f"LOINC:{rest.upper()}"
-                
-            return processed_code
-        except Exception as e:
-            if hasattr(self, 'debug_mode') and self.debug_mode:
-                import logging
-                logger = logging.getLogger(__name__)
-                logger.error(f"Error processing code '{code}': {e}")
-            return code  # Return original code as fallback
     
-    @staticmethod
-    def normalize_hgnc_id(value):
-        """
-        Normalize HGNC identifiers to the format "HGNC:1234".
-        
-        Args:
-            value (str): The HGNC identifier in any format
-            
-        Returns:
-            str: Normalized HGNC identifier or original value if not an HGNC identifier
-        """
-        if not value:
-            return value
-            
-        # Convert to string in case it's a numeric value
-        value = str(value)
-        
-        # Check if "HGNC:" appears in the string (standard format)
-        if "HGNC:" in value:
-            import re
-            match = re.search(r'HGNC:(\d+)', value)
-            if match:
-                return f"HGNC:{match.group(1)}"
-        
-        # Simple case - if it starts with "!/hgnc_id/" and contains "HGNC:"
-        if value.startswith("!/hgnc_id/") and "HGNC:" in value:
-            # Find the position of "HGNC:" and return everything from that point
-            pos = value.find("HGNC:")
-            return value[pos:]
-        
-            
-        return value
-
-    # --------------------------------------
-    # Label and Mapping Methods
-    # --------------------------------------
-
-    def fetch_label_from_enum(self, code: str, enum_class):
-        """
-        Fetch a label from a Python Enum class that follows the LinkML pattern.
-        
-        Args:
-            code (str): The code to look up (e.g., "mondo_0007843")
-            enum_class: The enum class to look in
-            
-        Returns:
-            str: The description (label) for the code, or None if not found
-        """
-        if not code or not enum_class:
-            return None
-            
-        try:
-            # Try to get the value as an attribute from the enum
-            enum_value = getattr(enum_class, code, None)
-            
-            if enum_value and hasattr(enum_value, 'description'):
-                # Return the description as the label
-                if self.debug_mode:
-                    logger.debug(f"Found label '{enum_value.description}' for code '{code}' in enum")
-                return enum_value.description
-                
-            # No description found
-            return None
-        except Exception as e:
-            if self.debug_mode:
-                logger.error(f"Error fetching label from enum for code '{code}': {e}")
-            return None
-
-    def fetch_label(self, code: str, enum_class=None):
-        """
-        Fetches the label (description) for a given code with enhanced Enum support.
-
-        Args:
-            code (str): The code for which to fetch the label.
-            enum_class (str or class, optional): Enum class or name for lookups
-
-        Returns:
-            str: The label (description) for the code, or None if not found.
-        """
-        if not code:
-            return None
-            
-        # Case 1: Use specified enum class if provided
-        if enum_class:
-            if isinstance(enum_class, str):
-                # It's the name of an enum class, try to load it from label dict
-                return self.load_label(code, enum_class)
-            else:
-                # It's an actual enum class, use it directly
-                return self.fetch_label_from_enum(code, enum_class)
-            
-        # Case 2: Try to find a matching enum class based on code prefix
-        if hasattr(self, "enum_classes"):
-            for prefix, enum_class in self.enum_classes.items():
-                if code.lower().startswith(prefix.lower()):
-                    label = self.fetch_label_from_enum(code, enum_class)
-                    if label:
-                        return label
-        
-        # Case 3: Try to fetch through label dictionaries
-        try:
-            # Import here to avoid circular import
-            label = self.load_label(code, None)
-            if label:
-                return label
-        except Exception:
-            pass
-            
-        # Case 4: Try direct API lookup
-        try:
-            # Import here to avoid circular import
-            from rarelink.utils.processing.codes import fetch_label_directly
-            
-            # Try with original code first
-            label = fetch_label_directly(code)
-            if label:
-                return label
-                
-            # If that fails, try with processed code
-            processed_code = self.process_code(code)
-            if processed_code != code:
-                return fetch_label_directly(processed_code)
-                
-            return None
-        except Exception as e:
-            if self.debug_mode:
-                logger.error(f"Error fetching label for code '{code}': {e}")
-            return None
-
-    def load_label(self, code: str, enum_class):
-        """
-        Loads the label for a given code from an EnumDefinition class.
-
-        Args:
-            code (str): The code for which to load the label.
-            enum_class (EnumDefinitionImpl): The EnumDefinition class to 
-            fetch labels from.
-
-        Returns:
-            str: The label (description) for the code, or None if not found.
-        """
-        if not code:
-            return None
-            
-        try:
-            # Import here to avoid circular import
-            from rarelink.utils.loading import fetch_description_from_label_dict
-            return fetch_description_from_label_dict(enum_class, code)
-        except KeyError:
-            return None
-        except Exception as e:
-            if self.debug_mode:
-                logger.error(f"Error loading label for code '{code}' from enum '{enum_class}': {e}")
-            return None
-        
-    def fetch_mapping_value(self, mapping_name: str, code: str, default_value=None):
-        """
-        Fetches the mapped value for a code using the specified mapping name,
-        with improved error handling.
-
-        Args:
-            mapping_name (str): The name of the mapping to use.
-            code (str): The code to look up in the mapping.
-            default_value: Default value to return if mapping fails
-
-        Returns:
-            str | bool | None: The mapped value or default_value if not found.
-        """
+    def fetch_mapping_value(self, 
+                          mapping_name: str, 
+                          code: str, 
+                          default_value: Any = None) -> Any:
+        """Fetch a mapping value"""
         if not code:
             return default_value
-            
+        
         try:
             # Import here to avoid circular import
             from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import get_mapping_by_name
             mapping = get_mapping_by_name(mapping_name)
-            value = mapping.get(code, default_value)
-            return value
-        except KeyError:
-            return default_value
+            return mapping.get(code, default_value)
         except Exception as e:
             if self.debug_mode:
-                logger.error(f"Error fetching mapping value for code '{code}' with mapping '{mapping_name}': {e}")
+                logger.error(f"Error fetching mapping value: {e}")
             return default_value
-
-    # --------------------------------------
-    # Utility Methods
-    # --------------------------------------
     
-    def dump_data(self, data, label="Data dump"):
-        """Debug utility to dump data structure"""
-        if self.debug_mode:
-            logger.debug(f"--- {label} ---")
-            logger.debug(json.dumps(data, indent=2, default=str))
-            logger.debug("-------------------")
-
-    # --------------------------------------
-    # Generation Methods
-    # --------------------------------------
+    def convert_date_to_iso_age(self, 
+                              event_date: Union[str, datetime], 
+                              dob: Union[str, datetime]) -> Optional[str]:
+        """Convert dates to ISO8601 duration string"""
+        return convert_date_to_iso_age(event_date, dob)
+    
+    def date_to_timestamp(self, 
+                        date_input: Union[str, datetime]) -> Optional[Timestamp]:
+        """Convert a date to a Protobuf Timestamp"""
+        return date_to_timestamp(date_input)
+    
     @staticmethod
-    def generate_unique_id(length=30, used_ids=None) -> str:
-        """
-        Generates a unique random string of the specified length and ensures it is unique within a document.
-
-        Args:
-            length (int): The desired length of the unique ID. Default is 30.
-            used_ids (set): A set of already-used IDs to ensure uniqueness.
-
-        Returns:
-            str: A unique random string of the specified length.
-        """
-        if used_ids is None:
-            used_ids = set()  # Initialize if not provided
-
-        while True:
-            unique_id = uuid.uuid4().hex[:length]  # Generate a random ID
-            if unique_id not in used_ids:  # Check uniqueness
-                used_ids.add(unique_id)  # Mark as used
-                return unique_id
+    def generate_unique_id(length: int = 30) -> str:
+        """Generate a unique ID"""
+        return uuid.uuid4().hex[:length]
