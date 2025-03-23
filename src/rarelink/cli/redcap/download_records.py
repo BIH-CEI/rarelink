@@ -1,6 +1,9 @@
 import typer
 from pathlib import Path
+from typing import Optional
+import logging
 from dotenv import dotenv_values
+
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
     between_section_separator,
@@ -18,8 +21,6 @@ from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
 from rarelink_cdm.v2_0_0_dev1.mappings.redcap import MAPPING_FUNCTIONS
-import logging
-
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()
@@ -31,22 +32,23 @@ ENV_PATH = Path(".env")  # Path to your .env file
 
 
 @app.command()
-def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
+def app(
+    output_dir: Path = typer.Option(DEFAULT_OUTPUT_DIR, "--output-dir", "-o", help="Directory to save fetched and processed records"),
+    linkml_schema: Optional[Path] = typer.Option(None, "--linkml", "-l", help="Path to custom LinkML schema for validation"),
+    rarelink_cdm: bool = typer.Option(False, "--rarelink-cdm", help="Validate against the RareLink CDM schema"),
+):
     """
     Fetch REDCap records, process them into the RareLink-CDM schema,
     validate the output, and save the results.
-
-    Args:
-        output_dir (Path): Directory to save fetched and processed records.
-        Defaults to ~/Downloads/rarelink_records.
     """
     format_header("Fetch and Process REDCap Records")
 
     # Validate required environment variables
-    validate_env(["BIOPORTAL_API_TOKEN", 
-                  "REDCAP_API_TOKEN",
-                  "REDCAP_URL", 
-                  "REDCAP_PROJECT_NAME"])
+    validate_env(["REDCAP_API_TOKEN", "REDCAP_URL", "REDCAP_PROJECT_NAME"])
+    
+    # Also validate BioPortal token if we'll be doing validation
+    if rarelink_cdm or linkml_schema:
+        validate_env(["BIOPORTAL_API_TOKEN"])
 
     # Load environment variables
     env_values = dotenv_values(ENV_PATH)
@@ -82,6 +84,21 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
                         fg=typer.colors.RED)
             raise typer.Exit(0)
 
+    # Determine which schema to use for validation
+    validation_schema = None
+    if rarelink_cdm:
+        validation_schema = BASE_SCHEMA_PATH
+        typer.echo(f"🔄 Using RareLink CDM schema for validation: {validation_schema}")
+    elif linkml_schema:
+        validation_schema = linkml_schema
+        typer.echo(f"🔄 Using custom LinkML schema for validation: {validation_schema}")
+        if not validation_schema.exists():
+            typer.secho(
+                error_text(f"❌ Schema file not found: {validation_schema}"),
+                fg=typer.colors.RED
+            )
+            raise typer.Exit(1)
+
     try:
         # Fetch REDCap data
         typer.echo(
@@ -96,22 +113,37 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         redcap_to_linkml(records_file, processed_file, MAPPING_FUNCTIONS)
         typer.echo(f"✅ Processed data saved to {processed_file}")
         
-        # Validation
-        typer.echo(
-            "🔄 Validating processed records against the LinkML schema..."
-        )
-        if validate_linkml_data(BASE_SCHEMA_PATH, processed_file):
-            success_text("✅ Validation successful!")
+        # Validation (if schema provided)
+        if validation_schema:
+            typer.echo(
+                "🔄 Validating processed records against the LinkML schema..."
+            )
+            if validate_linkml_data(validation_schema, processed_file):
+                success_text("✅ Validation successful!")
+            else:
+                error_text(f"❌ Validation failed for {processed_file}")
+                hint_text(
+                    f"👉 Run {format_command('linkml-validate --schema ' + str(validation_schema) + ' ' + str(processed_file))}"
+                    f" to see the detailed validation errors."
+                )
         else:
-            error_text(f"❌ Validation failed for {processed_file}")
+            # No validation requested - provide hint
+            typer.secho(
+                "ℹ️ No validation performed. For best results, validate your data against a schema.",
+                fg=typer.colors.BLUE
+            )
             hint_text(
-                f"👉 Run {format_command('linkml-validate --schema <path_to:rarelink_cdm/v_2_0_0_dev1_schema_definitions/rarelink_cdm.yaml> <path_to_processed_linkml_data.json>')}"
-                f" to see the detailed validation errors.")
+                f"👉 To validate against RareLink CDM schema: {format_command('rarelink redcap download-records --rarelink-cdm')}"
+            )
+            hint_text(
+                f"👉 To validate against a custom schema: {format_command('rarelink redcap download-records --linkml /path/to/schema.yaml')}"
+            )
         
-        # hint for hgvs validation
+        # HGVS validation hint
         hint_text(
             f"⚠️ NOTE: If genetic HGVS mutations are included in your "
-            f"dataset, please run {format_command('rarelink redcap validate-hgvs')}")
+            f"dataset, please run {format_command('rarelink redcap validate-hgvs')}"
+        )
         hint_text("to ensure proper phenopackets and genomics quality of the "
                   "genetic data.")
 
@@ -120,3 +152,7 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
         raise typer.Exit(1)
 
     end_of_section_separator()
+
+
+if __name__ == "__main__":
+    app()
