@@ -6,7 +6,7 @@ from rarelink.phenopackets.mappings.variation_descriptor_mapper import Variation
 from phenopackets import Interpretation, Diagnosis, GenomicInterpretation, VariantInterpretation
 
 # Import test utilities
-from tests.phenopackets.test_utils import (
+from ..test_utils import (
     get_record_by_id,
     setup_processor_for_block
 )

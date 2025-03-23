@@ -73,6 +73,11 @@ class InterpretationMapper(BaseMapper[Interpretation]):
                 logger.error("Subject ID is required for interpretation mapping")
                 return []
 
+            # Add this check right here to return empty list if no variation descriptors
+            if not variation_descriptors:
+                logger.warning("No variation descriptors provided, cannot create interpretations")
+                return []
+            
             # Get instrument name from configuration or instruments list
             instrument_name = self.processor.mapping_config.get("redcap_repeat_instrument")
             if not instrument_name and instruments:

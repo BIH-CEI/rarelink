@@ -13,6 +13,7 @@ from . import mapping
 from . import processor
 from . import date_handling
 from . import label_fetching
+from .processor import DataProcessor
 
 __all__ = ["code_processing", 
            "validation", 
@@ -20,6 +21,7 @@ __all__ = ["code_processing",
            "mapping", 
            "processor",
            "date_handling",
-           "label_fetching"
+           "label_fetching",
+           "DataProcessor"
     ]
 

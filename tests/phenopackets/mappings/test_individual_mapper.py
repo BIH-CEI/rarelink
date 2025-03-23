@@ -5,7 +5,7 @@ from rarelink.phenopackets.mappings.individual_mapper import IndividualMapper
 from phenopackets import Individual, VitalStatus
 from phenopackets.schema.v2 import VitalStatus as VitalStatusEnum
 
-# Import test utilities
+
 from tests.phenopackets.test_utils import (
     get_record_by_id,
     setup_processor_for_block

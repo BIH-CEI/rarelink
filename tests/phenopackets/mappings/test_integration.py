@@ -190,7 +190,7 @@ class TestIntegrationMapping(unittest.TestCase):
         logger.info(f"Mapped {len(variation_descriptors)} variation descriptors")
         for instance_id, descriptor in variation_descriptors.items():
             logger.info(f"  Descriptor {instance_id}: {descriptor.id}")
-            if descriptor.HasField("gene_context") and descriptor.gene_context.HasField("symbol"):
+            if descriptor.HasField("gene_context") and descriptor.gene_context.symbol:
                 logger.info(f"    Gene: {descriptor.gene_context.symbol}")
         
         # 4. Map interpretations using the individual ID and variation descriptors

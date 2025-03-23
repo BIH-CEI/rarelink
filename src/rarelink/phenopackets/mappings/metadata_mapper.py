@@ -61,7 +61,6 @@ class MetadataMapper(BaseMapper[MetaData]):
         created_by = kwargs.get('created_by', '')
         code_systems = kwargs.get('code_systems', None)
         
-        # Generate created timestamp
         created_time = datetime.utcnow().isoformat() + "Z"
         created_timestamp = date_to_timestamp(created_time)
         

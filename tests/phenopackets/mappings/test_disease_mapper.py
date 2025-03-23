@@ -7,7 +7,7 @@ from rarelink.phenopackets.mappings.disease_mapper import DiseaseMapper
 from phenopackets import Disease
 
 # Import test utilities
-from tests.phenopackets.test_utils import (
+from ..test_utils import (
     get_record_by_id,
     setup_processor_for_block,
     get_disease_instances_from_record
