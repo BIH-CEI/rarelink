@@ -33,12 +33,14 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         "individual": {
             "instrument_name": "rarelink_personal_information",
             "mapping_block": INDIVIDUAL_BLOCK,
-            "label_dicts": {
-                "GenderIdentity": label_dicts.get("GenderIdentity", {})
-            },
             "mapping_dicts": {
                 "map_sex": mapping_dict_lookup.get("map_sex", {}),
                 "map_karyotypic_sex": mapping_dict_lookup.get("map_karyotypic_sex", {})
+            },
+            "enum_classes": {
+                "SexAtBirth": "rarelink_cdm.v2_0_0_dev1.datamodel.SexAtBirth",
+                "GenderIdentity": "rarelink_cdm.v2_0_0_dev1.datamodel.GenderIdentity",
+                "KaryotypicSex": "rarelink_cdm.v2_0_0_dev1.datamodel.KaryotypicSex"
             }
         },
         "vitalStatus": {
@@ -52,11 +54,12 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         "diseases": {
             "instrument_name": "rarelink_5_disease",
             "mapping_block": DISEASE_BLOCK,
-            "label_dicts": {
-                "AgeAtOnset": label_dicts.get("AgeAtOnset", {})
-            },
             "mapping_dicts": {
                 "map_disease_verification_status": mapping_dict_lookup.get("map_disease_verification_status", {})
+            },
+            "enum_classes": {
+                "AgeAtDiagnosis": "rarelink_cdm.v2_0_0_dev1.datamodel.AgeAtDiagnosis",
+                "AgeAtOnset": "rarelink_cdm.v2_0_0_dev1.datamodel.AgeAtOnset",
             }
         },
         # Standard single configuration for phenotypic features 
@@ -64,12 +67,13 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         "phenotypicFeatures": {
             "instrument_name": "rarelink_6_2_phenotypic_feature",
             "mapping_block": PHENOTYPIC_FEATURES_BLOCK,
-            "label_dicts": {
-                "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-            },
             "mapping_dicts": {
                 "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
+            },
+            "enum_classes": {
+                "TemporalPattern": "rarelink_cdm.v2_0_0_dev1.datamodel.TemporalPattern",
+                "AgeOfOnset": "rarelink_cdm.v2_0_0_dev1.datamodel.AgeOfOnset",
+                "PhenotypeSeverity": "rarelink_cdm.v2_0_0_dev1.datamodel.PhenotypeSeverity"
             }
         },
         "measurements": {
@@ -92,11 +96,18 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
             "instrument_name": "rarelink_6_1_genetic_findings",
             "mapping_block": INTERPRETATION_BLOCK,
             "label_dicts": {},
-            "mapping_dicts": {
-                "map_progress_status": mapping_dict_lookup.get("map_progress_status", {}),
-                "map_interpretation_status": mapping_dict_lookup.get("map_interpretation_status", {}),
-                "map_acmg_classification": mapping_dict_lookup.get("map_acmg_classification", {}),
-                "map_therapeutic_actionability": mapping_dict_lookup.get("map_therapeutic_actionability", {})
+            "enum_classes": {
+                "InterpretationProgressStatus": "rarelink_cdm.v2_0_0_dev1.datamodel.InterpretationProgressStatus",
+                "InterpretationStatus": "rarelink_cdm.v2_0_0_dev1.datamodel.InterpretationStatus",
+                "StructuralVariantMethod": "rarelink_cdm.v2_0_0_dev1.datamodel.StructuralVariantMethod",
+                "ReferenceGenome": "rarelink_cdm.v2_0_0_dev1.datamodel.ReferenceGenome",
+                "VariantExpressionType": "rarelink_cdm.v2_0_0_dev1.datamodel.VariantExpressionType",
+                "Zygosity": "rarelink_cdm.v2_0_0_dev1.datamodel.Zygosity",
+                "GenomicSourceClass": "rarelink_cdm.v2_0_0_dev1.datamodel.GenomicSourceClass",
+                "DNAChangeType": "rarelink_cdm.v2_0_0_dev1.datamodel.DNAChangeType",
+                "ClinicalSignificance": "rarelink_cdm.v2_0_0_dev1.datamodel.ClinicalSignificance",
+                "TherapeuticActionability": "rarelink_cdm.v2_0_0_dev1.datamodel.TherapeuticActionability",
+                "LevelOfEvidence": "rarelink_cdm.v2_0_0_dev1.datamodel.LevelOfEvidence"
             }
         },
         "metadata": {

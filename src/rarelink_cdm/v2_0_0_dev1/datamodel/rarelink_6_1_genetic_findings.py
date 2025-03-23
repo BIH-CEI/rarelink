@@ -705,7 +705,7 @@ class SNOMEDCT(EnumDefinitionImpl):
         code_set_version="2024-09-01",
     )
 
-class MONDO(EnumDefinitionImpl):
+class MONDO(EnumDefinitionImpl):  # noqa: F811
     """
     Monarch Disease Ontology
     """
@@ -735,7 +735,7 @@ class LOINC(EnumDefinitionImpl):
         code_set_version="2.78",
     )
 
-class OMIM(EnumDefinitionImpl):
+class OMIM(EnumDefinitionImpl):  # noqa: F811
     """
     Online Mendelian Inheritance
     """
@@ -775,7 +775,7 @@ class UO(EnumDefinitionImpl):
         code_set_version="2024-09-12",
     )
 
-class HGNC(EnumDefinitionImpl):
+class HGNC(EnumDefinitionImpl):  # noqa: F811
     """
     HUGO Gene Nomenclature Committee
     """

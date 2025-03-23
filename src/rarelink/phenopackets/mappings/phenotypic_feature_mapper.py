@@ -461,7 +461,7 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
                 alt_val = data.get(alt_field)
             
             if alt_val:
-                label = self.fetch_label(alt_val, "AgeOfOnset")
+                label = self.fetch_label(alt_val, enum_class="AgeOfOnset")
                 pid = self.process_code(alt_val)
                 if label:
                     onset = TimeElement(ontology_class=OntologyClass(id=pid, label=label))
@@ -527,7 +527,7 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
             
             if val:
                 sid = self.process_code(val)
-                label = self.fetch_label(val, "PhenotypeSeverity")
+                label = self.fetch_label(val, enum_class="PhenotypeSeverity")
                 if label:
                     severity = OntologyClass(id=sid, label=label)
         
@@ -620,7 +620,7 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
                         if temp_pattern_field in phenotypic_feature and phenotypic_feature[temp_pattern_field]:
                             tp_val = phenotypic_feature[temp_pattern_field]
                             tp_id = self.process_code(tp_val)
-                            tp_label = self.fetch_label(tp_val, "TemporalPattern")
+                            tp_label = self.fetch_label(tp_val, enum_class="TemporalPattern")
                             if tp_label:
                                 modifiers.append(OntologyClass(id=tp_id, label=tp_label))
                         
