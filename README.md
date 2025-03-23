@@ -7,35 +7,32 @@ Rare Disease Interoperability Framework in REDCap linking international
 and some things may change. Please reach out before implementing or using the 
 software to ensure you have the latest updates and guidance.
 
-### Framework
+#### Framework
 <!-- RareLink Badges -->
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
-
-### Packages & Compatibility
-
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
+
+#### Packages & Compatibility
+
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
 [![PyPheTools](https://img.shields.io/badge/PyPheTools-0.3.0+-orange.svg)](https://github.com/monarch-initiative/pyphetools)
 [![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
+[![FHIR R4](https://img.shields.io/badge/FHIR-R4-yellow.svg)](https://hl7.org/fhir/R4/)
 [![HL7 FHIR IPS](https://img.shields.io/badge/HL7%20FHIR%20IPS-v2.0-blue.svg)](https://github.com/HL7/fhir-ips)
 [![HL7 GenomicsReporting](https://img.shields.io/badge/HL7%20GenomicsReporting-v3.0.0-blue.svg)](https://github.com/HL7/genomics-reporting)
-
-### Integrations & Submodules
-
-[![FHIR R4](https://img.shields.io/badge/FHIR-R4-blue.svg)](https://hl7.org/fhir/R4/)
 [![REDCap](https://img.shields.io/badge/REDCap-API-red.svg)](https://www.project-redcap.org/)
-[![Docker](https://img.shields.io/badge/Docker-Compatible-lightblue.svg)](https://www.docker.com/)
-[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.0-yellow.svg)](https://github.com/BIH-CEI/rd-cdm)
-[![toFHIR](https://img.shields.io/badge/toFHIR-ETL-lightblue.svg)](https://github.com/srdc/tofhir)
+[![Docker](https://img.shields.io/badge/Docker-Compatible-lightgreen.svg)](https://www.docker.com/)
+[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.0-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
 
-### Test Version
+#### Test Version
 <!-- Combined Badges for v2.0.0.dev1 -->
 ![v2.0.0.dev1](https://img.shields.io/badge/v2.0.0.dev1-purple) 
 ![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)
 ![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Running-darkgreen)
 ![RareLink CLI](https://img.shields.io/badge/CLI-Operational-darkblue)
+
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
 
 ________________________________________________________________________________
