@@ -21,7 +21,7 @@ software to ensure you have the latest updates and guidance.
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
 [![PyPheTools](https://img.shields.io/badge/PyPheTools-0.3.0+-blue.svg)](https://github.com/monarch-initiative/pyphetools)
 [![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
-[![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-yellow.svg)](https://hl7.org/fhir/)
+[![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-orange.svg)](https://hl7.org/fhir/)
 
 #### Test Version
 <!-- Combined Badges for v2.0.0.dev1 -->
