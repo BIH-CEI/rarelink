@@ -1,7 +1,7 @@
 # RareLink REDCap
 
-Rare Disease Interoperability Framework in REDCap linking international
- registries, FHIR and Phenopackets.
+A novel rare disease framework for REDCap linking international
+registries, FHIR and Phenopackets.
 
 > ⚠️ **Note:** RareLink v2.0.0.dev1 is currently under testing and development,
 and some things may change. Please reach out before implementing or using the 
@@ -16,17 +16,12 @@ software to ensure you have the latest updates and guidance.
 
 #### Packages & Compatibility
 
-[![Phenopackets](https://img.shields.io/badge/Phenopackets-2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
-[![PyPheTools](https://img.shields.io/badge/PyPheTools-0.3.0+-orange.svg)](https://github.com/monarch-initiative/pyphetools)
-[![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
-
-[![FHIR R4](https://img.shields.io/badge/FHIR-R4-yellow.svg)](https://hl7.org/fhir/R4/)
-[![HL7 FHIR IPS](https://img.shields.io/badge/HL7%20FHIR%20IPS-v2.0-blue.svg)](https://github.com/HL7/fhir-ips)
-[![HL7 FHIR GenomicsReporting](https://img.shields.io/badge/HL7%20GenomicsReporting-v3.0.0-blue.svg)](https://github.com/HL7/genomics-reporting)
-
-[![REDCap](https://img.shields.io/badge/REDCap-API-red.svg)](https://www.project-redcap.org/)
-[![Docker](https://img.shields.io/badge/Docker-Compatible-lightgreen.svg)](https://www.docker.com/)
+[![REDCap](https://img.shields.io/badge/REDCap-API-darkred.svg)](https://www.project-redcap.org/)
 [![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.0-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
+[![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
+[![PyPheTools](https://img.shields.io/badge/PyPheTools-0.3.0+-blue.svg)](https://github.com/monarch-initiative/pyphetools)
+[![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
+[![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-yellow.svg)](https://hl7.org/fhir/)
 
 #### Test Version
 <!-- Combined Badges for v2.0.0.dev1 -->
@@ -101,7 +96,8 @@ REDCap:
 5. **HL7 FHIR Export**: RareLink uses the open-source 
    [_toFHIR_ Engine](https://github.com/srdc/tofhir) to export data to any FHIR 
    server, supporting profiles based on the 
-   [International Patient Summary v2.0.0.ballot](https://build.fhir.org/ig/HL7/fhir-ips/) 
+   [HL7 International Patient Summary v2.0.0](https://build.fhir.org/ig/HL7/fhir-ips/),
+   the [HL7 GenomicsReporting v3.0.0](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)
    or FHIR Base Resources (v4.0.1).
 6. **RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
    extensions ensure compatibility with the RareLink framework and its pipelines.
