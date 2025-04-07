@@ -23,7 +23,7 @@ components, installation instructions, user guide, and full examples.
 
 ________________________________________________________________________________
 
-.. figure:: _static/res/rarelink_overview.svg
+.. figure:: _static/res/rarelink_overview.png
 
     Overview of the RareLink framework integrated with a local REDCap instance. 
     The framework comprises the RareLink instruments based on the RD-CDM, the 

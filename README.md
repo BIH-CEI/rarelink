@@ -66,7 +66,7 @@ with its preconfigured FHIR and Phenopacket pipelines. Built on the
 [Rare Disease Common Data Model v2.0 (RD-CDM)](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html)
 RareLink is ready-to-use and extensible for disease-specific requirements.
 
-![RareLink Overview](docs/_static/res/rarelink_overview.svg)
+![RareLink Overview](docs/_static/res/rarelink_overview.png)
 
 RareLink integrates the following features for rare disease data management in 
 REDCap: 
