@@ -1,4 +1,4 @@
-Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+1,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
 record_id,rarelink_1_formal_criteria,,text,Registry ID the of Individual,,,,,,,,,,,,,
 snomedct_422549004,rarelink_1_formal_criteria,"<div class=""rich-text-field-label""><p>Welcome to the <a href=""https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"">RareLink-CDM Data Capture!</a></p> <ul> <li><span style=""font-weight: normal;"">For detailed guidance, please refer to the </span><a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html"">Manual Data Capture Guide.</a></li> <li><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">R</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">areLink</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> documentation </a><span style=""font-weight: normal;"">or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">.</a></span></li> <li><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the </span><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing gu</a><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">ide</a>.</li> </ul></div>",text,1.1 Pseudonym,,The (local) patient-related Identification code,,,,,,y,,,,,"Variable:
 SNOMED:422549004 | Pseudonym |
@@ -14,9 +14,9 @@ Choices: n/a
 Version(s): 
 - SNOMED CT Version 23.2.0
 Mapping:
-- HL7 FHIR Expression v4.0.1: Encounter.period.start
+- HL7 FHIR IPS: Patient.Extension:DateOfAdmission
 - GA4GH Phenopacket Schema v2.0 Element: Individual.time_at_last_encounter"
-snomedct_184099003,rarelink_2_personal_information,"<p>RareLink - 2) Personal Information</p> <div class=""rich-text-field-label"" style=""margin: 0; padding: 0;""> <ul> <li style=""font-size: 8pt; line-height: 1.2;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Personal Information sheet, refer to the<a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#personal-information""> Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you have questions about RareLink, check out the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">R</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">areLink</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> documentation</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">.</a></span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing </a></span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">gu</a><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">ide</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">.</a></span></li> </ul> </div>",text,2.1 Date of birth,,"The individual's date of birth. If the exact month or day is allowd to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively.",date_ymd,,,,,y,,,,,"Variable:
+snomedct_184099003,rarelink_2_personal_information,"<p>RareLink - 2) Personal Information</p> <div class=""rich-text-field-label"" style=""margin: 0; padding: 0;""> <ul> <li style=""font-size: 8pt; line-height: 1.2;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Personal Information sheet, refer to the<a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#personal-information""> Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you have questions about RareLink, check out the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">R</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">areLink</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> documentation</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">.</a></span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing </a></span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">gu</a><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">ide</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">.</a></span></li> </ul> </div>",text,2.1 Date of birth,,"The individual's date of birth. If the exact month or day is not allowed to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively.",date_ymd,,,,,y,,,,,"Variable:
 SNOMED:184099003 | Date of Birth |
 Choices: n/a
 Version(s): 
@@ -251,7 +251,7 @@ Version(s):
 - LOINC Version 2.78  
 - HL7 FHIR Version 4.0.1  
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Condition.verificationStatus  
+- HL7 FHIR IPS: Condition.Extension(RareLink)
 - GA4GH Phenopacket Schema v2.0 Element: Disease.excluded "
 snomedct_424850005,rarelink_5_disease,,dropdown,5.3 Age at Onset,"snomedct_118189007, Prenatal | snomedct_3950001, Birth | snomedct_410672004, Date | snomedct_261665006, Unknown",The age at the onset of the first symptoms or signs of the disease.,,,,,,,,,,,"Variable: 
 SNOMED:424850005 | Age at Onset  
@@ -413,7 +413,7 @@ LOINC:LA26806-2 | GRCh38 (hg38)
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: MolecularSequence.referenceSeqId
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:genomic-ref-seq
 - GA4GH Phenopacket Schema v2.0 Element:"
 loinc_lp7824_8,rarelink_6_1_genetic_findings,,text,6.1.6 Genetic Mutation String,,An unvalidated (HGVS) string that describes the variant change.,,,,,,,,,,,"Variable: 
 LOINC:LP7824-8 | Genetic Mutation String
@@ -432,7 +432,7 @@ n/a
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: ""[...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"""
 loinc_48004_6,rarelink_6_1_genetic_findings,,text,6.1.8 Sequence DNA Change [c.HGVS],,The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression,,,,,[variant_expression] = 'chgvs',,,,,,"Variable: 
 LOINC:48004-6 | Sequence DNA Change
@@ -441,7 +441,7 @@ n/a
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueCode
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Variant.valueCode
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
 loinc_48005_3,rarelink_6_1_genetic_findings,,text,6.1.9 Amino Acid Change [p.HGVS],,The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression,,,,,[variant_expression] = 'phgvs',,,,,,"Variable: 
 LOINC:48005-3 | Amino Acid Change
@@ -450,7 +450,7 @@ n/a
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:AminoAcidChange
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:AminoAcidChange
 - GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
 variant_validation,rarelink_6_1_genetic_findings,,radio,Are you sure the entered HGVS expression was validated using the variant validator? ,"yes, Yes - I'm sure | no, No, I need to check again",Please use the links above to ensure validation of the expression you entered!,,,,,"[loinc_81290_9] <> '' or 
 [loinc_48004_6] <> '' or 
@@ -462,7 +462,7 @@ n/a
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:Gene
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Gene
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.GeneDescriptor.value_id"
 loinc_53034_5,rarelink_6_1_genetic_findings,,dropdown,6.1.11 Zygosity,"loinc_la6705-3, Homozygous | loinc_la6706-1, (simple) Heterozygous | loinc_la26217-2, Compound heterozygous | loinc_la26220-6, Double heterozygous | loinc_la6707-9, Hemizygous | loinc_la6703-8, Heteroplasmic | loinc_la6704-6, Homoplasmic | loinc_53034_5_other, Other",The zygosity of the genetic variant.,,,,,,,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
@@ -477,7 +477,7 @@ LOINC:LA6704-6 | Homoplasmic
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
 loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,[loinc_53034_5] = 'loinc_53034_5_other',,,,,,"Variable: 
 LOINC:53034-5 | Zygosity
@@ -492,7 +492,7 @@ LOINC:LA6704-6 | Homoplasmic
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:geneticsAllele.State | VS: Allelic State
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:geneticsAllele.State | VS: Allelic State
 - GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
 loinc_48002_0,rarelink_6_1_genetic_findings,,dropdown,6.1.12 Genomic Source Class,"loinc_la6683-2, Germline | loinc_la6684-0, Somatic | loinc_la10429-1, Fetal | loinc_la18194-3, Likely germline | loinc_la18195-0, Likely somatic | loinc_la18196-8, Likely fetal | loinc_la18197-6, Unknown genomic origin | loinc_la26807-0, De novo","The classification of the genomic source, such as germline, somatic, or other origins.",,,,,,,,,,,"Variable: 
 LOINC:48002-0 | Genomic Source Class
@@ -508,7 +508,7 @@ LOINC:LA26807-0 | De novo
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:GenomicSourceClass
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:GenomicSourceClass
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
 loinc_48019_4,rarelink_6_1_genetic_findings,,dropdown,6.1.13 DNA Change Type,"loinc_la9658-1, Wild type | loinc_la6692-3, Deletion | loinc_la6686-5, Duplication | loinc_la6687-3, Insertion | loinc_la6688-1, Insertion/Deletion | loinc_la6689-9, Inversion | loinc_la6690-7, Substitution | loinc_48019_4_other, Other","The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.",,,,,,,,,,,"Variable: 
 LOINC:48019-4 | DNA Change Type
@@ -523,7 +523,7 @@ LOINC:LA6690-7 | Substitution
 Version(s): 
 - LOINC Version 2.78
 Mapping:
-- HL7 FHIR Expression v4.0.1: Variant.type
+- HL7 FHIR GenomicsReporting 3.0.0: Variant.type
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
 loinc_48019_4_other,rarelink_6_1_genetic_findings,,text,6.1.13A DNA Change Type - Other [LOINC],BIOPORTAL:LOINC,Please search for a different DNA change typ in LOINC.,,,,,[loinc_48019_4] = 'loinc_48019_4_other',,,,,,"Variable: 
 LOINC:48019-4 | DNA Change Type
@@ -538,7 +538,7 @@ LOINC:LA6690-7 | Substitution
 Version(s): 
 - LOINC Version 2.78
 Mapping:
-- HL7 FHIR Expression v4.0.1: Variant.type
+- HL7 FHIR GenomicsReporting 3.0.0: Variant.type
 - GA4GH Phenopacket Schema v2.0 Element: n/a"
 loinc_53037_8,rarelink_6_1_genetic_findings,,dropdown,6.1.14 Clinical Significance [ACMG],"loinc_la6668-3, Pathogenic | loinc_la26332-9, Likely pathogenic | loinc_la26333-7, Uncertain significance | loinc_la26334-5, Likely benign | loinc_la6675-8, Benign | loinc_la4489-6, Unknown","The clinical significance of the genetic variant, indicating its impact on health and disease.",,,,,,,,,,,"Variable: 
 LOINC:53037-8 | Clinical Significance [ACMG]
@@ -552,7 +552,7 @@ LOINC:LA4489-6 | Unknown
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.component:Variant.Interpretation
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:Variant.Interpretation
 - GA4GH Phenopacket Schema v2.0 Element: Interpretation.AcmgPathogenicityClassification"
 ga4gh_therap_action,rarelink_6_1_genetic_findings,,dropdown,6.1.15 Therapeutic Actionability,"ga4gh_unknown_actionability, Unknown actionability | ga4gh_not_actionable, Not actionable | ga4gh_actionable, Actionable
 ","An enumeration flagging the variant as being a candidate for treatment/ clinical intervention of the disorder caused by this variant, which could improve the clinical outcome.",,,,,,,,,,,"Variable: 
@@ -579,7 +579,7 @@ LOINC:LA30206-9 | Stand-alone evidence pathogenic
 Version(s): 
 - LOINC Version 2.78
 Mapping: 
-- HL7 FHIR Expression v4.0.1: Observation.extension:Variant.Interpretation
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.extension:Variant.Interpretation
 - GA4GH Phenopacket Schema v2.0 Elemen: n/a"
 snomedct_8116006,rarelink_6_2_phenotypic_feature,"<p>RareLink - 6.2) Phenotypic Feature</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Phenotypic Feature sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#phenotypic-features"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",text,6.2.1 Phenotypic Feature,BIOPORTAL:HP,An observed physical and clinical characteristic encoded with HPO.,,,,,,y,,,,,"Variable: 
 SNOMED:8116006 | Phenotypic Feature  
