@@ -173,7 +173,12 @@ def create_phenopacket(
                 
             # For CIEINR/multi-instrument setups, deduplicate features by onset date
             # This handles cases where the same feature appears in multiple configs
-            feature_key = (feature.type.id, getattr(feature.onset, 'iso8601duration', None) if hasattr(feature, 'onset') else None)
+            feature_key = (
+                feature.type.id, 
+                str(getattr(feature.onset, 'age', None)) if hasattr(feature, 'onset') else None,
+                # Include a hash of modifiers if they exist
+                hash(tuple(sorted([m.id for m in feature.modifiers]))) if hasattr(feature, 'modifiers') and feature.modifiers else None
+            )
             
             if feature_key not in feature_types_seen:
                 feature_types_seen.add(feature_key)

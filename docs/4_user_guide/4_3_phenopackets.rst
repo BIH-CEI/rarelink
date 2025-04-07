@@ -104,7 +104,7 @@ components:
   specific values or codes.
 - ``DataProcessor`` (`Python Class <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/utils/processor/processor.py>`_):
   Contains all functions to process any REDCap data to Phenopacket-compliant 
-  data, including *field fetching*, *data drocessing*, *data validation*, 
+  data, including *field fetching*, *data processing*, *data validation*, 
   *Label & Mapping*, *repeated element*, and *generation* methods.
 - ``create`` (`Python function <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/phenopackets/create.py>`_):
   Contains the main function to generate Phenopackets from the processed data.
@@ -170,7 +170,7 @@ These include:
 2. **Preferences**: 
 
   ``PhenotypicFeature.onset``: The engine prefers the ISO8601Duration
-  defined in section 6.2.3 *Phenotype Determination* over the Age 
+  defined in section 6.2.3 *Phenotype Determination* over the Age.
 _________
 
 
@@ -603,7 +603,7 @@ value sets. Replace the placeholders with specific codes and labels relevant to
 your use case. Make sure to include the function below in your .py file 
 ``get_mapping_by_name`` so that the ``DataProcessor`` can access the mappings 
 correctly. All codes that are not defined in here, will be fetched from
-the BIOPORTAL API by the ``DataProcessor``.
+the BioPortal API by the ``DataProcessor``.
 
 .. code-block:: bash
 

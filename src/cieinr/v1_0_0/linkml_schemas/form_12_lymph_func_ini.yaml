@@ -39,7 +39,6 @@ classes:
       - lymphfunc_ncit_c77163_val
       - lymphfunc_ncit_c116203
       - lymphfunc_ncit_c116203_val
-      - lymph_fn
 
 slots:
   lymphfunc_test:
@@ -51,8 +50,8 @@ slots:
 
   lymphfunc_date:
     title: Lymphocyte Function Test Date
-    description: Date of the lymphocyte function/NK cytotoxicity test (format: 01-M-Y).
-    range: date_dmy
+    description: Date of the lymphocyte function/NK cytotoxicity test (format 01-M-Y).
+    range: date
     required: false
 
   lymphfunc_ncit_c88791:
@@ -161,13 +160,6 @@ slots:
     title: NK cell Cytotoxicity Result
     description: Result for NK cell Cytotoxicity assay.
     range: AssayResultEnum
-    required: false
-
-  lymph_fn:
-    title: Test Report Upload
-    description: >
-      Please upload test report. REMOVE PATIENT'S PERSONAL INFORMATION (NAME, MRN, ULI, DOB).
-    range: file
     required: false
 
 enums:

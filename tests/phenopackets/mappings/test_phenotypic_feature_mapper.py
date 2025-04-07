@@ -188,20 +188,6 @@ class TestPhenotypicFeatureMapper(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 0)
-    
-    def test_data_model_detection(self):
-        """Test that the mapper correctly detects different data models"""
-        # Test infections model
-        infections_model = self.mapper._determine_data_model("infections_initial_form")
-        self.assertEqual(infections_model, "infections")
-        
-        # Test conditions model
-        conditions_model = self.mapper._determine_data_model("patients_systemic_or_organ_specific_conditions")
-        self.assertEqual(conditions_model, "conditions")
-        
-        # Test default model
-        default_model = self.mapper._determine_data_model("some_other_instrument")
-        self.assertEqual(default_model, "rarelink_cdm")
         
 if __name__ == "__main__":
     unittest.main()

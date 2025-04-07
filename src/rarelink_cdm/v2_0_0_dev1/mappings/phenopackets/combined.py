@@ -46,7 +46,6 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         "vitalStatus": {
             "instrument_name": "rarelink_3_patient_status",
             "mapping_block": VITAL_STATUS_BLOCK,
-            "label_dicts": {},
             "mapping_dicts": {
                 "map_vital_status": mapping_dict_lookup.get("map_vital_status", {})
             }

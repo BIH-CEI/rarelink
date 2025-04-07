@@ -55,10 +55,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "infections_initial_form",
                 "mapping_block": INFECTIONS_FEATURES_BLOCK,
                 "data_model": "infections",
-                "label_dicts": {
-                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                },
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
@@ -84,10 +80,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "patients_systemic_or_organ_specific_conditions",
                 "mapping_block": CONDITIONS_FEATURES_BLOCK,
                 "data_model": "conditions",
-                "label_dicts": {
-                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                },
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
@@ -118,9 +110,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         "procedures": {
             "instrument_name": "basic_form",
             "mapping_block": BASIC_PROCEDURE_BLOCK,
-            "label_dicts": {
-                "ProcedureType": label_dicts.get("ProcedureType", {})
-            },
             "mapping_dicts": {
                 "procedure_status": mapping_dict_lookup.get("procedure_status", {})
             },
@@ -133,20 +122,45 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             {
                 "instrument_name": "cbc",
                 "mapping_block": CBC_MEASUREMENT_BLOCK,
-                "label_dicts": {
-                    "UnitOfMeasure": label_dicts.get("UnitOfMeasure", {})
-                },
-                "multi_measurement": True
+                "multi_measurement": True,
+                "enum_classes": {
+                    "cbc_haemoglobin": "cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_platelets": "cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_leukocytes":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_neutrophils":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_eosinophils":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_lymphocytes":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
+                    "cbc_monocytes:":" cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum"
+                }
             },
             {
                 "instrument_name": "lymphocytes_phenotype",
                 "mapping_block": LYMPHOCYTES_PHENOTYPE_BLOCK,
-                "multi_measurement": True
+                "multi_measurement": True,
+                "enum_classes": {
+                    "lympheno_loinc_8122_4": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum",
+                    "lympheno_loinc_24467_3": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum",
+                    "lympheno_loinc_14135_8": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum",
+                    "lympheno_loinc_8116_6": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum",
+                    "lympheno_loinc_9558_8": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum",
+                    "lympheno_loinc_9728_7": "cieinr.v1_0_0.python_schemas.form_10_lymphopheno_ini.LymphenoTestEnum"
+                },
             },
             {
                 "instrument_name": "lymphocyte_functionnk_cytotoxicity",
                 "mapping_block": LYMPHOCYTE_FUNCTION_BLOCK,
-                "multi_measurement": True
+                "multi_measurement": True,
+                "enum_classes": {
+                    "lymphfunc_ncit_c88791": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c74017": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c88774": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c88789": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c17166": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c85185": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c34541": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c77163": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum", 
+                    "lymphfunc_ncit_c116203": "cieinr.v1_0_0.python_schemas.form_12_lymph_func_ini.LymphfuncTestEnum"
+                    }
             }
         ],
         "treatments": [
@@ -154,14 +168,14 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "inactivated_vaccine_history_and_specific_immune_re", 
                 "mapping_block": INACTIVATE_VACCINE_BLOCK,
                 "enum_classes": {
-                    "vo_": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
+                    "inactiv_vax": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
                 }
             },
             {
                 "instrument_name": "live_vaccine_and_specific_immune_response",
                 "mapping_block": LIVE_VACCINE_BLOCK,
                 "enum_classes": {
-                    "vo_": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
+                    "live_vax": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
                 }
             }
         ],
@@ -172,13 +186,11 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "Zygosity": label_dicts.get("Zygosity", {}),
                 "DNAChangeType": label_dicts.get("DNAChangeType", {}),
                 "ReferenceGenome": label_dicts.get("ReferenceGenome", {})
-            },
-            "mapping_dicts": {}
+            }
         },
         "interpretations": {
             "instrument_name": "genetic_information",
             "mapping_block": INTERPRETATION_BLOCK,
-            "label_dicts": {},
             "mapping_dicts": {
                 "map_progress_status": mapping_dict_lookup.get("map_progress_status", {}),
                 "map_interpretation_status": mapping_dict_lookup.get("map_interpretation_status", {}),

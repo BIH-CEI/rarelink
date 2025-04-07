@@ -31,6 +31,10 @@
       },
       "modifiers": [
         {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        },
+        {
           "id": "HP:0012825",
           "label": "Mild"
         },
@@ -75,12 +79,28 @@
         "id": "HP:0002967",
         "label": "Cubitus valgus"
       },
-      "excluded": true,
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
       "onset": {
         "age": {
           "iso8601duration": "P2Y9M"
         }
-      }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
     },
     {
       "type": {
@@ -88,10 +108,14 @@
         "label": "Lymphoma"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012826",
+        "label": "Moderate"
       },
       "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
         {
           "id": "NCBITAXON:10376",
           "label": "human gammaherpesvirus 4"
@@ -103,9 +127,22 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P2Y9M"
         }
-      }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
     },
     {
       "type": {
@@ -116,11 +153,30 @@
         "id": "HP:0012826",
         "label": "Moderate"
       },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
       "onset": {
         "age": {
-          "iso8601duration": "P1Y9M"
+          "iso8601duration": "P2Y9M"
         }
-      }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
     }
   ],
   "measurements": [
@@ -136,11 +192,6 @@
             "label": "amount per container"
           },
           "value": 5.01
-        }
-      },
-      "timeObserved": {
-        "age": {
-          "iso8601duration": "P4Y9M"
         }
       },
       "procedure": {
@@ -163,17 +214,12 @@
           },
           "value": 4.56
         }
-      },
-      "timeObserved": {
-        "age": {
-          "iso8601duration": "P3Y9M"
-        }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TEST_13JAN",
+      "id": "TEST_13JAN-interpretation-0",
       "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
@@ -182,13 +228,13 @@
         },
         "genomicInterpretations": [
           {
-            "subjectOrBiosampleId": "TEST_13JAN",
+            "subjectOrBiosampleId": "1",
             "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "b4f00ce06ca547ba8c21abc1ffe57b",
+                "id": "388938780a5a4100b7e41e61aa7927",
                 "geneContext": {
                   "valueId": "HGNC:10853",
                   "symbol": "SHOX"
@@ -204,7 +250,8 @@
                   "label": "Chromosomal nuclear Ab pattern"
                 },
                 "allelicState": {
-                  "id": "LOINC:53034-5-OTHER"
+                  "id": "LOINC:53034-5-OTHER",
+                  "label": "Unknown Allelic State"
                 }
               }
             }
@@ -260,7 +307,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-23T09:31:01.041406Z",
+    "created": "2025-04-07T08:28:55.063847Z",
     "createdBy": "Adam G.",
     "resources": [
       {

@@ -196,7 +196,7 @@ ________________________________________________________________________________
 
 .. _docker_commands:
 
-Docker Commandsss
+Docker Commands
 ----------------
 
 These commands help manage Docker containers used in the RareLink framework.

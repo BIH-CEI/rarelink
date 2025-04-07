@@ -37,7 +37,6 @@ classes:
       - lympheno_loinc_9728_7_int
       - lympheno_loinc_9728_7_val
       - lymphopheno_other
-      - lymphopheno_test
 
 slots:
   lympheno_test:
@@ -52,7 +51,7 @@ slots:
     title: Lymphocyte Phenotype Test Date
     description: >
       Date of the Lymphocyte phenotype test (format: 01-M-Y).
-    range: date_dmy
+    range: date
     required: false
 
   lympheno_loinc_8122_4_int:
@@ -131,14 +130,7 @@ slots:
     title: Other lymphocyte phenotype
     description: >
       If other subsets were tested, type in data or upload a de-identified report and add comments.
-    range: notes
-    required: false
-
-  lymphopheno_test:
-    title: Lymphocyte phenotype test file
-    description: >
-      Please upload the PDF results of the test. Remove patient’s personal information.
-    range: file
+    range: string
     required: false
 
 enums:

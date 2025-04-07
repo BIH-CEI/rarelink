@@ -20,7 +20,8 @@ Description: "A RareLink-specific profile for capturing the age category of
 * code.coding.display = "Age Category"
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject.type = Patient
+* subject.identifier = Patient.id
 
 * effective[x] 1..1
 * effectiveDateTime MS

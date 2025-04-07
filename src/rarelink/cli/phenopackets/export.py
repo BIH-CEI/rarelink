@@ -211,7 +211,10 @@ def export(
         typer.echo(f"📂 Find your Phenopackets here: {output_dir}")
         
         # Report counts
-        typer.echo(f"📊 Summary: {len(phenopackets)} Phenopackets created from {len(input_data)} input records")
+        typer.echo("\nExport Summary:")
+        typer.echo(f"Total records processed: {len(input_data)}")
+        typer.echo(f"Total successful exports: {len(phenopackets)}")
+        typer.echo(f"Total failed exports: {len(input_data) - len(phenopackets)}")
         
         # Check for failure report
         failure_file = os.path.join(output_dir, "failures.json")

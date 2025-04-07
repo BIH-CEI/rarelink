@@ -16,7 +16,6 @@ INFECTIONS_FEATURES_BLOCK = {
     "type_field_10": "snomedct_31099001", # Systemic
     "type_field_11": "other_infection_hpo",
     "type_field_12": "other_infection_mondo",
-    
     # Onset date fields
     "onset_date_fields": [
         "infection_date", 
@@ -29,22 +28,15 @@ INFECTIONS_FEATURES_BLOCK = {
         "infection_date_8", 
         "infection_date_9", 
         "infection_date_10"
-    ],
-    
+    ], 
     # Severity and modifiers
     "severity_field": "infection_severity",
-    "modifier_field_1": "type_of_infection",
+  #  "modifier_field_1": "type_of_infection",
     "modifier_field_2": "infection_temp_pattern",
     "modifier_field_3": "causing_agent_viral",
     "modifier_field_4": "causing_agent_bacterial",
     "modifier_field_5": "causing_agent_mycotic",
-    "modifier_field_6": "causing_organism_other",
-    
-    # Enable multi-onset for infections
-    "multi_onset": True,
-    
-    # Disable general field scanning to rely on explicit fields only
-    "enable_field_scanning": False
+    "modifier_field_6": "causing_organism_other"
 }
 
 CONDITIONS_FEATURES_BLOCK = {
@@ -70,7 +62,7 @@ CONDITIONS_FEATURES_BLOCK = {
     "onset_date_field": "condition_date_1",
     "severity_field": "condition_severity",
     # Modifier fields
-    "modifier_field_1": "type_of_condition",
+   # "modifier_field_1": "type_of_condition",
     "modifier_field_2": "condition_temp_pattern",
     # EBV status modifer for Neoplastic conditions
     "modifier_field_3": "hp_0012539_modifier",
@@ -78,7 +70,4 @@ CONDITIONS_FEATURES_BLOCK = {
     "modifier_field_5": "hp_0005523_modifier",
     # Evidence field for IBD
     "evidence_field": "hp_0002037_evidence",
-    # settings
-    "multi_onset": False,
-    "enable_field_scanning": False
 }

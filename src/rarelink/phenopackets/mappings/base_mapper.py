@@ -169,8 +169,76 @@ class BaseMapper(Generic[T]):
         return self.processor.process_code(code)
     
     def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
-        """Fetch a label for a code using the processor"""
-        return self.processor.fetch_label(code, enum_class)
+        """
+        Fetch a label for a code using a hierarchical approach.
+        
+        Args:
+            code (str): The code to look up
+            enum_class (Any, optional): Enum class name (string) or actual enum class
+            
+        Returns:
+            Optional[str]: The label or None if not found
+        """
+        if not code:
+            return None
+        
+        # Get mapping configuration
+        mapping_config = self.processor.mapping_config or {}
+        
+        # Step 1: Try label dictionaries from the configuration
+        label_dicts = mapping_config.get("label_dicts", {})
+        if label_dicts:
+            # First, check if enum_class is a string that matches a dictionary name
+            if isinstance(enum_class, str) and enum_class in label_dicts:
+                specific_dict = label_dicts.get(enum_class, {})
+                if code in specific_dict:
+                    return specific_dict[code]
+            
+            # Next, try looking through all dictionaries
+            for dict_name, label_dict in label_dicts.items():
+                if code in label_dict:
+                    return label_dict[code]
+        
+        # Step 2: Try enum classes from configuration
+        enum_classes = getattr(self.processor, "enum_classes", {})
+        if enum_classes:
+            # If enum_class is provided as a string, get the actual class
+            if isinstance(enum_class, str) and enum_class in enum_classes:
+                enum_obj = enum_classes[enum_class]
+                label = self.processor.fetch_label_from_enum(code, enum_obj)
+                if label:
+                    return label
+                
+            # If enum_class is provided as an actual class
+            elif enum_class:
+                label = self.processor.fetch_label_from_enum(code, enum_class)
+                if label:
+                    return label
+                
+            # Try prefix-based enum lookup 
+            for prefix, enum_obj in enum_classes.items():
+                if code.startswith(prefix):
+                    label = self.processor.fetch_label_from_enum(code, enum_obj)
+                    if label:
+                        return label
+        
+        # Step 3: Finally, try BioPortal (most expensive option)
+        # For codes with a colon format
+        if ":" in code:
+            label = self.processor.fetch_label_from_bioportal(code)
+            if label:
+                return label
+        
+        # For codes without a colon, try processing first
+        else:
+            processed_code = self.process_code(code)
+            if processed_code != code and ":" in processed_code:
+                label = self.processor.fetch_label_from_bioportal(processed_code)
+                if label:
+                    return label
+        
+        # Return None if no label found
+        return None
     
     def fetch_mapping_value(self, mapping_name: str, code: str, default: Any = None) -> Any:
         """Fetch a mapping value using the processor"""

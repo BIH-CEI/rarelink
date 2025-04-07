@@ -1,16 +1,16 @@
 {
-  "id": "102",
+  "id": "106",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "RFQVHFMC",
+    "dateOfBirth": "2018-01-01T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y10M"
+        "iso8601duration": "P7Y1M"
       }
     },
     "vitalStatus": {},
-    "sex": "MALE",
-    "karyotypicSex": "XXY",
+    "sex": "FEMALE",
+    "karyotypicSex": "XX",
     "gender": {
       "id": "SNOMEDCT:446141000124107",
       "label": "Female gender identity"
@@ -20,167 +20,38 @@
       "label": "Homo sapiens"
     }
   },
-  "phenotypicFeatures": [
-    {
-      "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    }
-  ],
-  "measurements": [
-    {
-      "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
-      },
-      "value": {
-        "quantity": {
-          "unit": {
-            "id": "UO:0010046",
-            "label": "united states customary cup"
-          },
-          "value": 1.54
-        }
-      },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C12434",
-          "label": "Unknown Procedure"
-        }
-      }
-    }
-  ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN-interpretation-0",
-      "progressStatus": "IN_PROGRESS",
+      "id": "RFQVHFMC-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "OMIM:614962",
+          "label": "LEPTIN DEFICIENCY OR DYSFUNCTION"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "REJECTED",
+            "interpretationStatus": "CAUSATIVE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "ccf67b25f5804712bac8ad652d8f74",
+                "id": "347d06ac685c4281b3958a86849951",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:6553",
+                  "symbol": "LEP"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NC_000007.14:g.(?_126859732)_(132750936_?)del"
+                  }
+                ],
+                "extensions": [
+                  {
+                    "name": "Unvalidated Genetic Mutation String",
+                    "value": "NC_000007.14:g.(?_126859732)_(132750936_?)del"
                   }
                 ],
                 "structuralType": {
@@ -201,37 +72,18 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "ORPHA:98267",
+        "label": "Genetic non-syndromic obesity"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P7Y5M"
         }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P-5Y-5M"
-        }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:29:27.374946Z",
+    "created": "2025-04-07T08:33:33.399369Z",
     "createdBy": "Adam G.",
     "resources": [
       {
