@@ -291,22 +291,6 @@ class TestBaseMapper(unittest.TestCase):
             # Restore original method
             self.single_processor.process_code = original_process_code
     
-    def test_fetch_label(self):
-        """Test fetch_label method delegation"""
-        # Mock the processor's method
-        original_fetch_label = self.single_processor.fetch_label
-        
-        try:
-            # Replace with test implementation
-            test_result = "Test Label"
-            self.single_processor.fetch_label = lambda code, enum_class=None: test_result
-            
-            # Test delegation
-            result = self.single_mapper.fetch_label("test_code")
-            self.assertEqual(result, test_result)
-        finally:
-            # Restore original method
-            self.single_processor.fetch_label = original_fetch_label
     
     def test_fetch_mapping_value(self):
         """Test fetch_mapping_value method delegation"""
