@@ -17,7 +17,7 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * identifier.value MS
 
 * name 1..*
-* name.text = "anonymous"
+* name[0].text = "anonymous"
 
 * gender 0..1
 * gender from GenderIdentityVS (required)
