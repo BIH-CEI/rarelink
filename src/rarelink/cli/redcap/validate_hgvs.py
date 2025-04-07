@@ -1,14 +1,17 @@
 import typer
 import json
 from pathlib import Path
+from typing import Optional
 from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
+    between_section_separator,
 )
 from rarelink.cli.utils.string_utils import (
     format_header,
     success_text,
-    error_text
+    error_text,
+    hint_text
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.utils.validation import validate_and_encode_hgvs
@@ -23,21 +26,26 @@ DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")  # Path to your .env file
 
 @app.command()
-def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
+def app(
+    input_file: Optional[Path] = typer.Option(
+        None, "--input-file", "-i", 
+        help="Path to the specific JSON file containing REDCap records"
+    ),
+    input_dir: Optional[Path] = typer.Option(
+        None, "--input-dir", "-d", 
+        help="Directory containing the REDCap records (defaults to ~/Downloads/rarelink_records)"
+    ),
+):
     """
     Validate and encode HGVS strings in the REDCap records.
 
-    This command iterates over all records in the designated output directory,
-    validates each record’s HGVS strings, and produces a summary report showing
+    This command iterates over all records in the records file,
+    validates each record's HGVS strings, and produces a summary report showing
     the total number of validations attempted, succeeded, and failed.
 
     For records from the genetic findings instrument (i.e. where
     'redcap_repeat_instrument' is 'rarelink_6_1_genetic_findings'),
     any failures are listed along with the record_id and repeat instance.
-
-    Args:
-        output_dir (Path): Directory containing the REDCap records.
-                           Defaults to ~/Downloads/rarelink_records.
     """
     format_header("Validate HGVS Strings in REDCap Records")
     validate_env(["REDCAP_PROJECT_NAME"])
@@ -45,13 +53,47 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
     env_values = dotenv_values(ENV_PATH)
     project_name = env_values["REDCAP_PROJECT_NAME"]
     sanitized_project_name = project_name.replace(" ", "_")
-    records_file = output_dir / f"{sanitized_project_name}-records.json"
-
+    
+    # Determine the input file path
+    records_file = None
+    
+    # If a specific file is provided, use it
+    if input_file:
+        records_file = input_file
+        typer.echo(f"🔍 Using specified input file: {records_file}")
+    
+    # If a directory is provided, look for the records file there
+    elif input_dir:
+        records_file = input_dir / f"{sanitized_project_name}-records.json"
+        typer.echo(f"🔍 Looking for records file in specified directory: {records_file}")
+    
+    # If neither is provided, ask user to confirm the default path
+    else:
+        default_file = DEFAULT_OUTPUT_DIR / f"{sanitized_project_name}-records.json"
+        typer.echo(f"🔍 Default records file location: {default_file}")
+        
+        if typer.confirm(f"Do you want to use this default file path?", default=True):
+            records_file = default_file
+        else:
+            custom_path = typer.prompt(
+                "Please enter the full path to your records file",
+                type=Path
+            )
+            records_file = custom_path
+    
+    # Check if the file exists
     if not records_file.exists():
         error_text(
-            f"Records file not found at {records_file}. Please run 'rarelink redcap download-records' first."
+            f"Records file not found at {records_file}."
+        )
+        hint_text(
+            "You can download records using 'rarelink redcap download-records'"
         )
         raise typer.Exit(1)
+
+    # Display file information
+    typer.echo(f"📄 Found records file: {records_file}")
+    between_section_separator()
 
     try:
         with open(records_file, 'r') as file:
@@ -77,9 +119,6 @@ def app(output_dir: Path = DEFAULT_OUTPUT_DIR):
                     "failures": summary.get("failure_details")
                 })
             updated_records.append(rec)
-
-        with open(records_file, 'w') as file:
-            json.dump(updated_records, file, indent=4)
 
         typer.echo("\nValidation Summary:")
         typer.echo(f"Total HGVS validations attempted: {total_validations}")
