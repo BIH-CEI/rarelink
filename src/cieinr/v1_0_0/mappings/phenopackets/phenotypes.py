@@ -36,13 +36,7 @@ INFECTIONS_FEATURES_BLOCK = {
     "modifier_field_3": "causing_agent_viral",
     "modifier_field_4": "causing_agent_bacterial",
     "modifier_field_5": "causing_agent_mycotic",
-    "modifier_field_6": "causing_organism_other",
-    
-    # Enable multi-onset for infections
-    "multi_onset": True,
-    
-    # Disable general field scanning to rely on explicit fields only
-    "enable_field_scanning": False
+    "modifier_field_6": "causing_organism_other"
 }
 
 CONDITIONS_FEATURES_BLOCK = {
@@ -76,7 +70,4 @@ CONDITIONS_FEATURES_BLOCK = {
     "modifier_field_5": "hp_0005523_modifier",
     # Evidence field for IBD
     "evidence_field": "hp_0002037_evidence",
-    # settings
-    "multi_onset": False,
-    "enable_field_scanning": False
 }

@@ -168,14 +168,14 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "inactivated_vaccine_history_and_specific_immune_re", 
                 "mapping_block": INACTIVATE_VACCINE_BLOCK,
                 "enum_classes": {
-                    "vo_": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
+                    "inactiv_vax": "cieinr.v1_0_0.python_schemas.form_6_inactivated_vaccines.InactivatedVaccineTypeEnum"
                 }
             },
             {
                 "instrument_name": "live_vaccine_and_specific_immune_response",
                 "mapping_block": LIVE_VACCINE_BLOCK,
                 "enum_classes": {
-                    "vo_": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
+                    "live_vax": "cieinr.v1_0_0.python_schemas.form_7_live_vaccines.LiveVaccineTypeEnum"
                 }
             }
         ],
