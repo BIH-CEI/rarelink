@@ -1,16 +1,16 @@
 {
-  "id": "102",
+  "id": "105",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "CDE456",
+    "dateOfBirth": "2020-01-01T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y10M"
+        "iso8601duration": "P4Y8M"
       }
     },
     "vitalStatus": {},
-    "sex": "MALE",
-    "karyotypicSex": "XXY",
+    "sex": "FEMALE",
+    "karyotypicSex": "XO",
     "gender": {
       "id": "SNOMEDCT:446141000124107",
       "label": "Female gender identity"
@@ -23,66 +23,8 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
+        "id": "HP:0001059",
+        "label": "Pterygium"
       },
       "severity": {
         "id": "HP:0012825",
@@ -96,100 +38,155 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P3Y9M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
+        "id": "HP:0002967",
+        "label": "Cubitus valgus"
       },
       "severity": {
         "id": "HP:0012825",
         "label": "Mild"
       },
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        }
+      ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P3Y9M"
         }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
       },
-      "evidence": [
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
         {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
+          "id": "HP:0031796",
+          "label": "Recurrent"
         }
-      ]
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y9M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0004322",
+        "label": "Short stature"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y9M"
+        }
+      }
     }
   ],
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
+        "id": "LOINC:17351-8",
+        "label": "Neutrophil cytoplasmic Ab:PrThr:Pt:Ser:Ord"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0010046",
-            "label": "united states customary cup"
+            "id": "UO:0000201",
+            "label": "cells per milliliter"
           },
-          "value": 1.54
+          "value": 1.0
         }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA28046-3",
+        "label": "Nonreactive results for the presence of Zika antibodies and indeterminate for dengue antibodies."
       },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C12434",
-          "label": "Unknown Procedure"
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000208",
+            "label": "gram per deciliter"
+          }
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP200067-9",
+        "label": "CT"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000021",
+            "label": "gram"
+          },
+          "value": 21.0
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN-interpretation-0",
-      "progressStatus": "IN_PROGRESS",
+      "id": "CDE456-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "MONDO:0019499",
+          "label": "Turner syndrome"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "REJECTED",
+            "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "ccf67b25f5804712bac8ad652d8f74",
+                "id": "dfa8943ce0b34f8082a169140d5901",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:10853",
+                  "symbol": "SHOX"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NM_006883.2:c.-507G>C"
                   }
                 ],
                 "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
+                  "id": "LOINC:LA6686-5",
+                  "label": "Duplication"
                 },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
                 }
               }
             }
@@ -201,37 +198,55 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0021163",
+        "label": "kidney neoplasm"
       },
       "onset": {
-        "age": {
-          "iso8601duration": "P-5Y-5M"
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
         }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
       }
     },
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0021163",
+        "label": "kidney neoplasm"
       },
       "onset": {
-        "age": {
-          "iso8601duration": "P-5Y-5M"
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
         }
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0021163",
+        "label": "kidney neoplasm"
       },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0021163",
+        "label": "kidney neoplasm"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:29:27.374946Z",
+    "created": "2025-04-07T08:33:26.350586Z",
     "createdBy": "Adam G.",
     "resources": [
       {

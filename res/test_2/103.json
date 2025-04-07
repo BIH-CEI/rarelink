@@ -1,19 +1,19 @@
 {
-  "id": "102",
+  "id": "103",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "EFG678",
+    "dateOfBirth": "2020-01-01T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y10M"
+        "iso8601duration": "P4Y8M"
       }
     },
     "vitalStatus": {},
     "sex": "MALE",
-    "karyotypicSex": "XXY",
+    "karyotypicSex": "XY",
     "gender": {
-      "id": "SNOMEDCT:446141000124107",
-      "label": "Female gender identity"
+      "id": "SNOMEDCT:1220561009",
+      "label": "Not recorded"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,110 +23,168 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
+        "id": "HP:0002719",
+        "label": "Recurrent infections"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012829",
+        "label": "Profound"
       },
       "modifiers": [
         {
           "id": "HP:0031796",
           "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030206",
+          "label": "EMG: incremental response of compound muscle action potential to repetitive nerve stimulation"
+        },
+        {
+          "id": "HP:0040272",
+          "label": "Hyperintensity of MRI T2 signal of the spinal cord"
+        },
+        {
+          "id": "HP:0012708",
+          "label": "Reduced brain N-acetyl aspartate level by MRS"
+        },
+        {
+          "id": "NCBITAXON:90964",
+          "label": "Staphylococcaceae"
+        },
+        {
+          "id": "SNOMEDCT:462887004",
+          "label": "Arm/elbow protector"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
     },
     {
       "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
+        "id": "HP:0000979",
+        "label": "Purpura"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012829",
+        "label": "Profound"
       },
       "modifiers": [
         {
-          "id": "HP:0025297",
-          "label": "Prolonged"
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "HP:0002423",
+          "label": "Long-tract sign"
+        },
+        {
+          "id": "HP:0031122",
+          "label": "Two-raphe bicuspid aortic valve"
+        },
+        {
+          "id": "NCBITAXON:2049174",
+          "label": "Staphylus tucumanus"
+        },
+        {
+          "id": "SNOMEDCT:410300003",
+          "label": "Legal system education, guidance, and counseling"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
     },
     {
       "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
+        "id": "HP:0011127",
+        "label": "Perioral eczema"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012829",
+        "label": "Profound"
       },
       "modifiers": [
         {
-          "id": "HP:0031915",
-          "label": "Stable"
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030460",
+          "label": "Abnormal timing of pattern reversal visual evoked potentials"
+        },
+        {
+          "id": "HP:0008009",
+          "label": "Three rows of eyelashes"
+        },
+        {
+          "id": "NCBITAXON:99822",
+          "label": "Streptococcus dysgalactiae subsp. dysgalactiae"
+        },
+        {
+          "id": "SNOMEDCT:818983003",
+          "label": "Abdomen"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
     },
     {
       "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
+        "id": "HP:0012059",
+        "label": "Lentigo maligna melanoma"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012829",
+        "label": "Profound"
       },
+      "modifiers": [
+        {
+          "id": "HP:0011010",
+          "label": "Chronic"
+        }
+      ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y9M"
         }
       },
       "evidence": [
         {
           "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
           }
         }
       ]
@@ -135,52 +193,77 @@
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
+        "id": "LOINC:MTHU020483",
+        "label": "Immunodeficiency panel"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0010046",
-            "label": "united states customary cup"
+            "id": "UO:0000236",
+            "label": "image resolution unit"
           },
-          "value": 1.54
-        }
-      },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C12434",
-          "label": "Unknown Procedure"
+          "value": 1.0
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN-interpretation-0",
-      "progressStatus": "IN_PROGRESS",
+      "id": "EFG678-interpretation-0",
+      "progressStatus": "UNSOLVED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "MONDO:0010518",
+          "label": "Wiskott-Aldrich syndrome"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "REJECTED",
+            "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
-                "id": "ccf67b25f5804712bac8ad652d8f74",
+                "id": "5a26c8a00a4343c3a6f212d06e58ac",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:12731",
+                  "symbol": "WAS"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NC_000023.11:g.48683512T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
+                }
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "2",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "117b179b73434635a9c719526e7b1f",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "extensions": [
+                  {
+                    "name": "Unvalidated Genetic Mutation String",
+                    "value": "test test"
                   }
                 ],
                 "structuralType": {
@@ -196,42 +279,96 @@
           }
         ]
       }
+    },
+    {
+      "id": "EFG678-interpretation-1",
+      "progressStatus": "UNSOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "OMIM:613759",
+          "label": "IMMUNODEFICIENCY 90 WITH ENCEPHALOPATHY, FUNCTIONAL HYPOSPLENIA, AND HEPATIC DYSFUNCTION"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "3",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "variationDescriptor": {
+                "id": "8f34008eb44b46808636c3023bb91c",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P1Y7M"
         }
       },
       "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
       }
     },
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P1Y7M"
         }
       },
       "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y7M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:29:27.374946Z",
+    "created": "2025-04-07T08:30:32.275817Z",
     "createdBy": "Adam G.",
     "resources": [
       {

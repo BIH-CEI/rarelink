@@ -26,21 +26,67 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:21483005",
-          "label": "Structure of central nervous system"
+          "id": "HP:0011009",
+          "label": "Acute"
         },
         {
           "id": "NCBITAXON:81852",
           "label": "Enterococcaceae"
-        },
-        {
-          "id": "NCBITAXON:2",
-          "label": "Bacteria"
         }
       ],
       "onset": {
         "age": {
           "iso8601duration": "P0Y-1M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002383",
+        "label": "Infectious encephalitis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011009",
+          "label": "Acute"
+        },
+        {
+          "id": "NCBITAXON:81852",
+          "label": "Enterococcaceae"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y11M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002383",
+        "label": "Infectious encephalitis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011009",
+          "label": "Acute"
+        },
+        {
+          "id": "NCBITAXON:81852",
+          "label": "Enterococcaceae"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y8M"
         }
       }
     },
@@ -55,17 +101,55 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:127856007",
-          "label": "Skin and/or subcutaneous tissue structure"
-        },
-        {
-          "id": "NCBITAXON:10239",
-          "label": "Viruses"
+          "id": "HP:0011011",
+          "label": "Subacute"
         }
       ],
       "onset": {
         "age": {
           "iso8601duration": "P0Y10M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "MONDO:0043653",
+        "label": "herpes labialis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011011",
+          "label": "Subacute"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "MONDO:0043653",
+        "label": "herpes labialis"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011011",
+          "label": "Subacute"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y1M"
         }
       }
     },
@@ -80,17 +164,34 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:20139000",
-          "label": "Structure of respiratory system"
-        },
-        {
-          "id": "NCBITAXON:10239",
-          "label": "Viruses"
+          "id": "HP:0011009",
+          "label": "Acute"
         }
       ],
       "onset": {
         "age": {
           "iso8601duration": "P1Y1M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002090",
+        "label": "Pneumonia"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011009",
+          "label": "Acute"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y2M"
         }
       }
     },
@@ -105,8 +206,8 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:55342001",
-          "label": "Neoplastic disease"
+          "id": "HP:0011011",
+          "label": "Subacute"
         },
         {
           "id": "NCIT:C129454",
@@ -130,8 +231,8 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:119292006",
-          "label": "Disorder of gastrointestinal tract"
+          "id": "HP:0025297",
+          "label": "Prolonged"
         }
       ],
       "onset": {
@@ -151,8 +252,8 @@
       },
       "modifiers": [
         {
-          "id": "SNOMEDCT:362969004",
-          "label": "Disorder of endocrine system"
+          "id": "HP:0011010",
+          "label": "Chronic"
         }
       ],
       "onset": {
@@ -442,7 +543,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
               "variationDescriptor": {
-                "id": "65fcf4625d5a4a5f955ba4c6d357e6",
+                "id": "d686e9f8041a4e57a902b060b50c0f",
                 "geneContext": {
                   "valueId": "HGNC:1500",
                   "symbol": "CASP10"
@@ -459,7 +560,7 @@
                 },
                 "allelicState": {
                   "id": "LOINC:LA6706-1",
-                  "label": "Heterozygous"
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -472,7 +573,7 @@
     {
       "term": {
         "id": "MONDO:0011383",
-        "label": "autoimmune lymphoproliferative syndrome type 2A"
+        "label": "ALPS-Caspase10 - CASP10"
       },
       "onset": {
         "age": {
@@ -600,7 +701,7 @@
     }
   ],
   "metaData": {
-    "created": "2025-03-23T15:06:57.786366Z",
+    "created": "2025-04-07T08:45:37.645771Z",
     "createdBy": "Adam G.",
     "resources": [
       {

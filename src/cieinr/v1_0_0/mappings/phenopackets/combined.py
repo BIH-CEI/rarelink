@@ -55,10 +55,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "infections_initial_form",
                 "mapping_block": INFECTIONS_FEATURES_BLOCK,
                 "data_model": "infections",
-                "label_dicts": {
-                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                },
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
@@ -84,10 +80,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                 "instrument_name": "patients_systemic_or_organ_specific_conditions",
                 "mapping_block": CONDITIONS_FEATURES_BLOCK,
                 "data_model": "conditions",
-                "label_dicts": {
-                    "TemporalPattern": label_dicts.get("TemporalPattern", {}),
-                    "PhenotypeSeverity": label_dicts.get("PhenotypeSeverity", {})
-                },
                 "mapping_dicts": {
                     "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
                 },
@@ -118,9 +110,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
         "procedures": {
             "instrument_name": "basic_form",
             "mapping_block": BASIC_PROCEDURE_BLOCK,
-            "label_dicts": {
-                "ProcedureType": label_dicts.get("ProcedureType", {})
-            },
             "mapping_dicts": {
                 "procedure_status": mapping_dict_lookup.get("procedure_status", {})
             },
@@ -133,9 +122,6 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
             {
                 "instrument_name": "cbc",
                 "mapping_block": CBC_MEASUREMENT_BLOCK,
-                "label_dicts": {
-                    "UnitOfMeasure": label_dicts.get("UnitOfMeasure", {})
-                },
                 "multi_measurement": True
             },
             {
