@@ -23,12 +23,6 @@ software to ensure you have the latest updates and guidance.
 [![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
 [![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-orange.svg)](https://hl7.org/fhir/)
 
-#### Test Version
-<!-- Combined Badges for v2.0.0.dev1 -->
-![v2.0.0.dev1](https://img.shields.io/badge/v2.0.0.dev1-purple) 
-![Phenopacket Pipeline](https://img.shields.io/badge/Phenopacket%20Pipeline-Running-darkgreen)
-![FHIR Pipeline](https://img.shields.io/badge/FHIR%20Pipeline-Running-darkgreen)
-![RareLink CLI](https://img.shields.io/badge/CLI-Operational-darkblue)
 
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
 
@@ -48,8 +42,8 @@ ________________________________________________________________________________
 
 ## Project Description
 
-RareLink - A Rare Disease Framework in REDCap that connects international 
-registries, FHIR standards, and Phenopackets. It provides comprehensive 
+RareLink - A novel rare disease framework in REDCap that connects international 
+registries, FHIR, and Phenopackets. It provides comprehensive 
 documentation and user guides to enable sustainable data management for your 
 local rare disease REDCap project.
 

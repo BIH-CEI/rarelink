@@ -17,7 +17,7 @@ as possible, we offer a semi-automatic guide with templates and examples that
 significantly speed up the process of importing your data. Once your data is
 processed and validated against the :ref:`2_2`'s :ref:`rarelink_cdm_linkml`,
 you can export it diretly to :ref:`1_3`, import it to your local :ref:`1_6` 
-project and subsequently also export it to :ref:`1_4`. 
+project and subsequently export it to :ref:`1_4`. 
 
 Make sure to read the following sections in this documentation to make yourself 
 familiar with the model, the underlying data elements and its ontologies: 
@@ -192,8 +192,7 @@ The template contains the following columns:
 - **predicate_label**:  
   The title of the target element from the schema, i.e. the *name* of the element
   itself. This column provides a human-readable description of the target element being mapped.
-  For the examples above, these would be ``2.1 Date of birth`` and 
-  ``2.2 Sex at birth``respectively.
+  For the examples above, these would be ``2.1 Date of birth`` and ``2.2 Sex at birth``respectively.
 
 - **object_id**:  
   The target value in the RareLink-CDM. For literal fields, such as dates, 
@@ -220,13 +219,13 @@ The template contains the following columns:
 
 .. hint::
 
-   :download:`Download the RareLink-CDM SSSOM template file <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
+   :download:`download the TSV template file directly <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
 
 This template provides a minimal yet robust framework for defining your 
 mappings. It ensures that each mapping row clearly specifies which source 
 element is linked to which target element and how that connection was made. 
 By following this template, you can ensure that your mappings are consistent, 
-interoperable, and well-documented—key requirements for successful data 
+interoperable, and well-documented key requirements for successful data 
 integration in the RareLink-CDM.
 
 Below you can find a **snippet of the RareLink-CDM SSSOM Template File:**
@@ -313,7 +312,7 @@ Below you can find a **snippet of the RareLink-CDM SSSOM Template File:**
    
    - `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_ or
    
-   - :download:`download the TSV template file directly <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
+   - :download:`download the TSV template file directly <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.
 
 ____
 
@@ -514,4 +513,4 @@ Additional Resources
 - `RareLink-CDM Documentation <https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm.html>`_
 - `RareLink GitHub Repository <https://github.com/BIH-CEI/rarelink>`_
 - `RareLink-CDM SSSOM Mapping Examples <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs>`_
-- :download:`Download the RareLink-CDM SSSOM template file <../../res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`
+- :download:`download the TSV template file directly <https://github.com/BIH-CEI/rarelink/tree/develop/docs/_static/res/import_mapper_tsvs/rarelink_cdm_sssom_template.tsv>`.

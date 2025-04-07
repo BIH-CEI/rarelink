@@ -13,7 +13,7 @@ Manual Data Capture
 
 **Overview**
 
-- :ref:`manualguide_general_information`
+- :ref:`general_information`
 - :ref:`manualguide_formal_criteria`
 - :ref:`manualguide_personal_information`
 - :ref:`manualguide_patient_status`
@@ -145,7 +145,7 @@ individuals:
   local REDCap project. It is not editable, but can be used for reference within
   your REDCap project, study, or registry.
 - **1.1 - Pseudonym** (``*``, ``ERDRI-CDS``): Unique identifier for the individual, often used as a local
-  patient-related identification code or registry ID
+  patient-related identification code or registry ID.
 - **1.2 - Date of Admission** (``*``): The date of admission or data
   capture. Ensure the format is YYYY-MM-DD.
 
@@ -177,7 +177,7 @@ Fields:
   format ``01.MM.YYYY`` or ``01.01.YYYY``.
 - **2.2 - Sex at Birth**: ``ERDRI-CDS``
 - **2.5 - Country of Birth**: Refer to the `ISO 3166 Country Codes <https://www.iso.org/obp/ui/#search/
-  code/>`_ to search for the country code. Enter only the three- letter ISO 
+  code/>`_ to search for the country code. Enter only the three-letter ISO 
   code (e.g., ``CAN``, ``TUR``).
 
 
@@ -198,7 +198,7 @@ ________________________________________________________________________________
 General Notes:
 ~~~~~~~~~~~~~~~~~~
 
-- This section tracks the status of the patient over time
+- This section tracks the status of the patient over time.
 - Forms can be **repeated** to reflect changes over time (e.g., vital status,
   rare disease cases).
 - For ontology-specific searches, use `OLS Platform <https://www.ebi.ac.uk/
@@ -266,8 +266,8 @@ ________________________________________________________________________________
 +-------------------+
 
 .. hint::
-    If you have difficlties finding the rare disease, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ 
-    for ontology-specific searches, for example the `OLS-MONDO Search <https://www.ebi.ac.uk/ols4/ontologies/mondo>`_ 
+    If you have difficulties finding the rare disease, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ 
+    for ontology-specific searches, for example the `OLS-MONDO Search <https://www.ebi.ac.uk/ols4/ontologies/mondo>`_.
 
 General Notes:
 ~~~~~~~~~~~~~~~~~~
@@ -281,7 +281,7 @@ General Notes:
 Fields:
 ~~~~~~~~~~
 
-- **5.1 Disease** (``*`` & ``ERDRI-CDS``): one ontologies can be selected for 
+- **5.1 Disease** (``*`` & ``ERDRI-CDS``): one ontology can be selected for 
   encoding. We recommend using *MONDO* to encode a disease.
 
     - To link a disease to genetic variant(s) in Section **6.1 Genetic Findings**,
@@ -307,13 +307,15 @@ ________________________________________________________________________________
 +-------------------+
 
 .. hint::
-    If you have difficlties finding concepts, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
+    If you have difficulties finding concepts, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
     ontology-specific search!
 
 General Notes:
 ~~~~~~~~~~~~~~~~~~
+
 - Fields that are not mandatory can be left blank if the information is
-  unknown or not required .Fill in all other fields about the variant, 
+  unknown or not required.
+- Fill in all other fields about the variant, 
   depending on the information available and your current use case. It is a
   **repeated** form; you can enter as many variants as needed.
 
@@ -327,10 +329,10 @@ Fields:
   - You can also link multiple variants to a single disease 
     by repeating the form!
 
-- **6.1.2 Progress Status of interpretaion**: required when creating GA4GH 
-  Phenopackets - You can find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus>`_ 
+- **6.1.2 Progress Status of interpretation**: required when creating GA4GH 
+  Phenopackets - You can find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus>`_.
 - **6.1.3 Interpretation Status**: required when creating GA4GH Phenopackets -
-  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus>`_
+  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus>`_.
 - **6.1.6 Genetic Mutation String**: If the variant is not validated or you are 
   unsure how to validate, enter all information in this field.
 - **6.1.7 - 6.1.9 Variant Expression [HGVS]** (``ERDRI-CDS``): Please select 
@@ -347,7 +349,7 @@ Fields:
 - **HGVS Validation**: 
 
     1. Validate mutations using `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/>`_
-       or `Varsome <https://varsome.com/>`_
+       or `Varsome <https://varsome.com/>`_.
     2. Confirm the expression with the `HGVS Validator <https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/>`_.
     3. If the validation fails, enter the details in the **6.1.6 Genetic Mutation String** field.
     4. ``*``: **Are you sure the entered HGVS expression was validated using 
@@ -355,7 +357,7 @@ Fields:
        validation status.
 
 - **6.1.15 Therapeutic Actionability**: recommended when creating GA4GH 
-  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability>`_
+  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability>`_.
 
 .. attention::
     The quality of the variant's validated HGVS expression is crucial for the 
@@ -404,7 +406,7 @@ Fields:
 - **6.2.8 Clinical Modifiers**: Encode modifiers for more detailed deep phenotyping, e.g.:
     - subclasses of `HP:0012823 (Clinical modifier) <https://hpo.jax.org/browse/term/HP:0012823>`_, 
     - infectious agents using NCBITAXON,
-    - or the body site using SNOMED.
+    - or the body site using SNOMED CT.
 - **6.2.9 Evidence**: as recommended by the Phenopacket Scehma, try to provide 
   the evidence code for the phenotypic feature, *e.g. ECO:0006017 ("author 
   statement from published clinical study used in manual assertion")*.
@@ -515,14 +517,14 @@ General Notes:
 Fields:
 ~~~~~~~~~~
 
-- **7.1 Consent Status**: ``*```
+- **7.1 Consent Status**: ``*``
 - **7.3 Health Policy Monitoring** ``*``: if unsure, you can enter any string 
   that indicates an unknown status for this field.
 - **7.4 Agreement to be contacted for research purposes**: ``*`` & ``ERDRI-CDS``
 - **7.5 Consent to the reuse of data**: ``*`` & ``ERDRI-CDS``
 - **7.6 Biological sample** : ``ERDRI-CDS``
 - **7.7 Link to a biobank** (``ERDRI-CDS``): If applicable, provide a link to 
-  the BioBank, if applicable.
+  the BioBank.
 
 
 Return to `top <#top>`_.
