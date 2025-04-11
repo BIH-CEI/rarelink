@@ -21,9 +21,6 @@ ________________________________________________________________________________
   - :ref:`phenopacket-validation`
   - :ref:`rarelink-phenopacket-preconfigurations`
   - :ref:`phenopackets-other-redcap-data-models`
-  - :ref:`phenopacket-mappings`
-  - :ref:`label-dicts`
-  - :ref:`mapping-dicts`
   - :ref:`troubleshooting`
 
 
