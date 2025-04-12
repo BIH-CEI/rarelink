@@ -2,9 +2,9 @@ name: Create, Validate, and Test RareLink Pipelines
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   setup-environment:
