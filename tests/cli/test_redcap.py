@@ -8,6 +8,9 @@ runner = CliRunner()
     "command",
     [
         ["download-records"],
+        ["fetch-metadata"],
+        ["upload-records"]
+        
     ],
 )
 def test_redcap_tools_commands_executable(command):
