@@ -15,7 +15,6 @@ Description: "A RareLink-specific profile for vital signs measurements."
 * meta.profile[vitalSignsProfile] = "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
 
 * status 1..1
-* status from http://hl7.org/fhir/ValueSet/observation-status (required)
 
 * category 1..1
 * category.coding 1..1

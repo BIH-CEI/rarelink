@@ -17,17 +17,24 @@
       {
         "id": "Observation.meta.profile",
         "path": "Observation.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant|3.0.0"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Observation.text.status",
-        "path": "Observation.text.status",
-        "patternCode": "generated"
-      },
-      {
-        "id": "Observation.text.div",
-        "path": "Observation.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Observation</strong></p><p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM).</p></div>"
+        "id": "Observation.meta.profile:genomicsProfile",
+        "path": "Observation.meta.profile",
+        "sliceName": "genomicsProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant|3.0.0"
       },
       {
         "id": "Observation.status",
@@ -102,24 +109,32 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.code.coding.version",
-        "path": "Observation.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.code.coding.code",
         "path": "Observation.code.coding.code",
         "fixedCode": "69548-6"
       },
       {
-        "id": "Observation.code.coding.display",
-        "path": "Observation.code.coding.display",
-        "patternString": "Genetic variant assessment"
-      },
-      {
         "id": "Observation.subject",
         "path": "Observation.subject",
-        "min": 1
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject.reference",
+        "path": "Observation.subject.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject.identifier",
+        "path": "Observation.subject.identifier",
+        "mustSupport": true
       },
       {
         "id": "Observation.method.coding",
@@ -156,19 +171,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:genomicHgvs.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:genomicHgvs.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "81290-9"
-      },
-      {
-        "id": "Observation.component:genomicHgvs.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Genomic DNA change (gHGVS)"
       },
       {
         "id": "Observation.component:genomicHgvs.value[x]",
@@ -197,19 +202,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:genomicRefSeq.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:genomicRefSeq.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48013-7"
-      },
-      {
-        "id": "Observation.component:genomicRefSeq.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Genomic reference sequence [ID]"
       },
       {
         "id": "Observation.component:genomicRefSeq.value[x]",
@@ -233,19 +228,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:representativeCodingHgvs.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:representativeCodingHgvs.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48004-6"
-      },
-      {
-        "id": "Observation.component:representativeCodingHgvs.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "DNA change (c.HGVS)"
       },
       {
         "id": "Observation.component:representativeCodingHgvs.value[x]",
@@ -274,19 +259,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:representativeTranscriptRefSeq.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:representativeTranscriptRefSeq.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "51958-7"
-      },
-      {
-        "id": "Observation.component:representativeTranscriptRefSeq.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Transcript reference sequence [ID]"
       },
       {
         "id": "Observation.component:representativeTranscriptRefSeq.value[x]",
@@ -310,19 +285,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:representativeProteinHgvs.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:representativeProteinHgvs.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48005-3"
-      },
-      {
-        "id": "Observation.component:representativeProteinHgvs.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Amino acid change (pHGVS)"
       },
       {
         "id": "Observation.component:representativeProteinHgvs.value[x]",
@@ -351,19 +316,9 @@
         "fixedUri": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
       },
       {
-        "id": "Observation.component:representativeProteinRefSeq.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "3.0.0"
-      },
-      {
         "id": "Observation.component:representativeProteinRefSeq.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "protein-ref-seq"
-      },
-      {
-        "id": "Observation.component:representativeProteinRefSeq.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "An identifier for the protein reference sequence."
       },
       {
         "id": "Observation.component:representativeProteinRefSeq.value[x]",
@@ -387,19 +342,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:referenceSequenceAssembly.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:referenceSequenceAssembly.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "62374-4"
-      },
-      {
-        "id": "Observation.component:referenceSequenceAssembly.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Human reference sequence assembly version"
       },
       {
         "id": "Observation.component:referenceSequenceAssembly.value[x]",
@@ -427,19 +372,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:geneStudied.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:geneStudied.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48018-6"
-      },
-      {
-        "id": "Observation.component:geneStudied.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Gene studied [ID]"
       },
       {
         "id": "Observation.component:geneStudied.value[x]",
@@ -468,19 +403,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:allelicState.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:allelicState.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "53034-5"
-      },
-      {
-        "id": "Observation.component:allelicState.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Allelic state"
       },
       {
         "id": "Observation.component:allelicState.value[x]",
@@ -508,19 +433,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:genomicSourceClass.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:genomicSourceClass.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48002-0"
-      },
-      {
-        "id": "Observation.component:genomicSourceClass.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Genomic source class [Type]"
       },
       {
         "id": "Observation.component:genomicSourceClass.value[x]",
@@ -548,19 +463,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:codingChangeType.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:codingChangeType.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "48019-4"
-      },
-      {
-        "id": "Observation.component:codingChangeType.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "DNA change type"
       },
       {
         "id": "Observation.component:codingChangeType.value[x]",

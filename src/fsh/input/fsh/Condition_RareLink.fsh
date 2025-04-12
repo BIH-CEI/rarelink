@@ -19,17 +19,17 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 
 * severity 0..1
 * severity.coding 0..1
-* severity.coding.system = "http://snomed.info/sct" (preferred)
-* severity.coding.code from SeverityVS (preferred)
+* severity.coding.system = "http://snomed.info/sct"
+* severity.coding.code from SeverityVS (extensible)
 
 * bodySite 0..* MS
 * bodySite.coding 0..1
-* bodySite.coding.system = "http://snomed.info/sct" (preferred)
+* bodySite.coding.system = "http://snomed.info/sct"
 * bodySite.coding.code MS
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
-* subject.reference 0..1 MS
+* subject.reference 1..1 MS
 * subject.identifier 0..1 MS
 
 * onsetDateTime 0..1

@@ -8,6 +8,8 @@
 [AgreementToBeContactedVS]: ValueSet-agreement-to-be-contacted-vs.html
 [BirthPlace]: StructureDefinition-birthplace.html
 [CauseOfDeath]: StructureDefinition-cause-of-death.html
+[CauseOfDeathCode]: StructureDefinition-cause-of-death-code.html
+[CauseOfDeathDefinition]: StructureDefinition-cause-of-death-definition.html
 [ClinicalSignificanceVS]: ValueSet-clinical-significance-vs.html
 [Consanguinity]: StructureDefinition-consanguinity.html
 [ConsanguinityVS]: ValueSet-consanguinity-vs.html
@@ -22,7 +24,6 @@
 [GenomicSourceClassVS]: ValueSet-genomic-source-class-vs.html
 [KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [LevelOfEvidenceVS]: ValueSet-level-of-evidence-vs.html
-[PatientStatusDate]: StructureDefinition-patient-status-date.html
 [PhenotypeModifier]: StructureDefinition-phenotype-modifier.html
 [PhenotypeSeverityVS]: ValueSet-phenotypie-severity-vs.html
 [PhenotypeStatus]: StructureDefinition-phenotype-status.html
@@ -39,7 +40,6 @@
 [RareLinkIPSMeasurementLaboratory]: StructureDefinition-rarelink-ips-measurement-laboratory.html
 [RareLinkIPSMeasurementRadiology]: StructureDefinition-rarelink-ips-measurement-radiology.html
 [RareLinkIPSPatient]: StructureDefinition-rarelink-ips-patient.html
-[RareLinkIPSPatientVitalStatus]: StructureDefinition-rarelink-ips-patient-vital-status.html
 [RareLinkIPSProcedure]: StructureDefinition-rarelink-ips-procedure.html
 [RareLinkAgeCategory]: StructureDefinition-rarelink-observation-age-category.html
 [RareLinkGestationAtBirth]: StructureDefinition-rarelink-observation-gestation-at-birth.html
@@ -55,5 +55,6 @@
 [StructuralVariantMethodVS]: ValueSet-structural-variant-method-vs.html
 [TemporalPatternVS]: ValueSet-temporal-pattern-vs.html
 [UndiagnosedRDCaseVS]: ValueSet-undiagnosed-rd-case-vs.html
+[VitalStatus]: StructureDefinition-vital-status.html
 [VitalStatusVS]: ValueSet-vital-status-vs.html
 [ZygosityVS]: ValueSet-zygosity-vs.html

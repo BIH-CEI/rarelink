@@ -45,7 +45,7 @@ Title: "Phenotype Status"
 Description: "Captures the status of a phenotypic feature, such as confirmed present or refuted."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system = "http://snomed.info/sct" (preferred)
+* valueCodeableConcept.coding.system = "http://snomed.info/sct"
 * valueCodeableConcept.coding.code from PhenotypeStatusVS (required)
 
 * extension[ResolutionDate]

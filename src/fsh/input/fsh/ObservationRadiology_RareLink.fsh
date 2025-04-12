@@ -32,7 +32,7 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
-* subject.reference 0..1 MS
+* subject.reference 1..1 MS
 * subject.identifier 0..1 MS
 
 

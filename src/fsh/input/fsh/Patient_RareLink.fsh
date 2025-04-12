@@ -21,22 +21,21 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * identifier.value MS
 
 * name 1..*
-* name[0].text = "unknown"
 
 * gender 0..1
 * gender from GenderIdentityVS (required)
 
 * birthDate 1..1
 
-* deceased[x] 0..1
-* deceasedBoolean from VitalStatusVS (required)
+* deceased[x] 0..1 MS
+* deceasedBoolean 0..1 MS
 * deceasedDateTime 0..1 MS
 
 * extension contains BirthPlace named birthplace 0..1
 * extension contains DateOfAdmission named date_of_admission 0..1
 * extension contains RecordedSexAtBirth named recorded_sex_at_birth 0..1
 * extension contains CauseOfDeath named cause_of_death 0..1
-* extension contains PatientStatusDate named patient_status_date 0..1
+* extension contains VitalStatus named vital_status 0..1 MS
 
 * extension[BirthPlace]
 Extension: BirthPlace
@@ -88,6 +87,13 @@ Description: "The SNOMED CT definition of the cause of death concept."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding.system = SNOMEDCT
 * valueCodeableConcept.coding.code = #184305005
+
+Extension: VitalStatus
+Id: vital-status
+Title: "Vital Status"
+Description: "Coded representation of a patient's vital status"
+* value[x] only CodeableConcept
+* valueCodeableConcept from VitalStatusVS (extensible)
 
 ValueSet: GenderIdentityVS
 Id: gender-identity-vs

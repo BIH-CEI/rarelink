@@ -29,7 +29,37 @@
       {
         "id": "Extension.extension",
         "path": "Extension.extension",
-        "max": "0"
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:causeOfDeath",
+        "path": "Extension.extension",
+        "sliceName": "causeOfDeath",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-code"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:codeDefinition",
+        "path": "Extension.extension",
+        "sliceName": "codeDefinition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition"
+            ]
+          }
+        ]
       },
       {
         "id": "Extension.url",
@@ -39,24 +69,7 @@
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ]
-      },
-      {
-        "id": "Extension.value[x].coding.system",
-        "path": "Extension.value[x].coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
-      },
-      {
-        "id": "Extension.value[x].coding.code",
-        "path": "Extension.value[x].coding.code",
-        "mustSupport": true
+        "max": "0"
       }
     ]
   }

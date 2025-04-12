@@ -1,11 +1,11 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "patient-status-date",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/patient-status-date",
-  "name": "PatientStatusDate",
-  "title": "Patient Status Date",
+  "id": "vital-status",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status",
+  "name": "VitalStatus",
+  "title": "Vital Status",
   "status": "draft",
-  "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
+  "description": "Coded representation of a patient's vital status",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -23,8 +23,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Patient Status Date",
-        "definition": "The date of completion for the RareLink-CDM Patient Status sheet."
+        "short": "Vital Status",
+        "definition": "Coded representation of a patient's vital status"
       },
       {
         "id": "Extension.extension",
@@ -34,16 +34,20 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/patient-status-date"
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "dateTime"
+            "code": "CodeableConcept"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs"
+        }
       }
     ]
   }

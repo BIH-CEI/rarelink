@@ -23,10 +23,10 @@ Description: "A RareLink-specific Consent profile based on the Consent resource.
 * category.coding from http://terminology.hl7.org/CodeSystem/consentcategorycodes (required)
 * category.coding.code = #research
 
-* subject 1..1
-* subject only Reference(RareLinkIPSPatient)
-* subject.reference 0..1 MS
-* subject.identifier 0..1 MS
+* patient 1..1
+* patient only Reference(RareLinkIPSPatient)
+* patient.reference 0..1 MS
+* patient.identifier 0..1 MS
 
 * dateTime 0..1
 * policy 1..1

@@ -17,12 +17,24 @@
       {
         "id": "Patient.meta.profile",
         "path": "Patient.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Patient.text.div",
-        "path": "Patient.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Patient</strong></p><p>This profile is based on the RareLink-CDM Section (1) Formal Criteria and (2) Personal Information, integrated with the IPS Patient profile.</p></div>"
+        "id": "Patient.meta.profile:ipsProfile",
+        "path": "Patient.meta.profile",
+        "sliceName": "ipsProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
       },
       {
         "id": "Patient.extension",
@@ -84,6 +96,37 @@
         ]
       },
       {
+        "id": "Patient.extension:cause_of_death",
+        "path": "Patient.extension",
+        "sliceName": "cause_of_death",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:vital_status",
+        "path": "Patient.extension",
+        "sliceName": "vital_status",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Patient.identifier.use",
         "path": "Patient.identifier.use",
         "patternCode": "official"
@@ -102,19 +145,9 @@
         "patternCode": "422549004"
       },
       {
-        "id": "Patient.identifier.type.coding.display",
-        "path": "Patient.identifier.type.coding.display",
-        "patternString": "Patient-related Identification code (observable entity)"
-      },
-      {
         "id": "Patient.identifier.value",
         "path": "Patient.identifier.value",
         "mustSupport": true
-      },
-      {
-        "id": "Patient.name.text",
-        "path": "Patient.name.text",
-        "patternString": "anonymous"
       },
       {
         "id": "Patient.gender",
@@ -123,6 +156,47 @@
           "strength": "required",
           "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/gender-identity-vs"
         }
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "path": "Patient.deceased[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.deceased[x]:deceasedBoolean",
+        "path": "Patient.deceased[x]",
+        "sliceName": "deceasedBoolean",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.deceased[x]:deceasedDateTime",
+        "path": "Patient.deceased[x]",
+        "sliceName": "deceasedDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
       }
     ]
   }

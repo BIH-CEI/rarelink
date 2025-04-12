@@ -68,7 +68,7 @@
           },
           "gender": "{{? %rarelinkpersonalinformation.mpp:getConcept(%gender, snomedct_263495000, 'target_code')}}",
           "birthDate": "{{%rarelinkpersonalinformation.snomedct_184099003}}",
-          "deceasedBoolean": "{{? (%RareLinkPatientStatus.mpp:getConcept(%vitalstatus, snomedct_278844005, 'target_code') == 'true')}}",
+          "deceasedBoolean": "{{? (%RareLinkPatientStatus.mpp:getConcept(%vitalstatus, snomedct_278844005, 'target_code'))}}",
           "deceasedDateTime": "{{? %RareLinkPatientStatus.snomedct_398299004.toDate()}}",
           "extension": [
             {

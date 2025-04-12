@@ -17,17 +17,24 @@
       {
         "id": "Observation.meta.profile",
         "path": "Observation.meta.profile",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.meta.profile:genomicsProfile",
+        "path": "Observation.meta.profile",
+        "sliceName": "genomicsProfile",
+        "min": 1,
+        "max": "1",
         "fixedCanonical": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0"
-      },
-      {
-        "id": "Observation.text.status",
-        "path": "Observation.text.status",
-        "patternCode": "extensions"
-      },
-      {
-        "id": "Observation.text.div",
-        "path": "Observation.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Observation</strong></p><p>This observation is generated as part of the RareLink REDCap project and its CDM.</p></div>"
       },
       {
         "id": "Observation.status",
@@ -112,11 +119,6 @@
         "fixedCode": "diagnostic-implication"
       },
       {
-        "id": "Observation.code.coding.display",
-        "path": "Observation.code.coding.display",
-        "patternString": "Diagnostic Implication"
-      },
-      {
         "id": "Observation.derivedFrom",
         "path": "Observation.derivedFrom",
         "slicing": {
@@ -174,19 +176,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:evidenceLevel.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:evidenceLevel.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "93044-6"
-      },
-      {
-        "id": "Observation.component:evidenceLevel.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Level of evidence"
       },
       {
         "id": "Observation.component:evidenceLevel.value[x]",
@@ -219,19 +211,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:clinicalSignificance.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:clinicalSignificance.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "53037-8"
-      },
-      {
-        "id": "Observation.component:clinicalSignificance.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Genetic variation clinical significance [Imp]"
       },
       {
         "id": "Observation.component:clinicalSignificance.value[x]",
@@ -264,19 +246,9 @@
         "fixedUri": "http://loinc.org"
       },
       {
-        "id": "Observation.component:predictedPhenotype.code.coding.version",
-        "path": "Observation.component.code.coding.version",
-        "patternString": "2.78"
-      },
-      {
         "id": "Observation.component:predictedPhenotype.code.coding.code",
         "path": "Observation.component.code.coding.code",
         "patternCode": "81259-4"
-      },
-      {
-        "id": "Observation.component:predictedPhenotype.code.coding.display",
-        "path": "Observation.component.code.coding.display",
-        "patternString": "Associated phenotype"
       },
       {
         "id": "Observation.component:predictedPhenotype.value[x]",

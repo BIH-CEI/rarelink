@@ -18,7 +18,6 @@ Description: "A RareLink-specific profile for laboratory measurements based on t
 * meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips|2.0.0-ballot"
 
 * status 1..1
-* status = "http://hl7.org/fhir/ValueSet/observation-status"
 
 * category 1..1
 * category.coding 1..1
@@ -32,7 +31,7 @@ Description: "A RareLink-specific profile for laboratory measurements based on t
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
-* subject.reference 0..1 MS
+* subject.reference 1..1 MS
 * subject.identifier 0..1 MS
 
 

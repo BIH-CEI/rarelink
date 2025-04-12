@@ -15,12 +15,11 @@ Description: "A RareLink-specific Condition profile for documenting undiagnosed 
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = "http://www.orpha.net/" (required)
 * code.coding.code from UndiagnosedRDCaseVS (required)
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
-* subject.reference 0..1 MS
+* subject.reference 1..1 MS
 * subject.identifier 0..1 MS
 
 * recordedDate 0..1
@@ -30,5 +29,5 @@ ValueSet: UndiagnosedRDCaseVS
 Id: undiagnosed-rd-case-vs
 Title: "Undiagnosed Rare Disease Case Value Set"
 Description: "Value set for capturing undiagnosed rare disease cases."
-* SNOMEDCT#373066001 "Rare disorder without a determined diagnosis after full investigation"
+* ORPHANET#616874 "Rare disorder without a determined diagnosis after full investigation"
 * SNOMEDCT#373067005 "A Rare Disease was diagnosed"

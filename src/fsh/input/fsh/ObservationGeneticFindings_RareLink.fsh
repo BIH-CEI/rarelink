@@ -157,20 +157,18 @@ Description: "
   (genetic_findings.diagnostic_implication).
 "
 
-// meta.profile => official diagnostic-implication version
-* meta.profile = "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains genomicsProfile 1..1
+* meta.profile[genomicsProfile] = "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0" (exactly)
 
-// Can't fix resourceType again; it's already Observation.
-
-// status => final
 * status = #final (exactly)
 
-// code => 'diagnostic-implication' from the tbd-codes-cs
 * code.coding.system = "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs" (exactly)
 * code.coding.code = #diagnostic-implication (exactly)
 * code.coding.version = "3.0.0"
 
-// category => rename slices to avoid duplicates
 * category ^slicing.discriminator[0].type = #pattern
 * category ^slicing.discriminator[0].path = "coding"
 * category ^slicing.rules = #open
@@ -185,7 +183,6 @@ Description: "
 * category[rarelinkGeCategory].coding.system = "http://terminology.hl7.org/CodeSystem/v2-0074" (exactly)
 * category[rarelinkGeCategory].coding.code = #GE (exactly)
 
-// derivedFrom => rename slice to avoid collision w/ parent's "variant"
 * derivedFrom ^slicing.discriminator[0].type = #pattern
 * derivedFrom ^slicing.discriminator[0].path = "$this"
 * derivedFrom ^slicing.rules = #open
@@ -193,7 +190,6 @@ Description: "
 * derivedFrom contains rarelinkVariant 1..1
 * derivedFrom[rarelinkVariant].reference 1..1
 
-// Slicing for component
 * component ^slicing.discriminator[0].type = #pattern
 * component ^slicing.discriminator[0].path = "code"
 * component ^slicing.rules = #open
@@ -225,8 +221,6 @@ Description: "
 * component[predictedPhenotype].valueCodeableConcept.coding contains mondo 0..* and omim 0..*
 * component[predictedPhenotype].valueCodeableConcept.coding[mondo].system = "http://purl.obolibrary.org/obo/mondo.owl" (exactly)
 * component[predictedPhenotype].valueCodeableConcept.coding[omim].system = "http://omim.org" (exactly)
-
-
 
 // ──────────────────────────────────────────────────────────────────────────
 // Value Sets

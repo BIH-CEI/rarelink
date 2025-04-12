@@ -18,7 +18,7 @@ Description: "A RareLink-specific profile for capturing karyotypic sex informati
 * code 1..1
 * code.coding 1..1
 * code.coding.system = SNOMEDCT
-* code.coding.code = #1296886006 (preferred)
+* code.coding.code = #1296886006
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
