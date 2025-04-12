@@ -130,7 +130,7 @@ def create_phenopacket_mappings() -> Dict[str, Any]:
                     "cbc_neutrophils":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
                     "cbc_eosinophils":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
                     "cbc_lymphocytes":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum",
-                    "cbc_monocytes:":" cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum"
+                    "cbc_monocytes:":"cieinr.v1_0_0.python_schemas.form_8_cbc_ini.CBCTypeEnum"
                 }
             },
             {

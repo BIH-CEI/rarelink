@@ -26,6 +26,7 @@ INACTIVATE_VACCINE_BLOCK = {
     "agent_field_2": "inactiv_vax_other",
     "cumulative_dose": "inactiv_vax_dose",
     "adverse_event_field": "inactiv_vax_ae",
+    "completion_of_inact_vax": "completion_inactiv_vax",
     "adverse_event_other_field": "inactiv_vax_ae_other",
     "adverse_event_severity": "inactiv_vax_ae_severity",
     "response_field_1": "vo_0000424_before_pneu",

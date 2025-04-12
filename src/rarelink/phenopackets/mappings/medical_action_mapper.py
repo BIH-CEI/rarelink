@@ -305,52 +305,10 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
                 except (ValueError, TypeError):
                     logger.warning(f"Could not convert dose value '{dose_value}' to float")
 
-        # Extract administration date from candidate fields
-        administration_date = None
-        date_field_candidates = ["completion_of_inact_vax", "completion_live_vax"]
-        for date_field in date_field_candidates:
-            date_value = instrument_data.get(date_field)
-            if date_value:
-                administration_date = date_value
-                break
-
-        time_element = None
-        if administration_date and dob:
-            try:
-                if isinstance(dob, str) and "seconds:" in dob:
-                    seconds_val = float(dob.replace("seconds:", "").strip())
-                    dob_dt = datetime.fromtimestamp(seconds_val)
-                    dob_str = dob_dt.strftime("%Y-%m-%d")
-                else:
-                    dob_str = dob
-                admin_date_str = (
-                    administration_date
-                    if isinstance(administration_date, str)
-                    else str(administration_date)
-                )
-                try:
-                    admin_dt = datetime.strptime(admin_date_str, "%Y-%m-%d")
-                except Exception:
-                    admin_dt = datetime.fromtimestamp(float(str(administration_date)))
-                if "seconds:" in dob_str:
-                    seconds_val = float(dob_str.replace("seconds:", "").strip())
-                    birth_dt = datetime.fromtimestamp(seconds_val)
-                else:
-                    birth_dt = datetime.strptime(dob_str, "%Y-%m-%d")
-                years = admin_dt.year - birth_dt.year
-                months = admin_dt.month - birth_dt.month
-                if months < 0:
-                    years -= 1
-                    months += 12
-                iso_age = f"P{years}Y{months}M"
-                time_element = TimeElement(age=Age(iso8601duration=iso_age))  # noqa: F841
-                logger.debug(f"Calculated ISO age: {iso_age}")
-            except Exception as e:
-                logger.error(f"Error converting administration date to age: {e}")
-
         treatment = Treatment(
             agent=agent,
             cumulative_dose=cumulative_dose,
+            
         )
         return treatment
 
