@@ -11,26 +11,26 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Define a simple test entity class
-class TestEntity:
+class EntityTest:
     """Simple test entity for BaseMapper tests"""
     def __init__(self, id: str, value: Any = None):
         self.id = id
         self.value = value
     
     def __eq__(self, other):
-        if not isinstance(other, TestEntity):
+        if not isinstance(other, EntityTest):
             return False
         return self.id == other.id and self.value == other.value
     
     def __repr__(self):
-        return f"TestEntity(id='{self.id}', value={self.value})"
+        return f"EntityTest(id='{self.id}', value={self.value})"
 
 # Define concrete mapper implementations for testing
-class TestSingleMapper(BaseMapper[TestEntity]):
+class SingleMapperTest(BaseMapper[EntityTest]):
     """Test mapper that returns a single entity"""
     
-    def _map_single_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[TestEntity]:
-        """Map data to a single TestEntity"""
+    def _map_single_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[EntityTest]:
+        """Map data to a single EntityTest"""
         # If there's an 'error' flag in the data, raise an exception to test error handling
         if data.get('error'):
             raise ValueError("Test error")
@@ -43,26 +43,26 @@ class TestSingleMapper(BaseMapper[TestEntity]):
         if not id_value:
             return None
         
-        # Create and return a TestEntity
+        # Create and return a EntityTest
         value_field = self.processor.mapping_config.get('value_field', 'value')
         value = data.get(value_field)
         
-        return TestEntity(id_value, value)
+        return EntityTest(id_value, value)
     
-    def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[TestEntity]:
+    def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[EntityTest]:
         """Default implementation that wraps _map_single_entity"""
         entity = self._map_single_entity(data, instruments, **kwargs)
         return [entity] if entity else []
 
-class TestMultiMapper(BaseMapper[TestEntity]):
+class MultiMapperTest(BaseMapper[EntityTest]):
     """Test mapper that returns multiple entities"""
     
-    def _map_single_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[TestEntity]:
+    def _map_single_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[EntityTest]:
         """Default implementation that returns the first entity"""
         entities = self._map_multi_entity(data, instruments, **kwargs)
         return entities[0] if entities else None
     
-    def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[TestEntity]:
+    def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[EntityTest]:
         """Map data to multiple TestEntities"""
         # If there's an 'error' flag in the data, raise an exception to test error handling
         if data.get('error'):
@@ -75,12 +75,12 @@ class TestMultiMapper(BaseMapper[TestEntity]):
         entities = []
         for item in items:
             if isinstance(item, dict) and 'id' in item:
-                entity = TestEntity(item['id'], item.get('value'))
+                entity = EntityTest(item['id'], item.get('value'))
                 entities.append(entity)
         
         return entities
 
-class TestBaseMapper(unittest.TestCase):
+class BaseMapperTest(unittest.TestCase):
     """Unit tests for the BaseMapper class"""
     
     def setUp(self):
@@ -96,8 +96,8 @@ class TestBaseMapper(unittest.TestCase):
         })
         
         # Create mappers
-        self.single_mapper = TestSingleMapper(self.single_processor)
-        self.multi_mapper = TestMultiMapper(self.multi_processor)
+        self.single_mapper = SingleMapperTest(self.single_processor)
+        self.multi_mapper = MultiMapperTest(self.multi_processor)
     
     def test_map_single_entity(self):
         """Test mapping a single entity"""
@@ -112,7 +112,7 @@ class TestBaseMapper(unittest.TestCase):
         
         # Verify result
         self.assertIsNotNone(result)
-        self.assertIsInstance(result, TestEntity)
+        self.assertIsInstance(result, EntityTest)
         self.assertEqual(result.id, 'test123')
         self.assertEqual(result.value, 'test_value')
     

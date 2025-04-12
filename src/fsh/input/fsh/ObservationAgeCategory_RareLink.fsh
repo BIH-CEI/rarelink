@@ -8,37 +8,32 @@ Title: "RareLink Observation Age Category"
 Description: "A RareLink-specific profile for capturing the age category of
  a patient as an observation, based on the ERDRI-CDS value set."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
 
 * status 1..1
 * status = #final
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = "https://www.snomed.org/snomed-ct"
+* code.coding.system = "http://snomed.info/sct"
 * code.coding.code = #105727008
-* code.coding.display = "Age Category"
 
 * subject 1..1
-* subject.type = Patient
-* subject.identifier = Patient.id
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
 
 * effective[x] 1..1
 * effectiveDateTime MS
 
 * value[x] 1..1
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system = "https://www.snomed.org/snomed-ct"
+* valueCodeableConcept.coding.system = "http://snomed.info/sct"
 * valueCodeableConcept.coding.code from AgeCategoryVS (required)
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink Observation Age Category</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (3) Patient Status, 
-  capturing the age category as an observation, based on the ERDRI-CDS value set</p>
-</div>
-
-"""
 
 ValueSet: AgeCategoryVS
 Id: age-category-vs

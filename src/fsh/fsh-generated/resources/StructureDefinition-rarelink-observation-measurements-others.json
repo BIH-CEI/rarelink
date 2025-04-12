@@ -17,12 +17,24 @@
       {
         "id": "Observation.meta.profile",
         "path": "Observation.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Observation.text.div",
-        "path": "Observation.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Measurements (Others)</strong></p><p>This profile captures measurements not categorized as laboratory, radiology, procedures, or vital signs, within the RareLink-CDM framework.</p></div>"
+        "id": "Observation.meta.profile:baseProfile",
+        "path": "Observation.meta.profile",
+        "sliceName": "baseProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
       },
       {
         "id": "Observation.status",
@@ -74,11 +86,6 @@
         }
       },
       {
-        "id": "Observation.code.coding.version",
-        "path": "Observation.code.coding.version",
-        "patternString": "24.04e"
-      },
-      {
         "id": "Observation.code.coding.code",
         "path": "Observation.code.coding.code",
         "patternCode": "C60819"
@@ -86,12 +93,25 @@
       {
         "id": "Observation.subject",
         "path": "Observation.subject",
-        "min": 1
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
       },
       {
         "id": "Observation.subject.reference",
         "path": "Observation.subject.reference",
-        "patternString": "Patient/{id}"
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject.identifier",
+        "path": "Observation.subject.identifier",
+        "mustSupport": true
       },
       {
         "id": "Observation.effective[x]",

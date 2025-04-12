@@ -1,0 +1,60 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cause-of-death-definition",
+  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition",
+  "name": "CauseOfDeathDefinition",
+  "title": "Cause of Death Definition",
+  "status": "draft",
+  "description": "The SNOMED CT definition of the cause of death concept.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Cause of Death Definition",
+        "definition": "The SNOMED CT definition of the cause of death concept."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].coding.system",
+        "path": "Extension.value[x].coding.system",
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Extension.value[x].coding.code",
+        "path": "Extension.value[x].coding.code",
+        "patternCode": "184305005"
+      }
+    ]
+  }
+}

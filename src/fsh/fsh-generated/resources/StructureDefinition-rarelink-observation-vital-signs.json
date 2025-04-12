@@ -17,20 +17,24 @@
       {
         "id": "Observation.meta.profile",
         "path": "Observation.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Observation.text.div",
-        "path": "Observation.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Vital Signs Measurements</strong></p><p>This profile is based on the RareLink-CDM Section (6.3) Measurements for Vital Signs and the FHIR VitalSigns Observation profile.</p></div>"
-      },
-      {
-        "id": "Observation.status",
-        "path": "Observation.status",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/observation-status"
-        }
+        "id": "Observation.meta.profile:vitalSignsProfile",
+        "path": "Observation.meta.profile",
+        "sliceName": "vitalSignsProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
       },
       {
         "id": "Observation.category",
@@ -65,12 +69,25 @@
       {
         "id": "Observation.subject",
         "path": "Observation.subject",
-        "min": 1
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
       },
       {
         "id": "Observation.subject.reference",
         "path": "Observation.subject.reference",
-        "patternString": "Patient/{id}"
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject.identifier",
+        "path": "Observation.subject.identifier",
+        "mustSupport": true
       },
       {
         "id": "Observation.effective[x]",

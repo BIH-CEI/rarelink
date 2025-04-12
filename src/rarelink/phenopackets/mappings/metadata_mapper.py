@@ -2,6 +2,7 @@ from typing import Dict, Any, Optional
 import logging
 from datetime import datetime
 import dataclasses
+from datetime import timezone
 
 from phenopackets import MetaData, Resource
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
@@ -61,7 +62,7 @@ class MetadataMapper(BaseMapper[MetaData]):
         created_by = kwargs.get('created_by', '')
         code_systems = kwargs.get('code_systems', None)
         
-        created_time = datetime.utcnow().isoformat() + "Z"
+        created_time = datetime.now(timezone.utc).isoformat()
         created_timestamp = date_to_timestamp(created_time)
         
         # Create resources if code_systems provided

@@ -17,7 +17,7 @@ authors = [
 
 description = "Rare Disease Interoperability Framework linking Registry Use, HL7 FHIR and the GA4GH Phenopacket Schema"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10, <3.13"
 keywords = [
     "Rare Disease",
     "Interoperability",
@@ -37,7 +37,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Rare Diseases"
 ]
 dependencies = [
-    "numpy", 
+    "numpy",
     "jupyter", 
     "pandas", 
     "phenopackets", 
@@ -79,6 +79,10 @@ packages = [
     "rarelink",
     "rarelink.cli",
     "rarelink.cli.utils",
+    "rarelink.cli.framework",
+    "rarelink.cli.redcap",
+    "rarelink.cli.fhir",
+    "rarelink.cli.phenopackets",
     "rarelink.utils",
     "rarelink.phenopackets",
     "rarelink.phenopackets.mappings",

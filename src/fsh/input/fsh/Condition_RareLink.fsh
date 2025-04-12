@@ -5,7 +5,12 @@ Id: rarelink-ips-condition
 Title: "RareLink IPS Condition"
 Description: "A RareLink-specific Condition profile based on the IPS Condition profile."
 
-* meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains ipsProfile 1..1
+* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+
 * clinicalStatus 1..1
 * clinicalStatus from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
 
@@ -14,30 +19,24 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 
 * severity 0..1
 * severity.coding 0..1
-* severity.coding.system from SNOMEDCT (preferred)
-* severity.coding.code from SeverityVS (preferred)
+* severity.coding.system = "http://snomed.info/sct"
+* severity.coding.code from SeverityVS (extensible)
 
 * bodySite 0..* MS
 * bodySite.coding 0..1
-* bodySite.coding.system from SNOMEDCT
+* bodySite.coding.system = "http://snomed.info/sct"
 * bodySite.coding.code MS
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 1..1 MS
+* subject.identifier 0..1 MS
 
 * onsetDateTime 0..1
 * recordedDate 0..1
 
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink IPS Condition</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (5) Disease and the IPS profile.</p>
-</div>
-"""
-
 * extension contains AgeAtDiagnosis named age_at_diagnosis 0..1
 * extension contains AgeAtOnset named age_at_onset 0..1
-
 
 * extension[AgeAtDiagnosis]
 Extension: AgeAtDiagnosis

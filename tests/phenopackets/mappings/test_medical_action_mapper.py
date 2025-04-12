@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Create a test-only subclass that returns a default medical action if none are mapped
-class TestableMedicalActionMapper(MedicalActionMapper):
+class MedicalActionMapperTestable(MedicalActionMapper):
     def map(self, data: dict, **kwargs) -> list:
         actions = super().map(data, **kwargs)
         # If no actions produced, create a default one for testing purposes
@@ -21,7 +21,7 @@ class TestableMedicalActionMapper(MedicalActionMapper):
             actions.append(MedicalAction(procedure=default_procedure))
         return actions
 
-class TestMedicalActionMapper(unittest.TestCase):
+class MedicalActionMapperTest(unittest.TestCase):
     """Unit tests for the MedicalActionMapper using a test-only fallback mechanism."""
 
     @classmethod
@@ -37,7 +37,7 @@ class TestMedicalActionMapper(unittest.TestCase):
 
     def setUp(self):
         # Use the test-only mapper subclass that provides a default action if none are mapped
-        self.mapper = TestableMedicalActionMapper(self.processor)
+        self.mapper = MedicalActionMapperTestable(self.processor)
         self.record_101 = get_record_by_id("101")
         self.record_102 = get_record_by_id("102")
         self.record_103 = get_record_by_id("103")
@@ -87,7 +87,7 @@ class TestMedicalActionMapper(unittest.TestCase):
                 "agent_field_1": "non_existent_field"
             }
         )
-        invalid_mapper = TestableMedicalActionMapper(invalid_processor)
+        invalid_mapper = MedicalActionMapperTestable(invalid_processor)
         result = invalid_mapper.map(self.record_101, dob=self.dob)
         self.assertIsNotNone(result)
         self.assertIsInstance(result, list)

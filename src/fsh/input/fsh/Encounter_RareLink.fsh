@@ -7,23 +7,27 @@ Id: rarelink-encounter
 Title: "RareLink Encounter"
 Description: "A RareLink-specific Encounter profile based on the Encounter resource."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+
 * status 1..1
 * status from http://hl7.org/fhir/ValueSet/encounter-status (required)
 
 * class 1..1
 * class from EncounterClassVS (required)
 
+* subject 1..1
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
+
 * period 0..1
 * period.start 0..1
 * period.end 0..1
 
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink Encounter</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (4) Care Pathway and the Encounter resource.</p>
-</div>
-"""
 
 ValueSet: EncounterClassVS
 Id: encounter-class-vs

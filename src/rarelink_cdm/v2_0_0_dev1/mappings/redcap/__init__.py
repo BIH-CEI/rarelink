@@ -48,7 +48,7 @@ MAPPING_FUNCTIONS = {
     },
     "patient_status": {
         "mapper": map_patient_status,
-        "is_repeating": True
+        "is_repeating": False
     },
     "care_pathway": {
         "mapper": map_care_pathway,

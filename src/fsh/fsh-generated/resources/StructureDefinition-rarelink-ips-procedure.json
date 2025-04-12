@@ -17,12 +17,24 @@
       {
         "id": "Procedure.meta.profile",
         "path": "Procedure.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Procedure.text.div",
-        "path": "Procedure.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Procedure</strong></p><p>This profile is based on the RareLink-CDM Section (6.3) Measurements, integrated with the IPS Procedure profile.</p></div>"
+        "id": "Procedure.meta.profile:ipsProfile",
+        "path": "Procedure.meta.profile",
+        "sliceName": "ipsProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
       },
       {
         "id": "Procedure.status",
@@ -47,9 +59,21 @@
         }
       },
       {
-        "id": "Procedure.subject.reference",
-        "path": "Procedure.subject.reference",
-        "patternString": "Patient/{id}"
+        "id": "Procedure.subject",
+        "path": "Procedure.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.subject.identifier",
+        "path": "Procedure.subject.identifier",
+        "mustSupport": true
       },
       {
         "id": "Procedure.performed[x]",

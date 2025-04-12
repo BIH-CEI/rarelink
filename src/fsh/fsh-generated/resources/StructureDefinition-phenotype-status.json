@@ -54,10 +54,7 @@
       {
         "id": "Extension.value[x].coding.system",
         "path": "Extension.value[x].coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Extension.value[x].coding.code",

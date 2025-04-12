@@ -99,7 +99,7 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
         name="Systematized Medical Nomenclature for Medicine–Clinical Terminology",
         prefix="SNOMEDCT",
         version="2024-09-01",
-        url="https://www.snomed.org/snomed-ct",
+        url="http://snomed.info/sct",
         iri_prefix="http://snomed.info/sct"
     ),
     so=CodeSystem(

@@ -9,12 +9,17 @@
   "compose": {
     "include": [
       {
-        "system": "http://snomed.info/sct",
+        "system": "http://www.orpha.net/",
         "concept": [
           {
-            "code": "373066001",
+            "code": "616874",
             "display": "Rare disorder without a determined diagnosis after full investigation"
-          },
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
           {
             "code": "373067005",
             "display": "A Rare Disease was diagnosed"

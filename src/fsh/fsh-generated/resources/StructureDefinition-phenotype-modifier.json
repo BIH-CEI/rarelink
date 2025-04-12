@@ -52,14 +52,6 @@
         "max": "1"
       },
       {
-        "id": "Extension.value[x].coding.system",
-        "path": "Extension.value[x].coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://www.human-phenotype-ontology.org"
-        }
-      },
-      {
         "id": "Extension.value[x].coding.code",
         "path": "Extension.value[x].coding.code",
         "mustSupport": true

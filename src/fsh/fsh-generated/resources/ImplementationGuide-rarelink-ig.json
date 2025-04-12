@@ -38,7 +38,7 @@
     {
       "packageId": "hl7.fhir.uv.ips",
       "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
-      "version": "2.0.0",
+      "version": "2.0.0-ballot",
       "id": "hl7_fhir_uv_ips"
     },
     {
@@ -128,6 +128,22 @@
         },
         "name": "Cause of Death",
         "description": "The cause of death for the patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cause-of-death-code"
+        },
+        "name": "Cause of Death Code",
+        "description": "The ICD-10 code representing the cause of death.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cause-of-death-definition"
+        },
+        "name": "Cause of Death Definition",
+        "description": "The SNOMED CT definition of the cause of death concept.",
         "exampleBoolean": false
       },
       {
@@ -240,14 +256,6 @@
         },
         "name": "Level of Evidence Value Set",
         "description": "LOINC LA codes describing evidence strength for a variant.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/patient-status-date"
-        },
-        "name": "Patient Status Date",
-        "description": "The date of completion for the RareLink-CDM Patient Status sheet.",
         "exampleBoolean": false
       },
       {
@@ -380,14 +388,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rarelink-ips-patient-vital-status"
-        },
-        "name": "RareLink IPS Patient Vital Status",
-        "description": "A RareLink-specific profile for the IPS Patient resource with vital status extensions.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/rarelink-ips-procedure"
         },
         "name": "RareLink IPS Procedure",
@@ -504,6 +504,14 @@
         },
         "name": "Undiagnosed Rare Disease Case Value Set",
         "description": "Value set for capturing undiagnosed rare disease cases.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/vital-status"
+        },
+        "name": "Vital Status",
+        "description": "Coded representation of a patient's vital status",
         "exampleBoolean": false
       },
       {

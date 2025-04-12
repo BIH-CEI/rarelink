@@ -17,12 +17,24 @@
       {
         "id": "Condition.meta.profile",
         "path": "Condition.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "Condition.text.div",
-        "path": "Condition.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink IPS Condition</strong></p><p>This profile is based on the RareLink-CDM Section (5) Disease and the IPS profile.</p></div>"
+        "id": "Condition.meta.profile:ipsProfile",
+        "path": "Condition.meta.profile",
+        "sliceName": "ipsProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
       },
       {
         "id": "Condition.extension",
@@ -94,16 +106,13 @@
       {
         "id": "Condition.severity.coding.system",
         "path": "Condition.severity.coding.system",
-        "binding": {
-          "strength": "preferred",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Condition.severity.coding.code",
         "path": "Condition.severity.coding.code",
         "binding": {
-          "strength": "preferred",
+          "strength": "extensible",
           "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs"
         }
       },
@@ -120,15 +129,24 @@
       {
         "id": "Condition.bodySite.coding.system",
         "path": "Condition.bodySite.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
-        "id": "Condition.subject.reference",
-        "path": "Condition.subject.reference",
-        "patternString": "Patient/{id}"
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.subject.identifier",
+        "path": "Condition.subject.identifier",
+        "mustSupport": true
       },
       {
         "id": "Condition.onset[x]",

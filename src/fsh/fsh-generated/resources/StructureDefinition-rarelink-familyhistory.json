@@ -17,12 +17,24 @@
       {
         "id": "FamilyMemberHistory.meta.profile",
         "path": "FamilyMemberHistory.meta.profile",
-        "fixedCanonical": "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
       },
       {
-        "id": "FamilyMemberHistory.text.div",
-        "path": "FamilyMemberHistory.text.div",
-        "patternXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><strong>RareLink Family History</strong></p><p>This profile is based on the RareLink-CDM Section (6.4) Family History and the FamilyMemberHistory resource.</p></div>"
+        "id": "FamilyMemberHistory.meta.profile:baseProfile",
+        "path": "FamilyMemberHistory.meta.profile",
+        "sliceName": "baseProfile",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
       },
       {
         "id": "FamilyMemberHistory.extension",
@@ -77,9 +89,26 @@
         }
       },
       {
+        "id": "FamilyMemberHistory.patient",
+        "path": "FamilyMemberHistory.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
         "id": "FamilyMemberHistory.patient.reference",
         "path": "FamilyMemberHistory.patient.reference",
-        "patternString": "Patient/{id}"
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.patient.identifier",
+        "path": "FamilyMemberHistory.patient.identifier",
+        "mustSupport": true
       },
       {
         "id": "FamilyMemberHistory.relationship.coding",
@@ -112,10 +141,7 @@
       {
         "id": "FamilyMemberHistory.sex.coding.system",
         "path": "FamilyMemberHistory.sex.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/administrative-gender"
-        }
+        "patternUri": "http://hl7.org/fhir/administrative-gender"
       },
       {
         "id": "FamilyMemberHistory.sex.coding.code",
