@@ -32,6 +32,7 @@ classes:
       - record_id
       - formal_criteria
       - personal_information
+      - patient_status
       - repeated_elements
       - consent
       - disability
@@ -53,6 +54,12 @@ slots:
   personal_information:
     description: Nested section containing personal information data
     range: PersonalInformation
+    required: false
+    inlined: true
+
+  patient_status:
+    description: Nested section containing patient status data
+    range: PatientStatus
     required: false
     inlined: true
 

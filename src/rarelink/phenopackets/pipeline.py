@@ -99,11 +99,6 @@ def phenopacket_pipeline(
         write_phenopackets(phenopackets, output_dir)
         logger.info("Phenopacket pipeline completed successfully.")
 
-        # Log summary of processing
-        logger.info(f"Total records processed: {len(input_data)}")
-        logger.info(f"Successful Phenopackets: {len(phenopackets)}")
-        logger.info(f"Failed records: {len(failed_records)}")
-
         # Optionally, log details of failed records
         if failed_records:
             logger.warning("Details of failed records:")

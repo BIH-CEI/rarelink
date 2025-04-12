@@ -1,0 +1,98 @@
+{
+  "id": "observation.vitalstatus",
+  "url": "rarelink/observation.vitalstatus",
+  "name": "observation.vitalstatus",
+  "title": "Observation RareLink-CDM Vital Status",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkpatient",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": [
+        "record_id"
+      ]
+    },
+    {
+      "alias": "rarelinkpersonalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": [
+        "record_id"
+      ]
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.vitalstatus",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation',record_id & 'VitalStatus')}}",
+          "meta": {
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "{{'final'}}",
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "deceasedBoolean": "{{? mpp:getConcept(%vitalstatus, snomedct_278844005, 'target_code').toBoolean()}}",
+          "deceasedDateTime": "{{? snomedct_398299004.toDate()}}",
+          "extension": [
+            {
+              "url": "{{? iif(snomedct_184305005.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "version": "{{? iif(snomedct_184305005.empty().not(), '2024-09-01')}}",
+                    "code": "{{? iif(snomedct_184305005.empty().not(), '184305005')}}",
+                    "display": "{{? iif(snomedct_184305005.empty().not(), 'Cause Of Death')}}"
+                  }
+                ]
+              },
+              "valueCoding": {
+                "system": "{{? iif(snomedct_184305005.empty().not(), 'https://icd.who.int/browse10/2019/en')}}",
+                "version": "{{? iif(snomedct_184305005.empty().not(), '2019')}}",
+                "code": "{{? snomedct_184305005}}"
+              }
+            },
+            {
+              "url": "{{? iif(patient_status_date.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(patient_status_date.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+                    "version": "{{? iif(patient_status_date.empty().not(), 'v2.0.0.dev1')}}",
+                    "code": "{{? iif(patient_status_date.empty().not(), 'patient_status_date')}}",
+                    "display": "{{? iif(patient_status_date.empty().not(), 'Date of Completion for the RareLink-CDM (3) Patient Status sheet')}}"
+                  }
+                ]
+              },
+              "valueDateTime": "{{? patient_status_date}}"
+            }
+          ]
+        }
+      },
+      "description": "Observation of RareLink-CDM Vital Status"
+    }
+  ],
+  "context": {
+    "gender": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/2_4_gender_identity.csv"
+    },
+    "vitalstatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/3_1_vital_status.csv"
+    },
+    "sexatbirth": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/2_2_sex_at_birth.csv"
+    }
+  }
+}

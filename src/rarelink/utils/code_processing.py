@@ -32,7 +32,6 @@ def process_code(code: str) -> str:
         "hp_": "HP:",
         "ncit_": "NCIT:",
         "snomedct_": "SNOMEDCT:",
-        "snomed_": "SNOMEDCT:",  # Added SNOMED transformation
         "orpha_": "ORPHA:",
         "omim_": "OMIM:",
         "icd10cm_": "ICD10CM:",

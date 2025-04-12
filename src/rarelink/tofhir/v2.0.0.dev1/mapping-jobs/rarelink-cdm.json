@@ -34,7 +34,13 @@
           "jsonClass": "KafkaSource",
           "options": {},
           "topicName": "${REDCAP_PROJECT_ID}-rarelink_2_personal_information"
-        }
+        },
+        "RareLinkPatientStatus": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "${REDCAP_PROJECT_ID}-rarelink_3_patient_status"
+        } 
       }
     },
     {
@@ -54,24 +60,6 @@
       "mappingRef": "rarelink/karyotypic_sex",
       "sourceBinding": {
         "personalinformation": {
-          "sourceRef": "redcap-kafka-source",
-          "jsonClass": "KafkaSource",
-          "options": {},
-          "topicName": "${REDCAP_PROJECT_ID}-rarelink_2_personal_information"
-        }
-      }
-    },
-    {
-      "name": "ips.patient.vitalstatus",
-      "mappingRef": "rarelink/ips.patient.vitalstatus",
-      "sourceBinding": {
-        "rarelinkpatient": {
-          "sourceRef": "redcap-kafka-source",
-          "jsonClass": "KafkaSource",
-          "options": {},
-          "topicName": "${REDCAP_PROJECT_ID}-rarelink_3_patient_status"
-        },
-        "rarelinkpersonalinformation": {
           "sourceRef": "redcap-kafka-source",
           "jsonClass": "KafkaSource",
           "options": {},

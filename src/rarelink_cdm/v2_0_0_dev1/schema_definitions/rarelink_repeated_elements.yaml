@@ -6,7 +6,6 @@ prefixes:
 imports:
   - linkml:types
   - rarelink_code_systems
-  - rarelink_3_patient_status
   - rarelink_4_care_pathway
   - rarelink_5_disease
   - rarelink_6_1_genetic_findings
@@ -25,7 +24,6 @@ classes:
     slots:
       - redcap_repeat_instrument
       - redcap_repeat_instance
-      - patient_status
       - care_pathway
       - disease
       - genetic_findings
@@ -42,12 +40,6 @@ slots:
   redcap_repeat_instance:
     description: If applicable, the REDCap instrument's repetition instance.
     range: integer
-    required: false
-
-  patient_status:
-    description: >
-      The patient status data for the repeated element.
-    range: PatientStatus
     required: false
 
   care_pathway:

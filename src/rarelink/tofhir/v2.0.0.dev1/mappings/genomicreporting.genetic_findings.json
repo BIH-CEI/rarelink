@@ -440,19 +440,19 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "{{#codingVar}}": "{{snomed_106221001_mondo.exists()}}",
+                    "{{#codingVar}}": "{{snomedct_106221001_mondo.exists()}}",
                     "{{?}}": {
-                      "code": "{{? snomed_106221001_mondo.substring(6)}}",
-                      "system": "{{? iif(snomed_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                      "version": "{{? iif(snomed_106221001_mondo.empty().not(), '2024-09-03')}}"
+                      "code": "{{? snomedct_106221001_mondo.substring(6)}}",
+                      "system": "{{? iif(snomedct_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                      "version": "{{? iif(snomedct_106221001_mondo.empty().not(), '2024-09-03')}}"
                     }
                   },
                   {
-                    "{{#codingVar}}": "{{snomed_106221001_omim_p.exists()}}",
+                    "{{#codingVar}}": "{{snomedct_106221001_omim_p.exists()}}",
                     "{{?}}": {
-                      "code": "{{? snomed_106221001_omim_p}}",
-                      "system": "{{? iif(snomed_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
-                      "version": "{{? iif(snomed_106221001_omim_p.empty().not(), '2024-09-12'}}"
+                      "code": "{{? snomedct_106221001_omim_p}}",
+                      "system": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                      "version": "{{? iif(snomedct_106221001_omim_p.empty().not(), '2024-09-12'}}"
                     }
                   }
                 ],

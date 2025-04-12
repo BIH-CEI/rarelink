@@ -1,0 +1,20 @@
+in rarelink-cdm.json job:
+
+    // {
+    //   "name": "ips.patient.vitalstatus",
+    //   "mappingRef": "rarelink/ips.patient.vitalstatus",
+    //   "sourceBinding": {
+    //     "rarelinkpatient": {
+    //       "sourceRef": "redcap-kafka-source",
+    //       "jsonClass": "KafkaSource",
+    //       "options": {},
+    //       "topicName": "${REDCAP_PROJECT_ID}-rarelink_3_patient_status"
+    //     },
+    //     "rarelinkpersonalinformation": {
+    //       "sourceRef": "redcap-kafka-source",
+    //       "jsonClass": "KafkaSource",
+    //       "options": {},
+    //       "topicName": "${REDCAP_PROJECT_ID}-rarelink_2_personal_information"
+    //     }
+    //   }
+    // },
