@@ -9,7 +9,11 @@ Id: rarelink-observation-measurements-others
 Title: "RareLink Observation Measurements (Others)"
 Description: "A RareLink-specific profile for measurements that do not fall under IPS laboratory, radiology, procedures, or vital signs."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
 
 * status 1..1
 * status MS
@@ -24,10 +28,12 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 * code.coding 1..1
 * code.coding.system from NCIT
 * code.coding.code = #C60819
-* code.coding.version = "24.04e"
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
+
 
 * effective[x] 0..1
 * effectiveDateTime MS
@@ -44,10 +50,3 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 * method 0..1
 * method.coding 0..*
 * method.coding.system from SNOMEDCT (extensible)
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink IPS Measurements (Others)</strong></p>
-  <p>This profile captures measurements not categorized as laboratory, radiology, procedures, or vital signs, within the RareLink-CDM framework.</p>
-</div>
-"""

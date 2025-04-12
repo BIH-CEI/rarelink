@@ -30,7 +30,7 @@
             "coding": [
               {
                 "code": "{{'105727008'}}",
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "display": "{{'Age Category'}}"
               }
@@ -42,7 +42,7 @@
             "coding": [
               {
                 "code": "{{? mpp:getConcept(%ageCategory, snomedct_105727008, 'target_code')}}",
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "display": "{{? mpp:getConcept(%ageCategory, snomedct_105727008, 'target_display')}}"
               }

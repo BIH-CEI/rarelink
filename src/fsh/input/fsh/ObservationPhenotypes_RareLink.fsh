@@ -7,7 +7,11 @@ Id: rarelink-phenotypic-feature
 Title: "RareLink Observation Phenotypic Feature"
 Description: "A RareLink-specific profile for capturing phenotypic features."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
 
 * status 1..1
 * status = #registered
@@ -15,41 +19,20 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 * code 1..1
 * code.coding 1..1
 * code.coding.system = HP
-* code.coding.version = "2024-08-13"
 * code.coding.code MS
 
 * category 0..*
 * category.coding 0..*
 * category.coding.system from HP (required)
-* category.coding.version = "2024-08-13"
 * category.coding.code from AgeOfOnsetVS (required)
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
 
 * effective[x] 0..1
 * effectiveDateTime MS
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink Phenotypic Feature</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (6.2) Phenotypic Features and the Observation resource.</p>
-</div>
-"""
-
-// * component ^slicing.discriminator.type = #value
-// * component ^slicing.discriminator.path = "code"
-// * component ^slicing.rules = #open
-
-// * component[phenotype_severity] 0..1
-// * component[phenotype_severity].code.coding.system = HP
-// * component[phenotype_severity].code.coding.code = #0012823
-// * component[phenotype_severity].valueCodeableConcept.coding.system = HP
-// * component[phenotype_severity].valueCodeableConcept.coding.code from SeverityVS (required)
-
-// * component[causing_organism] 0..1
-// * component[causing_organism].code.coding.system = "https://www.ncbi.nlm.nih.gov/taxonomy"
-// * component[causing_organism].code.coding.version = "2024-07-03"
 
 * extension contains PhenotypeStatus named phenotype_status 0..1
 * extension contains ResolutionDate named resolution_date 0..1
@@ -62,7 +45,7 @@ Title: "Phenotype Status"
 Description: "Captures the status of a phenotypic feature, such as confirmed present or refuted."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system from SNOMEDCT (required)
+* valueCodeableConcept.coding.system = "http://snomed.info/sct" (preferred)
 * valueCodeableConcept.coding.code from PhenotypeStatusVS (required)
 
 * extension[ResolutionDate]
@@ -79,9 +62,7 @@ Title: "Phenotype Modifier"
 Description: "Captures modifiers for the phenotypic feature, such as severity or specific classifications."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system from HP (required)
 * valueCodeableConcept.coding.code MS
-
 
 ValueSet: PhenotypeStatusVS
 Id: phenotype-status-vs

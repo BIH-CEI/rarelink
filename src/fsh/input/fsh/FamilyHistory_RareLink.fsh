@@ -6,12 +6,19 @@ Id: rarelink-familyhistory
 Title: "RareLink Family History"
 Description: "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
+
 * status 1..1
 * status from http://hl7.org/fhir/ValueSet/family-history-status (required)
 
 * patient 1..1
-* patient.reference = "Patient/{id}"
+* patient only Reference(RareLinkIPSPatient)
+* patient.reference 0..1 MS
+* patient.identifier 0..1 MS
 
 * relationship 1..1
 * relationship.coding 1..1
@@ -20,7 +27,7 @@ Description: "A RareLink-specific FamilyMemberHistory profile based on the Famil
 
 * sex 0..1
 * sex.coding 1..1
-* sex.coding.system from http://hl7.org/fhir/ValueSet/administrative-gender (required)
+* sex.coding.system = "http://hl7.org/fhir/administrative-gender"
 * sex.coding.code from FamilySexVS (extensible)
 
 * born[x] 0..1
@@ -28,13 +35,6 @@ Description: "A RareLink-specific FamilyMemberHistory profile based on the Famil
 
 * deceased[x] 0..1
 * condition 0..*
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink Family History</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (6.4) Family History and the FamilyMemberHistory resource.</p>
-</div>
-"""
 
 * extension contains Propositus named propositus 0..1
 * extension contains Consanguinity named consanguinity 0..1
@@ -46,7 +46,7 @@ Title: "Propositus"
 Description: "Indicates whether the family member is the propositus."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system = "https://www.snomed.org/snomed-ct"
+* valueCodeableConcept.coding.system = "http://snomed.info/sct"
 * valueCodeableConcept.coding.code from PropositusVS (extensible)
 
 * extension[Consanguinity]
@@ -56,7 +56,7 @@ Title: "Consanguinity"
 Description: "Indicates whether there is consanguinity in the family relationship."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
-* valueCodeableConcept.coding.system = "https://www.snomed.org/snomed-ct"
+* valueCodeableConcept.coding.system = "http://snomed.info/sct"
 * valueCodeableConcept.coding.code from ConsanguinityVS (extensible)
 
 ValueSet: PropositusVS

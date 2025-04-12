@@ -7,7 +7,11 @@ Id: rarelink-ips-procedure
 Title: "RareLink IPS Procedure"
 Description: "A RareLink-specific profile for the IPS Procedure resource."
 
-* meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains ipsProfile 1..1
+* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
 
 * code 1..1
 * code.coding 1..1
@@ -15,7 +19,10 @@ Description: "A RareLink-specific profile for the IPS Procedure resource."
 * code.coding.code MS
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
+
 
 * performed[x] 1..1
 * performedDateTime MS
@@ -27,10 +34,3 @@ Description: "A RareLink-specific profile for the IPS Procedure resource."
 
 * status 1..1
 * status from http://hl7.org/fhir/ValueSet/event-status (required)
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink IPS Procedure</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (6.3) Measurements, integrated with the IPS Procedure profile.</p>
-</div>
-"""

@@ -72,7 +72,7 @@
                 "code": "{{? snomedct_122869004_ncit}}"
               },
               {
-                "system": "{{? iif(snomedct_122869004_snomed.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                "system": "{{? iif(snomedct_122869004_snomed.empty().not(), 'http://snomed.info/sct')}}",
                 "version": "{{? iif(snomedct_122869004_snomed.empty().not(), '2024-09-01')}}",
                 "code": "{{? snomedct_122869004_snomed}}"
               }

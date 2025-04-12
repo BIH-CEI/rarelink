@@ -38,7 +38,7 @@
       {
         "id": "Observation.code.coding.system",
         "path": "Observation.code.coding.system",
-        "patternUri": "https://www.snomed.org/snomed-ct"
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Observation.code.coding.code",
@@ -124,7 +124,7 @@
       {
         "id": "Observation.value[x]:valueCodeableConcept.coding.system",
         "path": "Observation.value[x].coding.system",
-        "patternUri": "https://www.snomed.org/snomed-ct"
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Observation.value[x]:valueCodeableConcept.coding.code",

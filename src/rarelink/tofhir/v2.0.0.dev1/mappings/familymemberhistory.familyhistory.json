@@ -35,7 +35,7 @@
           "relationship": {
             "coding": [
               {
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "code": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_code')}}",
                 "display": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_display')}}"
@@ -110,7 +110,7 @@
             {
               "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
               "valueCoding": {
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "code": "{{'64245008'}}",
                 "display": "{{'Propositus (finding)'}}"
@@ -118,7 +118,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomedct_64245008.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
                     "version": "{{? iif(snomedct_64245008.empty().not(), '2024-09-01')}}",
                     "code": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_display')}}"
@@ -129,7 +129,7 @@
             {
               "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
               "valueCoding": {
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "code": "{{'842009'}}",
                 "display": "{{'Consanguinity (finding)'}}"
@@ -137,7 +137,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomedct_842009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
                     "version": "{{? iif(snomedct_842009.empty().not(), '2024-09-01')}}",
                     "code": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_display')}}"

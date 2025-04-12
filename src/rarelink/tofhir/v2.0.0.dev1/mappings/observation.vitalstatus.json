@@ -48,7 +48,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "system": "{{? iif(snomedct_184305005.empty().not(), 'http://snomed.info/sct')}}",
                     "version": "{{? iif(snomedct_184305005.empty().not(), '2024-09-01')}}",
                     "code": "{{? iif(snomedct_184305005.empty().not(), '184305005')}}",
                     "display": "{{? iif(snomedct_184305005.empty().not(), 'Cause Of Death')}}"

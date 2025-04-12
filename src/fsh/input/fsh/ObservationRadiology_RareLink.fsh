@@ -11,13 +11,18 @@ Id: rarelink-ips-measurement-radiology
 Title: "RareLink IPS Measurement Radiology"
 Description: "A RareLink-specific profile for radiology measurements based on the IPS Observation profile."
 
-* meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot" (exactly)
+
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains ipsProfile 1..1
+* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot"
+
 * status 1..1
-* status from http://hl7.org/fhir/ValueSet/observation-status (required)
 
 * category 1..1
 * category.coding 1..1
-* category.coding.system from http://terminology.hl7.org/CodeSystem/observation-category (required)
+* category.coding.system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category.coding.code = #imaging
 
 * code 1..1
@@ -26,7 +31,10 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * code.coding.code MS
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
+
 
 * effective[x] 1..1
 * value[x] 0..1
@@ -41,10 +49,3 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * method 0..1
 * method.coding 0..*
 * method.coding.system from NCIT (extensible)
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink IPS Measurement Radiology</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (6.3) Measurements and the IPS Observation profile, specifically for radiology measurements.</p>
-</div>
-"""

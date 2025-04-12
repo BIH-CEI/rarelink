@@ -47,7 +47,7 @@
               "type": {
                 "coding": [
                   {
-                    "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                    "system": "{{'http://snomed.info/sct'}}",
                     "version": "{{'2024-09-01'}}",
                     "code": "{{'422549004'}}",
                     "display": "{{'Patient-related Identification code (observable entity)'}}"
@@ -91,7 +91,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'http://snomed.info/sct')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), '2024-09-01')}}",
                         "code": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), '370159000')}}",
                         "display": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'Country of Birth')}}"
@@ -109,7 +109,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "https://www.snomed.org/snomed-ct",
+                        "system": "http://snomed.info/sct",
                         "version": "2024-09-01",
                         "code": "399423000",
                         "display": "Date of Admission"
@@ -131,7 +131,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '2024-09-01')}}",
                         "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
                         "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"
@@ -144,7 +144,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '2024-09-01')}}",
                         "code": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '281053000')}}",
                         "display": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'Sex at Birth')}}"
@@ -174,7 +174,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                      "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                      "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'http://snomed.info/sct')}}",
                       "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '2024-09-01')}}",
                       "code": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '184305005')}}",
                       "display": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'Cause Of Death')}}"

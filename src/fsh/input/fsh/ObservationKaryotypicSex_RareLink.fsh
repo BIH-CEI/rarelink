@@ -6,7 +6,11 @@ Id: rarelink-karyotypic-sex
 Title: "RareLink Observation Karyotypic Sex"
 Description: "A RareLink-specific profile for capturing karyotypic sex information."
 
-* meta.profile = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains baseProfile 1..1
+* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
 
 * status 1..1
 * status = #final
@@ -14,24 +18,18 @@ Description: "A RareLink-specific profile for capturing karyotypic sex informati
 * code 1..1
 * code.coding 1..1
 * code.coding.system = SNOMEDCT
-* code.coding.code = #1296886006
-* code.coding.display = "Karyotypic Sex"
+* code.coding.code = #1296886006 (preferred)
 
 * subject 1..1
-* subject.reference = "Patient/{id}"
+* subject only Reference(RareLinkIPSPatient)
+* subject.reference 0..1 MS
+* subject.identifier 0..1 MS
 
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept.coding 1..1
 * valueCodeableConcept.coding.system = SNOMEDCT
 * valueCodeableConcept.coding.code from KaryotypicSexVS (required)
-
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink Karyotypic Sex</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (2.3) Personal Information and the Observation resource.</p>
-</div>
-"""
 
 ValueSet: KaryotypicSexVS
 Id: karyotypic-sex-vs

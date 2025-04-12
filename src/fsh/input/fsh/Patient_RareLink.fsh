@@ -1,5 +1,6 @@
 Alias: SNOMEDCT = http://snomed.info/sct
 Alias: HL7FHIR = http://hl7.org/fhir/R4/
+Alias: ICD10 = https://icd.who.int/browse10/2019/en
 
 Profile: RareLinkIPSPatient
 Parent: Patient-uv-ips
@@ -7,34 +8,35 @@ Id: rarelink-ips-patient
 Title: "RareLink IPS Patient"
 Description: "A RareLink-specific profile for the IPS Patient resource."
 
-* meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot" (exactly)
+* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.path = "$this"
+* meta.profile ^slicing.rules = #open
+* meta.profile contains ipsProfile 1..1
+* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
 
 * identifier 0..*
 * identifier.use = #official
 * identifier.type.coding.system from SNOMEDCT
 * identifier.type.coding.code = #422549004
-* identifier.type.coding.display = "Patient-related Identification code (observable entity)"
 * identifier.value MS
 
 * name 1..*
-* name[0].text = "anonymous"
+* name[0].text = "unknown"
 
 * gender 0..1
 * gender from GenderIdentityVS (required)
 
 * birthDate 1..1
 
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p><strong>RareLink IPS Patient</strong></p>
-  <p>This profile is based on the RareLink-CDM Section (1) Formal Criteria and 
-  (2) Personal Information, integrated with the IPS Patient profile.</p>
-</div>
-"""
+* deceased[x] 0..1
+* deceasedBoolean from VitalStatusVS (required)
+* deceasedDateTime 0..1 MS
 
 * extension contains BirthPlace named birthplace 0..1
 * extension contains DateOfAdmission named date_of_admission 0..1
 * extension contains RecordedSexAtBirth named recorded_sex_at_birth 0..1
+* extension contains CauseOfDeath named cause_of_death 0..1
+* extension contains PatientStatusDate named patient_status_date 0..1
 
 * extension[BirthPlace]
 Extension: BirthPlace
@@ -61,6 +63,32 @@ Description: "The sex assigned to the patient at birth."
 * valueCodeableConcept.coding.system from SNOMEDCT
 * valueCodeableConcept.coding.code from SexAtBirthVS (extensible)
 
+* extension[CauseOfDeath]
+Extension: CauseOfDeath
+Id: cause-of-death
+Title: "Cause of Death"
+Description: "The cause of death for the patient."
+* extension contains
+    CauseOfDeathCode named causeOfDeath 1..1 and
+    CauseOfDeathDefinition named codeDefinition 1..1
+
+Extension: CauseOfDeathCode
+Id: cause-of-death-code
+Title: "Cause of Death Code"
+Description: "The ICD-10 code representing the cause of death."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding.system = ICD10
+* valueCodeableConcept.coding.code MS
+* valueCodeableConcept.text MS
+
+Extension: CauseOfDeathDefinition
+Id: cause-of-death-definition
+Title: "Cause of Death Definition"
+Description: "The SNOMED CT definition of the cause of death concept."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding.system = SNOMEDCT
+* valueCodeableConcept.coding.code = #184305005
+
 ValueSet: GenderIdentityVS
 Id: gender-identity-vs
 Title: "Gender Identity Value Set"
@@ -80,3 +108,13 @@ Description: "Value set for capturing the sex assigned at birth."
 * SNOMEDCT#184115007 "Patient sex unknown"
 * SNOMEDCT#32570691000036108 "Intersex"
 * SNOMEDCT#1220561009 "Not recorded"
+
+ValueSet: VitalStatusVS
+Id: vital-status-vs
+Title: "Vital Status Value Set"
+Description: "Value set for capturing the vital status of the patient."
+* SNOMEDCT#438949009 "Alive" // maps to false
+* SNOMEDCT#419099009 "Dead" // maps to true
+* SNOMEDCT#399307001 "Unknown - Lost in follow-up" // maps to null
+* SNOMEDCT#185924006 "Unknown - Opted-out" // maps to null
+* SNOMEDCT#261665006 "Unknown - Other Reason" // maps to null

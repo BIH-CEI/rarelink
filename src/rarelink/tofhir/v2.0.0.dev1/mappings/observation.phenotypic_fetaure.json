@@ -33,7 +33,7 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                      "system": "{{'http://snomed.info/sct'}}",
                       "version": "{{'2024-09-01'}}",
                       "code": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006, 'target_code')}}",
                       "display": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006 , 'target_display')}}"
@@ -115,7 +115,7 @@
           "bodySite": {
             "coding": [
               {
-                "system": "{{'https://www.snomed.org/snomed-ct'}}",
+                "system": "{{'http://snomed.info/sct'}}",
                 "version": "{{'2024-09-01'}}",
                 "code": "{{? hp_0012823_snomed}}"
               }

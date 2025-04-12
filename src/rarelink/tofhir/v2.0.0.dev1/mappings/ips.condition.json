@@ -114,7 +114,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomedct_423493009.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "system": "{{? iif(snomedct_423493009.empty().not(), 'http://snomed.info/sct')}}",
                     "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_display')}}",
                     "version": "{{? iif(snomedct_423493009.empty().not(), '2024-09-01')}}"
@@ -129,7 +129,7 @@
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{? iif(snomedct_424850005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                    "system": "{{? iif(snomedct_424850005.empty().not(), 'http://snomed.info/sct')}}",
                     "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_display')}}",
                     "version": "{{? iif(snomedct_424850005.empty().not(), '2024-09-01')}}"
