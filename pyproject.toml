@@ -75,24 +75,11 @@ bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = [
-    "rarelink",
-    "rarelink.cli",
-    "rarelink.cli.utils",
-    "rarelink.cli.setup",
-    "rarelink.cli.framework",
-    "rarelink.cli.redcap",
-    "rarelink.cli.fhir",
-    "rarelink.cli.phenopackets",
-    "rarelink.utils",
-    "rarelink_cdm",
-    "rarelink_cdm.v2_0_0_dev1",
-    "rarelink_cdm.v2_0_0_dev1.mappings",
-    "rarelink_cdm.v2_0_0_dev1.mappings.redcap",
-    "rarelink.phenopackets",
-    "rarelink.phenopackets.mappings",
-    "rarelink.tofhir"
-]
+packages = ["find:"]
+
+[tool.setuptools.find]
+where = ["src"]
+include = ["rarelink*", "rarelink_cdm*"]
 
 [tool.setuptools.dynamic]
 version = { attr = "rarelink.__version__" }
