@@ -11,8 +11,9 @@ software to ensure you have the latest updates and guidance.
 <!-- RareLink Badges -->
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
-[![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
+[![License: Apache v2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 
 #### Packages & Compatibility
 
