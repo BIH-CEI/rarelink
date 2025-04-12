@@ -37,7 +37,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Rare Diseases"
 ]
 dependencies = [
-    "numpy", 
+    "numpy",
     "jupyter", 
     "pandas", 
     "phenopackets", 
@@ -80,6 +80,9 @@ packages = [
     "rarelink.cli",
     "rarelink.cli.utils",
     "rarelink.cli.framework",
+    "rarelink.cli.redcap",
+    "rarelink.cli.fhir",
+    "rarelink.cli.phenopackets",
     "rarelink.utils",
     "rarelink.phenopackets",
     "rarelink.phenopackets.mappings",
