@@ -75,9 +75,8 @@ bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = ["find:"]
 
-[tool.setuptools.find]
+[tool.setuptools.packages.find]
 where = ["src"]
 include = ["rarelink*", "rarelink_cdm*"]
 
