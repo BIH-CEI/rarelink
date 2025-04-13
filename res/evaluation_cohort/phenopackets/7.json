@@ -1,19 +1,20 @@
 {
-  "id": "102",
+  "id": "7",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "EvCo7",
+    "dateOfBirth": "2016-04-25T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y10M"
+        "iso8601duration": "P8Y11M"
       }
     },
-    "vitalStatus": {},
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
     "sex": "MALE",
-    "karyotypicSex": "XXY",
     "gender": {
-      "id": "SNOMEDCT:446141000124107",
-      "label": "Female gender identity"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,173 +24,169 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
+        "id": "HP:0002553",
+        "label": "Highly arched eyebrow"
       },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P0Y0M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
+        "id": "HP:0004322",
+        "label": "Short stature"
       },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P1Y0M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
+        "id": "HP:0002761",
+        "label": "Generalized joint hypermobility"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012826",
+        "label": "Moderate"
       },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P2Y0M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
+        "id": "HP:0000403",
+        "label": "Recurrent otitis media"
       },
       "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
+        "id": "HP:0012828",
+        "label": "Severe"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P2Y7M"
+          "iso8601duration": "P3Y0M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
+      }
     }
   ],
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0010046",
-            "label": "united states customary cup"
+            "id": "UO:0000175",
+            "label": "gram per liter"
           },
-          "value": 1.54
+          "value": 5.9
         }
       },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C12434",
-          "label": "Unknown Procedure"
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y4M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 2.3
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y4M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 6.3
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y5M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 2.3
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y5M"
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN-interpretation-0",
-      "progressStatus": "IN_PROGRESS",
+      "id": "EvCo7-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "REJECTED",
+            "interpretationStatus": "CONTRIBUTORY",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "ccf67b25f5804712bac8ad652d8f74",
+                "id": "5c6906a44d9143e3933dfa33dd3fc3",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:29508",
+                  "symbol": "KIDINS220"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NM_020738.4:c.4269del"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
-                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -201,37 +198,18 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P2Y7M"
         }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P-5Y-5M"
-        }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:29:27.374946Z",
+    "created": "2025-04-13T12:22:26.250774Z",
     "createdBy": "Adam G.",
     "resources": [
       {

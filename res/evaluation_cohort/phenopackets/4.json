@@ -1,19 +1,20 @@
 {
-  "id": "105",
+  "id": "4",
   "subject": {
-    "id": "CDE456",
-    "dateOfBirth": "2020-01-01T00:00:00Z",
+    "id": "EvCo4",
+    "dateOfBirth": "2010-02-20T00:00:00Z",
     "timeAtLastEncounter": {
-      "timestamp": "2024-09-09T00:00:00Z"
+      "age": {
+        "iso8601duration": "P15Y1M"
+      }
     },
     "vitalStatus": {
       "status": "ALIVE"
     },
     "sex": "FEMALE",
-    "karyotypicSex": "XO",
     "gender": {
-      "id": "SNOMEDCT:446141000124107",
-      "label": "Female gender identity"
+      "id": "SNOMEDCT:1220561009",
+      "label": "Not recorded"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,64 +24,12 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0001059",
-        "label": "Pterygium"
+        "id": "HP:0000175",
+        "label": "Cleft palate"
       },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
-        }
-      }
-    },
-    {
-      "type": {
-        "id": "HP:0002967",
-        "label": "Cubitus valgus"
-      },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P4Y9M"
-        }
-      }
-    },
-    {
-      "type": {
-        "id": "HP:0002665",
-        "label": "Lymphoma"
-      },
-      "severity": {
-        "id": "HP:0012829",
-        "label": "Profound"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P0Y0M"
         }
       }
     },
@@ -89,19 +38,24 @@
         "id": "HP:0004322",
         "label": "Short stature"
       },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P0Y9M"
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002650",
+        "label": "Scoliosis"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P4Y0M"
         }
       }
     }
@@ -109,83 +63,112 @@
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:17351-8",
-        "label": "Neutrophil cytoplasmic Ab:PrThr:Pt:Ser:Ord"
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000201",
-            "label": "cells per milliliter"
+            "id": "UO:0000175",
+            "label": "gram per liter"
           },
-          "value": 1.0
+          "value": 6.2
         }
       },
       "timeObserved": {
-        "timestamp": "2024-10-14T00:00:00Z"
+        "age": {
+          "iso8601duration": "P11Y4M"
+        }
       }
     },
     {
       "assay": {
-        "id": "LOINC:LA28046-3",
-        "label": "Nonreactive results for the presence of Zika antibodies and indeterminate for dengue antibodies."
-      },
-      "value": {},
-      "timeObserved": {
-        "timestamp": "2024-10-14T00:00:00Z"
-      }
-    },
-    {
-      "assay": {
-        "id": "LOINC:LP200067-9",
-        "label": "CT"
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000021",
-            "label": "gram"
+            "id": "UO:0000179",
+            "label": "unit per liter"
           },
-          "value": 21.0
+          "value": 4.8
         }
       },
       "timeObserved": {
-        "timestamp": "2025-01-02T00:00:00Z"
+        "age": {
+          "iso8601duration": "P11Y4M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 14.5
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P12Y10M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 5.6
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P12Y10M"
+        }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "CDE456",
+      "id": "EvCo4-interpretation-0",
       "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0019499",
-          "label": "Turner syndrome"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
-            "subjectOrBiosampleId": "CDE456",
-            "interpretationStatus": "CANDIDATE",
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CONTRIBUTORY",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "358c946deb484889b85e961481b296",
+                "id": "cbb13b83db6b466995d2795b1f1169",
                 "geneContext": {
-                  "valueId": "HGNC:10853",
-                  "symbol": "SHOX"
+                  "valueId": "HGNC:7133",
+                  "symbol": "KMT2D"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_006883.2:c.-507G>C"
+                    "value": "NM_003482.4:c.16522-5_16522-2del"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LA6686-5",
-                  "label": "Duplication"
-                },
                 "allelicState": {
                   "id": "LOINC:LA6706-1",
                   "label": "(simple) Heterozygous"
@@ -200,52 +183,22 @@
   "diseases": [
     {
       "term": {
-        "id": "MONDO:0021163",
-        "label": "kidney neoplasm"
-      },
-      "onset": {
-        "ontologyClass": {
-          "id": "SNOMEDCT:3950001",
-          "label": "Birth"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0019499",
-        "label": "Turner syndrome"
-      },
-      "onset": {
-        "ontologyClass": {
-          "id": "SNOMEDCT:3950001",
-          "label": "Birth"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0002078",
-        "label": "heart septal defect"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P0Y4M"
+          "iso8601duration": "P2Y4M"
         }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0002367",
-        "label": "kidney cancer"
       }
     }
   ],
   "metaData": {
-    "created": "2025-02-28T10:25:34.225931Z",
+    "created": "2025-04-13T12:21:24.639198Z",
     "createdBy": "Adam G.",
     "resources": [
       {
-        "id": "snomed",
+        "id": "snomedct",
         "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
         "url": "http://snomed.info/sct",
         "version": "2024-09-01",

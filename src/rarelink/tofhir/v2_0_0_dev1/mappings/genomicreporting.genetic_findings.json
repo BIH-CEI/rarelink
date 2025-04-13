@@ -49,7 +49,7 @@
               {
                 "{{#codingVar}}": "{{loinc_81304_8_other.exists()}}",
                 "{{?}}": {
-                  "code": "{{? loinc_81304_8_other)}}",
+                  "code": "{{? loinc_81304_8_other}}",
                   "system": "{{'https://loinc.org/'}}",
                   "version": "{{'2.78'}}"
                 }
@@ -273,7 +273,7 @@
                   {
                     "{{#codingVar}}": "{{loinc_53034_5_other.exists()}}",
                     "{{?}}": {
-                      "code": "{{? loinc_53034_5_other)}}",
+                      "code": "{{? loinc_53034_5_other}}",
                       "system": "{{? iif(loinc_53034_5_other.empty().not(), 'http://loinc.org')}}",
                       "version": "{{? iif(loinc_53034_5_other.empty().not(), '2.78')}}"
                     }
@@ -330,7 +330,7 @@
                   {
                     "{{#codingVar}}": "{{loinc_48019_4_other.exists()}}",
                     "{{?}}": {
-                      "code": "{{? loinc_48019_4_other)}}",
+                      "code": "{{? loinc_48019_4_other}}",
                       "system": "{{? iif(loinc_48019_4_other.empty().not(), 'http://loinc.org')}}",
                       "version": "{{? iif(loinc_48019_4_other.empty().not(), '2.78')}}"
                     }

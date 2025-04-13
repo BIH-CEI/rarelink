@@ -1,19 +1,20 @@
 {
-  "id": "102",
+  "id": "5",
   "subject": {
-    "id": "TESTEST2_10JAN",
-    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "id": "EvCo5",
+    "dateOfBirth": "2014-10-05T00:00:00Z",
     "timeAtLastEncounter": {
-      "timestamp": "2025-01-10T00:00:00Z"
+      "age": {
+        "iso8601duration": "P10Y6M"
+      }
     },
     "vitalStatus": {
       "status": "ALIVE"
     },
     "sex": "MALE",
-    "karyotypicSex": "XXY",
     "gender": {
-      "id": "SNOMEDCT:446141000124107",
-      "label": "Female gender identity"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,58 +24,8 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002315",
-        "label": "Headache"
-      },
-      "severity": {
-        "id": "HP:0012825",
-        "label": "Mild"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031796",
-          "label": "Recurrent"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y7M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0000180",
-            "label": "clinical study evidence"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0000133",
-        "label": "Gonadal dysgenesis"
-      },
-      "severity": {
-        "id": "HP:0012828",
-        "label": "Severe"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P0Y7M"
-        }
-      }
-    },
-    {
-      "type": {
-        "id": "HP:0000823",
-        "label": "Delayed puberty"
+        "id": "HP:0001212",
+        "label": "Prominent fingertip pads"
       },
       "severity": {
         "id": "HP:0012825",
@@ -88,79 +39,246 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y7M"
+          "iso8601duration": "P0Y0M"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0002076",
-        "label": "Migraine"
+        "id": "HP:0000400",
+        "label": "Macrotia"
       },
-      "severity": {}
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001252",
+        "label": "Hypotonia"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y3M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001156",
+        "label": "Brachydactyly"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001250",
+        "label": "Seizure"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000689",
+        "label": "Dental malocclusion"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P4Y0M"
+        }
+      }
     }
   ],
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP18044-5",
-        "label": "Growth hormone-releasing hormone"
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0010046",
-            "label": "united states customary cup"
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
           },
-          "value": 1.54
+          "value": 3.9
         }
       },
       "timeObserved": {
-        "timestamp": "2024-10-14T00:00:00Z"
+        "age": {
+          "iso8601duration": "P6Y1M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
       },
-      "procedure": {
-        "code": {
-          "id": "Thesaurus:C12434",
-          "label": "Blood"
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 2.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P6Y1M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 4.3
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y1M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 3.2
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y1M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 5.6
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P8Y1M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 1.9
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P8Y1M"
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TESTEST2_10JAN",
-      "progressStatus": "IN_PROGRESS",
+      "id": "EvCo5-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0006823",
-          "label": "Klinefelter syndrome"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
-            "subjectOrBiosampleId": "TESTEST2_10JAN",
-            "interpretationStatus": "REJECTED",
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CAUSATIVE",
             "variantInterpretation": {
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
               "variationDescriptor": {
-                "id": "206eb847f2db47e2b495b934b2a9ca",
+                "id": "1847655672d040329f8a4d71d06c74",
                 "geneContext": {
-                  "valueId": "HGNC:4238",
-                  "symbol": "GFI1B"
+                  "valueId": "HGNC:7132",
+                  "symbol": "KMT2A"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_001377304.1:c.-16G>A"
+                    "value": "NM_001197104.2:c.5803-1G>A"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
-                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -172,32 +290,22 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:484",
-        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P-5Y-5M"
+          "iso8601duration": "P1Y10M"
         }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:788244004",
-        "label": "Entire hair follicle of head"
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:34145",
-        "label": "Immunoglobulin A nephropathy"
       }
     }
   ],
   "metaData": {
-    "created": "2025-02-28T10:24:43.714044Z",
+    "created": "2025-04-13T12:21:51.198347Z",
     "createdBy": "Adam G.",
     "resources": [
       {
-        "id": "snomed",
+        "id": "snomedct",
         "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
         "url": "http://snomed.info/sct",
         "version": "2024-09-01",

@@ -1,18 +1,20 @@
 {
-  "id": "101",
+  "id": "1",
   "subject": {
-    "id": "TEST_13JAN",
-    "dateOfBirth": "2020-01-05T00:00:00Z",
+    "id": "EvCo1",
+    "dateOfBirth": "2015-01-12T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P5Y0M"
+        "iso8601duration": "P10Y3M"
       }
     },
-    "vitalStatus": {},
-    "karyotypicSex": "XX",
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
+    "sex": "MALE",
     "gender": {
-      "id": "SNOMEDCT:394743007",
-      "label": "Gender unknown"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -22,8 +24,32 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0001059",
-        "label": "Pterygium"
+        "id": "HP:0002553",
+        "label": "Highly arched eyebrow"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset (at birth)"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000400",
+        "label": "Macrotia"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset (at birth)"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001252",
+        "label": "Hypotonia"
       },
       "severity": {
         "id": "HP:0012826",
@@ -31,123 +57,20 @@
       },
       "modifiers": [
         {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        },
-        {
-          "id": "HP:0012825",
-          "label": "Mild"
-        },
-        {
-          "id": "HP:0012828",
-          "label": "Severe"
-        },
-        {
-          "id": "HP:0031598",
-          "label": "Notched P wave"
-        },
-        {
-          "id": "NCBITAXON:90964",
-          "label": "Staphylococcaceae"
-        },
-        {
-          "id": "SNOMEDCT:303726000",
-          "label": "Shoulder joint prosthesis"
+          "id": "HP:0031796",
+          "label": "Recurrent"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y9M"
+          "iso8601duration": "P0Y3M"
         }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0002967",
-        "label": "Cubitus valgus"
-      },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y9M"
-        }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0002665",
-        "label": "Lymphoma"
-      },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031914",
-          "label": "Fluctuating"
-        },
-        {
-          "id": "NCBITAXON:10376",
-          "label": "human gammaherpesvirus 4"
-        },
-        {
-          "id": "SNOMEDCT:31099001",
-          "label": "Systemic"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y9M"
-        }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0004322",
-        "label": "Short stature"
+        "id": "HP:0008897",
+        "label": "Postnatal growth retardation"
       },
       "severity": {
         "id": "HP:0012826",
@@ -161,97 +84,230 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y9M"
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001256",
+        "label": "Intellectual disability, mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
         }
       },
       "resolution": {
         "age": {
-          "iso8601duration": "P5Y1M"
+          "iso8601duration": "P10Y3M"
         }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
+      }
     }
   ],
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP7720-8",
-        "label": "White blood cells"
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000276",
-            "label": "amount per container"
+            "id": "UO:0000175",
+            "label": "gram per liter"
           },
-          "value": 5.01
+          "value": 7.2
         }
       },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C17610",
-          "label": "Unknown Procedure"
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P5Y11M"
         }
       }
     },
     {
       "assay": {
-        "id": "LOINC:LP7536-8",
-        "label": "Red Blood Cells"
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000178",
-            "label": "unit per milliliter"
+            "id": "UO:0000179",
+            "label": "unit per liter"
           },
-          "value": 4.56
+          "value": 5.6
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P5Y11M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 2.1
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P5Y11M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 15.4
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y2M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 5.6
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y2M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 1.8
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y2M"
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TEST_13JAN-interpretation-0",
-      "progressStatus": "COMPLETED",
+      "id": "EvCo1-interpretation-0",
+      "progressStatus": "SOLVED",
       "diagnosis": {
         "disease": {
-          "id": "OMIM:241600",
-          "label": "IMMUNODEFICIENCY 43"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "CANDIDATE",
+            "interpretationStatus": "CAUSATIVE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "388938780a5a4100b7e41e61aa7927",
+                "id": "95bde9d128124a888653581ef689f4",
                 "geneContext": {
-                  "valueId": "HGNC:10853",
-                  "symbol": "SHOX"
+                  "valueId": "HGNC:29508",
+                  "symbol": "KIDINS220"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_006883.2:c.-507G>C"
+                    "value": "NM_020738.4:c.4269del"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LP71749-3",
-                  "label": "Chromosomal nuclear Ab pattern"
-                },
                 "allelicState": {
-                  "id": "LOINC:53034-5-OTHER",
-                  "label": "Unknown Allelic State"
+                  "id": "LOINC:LA26217-2",
+                  "label": "Compound heterozygous"
+                }
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "2",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "29a5d9010c1a4aa9b6f608ff0209d2",
+                "geneContext": {
+                  "valueId": "HGNC:7133",
+                  "symbol": "KMT2D"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_003482.4:c.16529A>G"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA26217-2",
+                  "label": "Compound heterozygous"
                 }
               }
             }
@@ -263,51 +319,18 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
+          "iso8601duration": "P2Y4M"
         }
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:28:55.063847Z",
+    "created": "2025-04-13T12:20:18.390333Z",
     "createdBy": "Adam G.",
     "resources": [
       {

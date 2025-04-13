@@ -1,16 +1,20 @@
 {
-  "id": "101",
+  "id": "3",
   "subject": {
-    "id": "TEST_13JAN",
-    "dateOfBirth": "2020-01-05T00:00:00Z",
+    "id": "EvCo3",
+    "dateOfBirth": "2017-06-17T00:00:00Z",
     "timeAtLastEncounter": {
-      "timestamp": "2025-01-10T00:00:00Z"
+      "age": {
+        "iso8601duration": "P7Y9M"
+      }
     },
-    "vitalStatus": {},
-    "karyotypicSex": "XX",
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
+    "sex": "MALE",
     "gender": {
-      "id": "SNOMEDCT:394743007",
-      "label": "Gender unknown"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -20,104 +24,60 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0001059",
-        "label": "Pterygium"
+        "id": "HP:0000637",
+        "label": "Long palpebral fissure"
       },
       "severity": {
         "id": "HP:0012826",
         "label": "Moderate"
       },
-      "modifiers": [
-        {
-          "id": "HP:0025297",
-          "label": "Prolonged"
-        },
-        {
-          "id": "HP:0012825",
-          "label": "Mild"
-        },
-        {
-          "id": "HP:0012828",
-          "label": "Severe"
-        },
-        {
-          "id": "HP:0031598",
-          "label": "Notched P wave"
-        },
-        {
-          "id": "NCBITAXON:90964",
-          "label": "Staphylococcaceae"
-        },
-        {
-          "id": "SNOMEDCT:303726000",
-          "label": "Shoulder joint prosthesis"
-        }
-      ],
       "onset": {
-        "age": {
-          "iso8601duration": "P2Y9M"
-        }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0002967",
-        "label": "Cubitus valgus"
-      },
-      "excluded": true,
-      "severity": {},
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y9M"
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset (at birth)"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0002665",
-        "label": "Lymphoma"
+        "id": "HP:0001252",
+        "label": "Hypotonia"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y3M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000400",
+        "label": "Macrotia"
       },
       "severity": {
         "id": "HP:0012825",
         "label": "Mild"
       },
-      "modifiers": [
-        {
-          "id": "HP:0031914",
-          "label": "Fluctuating"
-        },
-        {
-          "id": "NCBITAXON:10376",
-          "label": "human gammaherpesvirus 4"
-        },
-        {
-          "id": "SNOMEDCT:31099001",
-          "label": "Systemic"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P0Y0M"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0004322",
-        "label": "Short stature"
+        "id": "HP:0001263",
+        "label": "Global developmental delay"
       },
       "severity": {
         "id": "HP:0012826",
@@ -131,7 +91,64 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P1Y9M"
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000508",
+        "label": "Ptosis"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002761",
+        "label": "Generalized joint hypermobility"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
         }
       }
     }
@@ -139,82 +156,75 @@
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP7720-8",
-        "label": "White blood cells"
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000276",
-            "label": "amount per container"
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
           },
-          "value": 5.01
+          "value": 1.2
         }
       },
       "timeObserved": {
-        "timestamp": "2024-10-14T00:00:00Z"
-      },
-      "procedure": {
-        "code": {
-          "id": "Thesaurus:C17610",
-          "label": "Blood Sample"
+        "age": {
+          "iso8601duration": "P3Y7M"
         }
       }
     },
     {
       "assay": {
-        "id": "LOINC:LP7536-8",
-        "label": "Red Blood Cells"
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO_0000178",
+            "id": "UO:0000178",
             "label": "unit per milliliter"
           },
-          "value": 4.56
+          "value": 4.8
         }
       },
       "timeObserved": {
-        "timestamp": "2023-10-14T00:00:00Z"
+        "age": {
+          "iso8601duration": "P3Y7M"
+        }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TEST_13JAN",
-      "progressStatus": "COMPLETED",
+      "id": "EvCo3-interpretation-0",
+      "progressStatus": "SOLVED",
       "diagnosis": {
         "disease": {
-          "id": "OMIM:241600",
-          "label": "IMMUNODEFICIENCY 43"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
-            "subjectOrBiosampleId": "TEST_13JAN",
+            "subjectOrBiosampleId": "1",
             "interpretationStatus": "CANDIDATE",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "variationDescriptor": {
-                "id": "9911d5cfaca04226b362856ccceb23",
+                "id": "3abfb5972d184521933d9af803e85d",
                 "geneContext": {
-                  "valueId": "HGNC:10853",
-                  "symbol": "SHOX"
+                  "valueId": "HGNC:7132",
+                  "symbol": "KMT2A"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_006883.2:c.-507G>C"
+                    "value": "NM_001197104.2:c.3019G>T"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LP71749-3",
-                  "label": "Chromosomal nuclear Ab pattern"
-                },
                 "allelicState": {
-                  "id": "LOINC:53034-5-OTHER",
-                  "label": "Other"
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
                 }
               }
             }
@@ -226,51 +236,22 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P2Y10M"
+          "iso8601duration": "P0Y9M"
         }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0019499",
-        "label": "Turner syndrome"
-      },
-      "onset": {
-        "ontologyClass": {
-          "id": "SNOMEDCT:3950001",
-          "label": "Birth"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ICD10CM:Z82.3",
-        "label": "Family history of stroke"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P0Y4M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0002367",
-        "label": "kidney cancer"
       }
     }
   ],
   "metaData": {
-    "created": "2025-02-28T10:24:33.252642Z",
+    "created": "2025-04-13T12:21:07.560488Z",
     "createdBy": "Adam G.",
     "resources": [
       {
-        "id": "snomed",
+        "id": "snomedct",
         "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
         "url": "http://snomed.info/sct",
         "version": "2024-09-01",

@@ -368,14 +368,14 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
                 self.processor.mapping_config['current_instance'] = feature_data.get('redcap_repeat_instance')
             
             # Extract feature properties with strict instance scoping
-            excluded = self._extract_excluded_status(feature_data, all_instruments)
-            onset = self._extract_onset(feature_data, dob, all_instruments)
-            resolution = self._extract_resolution(feature_data, dob, all_instruments)
-            severity = self._extract_severity(feature_data, all_instruments)
-            evidence = self._extract_evidence(feature_data, all_instruments)
+            excluded = self._extract_excluded_status(feature_data)
+            onset = self._extract_onset(feature_data, dob)
+            resolution = self._extract_resolution(feature_data, dob)
+            severity = self._extract_severity(feature_data)
+            evidence = self._extract_evidence(feature_data)
             
             # Extract modifiers using feature_type and data model
-            modifiers = self._extract_modifiers(feature_data, feature_type, all_instruments)
+            modifiers = self._extract_modifiers(feature_data, feature_type)
             
             # Debug output to verify modifier scoping
             if modifiers:
@@ -420,267 +420,210 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
             logger.debug(traceback.format_exc())
             return None
     
-    def _extract_excluded_status(
-        self, 
-        data: Dict[str, Any],
-        all_instruments: Optional[List[str]] = None
-    ) -> Optional[bool]:
-        """Extract excluded status from data"""
+    def _extract_excluded_status(self, feature_data: Dict[str, Any]) -> Optional[bool]:
+        """
+        Extract a Boolean 'excluded' status strictly from the local row's data.
+        """
         excluded = None
         field = self.processor.mapping_config.get("excluded_field")
-        if field:
-            val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[field]
-                )
-            
-            # If not found, use direct field access
-            if val is None:
-                val = data.get(field)
-            
-            if val:
-                mapped = self.fetch_mapping_value("phenotypic_feature_status", val)
-                if mapped == "true":
-                    excluded = True
-                elif mapped == "false":
-                    excluded = False
+        if not field:
+            return None
+        
+        # Only check local row
+        val = feature_data.get(field)
+        if val:
+            mapped = self.fetch_mapping_value("phenotypic_feature_status", val)
+            if mapped == "true":
+                excluded = True
+            elif mapped == "false":
+                excluded = False
         return excluded
-    
-    def _extract_onset(
-        self, 
-        data: Dict[str, Any],
-        dob: Optional[str] = None,
-        all_instruments: Optional[List[str]] = None
-    ) -> Optional[TimeElement]:
-        """Extract onset from data"""
+
+        
+    def _extract_onset(self, 
+                       feature_data: Dict[str, Any], 
+                       dob: Optional[str] = None,
+                       all_instruments: Optional[List[str]] = None
+                        ) -> Optional[TimeElement]:
+        """
+        Simplified onset extraction:
+        1) If onset_date_field can be parsed, return Age-based onset
+        2) Else if onset_age_field is an HPO code, return a code-based onset
+        3) Otherwise return None
+        """
+        from phenopackets import TimeElement, Age, OntologyClass
+
+        if not dob:
+            logger.debug("[_extract_onset] No DOB available, returning None.")
+            return None
+
+        date_field = self.processor.mapping_config.get("onset_date_field")      # e.g. "snomedct_8116006_onset"
+        code_field = self.processor.mapping_config.get("onset_age_field")       # e.g. "hp_0003674"
+
+        # 1) Try date_field first
+        if date_field:
+            date_str = feature_data.get(date_field)  # just read directly from the sub-dict
+            logger.debug(f"[_extract_onset] Checking date_field={date_field}, value={date_str}")
+            if date_str:
+                iso_age = self.processor.convert_date_to_iso_age(date_str, dob)
+                logger.debug(f"[_extract_onset] convert_date_to_iso_age => {iso_age}")
+                if iso_age:
+                    # Return a TimeElement with Age
+                    return TimeElement(age=Age(iso8601duration=iso_age))
+
+        # 2) Fallback to code_field
+        if code_field:
+            code_val = feature_data.get(code_field)
+            logger.debug(f"[_extract_onset] Checking code_field={code_field}, value={code_val}")
+            if code_val:
+                code_id = self.process_code(code_val)
+                code_label = self.fetch_label(code_val, enum_class="AgeOfOnset")
+                logger.debug(f"[_extract_onset] fallback code => {code_id}, label => {code_label}")
+                if code_label:
+                    return TimeElement(ontology_class=OntologyClass(id=code_id, label=code_label))
+
+        # 3) None if we can’t parse date or code
+        logger.debug("[_extract_onset] No onset date or code found; returning None.")
+        return None
+
+
+        
+    def _extract_resolution(self,
+                            feature_data: Dict[str, Any],
+                            dob: Optional[str] = None) -> Optional[TimeElement]:
+        """
+        Extract resolution date strictly from the local row's data, then
+        convert it into a TimeElement based on DOB.
+        """
         if not dob:
             return None
-            
-        onset = None
-        field = self.processor.mapping_config.get("onset_date_field")
-        alt_field = self.processor.mapping_config.get("onset_age_field")
         
-        if field:
-            val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[field]
-                )
-            
-            # If not found, use direct field access
-            if val is None:
-                val = data.get(field)
-            
-            if val:
-                onset = create_time_element(val, dob, self.processor)
-        
-        if not onset and alt_field:
-            alt_val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                alt_val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[alt_field]
-                )
-            
-            # If not found, use direct field access
-            if alt_val is None:
-                alt_val = data.get(alt_field)
-            
-            if alt_val:
-                label = self.fetch_label(alt_val, enum_class="AgeOfOnset")
-                pid = self.process_code(alt_val)
-                if label:
-                    onset = TimeElement(ontology_class=OntologyClass(id=pid, label=label))
-        
-        return onset
-    
-    def _extract_resolution(
-        self, 
-        data: Dict[str, Any],
-        dob: Optional[str] = None,
-        all_instruments: Optional[List[str]] = None
-    ) -> Optional[TimeElement]:
-        """Extract resolution from data"""
-        if not dob:
-            return None
-            
-        resolution = None
         field = self.processor.mapping_config.get("resolution_field")
-        
-        if field:
-            val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[field]
-                )
-            
-            # If not found, use direct field access
-            if val is None:
-                val = data.get(field)
-            
-            if val:
-                resolution = create_time_element(val, dob, self.processor)
-        
-        return resolution
+        if not field:
+            return None
+
+        val = feature_data.get(field)  # local row only
+        if not val:
+            return None
+
+        # Use your existing create_time_element or convert_date_to_iso_age
+        return create_time_element(val, dob, self.processor)
+
     
-    def _extract_severity(
-        self, 
-        data: Dict[str, Any],
-        all_instruments: Optional[List[str]] = None
-    ) -> Optional[OntologyClass]:
-        """Extract severity from data"""
-        severity = None
+    def _extract_severity(self, feature_data: Dict[str, Any]) -> Optional[OntologyClass]:
+        """
+        Extract severity strictly from the local row's data.
+        """
+        from phenopackets import OntologyClass
+
         field = self.processor.mapping_config.get("severity_field")
+        if not field:
+            return None
         
-        if field:
-            val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[field]
-                )
-            
-            # If not found, use direct field access
-            if val is None:
-                val = data.get(field)
-            
-            if val:
-                sid = self.process_code(val)
-                label = self.fetch_label(val, enum_class="PhenotypeSeverity")
-                if label:
-                    severity = OntologyClass(id=sid, label=label)
+        val = feature_data.get(field)  # local row only
+        if not val:
+            return None
+
+        sid = self.process_code(val)
+        label = self.fetch_label(val, enum_class="PhenotypeSeverity")
+        if label:
+            return OntologyClass(id=sid, label=label)
+        return None
         
-        return severity
-    
-    def _extract_evidence(
-        self, 
-        data: Dict[str, Any],
-        all_instruments: Optional[List[str]] = None
-    ) -> Optional[List[Evidence]]:
-        """Extract evidence from data"""
+    def _extract_evidence(self, feature_data: Dict[str, Any]) -> Optional[List[Evidence]]:
+        """
+        Extract 'evidence' strictly from the local row's data.
+        """
+        from phenopackets import Evidence, OntologyClass
+
         evidence_list = None
         field = self.processor.mapping_config.get("evidence_field")
+        if not field:
+            return None
         
-        if field:
-            val = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
-                val = get_multi_instrument_field_value(
-                    data=self.processor.mapping_config.get('full_data', {}),
-                    instruments=all_instruments,
-                    field_paths=[field]
-                )
-            
-            # If not found, use direct field access
-            if val is None:
-                val = data.get(field)
-            
-            if val:
-                eid = self.process_code(val)
-                label = self.fetch_label(val)
-                evidence = Evidence(evidence_code=OntologyClass(id=eid, label=label or "Unknown Evidence"))
-                evidence_list = [evidence]
-        
+        val = feature_data.get(field)  # local row only
+        if val:
+            eid = self.process_code(val)
+            label = self.fetch_label(val)
+            ev_obj = Evidence(evidence_code=OntologyClass(id=eid, label=label or "Unknown Evidence"))
+            evidence_list = [ev_obj]
         return evidence_list
+
     
     def _extract_modifiers(
-        self, 
-        data: Dict[str, Any],
-        feature_type: str = None,
-        all_instruments: Optional[List[str]] = None
+        self,
+        feature_data: Dict[str, Any],
+        feature_type: Optional[str] = None
     ) -> List[OntologyClass]:
         """
-        Extract modifiers that are specific to the current feature instance.
-        This method strictly scopes modifiers to prevent cross-contamination.
+        Extract modifiers strictly from the current row's data (feature_data),
+        so that each repeated element can have distinct modifiers.
         """
+        from phenopackets import OntologyClass
+
         modifiers = []
-        modifier_ids = set()  # Keep track of IDs we've already added
-        
-        # Get data model type
+        modifier_ids = set()  # Avoid duplicates
         data_model = self.processor.mapping_config.get("data_model", "")
-        
-        # Helper function to add a modifier without duplicates
-        def add_modifier(id_value, label):
-            # Only add if ID is not already in our set
+
+        def add_modifier(id_value: str, label: Optional[str]):
+            # Only add if this ID hasn't been used yet
             if id_value and id_value not in modifier_ids:
                 modifiers.append(OntologyClass(id=id_value, label=label or "Unknown Modifier"))
                 modifier_ids.add(id_value)
-        
-        # Extract temporal pattern modifier (common across data models)
+
+        # 1) Temporal Pattern field
         temp_pattern_field = self.processor.mapping_config.get("modifier_temp_pattern_field")
-        if temp_pattern_field and temp_pattern_field in data and data[temp_pattern_field]:
-            tp_val = data[temp_pattern_field]
-            tp_id = self.process_code(tp_val)
-            tp_label = self.fetch_label(tp_val, enum_class="TemporalPattern")
-            if tp_label:
-                add_modifier(tp_id, tp_label)
-        
-        # Extract generic modifiers from modifier_field_N
-        for i in range(1, 10):  # Support up to 9 modifier fields
+        if temp_pattern_field:
+            tp_val = feature_data.get(temp_pattern_field)
+            if tp_val:
+                tp_id = self.process_code(tp_val)
+                tp_label = self.fetch_label(tp_val, enum_class="TemporalPattern")
+                if tp_label:
+                    add_modifier(tp_id, tp_label)
+
+        # 2) Up to 9 generic modifier fields
+        for i in range(1, 10):
             field_key = f"modifier_field_{i}"
-            if field_key in self.processor.mapping_config:
-                field = self.processor.mapping_config[field_key]
-                if field and field in data and data[field]:
-                    val = data[field]
-                    if val:
-                        mid = self.process_code(val)
-                        label = self.fetch_label(val)
-                        if label:
-                            add_modifier(mid, label)
-        
-        # Add data model specific modifiers if needed
+            field_name = self.processor.mapping_config.get(field_key)
+            if field_name:
+                val = feature_data.get(field_name)
+                if val:
+                    mid = self.process_code(val)
+                    label = self.fetch_label(val)
+                    if label:
+                        add_modifier(mid, label)
+
+        # 3) Data‐model‐specific logic: "infections"
         if data_model == "infections":
-            # Check organism fields
+            # Possibly check local fields like causing_agent_viral, etc.
             organism_fields = ["causing_agent_viral", "causing_agent_bacterial", "causing_agent_mycotic"]
-            for field in organism_fields:
-                if field in data and data[field]:
-                    org_val = data[field]
-                    # Skip numeric values which may be enum indexes
-                    if not (isinstance(org_val, (int, float)) or 
-                        (isinstance(org_val, str) and org_val.isdigit())):
+            for org_field in organism_fields:
+                if org_field in feature_data and feature_data[org_field]:
+                    org_val = feature_data[org_field]
+                    # Skip numeric values which might be enumerations
+                    if not isinstance(org_val, (int, float)) and not (isinstance(org_val, str) and org_val.isdigit()):
                         org_id = self.process_code(org_val)
                         org_label = self.fetch_label(org_val)
                         if org_label:
                             add_modifier(org_id, org_label)
-        
+
+        # 4) Data‐model‐specific logic: "conditions"
         elif data_model == "conditions":
-            # Look for fields with pattern *_modifier that match this feature type
-            for key, value in data.items():
-                if key.endswith("_modifier") and value:
-                    # Extract the type base (without prefix)
-                    type_base = feature_type.split(":")[-1] if ":" in feature_type else feature_type
-                    type_base = type_base.split("_")[-1] if "_" in type_base else type_base
-                    
-                    # Check if this modifier is for this feature type
-                    if feature_type in key or type_base in key:
-                        mod_id = self.process_code(value)
-                        mod_label = self.fetch_label(value)
+            # For each local field, if it ends with "_modifier" and matches feature_type, add it
+            for key, val in feature_data.items():
+                if key.endswith("_modifier") and val:
+                    type_base = feature_type.split(":")[-1] if (feature_type and ":" in feature_type) else feature_type
+                    if type_base and "_" in type_base:
+                        type_base = type_base.split("_")[-1]
+
+                    if feature_type and (feature_type in key or (type_base and type_base in key)):
+                        mod_id = self.process_code(val)
+                        mod_label = self.fetch_label(val)
                         if mod_label:
                             add_modifier(mod_id, mod_label)
-        
-        # For RareLink compatibility
-        elif data_model == "" or data_model == "rarelink_cdm":
-            # Handle RareLink-specific modifiers if needed
-            pass
-        
+
+        # 5) RareLink or other data_model
+        #    If you need to do anything special for data_model == "" or "rarelink_cdm",
+        #    do that here. Right now, we simply pass.
+
         return modifiers

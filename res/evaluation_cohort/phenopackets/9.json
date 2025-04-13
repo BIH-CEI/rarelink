@@ -1,19 +1,20 @@
 {
-  "id": "104",
+  "id": "9",
   "subject": {
-    "id": "EFG678",
-    "dateOfBirth": "2020-01-01T00:00:00Z",
+    "id": "EvCo9",
+    "dateOfBirth": "2013-08-30T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P4Y8M"
+        "iso8601duration": "P11Y7M"
       }
     },
-    "vitalStatus": {},
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
     "sex": "MALE",
-    "karyotypicSex": "XY",
     "gender": {
-      "id": "SNOMEDCT:1220561009",
-      "label": "Not recorded"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
@@ -23,85 +24,70 @@
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002719",
-        "label": "Recurrent infections"
+        "id": "HP:0002553",
+        "label": "Highly arched eyebrow"
       },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031914",
-          "label": "Fluctuating"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P0Y0M"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0000979",
-        "label": "Purpura"
+        "id": "HP:0000175",
+        "label": "Cleft palate"
       },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P0Y4M"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0011127",
-        "label": "Perioral eczema"
+        "id": "HP:0004322",
+        "label": "Short stature"
       },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031915",
-          "label": "Stable"
-        }
-      ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P1Y0M"
         }
       }
     },
     {
       "type": {
-        "id": "HP:0012059",
-        "label": "Lentigo maligna melanoma"
+        "id": "HP:0002761",
+        "label": "Generalized joint hypermobility"
       },
       "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012828",
+        "label": "Severe"
       },
       "modifiers": [
         {
-          "id": "HP:0031914",
-          "label": "Fluctuating"
+          "id": "HP:0011010",
+          "label": "Chronic"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P3Y9M"
+          "iso8601duration": "P3Y0M"
         }
       }
     }
@@ -109,75 +95,75 @@
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP97610-7",
-        "label": "Immunoglobulin light chains.free panel"
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000270",
-            "label": "volumetric flow rate unit"
-          }
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 8.0
         }
       },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C161406",
-          "label": "Unknown Procedure"
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P9Y6M"
         }
       }
     },
     {
       "assay": {
-        "id": "LOINC:LP32067-8",
-        "label": "Hemoglobin"
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000208",
-            "label": "gram per deciliter"
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
           },
-          "value": 34.4
+          "value": 2.6
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P9Y6M"
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "EFG678-interpretation-0",
-      "progressStatus": "UNSOLVED",
+      "id": "EvCo9-interpretation-0",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
-          "id": "MONDO:0010518",
-          "label": "Wiskott-Aldrich syndrome"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
         "genomicInterpretations": [
           {
             "subjectOrBiosampleId": "1",
-            "interpretationStatus": "CANDIDATE",
+            "interpretationStatus": "CONTRIBUTORY",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "50fdda5613994dd3a34c82f8b8d050",
+                "id": "ce8acf014c9241868f33d3f134df94",
                 "geneContext": {
-                  "valueId": "HGNC:12731",
-                  "symbol": "WAS"
+                  "valueId": "HGNC:7132",
+                  "symbol": "KMT2A"
                 },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NC_000023.11:g.48683512T>C"
+                    "value": "NM_001197104.2:c.3019G>T"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
-                },
                 "allelicState": {
-                  "id": "LOINC:LA6706-1",
-                  "label": "Heterozygous"
+                  "id": "LOINC:LA26217-2",
+                  "label": "Compound heterozygous"
                 }
               }
             }
@@ -186,23 +172,22 @@
             "subjectOrBiosampleId": "2",
             "interpretationStatus": "CONTRIBUTORY",
             "variantInterpretation": {
-              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
-              "therapeuticActionability": "NOT_ACTIONABLE",
+              "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "69f37d7691824d2fb0009339b601d2",
+                "id": "f04b724aec404d0fafdb8ba50ef0ee",
+                "geneContext": {
+                  "valueId": "HGNC:7133",
+                  "symbol": "KMT2D"
+                },
                 "expressions": [
                   {
                     "syntax": "hgvs",
-                    "value": "NM_000377.3:c.6T>C"
+                    "value": "NM_003482.4:c.16529A>G"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LA6692-3",
-                  "label": "Deletion"
-                },
                 "allelicState": {
-                  "id": "LOINC:LA6705-3",
-                  "label": "Homozygous"
+                  "id": "LOINC:LA26217-2",
+                  "label": "Compound heterozygous"
                 }
               }
             }
@@ -214,29 +199,18 @@
   "diseases": [
     {
       "term": {
-        "id": "MONDO:0010518",
-        "label": "Wiskott-Aldrich syndrome"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P1Y7M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "MONDO:0010518",
-        "label": "Wiskott-Aldrich syndrome"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P1Y7M"
+          "iso8601duration": "P1Y8M"
         }
       }
     }
   ],
   "metaData": {
-    "created": "2025-04-07T08:33:00.837201Z",
+    "created": "2025-04-13T12:23:03.951486Z",
     "createdBy": "Adam G.",
     "resources": [
       {
