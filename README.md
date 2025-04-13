@@ -243,15 +243,11 @@ use of REDCap for rare disease research and care.
 - NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
-- [RD-CDM](https://github.com/BIH-CEI/rd-cdm)
 - [toFHIR](https://github.com/srdc/tofhir)
-- [toFHIR-redcap](https://github.com/srdc/tofhir-redcap)
-- [HL7 FHIR-IPS](https://github.com/HL7/fhir-ips)
-- [LinkML](https://github.com/linkml/linkml)
 
 ## License
 
-This project is licensed under the terms of the [BSD 3-Clause License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
+This project is licensed under the terms of the [open-source Apache 2.0 License](https://github.com/BIH-CEI/RareLink/blob/develop/LICENSE)
 
 ## Acknowledgements
 
