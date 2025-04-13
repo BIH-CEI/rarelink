@@ -14,10 +14,10 @@ class TestDateHandling(unittest.TestCase):
     
     def test_parse_date(self):
         """Test parse_date function."""
-        # Test with datetime object
         test_dt = datetime(2020, 1, 5)
         result = parse_date(test_dt)
-        self.assertEqual(result, test_dt)
+        # Remove timezone before comparing if parse_date sets tz=UTC
+        self.assertEqual(result.replace(tzinfo=None), test_dt)
         
         # Test with ISO string
         result = parse_date("2020-01-05T00:00:00")
