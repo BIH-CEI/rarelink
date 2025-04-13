@@ -20,5 +20,3 @@ PHENOTYPIC_FEATURES_BLOCK = {
 
 
 
-
-
