@@ -12,15 +12,14 @@ Description: "A RareLink-specific profile for capturing the age category of
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.rules = #open
 * meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+* meta.profile[baseProfile] = "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationAgeCategory_RareLink.fsh"
 
 * status 1..1
 * status = #final
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = "http://snomed.info/sct"
-* code.coding.code = #105727008
+* code = SNOMEDCT#105727008
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)

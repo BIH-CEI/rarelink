@@ -13,19 +13,21 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.rules = #open
 * meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+* meta.profile[baseProfile] = "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationOtherMeasruements_RareLink.fsh"
 
 * status 1..1
 * status MS
 
 * category 1..1
 * category.coding 1..1
-* category.coding.system from HL7FHIR
+* category.coding.system = https://hl7.org/fhir/R4/codesystem-observation-category.html
 * category.coding.code MS
-* category.coding.version = "R4"
+* category.coding.version = "4.0.1"
 
 * code 1..1
 * code.coding 1..1
+* code.coding.system 1..1
+* code.coding.code 1..1
 * code.coding.system from NCIT
 * code.coding.code = #C60819
 
@@ -39,14 +41,18 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 * effectiveDateTime MS
 
 * value[x] 0..1
-* valueQuantity.system from UO
+* valueQuantity.system 1..1
+* valueQuantity.code from UO (required)
+* valueQuantity.system = "http://purl.obolibrary.org/obo/uo.owl"
 * valueQuantity.code MS
 * valueQuantity.value MS
 
-* interpretation 0..*
+* interpretation 0..* // CodeableConcept
 * interpretation.coding 0..*
 * interpretation.coding.system from NCIT (extensible)
+* interpretation.coding.code MS
 
-* method 0..1
+* method 0..1 // CodeableConcept
 * method.coding 0..*
 * method.coding.system from SNOMEDCT (extensible)
+* method.coding.code MS

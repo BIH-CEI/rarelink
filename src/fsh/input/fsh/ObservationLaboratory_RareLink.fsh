@@ -34,8 +34,8 @@ Description: "A RareLink-specific profile for laboratory measurements based on t
 * subject.reference 1..1 MS
 * subject.identifier 0..1 MS
 
-
 * effective[x] 1..1
+
 * value[x] 0..1
 
 * performer 1..*

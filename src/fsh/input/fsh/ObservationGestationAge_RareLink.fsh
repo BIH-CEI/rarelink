@@ -1,3 +1,5 @@
+Alias: SNOMEDCT = http://snomed.info/sct
+
 Profile: RareLinkGestationAtBirth
 Parent: Observation
 Id: rarelink-observation-gestation-at-birth
@@ -8,15 +10,14 @@ Description: "A RareLink-specific profile for capturing gestation length at birt
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.rules = #open
 * meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+* meta.profile[baseProfile] = "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationGestationAge_RareLink.fsh"
 
 * status 1..1
 * status = #final
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = "http://snomed.info/sct"
-* code.coding.code = #412726003
+* code = SNOMEDCT#412726003
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)

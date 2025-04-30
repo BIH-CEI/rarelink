@@ -18,6 +18,8 @@ Description: "A RareLink-specific profile for vital signs measurements."
 
 * category 1..1
 * category.coding 1..1
+* category.coding.system 1..1
+* category.coding.code 1..1
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category.coding.code = #vital-signs
 

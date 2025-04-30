@@ -40,12 +40,16 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * value[x] 0..1
 
 * performer 1..*
-* performer.display = "unknown"
+* performer.text 0..1
+* performer.extension contains http://hl7.org/fhir/StructureDefinition/data-absent-reason named dataAbsentReason 0..1
+* performer.extension[dataAbsentReason].valueCode = #unknown
 
 * interpretation 0..*
 * interpretation.coding 0..*
 * interpretation.coding.system from NCIT (extensible)
+* interpretation.coding.code MS
 
 * method 0..1
 * method.coding 0..*
 * method.coding.system from NCIT (extensible)
+* method.coding.code MS

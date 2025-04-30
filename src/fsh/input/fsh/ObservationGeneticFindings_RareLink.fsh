@@ -35,31 +35,14 @@ Description: "
 * code.coding.system = "http://loinc.org" (exactly)
 * code.coding.code = #69548-6 (exactly)
 
-// method => 0..1, codings => 0..*
 * method 0..1
 * method.coding 0..*
 * method.coding from StructuralVariantMethodVS (extensible)
-
-// category => rename slices to avoid conflicts with any existing slices
-* category ^slicing.discriminator[0].type = #pattern
-* category ^slicing.discriminator[0].path = "coding"
-* category ^slicing.rules = #open
-
-* category contains rarelinkLabCategory 1..1
-* category[rarelinkLabCategory].coding 1..1
-* category[rarelinkLabCategory].coding.system = "http://terminology.hl7.org/CodeSystem/observation-category" (exactly)
-* category[rarelinkLabCategory].coding.code = #laboratory (exactly)
-
-* category contains rarelinkGeCategory 1..1
-* category[rarelinkGeCategory].coding 1..1
-* category[rarelinkGeCategory].coding.system = "http://terminology.hl7.org/CodeSystem/v2-0074" (exactly)
-* category[rarelinkGeCategory].coding.code = #GE (exactly)
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
 * subject.reference 0..1 MS
 * subject.identifier 0..1 MS
-
 
 // Slicing 'component' for each LOINC-coded item
 * component ^slicing.discriminator[0].type = #pattern
@@ -168,20 +151,6 @@ Description: "
 * code.coding.system = "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs" (exactly)
 * code.coding.code = #diagnostic-implication (exactly)
 * code.coding.version = "3.0.0"
-
-* category ^slicing.discriminator[0].type = #pattern
-* category ^slicing.discriminator[0].path = "coding"
-* category ^slicing.rules = #open
-
-* category contains rarelinkLabCategory 1..1
-* category[rarelinkLabCategory].coding 1..1
-* category[rarelinkLabCategory].coding.system = "http://terminology.hl7.org/CodeSystem/observation-category" (exactly)
-* category[rarelinkLabCategory].coding.code = #laboratory (exactly)
-
-* category contains rarelinkGeCategory 1..1
-* category[rarelinkGeCategory].coding 1..1
-* category[rarelinkGeCategory].coding.system = "http://terminology.hl7.org/CodeSystem/v2-0074" (exactly)
-* category[rarelinkGeCategory].coding.code = #GE (exactly)
 
 * derivedFrom ^slicing.discriminator[0].type = #pattern
 * derivedFrom ^slicing.discriminator[0].path = "$this"
