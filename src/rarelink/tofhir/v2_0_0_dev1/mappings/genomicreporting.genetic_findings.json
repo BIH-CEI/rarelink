@@ -41,8 +41,8 @@
                 "{{#codingVar}}": "{{loinc_81304_8.exists()}}",
                 "{{?}}": {
                   "code": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_code')}}",
-                  "system": "{{'https://loinc.org/'}}",
-                  "version": "{{'2.78'}}",
+                  "system": "{{? iif(loinc_81304_8.empty().not(), 'https://loinc.org/')}}",
+                  "version": "{{? iif(loinc_81304_8.empty().not(), '2.78')}}",
                   "display": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_display')}}"
                 }
               },
@@ -50,8 +50,8 @@
                 "{{#codingVar}}": "{{loinc_81304_8_other.exists()}}",
                 "{{?}}": {
                   "code": "{{? loinc_81304_8_other}}",
-                  "system": "{{'https://loinc.org/'}}",
-                  "version": "{{'2.78'}}"
+                  "system": "{{? iif(loinc_81304_8.empty().not(), 'https://loinc.org/')}}",
+                  "version": "{{? iif(loinc_81304_8.empty().not(), '2.78')}}"
                 }
               }
             ]
@@ -92,7 +92,7 @@
                 "coding": [
                   {
                     "code": "{{? loinc_81290_9}}",
-                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://varnomen.hgvs.org')}}"
                   }
                 ]
               },
@@ -134,7 +134,7 @@
                 "coding": [
                   {
                     "code": "{{? loinc_48004_6}}",
-                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://varnomen.hgvs.org')}}"
                   }
                 ]
               },
@@ -176,7 +176,7 @@
                 "coding": [
                   {
                     "code": "{{? loinc_48005_3}}",
-                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://varnomen.hgvs.org')}}"
                   }
                 ]
               },
@@ -241,8 +241,8 @@
                 "coding": [
                   {
                     "code": "{{? loinc_48018_6}}",
-                    "system": "{{? iif(loinc_48018_6.empty().not(), 'http://hl7.org/fhir/uv/genomics-reporting/ValueSet/hgnc-vs')}}",
-                    "version": "{{? iif(loinc_48018_6.empty().not(), '3.0.0')}}"
+                    "system": "{{? iif(loinc_48018_6.empty().not(), 'https://www.genenames.org/')}}",
+                    "version": "{{? iif(loinc_48018_6.empty().not(), '2025-04-25')}}"
                   }
                 ]
               },

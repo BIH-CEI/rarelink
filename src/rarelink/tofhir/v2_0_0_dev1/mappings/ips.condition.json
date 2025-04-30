@@ -77,10 +77,10 @@
           "severity": {
             "coding": [
               {
-                "system": "{{'http://snomed.info/sct'}}",
+                "system": "{{? iif(snomedct_246112005.empty().not(), 'http://snomed.info/sct')}}",
                 "code": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_code')}}",
                 "display": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_display')}}",
-                "version": "{{'2024-09-01'}}"
+                "version": "{{? iif(snomedct_246112005.empty().not(), '2024-09-01')}}"
               }
             ]
           },

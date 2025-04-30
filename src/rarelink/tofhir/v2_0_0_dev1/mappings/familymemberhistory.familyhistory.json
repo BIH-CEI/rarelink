@@ -108,12 +108,12 @@
           },
           "extension": [
             {
-              "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
               "valueCoding": {
-                "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'2024-09-01'}}",
-                "code": "{{'64245008'}}",
-                "display": "{{'Propositus (finding)'}}"
+                "system": "{{? iif(snomedct_64245008.empty().not(), ''http://snomed.info/sct')}}",
+                "version": "{{? iif(snomedct_64245008.empty().not(), ''2024-09-01')}}",
+                "code": "{{? iif(snomedct_64245008.empty().not(), ''64245008')}}",
+                "display": "{{? iif(snomedct_64245008.empty().not(), ''Propositus (finding)')}}"
               },
               "valueCodeableConcept": {
                 "coding": [
@@ -127,12 +127,12 @@
               }
             },
             {
-              "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+              "url": "{{? iif(snomedct_842009.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
               "valueCoding": {
-                "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'2024-09-01'}}",
-                "code": "{{'842009'}}",
-                "display": "{{'Consanguinity (finding)'}}"
+                "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
+                "version": "{{? iif(snomedct_842009.empty().not(), '2024-09-01')}}",
+                "code": "{{? iif(snomedct_842009.empty().not(), '842009')}}",
+                "display": "{{? iif(snomedct_842009.empty().not(), 'Consanguinity (finding)')}}"
               },
               "valueCodeableConcept": {
                 "coding": [
@@ -148,7 +148,7 @@
           ]
         }
       },
-      "description": "RareLink Family History"
+      "description": "RareLink_6_4_Family_History"
     }
   ],
   "context": {
