@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Observation.meta.profile",
-        "path": "Observation.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Observation.meta.profile:vitalSignsProfile",
-        "path": "Observation.meta.profile",
-        "sliceName": "vitalSignsProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
-      },
-      {
         "id": "Observation.category",
         "path": "Observation.category",
         "min": 1,
@@ -155,7 +133,7 @@
         "path": "Observation.method.coding.system",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://loinc.org/"
+          "valueSet": "http://loinc.org"
         }
       },
       {

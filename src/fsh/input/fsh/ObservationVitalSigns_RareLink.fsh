@@ -1,4 +1,3 @@
-Alias: LOINC = https://loinc.org/
 Alias: HL7FHIR = http://hl7.org/fhir/R4/
 Alias: NCIT = https://ncit.nci.nih.gov/
 

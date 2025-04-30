@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Condition.meta.profile",
-        "path": "Condition.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Condition.meta.profile:ipsProfile",
-        "path": "Condition.meta.profile",
-        "sliceName": "ipsProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
-      },
-      {
         "id": "Condition.extension",
         "path": "Condition.extension",
         "slicing": {

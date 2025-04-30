@@ -1,7 +1,6 @@
 Alias: SNOMEDCT = http://snomed.info/sct
 Alias: ORPHANET = http://www.orpha.net/
 Alias: HL7FHIR = http://hl7.org/fhir/R4/
-Alias: LOINC = https://loinc.org/
 Alias: UO = http://www.ontobee.org/ontology/UO
 Alias: NCIT = https://ncit.nci.nih.gov/
 

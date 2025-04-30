@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Observation.meta.profile",
-        "path": "Observation.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Observation.meta.profile:ipsProfile",
-        "path": "Observation.meta.profile",
-        "sliceName": "ipsProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips|2.0.0-ballot"
-      },
-      {
         "id": "Observation.category",
         "path": "Observation.category",
         "max": "1"
@@ -68,7 +46,7 @@
         "path": "Observation.code.coding.system",
         "binding": {
           "strength": "required",
-          "valueSet": "https://loinc.org/"
+          "valueSet": "http://loinc.org"
         }
       },
       {

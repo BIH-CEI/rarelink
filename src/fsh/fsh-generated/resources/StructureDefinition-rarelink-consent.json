@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Consent.meta.profile",
-        "path": "Consent.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Consent.meta.profile:baseProfile",
-        "path": "Consent.meta.profile",
-        "sliceName": "baseProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/Consent|4.0.1"
-      },
-      {
         "id": "Consent.extension",
         "path": "Consent.extension",
         "slicing": {
@@ -79,14 +57,6 @@
             ]
           }
         ]
-      },
-      {
-        "id": "Consent.status",
-        "path": "Consent.status",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/consent-status"
-        }
       },
       {
         "id": "Consent.scope.coding",
