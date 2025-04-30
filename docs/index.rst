@@ -44,7 +44,12 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________
 
-The documentation is structured as follows:
+The documentation is structured as follows: 
+
+.. figure:: _static/res/rarelink_docs.png
+
+    Overview of the five RareLink documentation components.
+    
 
 Sections
 ---------

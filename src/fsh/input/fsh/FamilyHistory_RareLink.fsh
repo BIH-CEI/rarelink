@@ -13,7 +13,6 @@ Description: "A RareLink-specific FamilyMemberHistory profile based on the Famil
 * meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
 
 * status 1..1
-* status from http://hl7.org/fhir/ValueSet/family-history-status (required)
 
 * patient 1..1
 * patient only Reference(RareLinkIPSPatient)

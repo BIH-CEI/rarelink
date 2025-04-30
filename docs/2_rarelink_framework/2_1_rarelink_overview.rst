@@ -37,6 +37,10 @@ ________________________________________________________________________________
 RareLink Framework components
 -----------------------------
 
+.. figure:: ../_static/res/rarelink_core_modules.png
+
+    Overview of the five RareLink core RareLink modules.
+
 _____________________________________________________________________________________
 
 Semi-Automatic Import
