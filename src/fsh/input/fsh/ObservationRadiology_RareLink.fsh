@@ -11,13 +11,6 @@ Id: rarelink-ips-measurement-radiology
 Title: "RareLink IPS Measurement Radiology"
 Description: "A RareLink-specific profile for radiology measurements based on the IPS Observation profile."
 
-
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot"
-
 * status 1..1
 
 * category 1..1

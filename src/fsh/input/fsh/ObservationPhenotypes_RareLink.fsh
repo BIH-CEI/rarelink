@@ -7,12 +7,6 @@ Id: rarelink-phenotypic-feature
 Title: "RareLink Observation Phenotypic Feature"
 Description: "A RareLink-specific profile for capturing phenotypic features."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
-
 * status 1..1
 * status = #registered
 

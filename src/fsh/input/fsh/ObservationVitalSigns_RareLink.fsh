@@ -8,12 +8,6 @@ Id: rarelink-observation-vital-signs
 Title: "RareLink Vital Signs Measurements"
 Description: "A RareLink-specific profile for vital signs measurements."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains vitalSignsProfile 1..1
-* meta.profile[vitalSignsProfile] = "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
-
 * status 1..1
 
 * category 1..1

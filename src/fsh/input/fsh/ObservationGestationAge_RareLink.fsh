@@ -6,12 +6,6 @@ Id: rarelink-observation-gestation-at-birth
 Title: "RareLink Observation Gestation at Birth"
 Description: "A RareLink-specific profile for capturing gestation length at birth."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationGestationAge_RareLink.fsh"
-
 * status 1..1
 * status = #final
 

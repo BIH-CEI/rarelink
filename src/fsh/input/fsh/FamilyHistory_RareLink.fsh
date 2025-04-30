@@ -6,12 +6,6 @@ Id: rarelink-familyhistory
 Title: "RareLink Family History"
 Description: "A RareLink-specific FamilyMemberHistory profile based on the FamilyMemberHistory resource."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
-
 * status 1..1
 
 * patient 1..1

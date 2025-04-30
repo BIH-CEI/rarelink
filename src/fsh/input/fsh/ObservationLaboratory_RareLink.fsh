@@ -11,12 +11,6 @@ Id: rarelink-ips-measurement-laboratory
 Title: "RareLink IPS Measurement Laboratory"
 Description: "A RareLink-specific profile for laboratory measurements based on the IPS Observation profile."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips|2.0.0-ballot"
-
 * status 1..1
 
 * category 1..1

@@ -9,12 +9,6 @@ Id: rarelink-observation-measurements-others
 Title: "RareLink Observation Measurements (Others)"
 Description: "A RareLink-specific profile for measurements that do not fall under IPS laboratory, radiology, procedures, or vital signs."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationOtherMeasruements_RareLink.fsh"
-
 * status 1..1
 * status MS
 
