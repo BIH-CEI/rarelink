@@ -34,7 +34,7 @@
         "sliceName": "baseProfile",
         "min": 1,
         "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+        "patternCanonical": "https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/ObservationOtherMeasruements_RareLink.fsh"
       },
       {
         "id": "Observation.status",
@@ -56,15 +56,12 @@
       {
         "id": "Observation.category.coding.system",
         "path": "Observation.category.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/R4/"
-        }
+        "patternUri": "https://hl7.org/fhir/R4/codesystem-observation-category.html"
       },
       {
         "id": "Observation.category.coding.version",
         "path": "Observation.category.coding.version",
-        "patternString": "R4"
+        "patternString": "4.0.1"
       },
       {
         "id": "Observation.category.coding.code",
@@ -80,6 +77,7 @@
       {
         "id": "Observation.code.coding.system",
         "path": "Observation.code.coding.system",
+        "min": 1,
         "binding": {
           "strength": "required",
           "valueSet": "https://ncit.nci.nih.gov/"
@@ -88,6 +86,7 @@
       {
         "id": "Observation.code.coding.code",
         "path": "Observation.code.coding.code",
+        "min": 1,
         "patternCode": "C60819"
       },
       {
@@ -174,15 +173,17 @@
       {
         "id": "Observation.value[x]:valueQuantity.system",
         "path": "Observation.value[x].system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://www.ontobee.org/ontology/UO"
-        }
+        "min": 1,
+        "patternUri": "http://purl.obolibrary.org/obo/uo.owl"
       },
       {
         "id": "Observation.value[x]:valueQuantity.code",
         "path": "Observation.value[x].code",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://www.ontobee.org/ontology/UO"
+        }
       },
       {
         "id": "Observation.interpretation.coding.system",
@@ -193,12 +194,22 @@
         }
       },
       {
+        "id": "Observation.interpretation.coding.code",
+        "path": "Observation.interpretation.coding.code",
+        "mustSupport": true
+      },
+      {
         "id": "Observation.method.coding.system",
         "path": "Observation.method.coding.system",
         "binding": {
           "strength": "extensible",
           "valueSet": "http://snomed.info/sct"
         }
+      },
+      {
+        "id": "Observation.method.coding.code",
+        "path": "Observation.method.coding.code",
+        "mustSupport": true
       }
     ]
   }

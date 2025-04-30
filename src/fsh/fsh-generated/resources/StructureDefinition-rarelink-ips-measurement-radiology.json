@@ -89,9 +89,24 @@
         "mustSupport": true
       },
       {
-        "id": "Observation.performer.display",
-        "path": "Observation.performer.display",
-        "patternString": "unknown"
+        "id": "Observation.performer.extension:dataAbsentReason",
+        "path": "Observation.performer.extension",
+        "sliceName": "dataAbsentReason",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.performer.extension:dataAbsentReason.value[x]",
+        "path": "Observation.performer.extension.value[x]",
+        "patternCode": "unknown"
       },
       {
         "id": "Observation.interpretation.coding.system",
@@ -102,12 +117,22 @@
         }
       },
       {
+        "id": "Observation.interpretation.coding.code",
+        "path": "Observation.interpretation.coding.code",
+        "mustSupport": true
+      },
+      {
         "id": "Observation.method.coding.system",
         "path": "Observation.method.coding.system",
         "binding": {
           "strength": "extensible",
           "valueSet": "https://ncit.nci.nih.gov/"
         }
+      },
+      {
+        "id": "Observation.method.coding.code",
+        "path": "Observation.method.coding.code",
+        "mustSupport": true
       }
     ]
   }

@@ -51,11 +51,13 @@
       {
         "id": "Observation.category.coding.system",
         "path": "Observation.category.coding.system",
+        "min": 1,
         "patternUri": "http://terminology.hl7.org/CodeSystem/observation-category"
       },
       {
         "id": "Observation.category.coding.code",
         "path": "Observation.category.coding.code",
+        "min": 1,
         "patternCode": "vital-signs"
       },
       {

@@ -42,68 +42,6 @@
         "fixedCode": "final"
       },
       {
-        "id": "Observation.category",
-        "path": "Observation.category",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "coding"
-            }
-          ],
-          "description": "Slice based on the category.code pattern",
-          "ordered": false,
-          "rules": "open"
-        },
-        "min": 4
-      },
-      {
-        "id": "Observation.category:rarelinkLabCategory",
-        "path": "Observation.category",
-        "sliceName": "rarelinkLabCategory",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Observation.category:rarelinkLabCategory.coding",
-        "path": "Observation.category.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Observation.category:rarelinkLabCategory.coding.system",
-        "path": "Observation.category.coding.system",
-        "fixedUri": "http://terminology.hl7.org/CodeSystem/observation-category"
-      },
-      {
-        "id": "Observation.category:rarelinkLabCategory.coding.code",
-        "path": "Observation.category.coding.code",
-        "fixedCode": "laboratory"
-      },
-      {
-        "id": "Observation.category:rarelinkGeCategory",
-        "path": "Observation.category",
-        "sliceName": "rarelinkGeCategory",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Observation.category:rarelinkGeCategory.coding",
-        "path": "Observation.category.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Observation.category:rarelinkGeCategory.coding.system",
-        "path": "Observation.category.coding.system",
-        "fixedUri": "http://terminology.hl7.org/CodeSystem/v2-0074"
-      },
-      {
-        "id": "Observation.category:rarelinkGeCategory.coding.code",
-        "path": "Observation.category.coding.code",
-        "fixedCode": "GE"
-      },
-      {
         "id": "Observation.code.coding.system",
         "path": "Observation.code.coding.system",
         "fixedUri": "http://loinc.org"

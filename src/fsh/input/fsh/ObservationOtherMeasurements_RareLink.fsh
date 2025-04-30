@@ -20,7 +20,7 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 
 * category 1..1
 * category.coding 1..1
-* category.coding.system = https://hl7.org/fhir/R4/codesystem-observation-category.html
+* category.coding.system = "https://hl7.org/fhir/R4/codesystem-observation-category.html"
 * category.coding.code MS
 * category.coding.version = "4.0.1"
 

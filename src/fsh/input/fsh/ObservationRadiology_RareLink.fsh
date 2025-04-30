@@ -40,7 +40,6 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * value[x] 0..1
 
 * performer 1..*
-* performer.text 0..1
 * performer.extension contains http://hl7.org/fhir/StructureDefinition/data-absent-reason named dataAbsentReason 0..1
 * performer.extension[dataAbsentReason].valueCode = #unknown
 

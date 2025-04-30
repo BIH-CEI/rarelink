@@ -89,9 +89,14 @@
         "mustSupport": true
       },
       {
-        "id": "Observation.performer.display",
-        "path": "Observation.performer.display",
-        "patternString": "unknown"
+        "id": "Observation.performer",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+            "valueCode": "unknown"
+          }
+        ],
+        "path": "Observation.performer"
       },
       {
         "id": "Observation.interpretation.coding.system",
