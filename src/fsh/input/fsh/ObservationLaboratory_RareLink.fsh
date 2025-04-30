@@ -39,7 +39,9 @@ Description: "A RareLink-specific profile for laboratory measurements based on t
 * value[x] 0..1
 
 * performer 1..*
-* performer.display = "unknown"
+* performer MS
+* performer ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* performer ^extension[0].valueCode = #unknown
 
 * interpretation 0..*
 * interpretation.coding 0..*

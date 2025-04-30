@@ -21,6 +21,9 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * identifier.value MS
 
 * name 1..*
+* name.text 0..1
+* name.extension contains http://hl7.org/fhir/StructureDefinition/data-absent-reason named dataAbsentReason 0..1
+* name.extension[dataAbsentReason].valueCode = #unknown
 
 * gender 0..1
 * gender from GenderIdentityVS (required)
