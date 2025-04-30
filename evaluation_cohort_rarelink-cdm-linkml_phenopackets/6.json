@@ -1,0 +1,334 @@
+{
+  "id": "6",
+  "subject": {
+    "id": "EvCo6",
+    "dateOfBirth": "2014-10-05T00:00:00Z",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P10Y6M"
+      }
+    },
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
+    "sex": "FEMALE",
+    "gender": {
+      "id": "SNOMEDCT:446141000124107",
+      "label": "Female gender identity"
+    },
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    }
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0000508",
+        "label": "Ptosis"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y5M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y11M"
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 6.1
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y6M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 5.5
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y6M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 4.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y6M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 2.2
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P7Y6M"
+        }
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "EvCo6-interpretation-0",
+      "progressStatus": "SOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "variationDescriptor": {
+                "id": "e2222533b9584987ba5c35f1a8f4ca",
+                "geneContext": {
+                  "valueId": "HGNC:7133",
+                  "symbol": "KMT2D"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_003482.4:c.16529A>G"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y-10M"
+        }
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2025-04-29T16:27:40.278009Z",
+    "createdBy": "Adam G.",
+    "resources": [
+      {
+        "id": "snomedct",
+        "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
+        "url": "http://snomed.info/sct",
+        "version": "2024-09-01",
+        "namespacePrefix": "SNOMEDCT",
+        "iriPrefix": "http://snomed.info/sct"
+      },
+      {
+        "id": "mondo",
+        "name": "Monarch Disease Ontology",
+        "url": "https://purl.obolibrary.org/obo/MONDO/",
+        "version": "2024-09-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+      },
+      {
+        "id": "hpo",
+        "name": "Human Phenotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2024-08-13",
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "2.78",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "omim",
+        "name": "Online Mendelian Inheritance",
+        "url": "https://omim.org/",
+        "version": "2024-09-12",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "orpha",
+        "name": "Orphanet Rare Disease Ontology",
+        "url": "https://www.orpha.net/",
+        "version": "2024-09-12",
+        "namespacePrefix": "ORPHA",
+        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
+      },
+      {
+        "id": "ncit",
+        "name": "NCI Thesaurus OBO Edition",
+        "url": "https://ncit.nci.nih.gov/",
+        "version": "24.04e",
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "2024-09-12",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org/",
+        "version": "2024-08-23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "hgvs",
+        "name": "Human Genome Variation Society",
+        "url": "https://varnomen.hgvs.org/",
+        "version": "21.0.0",
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
+      },
+      {
+        "id": "icd11",
+        "name": "International Classification of Diseases, Eleventh Revision",
+        "url": "https://icd.who.int/en",
+        "version": "2024-09-01",
+        "namespacePrefix": "ICD11",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
+      },
+      {
+        "id": "icd10cm",
+        "name": "ICD-10 Clinical Modification",
+        "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+        "version": "2023",
+        "namespacePrefix": "ICD10CM",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "https://www.sequenceontology.org/",
+        "version": "2.6",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "geno",
+        "name": "GENO - The Genotype Ontology",
+        "url": "https://www.genoontology.org/",
+        "version": "2023-10-08",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "iso3166",
+        "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+        "url": "https://www.iso.org/iso-3166-country-codes.html",
+        "version": "2020(en)",
+        "namespacePrefix": "ISO3166",
+        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
+      },
+      {
+        "id": "icf",
+        "name": "International Classification of Functioning, Disability and Health",
+        "url": "https://www.who.int/classifications/icf/en/",
+        "version": "1.0.2",
+        "namespacePrefix": "ICF",
+        "iriPrefix": "http://hl7.org/fhir/sid/icf"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0"
+  }
+}

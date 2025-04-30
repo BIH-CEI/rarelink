@@ -163,15 +163,15 @@ def export(
             raise typer.Exit(1)
     else:
         # No custom mappings provided, prompt user
-        try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink mappings?")
+        try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink-CDM mappings?")
         if try_default:
             try:
                 from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import create_rarelink_phenopacket_mappings
                 mapping_configs = create_rarelink_phenopacket_mappings()
-                logger.info("Using default RareLink mappings")
+                logger.info("Using default RareLink-CDM mappings")
             except ImportError:
                 typer.secho(
-                    error_text("❌ Default RareLink mappings not available."),
+                    error_text("❌ Default RareLink-CDM mappings not available."),
                     fg=typer.colors.RED
                 )
                 raise typer.Exit(1)
@@ -187,8 +187,8 @@ def export(
         for key, value in mapping_configs.items():
             logger.debug(f"- {key}: {list(value.keys()) if isinstance(value, dict) else type(value)}")
 
-    typer.echo("Note - This pipeline fetches labels from BIOPORTAL. "
-            "Ensure you have an internet connection as this may take a while.")
+    typer.echo("NOTE: This pipeline fetches labels from BIOPORTAL. "
+            "Ensure you have an internet connection as this may take a while - time to get a tea ☕ ...")
 
     try:
         typer.echo("🚀 Processing your records to Phenopackets...")
