@@ -8,12 +8,6 @@ Id: rarelink-ips-patient
 Title: "RareLink IPS Patient"
 Description: "A RareLink-specific profile for the IPS Patient resource."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips|2.0.0-ballot"
-
 * identifier 0..*
 * identifier.use = #official
 * identifier.type.coding.system from SNOMEDCT
@@ -21,6 +15,9 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * identifier.value MS
 
 * name 1..*
+* name.text 0..1
+* name.extension contains http://hl7.org/fhir/StructureDefinition/data-absent-reason named dataAbsentReason 0..1
+* name.extension[dataAbsentReason].valueCode = #unknown
 
 * gender 0..1
 * gender from GenderIdentityVS (required)

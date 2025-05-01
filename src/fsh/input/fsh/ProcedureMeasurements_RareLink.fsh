@@ -7,12 +7,6 @@ Id: rarelink-ips-procedure
 Title: "RareLink IPS Procedure"
 Description: "A RareLink-specific profile for the IPS Procedure resource."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
-
 * code 1..1
 * code.coding 1..1
 * code.coding.system from http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips (required)

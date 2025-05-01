@@ -88,7 +88,7 @@
                 "version": "{{? iif(snomedct_122869004_snomed.empty().not(), '2024-09-01')}}"
               }
             ],
-            "text": "{{'Measurement - Procedure'}}"
+            "text": "{{? iif(snomedct_122869004_snomed.empty().not(), 'Measurement - Procedure')}}"
           }
         }
       },

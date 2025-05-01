@@ -1,7 +1,6 @@
 Alias: SNOMEDCT = http://snomed.info/sct
 Alias: ORPHANET = http://www.orpha.net/
 Alias: HL7FHIR = http://hl7.org/fhir/R4/
-Alias: LOINC = https://loinc.org/
 Alias: UO = http://www.ontobee.org/ontology/UO
 Alias: NCIT = https://ncit.nci.nih.gov/
 
@@ -10,13 +9,6 @@ Parent: Observation-results-radiology-uv-ips
 Id: rarelink-ips-measurement-radiology
 Title: "RareLink IPS Measurement Radiology"
 Description: "A RareLink-specific profile for radiology measurements based on the IPS Observation profile."
-
-
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot"
 
 * status 1..1
 
@@ -40,12 +32,15 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * value[x] 0..1
 
 * performer 1..*
-* performer.display = "unknown"
+* performer.extension contains http://hl7.org/fhir/StructureDefinition/data-absent-reason named dataAbsentReason 0..1
+* performer.extension[dataAbsentReason].valueCode = #unknown
 
 * interpretation 0..*
 * interpretation.coding 0..*
 * interpretation.coding.system from NCIT (extensible)
+* interpretation.coding.code MS
 
 * method 0..1
 * method.coding 0..*
 * method.coding.system from NCIT (extensible)
+* method.coding.code MS

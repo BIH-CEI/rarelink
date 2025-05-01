@@ -56,8 +56,8 @@
             {
               "coding": [
                 {
-                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
-                  "version": "{{'2024-08-13'}}",
+                  "system": "{{? iif(hp_0003674.empty().not(), 'http://www.human-phenotype-ontology.org')}}",
+                  "version": "{{? iif(hp_0003674.empty().not(), '2024-08-13')}}",
                   "code": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_code')}}",
                   "display": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_display')}}"
                 }
@@ -69,14 +69,14 @@
           "_effectiveDateTime": {
             "extension": [
               {
-                "url": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 '}}",
+                "url": "{{'https://github.com/BIH-CEI/RareLink'}}",
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "{{'http://www.human-phenotype-ontology.org'}}",
-                      "version": "{{'2024-08-13'}}",
-                      "code": "{{'0034382'}}",
-                      "display": "{{'Resolution Date'}}"
+                      "system": "{{? iif(snomedct_8116006_resolut.empty().not(), 'http://www.human-phenotype-ontology.org')}}",
+                      "version": "{{? iif(snomedct_8116006_resolut.empty().not(), '2024-08-13')}}",
+                      "code": "{{? iif(snomedct_8116006_resolut.empty().not(), '0034382')}}",
+                      "display": "{{? iif(snomedct_8116006_resolut.empty().not(), 'Resolution Date')}}"
                     }
                   ]
                 },
@@ -88,24 +88,24 @@
             {
               "coding": [
                 {
-                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
-                  "version": "{{'2024-08-13'}}",
+                  "system": "{{? iif(hp_0011008.empty().not(), 'http://www.human-phenotype-ontology.org')}}",
+                  "version": "{{? iif(hp_0011008.empty().not(), '2024-08-13')}}",
                   "code": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_code')}}",
                   "display": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_display')}}"
                 }
               ],
-              "text": "{{'Phenotypic Finding - Temporal Pattern'}}"
+              "text": "{{? iif(hp_0011008.empty().not(), 'Phenotypic Finding - Temporal Pattern')}}"
             },
             {
               "coding": [
                 {
-                  "system": "{{'http://www.human-phenotype-ontology.org'}}",
-                  "version": "{{'2024-08-13'}}",
+                  "system": "{{? iif(hp_0012824.empty().not(), 'http://www.human-phenotype-ontology.org')}}",
+                  "version": "{{? iif(hp_0012824.empty().not(), '2024-08-13')}}",
                   "code": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_code')}}",
                   "display": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_display')}}"
                 }
               ],
-              "text": "{{'Phenotypic Finding - Severity'}}"
+              "text": "{{? iif(hp_0012824.empty().not(), 'Phenotypic Finding - Severity')}}"
             }
           ],
           "text": {
@@ -115,12 +115,12 @@
           "bodySite": {
             "coding": [
               {
-                "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'2024-09-01'}}",
+                "system": "{{? iif(hp_0012823_snomed.empty().not(), 'http://snomed.info/sct')}}",
+                "version": "{{? iif(hp_0012823_snomed.empty().not(), '2024-09-01')}}",
                 "code": "{{? hp_0012823_snomed}}"
               }
             ],
-            "text": "{{'Phenotypic Finding - Body Site'}}"
+            "text": "{{? iif(hp_0012823_snomed.empty().not(), 'Phenotypic Finding - Body Site')}}"
           },
           "method": {
             "coding": [
@@ -130,15 +130,15 @@
               "code": "{{? phenotypicfeature_evidence.substring(4)}}"
               }
             ],
-            "text": "{{'Phenotypic Feature - Evidence'}}"
+            "text": "{{? iif(phenotypicfeature_evidence.empty().not(), 'Phenotypic Feature - Evidence')}}"
           },
           "component": [
             {
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{'https://www.ncbi.nlm.nih.gov/taxonomy'}}",
-                    "version": "{{'2024-07-03'}}",
+                    "system": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'https://www.ncbi.nlm.nih.gov/taxonomy')}}",
+                    "version": "{{? iif(hp_0012823_ncbitaxon.empty().not(), '2024-07-03')}}",
                     "code": "{{? hp_0012823_ncbitaxon}}"
                   }
                 ]
@@ -146,10 +146,10 @@
               "code": {
                 "coding": [
                   {
-                    "system": "{{'https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0'}}",
-                    "version": "{{'2.0.0'}}",
-                    "code": "{{'hp_0012823_ncbitaxon'}}",
-                    "display": "{{'Phenotypic Feature - Causing Organism'}}"
+                    "system": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+                    "version": "{{? iif(hp_0012823_ncbitaxon.empty().not(), '2.0.0')}}",
+                    "code": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'hp_0012823_ncbitaxon')}}",
+                    "display": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'Phenotypic Feature - Causing Organism')}}"
                   }
                 ]
               }

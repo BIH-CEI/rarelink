@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Procedure.meta.profile",
-        "path": "Procedure.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Procedure.meta.profile:ipsProfile",
-        "path": "Procedure.meta.profile",
-        "sliceName": "ipsProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
-      },
-      {
         "id": "Procedure.status",
         "path": "Procedure.status",
         "binding": {

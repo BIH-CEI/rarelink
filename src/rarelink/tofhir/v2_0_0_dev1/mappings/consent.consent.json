@@ -61,13 +61,13 @@
           ],
           "extension": [
             {
-              "id": "{{'European Rare Disease Registry Infrastructure - Consent to the reuse of data'}}",
-              "url": "{{'https://rarelink.readthedocs.io/en/latest/index.html'}}",
+              "id": "{{? iif(rarelink_consent_data.empty().not(), 'European Rare Disease Registry Infrastructure - Consent to the reuse of data')}}",
+              "url": "{{? iif(rarelink_consent_data.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{'http://snomed.info/sct'}}",
-                    "version": "{{'2024-09-10'}}",
+                    "system": "{{? iif(rarelink_consent_data.empty().not(), 'http://snomed.info/sct')}}",
+                    "version": "{{? iif(rarelink_consent_data.empty().not(), '2024-09-10')}}",
                     "code": "{{? mpp:getConcept(%consentReuse, rarelink_consent_data, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%consentReuse, rarelink_consent_data, 'target_display')}}"
                   }
@@ -75,13 +75,13 @@
               }
             },
             {
-              "id": "{{'European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes'}}",
-              "url": "{{'https://rarelink.readthedocs.io/en/latest/index.html'}}",
+              "id": "{{? iif(rarelink_consent_contact.empty().not(), 'European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes')}}",
+              "url": "{{? iif(rarelink_consent_contact.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "{{'http://snomed.info/sct'}}",
-                    "version": "{{'2024-09-01'}}",
+                    "system": "{{? iif(rarelink_consent_contact.empty().not(), 'http://snomed.info/sct')}}",
+                    "version": "{{? iif(rarelink_consent_contact.empty().not(), '2024-09-01')}}",
                     "code": "{{? mpp:getConcept(%consentContact, rarelink_consent_contact, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%consentContact, rarelink_consent_contact, 'target_display')}}"
                   }
@@ -91,7 +91,7 @@
           ]
         }
       },
-      "description": "RareLink Consent"
+      "description": "RareLink_7_Consent"
     }
   ],
   "context": {

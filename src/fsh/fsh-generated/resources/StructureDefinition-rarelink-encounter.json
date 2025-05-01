@@ -15,28 +15,6 @@
   "differential": {
     "element": [
       {
-        "id": "Encounter.meta.profile",
-        "path": "Encounter.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Encounter.meta.profile:baseProfile",
-        "path": "Encounter.meta.profile",
-        "sliceName": "baseProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
-      },
-      {
         "id": "Encounter.status",
         "path": "Encounter.status",
         "binding": {

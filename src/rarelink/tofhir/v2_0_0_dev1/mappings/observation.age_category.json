@@ -54,7 +54,12 @@
           }
         }
       },
-      "description": "Observation RareLink CDM Age Category"
+      "description": "Observation RareLink CDM Age Category",
+      "precondition": {
+        "name": "AgeCategoryExists",
+        "language": "text/fhirpath",
+        "expression": "snomedct_105727008.empty().not()"
+      }
     }
   ],
   "context": {

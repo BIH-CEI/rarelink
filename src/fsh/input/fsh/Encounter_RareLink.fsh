@@ -7,12 +7,6 @@ Id: rarelink-encounter
 Title: "RareLink Encounter"
 Description: "A RareLink-specific Encounter profile based on the Encounter resource."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
-
 * status 1..1
 * status from http://hl7.org/fhir/ValueSet/encounter-status (required)
 

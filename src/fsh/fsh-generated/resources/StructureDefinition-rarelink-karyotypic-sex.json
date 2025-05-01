@@ -15,47 +15,27 @@
   "differential": {
     "element": [
       {
-        "id": "Observation.meta.profile",
-        "path": "Observation.meta.profile",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
-      },
-      {
-        "id": "Observation.meta.profile:baseProfile",
-        "path": "Observation.meta.profile",
-        "sliceName": "baseProfile",
-        "min": 1,
-        "max": "1",
-        "patternCanonical": "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
-      },
-      {
         "id": "Observation.status",
         "path": "Observation.status",
         "patternCode": "final"
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "1296886006",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
       },
       {
         "id": "Observation.code.coding",
         "path": "Observation.code.coding",
         "min": 1,
         "max": "1"
-      },
-      {
-        "id": "Observation.code.coding.system",
-        "path": "Observation.code.coding.system",
-        "patternUri": "http://snomed.info/sct"
-      },
-      {
-        "id": "Observation.code.coding.code",
-        "path": "Observation.code.coding.code",
-        "patternCode": "1296886006"
       },
       {
         "id": "Observation.subject",

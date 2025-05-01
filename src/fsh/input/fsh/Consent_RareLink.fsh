@@ -6,14 +6,7 @@ Id: rarelink-consent
 Title: "RareLink Consent"
 Description: "A RareLink-specific Consent profile based on the Consent resource."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Consent|4.0.1"
-
 * status 1..1
-* status from http://hl7.org/fhir/ValueSet/consent-status (required)
 
 * scope 1..1
 * scope.coding from http://terminology.hl7.org/CodeSystem/consentscope (required)

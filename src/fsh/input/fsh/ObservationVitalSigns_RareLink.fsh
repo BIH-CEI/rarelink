@@ -1,4 +1,3 @@
-Alias: LOINC = https://loinc.org/
 Alias: HL7FHIR = http://hl7.org/fhir/R4/
 Alias: NCIT = https://ncit.nci.nih.gov/
 
@@ -8,16 +7,12 @@ Id: rarelink-observation-vital-signs
 Title: "RareLink Vital Signs Measurements"
 Description: "A RareLink-specific profile for vital signs measurements."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains vitalSignsProfile 1..1
-* meta.profile[vitalSignsProfile] = "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1"
-
 * status 1..1
 
 * category 1..1
 * category.coding 1..1
+* category.coding.system 1..1
+* category.coding.code 1..1
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category.coding.code = #vital-signs
 

@@ -5,11 +5,7 @@ Id: rarelink-ips-condition
 Title: "RareLink IPS Condition"
 Description: "A RareLink-specific Condition profile based on the IPS Condition profile."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains ipsProfile 1..1
-* meta.profile[ipsProfile] = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+* code 1..1
 
 * clinicalStatus 1..1
 * clinicalStatus from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
@@ -33,6 +29,7 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 * subject.identifier 0..1 MS
 
 * onsetDateTime 0..1
+
 * recordedDate 0..1
 
 * extension contains AgeAtDiagnosis named age_at_diagnosis 0..1

@@ -99,7 +99,6 @@ class IndividualMapper(BaseMapper[Individual]):
                 taxonomy=taxonomy,
             )
 
-            logger.info(f"Successfully mapped individual: {individual.id}")
             return individual
             
         except Exception as e:

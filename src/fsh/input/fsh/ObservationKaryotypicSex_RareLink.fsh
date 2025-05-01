@@ -6,19 +6,12 @@ Id: rarelink-karyotypic-sex
 Title: "RareLink Observation Karyotypic Sex"
 Description: "A RareLink-specific profile for capturing karyotypic sex information."
 
-* meta.profile ^slicing.discriminator.type = #pattern
-* meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.rules = #open
-* meta.profile contains baseProfile 1..1
-* meta.profile[baseProfile] = "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
-
 * status 1..1
 * status = #final
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = SNOMEDCT
-* code.coding.code = #1296886006
+* code = SNOMEDCT#1296886006
 
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
