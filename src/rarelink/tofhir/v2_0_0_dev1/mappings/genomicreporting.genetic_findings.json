@@ -452,7 +452,7 @@
                     "{{?}}": {
                       "code": "{{? snomedct_106221001_omim_p}}",
                       "system": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
-                      "version": "{{? iif(snomedct_106221001_omim_p.empty().not(), '2024-09-12'}}"
+                      "version": "{{? iif(snomedct_106221001_omim_p.empty().not(), '2024-09-12')}}"
                     }
                   }
                 ],
