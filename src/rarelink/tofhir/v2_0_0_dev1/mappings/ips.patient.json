@@ -155,37 +155,34 @@
               ]
             },
             {
-              "{{#extensionVar}}": "{{%RareLinkPatientStatus.snomedct_184305005.empty().not()}}",
-              "{{?}}": {
                 "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://github.com/BIH-CEI/rarelink')}}",
                 "extension": [
                   {
-                    "url": "concept",
+                    "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'concept')}}",
                     "valueCodeableConcept": {
                       "coding": [
                         {
-                          "system": "https://www.snomed.org/snomed-ct",
-                          "version": "2024-09-01",
-                          "code": "184305005",
-                          "display": "Cause Of Death"
+                          "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '2024-09-01')}}",
+                          "code": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '184305005')}}",
+                          "display": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'Cause Of Death')}}"
                         }
                       ]
                     }
                   },
                   {
-                    "url": "value",
+                    "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'value')}}",
                     "valueCodeableConcept": {
                       "coding": [
                         {
-                          "system": "https://icd.who.int/browse10/2019/en",
-                          "version": "2019",
+                          "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://icd.who.int/browse10/2019/en')}}",
+                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '2019')}}",
                           "code": "{{? %RareLinkPatientStatus.snomedct_184305005}}"
                         }
                       ]
                     }
                   }
                 ]
-              }
             }
           ]
         }

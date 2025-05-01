@@ -1,0 +1,29 @@
+Observations: 
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=http://hl7.org/fhir/StructureDefinition/Observation%7C4.0.1&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/observations/evco_fhir_observations.json
+
+
+diagnosticImplications:
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication%7C3.0.0&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/observations/evco_fhir_diagnostic_implication.json
+
+variant:
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant%7C3.0.0&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/observations/evco_fhir_variant.json
+
+
+ips labs:
+curl -s \                                   
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips%7C2.0.0-ballot&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/observations/evco_fhir_labs.json    
+
+  
