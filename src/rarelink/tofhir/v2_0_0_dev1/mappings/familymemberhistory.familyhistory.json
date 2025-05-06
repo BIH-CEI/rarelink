@@ -111,7 +111,7 @@
               "url": "{{? iif(snomedct_64245008.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_64245008.empty().not(), ''http://snomed.info/sct')}}",
-                "version": "{{? iif(snomedct_64245008.empty().not(), ''2024-09-01')}}",
+                "version": "{{? iif(snomedct_64245008.empty().not(), '2024-09-01')}}",
                 "code": "{{? iif(snomedct_64245008.empty().not(), ''64245008')}}",
                 "display": "{{? iif(snomedct_64245008.empty().not(), ''Propositus (finding)')}}"
               },
