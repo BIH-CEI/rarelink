@@ -9,11 +9,11 @@ Description: "A RareLink-specific Consent profile based on the Consent resource.
 * status 1..1
 
 * scope 1..1
-* scope.coding from http://terminology.hl7.org/CodeSystem/consentscope (required)
+* scope.coding.system = "http://terminology.hl7.org/CodeSystem/consentscope"
 * scope.coding.code = #research
 
 * category 1..1
-* category.coding from http://terminology.hl7.org/CodeSystem/consentcategorycodes (required)
+* category.coding.system = "http://terminology.hl7.org/CodeSystem/consentcategorycodes"
 * category.coding.code = #research
 
 * patient 1..1

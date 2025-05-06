@@ -17,11 +17,6 @@ Description: "A RareLink-specific profile for radiology measurements based on th
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category.coding.code = #imaging
 
-* code 1..1
-* code.coding 1..1
-* code.coding.system from LOINC (required)
-* code.coding.code MS
-
 * subject 1..1
 * subject only Reference(RareLinkIPSPatient)
 * subject.reference 1..1 MS

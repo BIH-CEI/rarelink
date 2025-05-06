@@ -83,10 +83,7 @@
       {
         "id": "Procedure.bodySite.coding.system",
         "path": "Procedure.bodySite.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       }
     ]
   }

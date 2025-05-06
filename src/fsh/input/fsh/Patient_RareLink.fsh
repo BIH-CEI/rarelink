@@ -10,7 +10,7 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 
 * identifier 0..*
 * identifier.use = #official
-* identifier.type.coding.system from SNOMEDCT
+* identifier.type.coding.system = "http://snomed.info/sct"
 * identifier.type.coding.code = #422549004
 * identifier.value MS
 
@@ -20,7 +20,6 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * name.extension[dataAbsentReason].valueCode = #unknown
 
 * gender 0..1
-* gender from GenderIdentityVS (required)
 
 * birthDate 1..1
 
@@ -56,7 +55,7 @@ Id: recorded-sex-at-birth
 Title: "Recorded Sex at Birth"
 Description: "The sex assigned to the patient at birth."
 * value[x] only CodeableConcept
-* valueCodeableConcept.coding.system from SNOMEDCT
+* valueCodeableConcept.coding.system = "http://snomed.info/sct"
 * valueCodeableConcept.coding.code from SexAtBirthVS (extensible)
 
 * extension[CauseOfDeath]
@@ -91,16 +90,6 @@ Title: "Vital Status"
 Description: "Coded representation of a patient's vital status"
 * value[x] only CodeableConcept
 * valueCodeableConcept from VitalStatusVS (extensible)
-
-ValueSet: GenderIdentityVS
-Id: gender-identity-vs
-Title: "Gender Identity Value Set"
-Description: "Value set for gender identity."
-* SNOMEDCT#446141000124107 "Female gender identity"
-* SNOMEDCT#446151000124109 "Male gender identity"
-* SNOMEDCT#394743007 "Gender unknown"
-* SNOMEDCT#33791000087105 "Identifies as nonbinary gender"
-* SNOMEDCT#1220561009 "Not recorded"
 
 ValueSet: SexAtBirthVS
 Id: sex-at-birth-vs

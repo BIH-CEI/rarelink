@@ -59,12 +59,9 @@
         ]
       },
       {
-        "id": "Consent.scope.coding",
-        "path": "Consent.scope.coding",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://terminology.hl7.org/CodeSystem/consentscope"
-        }
+        "id": "Consent.scope.coding.system",
+        "path": "Consent.scope.coding.system",
+        "patternUri": "http://terminology.hl7.org/CodeSystem/consentscope"
       },
       {
         "id": "Consent.scope.coding.code",
@@ -77,12 +74,9 @@
         "max": "1"
       },
       {
-        "id": "Consent.category.coding",
-        "path": "Consent.category.coding",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://terminology.hl7.org/CodeSystem/consentcategorycodes"
-        }
+        "id": "Consent.category.coding.system",
+        "path": "Consent.category.coding.system",
+        "patternUri": "http://terminology.hl7.org/CodeSystem/consentcategorycodes"
       },
       {
         "id": "Consent.category.coding.code",

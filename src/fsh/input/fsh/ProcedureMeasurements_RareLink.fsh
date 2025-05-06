@@ -23,7 +23,7 @@ Description: "A RareLink-specific profile for the IPS Procedure resource."
 
 * bodySite 0..*
 * bodySite.coding 0..*
-* bodySite.coding.system from SNOMEDCT (required)
+* bodySite.coding.system = "http://snomed.info/sct"
 * bodySite.coding.code MS
 
 * status 1..1

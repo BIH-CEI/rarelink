@@ -176,6 +176,26 @@
     },
     {
       "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 6.2
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y0M"
+        }
+      }
+    },
+    {
+      "assay": {
         "id": "LOINC:63364-4",
         "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
       },
