@@ -179,10 +179,7 @@
       {
         "id": "Observation.method.coding.system",
         "path": "Observation.method.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Observation.method.coding.code",

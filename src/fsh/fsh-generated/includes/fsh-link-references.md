@@ -20,7 +20,6 @@
 [EncounterClassVS]: ValueSet-encounter-class-vs.html
 [FamilySexVS]: ValueSet-family-sex-vs.html
 [FamilyRelationshipVS]: ValueSet-family-relationship-vs.html
-[GenderIdentityVS]: ValueSet-gender-identity-vs.html
 [GenomicSourceClassVS]: ValueSet-genomic-source-class-vs.html
 [KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [LevelOfEvidenceVS]: ValueSet-level-of-evidence-vs.html

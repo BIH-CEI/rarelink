@@ -112,10 +112,7 @@
       {
         "id": "Patient.identifier.type.coding.system",
         "path": "Patient.identifier.type.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "Patient.identifier.type.coding.code",
@@ -146,14 +143,6 @@
         "id": "Patient.name.extension:dataAbsentReason.value[x]",
         "path": "Patient.name.extension.value[x]",
         "patternCode": "unknown"
-      },
-      {
-        "id": "Patient.gender",
-        "path": "Patient.gender",
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/gender-identity-vs"
-        }
       },
       {
         "id": "Patient.deceased[x]",

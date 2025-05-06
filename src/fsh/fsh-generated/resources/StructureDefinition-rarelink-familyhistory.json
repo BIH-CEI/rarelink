@@ -89,10 +89,7 @@
       {
         "id": "FamilyMemberHistory.relationship.coding.system",
         "path": "FamilyMemberHistory.relationship.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://snomed.info/sct"
-        }
+        "patternUri": "http://snomed.info/sct"
       },
       {
         "id": "FamilyMemberHistory.relationship.coding.code",
