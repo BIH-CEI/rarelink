@@ -48,5 +48,5 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 
 * method 0..1 // CodeableConcept
 * method.coding 0..*
-* method.coding.system from SNOMEDCT (extensible)
+* method.coding.system = "http://snomed.info/sct"
 * method.coding.code MS

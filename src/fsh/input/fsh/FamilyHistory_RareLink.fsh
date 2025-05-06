@@ -15,7 +15,7 @@ Description: "A RareLink-specific FamilyMemberHistory profile based on the Famil
 
 * relationship 1..1
 * relationship.coding 1..1
-* relationship.coding.system from SNOMEDCT (required)
+* relationship.coding.system = "http://snomed.info/sct"
 * relationship.coding.code from FamilyRelationshipVS (required)
 
 * sex 0..1

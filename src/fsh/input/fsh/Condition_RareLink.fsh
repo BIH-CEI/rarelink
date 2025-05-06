@@ -8,10 +8,10 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 * code 1..1
 
 * clinicalStatus 1..1
-* clinicalStatus from http://terminology.hl7.org/CodeSystem/condition-clinical (required)
+* clinicalStatus from http://terminology.hl7.org/ValueSet/condition-clinical (required) (required)
 
 * verificationStatus 1..1
-* verificationStatus from http://terminology.hl7.org/CodeSystem/condition-ver-status (required)
+* verificationStatus from http://terminology.hl7.org/ValueSet/condition-ver-status (required)
 
 * severity 0..1
 * severity.coding 0..1
