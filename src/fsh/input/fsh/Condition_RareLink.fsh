@@ -35,7 +35,6 @@ Description: "A RareLink-specific Condition profile based on the IPS Condition p
 * extension contains AgeAtDiagnosis named age_at_diagnosis 0..1
 * extension contains AgeAtOnset named age_at_onset 0..1
 
-* extension[AgeAtDiagnosis]
 Extension: AgeAtDiagnosis
 Id: age-at-diagnosis
 Title: "Age at Diagnosis"
@@ -43,7 +42,6 @@ Description: "ERDRI-CDS - The age at which the condition was diagnosed."
 * value[x] only CodeableConcept
 * valueCodeableConcept from AgeAtDiagnosisVS (extensible)
 
-* extension[AgeAtOnset]
 Extension: AgeAtOnset
 Id: age-at-onset
 Title: "Age at Onset"
