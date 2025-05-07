@@ -132,10 +132,6 @@ Description: "
 * code.coding.code = #diagnostic-implication (exactly)
 * code.coding.version = "3.0.0"
 
-* derivedFrom ^slicing.discriminator[0].type = #pattern
-* derivedFrom ^slicing.discriminator[0].path = "$this"
-* derivedFrom ^slicing.rules = #open
-
 * derivedFrom contains rarelinkVariant 1..1
 * derivedFrom[rarelinkVariant].reference 1..1
 
