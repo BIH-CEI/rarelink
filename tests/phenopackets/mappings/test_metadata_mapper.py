@@ -4,7 +4,7 @@ from unittest.mock import Mock, patch
 
 from rarelink.phenopackets.mappings.metadata_mapper import MetadataMapper
 from phenopackets import MetaData
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
+from rarelink_cdm.v2_0_0.datamodel import CodeSystemsContainer
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)

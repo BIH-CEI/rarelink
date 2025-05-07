@@ -1,0 +1,396 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/encounter-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EncounterStatus",
+      "title" : "EncounterStatus",
+      "description" : "Current state of the encounter.",
+      "systems" : ["http://hl7.org/fhir/encounter-status"],
+      "oids" : ["2.16.840.1.113883.4.642.3.246"],
+      "sources" : ["2.16.840.1.113883.4.642.3.246"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-encounter.html" : "RareLink Encounter"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/event-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EventStatus",
+      "title" : "EventStatus",
+      "description" : "Codes identifying the lifecycle stage of an event.",
+      "systems" : ["http://hl7.org/fhir/event-status"],
+      "oids" : ["2.16.840.1.113883.4.642.3.109"],
+      "sources" : ["2.16.840.1.113883.4.642.3.109"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-ips-procedure.html" : "RareLink IPS Procedure"
+    },
+    {
+      "url" : "http://hl7.org/fhir/ValueSet/observation-vitalsignresult",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "VitalSigns",
+      "title" : "Vital Signs",
+      "description" : "This value set indicates the allowed vital sign result types.   The LOINC code for Vitals Signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4).",
+      "systems" : ["http://loinc.org"],
+      "oids" : ["2.16.840.1.113883.3.88.12.80.62"],
+      "sources" : ["2.16.840.1.113883.3.88.12.80.62"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-observation-vital-signs.html" : "RareLink Vital Signs Measurements"
+    },
+    {
+      "url" : "http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips",
+      "version" : "2.0.0-ballot",
+      "status" : "active",
+      "name" : "ProceduresUvIps",
+      "title" : "Procedures - IPS",
+      "description" : "IPS Procedure codes value set.  This value set includes codes from SNOMED CT®: all descendants of 71388002 \\|Procedure (procedure)\\|; excluding [all descendants or self of 14734007 \\|Administrative procedure (procedure)\\|; all descendants or self of 59524001 \\|Blood bank procedure (procedure)\\|; all descendants or self of 389067005 \\|Community health procedure (procedure)\\|; all descendants or self of 442006003 \\|Determination of information related to transfusion (procedure)\\|; all descendants or self of 225288009 \\|Environmental care procedure (procedure)\\|; all descendants or self of 308335008 \\|Patient encounter procedure (procedure)\\|; all descendants or self of 710135002 \\|Promotion (procedure)\\|; all descendants or self of 389084004 \\|Staff related procedure (procedure)\\|]; including all descendants or self of 787480003 \\|No known procedures (situation)\\|\n\nSNOMED CT® ECL definition:\\\n(< 71388002 \\|Procedure (procedure)\\| MINUS (\\<\\< 14734007 \\|Administrative procedure (procedure)\\| OR \\<\\< 59524001 \\|Blood bank procedure (procedure)\\| OR \\<\\< 389067005 \\|Community health procedure (procedure)\\| OR \\<\\< 442006003 \\|Determination of information related to transfusion (procedure)\\| OR \\<\\< 225288009 \\|Environmental care procedure (procedure)\\| OR \\<\\< 308335008 \\|Patient encounter procedure (procedure)\\| OR \\<\\< 710135002 \\|Promotion (procedure)\\| OR \\<\\< 389084004 \\|Staff related procedure (procedure)\\|)) OR << 787480003 \\|No known procedures (situation)\\|",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-ips-procedure.html" : "RareLink IPS Procedure"
+    },
+    {
+      "url" : "http://terminology.hl7.org/ValueSet/condition-clinical",
+      "version" : "1.0.1",
+      "status" : "active",
+      "name" : "ConditionClinicalStatusCodes",
+      "title" : "Condition Clinical Status Codes",
+      "description" : "Preferred value set for Condition Clinical Status.",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/condition-clinical"],
+      "oids" : ["2.16.840.1.113883.4.642.3.164"],
+      "sources" : ["2.16.840.1.113883.4.642.3.164"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-ips-condition.html" : "RareLink IPS Condition"
+    },
+    {
+      "url" : "http://terminology.hl7.org/ValueSet/condition-ver-status",
+      "version" : "1.0.1",
+      "status" : "active",
+      "name" : "ConditionVerificationStatus",
+      "title" : "ConditionVerificationStatus",
+      "description" : "The verification status to support or decline the clinical status of the condition or diagnosis.",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/condition-ver-status"],
+      "oids" : ["2.16.840.1.113883.4.642.3.166"],
+      "sources" : ["2.16.840.1.113883.4.642.3.166"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-ips-condition.html" : "RareLink IPS Condition"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-diagnosis-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "AgeAtDiagnosisVS",
+      "title" : "Age at Diagnosis Value Set",
+      "description" : "Value set for capturing age at diagnosis.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-age-at-diagnosis.html" : "Age at Diagnosis"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-onset-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "AgeAtOnsetVS",
+      "title" : "Age at Onset Value Set",
+      "description" : "Value set for capturing age at onset.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-age-at-onset.html" : "Age at Onset"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-category-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "AgeCategoryVS",
+      "title" : "Age Category Value Set",
+      "description" : "Value set for capturing the age category of a patient.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-observation-age-category.html" : "RareLink Observation Age Category"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "AgeOfOnsetVS",
+      "title" : "Age of Onset Value Set",
+      "description" : "Value set for capturing the age of onset for phenotypes.",
+      "systems" : ["http://purl.obolibrary.org/obo/hp.owl"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-phenotypic-feature.html" : "RareLink Observation Phenotypic Feature"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/agreement-to-be-contacted-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "AgreementToBeContactedVS",
+      "title" : "Agreement to Be Contacted Value Set",
+      "description" : "Value set for capturing agreement to be contacted for research.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-agreement-to-be-contacted.html" : "Agreement to Be Contacted"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "ClinicalSignificanceVS",
+      "title" : "Clinical Significance Value Set",
+      "description" : "LOINC LA codes for the clinical significance of a variant.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-diagnostic-implication.html" : "RareLink Diagnostic Implication Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/consanguinity-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "ConsanguinityVS",
+      "title" : "Consanguinity Value Set",
+      "description" : "Value set for indicating whether there is consanguinity in the family relationship.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-consanguinity.html" : "Consanguinity"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/consent-to-reuse-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "ConsentToReuseVS",
+      "title" : "Consent to Reuse Data Value Set",
+      "description" : "Value set for capturing consent to reuse data.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-consent-to-reuse-data.html" : "Consent to Reuse Data"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "DNAChangeTypeVS",
+      "title" : "DNA Change Type Value Set",
+      "description" : "LOINC LA codes enumerating various DNA change types.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-genetic-variant.html" : "RareLink Genetic Variant Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/encounter-class-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "EncounterClassVS",
+      "title" : "Encounter Class Value Set",
+      "description" : "Value set for encounter classes, including custom RareLink-specific codes.",
+      "systems" : [
+        "http://hl7.org/fhir/R4",
+        "http://github.com/BIH-CEI/RareLink",
+        "http://snomed.info/sct"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-encounter.html" : "RareLink Encounter"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "FamilyRelationshipVS",
+      "title" : "Family Relationship Value Set",
+      "description" : "Value set for capturing family member relationships.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-familyhistory.html" : "RareLink Family History"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-sex-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "FamilySexVS",
+      "title" : "Family Member Sex Value Set",
+      "description" : "Value set for capturing the sex of a family member.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-familyhistory.html" : "RareLink Family History"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "GenomicSourceClassVS",
+      "title" : "Genomic Source Class Value Set",
+      "description" : "LOINC LA codes enumerating germline, somatic, fetal, etc.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-genetic-variant.html" : "RareLink Genetic Variant Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/karyotypic-sex-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "KaryotypicSexVS",
+      "title" : "Karyotypic Sex Value Set",
+      "description" : "Value set for capturing karyotypic sex.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-karyotypic-sex.html" : "RareLink Observation Karyotypic Sex"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "LevelOfEvidenceVS",
+      "title" : "Level of Evidence Value Set",
+      "description" : "LOINC LA codes describing evidence strength for a variant.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-diagnostic-implication.html" : "RareLink Diagnostic Implication Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotype-status-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "PhenotypeStatusVS",
+      "title" : "Phenotype Status Value Set",
+      "description" : "Value set for capturing phenotype status.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-phenotype-status.html" : "Phenotype Status"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotypie-severity-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "PhenotypeSeverityVS",
+      "title" : "Phenotype Severity Value Set",
+      "description" : "Value set for capturing phenotype severity.",
+      "systems" : ["http://purl.obolibrary.org/obo/hp.owl"]
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/propositus-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "PropositusVS",
+      "title" : "Propositus Value Set",
+      "description" : "Value set for indicating whether the family member is the propositus.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-propositus.html" : "Propositus"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "ReferenceGenomeVS",
+      "title" : "Reference Genome Value Set",
+      "description" : "LOINC LA codes specifying the reference genome build.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-genetic-variant.html" : "RareLink Genetic Variant Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "SeverityVS",
+      "title" : "Severity Value Set",
+      "description" : "Value set for severity levels of conditions.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-ips-condition.html" : "RareLink IPS Condition"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/sex-at-birth-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "SexAtBirthVS",
+      "title" : "Sex at Birth Value Set",
+      "description" : "Value set for capturing the sex assigned at birth.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-recorded-sex-at-birth.html" : "Recorded Sex at Birth"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-method-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "StructuralVariantMethodVS",
+      "title" : "Structural Variant Method Value Set",
+      "description" : "LOINC LA codes enumerating methods for detecting structural variants.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-genetic-variant.html" : "RareLink Genetic Variant Observation"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "TemporalPatternVS",
+      "title" : "Temporal Pattern Value Set",
+      "description" : "Value set for capturing the temporal pattern of phenotypic features.",
+      "systems" : ["http://purl.obolibrary.org/obo/hp.owl"]
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/undiagnosed-rd-case-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "UndiagnosedRDCaseVS",
+      "title" : "Undiagnosed Rare Disease Case Value Set",
+      "description" : "Value set for capturing undiagnosed rare disease cases.",
+      "systems" : ["http://snomed.info/sct", "http://www.orpha.net/ORDO"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-condition-undiagnosed-rd-case.html" : "RareLink Condition for Undiagnosed RD Case"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "VitalStatusVS",
+      "title" : "Vital Status Value Set",
+      "description" : "Value set for capturing the vital status of the patient.",
+      "systems" : ["http://snomed.info/sct"],
+      "uses" : {
+      },
+      "StructureDefinition-vital-status.html" : "Vital Status"
+    },
+    {
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs",
+      "version" : "2.0.0",
+      "status" : "draft",
+      "name" : "ZygosityVS",
+      "title" : "Zygosity Value Set",
+      "description" : "LOINC LA codes enumerating various zygosity states.",
+      "systems" : ["http://loinc.org"],
+      "uses" : {
+      },
+      "StructureDefinition-rarelink-genetic-variant.html" : "RareLink Genetic Variant Observation"
+    }
+  ]
+}

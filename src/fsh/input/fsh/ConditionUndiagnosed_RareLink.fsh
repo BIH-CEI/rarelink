@@ -1,5 +1,5 @@
 Alias: SNOMEDCT = http://snomed.info/sct
-Alias: ORPHANET = http://www.orpha.net/
+Alias: ORPHANET = http://www.orpha.net/ORDO
 
 Profile: RareLinkConditionUndiagnosedRDCase
 Parent: Condition-uv-ips
@@ -17,7 +17,6 @@ Description: "A RareLink-specific Condition profile for documenting undiagnosed 
 * subject.identifier 0..1 MS
 
 * recordedDate 0..1
-
 
 ValueSet: UndiagnosedRDCaseVS
 Id: undiagnosed-rd-case-vs

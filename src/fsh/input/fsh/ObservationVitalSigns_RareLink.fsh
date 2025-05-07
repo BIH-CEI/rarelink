@@ -1,6 +1,3 @@
-Alias: HL7FHIR = http://hl7.org/fhir/R4/
-Alias: NCIT = https://ncit.nci.nih.gov/
-
 Profile: RareLinkIPSMeasurementsVitalSigns
 Parent: Observation
 Id: rarelink-observation-vital-signs
@@ -33,10 +30,10 @@ Description: "A RareLink-specific profile for vital signs measurements."
 
 * interpretation 0..*
 * interpretation.coding 0..1
-* interpretation.coding.system from NCIT (required)
+* interpretation.coding.system = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
 * interpretation.coding.code MS
 
 * method 0..1
 * method.coding 0..*
-* method.coding.system from LOINC (extensible)
+* method.coding.system = "http://loinc.org"
 * method.coding.code MS

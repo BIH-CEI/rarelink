@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>ValueSet-encounter-class-vs-validation</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<table class="grid">
+<tr><td><b>Level</b></td><td><b>Type</b></td><td><b>Location</b></td><td><b>Message</b></td></tr>
+<tr><td>warning</td><td>invalid</td><td>ValueSet/encounter-class-vs: ValueSet.compose.include[1].system</td><td>URL value 'http://github.com/BIH-CEI/RareLink' does not resolve</td><td></td></tr>
+<tr><td>warning</td><td>business-rule</td><td>ValueSet/encounter-class-vs: ValueSet.compose.include[0]</td><td>Unknown System 'http://hl7.org/fhir/R4' specified, so Concepts and Filters can't be checked (Details: A definition for CodeSystem 'http://hl7.org/fhir/R4' could not be found, so the code cannot be validated)</td><td></td></tr>
+<tr><td>warning</td><td>business-rule</td><td>ValueSet/encounter-class-vs: ValueSet.compose.include[1]</td><td>Unknown System 'http://github.com/BIH-CEI/RareLink' specified, so Concepts and Filters can't be checked (Details: A definition for CodeSystem 'http://github.com/BIH-CEI/RareLink' could not be found, so the code cannot be validated)</td><td></td></tr>
+<tr><td>warning</td><td>required</td><td>ValueSet/encounter-class-vs: ValueSet</td><td>Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present</td><td></td></tr>
+<tr><td>information</td><td>informational</td><td>ValueSet/encounter-class-vs: ValueSet</td><td>Validate resource against profile http://hl7.org/fhir/StructureDefinition/ValueSet|4.0.1</td><td></td></tr>
+</table>
+</body>
+</html>

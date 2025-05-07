@@ -1,0 +1,479 @@
+{
+  "package": "rarelink-ig",
+  "version": "2.0.0",
+  "fhirVersion": "4.0.1",
+  "extensions": [
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis",
+      "title": "Age at Diagnosis",
+      "types": [
+        "CodeableConcept"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset",
+      "title": "Age at Onset",
+      "types": [
+        "CodeableConcept"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted",
+      "title": "Agreement to Be Contacted",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/birthplace",
+      "title": "Birth Place",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death",
+      "title": "Cause of Death",
+      "types": [
+        "base64Binary",
+        "boolean",
+        "canonical",
+        "code",
+        "date",
+        "dateTime",
+        "decimal",
+        "id",
+        "instant",
+        "integer",
+        "markdown",
+        "oid",
+        "positiveInt",
+        "string",
+        "time",
+        "unsignedInt",
+        "uri",
+        "url",
+        "uuid",
+        "Address",
+        "Age",
+        "Annotation",
+        "Attachment",
+        "CodeableConcept",
+        "Coding",
+        "ContactPoint",
+        "Count",
+        "Distance",
+        "Duration",
+        "HumanName",
+        "Identifier",
+        "Money",
+        "Period",
+        "Quantity",
+        "Range",
+        "Ratio",
+        "Reference",
+        "SampledData",
+        "Signature",
+        "Timing",
+        "ContactDetail",
+        "Contributor",
+        "DataRequirement",
+        "Expression",
+        "ParameterDefinition",
+        "RelatedArtifact",
+        "TriggerDefinition",
+        "UsageContext",
+        "Dosage",
+        "Meta"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-code",
+      "title": "Cause of Death Code",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition",
+      "title": "Cause of Death Definition",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity",
+      "title": "Consanguinity",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data",
+      "title": "Consent to Reuse Data",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission",
+      "title": "Date of Admission",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-modifier",
+      "title": "Phenotype Modifier",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status",
+      "title": "Phenotype Status",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus",
+      "title": "Propositus",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth",
+      "title": "Recorded Sex at Birth",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date",
+      "title": "Resolution Date",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status",
+      "title": "Vital Status",
+      "types": [
+        "CodeableConcept"
+      ]
+    }
+  ],
+  "profiles": {
+    "Condition": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-condition",
+        "title": "RareLink IPS Condition"
+      }
+    ],
+    "Consent": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-consent",
+        "title": "RareLink Consent"
+      }
+    ],
+    "Observation": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-karyotypic-sex",
+        "title": "RareLink Observation Karyotypic Sex"
+      },
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-age-category",
+        "title": "RareLink Observation Age Category"
+      },
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-gestation-at-birth",
+        "title": "RareLink Observation Gestation at Birth"
+      },
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-measurements-others",
+        "title": "RareLink Observation Measurements (Others)"
+      },
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-vital-signs",
+        "title": "RareLink Vital Signs Measurements"
+      },
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-phenotypic-feature",
+        "title": "RareLink Observation Phenotypic Feature"
+      }
+    ],
+    "Encounter": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-encounter",
+        "title": "RareLink Encounter"
+      }
+    ],
+    "FamilyMemberHistory": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-familyhistory",
+        "title": "RareLink Family History"
+      }
+    ],
+    "Patient": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient",
+        "title": "RareLink IPS Patient"
+      }
+    ],
+    "Procedure": [
+      {
+        "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-procedure",
+        "title": "RareLink IPS Procedure"
+      }
+    ]
+  },
+  "usage": {
+    "http://hl7.org/fhir/StructureDefinition/bodySite": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/data-absent-reason": [
+      "Observation.effective[x]",
+      "Observation.performer",
+      "Patient.name",
+      "Procedure.performed[x]",
+      "StructureDefinition.differential.element",
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support": [
+      "StructureDefinition.differential.element.type",
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/regex": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/translation": [
+      "Condition.bodySite.coding.display",
+      "Condition.code.coding.display",
+      "Condition.severity.coding.display",
+      "Observation.category.coding.display",
+      "Procedure.bodySite.coding.display",
+      "Procedure.code.coding.display"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/workflow-relatedArtifact": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/additional-binding": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name": [
+      "ImplementationGuide.definition.page",
+      "ImplementationGuide.definition.page.page"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment": [
+      "ImplementationGuide.dependsOn"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/resource-information": [
+      "ImplementationGuide.definition.resource"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version": [
+      "StructureDefinition.snapshot"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-risk-assessment": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/repeat-motif-order": [
+      "Observation.component"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/workflow-relatedArtifactComponent": [
+      "Observation.component"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis": [
+      "Condition"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset": [
+      "Condition"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted": [
+      "Consent"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/birthplace": [
+      "Patient"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death": [
+      "Patient"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-code": [
+      "Extension"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition": [
+      "Extension"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity": [
+      "FamilyMemberHistory"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data": [
+      "Consent"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission": [
+      "Patient"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-modifier": [
+      "Observation"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status": [
+      "Observation"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus": [
+      "FamilyMemberHistory"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth": [
+      "Patient"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date": [
+      "Observation"
+    ],
+    "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status": [
+      "Patient"
+    ]
+  }
+}

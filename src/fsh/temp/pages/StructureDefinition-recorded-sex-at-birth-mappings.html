@@ -1,0 +1,27 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='recorded-sex-at-birth' %}
+
+{% include fragment-pagebegin.html %}
+<div style="counter-reset: section 5" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='recorded-sex-at-birth' active='mapping' %}
+
+<a name="root"> </a>
+<h2 id="root">{{modelType}}: RecordedSexAtBirth - Mappings</h2>
+{% include fragment-simpletable.html %}
+
+<p>Mappings for the recorded-sex-at-birth {{modelType | downcase }}.</p>
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html type='StructureDefinition' id='recorded-sex-at-birth' %}
+
+  {%include StructureDefinition-recorded-sex-at-birth-maps.xhtml%}
+
+  <!-- insert notes if present -->
+  {% include fragment-notes.html type='StructureDefinition' id='recorded-sex-at-birth' %}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

@@ -1,5 +1,4 @@
 Alias: SNOMEDCT = http://snomed.info/sct
-Alias: HL7FHIR = http://hl7.org/fhir/R4/
 
 Profile: RareLinkIPSProcedure
 Parent: Procedure-uv-ips
@@ -16,10 +15,6 @@ Description: "A RareLink-specific profile for the IPS Procedure resource."
 * subject only Reference(RareLinkIPSPatient)
 * subject.reference 1..1 MS
 * subject.identifier 0..1 MS
-
-
-* performed[x] 1..1
-* performedDateTime MS
 
 * bodySite 0..*
 * bodySite.coding 0..*

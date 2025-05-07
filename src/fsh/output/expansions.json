@@ -1,0 +1,1938 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "71064b84-c697-47f1-95a3-d65b87ca1068",
+  "meta" : {
+    "lastUpdated" : "2025-05-08T01:04:21.411+09:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-diagnosis-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-118189007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/118189007\">118189007</a></td><td>http://snomed.info/sct</td><td>Prenatal finding</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-3950001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/3950001\">3950001</a></td><td>http://snomed.info/sct</td><td>Birth</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-410672004\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/410672004\">410672004</a></td><td>http://snomed.info/sct</td><td>Date property (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-diagnosis-vs",
+      "version" : "2.0.0",
+      "name" : "AgeAtDiagnosisVS",
+      "title" : "Age at Diagnosis Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:c8caf8bd-b5cc-49f6-9342-2b0246f5a4a3",
+        "timestamp" : "2025-05-08T01:05:32+09:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "118189007",
+          "display" : "Prenatal finding"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "3950001",
+          "display" : "Birth"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "410672004",
+          "display" : "Date property (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-onset-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-118189007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/118189007\">118189007</a></td><td>http://snomed.info/sct</td><td>Prenatal finding</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-3950001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/3950001\">3950001</a></td><td>http://snomed.info/sct</td><td>Birth</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-410672004\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/410672004\">410672004</a></td><td>http://snomed.info/sct</td><td>Date property (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-onset-vs",
+      "version" : "2.0.0",
+      "name" : "AgeAtOnsetVS",
+      "title" : "Age at Onset Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:65fc66bd-7fb4-4501-9e14-4d50e7568b37",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "118189007",
+          "display" : "Prenatal finding"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "3950001",
+          "display" : "Birth"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "410672004",
+          "display" : "Date property (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-category-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 8 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-3658006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/3658006\">3658006</a></td><td>http://snomed.info/sct</td><td>Infancy</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-713153009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/713153009\">713153009</a></td><td>http://snomed.info/sct</td><td>Toddler</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-255398004\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/255398004\">255398004</a></td><td>http://snomed.info/sct</td><td>Childhood</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-263659003\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/263659003\">263659003</a></td><td>http://snomed.info/sct</td><td>Adolescence</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-41847000\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/41847000\">41847000</a></td><td>http://snomed.info/sct</td><td>Adulthood</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-303112003\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/303112003\">303112003</a></td><td>http://snomed.info/sct</td><td>Fetal period</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-419099009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/419099009\">419099009</a></td><td>http://snomed.info/sct</td><td>Dead (finding)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-category-vs",
+      "version" : "2.0.0",
+      "name" : "AgeCategoryVS",
+      "title" : "Age Category Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:9b60cb0f-0eba-4682-b503-3f56f4025870",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 8,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "3658006",
+          "display" : "Infancy"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "713153009",
+          "display" : "Toddler"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "255398004",
+          "display" : "Childhood"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "263659003",
+          "display" : "Adolescence"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "41847000",
+          "display" : "Adulthood"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "303112003",
+          "display" : "Fetal period"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "419099009",
+          "display" : "Dead (finding)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.ontoserver.csiro.au based on codesystem hp.owl version20221005</p><p>This value set contains 10 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011460\"> </a>\u00a0\u00a0HP:0011460</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Embryonal onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011461\"> </a>\u00a0\u00a0HP:0011461</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Fetal onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003577\"> </a>\u00a0\u00a0HP:0003577</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Congenital onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003623\"> </a>\u00a0\u00a0HP:0003623</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Neonatal onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003593\"> </a>\u00a0\u00a0HP:0003593</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Infantile onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011463\"> </a>\u00a0\u00a0HP:0011463</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Childhood onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003621\"> </a>\u00a0\u00a0HP:0003621</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Juvenile onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011462\"> </a>\u00a0\u00a0HP:0011462</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Young adult onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003596\"> </a>\u00a0\u00a0HP:0003596</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Middle age onset</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0003584\"> </a>\u00a0\u00a0HP:0003584</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Late onset</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs",
+      "version" : "2.0.0",
+      "name" : "AgeOfOnsetVS",
+      "title" : "Age of Onset Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:efefcb75-8ae9-4b4f-b8b1-b58794d6934d",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 10,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        }],
+        "contains" : [{
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011460",
+          "display" : "Embryonal onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011461",
+          "display" : "Fetal onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003577",
+          "display" : "Congenital onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003623",
+          "display" : "Neonatal onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003593",
+          "display" : "Infantile onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011463",
+          "display" : "Childhood onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003621",
+          "display" : "Juvenile onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011462",
+          "display" : "Young adult onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003596",
+          "display" : "Middle age onset"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0003584",
+          "display" : "Late onset"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/agreement-to-be-contacted-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 3 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373066001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373066001\">373066001</a></td><td>http://snomed.info/sct</td><td>Yes (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373067005\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373067005\">373067005</a></td><td>http://snomed.info/sct</td><td>No (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/agreement-to-be-contacted-vs",
+      "version" : "2.0.0",
+      "name" : "AgreementToBeContactedVS",
+      "title" : "Agreement to Be Contacted Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:92a05e50-03f3-468a-a78c-f1b63ef73eb3",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "373066001",
+          "display" : "Yes (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "373067005",
+          "display" : "No (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 6 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6668-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6668-3/\">LA6668-3</a></td><td>http://loinc.org</td><td>Pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26332-9\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26332-9/\">LA26332-9</a></td><td>http://loinc.org</td><td>Likely pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26333-7\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26333-7/\">LA26333-7</a></td><td>http://loinc.org</td><td>Uncertain significance</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26334-5\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26334-5/\">LA26334-5</a></td><td>http://loinc.org</td><td>Likely benign</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6675-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6675-8/\">LA6675-8</a></td><td>http://loinc.org</td><td>Benign</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA4489-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA4489-6/\">LA4489-6</a></td><td>http://loinc.org</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs",
+      "version" : "2.0.0",
+      "name" : "ClinicalSignificanceVS",
+      "title" : "Clinical Significance Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:66fa57da-9117-415e-9d0a-27acfb27ebc5",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 6,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA6668-3",
+          "display" : "Pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26332-9",
+          "display" : "Likely pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26333-7",
+          "display" : "Uncertain significance"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26334-5",
+          "display" : "Likely benign"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6675-8",
+          "display" : "Benign"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA4489-6",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/consanguinity-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373066001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373066001\">373066001</a></td><td>http://snomed.info/sct</td><td>Yes (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373067005\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373067005\">373067005</a></td><td>http://snomed.info/sct</td><td>No (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-1220561009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>http://snomed.info/sct</td><td>Not recorded (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/consanguinity-vs",
+      "version" : "2.0.0",
+      "name" : "ConsanguinityVS",
+      "title" : "Consanguinity Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:e01bedd5-a356-4c34-849c-38340ad4103d",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "373066001",
+          "display" : "Yes (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "373067005",
+          "display" : "No (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1220561009",
+          "display" : "Not recorded (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/consent-to-reuse-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 3 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373066001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373066001\">373066001</a></td><td>http://snomed.info/sct</td><td>Yes (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373067005\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373067005\">373067005</a></td><td>http://snomed.info/sct</td><td>No (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/consent-to-reuse-vs",
+      "version" : "2.0.0",
+      "name" : "ConsentToReuseVS",
+      "title" : "Consent to Reuse Data Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:0b29336c-3f88-4282-8224-e8401c2d44d3",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "373066001",
+          "display" : "Yes (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "373067005",
+          "display" : "No (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 7 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA9658-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA9658-1/\">LA9658-1</a></td><td>http://loinc.org</td><td>Wild type</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6692-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6692-3/\">LA6692-3</a></td><td>http://loinc.org</td><td>Deletion</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6686-5\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6686-5/\">LA6686-5</a></td><td>http://loinc.org</td><td>Duplication</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6687-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6687-3/\">LA6687-3</a></td><td>http://loinc.org</td><td>Insertion</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6688-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6688-1/\">LA6688-1</a></td><td>http://loinc.org</td><td>Insertion/Deletion</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6689-9\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6689-9/\">LA6689-9</a></td><td>http://loinc.org</td><td>Inversion</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6690-7\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6690-7/\">LA6690-7</a></td><td>http://loinc.org</td><td>Substitution</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs",
+      "version" : "2.0.0",
+      "name" : "DNAChangeTypeVS",
+      "title" : "DNA Change Type Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:bb988e1d-8148-4b8b-9ae4-6b1bee0fc041",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 7,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA9658-1",
+          "display" : "Wild type"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6692-3",
+          "display" : "Deletion"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6686-5",
+          "display" : "Duplication"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6687-3",
+          "display" : "Insertion"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6688-1",
+          "display" : "Insertion/Deletion"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6689-9",
+          "display" : "Inversion"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6690-7",
+          "display" : "Substitution"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 12 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-65656005\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/65656005\">65656005</a></td><td>http://snomed.info/sct</td><td>Natural mother</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-9947008\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/9947008\">9947008</a></td><td>http://snomed.info/sct</td><td>Natural father</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-83420006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/83420006\">83420006</a></td><td>http://snomed.info/sct</td><td>Natural daughter</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-113160008\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/113160008\">113160008</a></td><td>http://snomed.info/sct</td><td>Natural son</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-60614009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/60614009\">60614009</a></td><td>http://snomed.info/sct</td><td>Natural brother</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-73678001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/73678001\">73678001</a></td><td>http://snomed.info/sct</td><td>Natural sister</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-11286003\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/11286003\">11286003</a></td><td>http://snomed.info/sct</td><td>Twin sibling</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-45929001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/45929001\">45929001</a></td><td>http://snomed.info/sct</td><td>Half-brother</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-2272004\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/2272004\">2272004</a></td><td>http://snomed.info/sct</td><td>Half-sister</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-62296006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/62296006\">62296006</a></td><td>http://snomed.info/sct</td><td>Natural grand-father</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-17945006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/17945006\">17945006</a></td><td>http://snomed.info/sct</td><td>Natural grand-mother</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-1220561009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>http://snomed.info/sct</td><td>Not recorded (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs",
+      "version" : "2.0.0",
+      "name" : "FamilyRelationshipVS",
+      "title" : "Family Relationship Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:ba86dde0-7a07-41ea-9f14-0e3840e05bd4",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 12,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "65656005",
+          "display" : "Natural mother"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "9947008",
+          "display" : "Natural father"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "83420006",
+          "display" : "Natural daughter"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "113160008",
+          "display" : "Natural son"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "60614009",
+          "display" : "Natural brother"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "73678001",
+          "display" : "Natural sister"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "11286003",
+          "display" : "Twin sibling"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "45929001",
+          "display" : "Half-brother"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "2272004",
+          "display" : "Half-sister"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "62296006",
+          "display" : "Natural grand-father"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "17945006",
+          "display" : "Natural grand-mother"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1220561009",
+          "display" : "Not recorded (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-sex-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 5 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-248152002\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/248152002\">248152002</a></td><td>http://snomed.info/sct</td><td>Female</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-248153007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/248153007\">248153007</a></td><td>http://snomed.info/sct</td><td>Male</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-184115007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/184115007\">184115007</a></td><td>http://snomed.info/sct</td><td>Patient sex unknown</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-32570691000036108\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/32570691000036108\">32570691000036108</a></td><td>http://snomed.info/sct</td><td>Intersex</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-1220561009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>http://snomed.info/sct</td><td>Not recorded (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/family-sex-vs",
+      "version" : "2.0.0",
+      "name" : "FamilySexVS",
+      "title" : "Family Member Sex Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:c6b8c68b-5c86-4030-8738-342bd43b6e8a",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 5,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "248152002",
+          "display" : "Female"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "248153007",
+          "display" : "Male"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "184115007",
+          "display" : "Patient sex unknown"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "32570691000036108",
+          "display" : "Intersex"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1220561009",
+          "display" : "Not recorded (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 8 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6683-2\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6683-2/\">LA6683-2</a></td><td>http://loinc.org</td><td>Germline</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6684-0\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6684-0/\">LA6684-0</a></td><td>http://loinc.org</td><td>Somatic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA10429-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA10429-1/\">LA10429-1</a></td><td>http://loinc.org</td><td>Fetal</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA18194-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA18194-3/\">LA18194-3</a></td><td>http://loinc.org</td><td>Likely germline</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA18195-0\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA18195-0/\">LA18195-0</a></td><td>http://loinc.org</td><td>Likely somatic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA18196-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA18196-8/\">LA18196-8</a></td><td>http://loinc.org</td><td>Likely fetal</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA18197-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA18197-6/\">LA18197-6</a></td><td>http://loinc.org</td><td>Unknown genomic origin</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26807-0\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26807-0/\">LA26807-0</a></td><td>http://loinc.org</td><td>De novo</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs",
+      "version" : "2.0.0",
+      "name" : "GenomicSourceClassVS",
+      "title" : "Genomic Source Class Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:1c98a770-60ce-4448-8d61-0ec133d29a3c",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 8,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA6683-2",
+          "display" : "Germline"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6684-0",
+          "display" : "Somatic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA10429-1",
+          "display" : "Fetal"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA18194-3",
+          "display" : "Likely germline"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA18195-0",
+          "display" : "Likely somatic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA18196-8",
+          "display" : "Likely fetal"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA18197-6",
+          "display" : "Unknown genomic origin"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26807-0",
+          "display" : "De novo"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/karyotypic-sex-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 11 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-734875008\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/734875008\">734875008</a></td><td>http://snomed.info/sct</td><td>Karyotype 46, XX (cell structure)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-734876009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/734876009\">734876009</a></td><td>http://snomed.info/sct</td><td>Karyotype 46, XY (cell structure)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-80427008\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/80427008\">80427008</a></td><td>http://snomed.info/sct</td><td>X0 sex chromosome alteration</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-65162001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/65162001\">65162001</a></td><td>http://snomed.info/sct</td><td>XXY sex chromosome alteration</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-35111009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/35111009\">35111009</a></td><td>http://snomed.info/sct</td><td>Trisomy X syndrome</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-403760006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/403760006\">403760006</a></td><td>http://snomed.info/sct</td><td>XXYY syndrome (disorder)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-78317008\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/78317008\">78317008</a></td><td>http://snomed.info/sct</td><td>XXXY syndrome</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-10567003\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/10567003\">10567003</a></td><td>http://snomed.info/sct</td><td>Four X syndrome</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-48930007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/48930007\">48930007</a></td><td>http://snomed.info/sct</td><td>XYY sex chromosome alteration</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-74964007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/74964007\">74964007</a></td><td>http://snomed.info/sct</td><td>Other</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/karyotypic-sex-vs",
+      "version" : "2.0.0",
+      "name" : "KaryotypicSexVS",
+      "title" : "Karyotypic Sex Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:db8421e4-a845-4712-8450-f7040385ff16",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 11,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "734875008",
+          "display" : "Karyotype 46, XX (cell structure)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "734876009",
+          "display" : "Karyotype 46, XY (cell structure)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "80427008",
+          "display" : "X0 sex chromosome alteration"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "65162001",
+          "display" : "XXY sex chromosome alteration"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "35111009",
+          "display" : "Trisomy X syndrome"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "403760006",
+          "display" : "XXYY syndrome (disorder)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "78317008",
+          "display" : "XXXY syndrome"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "10567003",
+          "display" : "Four X syndrome"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "48930007",
+          "display" : "XYY sex chromosome alteration"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "74964007",
+          "display" : "Other"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 7 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30200-2\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30200-2/\">LA30200-2</a></td><td>http://loinc.org</td><td>Very strong evidence pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30201-0\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30201-0/\">LA30201-0</a></td><td>http://loinc.org</td><td>Strong evidence pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30202-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30202-8/\">LA30202-8</a></td><td>http://loinc.org</td><td>Moderate evidence pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30203-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30203-6/\">LA30203-6</a></td><td>http://loinc.org</td><td>Supporting evidence pathogenic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30204-4\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30204-4/\">LA30204-4</a></td><td>http://loinc.org</td><td>Supporting evidence benign</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30205-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30205-1/\">LA30205-1</a></td><td>http://loinc.org</td><td>Strong evidence benign</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA30206-9\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA30206-9/\">LA30206-9</a></td><td>http://loinc.org</td><td>Stand-alone evidence pathogenic</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs",
+      "version" : "2.0.0",
+      "name" : "LevelOfEvidenceVS",
+      "title" : "Level of Evidence Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:07af4519-b3cc-4075-9bee-ed5b7687983f",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 7,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA30200-2",
+          "display" : "Very strong evidence pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30201-0",
+          "display" : "Strong evidence pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30202-8",
+          "display" : "Moderate evidence pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30203-6",
+          "display" : "Supporting evidence pathogenic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30204-4",
+          "display" : "Supporting evidence benign"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30205-1",
+          "display" : "Strong evidence benign"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA30206-9",
+          "display" : "Stand-alone evidence pathogenic"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotype-status-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 2 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-410605003\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/410605003\">410605003</a></td><td>http://snomed.info/sct</td><td>Confirmed present (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-723511001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/723511001\">723511001</a></td><td>http://snomed.info/sct</td><td>Refuted (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotype-status-vs",
+      "version" : "2.0.0",
+      "name" : "PhenotypeStatusVS",
+      "title" : "Phenotype Status Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:a7a8ab29-3c25-4ef6-848e-01cd7e8d628f",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 2,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "410605003",
+          "display" : "Confirmed present (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "723511001",
+          "display" : "Refuted (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotypie-severity-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.ontoserver.csiro.au based on codesystem hp.owl version20221005</p><p>This value set contains 5 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0012827\"> </a>\u00a0\u00a0HP:0012827</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Borderline</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0012825\"> </a>\u00a0\u00a0HP:0012825</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Mild</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0012826\"> </a>\u00a0\u00a0HP:0012826</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Moderate</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0012829\"> </a>\u00a0\u00a0HP:0012829</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Profound</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0012828\"> </a>\u00a0\u00a0HP:0012828</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Severe</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/phenotypie-severity-vs",
+      "version" : "2.0.0",
+      "name" : "PhenotypeSeverityVS",
+      "title" : "Phenotype Severity Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:c737d172-36ef-4db2-b4ee-43a0b3fcb0e6",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 5,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        }],
+        "contains" : [{
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0012827",
+          "display" : "Borderline"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0012825",
+          "display" : "Mild"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0012826",
+          "display" : "Moderate"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0012829",
+          "display" : "Profound"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0012828",
+          "display" : "Severe"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/propositus-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373066001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373066001\">373066001</a></td><td>http://snomed.info/sct</td><td>Yes (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-373067005\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/373067005\">373067005</a></td><td>http://snomed.info/sct</td><td>No (qualifier value)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-1220561009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>http://snomed.info/sct</td><td>Not recorded (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/propositus-vs",
+      "version" : "2.0.0",
+      "name" : "PropositusVS",
+      "title" : "Propositus Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:97ceb191-5169-4682-852a-277c90b12265",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "373066001",
+          "display" : "Yes (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "373067005",
+          "display" : "No (qualifier value)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1220561009",
+          "display" : "Not recorded (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 5 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA14032-9\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA14032-9/\">LA14032-9</a></td><td>http://loinc.org</td><td>NCBI Build 34</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA14029-5\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA14029-5/\">LA14029-5</a></td><td>http://loinc.org</td><td>GRCh37</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA14030-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA14030-3/\">LA14030-3</a></td><td>http://loinc.org</td><td>NCBI Build 36.1</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA14031-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA14031-1/\">LA14031-1</a></td><td>http://loinc.org</td><td>NCBI Build 35</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26806-2\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26806-2/\">LA26806-2</a></td><td>http://loinc.org</td><td>GRCh38</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs",
+      "version" : "2.0.0",
+      "name" : "ReferenceGenomeVS",
+      "title" : "Reference Genome Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:d5e7b75f-e0c4-46b2-ba7b-8bac1cc2c9bc",
+        "timestamp" : "2025-05-08T01:05:33+09:00",
+        "total" : 5,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA14032-9",
+          "display" : "NCBI Build 34"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA14029-5",
+          "display" : "GRCh37"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA14030-3",
+          "display" : "NCBI Build 36.1"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA14031-1",
+          "display" : "NCBI Build 35"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26806-2",
+          "display" : "GRCh38"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 3 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-24484000\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/24484000\">24484000</a></td><td>http://snomed.info/sct</td><td>Severe</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-6736007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/6736007\">6736007</a></td><td>http://snomed.info/sct</td><td>Midgrade</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-255604002\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/255604002\">255604002</a></td><td>http://snomed.info/sct</td><td>Mild</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs",
+      "version" : "2.0.0",
+      "name" : "SeverityVS",
+      "title" : "Severity Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:b44ae466-4777-471e-942e-416723ac725d",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "24484000",
+          "display" : "Severe"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "6736007",
+          "display" : "Midgrade"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "255604002",
+          "display" : "Mild"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/sex-at-birth-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 5 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-248152002\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/248152002\">248152002</a></td><td>http://snomed.info/sct</td><td>Female</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-248153007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/248153007\">248153007</a></td><td>http://snomed.info/sct</td><td>Male</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-184115007\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/184115007\">184115007</a></td><td>http://snomed.info/sct</td><td>Patient sex unknown</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-32570691000036108\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/32570691000036108\">32570691000036108</a></td><td>http://snomed.info/sct</td><td>Intersex</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-1220561009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>http://snomed.info/sct</td><td>Not recorded (qualifier value)</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/sex-at-birth-vs",
+      "version" : "2.0.0",
+      "name" : "SexAtBirthVS",
+      "title" : "Sex at Birth Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:e4f346ef-2f18-4902-bb77-016a57b62191",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 5,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "248152002",
+          "display" : "Female"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "248153007",
+          "display" : "Male"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "184115007",
+          "display" : "Patient sex unknown"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "32570691000036108",
+          "display" : "Intersex"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1220561009",
+          "display" : "Not recorded (qualifier value)"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-method-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 10 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26406-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26406-1/\">LA26406-1</a></td><td>http://loinc.org</td><td>Karyotyping</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26404-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26404-6/\">LA26404-6</a></td><td>http://loinc.org</td><td>FISH</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26418-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26418-6/\">LA26418-6</a></td><td>http://loinc.org</td><td>PCR</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26419-4\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26419-4/\">LA26419-4</a></td><td>http://loinc.org</td><td>qPCR (real-time PCR)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26400-4\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26400-4/\">LA26400-4</a></td><td>http://loinc.org</td><td>SNP array</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26813-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26813-8/\">LA26813-8</a></td><td>http://loinc.org</td><td>Restriction fragment length polymorphism (RFLP)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26810-4\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26810-4/\">LA26810-4</a></td><td>http://loinc.org</td><td>DNA hybridization</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26398-0\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26398-0/\">LA26398-0</a></td><td>http://loinc.org</td><td>Sequencing</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26415-2\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26415-2/\">LA26415-2</a></td><td>http://loinc.org</td><td>MLPA</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA46-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA46-8/\">LA46-8</a></td><td>http://loinc.org</td><td>Other</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-method-vs",
+      "version" : "2.0.0",
+      "name" : "StructuralVariantMethodVS",
+      "title" : "Structural Variant Method Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:a769e624-cb7a-4ea2-9dac-c777d5c8085e",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 10,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA26406-1",
+          "display" : "Karyotyping"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26404-6",
+          "display" : "FISH"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26418-6",
+          "display" : "PCR"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26419-4",
+          "display" : "qPCR (real-time PCR)"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26400-4",
+          "display" : "SNP array"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26813-8",
+          "display" : "Restriction fragment length polymorphism (RFLP)"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26810-4",
+          "display" : "DNA hybridization"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26398-0",
+          "display" : "Sequencing"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26415-2",
+          "display" : "MLPA"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA46-8",
+          "display" : "Other"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.ontoserver.csiro.au based on codesystem hp.owl version20221005</p><p>This value set contains 8 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011009\"> </a>\u00a0\u00a0HP:0011009</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Acute</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011010\"> </a>\u00a0\u00a0HP:0011010</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Chronic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0031914\"> </a>\u00a0\u00a0HP:0031914</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Fluctuating</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0025297\"> </a>\u00a0\u00a0HP:0025297</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Prolonged</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0031796\"> </a>\u00a0\u00a0HP:0031796</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Recurrent</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0031915\"> </a>\u00a0\u00a0HP:0031915</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Stable</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0011011\"> </a>\u00a0\u00a0HP:0011011</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Subacute</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://purl.obolibrary.org/obo/hp.owl-HP:0025153\"> </a>\u00a0\u00a0HP:0025153</td><td>http://purl.obolibrary.org/obo/hp.owl</td><td>Transient</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs",
+      "version" : "2.0.0",
+      "name" : "TemporalPatternVS",
+      "title" : "Temporal Pattern Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:621ab575-bdfa-443e-8da8-1f78e13ddd6f",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 8,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+        }],
+        "contains" : [{
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011009",
+          "display" : "Acute"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011010",
+          "display" : "Chronic"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0031914",
+          "display" : "Fluctuating"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0025297",
+          "display" : "Prolonged"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0031796",
+          "display" : "Recurrent"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0031915",
+          "display" : "Stable"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0011011",
+          "display" : "Subacute"
+        },
+        {
+          "system" : "http://purl.obolibrary.org/obo/hp.owl",
+          "code" : "HP:0025153",
+          "display" : "Transient"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on SNOMED CT International edition 01-Feb 2025</p><p>This value set contains 5 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-438949009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/438949009\">438949009</a></td><td>http://snomed.info/sct</td><td>Alive (finding)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-419099009\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/419099009\">419099009</a></td><td>http://snomed.info/sct</td><td>Dead (finding)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-399307001\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/399307001\">399307001</a></td><td>http://snomed.info/sct</td><td>Lost to follow-up (finding)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-185924006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/185924006\">185924006</a></td><td>http://snomed.info/sct</td><td>Patient withdrawn from trial</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://snomed.info/sct-261665006\"> </a>\u00a0\u00a0<a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>http://snomed.info/sct</td><td>Unknown</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs",
+      "version" : "2.0.0",
+      "name" : "VitalStatusVS",
+      "title" : "Vital Status Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:23160022-01b9-40fc-84af-ae69018615b5",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 5,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201"
+        }],
+        "contains" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "438949009",
+          "display" : "Alive (finding)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "419099009",
+          "display" : "Dead (finding)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "399307001",
+          "display" : "Lost to follow-up (finding)"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "185924006",
+          "display" : "Patient withdrawn from trial"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "261665006",
+          "display" : "Unknown"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>ValueSet </b></p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion from tx.fhir.org based on Loinc v2.80</p><p>This value set contains 7 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6705-3\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6705-3/\">LA6705-3</a></td><td>http://loinc.org</td><td>Homozygous</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6706-1\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6706-1/\">LA6706-1</a></td><td>http://loinc.org</td><td>Heterozygous</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26217-2\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26217-2/\">LA26217-2</a></td><td>http://loinc.org</td><td>Compound heterozygous</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA26220-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA26220-6/\">LA26220-6</a></td><td>http://loinc.org</td><td>Double heterozygous</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6707-9\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6707-9/\">LA6707-9</a></td><td>http://loinc.org</td><td>Hemizygous</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6703-8\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6703-8/\">LA6703-8</a></td><td>http://loinc.org</td><td>Heteroplasmic</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://loinc.org-LA6704-6\"> </a>\u00a0\u00a0<a href=\"https://loinc.org/LA6704-6/\">LA6704-6</a></td><td>http://loinc.org</td><td>Homoplasmic</td></tr></table></div>"
+      },
+      "url" : "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs",
+      "version" : "2.0.0",
+      "name" : "ZygosityVS",
+      "title" : "Zygosity Value Set",
+      "status" : "draft",
+      "date" : "2025-05-08T01:03:44+09:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:8cc15b92-a97b-4950-b3c9-c187b725be4e",
+        "timestamp" : "2025-05-08T01:05:34+09:00",
+        "total" : 7,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-valueset",
+          "valueUri" : "null"
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://loinc.org|2.80"
+        },
+        {
+          "name" : "version",
+          "valueUri" : "http://loinc.org|2.80"
+        }],
+        "contains" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA6705-3",
+          "display" : "Homozygous"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6706-1",
+          "display" : "Heterozygous"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26217-2",
+          "display" : "Compound heterozygous"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA26220-6",
+          "display" : "Double heterozygous"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6707-9",
+          "display" : "Hemizygous"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6703-8",
+          "display" : "Heteroplasmic"
+        },
+        {
+          "system" : "http://loinc.org",
+          "code" : "LA6704-6",
+          "display" : "Homoplasmic"
+        }]
+      }
+    }
+  }]
+}

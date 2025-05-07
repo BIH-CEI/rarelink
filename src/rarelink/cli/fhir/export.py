@@ -23,7 +23,7 @@ app = typer.Typer()
 
 ENV_PATH = Path(".env")
 REDCAP_PROJECTS_FILE = Path("redcap-project.json")
-DOCKER_COMPOSE_PATH = "src/rarelink/tofhir/v2_0_0_dev1/docker-compose.yml"
+DOCKER_COMPOSE_PATH = "src/rarelink/tofhir/v2_0_0/docker-compose.yml"
 
 
 @app.command()

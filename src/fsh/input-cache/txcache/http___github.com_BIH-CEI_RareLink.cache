@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://github.com/BIH-CEI/RareLink",
+      "concept" : [{
+        "code" : "RDC",
+        "display" : "RD Specialist Center"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://github.com/BIH-CEI/RareLink"
+}
+-------------------------------------------------------------------------------------

@@ -166,7 +166,7 @@ def export(
         try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink-CDM mappings?")
         if try_default:
             try:
-                from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import create_rarelink_phenopacket_mappings
+                from rarelink_cdm.v2_0_0.mappings.phenopackets import create_rarelink_phenopacket_mappings
                 mapping_configs = create_rarelink_phenopacket_mappings()
                 logger.info("Using default RareLink-CDM mappings")
             except ImportError:

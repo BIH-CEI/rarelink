@@ -1,0 +1,51 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='recorded-sex-at-birth' %}
+
+{% include fragment-pagebegin.html %}
+<div style="counter-reset: section 4" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='recorded-sex-at-birth' active='definition' %}
+
+<a name="root"> </a>
+<h2 id="root">{{modelType}}: RecordedSexAtBirth - Detailed Descriptions</h2>
+{% include fragment-simpletable.html %}
+
+<p>Definitions for the recorded-sex-at-birth {{modelType | downcase}}.</p>
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html type='StructureDefinition' id='recorded-sex-at-birth' %}
+
+  <div id="tabs">
+    <ul>
+      <li>
+        <a href="#tabs-diff">Differential Elements Table</a>
+      </li>
+      <li>
+        <a href="#tabs-key">Key Elements Table</a>
+      </li>
+      <li>
+        <a href="#tabs-snap">Snapshot Elements Table</a>
+      </li>
+    </ul>
+    <a name="tabs-diff"> </a>
+    <div id="tabs-diff">
+      {%include StructureDefinition-recorded-sex-at-birth-dict-diff.xhtml%}
+    </div>
+    <a name="tabs-key"> </a>
+    <div id="tabs-key">
+      {%include StructureDefinition-recorded-sex-at-birth-dict-key.xhtml%}
+    </div>
+    <a name="tabs-snap"> </a>
+    <div id="tabs-snap">
+      {%include StructureDefinition-recorded-sex-at-birth-dict.xhtml%}
+    </div>
+  </div>
+
+  <!-- insert notes if present -->
+  {% include fragment-notes.html type='StructureDefinition' id='recorded-sex-at-birth' %}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

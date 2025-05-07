@@ -1,5 +1,5 @@
 Alias: SNOMEDCT = http://snomed.info/sct
-Alias: HP = http://www.human-phenotype-ontology.org
+Alias: HP = http://purl.obolibrary.org/obo/hp.owl
 
 Profile: RareLinkPhenotypicFeature
 Parent: Observation
@@ -17,7 +17,7 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 
 * category 0..*
 * category.coding 0..*
-* category.coding.system from HP (required)
+* category.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
 * category.coding.code from AgeOfOnsetVS (required)
 
 * subject 1..1
@@ -69,36 +69,36 @@ ValueSet: AgeOfOnsetVS
 Id: age-of-onset-vs
 Title: "Age of Onset Value Set"
 Description: "Value set for capturing the age of onset for phenotypes."
-* HP#0011460 "Embryonal onset (0w-8w embryonal)"
-* HP#0011461 "Fetal onset (8w embryonal - birth)"
-* HP#0003577 "Congenital onset (at birth)"
-* HP#0003623 "Neonatal onset (0d-28d)"
-* HP#0003593 "Infantile onset (28d-1y)"
-* HP#0011463 "Childhood onset (1y-5y)"
-* HP#0003621 "Juvenile onset (5y-15y)"
-* HP#0011462 "Young adult onset (16y-40y)"
-* HP#0003596 "Middle age adult onset (40y-60y)"
-* HP#0003584 "Late adult onset (60y+)"
+* HP#HP:0011460 "Embryonal onset (0w-8w embryonal)"
+* HP#HP:0011461 "Fetal onset (8w embryonal - birth)"
+* HP#HP:0003577 "Congenital onset (at birth)"
+* HP#HP:0003623 "Neonatal onset (0d-28d)"
+* HP#HP:0003593 "Infantile onset (28d-1y)"
+* HP#HP:0011463 "Childhood onset (1y-5y)"
+* HP#HP:0003621 "Juvenile onset (5y-15y)"
+* HP#HP:0011462 "Young adult onset (16y-40y)"
+* HP#HP:0003596 "Middle age adult onset (40y-60y)"
+* HP#HP:0003584 "Late adult onset (60y+)"
 
 ValueSet: TemporalPatternVS
 Id: temporal-pattern-vs
 Title: "Temporal Pattern Value Set"
 Description: "Value set for capturing the temporal pattern of phenotypic features."
-* HP#0011009 "Acute"
-* HP#0011010 "Chronic"
-* HP#0031914 "Fluctuating"
-* HP#0025297 "Prolonged"
-* HP#0031796 "Recurrent"
-* HP#0031915 "Stable"
-* HP#0011011 "Subacute"
-* HP#0025153 "Transient"
+* HP#HP:0011009 "Acute"
+* HP#HP:0011010 "Chronic"
+* HP#HP:0031914 "Fluctuating"
+* HP#HP:0025297 "Prolonged"
+* HP#HP:0031796 "Recurrent"
+* HP#HP:0031915 "Stable"
+* HP#HP:0011011 "Subacute"
+* HP#HP:0025153 "Transient"
 
 ValueSet: PhenotypeSeverityVS
 Id: phenotypie-severity-vs
 Title: "Phenotype Severity Value Set"
 Description: "Value set for capturing phenotype severity."
-* HP#0012827 "Borderline"
-* HP#0012825 "Mild"
-* HP#0012826 "Moderate"
-* HP#0012829 "Profound"
-* HP#0012828 "Severe"
+* HP#HP:0012827 "Borderline"
+* HP#HP:0012825 "Mild"
+* HP#HP:0012826 "Moderate"
+* HP#HP:0012829 "Profound"
+* HP#HP:0012828 "Severe"

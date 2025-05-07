@@ -23,9 +23,9 @@ Description: "A RareLink-specific profile for capturing gestation length at birt
 
 // Define slicing for Observation.component
 * component ^slicing.discriminator.type = #pattern
-* component ^slicing.discriminator.path = "valueQuantity.unit"
+* component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #open
-* component contains 
+* component contains
     length_of_gestation_in_weeks 0..1 and
     length_of_gestation_in_days 0..1
 

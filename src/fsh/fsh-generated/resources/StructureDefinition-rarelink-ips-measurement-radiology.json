@@ -75,10 +75,7 @@
       {
         "id": "Observation.interpretation.coding.system",
         "path": "Observation.interpretation.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       },
       {
         "id": "Observation.interpretation.coding.code",
@@ -88,10 +85,7 @@
       {
         "id": "Observation.method.coding.system",
         "path": "Observation.method.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       },
       {
         "id": "Observation.method.coding.code",

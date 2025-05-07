@@ -3,22 +3,18 @@ id: rarelink-ig
 name: RareLinkImplementationGuide
 title: "RareLink Implementation Guide"
 description: >
-  An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR
-  and the IPS 2.0.0 profiles, harmonizing international rare disease registries.
-version: 2.0.0-dev1
+  An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.
+version: 2.0.0
 status: draft
-license: BSD 3-Clause License
+license: BSD-3-Clause
 copyrightYear: 2025
-releaseLabel: 2.0.0.dev1
+releaseLabel: 2.0.0
 fhirVersion: 4.0.1
 publisher:
   name: Berlin Institute of Health - Charité Universitätsmedizin Berlin
   url: https://github.com/BIH-CEI/RareLink
   email: adam.graefe@charite.de
 dependencies:
-  hl7.fhir.r4.core:
-    uri: http://hl7.org/fhir/StructureDefinition/uri
-    version: 4.0.1
   hl7.fhir.uv.ips:
     uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
     version: 2.0.0-ballot
@@ -28,8 +24,8 @@ dependencies:
 menu:
   Home: index.html
   Artifacts:
-    Profiles: artifacts.html#2
-    Extensions: artifacts.html#3
-    Value Sets: artifacts.html#4
+    Profiles: artifacts.html#1
+    Extensions: artifacts.html#2
+    Value Sets: artifacts.html#3  
   Downloads: downloads.html
   History: https://rarelink.readthedocs.io/en/latest/6_changelog.html

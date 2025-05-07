@@ -76,7 +76,7 @@ jobs:
           # Import the actual mapping config
           spec = importlib.util.spec_from_file_location(
               "mapping_config", 
-              "src/rarelink_cdm/v2_0_0_dev1/mappings/phenopackets/combined.py"
+              "src/rarelink_cdm/v2_0_0/mappings/phenopackets/combined.py"
           )
           module = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(module)

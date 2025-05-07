@@ -1,0 +1,27 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='rarelink-condition-undiagnosed-rd-case' %}
+
+{% include fragment-pagebegin.html %}
+<div style="counter-reset: section 5" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='rarelink-condition-undiagnosed-rd-case' active='mapping' %}
+
+<a name="root"> </a>
+<h2 id="root">{{modelType}}: RareLinkConditionUndiagnosedRDCase - Mappings</h2>
+{% include fragment-simpletable.html %}
+
+<p>Mappings for the rarelink-condition-undiagnosed-rd-case {{modelType | downcase }}.</p>
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html type='StructureDefinition' id='rarelink-condition-undiagnosed-rd-case' %}
+
+  {%include StructureDefinition-rarelink-condition-undiagnosed-rd-case-maps.xhtml%}
+
+  <!-- insert notes if present -->
+  {% include fragment-notes.html type='StructureDefinition' id='rarelink-condition-undiagnosed-rd-case' %}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

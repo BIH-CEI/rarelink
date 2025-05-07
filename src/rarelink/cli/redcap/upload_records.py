@@ -15,7 +15,7 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
-from rarelink_cdm.v2_0_0_dev1.mappings.redcap import REVERSE_PROCESSING
+from rarelink_cdm.v2_0_0.mappings.redcap import REVERSE_PROCESSING
 from rarelink.utils.validation import validate_linkml_data
 from rarelink.utils.schema_processing import linkml_to_redcap  
 import logging
@@ -27,8 +27,8 @@ app = typer.Typer()
 REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")
-BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml"
-TEMPLATE_JSON = REPO_ROOT / "src/rarelink_cdm/v2_0_0_dev1/mappings/redcap/template.json"
+BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml"
+TEMPLATE_JSON = REPO_ROOT / "src/rarelink_cdm/v2_0_0/mappings/redcap/template.json"
 
 @app.command()
 def app(input_file: Path = typer.Option(
@@ -71,7 +71,7 @@ def app(input_file: Path = typer.Option(
     typer.echo("🔄 Validating LinkML data before transformation...")
     if not validate_linkml_data(BASE_SCHEMA_PATH, input_file):
         error_text(f"❌ Validation of LinkML data failed. Please run "
-                   f"{format_command('`linkml-validate --schema src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details')} ")
+                   f"{format_command('`linkml-validate --schema src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details')} ")
         raise typer.Exit(1)
     
     success_text("✅ Validation successful!")
@@ -87,7 +87,7 @@ def app(input_file: Path = typer.Option(
 
     # Step 3: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
     processed_file = DEFAULT_OUTPUT_DIR / f"{project_name.replace(' ', '_')}-import-records.json"
-    template_path = "src/rarelink_cdm/v2_0_0_dev1/mappings/redcap/template.json"
+    template_path = "src/rarelink_cdm/v2_0_0/mappings/redcap/template.json"
     
     # Load the template into a dictionary
     try:

@@ -11,10 +11,10 @@ This version will be the version we publish RareLink as a stable release and
 in a scientific journal.
 
 
-v2.0.0.dev1 (Under Development)
+v2.0.0 (Under Development)
 --------------------------------
 
-The current version under development is v2.0.0.dev1. 
+The current version under development is v2.0.0. 
 
 
 Previous versions (up to v2.0):

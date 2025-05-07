@@ -1,0 +1,392 @@
+{
+  "id": "3",
+  "subject": {
+    "id": "EvCo3",
+    "dateOfBirth": "2017-06-17T00:00:00Z",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P7Y9M"
+      }
+    },
+    "vitalStatus": {
+      "status": "ALIVE"
+    },
+    "sex": "MALE",
+    "gender": {
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
+    },
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    }
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0000637",
+        "label": "Long palpebral fissure"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset (at birth)"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000400",
+        "label": "Macrotia"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001252",
+        "label": "Hypotonia"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y3M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001263",
+        "label": "Global developmental delay"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000508",
+        "label": "Ptosis"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002761",
+        "label": "Generalized joint hypermobility"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 1.2
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y7M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:63364-4",
+        "label": "Thyrotropin receptor Ab:ACnc:Pt:BldCo:Qn"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 4.8
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y7M"
+        }
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "EvCo3-interpretation-0",
+      "progressStatus": "SOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "variationDescriptor": {
+                "id": "2d06f83da9e040eba32acc411d18f1",
+                "geneContext": {
+                  "valueId": "HGNC:7132",
+                  "symbol": "KMT2A"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_001197104.2:c.3019G>T"
+                  }
+                ],
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "(simple) Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y9M"
+        }
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2025-05-07T18:38:36.360382Z",
+    "createdBy": "Adam G.",
+    "resources": [
+      {
+        "id": "snomedct",
+        "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
+        "url": "http://snomed.info/sct",
+        "version": "2024-09-01",
+        "namespacePrefix": "SNOMEDCT",
+        "iriPrefix": "http://snomed.info/sct"
+      },
+      {
+        "id": "mondo",
+        "name": "Monarch Disease Ontology",
+        "url": "https://purl.obolibrary.org/obo/MONDO/",
+        "version": "2024-09-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+      },
+      {
+        "id": "hpo",
+        "name": "Human Phenotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2024-08-13",
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "2.78",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "omim",
+        "name": "Online Mendelian Inheritance",
+        "url": "https://omim.org/",
+        "version": "2024-09-12",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "orpha",
+        "name": "Orphanet Rare Disease Ontology",
+        "url": "https://www.orpha.net/",
+        "version": "2024-09-12",
+        "namespacePrefix": "ORPHA",
+        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
+      },
+      {
+        "id": "ncit",
+        "name": "NCI Thesaurus OBO Edition",
+        "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version": "24.04e",
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "2024-09-12",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org/",
+        "version": "2024-08-23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "hgvs",
+        "name": "Human Genome Variation Society",
+        "url": "https://varnomen.hgvs.org/",
+        "version": "21.0.0",
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
+      },
+      {
+        "id": "icd11",
+        "name": "International Classification of Diseases, Eleventh Revision",
+        "url": "https://icd.who.int/en",
+        "version": "2024-09-01",
+        "namespacePrefix": "ICD11",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
+      },
+      {
+        "id": "icd10cm",
+        "name": "ICD-10 Clinical Modification",
+        "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+        "version": "2023",
+        "namespacePrefix": "ICD10CM",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "https://www.sequenceontology.org/",
+        "version": "2.6",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "geno",
+        "name": "GENO - The Genotype Ontology",
+        "url": "https://www.genoontology.org/",
+        "version": "2023-10-08",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "iso3166",
+        "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+        "url": "https://www.iso.org/iso-3166-country-codes.html",
+        "version": "2020(en)",
+        "namespacePrefix": "ISO3166",
+        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
+      },
+      {
+        "id": "icf",
+        "name": "International Classification of Functioning, Disability and Health",
+        "url": "https://www.who.int/classifications/icf/en/",
+        "version": "1.0.2",
+        "namespacePrefix": "ICF",
+        "iriPrefix": "http://hl7.org/fhir/sid/icf"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0"
+  }
+}

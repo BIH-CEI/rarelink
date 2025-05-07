@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="dna-change-type-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet dna-change-type-vs</b></p><a name="dna-change-type-vs"> </a><a name="hcdna-change-type-vs"> </a><a name="dna-change-type-vs-en-US"> </a><ul><li>Include these codes as defined in <a href="http://loinc.org"><code>http://loinc.org</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="https://loinc.org/LA9658-1/">LA9658-1</a></td><td>Wild type</td></tr><tr><td><a href="https://loinc.org/LA6692-3/">LA6692-3</a></td><td>Deletion</td></tr><tr><td><a href="https://loinc.org/LA6686-5/">LA6686-5</a></td><td>Duplication</td></tr><tr><td><a href="https://loinc.org/LA6687-3/">LA6687-3</a></td><td>Insertion</td></tr><tr><td><a href="https://loinc.org/LA6688-1/">LA6688-1</a></td><td>Insertion/Deletion</td></tr><tr><td><a href="https://loinc.org/LA6689-9/">LA6689-9</a></td><td>Inversion</td></tr><tr><td><a href="https://loinc.org/LA6690-7/">LA6690-7</a></td><td>Substitution</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs"/>
+  <version value="2.0.0"/>
+  <name value="DNAChangeTypeVS"/>
+  <title value="DNA Change Type Value Set"/>
+  <status value="draft"/>
+  <date value="2025-05-08T01:03:44+09:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="LOINC LA codes enumerating various DNA change types."/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="LA9658-1"/>
+        <display value="Wild type"/>
+      </concept>
+      <concept>
+        <code value="LA6692-3"/>
+        <display value="Deletion"/>
+      </concept>
+      <concept>
+        <code value="LA6686-5"/>
+        <display value="Duplication"/>
+      </concept>
+      <concept>
+        <code value="LA6687-3"/>
+        <display value="Insertion"/>
+      </concept>
+      <concept>
+        <code value="LA6688-1"/>
+        <display value="Insertion/Deletion"/>
+      </concept>
+      <concept>
+        <code value="LA6689-9"/>
+        <display value="Inversion"/>
+      </concept>
+      <concept>
+        <code value="LA6690-7"/>
+        <display value="Substitution"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

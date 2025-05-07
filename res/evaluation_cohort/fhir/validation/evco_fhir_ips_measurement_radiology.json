@@ -1,13 +1,76 @@
 {
   "resourceType": "Bundle",
-  "id": "a55af722-d95b-4c0e-8763-05a640687317",
+  "id": "027947e5-3d2e-40f2-a4e4-c92c5b457d3b",
   "meta": {
-    "lastUpdated": "2025-05-06T11:07:22.976+00:00"
+    "lastUpdated": "2025-05-07T18:07:31.268+00:00"
   },
   "type": "searchset",
-  "total": 0,
+  "total": 1,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=http%3A%2F%2Fhl7.org%2Ffhir%2Fuv%2Fips%2FStructureDefinition%2FObservation-measurement-radiology-uv-ips%7C2.0.0-ballot"
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&category=imaging"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/e6ac819a4450a275b4e79790ec57aa35",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "e6ac819a4450a275b4e79790ec57aa35",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-07T16:09:02.921+00:00",
+        "source": "#DDLWiYC3mDoZKTN6",
+        "profile": [ "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "imaging",
+          "display": "laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org/",
+          "version": "2.78",
+          "code": "36554-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-05-06",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000307"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "https://ncit.nci.nih.gov",
+          "version": "24.04e",
+          "code": "C3333"
+        } ]
+      } ],
+      "method": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "2024-09-01",
+          "code": "399208008"
+        } ],
+        "text": "Measurement - Procedure"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
   } ]
 }

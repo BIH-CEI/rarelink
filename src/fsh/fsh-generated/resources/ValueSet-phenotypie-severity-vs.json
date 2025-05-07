@@ -9,26 +9,26 @@
   "compose": {
     "include": [
       {
-        "system": "http://www.human-phenotype-ontology.org",
+        "system": "http://purl.obolibrary.org/obo/hp.owl",
         "concept": [
           {
-            "code": "0012827",
+            "code": "HP:0012827",
             "display": "Borderline"
           },
           {
-            "code": "0012825",
+            "code": "HP:0012825",
             "display": "Mild"
           },
           {
-            "code": "0012826",
+            "code": "HP:0012826",
             "display": "Moderate"
           },
           {
-            "code": "0012829",
+            "code": "HP:0012829",
             "display": "Profound"
           },
           {
-            "code": "0012828",
+            "code": "HP:0012828",
             "display": "Severe"
           }
         ]

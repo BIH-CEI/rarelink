@@ -1,0 +1,21 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='phenotype-modifier' %}
+
+{% include fragment-pagebegin.html %}
+
+<div style="counter-reset: section 10" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='phenotype-modifier' active='history' %}
+
+  <a name="root"> </a>
+  <h2 id="root">{{modelType}}: PhenotypeModifier - Change History</h2>
+{% include fragment-simpletable.html %}
+  <p>Changes in the phenotype-modifier {{modelType | downcase}}.</p>
+
+  {%include StructureDefinition-phenotype-modifier-history.xhtml%}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

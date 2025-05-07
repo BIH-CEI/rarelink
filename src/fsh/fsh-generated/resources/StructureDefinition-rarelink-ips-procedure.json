@@ -54,33 +54,6 @@
         "mustSupport": true
       },
       {
-        "id": "Procedure.performed[x]",
-        "path": "Procedure.performed[x]",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "type",
-              "path": "$this"
-            }
-          ],
-          "ordered": false,
-          "rules": "open"
-        }
-      },
-      {
-        "id": "Procedure.performed[x]:performedDateTime",
-        "path": "Procedure.performed[x]",
-        "sliceName": "performedDateTime",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Procedure.bodySite.coding.system",
         "path": "Procedure.bodySite.coding.system",
         "patternUri": "http://snomed.info/sct"

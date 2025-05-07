@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "rarelink-ig",
   "url": "https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig",
-  "version": "2.0.0-dev1",
+  "version": "2.0.0",
   "name": "RareLinkImplementationGuide",
   "title": "RareLink Implementation Guide",
   "status": "draft",
@@ -22,19 +22,13 @@
       ]
     }
   ],
-  "description": "An Implementation Guide for RareLink Common Data Model, based on HL7 FHIR and the IPS 2.0.0 profiles, harmonizing international rare disease registries.\n",
+  "description": "An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.\n",
   "packageId": "rarelink-ig",
-  "license": "BSD 3-Clause License",
+  "license": "BSD-3-Clause",
   "fhirVersion": [
     "4.0.1"
   ],
   "dependsOn": [
-    {
-      "packageId": "hl7.fhir.r4.core",
-      "uri": "http://hl7.org/fhir/StructureDefinition/uri",
-      "version": "4.0.1",
-      "id": "hl7_fhir_r4_core"
-    },
     {
       "packageId": "hl7.fhir.uv.ips",
       "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
@@ -527,7 +521,18 @@
       "nameUrl": "toc.html",
       "title": "Table of Contents",
       "generation": "html",
-      "page": []
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
+        }
+      ]
     },
     "parameter": [
       {
@@ -536,7 +541,7 @@
       },
       {
         "code": "releaselabel",
-        "value": "2.0.0.dev1"
+        "value": "2.0.0"
       }
     ]
   }

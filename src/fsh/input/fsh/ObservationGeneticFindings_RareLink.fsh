@@ -31,7 +31,7 @@ Description: "
 * subject.identifier 0..1 MS
 
 // Slicing 'component' for each LOINC-coded item
-* component ^slicing.discriminator[0].type = #pattern
+* component ^slicing.discriminator[0].type = #value
 * component ^slicing.discriminator[0].path = "code"
 * component ^slicing.rules = #open
 
@@ -135,7 +135,7 @@ Description: "
 * derivedFrom contains rarelinkVariant 1..1
 * derivedFrom[rarelinkVariant].reference 1..1
 
-* component ^slicing.discriminator[0].type = #pattern
+* component ^slicing.discriminator[0].type = #value
 * component ^slicing.discriminator[0].path = "code"
 * component ^slicing.rules = #open
 

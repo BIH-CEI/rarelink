@@ -10,7 +10,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Observation",
-  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -26,28 +26,9 @@
         "max": "1"
       },
       {
-        "id": "Observation.category.coding.system",
-        "path": "Observation.category.coding.system",
-        "patternUri": "http://terminology.hl7.org/CodeSystem/observation-category"
-      },
-      {
         "id": "Observation.category.coding.code",
         "path": "Observation.category.coding.code",
         "patternCode": "laboratory"
-      },
-      {
-        "id": "Observation.code.coding",
-        "path": "Observation.code.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Observation.code.coding.system",
-        "path": "Observation.code.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://loinc.org"
-        }
       },
       {
         "id": "Observation.subject",
@@ -79,18 +60,12 @@
       {
         "id": "Observation.interpretation.coding.system",
         "path": "Observation.interpretation.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       },
       {
         "id": "Observation.method.coding.system",
         "path": "Observation.method.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       }
     ]
   }

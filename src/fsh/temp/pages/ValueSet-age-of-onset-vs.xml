@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="age-of-onset-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet age-of-onset-vs</b></p><a name="age-of-onset-vs"> </a><a name="hcage-of-onset-vs"> </a><a name="age-of-onset-vs-en-US"> </a><ul><li>Include these codes as defined in <code>http://purl.obolibrary.org/obo/hp.owl</code><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>HP:0011460</td><td>Embryonal onset (0w-8w embryonal)</td></tr><tr><td>HP:0011461</td><td>Fetal onset (8w embryonal - birth)</td></tr><tr><td>HP:0003577</td><td>Congenital onset (at birth)</td></tr><tr><td>HP:0003623</td><td>Neonatal onset (0d-28d)</td></tr><tr><td>HP:0003593</td><td>Infantile onset (28d-1y)</td></tr><tr><td>HP:0011463</td><td>Childhood onset (1y-5y)</td></tr><tr><td>HP:0003621</td><td>Juvenile onset (5y-15y)</td></tr><tr><td>HP:0011462</td><td>Young adult onset (16y-40y)</td></tr><tr><td>HP:0003596</td><td>Middle age adult onset (40y-60y)</td></tr><tr><td>HP:0003584</td><td>Late adult onset (60y+)</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs"/>
+  <version value="2.0.0"/>
+  <name value="AgeOfOnsetVS"/>
+  <title value="Age of Onset Value Set"/>
+  <status value="draft"/>
+  <date value="2025-05-08T01:03:44+09:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="Value set for capturing the age of onset for phenotypes."/>
+  <compose>
+    <include>
+      <system value="http://purl.obolibrary.org/obo/hp.owl"/>
+      <concept>
+        <code value="HP:0011460"/>
+        <display value="Embryonal onset (0w-8w embryonal)"/>
+      </concept>
+      <concept>
+        <code value="HP:0011461"/>
+        <display value="Fetal onset (8w embryonal - birth)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003577"/>
+        <display value="Congenital onset (at birth)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003623"/>
+        <display value="Neonatal onset (0d-28d)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003593"/>
+        <display value="Infantile onset (28d-1y)"/>
+      </concept>
+      <concept>
+        <code value="HP:0011463"/>
+        <display value="Childhood onset (1y-5y)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003621"/>
+        <display value="Juvenile onset (5y-15y)"/>
+      </concept>
+      <concept>
+        <code value="HP:0011462"/>
+        <display value="Young adult onset (16y-40y)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003596"/>
+        <display value="Middle age adult onset (40y-60y)"/>
+      </concept>
+      <concept>
+        <code value="HP:0003584"/>
+        <display value="Late adult onset (60y+)"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

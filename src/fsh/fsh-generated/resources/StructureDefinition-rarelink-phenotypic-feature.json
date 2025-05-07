@@ -81,10 +81,7 @@
       {
         "id": "Observation.category.coding.system",
         "path": "Observation.category.coding.system",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://www.human-phenotype-ontology.org"
-        }
+        "patternUri": "http://purl.obolibrary.org/obo/hp.owl"
       },
       {
         "id": "Observation.category.coding.code",
@@ -103,7 +100,7 @@
       {
         "id": "Observation.code.coding.system",
         "path": "Observation.code.coding.system",
-        "patternUri": "http://www.human-phenotype-ontology.org"
+        "patternUri": "http://purl.obolibrary.org/obo/hp.owl"
       },
       {
         "id": "Observation.code.coding.code",

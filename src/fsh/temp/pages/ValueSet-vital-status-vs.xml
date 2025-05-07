@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="vital-status-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet vital-status-vs</b></p><a name="vital-status-vs"> </a><a name="hcvital-status-vs"> </a><a name="vital-status-vs-en-US"> </a><ul><li>Include these codes as defined in <a href="http://www.snomed.org/"><code>http://snomed.info/sct</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="http://snomed.info/id/438949009">438949009</a></td><td>Alive</td></tr><tr><td><a href="http://snomed.info/id/419099009">419099009</a></td><td>Dead</td></tr><tr><td><a href="http://snomed.info/id/399307001">399307001</a></td><td>Unknown - Lost in follow-up</td></tr><tr><td><a href="http://snomed.info/id/185924006">185924006</a></td><td>Unknown - Opted-out</td></tr><tr><td><a href="http://snomed.info/id/261665006">261665006</a></td><td>Unknown - Other Reason</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs"/>
+  <version value="2.0.0"/>
+  <name value="VitalStatusVS"/>
+  <title value="Vital Status Value Set"/>
+  <status value="draft"/>
+  <date value="2025-05-08T01:03:44+09:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="Value set for capturing the vital status of the patient."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="438949009"/>
+        <display value="Alive"/>
+      </concept>
+      <concept>
+        <code value="419099009"/>
+        <display value="Dead"/>
+      </concept>
+      <concept>
+        <code value="399307001"/>
+        <display value="Unknown - Lost in follow-up"/>
+      </concept>
+      <concept>
+        <code value="185924006"/>
+        <display value="Unknown - Opted-out"/>
+      </concept>
+      <concept>
+        <code value="261665006"/>
+        <display value="Unknown - Other Reason"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

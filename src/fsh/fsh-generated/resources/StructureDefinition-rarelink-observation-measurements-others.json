@@ -56,10 +56,7 @@
         "id": "Observation.code.coding.system",
         "path": "Observation.code.coding.system",
         "min": 1,
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       },
       {
         "id": "Observation.code.coding.code",
@@ -157,19 +154,12 @@
       {
         "id": "Observation.value[x]:valueQuantity.code",
         "path": "Observation.value[x].code",
-        "mustSupport": true,
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://www.ontobee.org/ontology/UO"
-        }
+        "mustSupport": true
       },
       {
         "id": "Observation.interpretation.coding.system",
         "path": "Observation.interpretation.coding.system",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "https://ncit.nci.nih.gov/"
-        }
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
       },
       {
         "id": "Observation.interpretation.coding.code",

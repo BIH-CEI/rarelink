@@ -7,7 +7,7 @@ from datetime import timezone
 from phenopackets import MetaData, Resource
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 from rarelink.utils.date_handling import date_to_timestamp
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
+from rarelink_cdm.v2_0_0.datamodel import CodeSystemsContainer
 
 logger = logging.getLogger(__name__)
 
