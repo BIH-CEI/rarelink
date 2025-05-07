@@ -1,0 +1,53 @@
+{
+  "id": "sql-mapping-job",
+  "sourceSettings": {
+    "source": {
+      "jsonClass": "SqlSourceSettings",
+      "name": "test-db-source",
+      "sourceUri": "https://aiccelerate.eu/data-integration-suite/test-data",
+      "databaseUrl": "jdbc:h2:mem:inputDb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=FALSE",
+      "username": "",
+      "password": ""
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "http://localhost:8081/fhir"
+  },
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  },
+  "mappings": [
+    {
+      "name": "care-site-sql-mapping",
+      "mappingRef": "https://aiccelerate.eu/fhir/mappings/care-site-sql-mapping",
+      "sourceBinding": {
+        "source": {
+          "jsonClass": "SqlSource",
+          "query": "select cs.care_site_id, cs.care_site_name, c.concept_code, c.vocabulary_id, c.concept_name, l.address_1, l.address_2, l.city, l.state, l.zip from care_site cs, location l, concept c where cs.location_id = l.location_id and cs.place_of_service_concept_id = c.concept_id"
+        }
+      }
+    },
+    {
+      "name": "location-sql-mapping",
+      "mappingRef": "https://aiccelerate.eu/fhir/mappings/location-sql-mapping",
+      "sourceBinding": {
+        "source": {
+          "jsonClass": "SqlSource",
+          "query": "select * from location"
+        }
+      }
+    },
+    {
+      "name": "patient-sql-mapping",
+      "mappingRef": "https://aiccelerate.eu/fhir/mappings/patient-sql-mapping",
+      "sourceBinding": {
+        "source": {
+          "jsonClass": "SqlSource",
+          "tableName": "patients"
+        }
+      }
+    }
+  ]
+}
