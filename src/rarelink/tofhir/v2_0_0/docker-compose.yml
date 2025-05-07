@@ -9,7 +9,7 @@ services:
       - SOURCE_URL=${REDCAP_URL}
     command: ["run --job /usr/local/tofhir/conf/mapping-jobs/rarelink-cdm.json"] ##rarelink-cdm job # CLI: run --job path.json
     volumes:
-      - ./src/rarelink/tofhir/v2_0_0_dev1:/usr/local/tofhir/conf
+      - ./src/rarelink/tofhir/v2_0_0:/usr/local/tofhir/conf
     env_file:
       - .env
     depends_on:
@@ -30,7 +30,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src/rarelink/tofhir/v2_0_0_dev1/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./src/rarelink/tofhir/v2_0_0/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
       - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
     restart: always
     healthcheck:

@@ -1,10 +1,10 @@
 ﻿<?xml version="2.0.0.dev1" encoding="UTF-8" ?>
-<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="RareLink v2.0.0.dev1 - Template REDCap project for the RareLink Rare Disease Framework in REDCap linking international registries, FHIR, and Phenopackets. Read the Documentation (https://rarelink.readthedocs.io/en/latest/index.html) and the GitHub Reposity (https://github.com/BIH-CEI/RareLink) for more information." AsOfDateTime="2024-12-04T16:33:21" CreationDateTime="2024-12-04T16:33:21" SourceSystem="REDCap" SourceSystemVersion="14.8.2">
-<Study OID="Project.RareLinkv2.0.0.dev1Template">
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="RareLink v2.0.0 - Template REDCap project for the RareLink Rare Disease Framework in REDCap linking international registries, FHIR, and Phenopackets. Read the Documentation (https://rarelink.readthedocs.io/en/latest/index.html) and the GitHub Reposity (https://github.com/BIH-CEI/RareLink) for more information." AsOfDateTime="2024-12-04T16:33:21" CreationDateTime="2024-12-04T16:33:21" SourceSystem="REDCap" SourceSystemVersion="14.8.2">
+<Study OID="Project.RareLinkv2.0.0Template">
 <GlobalVariables>
-	<StudyName>RareLink v2.0.0.dev1 - Template Project</StudyName>
-	<StudyDescription>This file contains the metadata, events, and data for REDCap project "RareLink v2.0.0.dev1 - Template Project".</StudyDescription>
-	<ProtocolName>RareLink v2.0.0.dev1 - Template Project</ProtocolName>
+	<StudyName>RareLink v2.0.0 - Template Project</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "RareLink v2.0.0 - Template Project".</StudyDescription>
+	<ProtocolName>RareLink v2.0.0 - Template Project</ProtocolName>
 	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
 	<redcap:CustomRecordLabel></redcap:CustomRecordLabel>
 	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
@@ -39,7 +39,7 @@
 		</redcap:RepeatingInstruments>
 	</redcap:RepeatingInstrumentsAndEvents>
 </GlobalVariables>
-<MetaDataVersion OID="Metadata.RareLinkv2.0.0.dev1Template_2024-12-04_1633" Name="RareLink v2.0.0.dev1 - Template Project" redcap:RecordIdField="record_id">
+<MetaDataVersion OID="Metadata.RareLinkv2.0.0Template_2024-12-04_1633" Name="RareLink v2.0.0 - Template Project" redcap:RecordIdField="record_id">
 	<FormDef OID="Form.rarelink_1_formal_criteria" Name="Rarelink 1 Formal Criteria" Repeating="No" redcap:FormName="rarelink_1_formal_criteria">
 		<ItemGroupRef ItemGroupOID="rarelink_1_formal_criteria.record_id" Mandatory="No"/>
 		<ItemGroupRef ItemGroupOID="rarelink_1_formal_criteria.rarelink_1_formal_criteria_timestamp" Mandatory="No"/>

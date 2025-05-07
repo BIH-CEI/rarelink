@@ -2,7 +2,7 @@
 # Generation date: 2025-03-23T15:59:01
 # Schema: rarelink_1_formal_criteria
 #
-# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0.dev1/linkml/rarelink_1_formal_criteria.yaml
+# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink/v2.0.0/linkml/rarelink_1_formal_criteria.yaml
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 

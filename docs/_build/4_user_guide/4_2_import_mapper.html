@@ -194,8 +194,8 @@ to Phenopackets and FHIR. You can find it here:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#id1"><span class="std std-ref">RareLink-CDM</span></a></p></li>
 <li><p><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-linkml"><span class="std std-ref">LinkML Schema</span></a></p></li>
-<li><p><a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/schema_definitions">RareLink-CDM v2.0.0 LinkML yaml schema files</a></p></li>
-<li><p><a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/datamodel">RareLink-CDM v2.0.0 LinkML python model and classes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0/schema_definitions">RareLink-CDM v2.0.0 LinkML yaml schema files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0/datamodel">RareLink-CDM v2.0.0 LinkML python model and classes</a></p></li>
 </ul>
 </li>
 <li><p><strong>LinkML Map</strong>:</p>
@@ -356,7 +356,7 @@ integration in the RareLink-CDM.</p>
 <div class="highlight-tsv notranslate"><div class="highlight"><pre><span></span># RareLink-CDM SSSOM Template File
 # This template maps source data elements from a registry CSV file to the target RareLink-CDM schema.
 # SSSOM documentation: https://mapping-commons.github.io/sssom/
-# RareLink-CDM LinkML schema: https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0_dev1/schema_definitions
+# RareLink-CDM LinkML schema: https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_0/schema_definitions
 #
 # Columns:
 #   subject_id      : Unique identifier for the source record (&lt;record_id&gt;).
@@ -493,7 +493,7 @@ to the RareLink-CDM model.</p>
 <p>Run the integrated RareLink CLI command (e.g., <code class="docutils literal notranslate"><span class="pre">rarelink</span> <span class="pre">import</span></code>) to perform
 the conversion. As part of the execution, validate your data against the RareLink-CDM
 LinkML schema using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linkml-validate<span class="w"> </span>--schema<span class="w"> </span>src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml<span class="w"> </span>&lt;path_to_your_data.json&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linkml-validate<span class="w"> </span>--schema<span class="w"> </span>src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml<span class="w"> </span>&lt;path_to_your_data.json&gt;
 </pre></div>
 </div>
 <p>This validation step ensures that your data conforms to the model before

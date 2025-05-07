@@ -51,7 +51,7 @@ jobs:
 
       - name: Start HAPI FHIR Server
         run: |
-          docker-compose -f src/rarelink/tofhir/v2.0.0.dev1/docker-compose.yml up -d # UPDATE: Provide correct path for `docker-compose.yml`
+          docker-compose -f src/rarelink/tofhir/v2.0.0/docker-compose.yml up -d # UPDATE: Provide correct path for `docker-compose.yml`
         env:
           FHIR_REPO_URL: ${{ secrets.FHIR_REPO_URL }}                                # UPDATE: Add FHIR Repository URL secret
 

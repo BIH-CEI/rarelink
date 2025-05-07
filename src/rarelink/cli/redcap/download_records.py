@@ -27,7 +27,7 @@ app = typer.Typer()
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
-BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0_dev1/schema_definitions/rarelink_cdm.yaml"
+BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml"
 ENV_PATH = Path(".env")  # Path to your .env file
 
 RARELINK_CDM_INSTRUMENTS = [

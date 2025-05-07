@@ -1,5 +1,5 @@
 """
-RareLink-CDM v2.0.0.dev1 specific mapping to the Phenopacket schema Blocks
+RareLink-CDM v2.0.0 specific mapping to the Phenopacket schema Blocks
 
     
 """

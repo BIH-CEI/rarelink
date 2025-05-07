@@ -67,7 +67,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(patient_status_date.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
-                    "version": "{{? iif(patient_status_date.empty().not(), 'v2.0.0.dev1')}}",
+                    "version": "{{? iif(patient_status_date.empty().not(), 'v2.0.0')}}",
                     "code": "{{? iif(patient_status_date.empty().not(), 'patient_status_date')}}",
                     "display": "{{? iif(patient_status_date.empty().not(), 'Date of Completion for the RareLink-CDM (3) Patient Status sheet')}}"
                   }

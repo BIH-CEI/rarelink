@@ -124,9 +124,9 @@ def get_rarelink_disease_config() -> Dict[str, Any]:
         Dict[str, Any]: Disease mapping configuration
     """
     try:
-        from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.disease import DISEASE_BLOCK
-        from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import mapping_dicts
-        from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.label_dicts import label_dicts
+        from rarelink_cdm.v2_0_0.mappings.phenopackets.disease import DISEASE_BLOCK
+        from rarelink_cdm.v2_0_0.mappings.phenopackets.mapping_dicts import mapping_dicts
+        from rarelink_cdm.v2_0_0.mappings.phenopackets.label_dicts import label_dicts
         
         # Get disease verification status mapping
         disease_verification_mapping = {}
@@ -172,7 +172,7 @@ def get_all_rarelink_configs() -> Dict[str, Any]:
         Dict[str, Any]: All mapping configurations
     """
     try:
-        from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.combined import create_rarelink_phenopacket_mappings
+        from rarelink_cdm.v2_0_0.mappings.phenopackets.combined import create_rarelink_phenopacket_mappings
         return create_rarelink_phenopacket_mappings()
     except ImportError:
         # Fallback to empty configs if import fails
