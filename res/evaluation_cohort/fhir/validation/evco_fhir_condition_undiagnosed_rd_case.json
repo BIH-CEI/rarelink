@@ -1,13 +1,26 @@
 {
-  "resourceType": "Bundle",
-  "id": "1323889b-9315-4078-a1dc-660cb8865563",
+  "resourceType": "Condition",
+  "id": "3fee6b06bea8f946a31f8e15e215dfcd",
   "meta": {
-    "lastUpdated": "2025-05-06T11:07:33.993+00:00"
+    "versionId": "2",
+    "lastUpdated": "2025-05-07T16:08:47.080+00:00",
+    "source": "#TckE07anViuYjpZA",
+    "profile": [ "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot" ]
   },
-  "type": "searchset",
-  "total": 0,
-  "link": [ {
-    "relation": "self",
-    "url": "http://localhost:8080/fhir/Condition?_count=100&_format=json&_profile=http%3A%2F%2Fhl7.org%2Ffhir%2Fuv%2Fips%2FStructureDefinition%2FCondition-undiagnosed-rd-case-uv-ips%7C2.0.0-ballot"
-  } ]
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+  },
+  "code": {
+    "coding": [ {
+      "system": "http://www.orpha.net/ORDO",
+      "version": "2024-09-12",
+      "code": "616874",
+      "display": "Rare disorder without a determined diagnosis after full investigation"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+  },
+  "recordedDate": "2025-04-12"
 }

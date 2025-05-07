@@ -1,8 +1,8 @@
 {
   "resourceType": "Bundle",
-  "id": "5d66e86b-7d72-4fc5-ac9a-ab84a6a82e19",
+  "id": "e4653053-2f69-4a77-8a81-01773ad847ed",
   "meta": {
-    "lastUpdated": "2025-05-06T11:07:18.316+00:00"
+    "lastUpdated": "2025-05-07T18:05:28.170+00:00"
   },
   "type": "searchset",
   "total": 1,
@@ -16,9 +16,9 @@
       "resourceType": "Observation",
       "id": "a9e94f00cb990e562e776c3dd442cff6",
       "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-05-06T10:53:28.928+00:00",
-        "source": "#WwAqTDs6ZiJJOxTA",
+        "versionId": "2",
+        "lastUpdated": "2025-05-07T16:09:04.298+00:00",
+        "source": "#FZW3dmxihmQb45u7",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1" ]
       },
       "text": {
@@ -50,7 +50,7 @@
       },
       "interpretation": [ {
         "coding": [ {
-          "system": "https://ncit.nci.nih.gov/",
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
           "version": "24.04e",
           "code": "C14165"
         } ]
