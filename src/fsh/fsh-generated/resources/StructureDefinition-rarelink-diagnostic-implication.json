@@ -35,20 +35,6 @@
         "fixedCode": "diagnostic-implication"
       },
       {
-        "id": "Observation.derivedFrom",
-        "path": "Observation.derivedFrom",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "description": "Slice based on the reference profile pattern",
-          "rules": "open"
-        }
-      },
-      {
         "id": "Observation.derivedFrom:rarelinkVariant",
         "path": "Observation.derivedFrom",
         "sliceName": "rarelinkVariant",
