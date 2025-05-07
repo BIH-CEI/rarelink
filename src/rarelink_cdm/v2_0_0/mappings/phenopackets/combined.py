@@ -1,7 +1,7 @@
 from typing import Dict, Any
 
 # Import mapping blocks and code systems
-from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets import (
+from rarelink_cdm.v2_0_0.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
     DISEASE_BLOCK,

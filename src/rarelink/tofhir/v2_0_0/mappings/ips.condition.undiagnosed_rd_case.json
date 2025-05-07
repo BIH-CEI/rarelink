@@ -29,7 +29,7 @@
             "coding": [
               {
                 "code": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_code')}}",
-                "system": "{{? iif(snomedct_723663001.empty().not(), 'http://www.orpha.net/')}}",
+                "system": "{{? iif(snomedct_723663001.empty().not(), 'http://www.orpha.net/ORDO')}}",
                 "display": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_display')}}",
                 "version": "{{? iif(snomedct_723663001.empty().not(), '2024-09-12')}}"
               }

@@ -20,7 +20,7 @@ from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
-from rarelink_cdm.v2_0_0_dev1.mappings.redcap import MAPPING_FUNCTIONS
+from rarelink_cdm.v2_0_0.mappings.redcap import MAPPING_FUNCTIONS
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()

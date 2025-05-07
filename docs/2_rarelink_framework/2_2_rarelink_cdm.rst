@@ -3,11 +3,6 @@
 RareLink-CDM
 =============
 
-.. attention:: 
-   RareLink v2.0.0.dev1 is under testing and development (the REDCap sheets may 
-   be subject to change). Please :ref:`12` us before using it to ensure you have
-   the latest updates and guidance.
-
 
 In this section, we provide an overview of the instruments that are part of the
 RareLink Common Data Model (CDM), which is based on the :ref:`1_5`. 

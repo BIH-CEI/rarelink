@@ -1,4 +1,4 @@
-from rarelink_cdm.v2_0_0_dev1.datamodel import CodeSystemsContainer
+from rarelink_cdm.v2_0_0.datamodel import CodeSystemsContainer
 from dataclasses import dataclass
 
 @dataclass
@@ -64,7 +64,7 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
         name="NCI Thesaurus OBO Edition",
         prefix="NCIT",
         version="24.04e",
-        url="https://ncit.nci.nih.gov/",
+        url="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
         iri_prefix="http://purl.obolibrary.org/obo/NCIT_"
     ),
     uo=CodeSystem(

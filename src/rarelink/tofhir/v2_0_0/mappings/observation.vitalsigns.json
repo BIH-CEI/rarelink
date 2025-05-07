@@ -62,7 +62,7 @@
             {
               "coding": [
                 {
-                  "system": "{{? iif(ncit_c41255.empty().not(), 'https://ncit.nci.nih.gov/')}}",
+                  "system": "{{? iif(ncit_c41255.empty().not(), 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl')}}",
                   "code": "{{? ncit_c41255.substring(10)}}",
                   "version": "{{? iif(ncit_c41255.empty().not(), '24.04e')}}"
                 }
@@ -72,7 +72,7 @@
           "method": {
             "coding": [
               {
-                "system": "{{? iif(snomedct_122869004_ncit.empty().not(), 'https://ncit.nci.nih.gov/')}}",
+                "system": "{{? iif(snomedct_122869004_ncit.empty().not(), 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl')}}",
                 "code": "{{? snomedct_122869004_ncit.substring(10)}}",
                 "version": "{{? iif(snomedct_122869004_ncit.empty().not(), '24.04e')}}"
               },

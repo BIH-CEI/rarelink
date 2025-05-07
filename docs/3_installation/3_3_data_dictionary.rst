@@ -4,9 +4,6 @@
 Set up the Data Dictionary
 ==========================
 
-.. attention:: 
-   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
-   before using it to ensure you have the latest updates and guidance.
 
 To install the RareLink-CDM instruments, you will need to download the 
 instruments from here and follow the steps below. Make sure your REDCap project

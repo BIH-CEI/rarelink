@@ -241,7 +241,7 @@
                 "coding": [
                   {
                     "code": "{{? loinc_48018_6}}",
-                    "system": "{{? iif(loinc_48018_6.empty().not(), 'https://www.genenames.org/')}}",
+                    "system": "{{? iif(loinc_48018_6.empty().not(), 'https://www.genenames.org')}}",
                     "version": "{{? iif(loinc_48018_6.empty().not(), '2025-04-25')}}"
                   }
                 ]

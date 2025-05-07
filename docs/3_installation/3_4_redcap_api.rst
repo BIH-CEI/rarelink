@@ -3,9 +3,6 @@
 Set up the REDCap API
 ======================
 
-.. attention:: 
-   RareLink v2.0.0.dev1 is under testing and development. Please :ref:`12` us 
-   before using it to ensure you have the latest updates and guidance.
 
 
 The REDCap API for RareLink is a RESTful web service that allows users to 

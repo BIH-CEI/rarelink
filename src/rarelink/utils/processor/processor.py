@@ -146,7 +146,7 @@ class DataProcessor:
         
         try:
             # Import here to avoid circular import
-            from rarelink_cdm.v2_0_0_dev1.mappings.phenopackets.mapping_dicts import get_mapping_by_name
+            from rarelink_cdm.v2_0_0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
             mapping = get_mapping_by_name(mapping_name)
             return mapping.get(code, default_value)
         except Exception as e:

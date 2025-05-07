@@ -15,7 +15,7 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
-from rarelink_cdm.v2_0_0_dev1.mappings.redcap import REVERSE_PROCESSING
+from rarelink_cdm.v2_0_0.mappings.redcap import REVERSE_PROCESSING
 from rarelink.utils.validation import validate_linkml_data
 from rarelink.utils.schema_processing import linkml_to_redcap  
 import logging
