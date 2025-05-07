@@ -1,0 +1,41 @@
+name: Deploy FHIR IG to GitHub Pages
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Java (for IG Publisher)
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+
+    - name: Cache IG Publisher
+      uses: actions/cache@v3
+      with:
+        path: ~/ig-publisher
+        key: ig-publisher
+
+    - name: Download IG Publisher
+      run: |
+        mkdir -p ~/ig-publisher
+        curl -L https://github.com/HL7/ig-publisher/releases/latest/download/publisher.jar -o ~/ig-publisher/publisher.jar
+
+    - name: Run IG Publisher
+      run: |
+        java -jar ~/ig-publisher/publisher.jar -ig src/fsh
+
+    - name: Deploy to GitHub Pages (gh-pages branch)
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./src/fsh/output
+        publish_branch: gh-pages
+        force_orphan: true
