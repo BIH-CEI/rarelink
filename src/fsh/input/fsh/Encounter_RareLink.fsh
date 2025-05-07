@@ -1,5 +1,5 @@
 Alias: SNOMEDCT = http://snomed.info/sct
-Alias: HL7FHIR = http://hl7.org/fhir/R4/
+Alias: HL7FHIR = http://hl7.org/fhir/R4
 
 Profile: RareLinkEncounter
 Parent: Encounter

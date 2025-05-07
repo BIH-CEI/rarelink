@@ -1,6 +1,3 @@
-Alias: HL7FHIR = http://hl7.org/fhir/R4/
-Alias: NCIT = https://ncit.nci.nih.gov/
-Alias: UO = http://www.ontobee.org/ontology/UO
 Alias: SNOMEDCT = http://snomed.info/sct
 
 Profile: RareLinkIPSMeasurementsOthers
@@ -22,7 +19,7 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 * code.coding 1..1
 * code.coding.system 1..1
 * code.coding.code 1..1
-* code.coding.system from NCIT
+* code.coding.system = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
 * code.coding.code = #C60819
 
 * subject 1..1
@@ -36,14 +33,13 @@ Description: "A RareLink-specific profile for measurements that do not fall unde
 
 * value[x] 0..1
 * valueQuantity.system 1..1
-* valueQuantity.code from UO (required)
 * valueQuantity.system = "http://purl.obolibrary.org/obo/uo.owl"
 * valueQuantity.code MS
 * valueQuantity.value MS
 
 * interpretation 0..* // CodeableConcept
 * interpretation.coding 0..*
-* interpretation.coding.system from NCIT (extensible)
+* interpretation.coding.system = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
 * interpretation.coding.code MS
 
 * method 0..1 // CodeableConcept

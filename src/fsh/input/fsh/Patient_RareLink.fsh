@@ -1,5 +1,4 @@
 Alias: SNOMEDCT = http://snomed.info/sct
-Alias: HL7FHIR = http://hl7.org/fhir/R4/
 Alias: ICD10 = https://icd.who.int/browse10/2019/en
 
 Profile: RareLinkIPSPatient
@@ -39,7 +38,7 @@ Id: birthplace
 Title: "Birth Place"
 Description: "The patient's place of birth."
 * value[x] only CodeableConcept
-* valueCodeableConcept.coding.system from HL7FHIR (extensible)
+* valueCodeableConcept.coding.system = "http://hl7.org/fhir/R4"
 * valueCodeableConcept.coding.code MS
 
 * extension[DateOfAdmission]
