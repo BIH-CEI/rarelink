@@ -115,8 +115,8 @@ RareLink can be set up using various Python project management approaches. One
   virtual environment is named `rarelink-venv`, but you can name it as you prefer:
 
 ```bash
-python3 -m venv rarelink-venv
-source rarelink-venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install --upgrade pip
 ```
 
