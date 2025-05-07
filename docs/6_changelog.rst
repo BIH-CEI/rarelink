@@ -7,14 +7,13 @@ Changelog
 v2.0.0 (soon)
 ------------------
 
-This version will be the version we publish RareLink as a stable release and 
-in a scientific journal.
+The current version now published is v2.0.0. 
 
 
-v2.0.0 (Under Development)
+v2.0.0.dev1 (Under Development)
 --------------------------------
 
-The current version under development is v2.0.0. 
+This version was unstable and was used for testing and development purposes. It is not recommended for production use.
 
 
 Previous versions (up to v2.0):
