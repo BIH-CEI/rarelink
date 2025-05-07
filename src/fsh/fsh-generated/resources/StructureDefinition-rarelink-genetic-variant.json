@@ -61,20 +61,6 @@
         }
       },
       {
-        "id": "Observation.component",
-        "path": "Observation.component",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "code"
-            }
-          ],
-          "description": "Slice based on the component.code pattern",
-          "rules": "open"
-        }
-      },
-      {
         "id": "Observation.component:genomicHgvs",
         "path": "Observation.component",
         "sliceName": "genomicHgvs",

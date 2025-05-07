@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://www.orpha.net/",
+      "concept" : [{
+        "code" : "616874",
+        "display" : "Rare disorder without a determined diagnosis after full investigation"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.orpha.net/"
+}
+-------------------------------------------------------------------------------------

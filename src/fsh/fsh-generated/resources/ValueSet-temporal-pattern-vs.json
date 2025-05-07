@@ -9,38 +9,38 @@
   "compose": {
     "include": [
       {
-        "system": "http://www.human-phenotype-ontology.org",
+        "system": "http://purl.obolibrary.org/obo/hp.owl",
         "concept": [
           {
-            "code": "0011009",
+            "code": "HP:0011009",
             "display": "Acute"
           },
           {
-            "code": "0011010",
+            "code": "HP:0011010",
             "display": "Chronic"
           },
           {
-            "code": "0031914",
+            "code": "HP:0031914",
             "display": "Fluctuating"
           },
           {
-            "code": "0025297",
+            "code": "HP:0025297",
             "display": "Prolonged"
           },
           {
-            "code": "0031796",
+            "code": "HP:0031796",
             "display": "Recurrent"
           },
           {
-            "code": "0031915",
+            "code": "HP:0031915",
             "display": "Stable"
           },
           {
-            "code": "0011011",
+            "code": "HP:0011011",
             "display": "Subacute"
           },
           {
-            "code": "0025153",
+            "code": "HP:0025153",
             "display": "Transient"
           }
         ]

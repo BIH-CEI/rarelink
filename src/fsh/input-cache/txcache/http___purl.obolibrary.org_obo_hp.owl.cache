@@ -1,0 +1,4318 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0011460",
+        "display" : "Embryonal onset (0w-8w embryonal)"
+      },
+      {
+        "code" : "0011461",
+        "display" : "Fetal onset (8w embryonal - birth)"
+      },
+      {
+        "code" : "0003577",
+        "display" : "Congenital onset (at birth)"
+      },
+      {
+        "code" : "0003623",
+        "display" : "Neonatal onset (0d-28d)"
+      },
+      {
+        "code" : "0003593",
+        "display" : "Infantile onset (28d-1y)"
+      },
+      {
+        "code" : "0011463",
+        "display" : "Childhood onset (1y-5y)"
+      },
+      {
+        "code" : "0003621",
+        "display" : "Juvenile onset (5y-15y)"
+      },
+      {
+        "code" : "0011462",
+        "display" : "Young adult onset (16y-40y)"
+      },
+      {
+        "code" : "0003596",
+        "display" : "Middle age adult onset (40y-60y)"
+      },
+      {
+        "code" : "0003584",
+        "display" : "Late adult onset (60y+)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:b1730516-afe7-4699-96c0-d9ae01400242",
+    "timestamp" : "2025-05-08T00:34:05+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011460"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011460",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011460' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011460' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011461"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011461",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011461' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011461' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003577"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003577",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003577' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003577' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003623"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003623",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003623' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003623' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003593"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003593",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003593' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003593' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011463"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011463",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011463' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011463' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003621"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003621",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003621' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003621' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011462"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011462",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011462' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011462' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003596"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003596",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003596' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003596' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003584"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003584",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003584' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003584' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0012827",
+        "display" : "Borderline"
+      },
+      {
+        "code" : "0012825",
+        "display" : "Mild"
+      },
+      {
+        "code" : "0012826",
+        "display" : "Moderate"
+      },
+      {
+        "code" : "0012829",
+        "display" : "Profound"
+      },
+      {
+        "code" : "0012828",
+        "display" : "Severe"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:de75eb61-843d-4cbf-9329-3004a862fba8",
+    "timestamp" : "2025-05-08T00:34:14+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012827"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012827",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012827' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012827' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012825"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012825",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012825' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012825' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012826"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012826",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012826' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012826' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012829"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012829",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012829' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012829' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012828"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012828",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012828' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012828' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0011009",
+        "display" : "Acute"
+      },
+      {
+        "code" : "0011010",
+        "display" : "Chronic"
+      },
+      {
+        "code" : "0031914",
+        "display" : "Fluctuating"
+      },
+      {
+        "code" : "0025297",
+        "display" : "Prolonged"
+      },
+      {
+        "code" : "0031796",
+        "display" : "Recurrent"
+      },
+      {
+        "code" : "0031915",
+        "display" : "Stable"
+      },
+      {
+        "code" : "0011011",
+        "display" : "Subacute"
+      },
+      {
+        "code" : "0025153",
+        "display" : "Transient"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:a7471058-74a7-452e-899d-daef3469c014",
+    "timestamp" : "2025-05-08T00:34:18+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011009"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011009",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011009' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011009' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011010"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011010",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011010' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011010' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031914"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031914",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031914' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031914' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0025297"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0025297",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0025297' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0025297' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031796"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031796",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031796' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031796' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031915"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031915",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031915' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031915' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011011"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011011",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011011' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011011' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0025153"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0025153",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0025153' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0025153' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011460"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011460",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011460' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011460' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011461"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011461",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011461' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011461' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003577"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003577",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003577' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003577' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003623"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003623",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003623' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003623' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003593"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003593",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003593' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003593' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011463"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011463",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011463' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011463' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003621"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003621",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003621' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003621' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011462"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011462",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011462' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011462' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003596"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003596",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003596' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003596' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0003584"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0003584",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0003584' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0003584' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012827"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012827",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012827' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012827' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012825"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012825",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012825' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012825' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012826"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012826",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012826' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012826' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012829"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012829",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012829' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012829' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0012828"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0012828",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0012828' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0012828' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011009"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011009",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011009' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011009' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011010"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011010",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011010' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011010' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031914"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031914",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031914' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031914' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0025297"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0025297",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0025297' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0025297' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031796"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031796",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031796' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031796' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0031915"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0031915",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0031915' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0031915' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0011011"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0011011",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0011011' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0011011' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "0025153"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "0025153",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "severity" : "error",
+  "error" : "Unknown code '0025153' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.ontoserver.csiro.au/fhir"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '0025153' in the CodeSystem 'http://purl.obolibrary.org/obo/hp.owl' version '20221005'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0011460",
+        "display" : "Embryonal onset (0w-8w embryonal)"
+      },
+      {
+        "code" : "0011461",
+        "display" : "Fetal onset (8w embryonal - birth)"
+      },
+      {
+        "code" : "0003577",
+        "display" : "Congenital onset (at birth)"
+      },
+      {
+        "code" : "0003623",
+        "display" : "Neonatal onset (0d-28d)"
+      },
+      {
+        "code" : "0003593",
+        "display" : "Infantile onset (28d-1y)"
+      },
+      {
+        "code" : "0011463",
+        "display" : "Childhood onset (1y-5y)"
+      },
+      {
+        "code" : "0003621",
+        "display" : "Juvenile onset (5y-15y)"
+      },
+      {
+        "code" : "0011462",
+        "display" : "Young adult onset (16y-40y)"
+      },
+      {
+        "code" : "0003596",
+        "display" : "Middle age adult onset (40y-60y)"
+      },
+      {
+        "code" : "0003584",
+        "display" : "Late adult onset (60y+)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:5db09041-f4aa-471c-811f-d496c8ab248a",
+    "timestamp" : "2025-05-08T00:37:29+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0012827",
+        "display" : "Borderline"
+      },
+      {
+        "code" : "0012825",
+        "display" : "Mild"
+      },
+      {
+        "code" : "0012826",
+        "display" : "Moderate"
+      },
+      {
+        "code" : "0012829",
+        "display" : "Profound"
+      },
+      {
+        "code" : "0012828",
+        "display" : "Severe"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:bda4c906-afe2-4b68-a041-a5ebe47c1500",
+    "timestamp" : "2025-05-08T00:37:47+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "0011009",
+        "display" : "Acute"
+      },
+      {
+        "code" : "0011010",
+        "display" : "Chronic"
+      },
+      {
+        "code" : "0031914",
+        "display" : "Fluctuating"
+      },
+      {
+        "code" : "0025297",
+        "display" : "Prolonged"
+      },
+      {
+        "code" : "0031796",
+        "display" : "Recurrent"
+      },
+      {
+        "code" : "0031915",
+        "display" : "Stable"
+      },
+      {
+        "code" : "0011011",
+        "display" : "Subacute"
+      },
+      {
+        "code" : "0025153",
+        "display" : "Transient"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:a10f574b-0be9-4081-a0d5-53468e58db28",
+    "timestamp" : "2025-05-08T00:37:53+10:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0011460",
+        "display" : "Embryonal onset (0w-8w embryonal)"
+      },
+      {
+        "code" : "HP:0011461",
+        "display" : "Fetal onset (8w embryonal - birth)"
+      },
+      {
+        "code" : "HP:0003577",
+        "display" : "Congenital onset (at birth)"
+      },
+      {
+        "code" : "HP:0003623",
+        "display" : "Neonatal onset (0d-28d)"
+      },
+      {
+        "code" : "HP:0003593",
+        "display" : "Infantile onset (28d-1y)"
+      },
+      {
+        "code" : "HP:0011463",
+        "display" : "Childhood onset (1y-5y)"
+      },
+      {
+        "code" : "HP:0003621",
+        "display" : "Juvenile onset (5y-15y)"
+      },
+      {
+        "code" : "HP:0011462",
+        "display" : "Young adult onset (16y-40y)"
+      },
+      {
+        "code" : "HP:0003596",
+        "display" : "Middle age adult onset (40y-60y)"
+      },
+      {
+        "code" : "HP:0003584",
+        "display" : "Late adult onset (60y+)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:d6fa8721-586d-4c10-b52a-ebd5da9c6d76",
+    "timestamp" : "2025-05-08T01:10:37+10:00",
+    "total" : 10,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011460",
+      "display" : "Embryonal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Embryonal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011461",
+      "display" : "Fetal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Foetal onset"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Fetal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003577",
+      "display" : "Congenital onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Symptoms present at birth"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Congenital onset"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset at birth"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003623",
+      "display" : "Neonatal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in neonatal period"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in first weeks of life"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Neonatal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003593",
+      "display" : "Infantile onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Infantile onset"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in first year of life"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in infancy"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011463",
+      "display" : "Childhood onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Symptoms begin in childhood"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Childhood onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003621",
+      "display" : "Juvenile onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Signs and symptoms begin before 15 years of age"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Juvenile onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011462",
+      "display" : "Young adult onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Young adult onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003596",
+      "display" : "Middle age onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Middle age onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003584",
+      "display" : "Late onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Late onset"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0012827",
+        "display" : "Borderline"
+      },
+      {
+        "code" : "HP:0012825",
+        "display" : "Mild"
+      },
+      {
+        "code" : "HP:0012826",
+        "display" : "Moderate"
+      },
+      {
+        "code" : "HP:0012829",
+        "display" : "Profound"
+      },
+      {
+        "code" : "HP:0012828",
+        "display" : "Severe"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:4961c160-44a5-4126-acab-3e5b3824829a",
+    "timestamp" : "2025-05-08T01:10:40+10:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012827",
+      "display" : "Borderline",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Borderline"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012825",
+      "display" : "Mild",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Mild"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012826",
+      "display" : "Moderate",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Moderate"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012829",
+      "display" : "Profound",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Profound"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012828",
+      "display" : "Severe",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Severe"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0011009",
+        "display" : "Acute"
+      },
+      {
+        "code" : "HP:0011010",
+        "display" : "Chronic"
+      },
+      {
+        "code" : "HP:0031914",
+        "display" : "Fluctuating"
+      },
+      {
+        "code" : "HP:0025297",
+        "display" : "Prolonged"
+      },
+      {
+        "code" : "HP:0031796",
+        "display" : "Recurrent"
+      },
+      {
+        "code" : "HP:0031915",
+        "display" : "Stable"
+      },
+      {
+        "code" : "HP:0011011",
+        "display" : "Subacute"
+      },
+      {
+        "code" : "HP:0025153",
+        "display" : "Transient"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:6e77ad00-0dbe-4831-86b0-afb6433ab670",
+    "timestamp" : "2025-05-08T01:10:43+10:00",
+    "total" : 8,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011009",
+      "display" : "Acute",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Acute"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Acute onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011010",
+      "display" : "Chronic",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Chronic"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031914",
+      "display" : "Fluctuating",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Fluctuating"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0025297",
+      "display" : "Prolonged",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Prolonged"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031796",
+      "display" : "Recurrent",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Recurrent"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Intermittent"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031915",
+      "display" : "Stable",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Stable"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011011",
+      "display" : "Subacute",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Subacute"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0025153",
+      "display" : "Transient",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Transient"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011460"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Embryonal onset",
+  "code" : "HP:0011460",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011461"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Fetal onset",
+  "code" : "HP:0011461",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003577"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Congenital onset",
+  "code" : "HP:0003577",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003623"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Neonatal onset",
+  "code" : "HP:0003623",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003593"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Infantile onset",
+  "code" : "HP:0003593",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011463"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Childhood onset",
+  "code" : "HP:0011463",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003621"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Juvenile onset",
+  "code" : "HP:0003621",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011462"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Young adult onset",
+  "code" : "HP:0011462",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003596"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Middle age onset",
+  "code" : "HP:0003596",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0003584"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Late onset",
+  "code" : "HP:0003584",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0012827"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Borderline",
+  "code" : "HP:0012827",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0012825"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Mild",
+  "code" : "HP:0012825",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0012826"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Moderate",
+  "code" : "HP:0012826",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0012829"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Profound",
+  "code" : "HP:0012829",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0012828"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Severe",
+  "code" : "HP:0012828",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011009"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Acute",
+  "code" : "HP:0011009",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011010"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Chronic",
+  "code" : "HP:0011010",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0031914"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Fluctuating",
+  "code" : "HP:0031914",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0025297"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Prolonged",
+  "code" : "HP:0025297",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0031796"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Recurrent",
+  "code" : "HP:0031796",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0031915"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Stable",
+  "code" : "HP:0031915",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0011011"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Subacute",
+  "code" : "HP:0011011",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "code" : "HP:0025153"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Transient",
+  "code" : "HP:0025153",
+  "system" : "http://purl.obolibrary.org/obo/hp.owl",
+  "version" : "20221005",
+  "server" : "https://tx.ontoserver.csiro.au/fhir",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0011460",
+        "display" : "Embryonal onset (0w-8w embryonal)"
+      },
+      {
+        "code" : "HP:0011461",
+        "display" : "Fetal onset (8w embryonal - birth)"
+      },
+      {
+        "code" : "HP:0003577",
+        "display" : "Congenital onset (at birth)"
+      },
+      {
+        "code" : "HP:0003623",
+        "display" : "Neonatal onset (0d-28d)"
+      },
+      {
+        "code" : "HP:0003593",
+        "display" : "Infantile onset (28d-1y)"
+      },
+      {
+        "code" : "HP:0011463",
+        "display" : "Childhood onset (1y-5y)"
+      },
+      {
+        "code" : "HP:0003621",
+        "display" : "Juvenile onset (5y-15y)"
+      },
+      {
+        "code" : "HP:0011462",
+        "display" : "Young adult onset (16y-40y)"
+      },
+      {
+        "code" : "HP:0003596",
+        "display" : "Middle age adult onset (40y-60y)"
+      },
+      {
+        "code" : "HP:0003584",
+        "display" : "Late adult onset (60y+)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:27dd7033-ac32-42be-af98-96c6441766f3",
+    "timestamp" : "2025-05-08T01:11:57+10:00",
+    "total" : 10,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011460",
+      "display" : "Embryonal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Embryonal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011461",
+      "display" : "Fetal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Foetal onset"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Fetal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003577",
+      "display" : "Congenital onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Symptoms present at birth"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Congenital onset"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset at birth"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003623",
+      "display" : "Neonatal onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in neonatal period"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in first weeks of life"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Neonatal onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003593",
+      "display" : "Infantile onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Infantile onset"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in first year of life"
+      },
+      {
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Onset in infancy"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011463",
+      "display" : "Childhood onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Symptoms begin in childhood"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Childhood onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003621",
+      "display" : "Juvenile onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Signs and symptoms begin before 15 years of age"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Juvenile onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011462",
+      "display" : "Young adult onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Young adult onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003596",
+      "display" : "Middle age onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Middle age onset"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0003584",
+      "display" : "Late onset",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Late onset"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0012827",
+        "display" : "Borderline"
+      },
+      {
+        "code" : "HP:0012825",
+        "display" : "Mild"
+      },
+      {
+        "code" : "HP:0012826",
+        "display" : "Moderate"
+      },
+      {
+        "code" : "HP:0012829",
+        "display" : "Profound"
+      },
+      {
+        "code" : "HP:0012828",
+        "display" : "Severe"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:dea98c5a-4c00-4e25-8c71-87c1a7f1edaf",
+    "timestamp" : "2025-05-08T01:12:00+10:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012827",
+      "display" : "Borderline",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Borderline"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012825",
+      "display" : "Mild",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Mild"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012826",
+      "display" : "Moderate",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Moderate"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012829",
+      "display" : "Profound",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Profound"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0012828",
+      "display" : "Severe",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Severe"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "concept" : [{
+        "code" : "HP:0011009",
+        "display" : "Acute"
+      },
+      {
+        "code" : "HP:0011010",
+        "display" : "Chronic"
+      },
+      {
+        "code" : "HP:0031914",
+        "display" : "Fluctuating"
+      },
+      {
+        "code" : "HP:0025297",
+        "display" : "Prolonged"
+      },
+      {
+        "code" : "HP:0031796",
+        "display" : "Recurrent"
+      },
+      {
+        "code" : "HP:0031915",
+        "display" : "Stable"
+      },
+      {
+        "code" : "HP:0011011",
+        "display" : "Subacute"
+      },
+      {
+        "code" : "HP:0025153",
+        "display" : "Transient"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.ontoserver.csiro.au,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:5303bd85-989c-44b6-a1be-483f68c750d3",
+    "timestamp" : "2025-05-08T01:12:02+10:00",
+    "total" : 8,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "used-codesystem",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://purl.obolibrary.org/obo/hp.owl|20221005"
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en-US"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }],
+    "contains" : [{
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011009",
+      "display" : "Acute",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Acute onset"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Acute"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011010",
+      "display" : "Chronic",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Chronic"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031914",
+      "display" : "Fluctuating",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Fluctuating"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0025297",
+      "display" : "Prolonged",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Prolonged"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031796",
+      "display" : "Recurrent",
+      "designation" : [{
+        "use" : {
+          "system" : "http://snomed.info/sct",
+          "code" : "900000000000013009",
+          "display" : "Synonym (core metadata concept)"
+        },
+        "value" : "Intermittent"
+      },
+      {
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Recurrent"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0031915",
+      "display" : "Stable",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Stable"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0011011",
+      "display" : "Subacute",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Subacute"
+      }]
+    },
+    {
+      "system" : "http://purl.obolibrary.org/obo/hp.owl",
+      "code" : "HP:0025153",
+      "display" : "Transient",
+      "designation" : [{
+        "use" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
+          "code" : "display"
+        },
+        "value" : "Transient"
+      }]
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
