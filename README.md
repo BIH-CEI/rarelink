@@ -120,6 +120,8 @@ source venv/bin/activate
 pip install --upgrade pip
 ```
 
+> **Note**: You need Python ≥3.10 but <3.13 to be able to use RareLink!
+
 Next, clone the RareLink repository, navigate to its root directory, and
  install RareLink using:
 

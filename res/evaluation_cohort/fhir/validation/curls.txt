@@ -52,11 +52,23 @@ curl -s \
 'http://localhost:8080/fhir/Condition?_count=100&_format=json' \
 -o res/evaluation_cohort/fhir/validation/evco_fhir_condition.json
 
-
-
 curl -s \
   -H "Accept: application/fhir+json" \
   'http://localhost:8080/fhir/Encounter?_count=100&_format=json' \
   -o res/evaluation_cohort/fhir/validation/evco_fhir_encounter_care_pathway.json
 
 
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation/eb51cd67a54156ee5d46263ddae5c1d3' \
+  -o res/evaluation_cohort/fhir/validation/evco_fhir_observation_length_of_gestation_eb51cd67a54156ee5d46263ddae5c1d3.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation/698571ba6c7ea2cf2d37025942176616' \
+  -o res/evaluation_cohort/fhir/validation/evco_fhir_observation_karyotypic_sex_698571ba6c7ea2cf2d37025942176616.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Condition/3fee6b06bea8f946a31f8e15e215dfcd' \
+  -o res/evaluation_cohort/fhir/validation/evco_fhir_condition_3fee6b06bea8f946a31f8e15e215dfcd.json
