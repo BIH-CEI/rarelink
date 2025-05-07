@@ -18,16 +18,18 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Cache IG Publisher
-      uses: actions/cache@v3
+    - name: Set up Node.js (for sushi)
+      uses: actions/setup-node@v3
       with:
-        path: ~/ig-publisher
-        key: ig-publisher
+        node-version: '20'
+
+    - name: Install sushi
+      run: npm install -g fsh-sushi
 
     - name: Download IG Publisher
       run: |
         mkdir -p ~/ig-publisher
-        wget -O ~/ig-publisher/publisher.jar https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+        wget -O ~/ig-publisher/publisher.jar https://github.com/HL7/ig-publisher/releases/download/1.1.210/publisher.jar
         ls -lh ~/ig-publisher/publisher.jar
         file ~/ig-publisher/publisher.jar
 
