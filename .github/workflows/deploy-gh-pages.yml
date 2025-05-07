@@ -26,6 +26,14 @@ jobs:
     - name: Install sushi
       run: npm install -g fsh-sushi
 
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+    
+    - name: Install Jekyll and Bundler
+      run: gem install jekyll bundler
+
     - name: Download IG Publisher
       run: |
         mkdir -p ~/ig-publisher
