@@ -1,0 +1,57 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "vital-status-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet vital-status-vs</b></p><a name=\"vital-status-vs\"> </a><a name=\"hcvital-status-vs\"> </a><a name=\"vital-status-vs-en-US\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/438949009\">438949009</a></td><td>Alive</td></tr><tr><td><a href=\"http://snomed.info/id/419099009\">419099009</a></td><td>Dead</td></tr><tr><td><a href=\"http://snomed.info/id/399307001\">399307001</a></td><td>Unknown - Lost in follow-up</td></tr><tr><td><a href=\"http://snomed.info/id/185924006\">185924006</a></td><td>Unknown - Opted-out</td></tr><tr><td><a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>Unknown - Other Reason</td></tr></table></li></ul></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:url [ fhir:v "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "VitalStatusVS"] ; # 
+  fhir:title [ fhir:v "Vital Status Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-05-08T01:03:44+09:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Value set for capturing the vital status of the patient."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "438949009" ] ;
+         fhir:display [ fhir:v "Alive" ]
+       ] [
+         fhir:code [ fhir:v "419099009" ] ;
+         fhir:display [ fhir:v "Dead" ]
+       ] [
+         fhir:code [ fhir:v "399307001" ] ;
+         fhir:display [ fhir:v "Unknown - Lost in follow-up" ]
+       ] [
+         fhir:code [ fhir:v "185924006" ] ;
+         fhir:display [ fhir:v "Unknown - Opted-out" ]
+       ] [
+         fhir:code [ fhir:v "261665006" ] ;
+         fhir:display [ fhir:v "Unknown - Other Reason" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

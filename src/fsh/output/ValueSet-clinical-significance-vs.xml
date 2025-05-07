@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="clinical-significance-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet clinical-significance-vs</b></p><a name="clinical-significance-vs"> </a><a name="hcclinical-significance-vs"> </a><a name="clinical-significance-vs-en-US"> </a><ul><li>Include these codes as defined in <a href="http://loinc.org"><code>http://loinc.org</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="https://loinc.org/LA6668-3/">LA6668-3</a></td><td>Pathogenic</td></tr><tr><td><a href="https://loinc.org/LA26332-9/">LA26332-9</a></td><td>Likely pathogenic</td></tr><tr><td><a href="https://loinc.org/LA26333-7/">LA26333-7</a></td><td>Uncertain significance</td></tr><tr><td><a href="https://loinc.org/LA26334-5/">LA26334-5</a></td><td>Likely benign</td></tr><tr><td><a href="https://loinc.org/LA6675-8/">LA6675-8</a></td><td>Benign</td></tr><tr><td><a href="https://loinc.org/LA4489-6/">LA4489-6</a></td><td>Unknown</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs"/>
+  <version value="2.0.0"/>
+  <name value="ClinicalSignificanceVS"/>
+  <title value="Clinical Significance Value Set"/>
+  <status value="draft"/>
+  <date value="2025-05-08T01:03:44+09:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="LOINC LA codes for the clinical significance of a variant."/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="LA6668-3"/>
+        <display value="Pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA26332-9"/>
+        <display value="Likely pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA26333-7"/>
+        <display value="Uncertain significance"/>
+      </concept>
+      <concept>
+        <code value="LA26334-5"/>
+        <display value="Likely benign"/>
+      </concept>
+      <concept>
+        <code value="LA6675-8"/>
+        <display value="Benign"/>
+      </concept>
+      <concept>
+        <code value="LA4489-6"/>
+        <display value="Unknown"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
