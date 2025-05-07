@@ -29,7 +29,7 @@ jobs:
     - name: Download IG Publisher
       run: |
         mkdir -p ~/ig-publisher
-        wget -O ~/ig-publisher/publisher.jar https://github.com/HL7/ig-publisher/releases/download/1.1.210/publisher.jar
+        wget -O ~/ig-publisher/publisher.jar https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
         ls -lh ~/ig-publisher/publisher.jar
         file ~/ig-publisher/publisher.jar
 
