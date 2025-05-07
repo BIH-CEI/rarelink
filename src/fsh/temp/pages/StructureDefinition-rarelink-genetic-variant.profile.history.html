@@ -1,0 +1,21 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='rarelink-genetic-variant' %}
+
+{% include fragment-pagebegin.html %}
+
+<div style="counter-reset: section 10" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='rarelink-genetic-variant' active='history' %}
+
+  <a name="root"> </a>
+  <h2 id="root">{{modelType}}: RareLinkGeneticVariant - Change History</h2>
+{% include fragment-simpletable.html %}
+  <p>Changes in the rarelink-genetic-variant {{modelType | downcase}}.</p>
+
+  {%include StructureDefinition-rarelink-genetic-variant-history.xhtml%}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

@@ -1,0 +1,122 @@
+{
+  "package-id" : "fhir.base.template",
+  "title" : "Base template for FHIR IGs",
+  "canonical" : "http://fhir.org/templates/fhir.base.template",
+  "introduction" : "This is the basic template",
+  "list" : [
+    {
+      "version" : "current",
+      "desc" : "Continuous Integration Build (latest in version control)",
+      "path" : "https://build.fhir.org/ig/HL7/ig-template-base",
+      "status" : "ci-build",
+      "current" : true
+    },
+    {
+      "version" : "0.8.1",
+      "desc" : "Use -all fragments to fix duplicate ids",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.8.1",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-07-06",
+      "current" : true
+    },
+    {
+      "version" : "0.8.0",
+      "desc" : "Security fix after IG Publisher rule about anonymous scripts fixed",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.8.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-04-25"
+    },
+    {
+      "version" : "0.7.0",
+      "desc" : "Force snapshot release of all templates prior to making a change to the base template that depends on a new IG publisher",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.7.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-03-07"
+    },
+    {
+      "version" : "0.6.0",
+      "desc" : "Update template for apply-wg",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.6.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2023-09-21"
+    },
+    {
+      "version" : "0.5.0",
+      "desc" : "Add otherScripts for template security changes",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.5.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2023-09-13"
+    },
+    {
+      "version" : "0.4.0",
+      "desc" : "Fix bugs in xslt + add test tab",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.4.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2022-12-17"
+    },
+    {
+      "version" : "0.3.0",
+      "desc" : "Updated R5 support",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.3.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2022-09-16"
+    },
+    {
+      "version" : "0.2.2",
+      "desc" : "release updated version of onload.xslt for Sushi users",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.2.2",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2021-09-03"
+    },
+    {
+      "version" : "0.2.1",
+      "desc" : "update to correct versions of prism.js",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.2.1",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2020-09-29"
+    },
+    {
+      "version" : "0.2.0",
+      "desc" : "Syntax highlighting for xml | json | turtle etc",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.2.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2020-09-26"
+    },
+    {
+      "version" : "0.1.1",
+      "desc" : "Copy button, mapping folder, better overrides",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.1.1",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2020-06-15"
+    },
+    {
+      "version" : "0.1.0",
+      "desc" : "Improved error messages and vocab layout",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.1.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "current" : false,
+      "date" : "2020-02-17"
+    },
+    {
+      "version" : "0.0.2",
+      "date" : "2020-02-03",
+      "desc" : "First Release",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.0.2",
+      "status" : "release",
+      "sequence" : "Publications",
+      "current" : false
+    }
+  ]
+}

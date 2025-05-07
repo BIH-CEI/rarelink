@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="phenotypie-severity-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet phenotypie-severity-vs</b></p><a name="phenotypie-severity-vs"> </a><a name="hcphenotypie-severity-vs"> </a><a name="phenotypie-severity-vs-en-US"> </a><ul><li>Include these codes as defined in <code>http://purl.obolibrary.org/obo/hp.owl</code><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>HP:0012827</td><td>Borderline</td></tr><tr><td>HP:0012825</td><td>Mild</td></tr><tr><td>HP:0012826</td><td>Moderate</td></tr><tr><td>HP:0012829</td><td>Profound</td></tr><tr><td>HP:0012828</td><td>Severe</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://github.com/BIH-CEI/RareLink/ValueSet/phenotypie-severity-vs"/>
+  <version value="2.0.0"/>
+  <name value="PhenotypeSeverityVS"/>
+  <title value="Phenotype Severity Value Set"/>
+  <status value="draft"/>
+  <date value="2025-05-08T01:03:44+09:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="Value set for capturing phenotype severity."/>
+  <compose>
+    <include>
+      <system value="http://purl.obolibrary.org/obo/hp.owl"/>
+      <concept>
+        <code value="HP:0012827"/>
+        <display value="Borderline"/>
+      </concept>
+      <concept>
+        <code value="HP:0012825"/>
+        <display value="Mild"/>
+      </concept>
+      <concept>
+        <code value="HP:0012826"/>
+        <display value="Moderate"/>
+      </concept>
+      <concept>
+        <code value="HP:0012829"/>
+        <display value="Profound"/>
+      </concept>
+      <concept>
+        <code value="HP:0012828"/>
+        <display value="Severe"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

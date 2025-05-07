@@ -1,0 +1,21 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='recorded-sex-at-birth' %}
+
+{% include fragment-pagebegin.html %}
+
+<div style="counter-reset: section 10" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='recorded-sex-at-birth' active='history' %}
+
+  <a name="root"> </a>
+  <h2 id="root">{{modelType}}: RecordedSexAtBirth - Change History</h2>
+{% include fragment-simpletable.html %}
+  <p>Changes in the recorded-sex-at-birth {{modelType | downcase}}.</p>
+
+  {%include StructureDefinition-recorded-sex-at-birth-history.xhtml%}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

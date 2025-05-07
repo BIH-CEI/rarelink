@@ -1,0 +1,59 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-base-navtabs.html type='ValueSet' id='age-of-onset-vs' active='testing' %}
+  <a name="root"> </a>
+  <h2 id="root">ValueSet: {{site.data.pages[page.path].title | escape_once}}
+{% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
+  </h2>
+
+{% include fragment-simpletable.html %}
+
+{% assign basepath = page.path | replace: '-testing.html', '.html' %}
+
+<!-- insert intro if present -->
+{% include fragment-intro.html type='ValueSet' id='age-of-onset-vs' %}
+
+<h3>Test Plans</h3>
+{% if site.data.pages[basepath].testplans.size > 0 %}
+  <table style="grid">
+    <tbody>
+      {% for testplan in site.data.pages[basepath].testplans %}
+        <tr>
+          <td>
+            <a href="{{testplan.url}}">{{testplan.title | escape_once}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p><b>No test plans are currently available for the {{id}} ValueSet.</b></p>
+{% endif %}
+
+<h3>Test Scripts</h3>
+{% if site.data.pages[basepath].testscripts.size > 0 %}
+  <table style="grid">
+    <tbody>
+      {% for testscript in site.data.pages[basepath].testscripts %}
+        <tr>
+          <td>
+            <a href="{{testscript.url}}">{{testscript.title | escape_once}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p><b>No test scripts are currently available for the {{id}} ValueSet.</b></p>
+{% endif %}
+
+<!-- insert notes if present -->
+{% include fragment-notes.html type='ValueSet' id='age-of-onset-vs' %}
+
+{%include ValueSet-age-of-onset-vs-history.xhtml%}
+
+</div>
+{% include fragment-pageend.html %}

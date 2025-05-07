@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "temporal-pattern-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet temporal-pattern-vs</b></p><a name=\"temporal-pattern-vs\"> </a><a name=\"hctemporal-pattern-vs\"> </a><a name=\"temporal-pattern-vs-en-US\"> </a><ul><li>Include these codes as defined in <code>http://purl.obolibrary.org/obo/hp.owl</code><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>HP:0011009</td><td>Acute</td></tr><tr><td>HP:0011010</td><td>Chronic</td></tr><tr><td>HP:0031914</td><td>Fluctuating</td></tr><tr><td>HP:0025297</td><td>Prolonged</td></tr><tr><td>HP:0031796</td><td>Recurrent</td></tr><tr><td>HP:0031915</td><td>Stable</td></tr><tr><td>HP:0011011</td><td>Subacute</td></tr><tr><td>HP:0025153</td><td>Transient</td></tr></table></li></ul></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:url [ fhir:v "https://github.com/BIH-CEI/RareLink/ValueSet/temporal-pattern-vs"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "TemporalPatternVS"] ; # 
+  fhir:title [ fhir:v "Temporal Pattern Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-05-08T01:03:44+09:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Value set for capturing the temporal pattern of phenotypic features."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [ fhir:v "http://purl.obolibrary.org/obo/hp.owl"^^xsd:anyURI ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "HP:0011009" ] ;
+         fhir:display [ fhir:v "Acute" ]
+       ] [
+         fhir:code [ fhir:v "HP:0011010" ] ;
+         fhir:display [ fhir:v "Chronic" ]
+       ] [
+         fhir:code [ fhir:v "HP:0031914" ] ;
+         fhir:display [ fhir:v "Fluctuating" ]
+       ] [
+         fhir:code [ fhir:v "HP:0025297" ] ;
+         fhir:display [ fhir:v "Prolonged" ]
+       ] [
+         fhir:code [ fhir:v "HP:0031796" ] ;
+         fhir:display [ fhir:v "Recurrent" ]
+       ] [
+         fhir:code [ fhir:v "HP:0031915" ] ;
+         fhir:display [ fhir:v "Stable" ]
+       ] [
+         fhir:code [ fhir:v "HP:0011011" ] ;
+         fhir:display [ fhir:v "Subacute" ]
+       ] [
+         fhir:code [ fhir:v "HP:0025153" ] ;
+         fhir:display [ fhir:v "Transient" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

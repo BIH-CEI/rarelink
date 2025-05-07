@@ -1,0 +1,27 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='cause-of-death-code' %}
+
+{% include fragment-pagebegin.html %}
+<div style="counter-reset: section 5" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='cause-of-death-code' active='mapping' %}
+
+<a name="root"> </a>
+<h2 id="root">{{modelType}}: CauseOfDeathCode - Mappings</h2>
+{% include fragment-simpletable.html %}
+
+<p>Mappings for the cause-of-death-code {{modelType | downcase }}.</p>
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html type='StructureDefinition' id='cause-of-death-code' %}
+
+  {%include StructureDefinition-cause-of-death-code-maps.xhtml%}
+
+  <!-- insert notes if present -->
+  {% include fragment-notes.html type='StructureDefinition' id='cause-of-death-code' %}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

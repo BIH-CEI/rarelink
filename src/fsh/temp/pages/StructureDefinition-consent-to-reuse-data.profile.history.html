@@ -1,0 +1,21 @@
+---
+---
+<!-- get modelType -->
+{% include fragment-modelType.html id='consent-to-reuse-data' %}
+
+{% include fragment-pagebegin.html %}
+
+<div style="counter-reset: section 10" class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-profile-navtabs.html type='StructureDefinition' id='consent-to-reuse-data' active='history' %}
+
+  <a name="root"> </a>
+  <h2 id="root">{{modelType}}: ConsentToReuseData - Change History</h2>
+{% include fragment-simpletable.html %}
+  <p>Changes in the consent-to-reuse-data {{modelType | downcase}}.</p>
+
+  {%include StructureDefinition-consent-to-reuse-data-history.xhtml%}
+
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}
