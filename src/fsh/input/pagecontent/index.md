@@ -2,6 +2,9 @@
 
 Welcome to the RareLink Implementation Guide – a non-balloted extension of the [European Rare Disease Infrastructure Common Data Set (ERDRI-CDS)](https://eu-rd-platform.jrc.ec.europa.eu/set-of-common-data-elements_en). RareLink is a novel, open-source, and REDCap-based framework linking international registries to HL7 FHIR R4 and  GA4GH Phenopackets to enable rare disease data interoperability.
 
+- [RareLink repository](https://github.com/BIH-CEI/RareLink)
+- [RareLink documentation](https://rarelink.readthedocs.io/en/latest/index.html)
+
 ### Scope and Objectives
 
 The RareLink project aims to:
@@ -15,8 +18,8 @@ The RareLink project aims to:
 
 The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CDM) [https://doi.org/10.1038/s41597-025-04558-z](https://www.nature.com/articles/s41597-025-04558-z) harmonising the ERDRI-CDS with HL7 FHIR and GA4GH Phenopackets to enable standardized data exchange across registries and analysis tools.
 
-- RD-CDM repository: https://github.com/BIH-CEI/rd-cdm
-- RD-CDM docs: https://rd-cdm.readthedocs.io/en/latest/ 
+- [RD-CDM repository](https://github.com/BIH-CEI/rd-cdm)
+- [RD-CDM documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
 {% include img.html img="rd_cdm_v2_0_0.png" caption="Figure 1: Schematic overview of the entire ontology-based rare disease common data model" width="70%" %}
 
@@ -65,4 +68,4 @@ The RareLink-CDM profiles v2.0.0 have not yet been balloted officially.
 
 ---
 
-**For questions or contributions, please see the **Additional Info** section or submit an issue on our [GitHub repository](https://github.com/BIH-CEI/RareLink).**
+**For questions or contributions, please see the [contact section](https://rarelink.readthedocs.io/en/latest/12_contact.html) or submit an issue on our [GitHub repository](https://github.com/BIH-CEI/RareLink).**
