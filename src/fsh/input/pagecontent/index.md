@@ -15,6 +15,9 @@ The RareLink project aims to:
 
 The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CDM) [https://doi.org/10.1038/s41597-025-04558-z](https://www.nature.com/articles/s41597-025-04558-z) harmonising the ERDRI-CDS with HL7 FHIR and GA4GH Phenopackets to enable standardized data exchange across registries and analysis tools.
 
+- RD-CDM repository: https://github.com/BIH-CEI/rd-cdm
+- RD-CDM docs: https://rd-cdm.readthedocs.io/en/latest/ 
+
 {% include img.html img="rd_cdm_v2_0_0.png" caption="Figure 1: Schematic overview of the entire ontology-based rare disease common data model" width="70%" %}
 
 ### RareLink Software Architecture
