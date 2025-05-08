@@ -17,7 +17,7 @@ Whether you are setting up a new registry, integrating with other data consumers
 
 The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CDM) [https://doi.org/10.1038/s41597-025-04558-z](https://www.nature.com/articles/s41597-025-04558-z) harmonising the ERDRI-CDS with HL7 FHIR and GA4GH Phenopackets to enable standardized data exchange across registries and analysis tools.
 
-![RD-CDM Diagram](docs/_static/res/rd_cdm_v2_0_0.png)
+![RD-CDM Diagram](rd_cdm_v2_0_0.png)
 
 ## RareLink Software Architecture
 
@@ -34,7 +34,7 @@ Further details on semi-automatic or manual data capture, FHIR import via CIDS, 
 
 > **Note:** The RareLink-CDM and its FHIR profiles are provided as a non-balloted extension of the [ERDRI-CDS](https://eu-rd-platform.jrc.ec.europa.eu/set-of-common-data-elements_en).
 
-![RareLink Overview](docs/_static/res/rarelink_overview.png)
+![RareLink Overview](rarelink_overview.png)
 
 ## FHIR Profiles & Dependencies
 
@@ -46,7 +46,7 @@ RareLink comse with 33 FHIR R4 StructureDefinitions covering:
   Dependency: [Genomics Reporting IG](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)  
 - **RareLink-CDM Resource and Profile definitions**
 
-![FHIR & Phenopacket Profiles](docs/_static/res/rarelink_cdm_fhir_phenopackets.png)
+![FHIR & Phenopacket Profiles](rarelink_cdm_fhir_phenopackets.png)
 
 __Figure 2: Schematic overview of the RareLink-CDM as both FHIR instances and a Phenopacket. FHIR resources are derived from the HL7 International Patient Summary v2.0.0 profiles for Patient, Condition, Laboratory, Radiology, and Procedure. Genetic findings are captured using the HL7 Genomics Reporting v3.0.0 Genetic Variant and Diagnostic Implication profiles. Additional components, including encounters, phenotypic and other observations (e.g. age category, gestational age), family history and consent (incorporating ERDRI-CDS elements), utilise FHIR R4 base resources. The RareLink-CDM Phenopacket comprises Individual, VitalStatus, and Disease blocks, together with phenotypic and measurement data, and genetic information within the Interpretation and VariantDescriptor blocks. ERDRI-CDS=European Rare Disease Infrastructure Common Data Set. HL7=Health Level 7. IPS=International Patient Summary. RareLink-CDM=RareLink Common Data Model.__
 

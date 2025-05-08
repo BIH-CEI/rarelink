@@ -15,6 +15,10 @@ FHIR module and associated pipelines.
    - Be aware of your projects **development and production mode**. Read the
      :ref:`1_6` section and discuss this with your FHIR server administrator!
 
+.. tip::
+
+   **FHIR Implementation Guide:** https://bih-cei.github.io/rarelink/
+
 _____________________________________________________________________________________  
 
 **Overview**
@@ -60,7 +64,9 @@ profiles. For more information on FHIR, please read the background section
 :ref:`1_4`.
 
 .. hint::
-   You can check out the :ref:`2_2` FHIR Profiles in **draft** `here <https://github.com/BIH-CEI/rarelink/tree/develop/src/fsh/input/fsh>`_ 
+   - **FHIR Implementation Guide:** https://bih-cei.github.io/rarelink/
+   - Or you can check out the :ref:`2_2` FHIR Profiles in **draft** `here <https://github.com/BIH-CEI/rarelink/tree/develop/src/fsh/input/fsh>`_ 
+
 
 _____________________________________________________________________________________
 
