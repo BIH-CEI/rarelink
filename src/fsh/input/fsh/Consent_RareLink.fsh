@@ -29,7 +29,7 @@ Description: "A RareLink-specific Consent profile based on the Consent resource.
 
 * extension[ConsentToReuseData]
 Extension: ConsentToReuseData
-Id: consent-to-reuse-data
+Id: erdri-consent-to-reuse-data
 Title: "Consent to Reuse Data"
 Description: "ERDRI-CDS - Consent to the reuse of data."
 * value[x] only CodeableConcept
@@ -39,7 +39,7 @@ Description: "ERDRI-CDS - Consent to the reuse of data."
 
 * extension[AgreementToBeContacted]
 Extension: AgreementToBeContacted
-Id: agreement-to-be-contacted
+Id: erdri-agreement-to-be-contacted
 Title: "Agreement to Be Contacted"
 Description: "ERDRI-CDS - Agreement to be contacted for research purposes."
 * value[x] only CodeableConcept
@@ -49,7 +49,7 @@ Description: "ERDRI-CDS - Agreement to be contacted for research purposes."
 
 ValueSet: ConsentToReuseVS
 Id: consent-to-reuse-vs
-Title: "Consent to Reuse Data Value Set"
+Title: "Consent to Reuse Data Value Set (ERDRI-CDS)"
 Description: "Value set for capturing consent to reuse data."
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
@@ -57,7 +57,7 @@ Description: "Value set for capturing consent to reuse data."
 
 ValueSet: AgreementToBeContactedVS
 Id: agreement-to-be-contacted-vs
-Title: "Agreement to Be Contacted Value Set"
+Title: "Agreement to Be Contacted Value Set (ERDRI-CDS)"
 Description: "Value set for capturing agreement to be contacted for research."
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
