@@ -2,7 +2,7 @@
 
 Welcome to the RareLink Implementation Guide – a non-balloted extension of the [European Rare Disease Infrastructure Common Data Set (ERDRI-CDS)](https://eu-rd-platform.jrc.ec.europa.eu/set-of-common-data-elements_en). RareLink is a novel, open-source, and REDCap-based framework linking international registries to HL7 FHIR R4 and  GA4GH Phenopackets to enable rare disease data interoperability.
 
-## Scope and Objectives
+### Scope and Objectives
 
 The RareLink project aims to:
 
@@ -11,13 +11,13 @@ The RareLink project aims to:
 - **Extend** the ERDRI-CDS by utilising the the ontology-based rare disease common data model, and its corresponding RareLink Common Data Model (RareLink-CDM) with accompanying FHIR profiles and value sets.  
 - **Facilitate** cross-registry research and clinical workflows by leveraging HL7 IPS and Genomics Reporting dependencies and facilitating the use of Phenopacket-based analysis tools.
 
-## Background
+### Background
 
 The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CDM) [https://doi.org/10.1038/s41597-025-04558-z](https://www.nature.com/articles/s41597-025-04558-z) harmonising the ERDRI-CDS with HL7 FHIR and GA4GH Phenopackets to enable standardized data exchange across registries and analysis tools.
 
 {% include img.html img="rd_cdm_v2_0_0.png" caption="Figure 1: Schematic overview of the entire ontology-based rare disease common data model" width="70%" %}
 
-## RareLink Software Architecture
+### RareLink Software Architecture
 
 RareLink consists of:
 1. [The RareLink Documentation](https://rarelink.readthedocs.io/en/latest/index.html) centralising all components of the RareLink framework, installation and user guides, as well as background and additional information.
@@ -34,7 +34,7 @@ Further details on semi-automatic or manual data capture, FHIR import via CIDS, 
 
 {% include img.html img="rarelink_overview.png" caption="Figure 2: Schematic overview of the entire RareLink framework" width="70%" %}
 
-## FHIR Profiles & Dependencies
+### FHIR Profiles & Dependencies
 
 RareLink comse with FHIR R4 StructureDefinitions covering:
 
@@ -52,7 +52,7 @@ __Figure 2: Schematic overview of the RareLink-CDM as both FHIR instances and a 
 
 The RareLink-CDM profiles v2.0.0 have not yet been balloted officially.
 
-## Navigation
+### Navigation
 
 - **Scope and Objectives** – Project goals and deliverables  
 - **Background** – RD-CDM theory and ERDRI-CDS  
