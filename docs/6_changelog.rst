@@ -4,7 +4,7 @@ Changelog
 ===========
 
 
-v2.0.0 (soon)
+v2.0.0
 ------------------
 
 The current version now published is v2.0.0. 
