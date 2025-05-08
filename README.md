@@ -115,12 +115,12 @@ RareLink can be set up using various Python project management approaches. One
   virtual environment is named `rarelink-venv`, but you can name it as you prefer:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3.12 -m venv .venv
+source .venv/bin/activate
 pip install --upgrade pip
 ```
 
-> **Note**: You need Python ≥3.10 but <3.13 to be able to use RareLink!
+> **Note**: You need Python ≥3.10 but <3.13 to be able to use RareLink! 
 
 Next, clone the RareLink repository, navigate to its root directory, and
  install RareLink using:
