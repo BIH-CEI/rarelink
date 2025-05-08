@@ -108,12 +108,12 @@
           },
           "extension": [
             {
-              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus')}}",
               "valueCoding": {
-                "system": "{{? iif(snomedct_64245008.empty().not(), ''http://snomed.info/sct')}}",
+                "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
                 "version": "{{? iif(snomedct_64245008.empty().not(), '2024-09-01')}}",
-                "code": "{{? iif(snomedct_64245008.empty().not(), ''64245008')}}",
-                "display": "{{? iif(snomedct_64245008.empty().not(), ''Propositus (finding)')}}"
+                "code": "{{? iif(snomedct_64245008.empty().not(), '64245008')}}",
+                "display": "{{? iif(snomedct_64245008.empty().not(), 'Propositus (finding)')}}"
               },
               "valueCodeableConcept": {
                 "coding": [
@@ -127,7 +127,7 @@
               }
             },
             {
-              "url": "{{? iif(snomedct_842009.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+              "url": "{{? iif(snomedct_842009.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
                 "version": "{{? iif(snomedct_842009.empty().not(), '2024-09-01')}}",

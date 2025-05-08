@@ -72,14 +72,14 @@
           "deceasedDateTime": "{{? %RareLinkPatientStatus.snomedct_398299004.toDate()}}",
           "extension": [
             {
-              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/birth-place')}}",
               "extension": [
                 {
                   "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'countryCode')}}",
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://www.iso.org/iso-3166-country-codes.html')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'http://terminology.hl7.org/NamingSystem/v3-iso3166-1')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'ISO 3166-1:2020(en)')}}",
                         "code": "{{? %rarelinkpersonalinformation.snomedct_370159000}}"
                       }
@@ -102,7 +102,7 @@
               ]
             },
             {
-              "url": "https://github.com/BIH-CEI/RareLink",
+              "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission",
               "extension": [
                 {
                   "url": "code",
@@ -131,7 +131,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://loinc.org')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '2024-09-01')}}",
                         "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
                         "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"
@@ -155,7 +155,7 @@
               ]
             },
             {
-                "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://github.com/BIH-CEI/rarelink')}}",
+                "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death')}}",
                 "extension": [
                   {
                     "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'concept')}}",

@@ -27,8 +27,7 @@
           "resourceType": "Encounter",
           "status": "{{mpp:getConcept(%encounterstatus, snomedct_305058001, 'target_code')}}",
           "class": {
-            "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'system')}}",
-            "version": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'version')}}",
+            "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'https://hl7.org/fhir/R4/')}}",
             "code": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_code')}}",
             "display": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_display')}}"
           },
