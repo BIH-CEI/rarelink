@@ -88,7 +88,7 @@
           },
         "extension": [
           {
-            "url": "{{? iif(snomedct_363778006.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status')}}",
+            "url": "{{? iif(snomedct_363778006.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status')}}",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -101,13 +101,13 @@
             }
           },
           {
-            "url": "{{? iif(snomedct_8116006_resolut.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date')}}",
+            "url": "{{? iif(snomedct_8116006_resolut.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date')}}",
             "valueDateTime": {
                 "date": "{{? snomedct_8116006_resolut}}"
             }
           },
           {
-            "url" : "{{? iif(hp_0011008.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/temporal-pattern')}}",
+            "url" : "{{? iif(hp_0011008.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern')}}",
             "valueCodeableConcept": {
               "coding": [
                   {
@@ -120,7 +120,7 @@
               }
           },
           {
-            "url": "{{? iif(hp_0012823_hp1.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/clinical-modifier-1')}}",
+            "url": "{{? iif(hp_0012823_hp1.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1')}}",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -132,7 +132,7 @@
             }
           },
           {
-            "url": "{{? iif(hp_0012823_hp2.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/clinical-modifier-2')}}",
+            "url": "{{? iif(hp_0012823_hp2.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2')}}",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -144,7 +144,7 @@
             }
           },
           {
-            "url": "{{? iif(hp_0012823_hp3.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/clinical-modifier-3')}}",
+            "url": "{{? iif(hp_0012823_hp3.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3')}}",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -156,7 +156,7 @@
             }
           },
           {
-            "url": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/causing-organism')}}",
+            "url": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-organism')}}",
             "valueCodeableConcept": {
               "coding": [
                 {

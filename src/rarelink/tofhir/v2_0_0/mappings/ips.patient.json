@@ -7,21 +7,21 @@
   "source": [
     {
       "alias": "rarelinkpatient",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_1_formal_criteria",
       "joinOn": [
         "record_id"
       ]
     },
     {
       "alias": "RareLinkPatientStatus",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_3_patient_status",
       "joinOn": [
         "record_id"
       ]
     },
     {
       "alias": "rarelinkpersonalinformation",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_2_personal_information",
       "joinOn": [
         "record_id"
       ]
@@ -72,7 +72,7 @@
           "deceasedDateTime": "{{? %RareLinkPatientStatus.snomedct_398299004.toDate()}}",
           "extension": [
             {
-              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/birth-place')}}",
+              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place')}}",
               "extension": [
                 {
                   "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'countryCode')}}",
@@ -102,7 +102,7 @@
               ]
             },
             {
-              "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission",
+              "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
               "extension": [
                 {
                   "url": "code",
@@ -155,7 +155,7 @@
               ]
             },
             {
-                "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death')}}",
+                "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death')}}",
                 "extension": [
                   {
                     "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'concept')}}",

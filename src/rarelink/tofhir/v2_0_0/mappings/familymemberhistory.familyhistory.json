@@ -108,7 +108,7 @@
           },
           "extension": [
             {
-              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus')}}",
+              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
                 "version": "{{? iif(snomedct_64245008.empty().not(), '2024-09-01')}}",
@@ -127,7 +127,7 @@
               }
             },
             {
-              "url": "{{? iif(snomedct_842009.empty().not(), 'https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity')}}",
+              "url": "{{? iif(snomedct_842009.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
                 "version": "{{? iif(snomedct_842009.empty().not(), '2024-09-01')}}",
