@@ -36,7 +36,7 @@ Further details on semi-automatic or manual data capture, FHIR import via CIDS, 
 
 ### FHIR Profiles & Dependencies
 
-RareLink comse with FHIR R4 StructureDefinitions covering:
+RareLink comes with FHIR R4 StructureDefinitions covering:
 
 - **HL7 International Patient Summary (IPS) v2.0.0**  
   Dependency: [IPS Implementation Guide](https://build.fhir.org/ig/HL7/fhir-ips/)  
