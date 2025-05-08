@@ -25,6 +25,7 @@ software to ensure you have the latest updates and guidance.
 [![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-orange.svg)](https://hl7.org/fhir/)
 
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
+
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
 ________________________________________________________________________________
