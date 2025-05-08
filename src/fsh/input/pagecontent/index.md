@@ -49,6 +49,10 @@ RareLink comse with 33 FHIR R4 StructureDefinitions covering:
 
 __Figure 2: Schematic overview of the RareLink-CDM as both FHIR instances and a Phenopacket. FHIR resources are derived from the HL7 International Patient Summary v2.0.0 profiles for Patient, Condition, Laboratory, Radiology, and Procedure. Genetic findings are captured using the HL7 Genomics Reporting v3.0.0 Genetic Variant and Diagnostic Implication profiles. Additional components, including encounters, phenotypic and other observations (e.g. age category, gestational age), family history and consent (incorporating ERDRI-CDS elements), utilise FHIR R4 base resources. The RareLink-CDM Phenopacket comprises Individual, VitalStatus, and Disease blocks, together with phenotypic and measurement data, and genetic information within the Interpretation and VariantDescriptor blocks. ERDRI-CDS=European Rare Disease Infrastructure Common Data Set. HL7=Health Level 7. IPS=International Patient Summary. RareLink-CDM=RareLink Common Data Model.__
 
+### Balloting status
+
+The RareLink-CDM profiles v2.0.0 have not yet been balloted officially.
+
 ## Navigation
 
 - **Scope and Objectives** – Project goals and deliverables  
