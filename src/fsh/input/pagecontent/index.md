@@ -6,12 +6,11 @@ Welcome to the RareLink Implementation Guide – a non-balloted extension of the
 
 The RareLink project aims to:
 
-- **Standardize** data capture for rare disease registries using REDCap forms preconfigured with ontology-driven instruments.  
-- **Automate** transformation of REDCap records into interoperable formats (FHIR resources and Phenopacket JSON) for downstream analysis and data sharing.  
-- **Extend** the ERDRI-CDS by defining a non-balloted RareLink Common Data Model (RareLink-CDM) with accompanying FHIR profiles and value sets.  
-- **Facilitate** cross-registry research and clinical workflows by leveraging HL7 IPS and Genomics Reporting dependencies.  
+- **Enhance** interoperability in data capture for rare disease registries using REDCap forms preconfigured with ontology-based instruments.  
+- **Automate** transformation of REDCap records and import of retrospective data into interoperable formats (FHIR resources and Phenopacket JSON) for downstream analysis and data sharing.  
+- **Extend** the ERDRI-CDS by utilising the the ontology-based rare disease common data model, and its corresponding RareLink Common Data Model (RareLink-CDM) with accompanying FHIR profiles and value sets.  
+- **Facilitate** cross-registry research and clinical workflows by leveraging HL7 IPS and Genomics Reporting dependencies and facilitating the use of Phenopacket-based analysis tools.
 
-Whether you are setting up a new registry, integrating with other data consumers, or performing federated analyses, RareLink streamlines the path from data entry to exchange.
 
 ## Background
 
