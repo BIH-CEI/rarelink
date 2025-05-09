@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-observation-gestation-at-birth",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-gestation-at-birth",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth",
   "name": "RareLinkGestationAtBirth",
   "title": "RareLink Observation Gestation at Birth",
   "status": "draft",
@@ -45,7 +45,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

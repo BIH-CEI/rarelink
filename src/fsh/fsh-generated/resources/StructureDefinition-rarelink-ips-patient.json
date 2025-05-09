@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-ips-patient",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient",
   "name": "RareLinkIPSPatient",
   "title": "RareLink IPS Patient",
   "status": "draft",
@@ -29,16 +29,16 @@
         }
       },
       {
-        "id": "Patient.extension:birthplace",
+        "id": "Patient.extension:birth_place",
         "path": "Patient.extension",
-        "sliceName": "birthplace",
+        "sliceName": "birth_place",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/birthplace"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place"
             ]
           }
         ]
@@ -53,7 +53,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission"
             ]
           }
         ]
@@ -68,7 +68,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth"
             ]
           }
         ]
@@ -83,7 +83,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death"
             ]
           }
         ]
@@ -98,7 +98,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status"
             ]
           }
         ],

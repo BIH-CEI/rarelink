@@ -1,7 +1,7 @@
 {
   "resourceType": "ImplementationGuide",
   "id": "rarelink-ig",
-  "url": "https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig",
+  "url": "https://rarelink.bih-charite.de/fhir/ImplementationGuide/rarelink-ig",
   "version": "2.0.0",
   "name": "RareLinkImplementationGuide",
   "title": "RareLink Implementation Guide",
@@ -94,7 +94,7 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/agreement-to-be-contacted"
+          "reference": "StructureDefinition/erdri-agreement-to-be-contacted"
         },
         "name": "Agreement to Be Contacted",
         "description": "ERDRI-CDS - Agreement to be contacted for research purposes.",
@@ -104,13 +104,13 @@
         "reference": {
           "reference": "ValueSet/agreement-to-be-contacted-vs"
         },
-        "name": "Agreement to Be Contacted Value Set",
+        "name": "Agreement to Be Contacted Value Set (ERDRI-CDS)",
         "description": "Value set for capturing agreement to be contacted for research.",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "StructureDefinition/birthplace"
+          "reference": "StructureDefinition/birth-place"
         },
         "name": "Birth Place",
         "description": "The patient's place of birth.",
@@ -142,6 +142,30 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/clinical-modifier-1"
+        },
+        "name": "Cliical Modifier",
+        "description": "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/clinical-modifier-2"
+        },
+        "name": "Cliical Modifier",
+        "description": "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/clinical-modifier-3"
+        },
+        "name": "Cliical Modifier",
+        "description": "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/clinical-significance-vs"
         },
         "name": "Clinical Significance Value Set",
@@ -166,7 +190,7 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/consent-to-reuse-data"
+          "reference": "StructureDefinition/erdri-consent-to-reuse-data"
         },
         "name": "Consent to Reuse Data",
         "description": "ERDRI-CDS - Consent to the reuse of data.",
@@ -176,7 +200,7 @@
         "reference": {
           "reference": "ValueSet/consent-to-reuse-vs"
         },
-        "name": "Consent to Reuse Data Value Set",
+        "name": "Consent to Reuse Data Value Set (ERDRI-CDS)",
         "description": "Value set for capturing consent to reuse data.",
         "exampleBoolean": false
       },
@@ -230,6 +254,13 @@
       },
       {
         "reference": {
+          "reference": "Bundle/GOFSH-GENERATED-ID-0"
+        },
+        "name": "GOFSH-GENERATED-ID-0",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
           "reference": "ValueSet/karyotypic-sex-vs"
         },
         "name": "Karyotypic Sex Value Set",
@@ -246,10 +277,18 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/phenotype-modifier"
+          "reference": "StructureDefinition/causing-agent"
         },
-        "name": "Phenotype Modifier",
-        "description": "Captures modifiers for the phenotypic feature, such as severity or specific classifications.",
+        "name": "Phenotype Causing Organism",
+        "description": "The organism that is causing the phenotypic feature (e.g., a virus, bacteria, etc.).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/phenotype-severity"
+        },
+        "name": "Phenotype Severity",
+        "description": "The severity of the phenotypic feature.",
         "exampleBoolean": false
       },
       {
@@ -274,6 +313,14 @@
         },
         "name": "Phenotype Status Value Set",
         "description": "Value set for capturing phenotype status.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/temporal-pattern"
+        },
+        "name": "Phenotype Temporal Pattern",
+        "description": "The speed at which a disease manifestations appear and develop.",
         "exampleBoolean": false
       },
       {

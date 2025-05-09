@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-condition-undiagnosed-rd-case",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-condition-undiagnosed-rd-case",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case",
   "name": "RareLinkConditionUndiagnosedRDCase",
   "title": "RareLink Condition for Undiagnosed RD Case",
   "status": "draft",
@@ -25,7 +25,7 @@
         "path": "Condition.code.coding.code",
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/undiagnosed-rd-case-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/undiagnosed-rd-case-vs"
         }
       },
       {
@@ -35,7 +35,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

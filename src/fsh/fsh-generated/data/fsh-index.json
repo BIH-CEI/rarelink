@@ -1,5 +1,13 @@
 [
   {
+    "outputFile": "Bundle-GOFSH-GENERATED-ID-0.json",
+    "fshName": "GOFSH-GENERATED-ID-0",
+    "fshType": "Instance",
+    "fshFile": "Example_Bundle.fsh",
+    "startLine": 21,
+    "endLine": 120
+  },
+  {
     "outputFile": "StructureDefinition-age-at-diagnosis.json",
     "fshName": "AgeAtDiagnosis",
     "fshType": "Extension",
@@ -16,15 +24,7 @@
     "endLine": 50
   },
   {
-    "outputFile": "StructureDefinition-agreement-to-be-contacted.json",
-    "fshName": "AgreementToBeContacted",
-    "fshType": "Extension",
-    "fshFile": "Consent_RareLink.fsh",
-    "startLine": 41,
-    "endLine": 48
-  },
-  {
-    "outputFile": "StructureDefinition-birthplace.json",
+    "outputFile": "StructureDefinition-birth-place.json",
     "fshName": "BirthPlace",
     "fshType": "Extension",
     "fshFile": "Patient_RareLink.fsh",
@@ -56,20 +56,44 @@
     "endLine": 67
   },
   {
+    "outputFile": "StructureDefinition-causing-agent.json",
+    "fshName": "CausingOrganism",
+    "fshType": "Extension",
+    "fshFile": "ObservationPhenotypes_RareLink.fsh",
+    "startLine": 110,
+    "endLine": 117
+  },
+  {
+    "outputFile": "StructureDefinition-clinical-modifier-1.json",
+    "fshName": "ClinicalModifier1",
+    "fshType": "Extension",
+    "fshFile": "ObservationPhenotypes_RareLink.fsh",
+    "startLine": 80,
+    "endLine": 89
+  },
+  {
+    "outputFile": "StructureDefinition-clinical-modifier-2.json",
+    "fshName": "ClinicalModifier2",
+    "fshType": "Extension",
+    "fshFile": "ObservationPhenotypes_RareLink.fsh",
+    "startLine": 90,
+    "endLine": 99
+  },
+  {
+    "outputFile": "StructureDefinition-clinical-modifier-3.json",
+    "fshName": "ClinicalModifier3",
+    "fshType": "Extension",
+    "fshFile": "ObservationPhenotypes_RareLink.fsh",
+    "startLine": 100,
+    "endLine": 109
+  },
+  {
     "outputFile": "StructureDefinition-consanguinity.json",
     "fshName": "Consanguinity",
     "fshType": "Extension",
     "fshFile": "FamilyHistory_RareLink.fsh",
     "startLine": 46,
     "endLine": 53
-  },
-  {
-    "outputFile": "StructureDefinition-consent-to-reuse-data.json",
-    "fshName": "ConsentToReuseData",
-    "fshType": "Extension",
-    "fshFile": "Consent_RareLink.fsh",
-    "startLine": 31,
-    "endLine": 40
   },
   {
     "outputFile": "StructureDefinition-date-of-admission.json",
@@ -80,20 +104,36 @@
     "endLine": 51
   },
   {
-    "outputFile": "StructureDefinition-phenotype-modifier.json",
-    "fshName": "PhenotypeModifier",
+    "outputFile": "StructureDefinition-erdri-agreement-to-be-contacted.json",
+    "fshName": "AgreementToBeContacted",
+    "fshType": "Extension",
+    "fshFile": "Consent_RareLink.fsh",
+    "startLine": 41,
+    "endLine": 48
+  },
+  {
+    "outputFile": "StructureDefinition-erdri-consent-to-reuse-data.json",
+    "fshName": "ConsentToReuseData",
+    "fshType": "Extension",
+    "fshFile": "Consent_RareLink.fsh",
+    "startLine": 31,
+    "endLine": 40
+  },
+  {
+    "outputFile": "StructureDefinition-phenotype-severity.json",
+    "fshName": "PhenotypeSeverity",
     "fshType": "Extension",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 53,
-    "endLine": 59
+    "startLine": 70,
+    "endLine": 79
   },
   {
     "outputFile": "StructureDefinition-phenotype-status.json",
     "fshName": "PhenotypeStatus",
     "fshType": "Extension",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 36,
-    "endLine": 45
+    "startLine": 43,
+    "endLine": 52
   },
   {
     "outputFile": "StructureDefinition-propositus.json",
@@ -237,7 +277,7 @@
     "fshType": "Profile",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
     "startLine": 4,
-    "endLine": 35
+    "endLine": 42
   },
   {
     "outputFile": "StructureDefinition-recorded-sex-at-birth.json",
@@ -252,8 +292,16 @@
     "fshName": "ResolutionDate",
     "fshType": "Extension",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 46,
-    "endLine": 52
+    "startLine": 53,
+    "endLine": 59
+  },
+  {
+    "outputFile": "StructureDefinition-temporal-pattern.json",
+    "fshName": "TemporalPattern",
+    "fshType": "Extension",
+    "fshFile": "ObservationPhenotypes_RareLink.fsh",
+    "startLine": 60,
+    "endLine": 69
   },
   {
     "outputFile": "StructureDefinition-vital-status.json",
@@ -292,8 +340,8 @@
     "fshName": "AgeOfOnsetVS",
     "fshType": "ValueSet",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 68,
-    "endLine": 81
+    "startLine": 126,
+    "endLine": 139
   },
   {
     "outputFile": "ValueSet-agreement-to-be-contacted-vs.json",
@@ -388,16 +436,16 @@
     "fshName": "PhenotypeStatusVS",
     "fshType": "ValueSet",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 61,
-    "endLine": 66
+    "startLine": 119,
+    "endLine": 124
   },
   {
     "outputFile": "ValueSet-phenotypie-severity-vs.json",
     "fshName": "PhenotypeSeverityVS",
     "fshType": "ValueSet",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 96,
-    "endLine": 104
+    "startLine": 154,
+    "endLine": 162
   },
   {
     "outputFile": "ValueSet-propositus-vs.json",
@@ -444,8 +492,8 @@
     "fshName": "TemporalPatternVS",
     "fshType": "ValueSet",
     "fshFile": "ObservationPhenotypes_RareLink.fsh",
-    "startLine": 83,
-    "endLine": 94
+    "startLine": 141,
+    "endLine": 152
   },
   {
     "outputFile": "ValueSet-undiagnosed-rd-case-vs.json",

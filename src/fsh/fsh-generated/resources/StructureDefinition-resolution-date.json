@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "resolution-date",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date",
   "name": "ResolutionDate",
   "title": "Resolution Date",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date"
       },
       {
         "id": "Extension.value[x]",

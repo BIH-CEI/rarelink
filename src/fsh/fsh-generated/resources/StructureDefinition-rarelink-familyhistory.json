@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-familyhistory",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-familyhistory",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory",
   "name": "RareLinkFamilyHistory",
   "title": "RareLink Family History",
   "status": "draft",
@@ -38,7 +38,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus"
             ]
           }
         ]
@@ -53,7 +53,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/consanguinity"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity"
             ]
           }
         ]
@@ -65,7 +65,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]
@@ -96,7 +96,7 @@
         "path": "FamilyMemberHistory.relationship.coding.code",
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/family-relationship-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/family-relationship-vs"
         }
       },
       {
@@ -115,7 +115,7 @@
         "path": "FamilyMemberHistory.sex.coding.code",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/family-sex-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/family-sex-vs"
         }
       }
     ]

@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "cause-of-death-definition",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition",
   "name": "CauseOfDeathDefinition",
   "title": "Cause of Death Definition",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition"
       },
       {
         "id": "Extension.value[x]",

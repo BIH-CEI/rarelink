@@ -1,11 +1,11 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "consent-to-reuse-data",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data",
-  "name": "ConsentToReuseData",
-  "title": "Consent to Reuse Data",
+  "id": "phenotype-severity",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity",
+  "name": "PhenotypeSeverity",
+  "title": "Phenotype Severity",
   "status": "draft",
-  "description": "ERDRI-CDS - Consent to the reuse of data.",
+  "description": "The severity of the phenotypic feature.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -23,8 +23,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Consent to Reuse Data",
-        "definition": "ERDRI-CDS - Consent to the reuse of data."
+        "short": "Phenotype Severity",
+        "definition": "The severity of the phenotypic feature."
       },
       {
         "id": "Extension.extension",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity"
       },
       {
         "id": "Extension.value[x]",
@@ -54,14 +54,14 @@
       {
         "id": "Extension.value[x].coding.system",
         "path": "Extension.value[x].coding.system",
-        "patternUri": "http://snomed.info/sct"
+        "patternUri": "http://purl.obolibrary.org/obo/hp.owl"
       },
       {
         "id": "Extension.value[x].coding.code",
         "path": "Extension.value[x].coding.code",
         "binding": {
-          "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/consent-to-reuse-vs"
+          "strength": "required",
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/phenotypie-severity-vs"
         }
       }
     ]

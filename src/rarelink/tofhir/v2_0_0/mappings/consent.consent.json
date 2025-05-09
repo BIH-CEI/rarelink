@@ -7,7 +7,7 @@
   "source": [
     {
       "alias": "rarelinkConsent",
-      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_7_consent",
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_7_consent",
       "joinOn": []
     }
   ],
@@ -62,7 +62,7 @@
           "extension": [
             {
               "id": "{{? iif(rarelink_consent_data.empty().not(), 'European Rare Disease Registry Infrastructure - Consent to the reuse of data')}}",
-              "url": "{{? iif(rarelink_consent_data.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+              "url": "{{? iif(rarelink_consent_data.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {
@@ -76,7 +76,7 @@
             },
             {
               "id": "{{? iif(rarelink_consent_contact.empty().not(), 'European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes')}}",
-              "url": "{{? iif(rarelink_consent_contact.empty().not(), 'https://github.com/BIH-CEI/RareLink')}}",
+              "url": "{{? iif(rarelink_consent_contact.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted')}}",
               "valueCodeableConcept": {
                 "coding": [
                   {

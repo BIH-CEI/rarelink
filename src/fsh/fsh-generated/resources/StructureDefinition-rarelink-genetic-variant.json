@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-genetic-variant",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-genetic-variant",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant",
   "name": "RareLinkGeneticVariant",
   "title": "RareLink Genetic Variant Observation",
   "status": "draft",
@@ -37,7 +37,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]
@@ -57,7 +57,7 @@
         "path": "Observation.method.coding",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/structural-variant-method-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs"
         }
       },
       {
@@ -258,7 +258,7 @@
         ],
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/reference-genome-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/reference-genome-vs"
         }
       },
       {
@@ -319,7 +319,7 @@
         ],
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/zygosity-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs"
         }
       },
       {
@@ -349,7 +349,7 @@
         ],
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/genomic-source-class-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/genomic-source-class-vs"
         }
       },
       {
@@ -379,7 +379,7 @@
         ],
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/dna-change-type-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/dna-change-type-vs"
         }
       }
     ]

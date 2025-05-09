@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-phenotypic-feature",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-phenotypic-feature",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature",
   "name": "RareLinkPhenotypicFeature",
   "title": "RareLink Observation Phenotypic Feature",
   "status": "draft",
@@ -38,7 +38,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status"
             ]
           }
         ]
@@ -53,22 +53,97 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/resolution-date"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date"
             ]
           }
         ]
       },
       {
-        "id": "Observation.extension:phenotype_modifier",
+        "id": "Observation.extension:temporal_pattern",
         "path": "Observation.extension",
-        "sliceName": "phenotype_modifier",
+        "sliceName": "temporal_pattern",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-modifier"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:phenotype_severity",
+        "path": "Observation.extension",
+        "sliceName": "phenotype_severity",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:clinical_modifier_1",
+        "path": "Observation.extension",
+        "sliceName": "clinical_modifier_1",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:clinical_modifier_2",
+        "path": "Observation.extension",
+        "sliceName": "clinical_modifier_2",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:clinical_modifier_3",
+        "path": "Observation.extension",
+        "sliceName": "clinical_modifier_3",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.extension:causing_organism",
+        "path": "Observation.extension",
+        "sliceName": "causing_organism",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-agent"
             ]
           }
         ]
@@ -88,7 +163,7 @@
         "path": "Observation.category.coding.code",
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-of-onset-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/age-of-onset-vs"
         }
       },
       {
@@ -115,7 +190,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "cause-of-death",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death",
   "name": "CauseOfDeath",
   "title": "Cause of Death",
   "status": "draft",
@@ -41,7 +41,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-code"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-code"
             ]
           }
         ]
@@ -56,7 +56,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death-definition"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition"
             ]
           }
         ]
@@ -64,7 +64,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/cause-of-death"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death"
       },
       {
         "id": "Extension.value[x]",

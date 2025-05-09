@@ -12,7 +12,7 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 
 * code 1..1
 * code.coding 1..1
-* code.coding.system = HP
+* code.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
 * code.coding.code MS
 
 * category 0..*
@@ -28,9 +28,16 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 * effective[x] 0..1
 * effectiveDateTime MS
 
+* bodySite 0..1
+
 * extension contains PhenotypeStatus named phenotype_status 0..1
 * extension contains ResolutionDate named resolution_date 0..1
-* extension contains PhenotypeModifier named phenotype_modifier 0..1
+* extension contains TemporalPattern named temporal_pattern 0..1
+* extension contains PhenotypeSeverity named phenotype_severity 0..1
+* extension contains ClinicalModifier1 named clinical_modifier_1 0..1
+* extension contains ClinicalModifier2 named clinical_modifier_2 0..1
+* extension contains ClinicalModifier3 named clinical_modifier_3 0..1
+* extension contains CausingOrganism named causing_organism 0..1
 
 * extension[PhenotypeStatus]
 Extension: PhenotypeStatus
@@ -49,13 +56,64 @@ Title: "Resolution Date"
 Description: "The date when the phenotypic feature resolved."
 * value[x] only dateTime
 
-* extension[PhenotypeModifier]
-Extension: PhenotypeModifier
-Id: phenotype-modifier
-Title: "Phenotype Modifier"
-Description: "Captures modifiers for the phenotypic feature, such as severity or specific classifications."
+* extension[TemporalPattern]
+Extension: TemporalPattern
+Id: temporal-pattern
+Title: "Phenotype Temporal Pattern"
+Description: "The speed at which a disease manifestations appear and develop."
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code from TemporalPatternVS (required)
+
+* extension[PhenotypeSeverity]
+Extension: PhenotypeSeverity
+Id: phenotype-severity
+Title: "Phenotype Severity"
+Description: "The severity of the phenotypic feature."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code from PhenotypeSeverityVS (required)
+
+* extension[ClinicalModifier1]
+Extension: ClinicalModifier1
+Id: clinical-modifier-1
+Title: "Cliical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code MS
+
+* extension[ClinicalModifier2]
+Extension: ClinicalModifier2
+Id: clinical-modifier-2
+Title: "Cliical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code MS
+
+* extension[ClinicalModifier3]
+Extension: ClinicalModifier3
+Id: clinical-modifier-3
+Title: "Cliical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code MS
+
+* extension[CausingOrganism]
+Extension: CausingOrganism
+Id: causing-agent
+Title: "Phenotype Causing Organism"
+Description: "The organism that is causing the phenotypic feature (e.g., a virus, bacteria, etc.)."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/NCBITaxon.owl"
 * valueCodeableConcept.coding.code MS
 
 ValueSet: PhenotypeStatusVS

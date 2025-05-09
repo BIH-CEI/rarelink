@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-ips-measurement-radiology",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-measurement-radiology",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-radiology",
   "name": "RareLinkIPSMeasurementRadiology",
   "title": "RareLink IPS Measurement Radiology",
   "status": "draft",
@@ -42,7 +42,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

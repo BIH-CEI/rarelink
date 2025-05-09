@@ -26,7 +26,7 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 * deceasedBoolean 0..1 MS
 * deceasedDateTime 0..1 MS
 
-* extension contains BirthPlace named birthplace 0..1
+* extension contains BirthPlace named birth_place 0..1
 * extension contains DateOfAdmission named date_of_admission 0..1
 * extension contains RecordedSexAtBirth named recorded_sex_at_birth 0..1
 * extension contains CauseOfDeath named cause_of_death 0..1
@@ -34,11 +34,11 @@ Description: "A RareLink-specific profile for the IPS Patient resource."
 
 * extension[BirthPlace]
 Extension: BirthPlace
-Id: birthplace
+Id: birth-place
 Title: "Birth Place"
 Description: "The patient's place of birth."
 * value[x] only CodeableConcept
-* valueCodeableConcept.coding.system = "http://hl7.org/fhir/R4"
+* valueCodeableConcept.coding.system = "http://terminology.hl7.org/NamingSystem/v3-iso3166-1"
 * valueCodeableConcept.coding.code MS
 
 * extension[DateOfAdmission]

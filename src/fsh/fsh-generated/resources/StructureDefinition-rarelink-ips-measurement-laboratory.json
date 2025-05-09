@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-ips-measurement-laboratory",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-measurement-laboratory",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory",
   "name": "RareLinkIPSMeasurementLaboratory",
   "title": "RareLink IPS Measurement Laboratory",
   "status": "draft",
@@ -37,7 +37,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]
