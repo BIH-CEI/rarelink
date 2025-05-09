@@ -11,9 +11,8 @@ Profile: RareLinkGeneticVariant
 Parent: http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant|3.0.0
 Id: rarelink-genetic-variant
 Title: "RareLink Genetic Variant Observation"
-Description: "
- A RareLink-specific profile for documenting genetic findings 
- (genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.
+Description: "A RareLink-specific profile for documenting genetic findings 
+(genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.
 "
 
 * status = #final (exactly)
@@ -120,10 +119,9 @@ Profile: RareLinkDiagnosticImplication
 Parent: http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0
 Id: rarelink-diagnostic-implication
 Title: "RareLink Diagnostic Implication Observation"
-Description: "
- A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile 
- for documenting diagnostic significance, evidence levels, and associated phenotypes 
- (genetic_findings.diagnostic_implication).
+Description: "A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile 
+for documenting diagnostic significance, evidence levels, and associated phenotypes 
+(genetic_findings.diagnostic_implication).
 "
 
 * status = #final (exactly)

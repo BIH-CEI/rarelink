@@ -360,7 +360,7 @@
           "reference": "StructureDefinition/rarelink-diagnostic-implication"
         },
         "name": "RareLink Diagnostic Implication Observation",
-        "description": "\n  A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \n  for documenting diagnostic significance, evidence levels, and associated phenotypes \n  (genetic_findings.diagnostic_implication).\n",
+        "description": "A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \nfor documenting diagnostic significance, evidence levels, and associated phenotypes \n(genetic_findings.diagnostic_implication).\n",
         "exampleBoolean": false
       },
       {
@@ -384,7 +384,7 @@
           "reference": "StructureDefinition/rarelink-genetic-variant"
         },
         "name": "RareLink Genetic Variant Observation",
-        "description": "\n  A RareLink-specific profile for documenting genetic findings \n  (genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.\n",
+        "description": "A RareLink-specific profile for documenting genetic findings \n(genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.\n",
         "exampleBoolean": false
       },
       {
