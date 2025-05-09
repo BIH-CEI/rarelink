@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Observation', record_id & 'Gestational Length')}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth"
             ]
           },
           "resourceType": "Observation",

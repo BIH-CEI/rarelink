@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Encounter', record_id & hl7fhir_enc_period_start & hl7fhir_enc_period_end & encounterclass & encounterstatus)}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter"
             ]
           },
           "resourceType": "Encounter",

@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Consent', record_id & 'Consent')}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Consent|4.0.1"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent"
             ]
           },
           "resourceType": "Consent",

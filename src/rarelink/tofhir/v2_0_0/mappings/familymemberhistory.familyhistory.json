@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('FamilyMemberHistory', record_id & 'Family History')}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory"
             ]
           },
           "resourceType": "FamilyMemberHistory",

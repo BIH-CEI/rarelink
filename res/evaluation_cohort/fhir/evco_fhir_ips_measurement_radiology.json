@@ -1,25 +1,25 @@
 {
   "resourceType": "Bundle",
-  "id": "99ac3cf2-7770-4740-9d5c-508d712a475f",
+  "id": "da33845a-39e0-4222-889b-33a63bef56ca",
   "meta": {
-    "lastUpdated": "2025-05-09T07:49:04.587+00:00"
+    "lastUpdated": "2025-05-09T08:54:29.731+00:00"
   },
   "type": "searchset",
   "total": 1,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=http%3A%2F%2Fhl7.org%2Ffhir%2FStructureDefinition%2Fvitalsigns%7C4.0.1"
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-ips-measurement-radiology"
   } ],
   "entry": [ {
-    "fullUrl": "http://localhost:8080/fhir/Observation/a9e94f00cb990e562e776c3dd442cff6",
+    "fullUrl": "http://localhost:8080/fhir/Observation/e6ac819a4450a275b4e79790ec57aa35",
     "resource": {
       "resourceType": "Observation",
-      "id": "a9e94f00cb990e562e776c3dd442cff6",
+      "id": "e6ac819a4450a275b4e79790ec57aa35",
       "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-07T16:09:04.298+00:00",
-        "source": "#FZW3dmxihmQb45u7",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1" ]
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:39.903+00:00",
+        "source": "#4DQ4R6PYvB1rwh34",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-radiology" ]
       },
       "text": {
         "status": "generated",
@@ -29,32 +29,45 @@
       "category": [ {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-          "code": "vital-signs"
+          "code": "imaging",
+          "display": "laboratory"
         } ]
       } ],
       "code": {
         "coding": [ {
-          "system": "http ://loinc.org",
+          "system": "https://loinc.org/",
           "version": "2.78",
-          "code": "9279-1",
-          "display": "Respiratory Rate"
-        } ]
+          "code": "36554-4"
+        } ],
+        "text": "Measurements - Assay"
       },
       "subject": {
         "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
       },
       "effectiveDateTime": "2021-05-06",
+      "performer": [ {
+        "display": "unknown"
+      } ],
       "valueQuantity": {
-        "value": 80,
-        "unit": "/min"
+        "value": 1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000307"
       },
       "interpretation": [ {
         "coding": [ {
-          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "system": "https://ncit.nci.nih.gov",
           "version": "24.04e",
-          "code": "C14165"
+          "code": "C3333"
         } ]
-      } ]
+      } ],
+      "method": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "2024-09-01",
+          "code": "399208008"
+        } ],
+        "text": "Measurement - Procedure"
+      }
     },
     "search": {
       "mode": "match"

@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings Variant')}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant|3.0.0"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant"
             ]
           },
           "resourceType": "Observation",
@@ -358,7 +358,7 @@
           "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings Implication')}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication|3.0.0"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication"
             ]
           },
           "resourceType": "Observation",
