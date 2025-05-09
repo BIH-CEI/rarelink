@@ -7,21 +7,21 @@
   "source": [
     {
       "alias": "rarelinkpatient",
-      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_1_formal_criteria",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
       "joinOn": [
         "record_id"
       ]
     },
     {
       "alias": "RareLinkPatientStatus",
-      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_3_patient_status",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
       "joinOn": [
         "record_id"
       ]
     },
     {
       "alias": "rarelinkpersonalinformation",
-      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_2_personal_information",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
       "joinOn": [
         "record_id"
       ]

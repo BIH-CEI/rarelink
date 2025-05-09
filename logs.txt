@@ -1,0 +1,38 @@
+2025-05-09_06:33:48.726 [toFHIR-akka.actor.default-dispatcher-4] INFO  i.t.e.e.l.ExecutionLogger$ - toFHIR mapping result (STARTED) for execution '41700936-0937-432e-9a9b-17d1a9f7f10f' of job 'rarelink-cdm' in project '' for mappingTask 'ips.patient'!
+
+2025-05-09_06:33:48.731 [toFHIR-akka.actor.default-dispatcher-4] DEBUG i.t.e.m.j.FhirMappingJobManager - Reading source data for mapping ips.patient within mapping job rarelink-cdm ...
+2025-05-09_06:33:48.804 [toFHIR-akka.actor.default-dispatcher-4] ERROR i.t.e.e.l.ExecutionLogger$ - toFHIR mapping result (FAILURE) for execution '41700936-0937-432e-9a9b-17d1a9f7f10f' of job 'rarelink-cdm' in project '' for mappingTask 'ips.patient'!
+        # of Invalid Rows:      0
+        # of Not Mapped:        0
+        # of Failed writes:     0
+        # of Written FHIR resources:    0
+io.tofhir.engine.model.exception.FhirMappingException: Source cannot be read for mapping source: KafkaSource(805-rarelink_1_formal_criteria,Map(),None,Some(redcap-kafka-source)) source settings: KafkaSourceSettings(redcap-kafka-source,https://redcap.charite.de/demo/api/,kafka-1:29092,true,false).
+        at io.tofhir.engine.data.read.SourceHandler$.readSource(SourceHandler.scala:53)
+        at io.tofhir.engine.mapping.job.FhirMappingJobManager.$anonfun$readJoinSourceData$6(FhirMappingJobManager.scala:414)
+        at scala.collection.immutable.List.map(List.scala:247)
+        at scala.collection.immutable.List.map(List.scala:79)
+        at io.tofhir.engine.mapping.job.FhirMappingJobManager.readJoinSourceData(FhirMappingJobManager.scala:411)
+        at io.tofhir.engine.mapping.job.FhirMappingJobManager.readSourceExecuteAndWriteInChunks(FhirMappingJobManager.scala:312)
+        at io.tofhir.engine.mapping.job.FhirMappingJobManager.$anonfun$executeMappingJob$3(FhirMappingJobManager.scala:73)
+        at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+        at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:64)
+        at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:101)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+        at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+        at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:101)
+        at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+        at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+        at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+        at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+        at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+        at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+        at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Schema is required for streaming source
+        at io.tofhir.engine.data.read.KafkaSourceReader.read(KafkaSourceReader.scala:36)
+        at io.tofhir.engine.data.read.KafkaSourceReader.read(KafkaSourceReader.scala:19)
+        at io.tofhir.engine.data.read.SourceHandler$.readSource(SourceHandler.scala:51)
+        ... 19 common frames omitted
+2025-05-09_06:33:48.805 [toFHIR-akka.actor.default-dispatcher-4] INFO  i.t.e.e.l.ExecutionLogger$ - toFHIR mapping result (STARTED) for execution '41700936-0937-432e-9a9b-17d1a9f7f10f' of job 'rarelink-cdm' in project '' for mappingTask 'observation.age_category'!
+
+2025-05-09_06:33:48.807 [toFHIR-akka.actor.default-dispatcher-4] DEBUG i.t.e.m.j.FhirMappingJobManager - Reading source data for mapping observation.age_category within mapping job rarelink-cdm ...
+2025-05-09_06:33:48.809 [toFHIR-akka.actor.default-dispatcher-4] E

@@ -7,7 +7,7 @@
   "source": [
     {
       "alias": "rarelinkencounter",
-      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/Rarelink_4_care_pathway",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_4_care_pathway",
       "joinOn": []
     }
   ],
@@ -27,7 +27,7 @@
           "resourceType": "Encounter",
           "status": "{{mpp:getConcept(%encounterstatus, snomedct_305058001, 'target_code')}}",
           "class": {
-            "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'https://hl7.org/fhir/R4/')}}",
+            "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'system')}}",
             "code": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_code')}}",
             "display": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_display')}}"
           },

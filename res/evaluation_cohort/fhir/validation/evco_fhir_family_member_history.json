@@ -1,8 +1,8 @@
 {
   "resourceType": "Bundle",
-  "id": "71958af6-b3d2-4b9a-a6be-422f43565c5b",
+  "id": "5c35a5ca-6db5-4a9d-b186-13fa613c188b",
   "meta": {
-    "lastUpdated": "2025-05-07T18:04:41.899+00:00"
+    "lastUpdated": "2025-05-09T07:49:04.455+00:00"
   },
   "type": "searchset",
   "total": 1,
@@ -16,9 +16,9 @@
       "resourceType": "FamilyMemberHistory",
       "id": "4cd2693d7e12becc5f4094266e754771",
       "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-05-06T10:53:33.033+00:00",
-        "source": "#I4c5M65zAMN4xP1P",
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T06:24:11.378+00:00",
+        "source": "#PNtALq6ERw5M3H9F",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1" ]
       },
       "text": {
@@ -26,7 +26,7 @@
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
       },
       "extension": [ {
-        "url": "https://github.com/BIH-CEI/RareLink",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus",
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://snomed.info/sct",
@@ -36,7 +36,7 @@
           } ]
         }
       }, {
-        "url": "https://github.com/BIH-CEI/RareLink",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity",
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://snomed.info/sct",

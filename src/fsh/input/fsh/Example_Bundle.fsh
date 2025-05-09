@@ -200,7 +200,7 @@ Usage: #inline
 * meta.source = "#9WErM69SUxMuvIqa"
 * meta.profile = "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
 * extension.id = "ERDRI-CDS - Age at Onset"
-* extension.url = "https://rarelink.readthedocs.io/en/latest/index.html"
+* extension.url = "https://rarelink.bih-charite.de/fhir/age-at-diagnosis"
 * extension.valueCodeableConcept.coding.version = "2024-09-01"
 * extension.valueCodeableConcept.coding = $sct#410672004 "Date"
 * extension.valueCodeableConcept.text = "SNOMED:424850005 - Age at Onset"

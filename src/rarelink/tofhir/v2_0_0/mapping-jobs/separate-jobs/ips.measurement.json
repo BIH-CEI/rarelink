@@ -7,7 +7,7 @@
     "redcap-kafka-source": {
       "name": "redcap-kafka-source",
       "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
-      "asStream": true,
+      "asStream": false,
       "jsonClass": "KafkaSourceSettings",
       "asRedCap": true,
       "bootstrapServers": "kafka-1:29092"
