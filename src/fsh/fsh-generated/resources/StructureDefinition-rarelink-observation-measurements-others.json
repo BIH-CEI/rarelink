@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-observation-measurements-others",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-measurements-others",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-measurements-others",
   "name": "RareLinkIPSMeasurementsOthers",
   "title": "RareLink Observation Measurements (Others)",
   "status": "draft",
@@ -72,7 +72,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "recorded-sex-at-birth",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth",
   "name": "RecordedSexAtBirth",
   "title": "Recorded Sex at Birth",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/recorded-sex-at-birth"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth"
       },
       {
         "id": "Extension.value[x]",
@@ -55,7 +55,7 @@
         "path": "Extension.value[x].coding.code",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/sex-at-birth-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/sex-at-birth-vs"
         }
       }
     ]

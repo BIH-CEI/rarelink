@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "age-at-onset",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset",
   "name": "AgeAtOnset",
   "title": "Age at Onset",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset"
       },
       {
         "id": "Extension.value[x]",
@@ -46,7 +46,7 @@
         ],
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-at-onset-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/age-at-onset-vs"
         }
       }
     ]

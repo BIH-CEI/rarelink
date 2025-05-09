@@ -49,19 +49,6 @@
           ],
           "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
           "effectiveDateTime": "{{? snomedct_8116006_onset}}",
-          "interpretation": [
-            {
-              "coding": [
-                {
-                  "system": "{{? iif(hp_0012824.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
-                  "version": "{{? iif(hp_0012824.empty().not(), '2024-08-13')}}",
-                  "code": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_code')}}",
-                  "display": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_display')}}"
-                }
-              ],
-              "text": "{{? iif(hp_0012824.empty().not(), 'Phenotypic Finding - Severity')}}"
-            }
-          ],
           "text": {
             "status": "{{'extensions'}}",
             "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
@@ -118,6 +105,19 @@
                   }
                 ]
               }
+          },
+          {
+            "url" : "{{? iif(hp_0012824.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+              "system": "{{? iif(hp_0012824.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+              "version": "{{? iif(hp_0012824.empty().not(), '2024-08-13')}}",
+              "code": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_code')}}",
+              "display": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_display')}}"
+                }
+              ]
+            }
           },
           {
             "url": "{{? iif(hp_0012823_hp1.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1')}}",

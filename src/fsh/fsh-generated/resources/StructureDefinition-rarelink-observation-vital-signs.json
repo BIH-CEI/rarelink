@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-observation-vital-signs",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-vital-signs",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-vital-signs",
   "name": "RareLinkIPSMeasurementsVitalSigns",
   "title": "RareLink Vital Signs Measurements",
   "status": "draft",
@@ -54,7 +54,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

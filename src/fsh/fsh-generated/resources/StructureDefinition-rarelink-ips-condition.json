@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-ips-condition",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-condition",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-condition",
   "name": "RareLinkIPSCondition",
   "title": "RareLink IPS Condition",
   "status": "draft",
@@ -38,7 +38,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-diagnosis"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-diagnosis"
             ]
           }
         ]
@@ -53,7 +53,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/age-at-onset"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset"
             ]
           }
         ]
@@ -91,7 +91,7 @@
         "path": "Condition.severity.coding.code",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/severity-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/severity-vs"
         }
       },
       {
@@ -116,7 +116,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

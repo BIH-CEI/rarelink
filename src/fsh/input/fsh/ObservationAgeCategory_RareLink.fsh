@@ -31,7 +31,6 @@ ValueSet: AgeCategoryVS
 Id: age-category-vs
 Title: "Age Category Value Set"
 Description: "Value set for capturing the age category of a patient."
-* experimental = false
 * SNOMEDCT#3658006 "Infancy"
 * SNOMEDCT#713153009 "Toddler"
 * SNOMEDCT#255398004 "Childhood"

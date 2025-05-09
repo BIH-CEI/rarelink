@@ -94,7 +94,6 @@ ValueSet: SexAtBirthVS
 Id: sex-at-birth-vs
 Title: "Sex at Birth Value Set"
 Description: "Value set for capturing the sex assigned at birth."
-* experimental = false
 * SNOMEDCT#248152002 "Female"
 * SNOMEDCT#248153007 "Male"
 * SNOMEDCT#184115007 "Patient sex unknown"
@@ -105,7 +104,6 @@ ValueSet: VitalStatusVS
 Id: vital-status-vs
 Title: "Vital Status Value Set"
 Description: "Value set for capturing the vital status of the patient."
-* experimental = false
 * SNOMEDCT#438949009 "Alive" // maps to false
 * SNOMEDCT#419099009 "Dead" // maps to true
 * SNOMEDCT#399307001 "Unknown - Lost in follow-up" // maps to null

@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "agreement-to-be-contacted",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted",
+  "id": "erdri-agreement-to-be-contacted",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
   "name": "AgreementToBeContacted",
   "title": "Agreement to Be Contacted",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted"
       },
       {
         "id": "Extension.value[x]",
@@ -61,7 +61,7 @@
         "path": "Extension.value[x].coding.code",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/agreement-to-be-contacted-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/agreement-to-be-contacted-vs"
         }
       }
     ]

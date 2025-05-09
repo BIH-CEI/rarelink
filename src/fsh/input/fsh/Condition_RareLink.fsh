@@ -51,7 +51,6 @@ Description: "ERDRI-CDS - The age at which the condition first appeared."
 
 
 ValueSet: SeverityVS
-* experimental = false
 Id: severity-vs
 Title: "Severity Value Set"
 Description: "Value set for severity levels of conditions."
@@ -60,7 +59,6 @@ Description: "Value set for severity levels of conditions."
 * SNOMEDCT#255604002 "Mild"
 
 ValueSet: AgeAtDiagnosisVS
-* experimental = false
 Id: age-at-diagnosis-vs
 Title: "Age at Diagnosis Value Set"
 Description: "Value set for capturing age at diagnosis."
@@ -73,7 +71,6 @@ ValueSet: AgeAtOnsetVS
 Id: age-at-onset-vs
 Title: "Age at Onset Value Set"
 Description: "Value set for capturing age at onset."
-* experimental = false
 * SNOMEDCT#118189007 "Prenatal"
 * SNOMEDCT#3950001 "Birth"
 * SNOMEDCT#410672004 "Date"

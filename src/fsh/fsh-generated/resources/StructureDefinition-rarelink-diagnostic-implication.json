@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-diagnostic-implication",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-diagnostic-implication",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication",
   "name": "RareLinkDiagnosticImplication",
   "title": "RareLink Diagnostic Implication Observation",
   "status": "draft",
@@ -78,7 +78,7 @@
         ],
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/level-of-evidence-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs"
         }
       },
       {
@@ -113,7 +113,7 @@
         ],
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/clinical-significance-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs"
         }
       },
       {

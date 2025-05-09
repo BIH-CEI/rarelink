@@ -51,7 +51,6 @@ ValueSet: ConsentToReuseVS
 Id: consent-to-reuse-vs
 Title: "Consent to Reuse Data Value Set (ERDRI-CDS)"
 Description: "Value set for capturing consent to reuse data."
-* experimental = false
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
 * SNOMEDCT#261665006 "Unknown"
@@ -60,7 +59,6 @@ ValueSet: AgreementToBeContactedVS
 Id: agreement-to-be-contacted-vs
 Title: "Agreement to Be Contacted Value Set (ERDRI-CDS)"
 Description: "Value set for capturing agreement to be contacted for research."
-* experimental = false
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
 * SNOMEDCT#261665006 "Unknown"

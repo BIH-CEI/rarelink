@@ -25,11 +25,6 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 * subject.reference 0..1 MS
 * subject.identifier 0..1 MS
 
-* interpretaion 0..*
-* interpretation.coding 0..*
-* category.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
-* interpretation.coding.code from PhenotypeSeverityVS (required)
-
 * effective[x] 0..1
 * effectiveDateTime MS
 
@@ -38,6 +33,7 @@ Description: "A RareLink-specific profile for capturing phenotypic features."
 * extension contains PhenotypeStatus named phenotype_status 0..1
 * extension contains ResolutionDate named resolution_date 0..1
 * extension contains TemporalPattern named temporal_pattern 0..1
+* extension contains PhenotypeSeverity named phenotype_severity 0..1
 * extension contains ClinicalModifier1 named clinical_modifier_1 0..1
 * extension contains ClinicalModifier2 named clinical_modifier_2 0..1
 * extension contains ClinicalModifier3 named clinical_modifier_3 0..1
@@ -69,6 +65,16 @@ Description: "The speed at which a disease manifestations appear and develop."
 * valueCodeableConcept.coding 1..1
 * valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
 * valueCodeableConcept.coding.code from TemporalPatternVS (required)
+
+* extension[PhenotypeSeverity]
+Extension: PhenotypeSeverity
+Id: phenotype-severity
+Title: "Phenotype Severity"
+Description: "The severity of the phenotypic feature."
+* value[x] only CodeableConcept
+* valueCodeableConcept.coding 1..1
+* valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
+* valueCodeableConcept.coding.code from PhenotypeSeverityVS (required)
 
 * extension[ClinicalModifier1]
 Extension: ClinicalModifier1
@@ -114,7 +120,6 @@ ValueSet: PhenotypeStatusVS
 Id: phenotype-status-vs
 Title: "Phenotype Status Value Set"
 Description: "Value set for capturing phenotype status."
-* experimental = false
 * SNOMEDCT#410605003 "Confirmed present"
 * SNOMEDCT#723511001 "Refuted"
 
@@ -122,7 +127,6 @@ ValueSet: AgeOfOnsetVS
 Id: age-of-onset-vs
 Title: "Age of Onset Value Set"
 Description: "Value set for capturing the age of onset for phenotypes."
-* experimental = false
 * HP#HP:0011460 "Embryonal onset (0w-8w embryonal)"
 * HP#HP:0011461 "Fetal onset (8w embryonal - birth)"
 * HP#HP:0003577 "Congenital onset (at birth)"
@@ -138,7 +142,6 @@ ValueSet: TemporalPatternVS
 Id: temporal-pattern-vs
 Title: "Temporal Pattern Value Set"
 Description: "Value set for capturing the temporal pattern of phenotypic features."
-* experimental = false
 * HP#HP:0011009 "Acute"
 * HP#HP:0011010 "Chronic"
 * HP#HP:0031914 "Fluctuating"
@@ -152,7 +155,6 @@ ValueSet: PhenotypeSeverityVS
 Id: phenotypie-severity-vs
 Title: "Phenotype Severity Value Set"
 Description: "Value set for capturing phenotype severity."
-* experimental = false
 * HP#HP:0012827 "Borderline"
 * HP#HP:0012825 "Mild"
 * HP#HP:0012826 "Moderate"

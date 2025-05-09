@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-ips-procedure",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-procedure",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure",
   "name": "RareLinkIPSProcedure",
   "title": "RareLink IPS Procedure",
   "status": "draft",
@@ -43,7 +43,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

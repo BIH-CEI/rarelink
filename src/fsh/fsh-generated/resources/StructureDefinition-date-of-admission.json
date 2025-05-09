@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "date-of-admission",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
   "name": "DateOfAdmission",
   "title": "Date of Admission",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/date-of-admission"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission"
       },
       {
         "id": "Extension.value[x]",

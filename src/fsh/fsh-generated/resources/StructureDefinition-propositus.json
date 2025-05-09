@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "propositus",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus",
   "name": "Propositus",
   "title": "Propositus",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/propositus"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus"
       },
       {
         "id": "Extension.value[x]",
@@ -61,7 +61,7 @@
         "path": "Extension.value[x].coding.code",
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/propositus-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/propositus-vs"
         }
       }
     ]

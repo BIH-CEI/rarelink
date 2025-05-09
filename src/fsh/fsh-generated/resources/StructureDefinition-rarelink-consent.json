@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-consent",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-consent",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent",
   "name": "RareLinkConsent",
   "title": "RareLink Consent",
   "status": "draft",
@@ -38,7 +38,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/consent-to-reuse-data"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse-data"
             ]
           }
         ]
@@ -53,7 +53,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/agreement-to-be-contacted"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted"
             ]
           }
         ]
@@ -91,7 +91,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]

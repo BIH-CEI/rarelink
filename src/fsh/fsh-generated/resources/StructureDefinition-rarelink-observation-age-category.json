@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rarelink-observation-age-category",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-observation-age-category",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category",
   "name": "RareLinkAgeCategory",
   "title": "RareLink Observation Age Category",
   "status": "draft",
@@ -45,7 +45,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://github.com/BIH-CEI/RareLink/StructureDefinition/rarelink-ips-patient"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
             ]
           }
         ]
@@ -131,7 +131,7 @@
         "path": "Observation.value[x].coding.code",
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/age-category-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/age-category-vs"
         }
       }
     ]

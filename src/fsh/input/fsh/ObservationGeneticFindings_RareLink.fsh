@@ -176,7 +176,6 @@ ValueSet: StructuralVariantMethodVS
 Id: structural-variant-method-vs
 Title: "Structural Variant Method Value Set"
 Description: "LOINC LA codes enumerating methods for detecting structural variants."
-* experimental = false
 * LOINC#LA26406-1 "Karyotyping"
 * LOINC#LA26404-6 "FISH"
 * LOINC#LA26418-6 "PCR"
@@ -193,7 +192,6 @@ ValueSet: ReferenceGenomeVS
 Id: reference-genome-vs
 Title: "Reference Genome Value Set"
 Description: "LOINC LA codes specifying the reference genome build."
-* experimental = false
 * LOINC#LA14032-9 "NCBI Build 34 (hg16)"
 * LOINC#LA14029-5 "GRCh37 (hg19)"
 * LOINC#LA14030-3 "NCBI Build 36.1 (hg18)"
@@ -205,7 +203,6 @@ ValueSet: ZygosityVS
 Id: zygosity-vs
 Title: "Zygosity Value Set"
 Description: "LOINC LA codes enumerating various zygosity states."
-* experimental = false
 * LOINC#LA6705-3 "Homozygous"
 * LOINC#LA6706-1 "(simple) Heterozygous"
 * LOINC#LA26217-2 "Compound heterozygous"
@@ -219,7 +216,6 @@ ValueSet: GenomicSourceClassVS
 Id: genomic-source-class-vs
 Title: "Genomic Source Class Value Set"
 Description: "LOINC LA codes enumerating germline, somatic, fetal, etc."
-* experimental = false
 * LOINC#LA6683-2 "Germline"
 * LOINC#LA6684-0 "Somatic"
 * LOINC#LA10429-1 "Fetal"
@@ -234,7 +230,6 @@ ValueSet: DNAChangeTypeVS
 Id: dna-change-type-vs
 Title: "DNA Change Type Value Set"
 Description: "LOINC LA codes enumerating various DNA change types."
-* experimental = false
 * LOINC#LA9658-1 "Wild type"
 * LOINC#LA6692-3 "Deletion"
 * LOINC#LA6686-5 "Duplication"
@@ -248,7 +243,6 @@ ValueSet: ClinicalSignificanceVS
 Id: clinical-significance-vs
 Title: "Clinical Significance Value Set"
 Description: "LOINC LA codes for the clinical significance of a variant."
-* experimental = false
 * LOINC#LA6668-3 "Pathogenic"
 * LOINC#LA26332-9 "Likely pathogenic"
 * LOINC#LA26333-7 "Uncertain significance"
@@ -261,7 +255,6 @@ ValueSet: LevelOfEvidenceVS
 Id: level-of-evidence-vs
 Title: "Level of Evidence Value Set"
 Description: "LOINC LA codes describing evidence strength for a variant."
-* experimental = false
 * LOINC#LA30200-2 "Very strong evidence pathogenic"
 * LOINC#LA30201-0 "Strong evidence pathogenic"
 * LOINC#LA30202-8 "Moderate evidence pathogenic"

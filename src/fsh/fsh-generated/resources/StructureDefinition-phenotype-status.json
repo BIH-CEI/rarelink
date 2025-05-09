@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "phenotype-status",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status",
   "name": "PhenotypeStatus",
   "title": "Phenotype Status",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/phenotype-status"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status"
       },
       {
         "id": "Extension.value[x]",
@@ -61,7 +61,7 @@
         "path": "Extension.value[x].coding.code",
         "binding": {
           "strength": "required",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/phenotype-status-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-status-vs"
         }
       }
     ]

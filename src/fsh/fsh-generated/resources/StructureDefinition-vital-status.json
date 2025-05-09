@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "vital-status",
-  "url": "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status",
   "name": "VitalStatus",
   "title": "Vital Status",
   "status": "draft",
@@ -34,7 +34,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://github.com/BIH-CEI/RareLink/StructureDefinition/vital-status"
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status"
       },
       {
         "id": "Extension.value[x]",
@@ -46,7 +46,7 @@
         ],
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://github.com/BIH-CEI/RareLink/ValueSet/vital-status-vs"
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/vital-status-vs"
         }
       }
     ]
