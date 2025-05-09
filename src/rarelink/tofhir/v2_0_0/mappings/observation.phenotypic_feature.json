@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Observation', record_id & snomedct_363778006 & hp_0003674 & hp_0003674 & hp_0011008 & hp_0012824 & hp_0012823_ncbitaxon & hp_0012823_hp1 & hp_0012823_hp2 & hp_0012823_hp3)}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature"
             ]
           },
           "resourceType": "Observation",

@@ -1,40 +1,42 @@
 {
   "resourceType": "Bundle",
-  "id": "05e7fc44-f121-4274-8b1a-0b9c1da705a7",
+  "id": "ec5901e1-cd96-4c04-9df1-cae0422fb2b1",
   "meta": {
-    "lastUpdated": "2025-05-09T07:49:04.650+00:00"
+    "lastUpdated": "2025-05-09T08:54:29.749+00:00"
   },
   "type": "searchset",
   "total": 1,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/Encounter?_count=100&_format=json"
+    "url": "http://localhost:8080/fhir/Condition?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-condition-undiagnosed-rd-case"
   } ],
   "entry": [ {
-    "fullUrl": "http://localhost:8080/fhir/Encounter/e5f563aaa9d4b65ce82e000cddf63ec7",
+    "fullUrl": "http://localhost:8080/fhir/Condition/3fee6b06bea8f946a31f8e15e215dfcd",
     "resource": {
-      "resourceType": "Encounter",
-      "id": "e5f563aaa9d4b65ce82e000cddf63ec7",
+      "resourceType": "Condition",
+      "id": "3fee6b06bea8f946a31f8e15e215dfcd",
       "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-09T07:48:08.510+00:00",
-        "source": "#RFkre6P2ZKc5nxgM",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1" ]
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:23.984+00:00",
+        "source": "#eXVpShc5lH3woNWq",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case" ]
       },
       "text": {
         "status": "generated",
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
       },
-      "status": "finished",
-      "class": {
-        "system": "https://hl7.org/fhir/R4/",
-        "code": "IMP",
-        "display": "Inpatient"
+      "code": {
+        "coding": [ {
+          "system": "http://www.orpha.net/ORDO",
+          "version": "2024-09-12",
+          "code": "616874",
+          "display": "Rare disorder without a determined diagnosis after full investigation"
+        } ]
       },
-      "period": {
-        "start": "2021-04-06",
-        "end": "2021-05-06"
-      }
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "recordedDate": "2025-04-12"
     },
     "search": {
       "mode": "match"

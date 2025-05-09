@@ -1,14 +1,14 @@
 {
   "resourceType": "Bundle",
-  "id": "5c35a5ca-6db5-4a9d-b186-13fa613c188b",
+  "id": "3cedd79d-b719-4d71-8808-6073a31cfe93",
   "meta": {
-    "lastUpdated": "2025-05-09T07:49:04.455+00:00"
+    "lastUpdated": "2025-05-09T08:54:29.670+00:00"
   },
   "type": "searchset",
   "total": 1,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/FamilyMemberHistory?_count=100&_format=json"
+    "url": "http://localhost:8080/fhir/FamilyMemberHistory?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-familyhistory"
   } ],
   "entry": [ {
     "fullUrl": "http://localhost:8080/fhir/FamilyMemberHistory/4cd2693d7e12becc5f4094266e754771",
@@ -16,10 +16,10 @@
       "resourceType": "FamilyMemberHistory",
       "id": "4cd2693d7e12becc5f4094266e754771",
       "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-09T06:24:11.378+00:00",
-        "source": "#PNtALq6ERw5M3H9F",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory|4.0.1" ]
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:45.142+00:00",
+        "source": "#2tZi593cF6w8uS4r",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory" ]
       },
       "text": {
         "status": "extensions",

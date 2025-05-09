@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Condition', record_id & '_' & snomedct_64572001_ordo & snomedct_64572001_mondo & snomedct_64572001_omim & snomedct_64572001_icd10cm & snomedct_64572001_icd11 & snomedct_263493007 & loinc_99498_8 & snomedct_298059007 & snomedct_432213005)}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips|2.0.0-ballot"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-condition"
             ]
           },
           "resourceType": "Condition",

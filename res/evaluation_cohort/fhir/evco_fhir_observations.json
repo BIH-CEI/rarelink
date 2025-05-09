@@ -1,683 +1,25 @@
 {
   "resourceType": "Bundle",
-  "id": "e6405a7f-df81-41b3-ad2f-5f7ec4f894d2",
+  "id": "f556fdb4-415f-40f2-addc-d1e91c3c00c2",
   "meta": {
-    "lastUpdated": "2025-05-09T07:49:04.118+00:00"
+    "lastUpdated": "2025-05-09T08:54:29.433+00:00"
   },
   "type": "searchset",
-  "total": 61,
+  "total": 47,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=http%3A%2F%2Fhl7.org%2Ffhir%2FStructureDefinition%2FObservation%7C4.0.1"
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-phenotypic-feature"
   } ],
   "entry": [ {
-    "fullUrl": "http://localhost:8080/fhir/Observation/a2cecd14544a311f91cb3291af1dd2fa",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "a2cecd14544a311f91cb3291af1dd2fa",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:46.995+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
-      },
-      "effectiveDateTime": "2025-04-13",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/4d8ce3e8dae0424345df92a61bfb9687",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "4d8ce3e8dae0424345df92a61bfb9687",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.131+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
-      },
-      "effectiveDateTime": "2025-04-13",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/8893c9ac9b3466b7e2cc3df441b1681f",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "8893c9ac9b3466b7e2cc3df441b1681f",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.173+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/90866e103b939c853388583848a0abd4",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "90866e103b939c853388583848a0abd4",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.204+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
-      },
-      "effectiveDateTime": "2025-04-13",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/ff7467210da29a521a1caec1390a6ff1",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ff7467210da29a521a1caec1390a6ff1",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.250+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
-      },
-      "effectiveDateTime": "2025-04-13",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/576295642b2323ad71f5e70a9e3273b3",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "576295642b2323ad71f5e70a9e3273b3",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.286+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/0a2ef7e879350e87acc6f65df8f16375",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "0a2ef7e879350e87acc6f65df8f16375",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.331+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/9d7d7612c0b2325eedb27c89591d99eb",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "9d7d7612c0b2325eedb27c89591d99eb",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.372+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/8093e2594ce3b29933a547d77abab4f0",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "8093e2594ce3b29933a547d77abab4f0",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.408+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
-      },
-      "effectiveDateTime": "2025-04-13",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "263659003",
-          "display": "Adolescence"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/feeaed533c1d04fa14d093795cdf34e5",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "feeaed533c1d04fa14d093795cdf34e5",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:16:47.440+00:00",
-        "source": "#N8Dp4jAd5dVggj78",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "105727008",
-          "display": "Age Category"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "255398004",
-          "display": "Childhood"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/21ce731f57fd3761eab13ba9520dad3b",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "21ce731f57fd3761eab13ba9520dad3b",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-04-13T12:17:02.476+00:00",
-        "source": "#R2oyUCLAyXPAzue2",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "extensions",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "registered",
-      "_status": {
-        "extension": [ {
-          "url": "https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 ",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://snomed.info/sct",
-              "version": "2024-09-01",
-              "code": "410605003",
-              "display": "Confirmed present"
-            } ]
-          }
-        } ]
-      },
-      "category": [ {
-        "coding": [ {
-          "system": "http://www.human-phenotype-ontology.org",
-          "version": "2024-08-13",
-          "code": "0003593",
-          "display": "Infantile onset (28d-1y)"
-        } ]
-      } ],
-      "code": {
-        "coding": [ {
-          "system": "http://www.human-phenotype-ontology.org",
-          "version": "2024-08-13",
-          "code": "0001252"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
-      },
-      "effectiveDateTime": "2017-09-17",
-      "_effectiveDateTime": {
-        "extension": [ {
-          "url": "https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0 ",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://www.human-phenotype-ontology.org",
-              "version": "2024-08-13",
-              "code": "0034382",
-              "display": "Resolution Date"
-            } ]
-          }
-        } ]
-      },
-      "interpretation": [ {
-        "coding": [ {
-          "system": "http://www.human-phenotype-ontology.org",
-          "version": "2024-08-13",
-          "code": "0031796",
-          "display": "Recurrent"
-        } ],
-        "text": "Phenotypic Finding - Temporal Pattern"
-      }, {
-        "coding": [ {
-          "system": "http://www.human-phenotype-ontology.org",
-          "version": "2024-08-13"
-        } ],
-        "text": "Phenotypic Finding - Severity"
-      } ],
-      "bodySite": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01"
-        } ],
-        "text": "Phenotypic Finding - Body Site"
-      },
-      "method": {
-        "text": "Phenotypic Feature - Evidence"
-      },
-      "component": [ {
-        "code": {
-          "coding": [ {
-            "system": "https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/tofhir-definitions/v2.0.0",
-            "version": "2.0.0",
-            "code": "hp_0012823_ncbitaxon",
-            "display": "Phenotypic Feature - Causing Organism"
-          } ]
-        },
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "https://www.ncbi.nlm.nih.gov/taxonomy",
-            "version": "2024-07-03"
-          } ]
-        }
-      } ]
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/698571ba6c7ea2cf2d37025942176616",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "698571ba6c7ea2cf2d37025942176616",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-05-06T10:40:06.427+00:00",
-        "source": "#B5MdT7A0uh5ezlUg",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "1296886006",
-          "display": "Karyotypic Sex"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
-      },
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "734876009",
-          "display": "XY"
-        } ]
-      }
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/eb51cd67a54156ee5d46263ddae5c1d3",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "eb51cd67a54156ee5d46263ddae5c1d3",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2025-05-06T10:40:12.577+00:00",
-        "source": "#6c2CEZJyzUIWdOzv",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "412726003",
-          "display": "Length of Gestation at Birth - weeks+days"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
-      },
-      "effectiveDateTime": "2025-04-12",
-      "component": [ {
-        "code": {
-          "coding": [ {
-            "system": "http://snomed.info/sct",
-            "version": "2024-09-01",
-            "code": "412726003",
-            "display": "Length of Gestation at Birth - weeks"
-          } ]
-        },
-        "valueQuantity": {
-          "value": 37,
-          "unit": "week",
-          "system": "http://www.ontobee.org/ontology/UO",
-          "code": "UO:0000034"
-        }
-      }, {
-        "code": {
-          "coding": [ {
-            "system": "http://snomed.info/sct",
-            "version": "2024-09-01",
-            "code": "412726003",
-            "display": "Length of Gestation at Birth - days"
-          } ]
-        },
-        "valueQuantity": {
-          "value": 2,
-          "unit": "day",
-          "system": "http://www.ontobee.org/ontology/UO",
-          "code": "UO:0000033"
-        }
-      } ]
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/db9d79a90097b6552f12ab56dce83602",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "db9d79a90097b6552f12ab56dce83602",
-      "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-07T16:09:07.230+00:00",
-        "source": "#mzC9z1ybIJZBK6WG",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "status": "final",
-      "category": [ {
-        "coding": [ {
-          "system": "https://terminology.hl7.org/6.1.0/CodeSystem-observation-category.html",
-          "version": "R4",
-          "code": "survey"
-        } ]
-      } ],
-      "code": {
-        "coding": [ {
-          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-          "version": "24.04e",
-          "code": "ncit_c60819"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
-      },
-      "effectiveDateTime": "2021-05-06",
-      "valueQuantity": {
-        "value": 1,
-        "system": "http://www.ontobee.org/ontology/UO",
-        "code": "0000307"
-      },
-      "interpretation": [ {
-        "coding": [ {
-          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-          "version": "24.04e",
-          "code": "C25247"
-        } ]
-      } ]
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
     "fullUrl": "http://localhost:8080/fhir/Observation/266e370994f93396732d0246cc80b3cb",
     "resource": {
       "resourceType": "Observation",
       "id": "266e370994f93396732d0246cc80b3cb",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.608+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.241+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -734,10 +76,10 @@
       "resourceType": "Observation",
       "id": "5c69be242e3c887dd50c538b5176e934",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.636+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.259+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -794,10 +136,10 @@
       "resourceType": "Observation",
       "id": "1ec5d475453e6131dd84b129fed24ad1",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.680+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.277+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -844,10 +186,10 @@
       "resourceType": "Observation",
       "id": "ed590b66a76ea1756e9bd8de5eb06299",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.728+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.292+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -914,10 +256,10 @@
       "resourceType": "Observation",
       "id": "773bb75336d948f6fe83d5dfe9ca97a7",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.793+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.349+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -974,10 +316,10 @@
       "resourceType": "Observation",
       "id": "bd116389bd1bd74351e0c63898e3cade",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.822+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.365+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1029,15 +371,65 @@
       "mode": "match"
     }
   }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/92adfb8a65199556957464443ff9eae2",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "92adfb8a65199556957464443ff9eae2",
+      "meta": {
+        "versionId": "38",
+        "lastUpdated": "2025-05-09T08:43:35.379+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-01",
+            "code": "410605003",
+            "display": "Confirmed present"
+          } ]
+        }
+      } ],
+      "status": "registered",
+      "category": [ {
+        "coding": [ {
+          "system": "http://purl.obolibrary.org/obo/hp.owl",
+          "version": "2024-08-13",
+          "code": "0003593",
+          "display": "Infantile onset (28d-1y)"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://purl.obolibrary.org/obo/hp.owl",
+          "version": "2024-08-13",
+          "code": "0000175"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
+      },
+      "effectiveDateTime": "2013-12-30"
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
     "fullUrl": "http://localhost:8080/fhir/Observation/2801ebee6e9f6602f732171928fea123",
     "resource": {
       "resourceType": "Observation",
       "id": "2801ebee6e9f6602f732171928fea123",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.911+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.408+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1094,10 +486,10 @@
       "resourceType": "Observation",
       "id": "4ad6ceb796c2691125f31a6f00270d0e",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.942+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.428+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1144,10 +536,10 @@
       "resourceType": "Observation",
       "id": "636e406fb218bb6f618272d137ccbd15",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.964+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.449+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1204,10 +596,10 @@
       "resourceType": "Observation",
       "id": "849f5e841d7c262f5724099c8b067e6e",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:47.985+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.469+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1274,10 +666,10 @@
       "resourceType": "Observation",
       "id": "019081e587f370f8aa6d7364cbcde560",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.012+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.485+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1324,10 +716,10 @@
       "resourceType": "Observation",
       "id": "ae7b746c5120a4e0419c55241516e781",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.038+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.506+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1384,10 +776,10 @@
       "resourceType": "Observation",
       "id": "1d5cae044ddb7f36c047c6b5ab7043ce",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.065+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.522+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1444,10 +836,10 @@
       "resourceType": "Observation",
       "id": "d021e0e3208eb6767a51d6b2f521f722",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.151+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.544+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1504,10 +896,10 @@
       "resourceType": "Observation",
       "id": "6e6f08aa236bd71626eabab5a3d06a2a",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.197+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.558+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1564,10 +956,10 @@
       "resourceType": "Observation",
       "id": "be01ab476254efeaebbca1be979b8180",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.248+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.573+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1634,10 +1026,10 @@
       "resourceType": "Observation",
       "id": "95d2fcccfbf759922c630b3129fba376",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.270+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.588+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1694,10 +1086,10 @@
       "resourceType": "Observation",
       "id": "b9bb317bccec82080e7fdd9b9e9270a1",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.292+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.602+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1764,10 +1156,10 @@
       "resourceType": "Observation",
       "id": "e23463bec403909b67f9112dc5111593",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.319+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.616+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1824,10 +1216,10 @@
       "resourceType": "Observation",
       "id": "35d347691ae75a1b4cf8f135ebef205b",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.372+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.629+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1894,10 +1286,10 @@
       "resourceType": "Observation",
       "id": "c16bcbdbdd7875115f38f6acb6125840",
       "meta": {
-        "versionId": "5",
-        "lastUpdated": "2025-05-09T07:42:48.407+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "6",
+        "lastUpdated": "2025-05-09T08:43:35.647+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -1954,10 +1346,10 @@
       "resourceType": "Observation",
       "id": "a6afbc10167ceee4ef0a277d9e89db7a",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.441+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.665+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2024,10 +1416,10 @@
       "resourceType": "Observation",
       "id": "241b237f8850ad72bdf6424bbbdb83e9",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.467+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.687+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2074,10 +1466,10 @@
       "resourceType": "Observation",
       "id": "9c386f7d66a8d62ac57dbf0faca03706",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.502+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.700+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2124,10 +1516,10 @@
       "resourceType": "Observation",
       "id": "42d1e58087eed95a48c9f2de8604fb8d",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.545+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.714+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2194,10 +1586,10 @@
       "resourceType": "Observation",
       "id": "54c2743d90b9f0dca759da28d5278e0f",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.575+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.726+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2254,10 +1646,10 @@
       "resourceType": "Observation",
       "id": "83148e82d3736d0901fb8b9c30b38fd4",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.597+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.740+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2314,10 +1706,10 @@
       "resourceType": "Observation",
       "id": "18aff2bf56d56b9fb36383af612e395d",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.622+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.755+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2364,10 +1756,10 @@
       "resourceType": "Observation",
       "id": "d4ff19a2aa637d390271e49830505db8",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.643+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.768+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2414,10 +1806,10 @@
       "resourceType": "Observation",
       "id": "594421761cbd6a40e9b46f2742b57cb6",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.661+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.785+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2464,10 +1856,10 @@
       "resourceType": "Observation",
       "id": "d853ab71013d2a1eec7aab63af90e8b3",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.682+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.801+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2534,10 +1926,10 @@
       "resourceType": "Observation",
       "id": "dec49d25a92068512fdea5ff661a5dad",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.718+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.824+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2594,10 +1986,10 @@
       "resourceType": "Observation",
       "id": "d4a17d98302efc3d9a2f9d0cd2ab5571",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.744+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.838+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2664,10 +2056,10 @@
       "resourceType": "Observation",
       "id": "52170142ffbce3e40009cc7359e582ba",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.770+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.851+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2714,10 +2106,10 @@
       "resourceType": "Observation",
       "id": "bcb715a33954ad938830a48897cd48bc",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.786+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.863+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2784,10 +2176,10 @@
       "resourceType": "Observation",
       "id": "83b68fe188e3f736106e51d959d410f9",
       "meta": {
-        "versionId": "28",
-        "lastUpdated": "2025-05-09T07:42:48.804+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "29",
+        "lastUpdated": "2025-05-09T08:43:35.876+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2833,10 +2225,10 @@
       "resourceType": "Observation",
       "id": "b1f12f9137d8c2bed823a9370c8e86ca",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.820+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.889+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2903,10 +2295,10 @@
       "resourceType": "Observation",
       "id": "3b9ef6b627d60f53331c8565f3a9c9a9",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.838+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.902+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -2973,10 +2365,10 @@
       "resourceType": "Observation",
       "id": "aeae40692934376431e4ca6cc0fd6165",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.856+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.919+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3043,10 +2435,10 @@
       "resourceType": "Observation",
       "id": "a31ca858491a255fe9938afa6ba500d4",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.881+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.934+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3102,10 +2494,10 @@
       "resourceType": "Observation",
       "id": "7285d56c3b25bb4a36d70f498f4635e4",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.901+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.956+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3152,10 +2544,10 @@
       "resourceType": "Observation",
       "id": "99625cd0c3281502fcf20a2402770c74",
       "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-09T07:42:48.918+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:35.970+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3239,10 +2631,10 @@
       "resourceType": "Observation",
       "id": "935967a591861cd3349eecf700630e55",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.965+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:35.984+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3299,10 +2691,10 @@
       "resourceType": "Observation",
       "id": "ef7ad80a431d9efd59c03b56707272a3",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:48.983+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:36.001+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3349,10 +2741,10 @@
       "resourceType": "Observation",
       "id": "7f32beac095574d23ac9458518566646",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:49.004+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:36.016+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3419,10 +2811,10 @@
       "resourceType": "Observation",
       "id": "c44f0cdf8429fe7e0fb7fe7be5c3d933",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2025-05-09T07:42:49.021+00:00",
-        "source": "#GtVXcB22vPziJktI",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:36.028+00:00",
+        "source": "#yJd81PNvCgb22B5X",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature" ]
       },
       "text": {
         "status": "extensions",
@@ -3469,56 +2861,6 @@
         "reference": "Patient/8462c600fc75951df56a81973c0cede1"
       },
       "effectiveDateTime": "2009-12-03"
-    },
-    "search": {
-      "mode": "match"
-    }
-  }, {
-    "fullUrl": "http://localhost:8080/fhir/Observation/92adfb8a65199556957464443ff9eae2",
-    "resource": {
-      "resourceType": "Observation",
-      "id": "92adfb8a65199556957464443ff9eae2",
-      "meta": {
-        "versionId": "34",
-        "lastUpdated": "2025-05-09T07:48:15.884+00:00",
-        "source": "#fVB76Jl3nYuhWZjG",
-        "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
-      },
-      "text": {
-        "status": "extensions",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
-      },
-      "extension": [ {
-        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status",
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "http://snomed.info/sct",
-            "version": "2024-09-01",
-            "code": "410605003",
-            "display": "Confirmed present"
-          } ]
-        }
-      } ],
-      "status": "registered",
-      "category": [ {
-        "coding": [ {
-          "system": "http://purl.obolibrary.org/obo/hp.owl",
-          "version": "2024-08-13",
-          "code": "0003593",
-          "display": "Infantile onset (28d-1y)"
-        } ]
-      } ],
-      "code": {
-        "coding": [ {
-          "system": "http://purl.obolibrary.org/obo/hp.owl",
-          "version": "2024-08-13",
-          "code": "0000175"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
-      },
-      "effectiveDateTime": "2013-12-30"
     },
     "search": {
       "mode": "match"

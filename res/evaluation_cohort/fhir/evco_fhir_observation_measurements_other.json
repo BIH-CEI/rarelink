@@ -1,25 +1,25 @@
 {
   "resourceType": "Bundle",
-  "id": "1fb838d3-e456-4915-9f77-d40278c5e0f7",
+  "id": "60ef4bff-1f67-4498-af0c-a23b5dcd7035",
   "meta": {
-    "lastUpdated": "2025-05-09T07:49:04.606+00:00"
+    "lastUpdated": "2025-05-09T08:54:29.683+00:00"
   },
   "type": "searchset",
   "total": 1,
   "link": [ {
     "relation": "self",
-    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&category=imaging"
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-observation-measurements-others"
   } ],
   "entry": [ {
-    "fullUrl": "http://localhost:8080/fhir/Observation/e6ac819a4450a275b4e79790ec57aa35",
+    "fullUrl": "http://localhost:8080/fhir/Observation/db9d79a90097b6552f12ab56dce83602",
     "resource": {
       "resourceType": "Observation",
-      "id": "e6ac819a4450a275b4e79790ec57aa35",
+      "id": "db9d79a90097b6552f12ab56dce83602",
       "meta": {
-        "versionId": "2",
-        "lastUpdated": "2025-05-07T16:09:02.921+00:00",
-        "source": "#DDLWiYC3mDoZKTN6",
-        "profile": [ "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips|2.0.0-ballot" ]
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:43.870+00:00",
+        "source": "#MMvQUOJhoXoihb7r",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-measurements-others" ]
       },
       "text": {
         "status": "generated",
@@ -28,26 +28,22 @@
       "status": "final",
       "category": [ {
         "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-          "code": "imaging",
-          "display": "laboratory"
+          "system": "https://terminology.hl7.org/6.1.0/CodeSystem-observation-category.html",
+          "version": "R4",
+          "code": "survey"
         } ]
       } ],
       "code": {
         "coding": [ {
-          "system": "https://loinc.org/",
-          "version": "2.78",
-          "code": "36554-4"
-        } ],
-        "text": "Measurements - Assay"
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.04e",
+          "code": "ncit_c60819"
+        } ]
       },
       "subject": {
         "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
       },
       "effectiveDateTime": "2021-05-06",
-      "performer": [ {
-        "display": "unknown"
-      } ],
       "valueQuantity": {
         "value": 1,
         "system": "http://www.ontobee.org/ontology/UO",
@@ -55,19 +51,11 @@
       },
       "interpretation": [ {
         "coding": [ {
-          "system": "https://ncit.nci.nih.gov",
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
           "version": "24.04e",
-          "code": "C3333"
+          "code": "C25247"
         } ]
-      } ],
-      "method": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
-          "code": "399208008"
-        } ],
-        "text": "Measurement - Procedure"
-      }
+      } ]
     },
     "search": {
       "mode": "match"

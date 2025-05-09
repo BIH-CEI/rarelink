@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Observation', record_id & measurement_category & ncit_c60819 & ncit_c82577 & ncit_c92571 & ncit_c25712 & ncit_c41255 & snomedct_122869004_ncit & snomedct_122869004_snomed)}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-pathology-uv-ips|2.0.0-ballot"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory"
             ]
           },
           "resourceType": "Observation",

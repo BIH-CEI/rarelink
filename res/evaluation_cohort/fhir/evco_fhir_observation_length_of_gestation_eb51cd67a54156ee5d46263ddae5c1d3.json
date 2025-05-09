@@ -1,11 +1,11 @@
 {
   "resourceType": "Observation",
-  "id": "698571ba6c7ea2cf2d37025942176616",
+  "id": "eb51cd67a54156ee5d46263ddae5c1d3",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2025-05-06T10:40:06.427+00:00",
-    "source": "#B5MdT7A0uh5ezlUg",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation|4.0.1" ]
+    "versionId": "2",
+    "lastUpdated": "2025-05-09T08:43:21.790+00:00",
+    "source": "#owy6jzQ002kv7csZ",
+    "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth" ]
   },
   "text": {
     "status": "generated",
@@ -16,19 +16,43 @@
     "coding": [ {
       "system": "http://snomed.info/sct",
       "version": "2024-09-01",
-      "code": "1296886006",
-      "display": "Karyotypic Sex"
+      "code": "412726003",
+      "display": "Length of Gestation at Birth - weeks+days"
     } ]
   },
   "subject": {
     "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
   },
-  "valueCodeableConcept": {
-    "coding": [ {
-      "system": "http://snomed.info/sct",
-      "version": "2024-09-01",
-      "code": "734876009",
-      "display": "XY"
-    } ]
-  }
+  "effectiveDateTime": "2025-04-12",
+  "component": [ {
+    "code": {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "version": "2024-09-01",
+        "code": "412726003",
+        "display": "Length of Gestation at Birth - weeks"
+      } ]
+    },
+    "valueQuantity": {
+      "value": 37,
+      "unit": "week",
+      "system": "http://www.ontobee.org/ontology/UO",
+      "code": "UO:0000034"
+    }
+  }, {
+    "code": {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "version": "2024-09-01",
+        "code": "412726003",
+        "display": "Length of Gestation at Birth - days"
+      } ]
+    },
+    "valueQuantity": {
+      "value": 2,
+      "unit": "day",
+      "system": "http://www.ontobee.org/ontology/UO",
+      "code": "UO:0000033"
+    }
+  } ]
 }

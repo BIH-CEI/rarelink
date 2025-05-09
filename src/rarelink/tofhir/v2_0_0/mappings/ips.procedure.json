@@ -21,7 +21,7 @@
           "id": "{{mpp:getHashedId('Procedure', record_id)}}",
           "meta": {
             "profile": [
-              "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips|2.0.0-ballot"
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure"
             ]
           },
           "resourceType": "Procedure",
