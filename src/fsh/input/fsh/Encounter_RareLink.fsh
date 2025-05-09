@@ -27,6 +27,7 @@ ValueSet: EncounterClassVS
 Id: encounter-class-vs
 Title: "Encounter Class Value Set"
 Description: "Value set for encounter classes, including custom RareLink-specific codes."
+* experimental = false
 * HL7FHIR#AMB "Ambulatory"
 * HL7FHIR#IMP "Inpatient"
 * HL7FHIR#OBSENC "Observation"

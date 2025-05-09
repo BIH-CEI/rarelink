@@ -54,6 +54,7 @@ ValueSet: SeverityVS
 Id: severity-vs
 Title: "Severity Value Set"
 Description: "Value set for severity levels of conditions."
+* experimental = false
 * SNOMEDCT#24484000 "Severe"
 * SNOMEDCT#6736007 "Moderate"
 * SNOMEDCT#255604002 "Mild"
@@ -62,6 +63,7 @@ ValueSet: AgeAtDiagnosisVS
 Id: age-at-diagnosis-vs
 Title: "Age at Diagnosis Value Set"
 Description: "Value set for capturing age at diagnosis."
+* experimental = false
 * SNOMEDCT#118189007 "Prenatal"
 * SNOMEDCT#3950001 "Birth"
 * SNOMEDCT#410672004 "Date"
@@ -71,6 +73,7 @@ ValueSet: AgeAtOnsetVS
 Id: age-at-onset-vs
 Title: "Age at Onset Value Set"
 Description: "Value set for capturing age at onset."
+* experimental = false
 * SNOMEDCT#118189007 "Prenatal"
 * SNOMEDCT#3950001 "Birth"
 * SNOMEDCT#410672004 "Date"

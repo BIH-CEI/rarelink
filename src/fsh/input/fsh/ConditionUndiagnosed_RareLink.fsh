@@ -22,5 +22,6 @@ ValueSet: UndiagnosedRDCaseVS
 Id: undiagnosed-rd-case-vs
 Title: "Undiagnosed Rare Disease Case Value Set"
 Description: "Value set for capturing undiagnosed rare disease cases."
+* experimental = false
 * ORPHANET#616874 "Rare disorder without a determined diagnosis after full investigation"
 * SNOMEDCT#373067005 "A Rare Disease was diagnosed"

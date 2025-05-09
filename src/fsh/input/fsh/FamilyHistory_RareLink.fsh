@@ -56,6 +56,7 @@ ValueSet: PropositusVS
 Id: propositus-vs
 Title: "Propositus Value Set"
 Description: "Value set for indicating whether the family member is the propositus."
+* experimental = false
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
 * SNOMEDCT#261665006 "Unknown"
@@ -65,6 +66,7 @@ ValueSet: ConsanguinityVS
 Id: consanguinity-vs
 Title: "Consanguinity Value Set"
 Description: "Value set for indicating whether there is consanguinity in the family relationship."
+* experimental = false
 * SNOMEDCT#373066001 "Yes"
 * SNOMEDCT#373067005 "No"
 * SNOMEDCT#261665006 "Unknown"
@@ -74,6 +76,7 @@ ValueSet: FamilyRelationshipVS
 Id: family-relationship-vs
 Title: "Family Relationship Value Set"
 Description: "Value set for capturing family member relationships."
+* experimental = false
 * SNOMEDCT#65656005 "Natural mother"
 * SNOMEDCT#9947008 "Natural father"
 * SNOMEDCT#83420006 "Natural daughter"
@@ -91,6 +94,7 @@ ValueSet: FamilySexVS
 Id: family-sex-vs
 Title: "Family Member Sex Value Set"
 Description: "Value set for capturing the sex of a family member."
+* experimental = false
 * SNOMEDCT#248152002 "Female"
 * SNOMEDCT#248153007 "Male"
 * SNOMEDCT#184115007 "Patient sex unknown"

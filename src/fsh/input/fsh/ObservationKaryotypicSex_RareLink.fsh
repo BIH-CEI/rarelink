@@ -28,6 +28,7 @@ ValueSet: KaryotypicSexVS
 Id: karyotypic-sex-vs
 Title: "Karyotypic Sex Value Set"
 Description: "Value set for capturing karyotypic sex."
+* experimental = false
 * SNOMEDCT#261665006 "Unknown"
 * SNOMEDCT#734875008 "XX"
 * SNOMEDCT#734876009 "XY"

@@ -114,6 +114,7 @@ ValueSet: PhenotypeStatusVS
 Id: phenotype-status-vs
 Title: "Phenotype Status Value Set"
 Description: "Value set for capturing phenotype status."
+* experimental = false
 * SNOMEDCT#410605003 "Confirmed present"
 * SNOMEDCT#723511001 "Refuted"
 
@@ -121,6 +122,7 @@ ValueSet: AgeOfOnsetVS
 Id: age-of-onset-vs
 Title: "Age of Onset Value Set"
 Description: "Value set for capturing the age of onset for phenotypes."
+* experimental = false
 * HP#HP:0011460 "Embryonal onset (0w-8w embryonal)"
 * HP#HP:0011461 "Fetal onset (8w embryonal - birth)"
 * HP#HP:0003577 "Congenital onset (at birth)"
@@ -136,6 +138,7 @@ ValueSet: TemporalPatternVS
 Id: temporal-pattern-vs
 Title: "Temporal Pattern Value Set"
 Description: "Value set for capturing the temporal pattern of phenotypic features."
+* experimental = false
 * HP#HP:0011009 "Acute"
 * HP#HP:0011010 "Chronic"
 * HP#HP:0031914 "Fluctuating"
@@ -149,6 +152,7 @@ ValueSet: PhenotypeSeverityVS
 Id: phenotypie-severity-vs
 Title: "Phenotype Severity Value Set"
 Description: "Value set for capturing phenotype severity."
+* experimental = false
 * HP#HP:0012827 "Borderline"
 * HP#HP:0012825 "Mild"
 * HP#HP:0012826 "Moderate"
