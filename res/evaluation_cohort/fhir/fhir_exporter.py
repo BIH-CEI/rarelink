@@ -1,3 +1,6 @@
+import os
+import random
+
 FHIR_BASE = input("Enter the FHIR server base URL (or just ENTER to use the default: http://localhost:8080/fhir): ") or 'http://localhost:8080/fhir'
 HEADERS = {'Content-Type': 'application/fhir+json'}
 OUTPUT_DIR = 'validation'
@@ -12,8 +15,7 @@ except ImportError as e:
     subprocess.check_call([sys.executable, "-m", "pip", "install", e.name])
     import requests
     import json
-import os
-import random
+
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 

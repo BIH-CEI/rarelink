@@ -54,7 +54,14 @@ RareLink comes with FHIR R4 StructureDefinitions covering:
 
 ### Balloting status
 
-The RareLink-CDM profiles v2.0.0 have not yet been balloted officially.
+The RareLink-CDM FHIR profiles and Implementation Guide remain in draft trial-use status and subject to formal governance—including versioning, conformance testing, stakeholder review, and the incorporation of changes arising from the ballot process—before achieving formal approval. 
+
+### Example Instances
+
+Validated example instances of all profiles are available in the repository:
+
+- [Bundle of example instances](https://github.com/BIH-CEI/rarelink/blob/develop/src/fsh/input/fsh/Bundle-rarelink-example.json)
+- [Simulated evaluation cohort instances](https://github.com/BIH-CEI/rarelink/tree/develop/res/evaluation_cohort/fhir)
 
 ### Navigation
 
@@ -68,4 +75,4 @@ The RareLink-CDM profiles v2.0.0 have not yet been balloted officially.
 
 ---
 
-**For questions or contributions, please see the [contact section](https://rarelink.readthedocs.io/en/latest/12_contact.html) or submit an issue on our [GitHub repository](https://github.com/BIH-CEI/RareLink).**
+**For questions or contributions, please see the [contributing](https://rarelink.readthedocs.io/en/latest/5_contributing.html) and [contact section](https://rarelink.readthedocs.io/en/latest/12_contact.html) in our documentation or submit an issue on our [GitHub repository](https://github.com/BIH-CEI/RareLink).**

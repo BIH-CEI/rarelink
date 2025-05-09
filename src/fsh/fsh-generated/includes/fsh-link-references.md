@@ -24,7 +24,6 @@
 [FamilySexVS]: ValueSet-family-sex-vs.html
 [FamilyRelationshipVS]: ValueSet-family-relationship-vs.html
 [GenomicSourceClassVS]: ValueSet-genomic-source-class-vs.html
-[GOFSH-GENERATED-ID-0]: Bundle-GOFSH-GENERATED-ID-0.html
 [KaryotypicSexVS]: ValueSet-karyotypic-sex-vs.html
 [LevelOfEvidenceVS]: ValueSet-level-of-evidence-vs.html
 [CausingOrganism]: StructureDefinition-causing-agent.html
