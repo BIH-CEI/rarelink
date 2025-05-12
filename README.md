@@ -24,7 +24,7 @@ registries to FHIR and Phenopackets.
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
-> ⚠️ **Note:** The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
+> **Note:** The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
 ________________________________________________________________________________
 
 ## Table of Contents
