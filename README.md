@@ -1,11 +1,7 @@
 # RareLink REDCap
 
 A novel rare disease framework for REDCap linking international
-registries, FHIR and Phenopackets.
-
-> ⚠️ **Note:** RareLink v2.0.0 is currently under testing and development,
-and some things may change. Please reach out before implementing or using the 
-software to ensure you have the latest updates and guidance.
+registries to FHIR and Phenopackets.
 
 #### Framework
 <!-- RareLink Badges -->
