@@ -24,6 +24,7 @@ registries to FHIR and Phenopackets.
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
+> ⚠️ **Note:** The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
 ________________________________________________________________________________
 
 ## Table of Contents
@@ -177,20 +178,20 @@ rarelink framework status
 
 To set up your local REDCap project, run:
 ```bash
-rarelink redcap-setup start
+rarelink setup redcap-project
 ```
 
 For additional setup guidance, use:
 ```bash
-rarelink redcap-setup --help
+rarelink setup --help
 ```
 
 This will provide details about available commands, such as:
 
-- `rarelink redcap-setup api-config --help` for configuring, viewing, or 
+- `rarelink setup keys` for configuring, viewing, or 
   reseting your local API config file.
-- `rarelink redcap-setup download --help` for downloading RareLink REDCap sheets.
-- `rarelink redcap-setup data-dictionary upload` to upload the RareLink-CDM sheets 
+- `rarelink setup download-records --help` for downloading RareLink REDCap sheets.
+- `rarelink setup data-dictionary` to upload the RareLink-CDM sheets 
   to your REDCap project.
 
 > **Note**: Ensure that your local REDCap administrator has granted you API 

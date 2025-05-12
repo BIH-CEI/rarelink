@@ -100,7 +100,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink setup dictionary
+    rarelink setup dictionary-dictionary
 
 - Upload the most current RareLink-CDM Data Dictionary to an existing 
   REDCap project.

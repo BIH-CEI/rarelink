@@ -35,8 +35,7 @@ ________________________________________________________________________________
 
 .. note::
    - **GitHub Repository:** https://github.com/BIH-CEI/RareLink
-   - The manuscript is currently being prepared for submission. A preprint
-     will be available soon.
+   - The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
    - **FHIR Implementation Guide:** https://bih-cei.github.io/rarelink/
 
 ________________________________________________________________________________

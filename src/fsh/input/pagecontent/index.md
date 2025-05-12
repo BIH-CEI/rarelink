@@ -4,6 +4,7 @@ Welcome to the RareLink Implementation Guide – a non-balloted extension of the
 
 - [RareLink repository](https://github.com/BIH-CEI/RareLink)
 - [RareLink documentation](https://rarelink.readthedocs.io/en/latest/index.html)
+- [RareLink paper prepint](https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1)
 
 ### Scope and Objectives
 
