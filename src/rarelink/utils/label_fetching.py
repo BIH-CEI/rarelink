@@ -77,7 +77,8 @@ def fetch_label_from_bioportal(code: str) -> Optional[str]:
             "OMIM": {"api": "OMIM", "iri": f"http://purl.bioontology.org/ontology/OMIM/{identifier}"},
             "ECO": {"api": "ECO", "iri": f"http://purl.obolibrary.org/obo/ECO_{identifier}"},
             "UO": {"api": "UO", "iri": f"http://purl.obolibrary.org/obo/UO_{identifier}"},
-            "VO": {"api": "VO", "iri": f"http://purl.obolibrary.org/obo/VO_{identifier}"}
+            "VO": {"api": "VO", "iri": f"http://purl.obolibrary.org/obo/VO_{identifier}"},
+            "GENO": {"api": "GENO", "iri": f"http://purl.obolibrary.org/obo/GENO_{identifier}"}
         }
                 
         # Get API parameters
