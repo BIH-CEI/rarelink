@@ -195,18 +195,17 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
         if not primary_field:
             return None
             
-        # Get primary field value
-        primary_value = variation_data.get(primary_field)
-        if not primary_value:
-            return None
-            
-        # Check if we should use the alternative field
-        allelic_state_id = primary_value
-        if primary_value == "loinc_48019_4_other" and alt_field:
+        primary_value = variation_data.get(primary_field)  # e.g. "" if empty
+        if not primary_value and alt_field:
+            # if “_1” is empty, look at “_2”
             alt_value = variation_data.get(alt_field)
             if alt_value:
                 allelic_state_id = alt_value
-        
+            else:
+                return None
+        else:
+            allelic_state_id = primary_value
+            
         # Get label
         allelic_state_label = (
             self.fetch_label(allelic_state_id, enum_class="Zygosity") or
@@ -231,18 +230,16 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
         if not primary_field:
             return None
             
-        # Get primary field value
-        primary_value = variation_data.get(primary_field)
-        if not primary_value:
-            return None
-            
-        # Check if we should use the alternative field
-        structural_type_id = primary_value
-        if primary_value == "loinc_48019_4_other" and alt_field:
+        primary_value = variation_data.get(primary_field)  # this will be "" when nobody put anything into loinc_48019_4
+        if not primary_value and alt_field:
+            # only if the “_1” slot is empty do we try the “_2” slot
             alt_value = variation_data.get(alt_field)
             if alt_value:
                 structural_type_id = alt_value
-        
+            else:
+                return None
+        else:
+            structural_type_id = primary_value
         # Get label
         structural_type_label = (
             self.fetch_label(structural_type_id, enum_class="DNAChangeType") or
