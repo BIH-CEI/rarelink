@@ -14,59 +14,84 @@ URL_SCHEME = (
     "https://rest.variantvalidator.org/VariantValidator/variantvalidator/%s/%s%%3A%s/%s?content-type=application%%2Fjson"
 )
 
-def validate_and_encode_hgvs(data, transcript_key=None):
+def validate_and_encode_hgvs(
+    data: dict,
+    transcript_key: str = None,
+    variables: list[str] = None
+) -> dict:
     """
-    Validate and encode HGVS strings in a single record using VariantValidator.
+    Validate and encode HGVS strings in a (possibly nested) record using VariantValidator.
     Additionally, count and record the number of attempted validations, successes,
     and failures. The summary is attached to the record under the key
     '_hgvs_validation_summary'.
 
     Args:
-        data (dict): Data (a single record) containing HGVS strings.
-        transcript_key (str): Key in the data that contains transcript information.
+        data (dict): Data (a single record) potentially containing HGVS strings.
+        transcript_key (str): Key in each dict that contains transcript information.
+        variables (list[str]): List of keys to treat as HGVS strings. Defaults to HGVS_VARIABLES.
 
     Returns:
-        dict: The original record with an added '_hgvs_validation_summary' field.
+        dict: The original record (modified in place) with an added '_hgvs_validation_summary' field.
     """
+    # Use the provided list or fall back to the module‐level constant
+    hgvs_vars = variables or HGVS_VARIABLES
 
-
-    genome_build_field = data.get("loinc_62374_4")  # Field holding REFERENCE_GENOME
+    # Determine genome build from top‐level field if present
+    genome_build_field = data.get("loinc_62374_4")
     genome_build = REFERENCE_GENOME_MAPPING.get(genome_build_field, None)
-    if not genome_build or genome_build not in {"hg19", "hg38"}:
+    if genome_build not in {"hg19", "hg38"}:
         genome_build = "hg38"
-
     validator = VariantValidator(genome_build)
 
+    # Counters
     validations_attempted = 0
     successes = 0
     failures = 0
-    failure_details = []  # List of dicts { variable, error }
+    failure_details: list[dict] = []
 
-    for variable in HGVS_VARIABLES:
-        hgvs_string = data.get(variable)
-        if hgvs_string and isinstance(hgvs_string, str) and hgvs_string.strip():
-            validations_attempted += 1
-            original_hgvs = hgvs_string
-            transcript = None
-            if transcript_key and transcript_key in data:
-                transcript = data[transcript_key]
-            elif ":" in hgvs_string:
-                parts = hgvs_string.split(":", 1)
-                transcript, hgvs_string = parts[0], parts[1]
-            try:
-                f = io.StringIO()
-                with redirect_stdout(f):
-                    validator.encode_hgvs(hgvs_string, custom_transcript=transcript)
-                successes += 1
-                success_text(f"✅ Validation succeeded for {original_hgvs}")
-            except Exception as e:
-                failures += 1
-                failure_details.append({ "variable": variable, "error": str(e) })
-                error_text(f"⚠️ Validation failed for {original_hgvs}: {e}")
-                typer.echo(
-                    f"Tried to validate {variable} with HGVS: {hgvs_string}, "
-                    f"transcript: {transcript}, genome build: {genome_build}"
-                )
+    def _walk(obj: any, parent: dict | None = None):
+        nonlocal validations_attempted, successes, failures
+
+        # If it's a dict, check for any HGVS keys, then recurse
+        if isinstance(obj, dict):
+            for key, val in obj.items():
+                if key in hgvs_vars and isinstance(val, str) and val.strip():
+                    validations_attempted += 1
+                    original = val
+                    # try to pull transcript
+                    transcript = None
+                    if transcript_key and transcript_key in obj:
+                        transcript = obj[transcript_key]
+                    elif ":" in val:
+                        t, rest = val.split(":", 1)
+                        transcript, val = t, rest
+
+                    try:
+                        f = io.StringIO()
+                        with redirect_stdout(f):
+                            validator.encode_hgvs(val, custom_transcript=transcript)
+                        successes += 1
+                        success_text(f"✅ Validation succeeded for {original}")
+                    except Exception as e:
+                        failures += 1
+                        failure_details.append({"variable": key, "error": str(e)})
+                        error_text(f"⚠️ Validation failed for {original}: {e}")
+                        typer.echo(
+                            f"Tried to validate {key} with HGVS: {val}, "
+                            f"transcript: {transcript}, genome build: {genome_build}"
+                        )
+
+                # recurse into nested dicts/lists
+                _walk(val, parent=obj)
+
+        # If it's a list, walk each element
+        elif isinstance(obj, list):
+            for item in obj:
+                _walk(item, parent=obj)
+
+    # Start walking the full record
+    _walk(data)
+
     data["_hgvs_validation_summary"] = {
         "validations_attempted": validations_attempted,
         "successes": successes,

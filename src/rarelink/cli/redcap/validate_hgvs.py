@@ -1,7 +1,7 @@
 import typer
 import json
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 from dotenv import dotenv_values
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
@@ -35,17 +35,18 @@ def app(
         None, "--input-dir", "-d", 
         help="Directory containing the REDCap records (defaults to ~/Downloads/rarelink_records)"
     ),
+    hgvs_variables: Optional[List[str]] = typer.Option(
+        None, "--hgvs-variable", "-v",
+        help="Name of an HGVS field to validate (repeatable). If omitted, uses default HGVS_VARIABLES of the RareLink-CDM."
+    ),
 ):
     """
     Validate and encode HGVS strings in the REDCap records.
 
     This command iterates over all records in the records file,
-    validates each record's HGVS strings, and produces a summary report showing
-    the total number of validations attempted, succeeded, and failed.
-
-    For records from the genetic findings instrument (i.e. where
-    'redcap_repeat_instrument' is 'rarelink_6_1_genetic_findings'),
-    any failures are listed along with the record_id and repeat instance.
+    validates each record's HGVS strings (recursing into nested dicts/lists),
+    and produces a summary report showing the total number of validations attempted,
+    succeeded, and failed.
     """
     format_header("Validate HGVS Strings in REDCap Records")
     validate_env(["REDCAP_PROJECT_NAME"])
@@ -55,43 +56,28 @@ def app(
     sanitized_project_name = project_name.replace(" ", "_")
     
     # Determine the input file path
-    records_file = None
-    
-    # If a specific file is provided, use it
     if input_file:
         records_file = input_file
         typer.echo(f"🔍 Using specified input file: {records_file}")
-    
-    # If a directory is provided, look for the records file there
     elif input_dir:
         records_file = input_dir / f"{sanitized_project_name}-records.json"
         typer.echo(f"🔍 Looking for records file in specified directory: {records_file}")
-    
-    # If neither is provided, ask user to confirm the default path
     else:
         default_file = DEFAULT_OUTPUT_DIR / f"{sanitized_project_name}-records.json"
         typer.echo(f"🔍 Default records file location: {default_file}")
-        
-        if typer.confirm(f"Do you want to use this default file path?", default=True):
+        if typer.confirm("Do you want to use this default file path?", default=True):
             records_file = default_file
         else:
-            custom_path = typer.prompt(
+            records_file = typer.prompt(
                 "Please enter the full path to your records file",
                 type=Path
             )
-            records_file = custom_path
-    
-    # Check if the file exists
+
     if not records_file.exists():
-        error_text(
-            f"Records file not found at {records_file}."
-        )
-        hint_text(
-            "You can download records using 'rarelink redcap download-records'"
-        )
+        error_text(f"Records file not found at {records_file}.")
+        hint_text("You can download records using 'rarelink redcap download-records'")
         raise typer.Exit(1)
 
-    # Display file information
     typer.echo(f"📄 Found records file: {records_file}")
     between_section_separator()
 
@@ -100,37 +86,46 @@ def app(
             records = json.load(file)
 
         typer.echo("🔄 Validating HGVS strings in records...")
-        total_validations = 0
-        total_successes = 0
-        total_failures = 0
+        total_validations = total_successes = total_failures = 0
         failed_records = []
 
         updated_records = []
         for rec in records:
-            rec = validate_and_encode_hgvs(rec, transcript_key="transcript")
+            # pass the user-supplied list (or None to use defaults)
+            rec = validate_and_encode_hgvs(
+                rec,
+                transcript_key="transcript",
+                variables=hgvs_variables
+            )
             summary = rec.get("_hgvs_validation_summary", {})
             total_validations += summary.get("validations_attempted", 0)
-            total_successes += summary.get("successes", 0)
-            total_failures += summary.get("failures", 0)
-            if rec.get("redcap_repeat_instrument") == "rarelink_6_1_genetic_findings" and summary.get("failures", 0) > 0:
+            total_successes    += summary.get("successes", 0)
+            total_failures     += summary.get("failures", 0)
+
+            # only genetic findings instrument has repeat info at top level
+            if rec.get("redcap_repeat_instrument") == "rarelink_6_1_genetic_findings" \
+               and summary.get("failures", 0) > 0:
                 failed_records.append({
                     "record_id": rec.get("record_id"),
                     "redcap_repeat_instance": rec.get("redcap_repeat_instance"),
                     "failures": summary.get("failure_details")
                 })
+
             updated_records.append(rec)
 
         typer.echo("\nValidation Summary:")
         typer.echo(f"Total HGVS validations attempted: {total_validations}")
-        typer.echo(f"Total successful validations: {total_successes}")
-        typer.echo(f"Total failed validations: {total_failures}")
+        typer.echo(f"Total successful validations:       {total_successes}")
+        typer.echo(f"Total failed validations:           {total_failures}")
 
         if failed_records:
             typer.echo("\nFailed validations for genetic findings records:")
-            for rec in failed_records:
-                typer.echo(f"Record {rec['record_id']} (instance {rec.get('redcap_repeat_instance')}):")
-                for fail in rec.get("failures", []):
-                    typer.echo(f"  - Variable '{fail['variable']}': {fail['error']}")
+            for fr in failed_records:
+                typer.echo(
+                    f"Record {fr['record_id']} (instance {fr['redcap_repeat_instance']}):"
+                )
+                for f in fr["failures"]:
+                    typer.echo(f"  - Variable '{f['variable']}': {f['error']}")
 
         success_text("✅ HGVS validation and encoding completed successfully!")
     except Exception as e:

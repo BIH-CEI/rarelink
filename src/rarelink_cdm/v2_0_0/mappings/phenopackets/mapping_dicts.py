@@ -39,7 +39,8 @@ mapping_dicts = [
             "snomedct_419099009": "DECEASED",
             "snomedct_399307001": "UNKNOWN_STATUS",
             "snomedct_185924006": "UNKNOWN_STATUS",
-            "snomedct_261665006": "UNKNOWN_STATUS"
+            "snomedct_261665006": "UNKNOWN_STATUS",
+            "": "UNKNOWN_STATUS"
         },
     },
     {
@@ -71,6 +72,18 @@ mapping_dicts = [
         "ga4gh_candidate": "CANDIDATE",
         "ga4gh_contributory": "CONTRIBUTORY",
         "ga4gh_causative": "CAUSATIVE"
+        }
+    },
+    {
+        "name": "map_zygosity",
+        "mapping": {
+            "loinc_la6705-3": "GENO:0000136",
+            "loinc_la6706-1": "GENO:0000458",
+            "loinc_la26217-2": "GENO:0000402",
+            "loinc_la26220-6": "GENO:0000135", 
+            "loinc_la6707-9": "GENO:0000134",
+            "loinc_la6703-8": "GENO:0000603",
+            "loinc_la6704-6": "GENO:0000602"
         }
     },
     {

@@ -1,4 +1,5 @@
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
+import re
 import logging
 from phenopackets import (
     VariationDescriptor,
@@ -148,7 +149,7 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
             allelic_state = self._extract_allelic_state(variation_data)
             
             # Extract structural type
-            structural_type = self._extract_structural_type(variation_data)
+            # structural_type = self._extract_structural_type(variation_data)
             
             # Extract gene context
             gene_context = self._extract_gene_context(variation_data)
@@ -161,7 +162,7 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
                 id=descriptor_id,
                 expressions=expressions,
                 allelic_state=allelic_state,
-                structural_type=structural_type,
+               # structural_type=structural_type,
                 gene_context=gene_context,
                 extensions=extensions
             )
@@ -170,90 +171,104 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
             logger.error(f"Error mapping variation descriptor for instance {instance_id}: {e}")
             return None
     
-    def _extract_expressions(self, variation_data: Dict[str, Any]) -> list:
-        """Extract expression values from variation data"""
-        expressions = []
-        
-        # Check each expression field
+    def _extract_expressions(self, variation_data: Dict[str, Any]) -> List[Expression]:
+        """
+        Extract expression values from variation data and classify HGVS syntax accorting to 
+        Phenopackets standards ("hgvs.c.", "hgvs.g.", "hgvs.m.", "hgvs.r.").
+        """
+        expressions: List[Expression] = []
+
+        # Define regex for HGVS prefix detection, now including mitochondrial 'm.'
+        prefix_pattern = re.compile(r"\b(?P<prefix>[cgpmr])\.", re.IGNORECASE)
+
         for field_key in ["expression_field_1", "expression_field_2", "expression_field_3"]:
             field_path = self.processor.mapping_config.get(field_key)
             if not field_path:
                 continue
-                
+
             value = variation_data.get(field_path)
-            if value:
-                expressions.append(Expression(syntax="hgvs", value=value))
-                
+            if not value:
+                continue
+
+            # Detect HGVS type
+            match = prefix_pattern.search(value)
+            if match:
+                prefix = match.group("prefix").lower()
+                syntax = f"hgvs.{prefix}"
+            else:
+                # default to generic HGVS
+                syntax = "hgvs"
+
+            expressions.append(Expression(syntax=syntax, value=value))
+
         return expressions
     
     def _extract_allelic_state(self, variation_data: Dict[str, Any]) -> Optional[OntologyClass]:
         """Extract allelic state from variation data"""
-        # Get field paths from configuration
-        primary_field = self.processor.mapping_config.get("allelic_state_field_1")
-        alt_field = self.processor.mapping_config.get("allelic_state_field_2")
-        
-        if not primary_field:
+
+        # Get configured field names
+        fld1 = self.processor.mapping_config.get("allelic_state_field_1")
+        fld2 = self.processor.mapping_config.get("allelic_state_field_2")
+
+        # Pull the primary or alternate value
+        raw = variation_data.get(fld1) or variation_data.get(fld2)
+        if not raw:
             return None
-            
-        primary_value = variation_data.get(primary_field)  # e.g. "" if empty
-        if not primary_value and alt_field:
-            # if “_1” is empty, look at “_2”
-            alt_value = variation_data.get(alt_field)
-            if alt_value:
-                allelic_state_id = alt_value
-            else:
-                return None
-        else:
-            allelic_state_id = primary_value
-            
-        # Get label
-        allelic_state_label = (
-            self.fetch_label(allelic_state_id, enum_class="Zygosity") or
-            self.fetch_label(allelic_state_id) or
-            "Unknown Allelic State"
+
+        # First, see if mapping gives us a full OntologyClass
+        mapped = self.fetch_mapping_value("map_zygosity", raw)
+        if isinstance(mapped, OntologyClass):
+            return mapped
+
+        # Default ID if no mapping hit
+        oid = mapped or "GENO:0000137" # (unspecified zygosity)
+
+        # Get the human-readable label
+        label = (
+            self.fetch_label(raw)
+            or "Unknown Allelic State"
         )
-        
-        # Process ID
-        processed_id = self.process_code(allelic_state_id)
-        
-        return OntologyClass(
-            id=processed_id,
-            label=allelic_state_label
-        )
+
+        return OntologyClass(id=oid, label=label)
     
-    def _extract_structural_type(self, variation_data: Dict[str, Any]) -> Optional[OntologyClass]:
-        """Extract structural type from variation data"""
-        # Get field paths from configuration
-        primary_field = self.processor.mapping_config.get("structural_type_field_1")
-        alt_field = self.processor.mapping_config.get("structural_type_field_2")
+    # ------------------------------------
+    # Structural Type is excluded for the current version because the HGVS variant is always required 
+    # and thereforre the structural Type is currently not needed for Phenopacket algorithms
+    # ------------------------------------
+    #
+    # def _extract_structural_type(self, variation_data: Dict[str, Any]) -> Optional[OntologyClass]:
+    #     """Extract structural type from variation data"""
+    #     # Get field paths from configuration
+    #     primary_field = self.processor.mapping_config.get("structural_type_field_1")
+    #     alt_field = self.processor.mapping_config.get("structural_type_field_2")
         
-        if not primary_field:
-            return None
+    #     if not primary_field:
+    #         return None
             
-        primary_value = variation_data.get(primary_field)  # this will be "" when nobody put anything into loinc_48019_4
-        if not primary_value and alt_field:
-            # only if the “_1” slot is empty do we try the “_2” slot
-            alt_value = variation_data.get(alt_field)
-            if alt_value:
-                structural_type_id = alt_value
-            else:
-                return None
-        else:
-            structural_type_id = primary_value
-        # Get label
-        structural_type_label = (
-            self.fetch_label(structural_type_id, enum_class="DNAChangeType") or
-            self.fetch_label(structural_type_id) or
-            "Unknown Structural Type"
-        )
+    #     primary_value = variation_data.get(primary_field)  # this will be "" when nobody put anything into loinc_48019_4
+    #     if not primary_value and alt_field:
+    #         # only if the “_1” slot is empty do we try the “_2” slot
+    #         alt_value = variation_data.get(alt_field)
+    #         if alt_value:
+    #             structural_type_id = alt_value
+    #         else:
+    #             return None
+    #     else:
+    #         structural_type_id = primary_value
+    #     # Get label
+    #     structural_type_label = (
+    #         self.fetch_label(structural_type_id, enum_class="DNAChangeType") or
+    #         self.fetch_label(structural_type_id) or
+    #         "Unknown Structural Type"
+    #     )
         
-        # Process ID
-        processed_id = self.process_code(structural_type_id)
+    #     # Process ID
+    #     processed_id = self.process_code(structural_type_id)
         
-        return OntologyClass(
-            id=processed_id,
-            label=structural_type_label
-        )
+    #     return OntologyClass(
+    #         id=processed_id,
+    #         label=structural_type_label
+    #     )
     
     def _extract_gene_context(self, variation_data: Dict[str, Any]) -> Optional[GeneDescriptor]:
         """Extract gene context from variation data"""

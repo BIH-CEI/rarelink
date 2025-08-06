@@ -3,7 +3,7 @@ import logging
 from phenopackets import VitalStatus, OntologyClass, TimeElement, Age
 from phenopackets import VitalStatus as VitalStatusEnum
 
-from rarelink.utils.field_access import get_multi_instrument_field_value, get_highest_instance
+from rarelink.utils.field_access import get_multi_instrument_field_value
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 
 logger = logging.getLogger(__name__)
@@ -50,8 +50,8 @@ class VitalStatusMapper(BaseMapper[VitalStatus]):
         # Convert string status to enum value
         default_status_enum = status_enum_map.get(string_status, VitalStatusEnum.Status.UNKNOWN_STATUS)
         
-        # Create a basic VitalStatus with just the status set
-        vital_status = VitalStatus()
+        # Create a basic VitalStatus with just the status set (using the enum directly)
+        vital_status = VitalStatus(status=default_status_enum)
         vital_status.status = default_status_enum
         
         try:
@@ -61,64 +61,7 @@ class VitalStatusMapper(BaseMapper[VitalStatus]):
                 return vital_status
             
             # Get the patient status data
-            highest_instance = None
             patient_status = None
-            
-            # Check for repeated elements and get the highest instance
-            if "repeated_elements" in data:
-                highest_instances = {}
-                
-                # First, find the highest instance for each instrument
-                for instrument in instruments:
-                    highest_instance = get_highest_instance(
-                        data.get("repeated_elements", []), instrument)
-                    if highest_instance:
-                        highest_instances[instrument] = highest_instance
-                
-                # Process the highest instances we found
-                for instrument, instance in highest_instances.items():
-                    # First check if the data is directly in the repeat element
-                    if instrument in instance:
-                        patient_status = instance.get(instrument, {})
-                        break
-                    # Otherwise, check if the data is nested under a different key
-                    # In your case, it seems to be under 'patient_status'
-                    elif "patient_status" in instance:
-                        patient_status = instance.get("patient_status", {})
-                        break
-                    # Check for other common variations of the name
-                    elif instrument.replace("rarelink_3_", "") in instance:
-                        # Sometimes instruments have prefix removed
-                        shortened_name = instrument.replace("rarelink_3_", "")
-                        patient_status = instance.get(shortened_name, {})
-                        break
-                
-                # If no highest instance was found, try a more manual approach
-                if not patient_status:
-                    highest_instance_num = -1
-                    highest_elem = None
-                    
-                    for elem in data.get("repeated_elements", []):
-                        for instrument in instruments:
-                            if elem.get("redcap_repeat_instrument") == instrument:
-                                instance_num = int(elem.get("redcap_repeat_instance", 0))
-                                if instance_num > highest_instance_num:
-                                    highest_instance_num = instance_num
-                                    highest_elem = elem
-                    
-                    if highest_elem:
-                        for instrument in instruments:
-                            # Try the various ways the data might be stored
-                            if instrument in highest_elem:
-                                patient_status = highest_elem.get(instrument, {})
-                                break
-                            elif "patient_status" in highest_elem:
-                                patient_status = highest_elem.get("patient_status", {})
-                                break
-                            elif instrument.replace("rarelink_3_", "") in highest_elem:
-                                shortened_name = instrument.replace("rarelink_3_", "")
-                                patient_status = highest_elem.get(shortened_name, {})
-                                break
             
             # Try direct access if not found in repeated elements
             if not patient_status:
@@ -146,17 +89,15 @@ class VitalStatusMapper(BaseMapper[VitalStatus]):
             status_field = self.processor.mapping_config.get("status_field")
             time_of_death_field = self.processor.mapping_config.get("time_of_death_field")
             cause_of_death_field = self.processor.mapping_config.get("cause_of_death_field")
-            
-            # Get status value using multi-instrument field access
+                    
             status_value = None
             if status_field and status_field != "_default_":
                 status_value = self._get_field_value(data, instruments, status_field, patient_status)
-            
-            # Map status to string then to enum value
-            if status_value:
-                string_status = self.fetch_mapping_value("map_vital_status", status_value, "UNKNOWN_STATUS")
-                vital_status.status = status_enum_map.get(string_status, default_status_enum)
-                    
+                
+            if status_value is not None:
+                mapped_str = self.fetch_mapping_value("map_vital_status", status_value, "UNKNOWN_STATUS")
+                vital_status.status = status_enum_map.get(mapped_str, default_status_enum)
+
             # Time of death - only add if we have actual data
             if time_of_death_field and dob:
                 death_date = self._get_field_value(data, instruments, time_of_death_field, patient_status)

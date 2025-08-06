@@ -99,8 +99,6 @@ def export(
             )
             raise typer.Exit(1)
 
-    between_section_separator()
-
     # Fetch CREATED_BY from env or argument
     _created_by = created_by or os.getenv("CREATED_BY")
     if not _created_by and not skip_validation:
@@ -136,8 +134,6 @@ def export(
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
-
-    between_section_separator()
 
     # Step 3: Determine output directory
     if output_dir is None:
@@ -226,7 +222,6 @@ def export(
             logger.debug(f"- {key}: {list(value.keys()) if isinstance(value, dict) else type(value)}")
 
     if label_dict:
-        import json
         from rarelink.utils.label_fetching import fetch_label as _orig_fetch_label
 
         # 1) load code→label map

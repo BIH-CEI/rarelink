@@ -146,6 +146,9 @@ The overview of all redcap-tools functionalities and commands.
 
 _____________________________________________________________________________________
 
+Download REDCap Records Command
+---------------------------------
+
 .. code-block:: console
 
     rarelink redcap download-records
@@ -165,14 +168,61 @@ Download records from your REDCap project as JSON files and save them locally.
 
 _____________________________________________________________________________________
 
+.. _rarelink_redcap_validate_hgvs:
+
+Validate HGVS Strings CLI Command
+----------------------------------
+
+.. rubric:: Command
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs [OPTIONS]
+
+.. rubric:: Description
+
+   Validate and encode HGVS strings in the downloaded records to ensure proper
+   phenopackets and genomics quality of the genetic data. This command will
+   iterate through your downloaded data, validate all HGVS strings (recursing
+   into nested structures), and give you a summary of the validation process.
+
+.. rubric:: Options
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 60
+
+   * - Option
+     - Description
+   * - ``-i, --input-file <PATH>``
+     - Path to the specific JSON file containing REDCap records.  
+       If omitted, the command will prompt or use the default download directory.
+   * - ``-d, --input-dir <DIR>``
+     - Directory containing REDCap records; looks for ``<PROJECT_NAME>-records.json`` inside.
+   * - ``-v, --hgvs-variable <FIELD_NAME>``
+     - (Repeatable) Name of an HGVS field to validate.  
+       You can specify this flag multiple times to validate custom HGVS fields.  
+       If omitted, defaults to the built-in ``HGVS_VARIABLES`` list.
+   * - ``--help``
+     - Show this message and exit.
+
+.. rubric:: Examples
+
+Validate using the default HGVS fields:
+
 .. code-block:: console
 
     rarelink redcap validate-hgvs
 
-Validate and encode HGVS strings in the downloaded records to ensure proper 
-phenopackets and genomics quality of the genetic data. This command will 
-iterate through your downloaded data, validate all HGVS strings and give you a 
-summary of the validation process.
+Specify a custom set of HGVS fields:
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs \\
+      -i ~/Downloads/MyProject-records.json \\
+      -v loinc_81290_9 \\
+      -v CUSTOM_HGVS_FIELD \\
+      -v OTHER_HGVS_FIELD
 
 _____________________________________________________________________________________
 
