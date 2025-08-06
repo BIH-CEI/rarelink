@@ -34,6 +34,12 @@ Updated :ref:`_rarelink_redcap_validate_hgvs` command:
 - Refactored the CLI command to pass the user-provided hgvs_variables list (or fall back to defaults) into the validator
 - Documentation updated to reflect the new hgvs-variable option and the improved nesting behavior
 
+Customising the RareLink-CDM data dictionary: 
+""""""""""""""""""""""""""""""""""""""""""""""""
+- Added a section on how to customise the RareLink-CDM data dictionary to suit your 
+  specific needs or simplify manual data capture: :ref:`data_dictionary_customise`.
+- This includes guidelines on how to hide fields, change field labels and descriptions,
+  and add new fields and instruments as extensions to the RareLink-CDM.
 
 v2.0.0
 ------------------

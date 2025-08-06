@@ -26,8 +26,12 @@ Manual Data Capture
 - :ref:`manualguide_consent`
 - :ref:`manualguide_disability`
 
+.. hint::
+    In case you would like to customise your RareLink-CDM Data Dictionary to simplify manual data entry,
+    please refer to the :ref:`data_dictionary_customise` section for more information. Also,
+    feel free to :ref:`12` us or `write an issue on GitHub <https://github.com/BIH-CEI/rarelink/issues/new>`_
+    in case you have any questions or need help.
 _________________________________________________________________________________
-
 
 .. _general_information:
 

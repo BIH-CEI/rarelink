@@ -347,7 +347,7 @@ ____________________________________________________
 **Purpose**: Tracks changes in patient conditions over time.
 
 +-------------------+
-| **Repeated Form** |
+| **Single-Entry Form** |
 +-------------------+
 
 **Variables & Adjustments**:
