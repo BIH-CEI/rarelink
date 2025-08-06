@@ -151,15 +151,28 @@ Download REDCap Records Command
 
 .. code-block:: console
 
-    rarelink redcap download-records
+    rarelink redcap download-records [OPTIONS]
 
-Download records from your REDCap project as JSON files and save them locally.
+Options:
+  -o, --output-dir PATH       Directory to save fetched and processed records
+  -r, --records TEXT          Record IDs to fetch (comma-separated, e.g. “101,102”)
+  -i, --instruments TEXT      Instruments/forms to fetch (comma-separated)
+  -l, --linkml PATH           Custom LinkML schema for validation
+      --rarelink-cdm          Use RareLink-CDM instruments and schema
+      --filter TEXT           REDCap filter logic to apply (e.g. “[age] > 30”)
+  --help                      Show this message and exit
+
+Description
+~~~~~~~~~~~
+
+Download REDCap records, arms, and events, process them into the RareLink-CDM schema,
+validate the result against a LinkML schema (either RareLink-CDM or a custom one),
+and save JSON outputs.
 
 .. attention::
-    If your project is in PRODUCTION mode, the downloaded data might be sensitive.
-    It must only be stored within your organisational site's approved storage.
-    Read here more about the :ref:`1_6` project modes and discuss this
-    with your REDCap administrator.
+    If your project is in PRODUCTION mode, the downloaded data may be sensitive.
+    Store it only in approved, secure storage. See the REDCap “Project Status” docs
+    for more guidance.
 
 .. hint::
     If your dataset includes genetic HGVS mutations, please run 

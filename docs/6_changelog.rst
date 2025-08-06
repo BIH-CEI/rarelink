@@ -41,6 +41,16 @@ Customising the RareLink-CDM data dictionary:
 - This includes guidelines on how to hide fields, change field labels and descriptions,
   and add new fields and instruments as extensions to the RareLink-CDM.
 
+Published on PyPi
+"""""""""""""""""""
+- The RareLink package is now available on PyPi, making it easier to install and use: 
+  `https://pypi.org/project/rarelink/ <https://pypi.org/project/rarelink/>`_.
+
+Fixed bugs:
+"""""""""""""
+- Fixed the Windows bug within the ``masked_input`` CLI tool function for the CLI command ``rarelink setup keys``.
+
+
 v2.0.0
 ------------------
 
