@@ -1,10 +1,11 @@
 name: 🐍 Publish package
 
 on:
+  workflow_dispatch:
   push:
     tags:
-      - 'v2.0.1'
-
+      - 'v*.*.*'
+      
 jobs:
   publish:
     runs-on: ubuntu-latest
