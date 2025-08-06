@@ -40,6 +40,9 @@ def export(
     mappings: Path = typer.Option(
         None, "--mappings", "-m", help="Path to custom mapping configuration module"
     ),
+    label_dict: Path = typer.Option(
+        None, "--label-dict", help="Path to JSON file with code→label mappings"
+    ),
     debug: bool = typer.Option(
         False, "--debug", "-d", help="Enable debug mode for verbose logging"
     ),
@@ -222,6 +225,25 @@ def export(
         for key, value in mapping_configs.items():
             logger.debug(f"- {key}: {list(value.keys()) if isinstance(value, dict) else type(value)}")
 
+    if label_dict:
+        import json
+        from rarelink.utils.label_fetching import fetch_label as _orig_fetch_label
+
+        # 1) load code→label map
+        with open(label_dict, "r") as lf:
+            label_map = json.load(lf)
+
+        # 2) monkey‐patch the pipeline’s fetch_label so it prefers your dict
+        def fetch_label(code: str, enum_class=None, label_dict=None):
+            # priority: your map → existing logic
+            if code in label_map:
+                return label_map[code]
+            return _orig_fetch_label(code, enum_class=enum_class, label_dict=label_map)
+
+        # 3) inject into the phenopacket pipeline namespace
+        import rarelink.utils.label_fetching as mu
+        mu.fetch_label = fetch_label
+        
     typer.echo("NOTE: This pipeline fetches labels from BIOPORTAL. "
                "Ensure you have an internet connection as this may take a while - time to get a tea ☕ ...")
 

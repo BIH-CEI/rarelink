@@ -1,7 +1,6 @@
 # src/rarelink/phenopackets/mappings/medical_action_mapper.py
 from typing import Dict, Any, List, Optional
 import logging
-from datetime import datetime
 from phenopackets import (
     MedicalAction,
     Procedure,

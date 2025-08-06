@@ -123,7 +123,7 @@ def fetch_label(code: str, enum_class: Any = None, label_dict: Dict[str, str] = 
     
     # Priority 1: Enum class
     if enum_class:
-        label = fetch_label_from_enum(code, enum_class)
+        label = fetch_label_from_enum(code, enum_class) #linkml
         if label:
             return label
     

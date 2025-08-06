@@ -1,8 +1,12 @@
 import typer
 from tqdm import tqdm
 import sys
-import tty 
-import termios
+try:
+    import tty, termios  # POSIX only
+    _POSIX = True
+except ImportError:      # Windows
+    import msvcrt
+    _POSIX = False
 
 def before_header_separator(separator_length: int = 80):
     """

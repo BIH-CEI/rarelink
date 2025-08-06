@@ -24,7 +24,7 @@ def pytest_ignore_collect(collection_path, config):
 def set_bioportal_api_key():
     """
     Ensures the BioPortal API key is available for tests by setting it
-    as an environment variable or creating the Oaklib configuration file.
+    as an environment variable
     """
     api_key = os.getenv("BIOPORTAL_API_KEY")
     if not api_key:
