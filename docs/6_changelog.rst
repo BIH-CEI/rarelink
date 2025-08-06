@@ -40,6 +40,7 @@ Customising the RareLink-CDM data dictionary:
   specific needs or simplify manual data capture: :ref:`data_dictionary_customise`.
 - This includes guidelines on how to hide fields, change field labels and descriptions,
   and add new fields and instruments as extensions to the RareLink-CDM.
+- Added the hint on the REDCap Multi-languag Management for the RareLink-CDM
 
 Published on PyPi
 """""""""""""""""""

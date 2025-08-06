@@ -155,6 +155,9 @@ and Phenopacket modules work correctly, it is important to follow the guidelines
 
 To customise your RareLink-CDM Data Dictionary, you can... 
 
+Hide fields 
+^^^^^^^^^^^^^^^
+
 - ...add the ``@HIDDEN`` actiontag to fields that you do not want to display in the REDCap project.
   This can be useful for fields that are not required in your specific profect for manual data entry and 
   can therefore be hidden from the user interface.
@@ -165,6 +168,10 @@ To customise your RareLink-CDM Data Dictionary, you can...
       Make sure you do not hide fields that are marked as ``required`` within the REDCap instrument and RareLink-CDM. 
       You can find all the required fields in the :ref:`cdm_overview` subsection of the :ref:`2_2` section.
 
+
+Change labels & descriptions 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 - ...change the field labels or field descriptions to better suit your project needs. 
   This can be useful to clarify the meaning of a field or to provide additional information to the user.
   - You can find more information on how to change field labels and descriptions in the 
@@ -173,6 +180,21 @@ To customise your RareLink-CDM Data Dictionary, you can...
    .. important:: 
       **Do not change the field name or variable**: The field variables/names in the RareLink-CDM Data Dictionary are 
       used to map the data to FHIR and Phenopackets. Changing the field names will break the mapping.
+
+
+Multi-language management
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ...edit and add the language settings for the RareLink-CDM using the REDCap 
+  `Multi-language Management feature <https://kb.wisc.edu/smph/informatics/page.php?id=115603>`_.
+  This can be useful to provide the RareLink-CDM instruments in multiple languages for your users.
+
+.. note:: 
+   Feel free to :ref:`12` in case you are interested in creating official language versions of the RareLink-CDM Instruments
+   or RareLink. We are happy to collaborate with you on this and support you in the process.
+
+Add new fields & instruments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ... add new fields and instruments to the RareLink-CDM as extensions:
   This can be useful to capture additional information that is not included in the RareLink-CDM Data Dictionary.
