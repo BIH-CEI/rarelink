@@ -20,7 +20,7 @@ registries to FHIR and Phenopackets.
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
 [![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
 [![HL7 FHIR](https://img.shields.io/badge/HL7%20FHIR-R4-orange.svg)](https://hl7.org/fhir/)
-[![FHIR IPS v2.0.2](https://img.shields.io/badge/FHIR_IPS-v2.0.2-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
+[![FHIR IPS v2.0.0](https://img.shields.io/badge/FHIR_IPS-v2.0.0-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
 [![FHIR Genomics Reporting v3.0.0](https://img.shields.io/badge/FHIR_Genomics_Reporting-v3.0.0-yellow)](https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html#findings)
 
 
