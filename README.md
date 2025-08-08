@@ -8,6 +8,8 @@ registries to FHIR and Phenopackets.
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
 [![Documentation Status](https://readthedocs.org/projects/rarelink/badge/?version=latest)](https://rarelink.readthedocs.io/en/latest/?badge=latest)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
+[![PyPI](https://img.shields.io/pypi/v/rarelink.svg)](https://pypi.org/project/rarelink/)
+[![Downloads](https://img.shields.io/pypi/dm/rarelink.svg?label=downloads)](https://pypi.org/project/rarelink/)
 [![License: Apache v2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 
