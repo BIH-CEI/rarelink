@@ -20,8 +20,15 @@ from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
-from rarelink.utils.validation import validate_linkml_data
 from rarelink_cdm import import_from_latest, get_latest_version
+
+def validate_linkml_data(*args, **kwargs):
+    """
+    Lazy import to avoid utils <-> cli circular import during module import.
+    Test patches target this symbol: rarelink.cli.redcap.download_records.validate_linkml_data
+    """
+    from rarelink.utils.validation import validate_linkml_data as _impl
+    return _impl(*args, **kwargs)
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()
@@ -86,6 +93,7 @@ def app(
     This enhanced version allows fetching specific records and instruments,
     and will interactively prompt for RareLink-CDM usage or custom schema validation.
     """
+    global BASE_SCHEMA_PATH
     format_header("Fetch and Process REDCap Records")
 
     # Validate required environment variables
@@ -207,6 +215,9 @@ def app(
     # Determine which schema to use for validation
     validation_schema = None
     if rarelink_cdm:
+        # Resolve the latest RareLink CDM schema only when needed
+        if BASE_SCHEMA_PATH is None:
+            BASE_SCHEMA_PATH = _resolve_latest_schema_path()
         validation_schema = BASE_SCHEMA_PATH
         typer.echo(f"🔄 Using RareLink CDM schema for validation: {validation_schema}")
     elif linkml_schema:

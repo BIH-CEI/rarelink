@@ -7,7 +7,8 @@ import logging
 from contextlib import redirect_stdout
 import subprocess
 from pathlib import Path
-from rarelink.cli.utils import success_text, error_text
+from rarelink.cli.utils.string_utils import success_text, error_text
+
 
 logger = Logger(__name__)   
 

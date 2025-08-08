@@ -4,8 +4,8 @@ Changelog
 ===========
 
 
-v2.0.1
---------
+v2.0.2 (inclunding v2.0.1)
+----------------------------
 
 The current version now published is v2.0.1.
 
@@ -52,7 +52,7 @@ Fixed bugs:
 - Fixed the Windows bug within the ``masked_input`` CLI tool function for the CLI command ``rarelink setup keys``.
 
 
-v2.0.2
+v2.0.0
 ------------------
 
 First published and stable version of RareLink. This version includes the initial set of features and functionalities that were developed and tested.
@@ -60,7 +60,7 @@ First published and stable version of RareLink. This version includes the initia
 Also, the FHIR Implementation Guide is finished, validated through the IG publisher including the test instances, and is available at: https://bih-cei.github.io/rarelink/.
 
 
-v2.0.2.dev1 (Under Development)
+v2.0.0.dev1 (Under Development)
 --------------------------------
 
 This version was unstable and was used for testing and development purposes. It is not recommended for production use.

@@ -14,8 +14,11 @@ from rarelink.cli.utils.string_utils import (
     hint_text
 )
 from rarelink.cli.utils.validation_utils import validate_env
-from rarelink.utils.validation import validate_and_encode_hgvs
 import logging
+
+def validate_and_encode_hgvs(*args, **kwargs):
+    from rarelink.utils.validation import validate_and_encode_hgvs as _impl
+    return _impl(*args, **kwargs)
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()
