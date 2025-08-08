@@ -31,22 +31,29 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Medical Science Apps."
 ]
 
-# ⚠️ Runtime dependencies ONLY here
 dependencies = [
     "numpy",
-    "pandas",
-    "phenopackets",
+    "jupyter", 
+    "pandas", 
+    "phenopackets", 
     "pyphetools",
+    "pytest",
     "requests",
-    "typer>=0.9",
+    "config",
+    "sphinx-autobuild",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "typer",
+    "pytest-mock",
     "tqdm",
+    "node",
     "npm",
     "linkml>=1.9.0",
-    "sushi>=0.3.7",
     "linkml-runtime>=1.9.0",
     "pydantic<2.11",
     "schema-automator",
     "python-dotenv",
+    "docker",
     "rd-cdm>=2.0.2",
 ]
 
