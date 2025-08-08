@@ -1,0 +1,109 @@
+{
+  "id": "Rarelink_4_care_pathway",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_4_care_pathway",
+  "version": "latest",
+  "name": "Rarelink_4_care_pathway",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_4_care_pathway",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_4_care_pathway",
+        "path": "Rarelink_4_care_pathway",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_4_care_pathway.record_id",
+        "path": "Rarelink_4_care_pathway.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "4.0 Record ID",
+        "short": "4.0 Record ID"
+      },
+      {
+        "id": "Rarelink_4_care_pathway.hl7fhir_enc_period_start",
+        "path": "Rarelink_4_care_pathway.hl7fhir_enc_period_start",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "4.1 Encounter Start",
+        "short": "4.1 Encounter Start"
+      },
+      {
+        "id": "Rarelink_4_care_pathway.hl7fhir_enc_period_end",
+        "path": "Rarelink_4_care_pathway.hl7fhir_enc_period_end",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "4.2 Encounter End",
+        "short": "4.2 Encounter End"
+      },
+      {
+        "id": "Rarelink_4_care_pathway.snomedct_305058001",
+        "path": "Rarelink_4_care_pathway.snomedct_305058001",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "4.3 Encounter Status",
+        "short": "4.3 Encounter Status"
+      },
+      {
+        "id": "Rarelink_4_care_pathway.hl7fhir_encounter_class",
+        "path": "Rarelink_4_care_pathway.hl7fhir_encounter_class",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "4.4 Encounter Class",
+        "short": "4.4 Encounter Class"
+      }
+    ]
+  }
+}

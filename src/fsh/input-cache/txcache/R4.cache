@@ -1,0 +1,115 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/R4/",
+      "concept" : [{
+        "code" : "AMB",
+        "display" : "Ambulatory"
+      },
+      {
+        "code" : "IMP",
+        "display" : "Inpatient"
+      },
+      {
+        "code" : "OBSENC",
+        "display" : "Observation"
+      },
+      {
+        "code" : "EMER",
+        "display" : "Emergency"
+      },
+      {
+        "code" : "VR",
+        "display" : "Virtual"
+      },
+      {
+        "code" : "HH",
+        "display" : "Home Health"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://hl7.org/fhir/R4/"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/R4",
+      "concept" : [{
+        "code" : "AMB",
+        "display" : "Ambulatory"
+      },
+      {
+        "code" : "IMP",
+        "display" : "Inpatient"
+      },
+      {
+        "code" : "OBSENC",
+        "display" : "Observation"
+      },
+      {
+        "code" : "EMER",
+        "display" : "Emergency"
+      },
+      {
+        "code" : "VR",
+        "display" : "Virtual"
+      },
+      {
+        "code" : "HH",
+        "display" : "Home Health"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://hl7.org/fhir/R4"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/R4",
+      "concept" : [{
+        "code" : "AMB",
+        "display" : "Ambulatory"
+      },
+      {
+        "code" : "IMP",
+        "display" : "Inpatient"
+      },
+      {
+        "code" : "OBSENC",
+        "display" : "Observation"
+      },
+      {
+        "code" : "EMER",
+        "display" : "Emergency"
+      },
+      {
+        "code" : "VR",
+        "display" : "Virtual"
+      },
+      {
+        "code" : "HH",
+        "display" : "Home Health"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://hl7.org/fhir/R4"
+}
+-------------------------------------------------------------------------------------

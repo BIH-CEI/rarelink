@@ -1,0 +1,157 @@
+{
+  "id": "Rarelink_3_patient_status",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+  "version": "latest",
+  "name": "Rarelink_3_patient_status",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_3_patient_status",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_3_patient_status",
+        "path": "Rarelink_3_patient_status",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_3_patient_status.record_id",
+        "path": "Rarelink_3_patient_status.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "3.0 Record ID the of Individual",
+        "short": "3.0 Registry ID "
+      },
+      {
+        "id": "Rarelink_3_patient_status.patient_status_date",
+        "path": "Rarelink_3_patient_status.patient_status_date",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "Date of Completion for the Sheet",
+        "short": "Date of Completion for the Sheet"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_278844005",
+        "path": "Rarelink_3_patient_status.snomedct_278844005",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "3.1 Vital Status",
+        "short": "3.1 Vital Status"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_398299004",
+        "path": "Rarelink_3_patient_status.snomedct_398299004",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "3.2 Time of Death",
+        "short": "3.2 Time of Death"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_184305005",
+        "path": "Rarelink_3_patient_status.snomedct_184305005",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "3.3 Cause of Death [ICD10CM]",
+        "short": "3.3 Cause of Death [ICD10CM]"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_105727008",
+        "path": "Rarelink_3_patient_status.snomedct_105727008",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "3.4 Age Category",
+        "short": "3.4 Age Category"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_412726003",
+        "path": "Rarelink_3_patient_status.snomedct_412726003",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "3.5 Length of Gestation at Birth [weeks+days]",
+        "short": "3.5 Length of Gestation at Birth [weeks+days]"
+      },
+      {
+        "id": "Rarelink_3_patient_status.snomedct_723663001",
+        "path": "Rarelink_3_patient_status.snomedct_723663001",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "3.6 Undiagnosed RD Case",
+        "short": "3.6 Undiagnosed RD Case"
+      }
+    ]
+  }
+}

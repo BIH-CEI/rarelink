@@ -1,0 +1,89 @@
+{
+  "resourceType": "Bundle",
+  "id": "3cedd79d-b719-4d71-8808-6073a31cfe93",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.670+00:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/FamilyMemberHistory?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-familyhistory"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/FamilyMemberHistory/4cd2693d7e12becc5f4094266e754771",
+    "resource": {
+      "resourceType": "FamilyMemberHistory",
+      "id": "4cd2693d7e12becc5f4094266e754771",
+      "meta": {
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:45.142+00:00",
+        "source": "#2tZi593cF6w8uS4r",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      } ],
+      "identifier": [ {
+        "value": "EvCo1"
+      } ],
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "relationship": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "60614009",
+          "display": "Natural brother"
+        } ]
+      },
+      "sex": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/ValueSet/administrative-gender",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "male",
+          "display": "Male"
+        } ]
+      },
+      "bornDate": "2018-05-06",
+      "deceasedBoolean": false,
+      "condition": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "MONDO:0007843"
+          } ],
+          "text": "Family Member Disease [MONDO] - Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease."
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

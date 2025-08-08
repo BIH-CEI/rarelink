@@ -1,0 +1,253 @@
+{
+  "id": "Rarelink_6_2_phenotypic_feature",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_2_phenotypic_feature",
+  "version": "latest",
+  "name": "Rarelink_6_2_phenotypic_feature",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_6_2_phenotypic_feature",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_6_2_phenotypic_feature",
+        "path": "Rarelink_6_2_phenotypic_feature",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.record_id",
+        "path": "Rarelink_6_2_phenotypic_feature.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "Unique identifier for individual record within a project",
+        "short": "Record Identifier"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.snomedct_8116006",
+        "path": "Rarelink_6_2_phenotypic_feature.snomedct_8116006",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.1 Phenotypic Feature",
+        "short": "6.2.1 Phenotypic Feature"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.snomedct_363778006",
+        "path": "Rarelink_6_2_phenotypic_feature.snomedct_363778006",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.2.2 Status",
+        "short": "6.2.2 Status"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.snomedct_8116006_onset",
+        "path": "Rarelink_6_2_phenotypic_feature.snomedct_8116006_onset",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "6.2.3 Determination Date",
+        "short": "6.2.3 Determination Date"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.snomedct_8116006_resolut",
+        "path": "Rarelink_6_2_phenotypic_feature.snomedct_8116006_resolut",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "6.2.4 Resolution Date",
+        "short": "6.2.4 Resolution Date"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0003674",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0003674",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.2.5 Age of Onset",
+        "short": "6.2.5 Age of Onset"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0011008",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0011008",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.2.6 Temporal Pattern",
+        "short": "6.2.6 Temporal Pattern"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012824",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012824",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.2.7 Phenotype Severity",
+        "short": "6.2.7 Phenotype Severity"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp1",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp1",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.8A Clinical Modifier [HP]",
+        "short": "6.2.8A Clinical Modifier [HP]"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp2",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp2",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.8B Clinical Modifier [HP]",
+        "short": "6.2.8B Clinical Modifier [HP]"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp3",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012823_hp3",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.8C Clinical Modifier [HP]",
+        "short": "6.2.8C Clinical Modifier [HP]"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012823_ncbitaxon",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012823_ncbitaxon",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.8D If applicable, what was the causing organism? [NCBITAXON]",
+        "short": "6.2.8D If applicable, what was the causing organism? [NCBITAXON]"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.hp_0012823_snomed",
+        "path": "Rarelink_6_2_phenotypic_feature.hp_0012823_snomed",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.8E If applicable, what was the primary body site? [SNOMED]",
+        "short": "6.2.8E If applicable, what was the primary body site? [SNOMED]"
+      },
+      {
+        "id": "Rarelink_6_2_phenotypic_feature.phenotypicfeature_evidence",
+        "path": "Rarelink_6_2_phenotypic_feature.phenotypicfeature_evidence",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.2.9 Evidence for the phenotype [ECO]",
+        "short": "6.2.9 Evidence for the phenotype [ECO]"
+      }
+    ]
+  }
+}

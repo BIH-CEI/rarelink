@@ -1,0 +1,513 @@
+{
+  "id": "103",
+  "subject": {
+    "id": "EFG678",
+    "dateOfBirth": "2020-01-01T00:00:00Z",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P4Y8M"
+      }
+    },
+    "vitalStatus": {},
+    "sex": "MALE",
+    "karyotypicSex": "XY",
+    "gender": {
+      "id": "SNOMEDCT:1220561009",
+      "label": "Not recorded"
+    },
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    }
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002719",
+        "label": "Recurrent infections"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030206",
+          "label": "EMG: incremental response of compound muscle action potential to repetitive nerve stimulation"
+        },
+        {
+          "id": "HP:0040272",
+          "label": "Hyperintensity of MRI T2 signal of the spinal cord"
+        },
+        {
+          "id": "HP:0012708",
+          "label": "Reduced brain N-acetyl aspartate level by MRS"
+        },
+        {
+          "id": "NCBITAXON:90964",
+          "label": "Staphylococcaceae"
+        },
+        {
+          "id": "SNOMEDCT:462887004",
+          "label": "Arm/elbow protector"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0000979",
+        "label": "Purpura"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "HP:0002423",
+          "label": "Long-tract sign"
+        },
+        {
+          "id": "HP:0031122",
+          "label": "Two-raphe bicuspid aortic valve"
+        },
+        {
+          "id": "NCBITAXON:2049174",
+          "label": "Staphylus tucumanus"
+        },
+        {
+          "id": "SNOMEDCT:410300003",
+          "label": "Legal system education, guidance, and counseling"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0011127",
+        "label": "Perioral eczema"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        },
+        {
+          "id": "HP:0030460",
+          "label": "Abnormal timing of pattern reversal visual evoked potentials"
+        },
+        {
+          "id": "HP:0008009",
+          "label": "Three rows of eyelashes"
+        },
+        {
+          "id": "NCBITAXON:99822",
+          "label": "Streptococcus dysgalactiae subsp. dysgalactiae"
+        },
+        {
+          "id": "SNOMEDCT:818983003",
+          "label": "Abdomen"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0012059",
+        "label": "Lentigo maligna melanoma"
+      },
+      "severity": {
+        "id": "HP:0012829",
+        "label": "Profound"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0011010",
+          "label": "Chronic"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:MTHU020483",
+        "label": "Immunodeficiency panel"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000236",
+            "label": "image resolution unit"
+          },
+          "value": 1.0
+        }
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "EFG678-interpretation-0",
+      "progressStatus": "UNSOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0010518",
+          "label": "Wiskott-Aldrich syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "ACTIONABLE",
+              "variationDescriptor": {
+                "id": "a0826f7795a343c7b086b297adfd8d",
+                "geneContext": {
+                  "valueId": "HGNC:12731",
+                  "symbol": "WAS"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NC_000023.11:g.48683512T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
+                }
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "2",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "59c0229fa78e48e397b1b7132851aa",
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "extensions": [
+                  {
+                    "name": "Unvalidated Genetic Mutation String",
+                    "value": "test test"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "EFG678-interpretation-1",
+      "progressStatus": "UNSOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "OMIM:613759",
+          "label": "IMMUNODEFICIENCY 90 WITH ENCEPHALOPATHY, FUNCTIONAL HYPOSPLENIA, AND HEPATIC DYSFUNCTION"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "3",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "variationDescriptor": {
+                "id": "945a2ca7f46b4348bf04f359814399",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_000377.3:c.6T>C"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6706-1",
+                  "label": "Heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y7M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y7M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0010518",
+        "label": "Wiskott-Aldrich syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y7M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:250065000",
+        "label": "Legs ataxic"
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2025-03-23T13:50:38.263083Z",
+    "createdBy": "Adam G.",
+    "resources": [
+      {
+        "id": "snomedct",
+        "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
+        "url": "http://snomed.info/sct",
+        "version": "SNOMEDCT_US_2024_09_01",
+        "namespacePrefix": "SNOMEDCT",
+        "iriPrefix": "http://snomed.info/sct"
+      },
+      {
+        "id": "mondo",
+        "name": "Monarch Disease Ontology",
+        "url": "https://purl.obolibrary.org/obo/MONDO/",
+        "version": "2025-06-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+      },
+      {
+        "id": "hpo",
+        "name": "Human Phenotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2025-05-06",
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "LNC278",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "omim",
+        "name": "Online Mendelian Inheritance",
+        "url": "https://omim.org/",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "orpha",
+        "name": "Orphanet Rare Disease Ontology",
+        "url": "https://www.orpha.net/",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "ORPHA",
+        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
+      },
+      {
+        "id": "ncit",
+        "name": "NCI Thesaurus OBO Edition",
+        "url": "https://ncit.nci.nih.gov/",
+        "version": "24.01e",
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org/",
+        "version": "2024-08-23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "hgvs",
+        "name": "Human Genome Variation Society",
+        "url": "https://varnomen.hgvs.org/",
+        "version": "21.0.0",
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
+      },
+      {
+        "id": "icd11",
+        "name": "International Classification of Diseases, Eleventh Revision",
+        "url": "https://icd.who.int/en",
+        "version": "SNOMEDCT_US_2024_09_01",
+        "namespacePrefix": "ICD11",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
+      },
+      {
+        "id": "icd10cm",
+        "name": "ICD-10 Clinical Modification",
+        "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+        "version": "2023",
+        "namespacePrefix": "ICD10CM",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "https://www.sequenceontology.org/",
+        "version": "2.6",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "geno",
+        "name": "GENO - The Genotype Ontology",
+        "url": "https://www.genoontology.org/",
+        "version": "2023-10-08",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "iso3166",
+        "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+        "url": "https://www.iso.org/iso-3166-country-codes.html",
+        "version": "2020(en)",
+        "namespacePrefix": "ISO3166",
+        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
+      },
+      {
+        "id": "icf",
+        "name": "International Classification of Functioning, Disability and Health",
+        "url": "https://www.who.int/classifications/icf/en/",
+        "version": "1.0.2",
+        "namespacePrefix": "ICF",
+        "iriPrefix": "http://hl7.org/fhir/sid/icf"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0"
+  }
+}

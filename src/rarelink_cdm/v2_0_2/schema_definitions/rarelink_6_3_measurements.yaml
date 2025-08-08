@@ -1,0 +1,144 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_6_3_measurements.yaml
+name: rarelink_6_3_measurements
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  loinc: https://loinc.org/
+  uo: http://purl.obolibrary.org/obo/UO_
+  ncit: http://purl.obolibrary.org/obo/NCIT_
+  snomedct: http://snomed.info/sct/
+imports:
+  - linkml:types
+  - rarelink_types
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Measurement:
+    description: >
+      The section Measurements (6.3) of the RareLink CDM. This section captures
+      assay-related measurements and their corresponding values, units, 
+      interpretations, and procedures.
+    slots:
+      - measurement_category
+      - measurement_status
+      - ncit_c60819
+      - ln_85353_1
+      - ln_85353_1_other
+      - ncit_c25712
+      - ncit_c92571
+      - ncit_c41255
+      - ncit_c82577
+      - snomedct_122869004_ncit
+      - snomedct_122869004_snomed
+      - snomedct_122869004
+      - snomedct_122869004_bdsite
+      - snomedct_122869004_status
+      - rarelink_6_3_measurements_complete
+
+
+
+slots:
+  measurement_category:
+    title: 6.3.0A Category
+    description: >
+      Category of the measurement (e.g., social history, vital signs, imaging).
+      Refer to the RareLink documentation for guidance.
+    range: string
+    required: true
+
+  measurement_status:
+    title: 6.3.0B Status
+    description: >
+      The status of the measurement (e.g., registered, preliminary, final).
+    range: string
+    required: false
+
+  ncit_c60819:
+    title: 6.3.1 Assay
+    description: >
+      The assay used in the measurement, encoded with LOINC.
+    range: string
+    required: true
+
+  ln_85353_1:
+    title: 6.3.1A Vital Signs Panel
+    description: >
+      Specific vital sign measurement, encoded with LOINC.
+    range: string
+    required: false
+
+  ln_85353_1_other:
+    title: 6.3.1A Other Vital Signs
+    description: >
+      Additional vital signs information if "Other" is selected.
+    range: string
+    required: false
+
+  ncit_c25712:
+    title: 6.3.2 Measurement Value
+    description: >
+      The measurement value, entered as a two-decimal number.
+    range: double
+    required: false
+
+  ncit_c92571:
+    title: 6.3.3 Unit
+    description: >
+      The unit of the measurement, encoded with Unit Ontology (UO).
+    range: string
+    required: false
+
+  ncit_c41255:
+    title: 6.3.4 Interpretation
+    description: >
+      The interpretation of the measurement, encoded with NCIT.
+    range: string
+    required: false
+
+  ncit_c82577:
+    title: 6.3.5 Time Observed
+    description: >
+      The time when the measurement was observed, in YYYY-MM-DD format.
+    range: date
+    required: false
+
+  snomedct_122869004_ncit:
+    title: 6.3.6A Procedure [NCIT]
+    description: >
+      The procedure related to the measurement, encoded with NCIT.
+    range: string
+    required: false
+
+  snomedct_122869004_snomed:
+    title: 6.3.6B Procedure [SNOMEDCT]
+    description: >
+      The procedure related to the measurement, encoded with SNOMEDCT.
+    range: string
+    required: false
+
+  snomedct_122869004:
+    title: 6.3.7 Procedure [SNOMEDCT]
+    description: >
+      The procedure related to the measurement, encoded with SNOMEDCT
+    range: string
+    required: false
+
+  snomedct_122869004_bdsite:
+    title: 6.3.7A Procedure Body Site [SNOMEDCT]
+    description: >
+      The anatomical site of the procedure, encoded with SNOMEDCT.
+    range: string
+    required: false
+
+  snomedct_122869004_status:
+    title: 6.3.7B Procedure Status [SNOEMDCT]
+    description: >
+      The status of the procedure (e.g., preparation, in-progress, completed).
+    range: string
+    required: false
+
+  rarelink_6_3_measurements_complete:
+    description: Completion status of this section.
+    range: string
+    required: true

@@ -1,0 +1,179 @@
+id: https://github.com/BIH-CEI/RareLink/code_systems_data
+name: code_systems_data
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+- linkml:types
+- rarelink_types
+default_prefix: rarelink
+default_range: string
+enums:
+  NCBITaxon:
+    description: NCBI organismal classification
+    code_set: https://www.ncbi.nlm.nih.gov/taxonomy
+    code_set_version: 'NCBI2024_04_02'
+  SNOMEDCT:
+    description: SNOMED CT
+    code_set: http://snomed.info/sct
+    code_set_version: 'SNOMEDCT_US_2024_09_01'
+  MONDO:
+    description: Monarch Disease Ontology
+    code_set: https://purl.obolibrary.org/obo/MONDO/
+    code_set_version: '2025-06-03'
+  HP:
+    description: Human Phenotype Ontology
+    code_set: https://www.human-phenotype-ontology.org
+    code_set_version: '2025-05-06'
+  LOINC:
+    description: Logical Observation Identifiers Names and Codes
+    code_set: http://loinc.org
+    code_set_version: 'LNC278'
+  OMIM:
+    description: Online Mendelian Inheritance
+    code_set: https://omim.org/
+    code_set_version: 'OMIM2024_08_09'
+  ORPHA:
+    description: Orphanet Rare Disease Ontology
+    code_set: https://www.orpha.net/
+    code_set_version: '4.7'
+  NCIT:
+    description: NCI Thesaurus OBO Edition
+    code_set: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
+    code_set_version: '24.01e'
+  UO:
+    description: Units of Measurement Ontology
+    code_set: https://www.ontobee.org/ontology/UO
+    code_set_version: '2023-05-25'
+  HGNC:
+    description: HUGO Gene Nomenclature Committee
+    code_set: https://www.genenames.org/
+    code_set_version: '2024-08-23'
+  HGVS:
+    description: Human Genome Variation Society
+    code_set: http://varnomen.hgvs.org/
+    code_set_version: '21.0.0'
+  GA4GH:
+    description: Global Alliance for Genomics and Health
+    code_set: https://www.ga4gh.org/
+    code_set_version: 'v2.0'
+  HL7FHIR:
+    description: Health Level 7 Fast Healthcare Interoperability Resources
+    code_set: https://www.hl7.org/fhir
+    code_set_version: 'v4.0.1'
+  ICD11:
+    description: International Classification of Diseases, Eleventh Revision
+    code_set: https://icd.who.int/en
+    code_set_version: 'SNOMEDCT_US_2024_09_01'
+  ICD10CM:
+    description: International Classification of Diseases, Tenth Revision, Clinical
+      Modification
+    code_set: https://icd10cmtool.cdc.gov/
+    code_set_version: 'CD10CM_2025'
+  ICD10GM:
+    description: International Classification of Diseases, Tenth Revision, German
+      Modification
+    code_set: https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html
+    code_set_version: ''
+  SO:
+    description: Sequence types and features ontology
+    code_set: https://www.sequenceontology.org/
+    code_set_version: '2.6'
+  GENO:
+    description: GENO - The Genotype Ontology
+    code_set: https://www.genoontology.org/
+    code_set_version: '2023-10-08'
+  ISO3166:
+    description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
+    code_set: https://www.iso.org/iso-3166-country-codes.html
+    code_set_version: 2020(en)
+  ICF:
+    description: International Classification of Functioning, Disability and Health
+    code_set: https://www.who.int/classifications/icf/en/
+    code_set_version: '1.0.2'
+classes:
+  CodeSystemsContainer:
+    description: A container class for all code systems used in RareLink.
+    attributes:
+      ncbi_taxon:
+        description: NCBI organismal classification
+        range: NCBITaxon
+        required: true
+      SNOMEDCT:
+        description: SNOMED CT
+        range: SNOMEDCT
+        required: true
+      mondo:
+        description: Monarch Disease Ontology
+        range: MONDO
+        required: true
+      hpo:
+        description: Human Phenotype Ontology
+        range: HP
+        required: true
+      loinc:
+        description: Logical Observation Identifiers Names and Codes
+        range: LOINC
+        required: true
+      omim:
+        description: Online Mendelian Inheritance
+        range: OMIM
+        required: true
+      orpha:
+        description: Orphanet Rare Disease Ontology
+        range: ORPHA
+        required: true
+      ncit:
+        description: NCI Thesaurus OBO Edition
+        range: NCIT
+        required: true
+      uo:
+        description: Units of Measurement Ontology
+        range: UO
+        required: true
+      hgnc:
+        description: HUGO Gene Nomenclature Committee
+        range: HGNC
+        required: true
+      hgvs:
+        description: Human Genome Variation Society
+        range: HGVS
+        required: true
+      ga4gh:
+        description: Global Alliance for Genomics and Health
+        range: GA4GH
+        required: true
+      hl7fhir:
+        description: Health Level 7 Fast Healthcare Interoperability Resources
+        range: HL7FHIR
+        required: true
+      icd11:
+        description: International Classification of Diseases, Eleventh Revision
+        range: ICD11
+        required: true
+      icd10cm:
+        description: International Classification of Diseases, Tenth Revision, Clinical
+          Modification
+        range: ICD10CM
+        required: true
+      icd10gm:
+        description: International Classification of Diseases, Tenth Revision, German
+          Modification
+        range: ICD10GM
+        required: true
+      so:
+        description: Sequence types and features ontology
+        range: SO
+        required: true
+      geno:
+        description: GENO - The Genotype Ontology
+        range: GENO
+        required: true
+      iso3166:
+        description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
+        range: ISO3166
+        required: true
+      icf:
+        description: International Classification of Functioning, Disability and Health
+        range: ICF
+        required: true

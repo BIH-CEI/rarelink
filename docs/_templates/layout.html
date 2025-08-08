@@ -1,0 +1,12 @@
+{% extends "!layout.html" %}
+
+{% block title %}
+RareLink REDCap Documentation
+{% endblock %}
+
+{% block branding %}
+<div class="logo-container">
+    <img src="{{ pathto('_static/res/RareLink SpinxDocs Logo.png', 1) }}" alt="RareLink Logo" class="logo">
+</div>
+{{ super() }}
+{% endblock %}

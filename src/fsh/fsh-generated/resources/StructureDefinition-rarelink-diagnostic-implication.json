@@ -1,0 +1,191 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-diagnostic-implication",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication",
+  "name": "RareLinkDiagnosticImplication",
+  "title": "RareLink Diagnostic Implication Observation",
+  "status": "draft",
+  "description": "A RareLink-specific profile extending the HL7 Genomics Reporting 'diagnostic-implication' profile \nfor documenting diagnostic significance, evidence levels, and associated phenotypes \n(genetic_findings.diagnostic_implication).\n",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/diagnostic-implication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "fixedCode": "final"
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "fixedUri": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+      },
+      {
+        "id": "Observation.code.coding.version",
+        "path": "Observation.code.coding.version",
+        "patternString": "3.0.0"
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "diagnostic-implication"
+      },
+      {
+        "id": "Observation.derivedFrom:rarelinkVariant",
+        "path": "Observation.derivedFrom",
+        "sliceName": "rarelinkVariant",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.derivedFrom:rarelinkVariant.reference",
+        "path": "Observation.derivedFrom.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:evidenceLevel",
+        "path": "Observation.component",
+        "sliceName": "evidenceLevel",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "93044-6"
+      },
+      {
+        "id": "Observation.component:evidenceLevel.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs"
+        }
+      },
+      {
+        "id": "Observation.component:clinicalSignificance",
+        "path": "Observation.component",
+        "sliceName": "clinicalSignificance",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "53037-8"
+      },
+      {
+        "id": "Observation.component:clinicalSignificance.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs"
+        }
+      },
+      {
+        "id": "Observation.component:predictedPhenotype",
+        "path": "Observation.component",
+        "sliceName": "predictedPhenotype",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.extension:workflow-relatedArtifactComponent",
+        "path": "Observation.component.extension",
+        "sliceName": "workflow-relatedArtifactComponent"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "fixedUri": "http://loinc.org"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "patternCode": "81259-4"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x]",
+        "path": "Observation.component.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding",
+        "path": "Observation.component.value[x].coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "closed"
+        }
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:mondo",
+        "path": "Observation.component.value[x].coding",
+        "sliceName": "mondo",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:mondo.system",
+        "path": "Observation.component.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://purl.obolibrary.org/obo/mondo.owl"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:omim",
+        "path": "Observation.component.value[x].coding",
+        "sliceName": "omim",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Observation.component:predictedPhenotype.value[x].coding:omim.system",
+        "path": "Observation.component.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://omim.org"
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+# RareLink-CDM SSSOM Template File
+# This template maps source data elements from a registry CSV file to the target RareLink-CDM schema.
+#
+# Columns:
+#   subject_id      : Unique identifier for the source record (<record_id>).
+#   subject_label   : Human-readable label for the source record (<source_label>).
+#   predicate_id    : Fully qualified target element (e.g., rarelink_cdm:snomedct_184099003).
+#   predicate_label : Title of the target element from the schema.
+#   object_id       : Target value – a literal (e.g., date, numeric) or a standardized code with prefix.
+#   object_label    : Human-readable label for the target value (use "-" for dates/numerics when no label is needed).
+#   match_type      : Mapping derivation type (e.g., "lexical").
+#   mapping_date    : Date when the mapping was created (<mapping_date>).
+#   mapping_tool    : Method used to create the mapping (e.g., "manual").
+#
+subject_id	subject_label	predicate_id	predicate_label	object_id	object_label	match_type	mapping_date	mapping_tool
+# === Formal Criteria (Singular) ===
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	<record_id>	<record_id>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_399423000	"1.2 Date of admission"	<record_id>	<record_id>	lexical	<mapping_date>	manual
+#
+# === Personal Information (Singular) ===
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	<dob>	-	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	<SNOMEDCT_sex_code>	<sex_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_1296886006	"2.3 Karyotypic Sex"	<karyotype_code>	<karyotype_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	<SNOMEDCT_gender_code>	<gender_identity_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_370159000	"2.5 Country of birth"	<ISO3166_code>	<ISO3166_code>	lexical	<mapping_date>	manual
+#
+# === Patient Status (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	<vital_status_code>	<vital_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_398299004	"3.2 Time of Death"	<death_date>	<death_date>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_184305005	"3.3 Cause of Death"	<cause_of_death_code>	<cause_of_death_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_105727008	"3.4 Age Category"	<age_category_code>	<age_category_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_412726003	"3.5 Length of Gestation at Birth"	<gestation_length>	<gestation_length>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_723663001	"3.6 Undiagnosed RD Case"	<undiagnosed_flag>	<undiagnosed_flag>	lexical	<mapping_date>	manual
+#
+# === Care Pathway (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:hl7fhir_enc_period_start	"4.1 Encounter Start"	<encounter_start_date>	-	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hl7fhir_enc_period_end	"4.2 Encounter End"	<encounter_end_date>	-	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_305058001	"4.3 Encounter Status"	<encounter_status_code>	<encounter_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hl7fhir_encounter_class	"4.4 Encounter Class"	<encounter_class_code>	<encounter_class_label>	lexical	<mapping_date>	manual
+#
+# === Disease Information (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:disease_coding	"5.0 Disease Coding System"	<disease_coding>	<disease_coding>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	<disease_mondocode>	<disease_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_ordo	"5.1 Disease [ORDO]"	<disease_ordocode>	<disease_ordolabel>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_icd10cm	"5.1 Disease [ICD-10-CM]"	<disease_icd10cm>	<disease_icd10cm_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_icd11	"5.1 Disease [ICD-11]"	<disease_icd11>	<disease_icd11_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64572001_omim_p	"5.1 Disease [OMIM_p]"	<disease_omim>	<disease_omim_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	<verification_status>	<verification_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_424850005	"5.3 Age at onset"	<disease_age_onset>	<disease_age_onset>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_298059007	"5.4 Date of onset"	<disease_onset_date>	<disease_onset_date>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_423493009	"5.5 Age at diagnosis"	<disease_age_diagnosis>	<disease_age_diagnosis>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_432213005	"5.6 Date of diagnosis"	<disease_diagnosis_date>	<disease_diagnosis_date>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_363698007	"5.7 Body Site"	<disease_body_site_code>	<disease_body_site_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_263493007	"5.8 Clinical status"	<disease_clinical_status>	<disease_clinical_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_246112005	"5.9 Disease severity"	<disease_severity_code>	<disease_severity_label>	lexical	<mapping_date>	manual
+#
+# === Genetic Findings (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:genetic_diagnosis_code	"6.0 Genetic Diagnosis Code System"	<genetic_diagnosis_system>	<genetic_diagnosis_system>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_106221001_mondo	"6.1.1 Genetic Diagnosis [MONDO]"	<genetic_diagnosis_mondocode>	<genetic_diagnosis_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_106221001_omim_p	"6.1.1 Genetic Diagnosis [OMIM_p]"	<genetic_diagnosis_omim>	<genetic_diagnosis_omim_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ga4gh_progress_status	"6.1.2 Interpretation Progress Status"	<interp_progress_code>	<interp_progress_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ga4gh_interp_status	"6.1.3 Interpretation Status"	<interp_status_code>	<interp_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_81304_8	"6.1.4 Structural Variant Analysis Method"	<sv_method_code>	<sv_method_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_62374_4	"6.1.5 Reference Genome"	<reference_genome_code>	<reference_genome_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_lp7824_8	"6.1.6 Genetic Mutation String"	<mutation_string>	<mutation_string>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:variant_expression	"6.1.7 Validated HGVS Variant Expression Type"	<variant_expression_code>	<variant_expression_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_81290_9	"6.1.8 Genomic DNA Change [g.HGVS]"	<genomic_dna_change>	<genomic_dna_change>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_48004_6	"6.1.9 Sequence DNA Change [c.HGVS]"	<sequence_dna_change>	<sequence_dna_change>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_48005_3	"6.1.10 Amino Acid Change [p.HGVS]"	<aa_change>	<aa_change>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:variant_validation	"6.1.12 HGVS Validation Confirmation"	<variant_validation>	<variant_validation>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_48018_6	"6.1.10 Gene"	<gene_code>	<gene_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_53034_5	"6.1.11 Zygosity"	<zygosity_code>	<zygosity_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_48019_4_other	"6.1.13 DNA Change Type"	<dna_change_type_code>	<dna_change_type_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_53037_8	"6.1.14 Clinical Significance"	<clinical_significance_code>	<clinical_significance_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ga4gh_therap_action	"6.1.15 Therapeutic Actionability"	<therap_action_code>	<therap_action_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_93044_6	"6.1.16 Clinical Annotation Level Of Evidence"	<evidence_level_code>	<evidence_level_label>	lexical	<mapping_date>	manual
+#
+# === Phenotypic Features (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	<phenotype1_code>	<phenotype1_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_363778006	"6.2.2 Phenotypic Feature Status"	<phenotype1_status_code>	<phenotype1_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	<phenotype1_onset>	-	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_resolut	"6.2.4 Resolution Date"	<phenotype1_resolution>	-	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hp_0003674	"6.2.5 Age of Onset"	<phenotype_age_onset>	<phenotype_age_onset>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hp_0011008	"6.2.6 Temporal Pattern"	<temporal_pattern_code>	<temporal_pattern_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hp_0012824	"6.2.7 Phenotype Severity"	<phenotype_severity_code>	<phenotype_severity_label>	lexical	<mapping_date>	manual
+# additional phenotype (if applicable)
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006	"6.2.1 Phenotypic Feature"	<phenotype2_code>	<phenotype2_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_8116006_onset	"6.2.3 Determination Date"	<phenotype2_onset>	-	lexical	<mapping_date>	manual
+#
+# === Measurements (Repeating Allowed) ===
+# Measurement 1 
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	<assay_A_code>	<assay_A_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	<measurement_A_value>	<measurement_A_value>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	<unit_A_code>	<unit_A_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	<measurement_A_interpretation_code>	<measurement_A_interpretation_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	<time_A_observed>	-	lexical	<mapping_date>	manual
+# Measurement 2 
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c60819	"6.3.1 Assay"	<assay_B_code>	<assay_B_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c25712	"6.3.2 Measurement Value"	<measurement_B_value>	<measurement_B_value>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c92571	"6.3.3 Unit"	<unit_B_code>	<unit_B_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c41255	"6.3.4 Interpretation"	<measurement_B_interpretation_code>	<measurement_B_interpretation_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:ncit_c82577	"6.3.5 Time Observed"	<time_B_observed>	-	lexical	<mapping_date>	manual
+#
+# === Family History (Repeating Allowed) ===
+<record_id>	"<source_label>"	rarelink_cdm:family_history_pseudonym	"6.4.0 Family Member Pseudonym"	<family_member_id>	<family_member_id>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_64245008	"6.4.1 Propositus/-a"	<propositus_flag>	<propositus_flag>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_408732007	"6.4.2 Relationship to Index Case"	<relationship_code>	<relationship_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_842009	"6.4.3 Consanguinity"	<consanguinity_flag>	<consanguinity_flag>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_444018008	"6.4.4 Family Member Relationship"	<family_relationship_code>	<family_relationship_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:hl7fhir_fmh_status	"6.4.5 Family Member Record Status"	<family_record_status>	<family_record_status_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_54123_5	"6.4.6 Family Member Sex"	<SNOMEDCT_fm_sex_code>	<family_member_sex_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_54141_7	"6.4.7 Family Member Age"	<family_member_age>	<family_member_age>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_54124_3	"6.4.8 Family Member Date of Birth"	<fm_dob>	<fm_dob>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_740604001	"6.4.9 Family Member Deceased"	<fm_deceased_flag>	<fm_deceased_flag>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_54112_8	"6.4.10 Family Member Cause of Death"	<fm_cause_of_death_code>	<fm_cause_of_death_label>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_92662_6	"6.4.11 Family Member Deceased Age"	<fm_age_at_death>	<fm_age_at_death>	lexical	<mapping_date>	manual
+<record_id>	"<source_label>"	rarelink_cdm:loinc_75315_2	"6.4.12 Family Member Disease [MONDO]"	<fm_disease_mondocode>	<fm_disease_label>	lexical	<mapping_date>	manual
+#
+# === Consent (Singular) ===
+<record_id>	"<source_label>"	rarelink_cdm:snomedct_309370004	"7.1 Consent Status"	<consent_status_code>	<consent_status_label>	lexical	<mapping_date>	manual
+#
+# === Disability (Singular or Repeating) ===
+<record_id>	"<source_label>"	rarelink_cdm:rarelink_icf_score	"8.1 Classification of Functioning/Disability [ICF]"	<icf_score>	<icf_score_label>	lexical	<mapping_date>	manual

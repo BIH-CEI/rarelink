@@ -1,0 +1,124 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_7_consent.yaml
+name: rarelink_7_consent
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  hl7fhir: http://hl7.org/fhir/
+  SNOMEDCT: http://snomed.info/sct/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Consent:
+    description: >
+      The section Consent (7) of the RareLink CDM.
+    slots:
+      - snomedct_309370004
+      - hl7fhir_consent_datetime
+      - snomedct_386318002
+      - rarelink_consent_contact
+      - rarelink_consent_data
+      - snomedct_123038009
+      - rarelink_biobank_link
+      - rarelink_7_consent_complete
+
+slots:
+  snomedct_309370004:
+    title: 7.1 Consent Status
+    description: >
+      Indicates the current status of the consent.
+    range: ConsentStatus
+    required: true
+
+  hl7fhir_consent_datetime:
+    title: 7.2 Consent Date
+    description: >
+      Records the date when the consent was given.
+    range: union_date_string
+    required: false
+
+  snomedct_386318002:
+    title: 7.3 Health Policy Monitoring
+    description: >
+      The references to the policies that are included in this consent scope. Policies may be organisational, but are often defined jurisdictionally, or in law. For example: Your entity or organization having regulatory jurisdiction or accountability for enforcing policies pertaining to Consent Directives.
+    range: string
+    required: true
+
+  rarelink_consent_contact:
+    title: 7.4 Agreement to be contacted for research purposes
+    description: >
+      Indicates whether the patient agrees to be contacted for research purposes.
+    range: YesNoUnknown
+    required: true
+
+  rarelink_consent_data:
+    title: 7.5 Consent to the reuse of data
+    description: >
+      Indicates whether the patient consents to the reuse of their data.
+    range: YesNoUnknown
+    required: true
+
+  snomedct_123038009:
+    title: 7.6 Biological sample
+    description: >
+      Indicates whether a patient's biological sample is available for research.
+    range: YesNoUnknown
+    required: false
+
+  rarelink_biobank_link:
+    title: 7.7 Biobank Link
+    description: >
+      If there is a biological sample, this data element indicates the link to the biobank of the patient's biological sample..
+    range: string
+    required: false
+
+  rarelink_7_consent_complete:
+    description: >
+      Completion status of this section.
+    range: string
+    required: true
+
+enums:
+  ConsentStatus:
+    description: >
+      The status of the consent provided.
+    permissible_values:
+      hl7fhir_draft:
+        description: Pending
+        meaning: hl7fhir:draft
+      hl7fhir_proposed:
+        description: Proposed
+        meaning: hl7fhir:proposed
+      hl7fhir_active:
+        description: Active
+        meaning: hl7fhir:active
+      hl7fhir_rejected:
+        description: Rejected
+        meaning: hl7fhir:rejected
+      hl7fhir_inactive:
+        description: Inactive
+        meaning: hl7fhir:inactive
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: hl7fhir:entered-in-error
+
+  YesNoUnknown:
+    description: >
+      Indicates yes, no, or unknown status.
+    permissible_values:
+      snomedct_373066001:
+        description: Yes
+        meaning: SNOMEDCT:373066001
+      snomedct_373067005:
+        description: No
+        meaning: SNOMEDCT:373067005
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006
+      '':
+        description: No value provided
+        meaning: null

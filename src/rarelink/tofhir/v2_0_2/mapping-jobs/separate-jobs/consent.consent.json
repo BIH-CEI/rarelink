@@ -1,0 +1,39 @@
+{
+  "id": "consent.consent",
+  "name": "consent.consent",
+  "description": "Consent RareLink",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "consent.consent",
+      "mappingRef": "rarelink/consent.consent",
+      "sourceBinding": {
+        "rarelinkConsent": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_7_consent"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

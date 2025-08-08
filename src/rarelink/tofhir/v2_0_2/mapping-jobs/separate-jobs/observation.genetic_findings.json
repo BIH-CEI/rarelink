@@ -1,0 +1,39 @@
+{
+  "id": "observation.genetic_findings",
+  "name": "observation.genetic_findings",
+  "description": "RareLink Genetic Findings",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "${SOURCE_URL}",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "genomicreporting.genetic_findings",
+      "mappingRef": "rarelink/genomicreporting.genetic_findings",
+      "sourceBinding": {
+        "rarelinkGeneticFindings": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_6_1_genetic_findings"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

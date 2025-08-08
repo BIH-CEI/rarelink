@@ -1,0 +1,32 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_8_disability.yaml
+name: rarelink_8_disability
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  ICF: https://bioportal.bioontology.org/ontologies/ICF/
+imports:
+  - linkml:types
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Disability:
+    description: >
+      The section for capturing the classification of functioning or disability for an individual
+      using the International Classification of Functioning, Disability and Health (ICF).
+    slots:
+      - rarelink_icf_score
+      - rarelink_8_disability_complete
+
+slots:
+  rarelink_icf_score:
+    title: 8.1 Classification of functioning / disability [ICF]
+    description: >
+      Classification of functioning/disability as per ICF.
+    range: string
+    required: true
+
+  rarelink_8_disability_complete:
+    description: Completion status of this section
+    range: string
+    required: true

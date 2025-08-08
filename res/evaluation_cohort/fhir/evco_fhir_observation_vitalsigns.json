@@ -1,0 +1,63 @@
+{
+  "resourceType": "Bundle",
+  "id": "2a19e197-fcb5-48a1-a33f-67721490655e",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.708+00:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-observation-vital-signs"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/a9e94f00cb990e562e776c3dd442cff6",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "a9e94f00cb990e562e776c3dd442cff6",
+      "meta": {
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:41.289+00:00",
+        "source": "#1nDO06g4n1QR0cvF",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-vital-signs" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http ://loinc.org",
+          "version": "LNC278",
+          "code": "9279-1",
+          "display": "Respiratory Rate"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-05-06",
+      "valueQuantity": {
+        "value": 80,
+        "unit": "/min"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C14165"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

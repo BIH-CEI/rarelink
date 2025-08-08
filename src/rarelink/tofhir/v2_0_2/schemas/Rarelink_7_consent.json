@@ -1,0 +1,157 @@
+{
+  "id": "Rarelink_7_consent",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_7_consent",
+  "version": "latest",
+  "name": "Rarelink_7_consent",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_7_consent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_7_consent",
+        "path": "Rarelink_7_consent",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_7_consent.record_id",
+        "path": "Rarelink_7_consent.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "7.0 Record ID",
+        "short": "7.0 Record ID"
+      },
+      {
+        "id": "Rarelink_7_consent.snomedct_309370004",
+        "path": "Rarelink_7_consent.snomedct_309370004",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "7.1 Consent Status",
+        "short": "7.1 Consent Status"
+      },
+      {
+        "id": "Rarelink_7_consent.hl7fhir_consent_datetime",
+        "path": "Rarelink_7_consent.hl7fhir_consent_datetime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "7.2 Consent Date",
+        "short": "7.2 Consent Date"
+      },
+      {
+        "id": "Rarelink_7_consent.snomedct_386318002",
+        "path": "Rarelink_7_consent.snomedct_386318002",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "7.3 Health Policy Monitoring",
+        "short": "7.3 Health Policy Monitoring"
+      },
+      {
+        "id": "Rarelink_7_consent.rarelink_consent_contact",
+        "path": "Rarelink_7_consent.rarelink_consent_contact",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "7.4 Agreement to be\ncontacted for\nresearch purposes",
+        "short": "7.4 Agreement to be\ncontacted for\nresearch purposes"
+      },
+      {
+        "id": "Rarelink_7_consent.rarelink_consent_data",
+        "path": "Rarelink_7_consent.rarelink_consent_data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "7.5 Consent to the reuse\nof data",
+        "short": "7.5 Consent to the reuse\nof data"
+      },
+      {
+        "id": "Rarelink_7_consent.snomedct_123038009",
+        "path": "Rarelink_7_consent.snomedct_123038009",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "7.6 Biological sample",
+        "short": "7.6 Biological sample"
+      },
+      {
+        "id": "Rarelink_7_consent.rarelink_biobank_link",
+        "path": "Rarelink_7_consent.rarelink_biobank_link",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "7.7 Link to a biobank",
+        "short": "7.7 Link to a biobank"
+      }
+    ]
+  }
+}

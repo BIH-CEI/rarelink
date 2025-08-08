@@ -1,0 +1,207 @@
+{
+  "id": "ips.patient",
+  "url": "rarelink/ips.patient",
+  "name": "ips.patient",
+  "title": "IPS Patient",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkpatient",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+      "joinOn": [
+        "record_id"
+      ]
+    },
+    {
+      "alias": "RareLinkPatientStatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": [
+        "record_id"
+      ]
+    },
+    {
+      "alias": "rarelinkpersonalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": [
+        "record_id"
+      ]
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "ips.patient",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Patient', record_id)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
+            ]
+          },
+          "resourceType": "Patient",
+          "identifier": [
+            {
+              "use": "{{'official'}}",
+              "type": {
+                "coding": [
+                  {
+                    "system": "{{'http://snomed.info/sct'}}",
+                    "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                    "code": "{{'422549004'}}",
+                    "display": "{{'Patient-related Identification code (observable entity)'}}"
+                  }
+                ]
+              },
+              "value": "{{snomedct_422549004}}"
+            }
+          ],
+          "name": [
+            {
+              "text": "{{'unknown'}}"
+            }
+          ],
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "gender": "{{? %rarelinkpersonalinformation.mpp:getConcept(%gender, snomedct_263495000, 'target_code')}}",
+          "birthDate": "{{%rarelinkpersonalinformation.snomedct_184099003}}",
+          "deceasedBoolean": "{{? (%RareLinkPatientStatus.mpp:getConcept(%vitalstatus, snomedct_278844005, 'target_code'))}}",
+          "deceasedDateTime": "{{? %RareLinkPatientStatus.snomedct_398299004.toDate()}}",
+          "extension": [
+            {
+              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place')}}",
+              "extension": [
+                {
+                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'countryCode')}}",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'http://terminology.hl7.org/NamingSystem/v3-iso3166-1')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'ISO 3166-1:2020(en)')}}",
+                        "code": "{{? %rarelinkpersonalinformation.snomedct_370159000}}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'codeDefinition')}}",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'http://snomed.info/sct')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                        "code": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), '370159000')}}",
+                        "display": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'Country of Birth')}}"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+              "extension": [
+                {
+                  "url": "code",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "version": "SNOMEDCT_US_2024_09_01",
+                        "code": "399423000",
+                        "display": "Date of Admission"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "url": "value",
+                  "valueDateTime": "{{snomedct_399423000}}"
+                }
+              ]
+            },
+            {
+              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html')}}",
+              "extension": [
+                {
+                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'value')}}",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://loinc.org')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                        "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
+                        "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'codeDefinition')}}",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                        "code": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '281053000')}}",
+                        "display": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'Sex at Birth')}}"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+                "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death')}}",
+                "extension": [
+                  {
+                    "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'concept')}}",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
+                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                          "code": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '184305005')}}",
+                          "display": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'Cause Of Death')}}"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "url": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'value')}}",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://icd.who.int/browse10/2019/en')}}",
+                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '2019')}}",
+                          "code": "{{? %RareLinkPatientStatus.snomedct_184305005}}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+            }
+          ]
+        }
+      },
+      "description": "RareLink-CDM to IPS Patient profiles"
+    }
+  ],
+  "context": {
+    "gender": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/2_4_gender_identity.csv"
+    },
+    "vitalstatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/3_1_vital_status.csv"
+    },
+    "sexatbirth": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/2_2_sex_at_birth.csv"
+    }
+  }
+}

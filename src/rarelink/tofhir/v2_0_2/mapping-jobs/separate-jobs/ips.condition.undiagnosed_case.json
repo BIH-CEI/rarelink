@@ -1,0 +1,39 @@
+{
+  "id": "ips.condition.undiagnosed_case",
+  "name": "ips.condition.undiagnosed_case",
+  "description": "ips.condition.undiagnosed_case",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "ips.condition.undiagnosed_rd_case",
+      "mappingRef": "rarelink/ips.condition.undiagnosed_rd_case",
+      "sourceBinding": {
+        "RareLinkPatientStatus": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_3_patient_status"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

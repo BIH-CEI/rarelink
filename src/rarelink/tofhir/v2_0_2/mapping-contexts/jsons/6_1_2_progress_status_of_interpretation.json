@@ -1,0 +1,36 @@
+{
+  "name": "6_1_2_progress_status_of_interpretation.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "ga4gh_unknown_progress",
+      "source_display": "No information is available about the diagnosis",
+      "target_code": "UNKNOWN_PROGRESS",
+      "target_display": "No information is available about the diagnosis"
+    },
+    {
+      "source_code": "ga4gh_in_progress",
+      "source_display": "No diagnosis has been found to date but additional differential diagnostic work is in progress.",
+      "target_code": "IN_PROGRESS",
+      "target_display": "No diagnosis has been found to date but additional differential diagnostic work is in progress."
+    },
+    {
+      "source_code": "ga4gh_completed",
+      "source_display": "The work on the interpretation is complete.",
+      "target_code": "COMPLETED",
+      "target_display": "The work on the interpretation is complete."
+    },
+    {
+      "source_code": "ga4gh_solved",
+      "source_display": "The interpretation is complete and also considered to be a definitive diagnosis",
+      "target_code": "SOLVED",
+      "target_display": "The interpretation is complete and also considered to be a definitive diagnosis"
+    },
+    {
+      "source_code": "ga4gh_unsolved",
+      "source_display": "The interpretation is complete but no definitive diagnosis was found",
+      "target_code": "UNSOLVED",
+      "target_display": "The interpretation is complete but no definitive diagnosis was found"
+    }
+  ]
+}

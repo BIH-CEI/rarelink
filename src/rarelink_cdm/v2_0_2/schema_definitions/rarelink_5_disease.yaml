@@ -1,0 +1,252 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_5_disease.yaml
+name: rarelink_5_disease
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  MONDO: https://purl.obolibrary.org/obo/MONDO_
+  ORDO: http://www.orpha.net/ORDO/
+  ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
+  ICD11: https://id.who.int/icd/release/11/
+  OMIM: https://omim.org/entry/
+  HL7FHIR: http://hl7.org/fhir/
+  SNOMEDCT: http://snomed.info/sct
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  Disease:
+    description: >
+      Captures details of diseases encoded using various terminologies and
+      provides relevant metadata such as age at onset, verification status, etc.
+    slots:
+      - disease_coding
+      - snomedct_64572001_mondo
+      - snomedct_64572001_ordo
+      - snomedct_64572001_icd10cm
+      - snomedct_64572001_icd11
+      - snomedct_64572001_omim_p
+      - loinc_99498_8
+      - snomedct_424850005
+      - snomedct_298059007
+      - snomedct_423493009
+      - snomedct_432213005
+      - snomedct_363698007
+      - snomedct_263493007
+      - snomedct_246112005
+      - rarelink_5_disease_complete
+
+slots:
+  disease_coding:
+    title: the disease coding system
+    description: The encoding system used for the disease (e.g., MONDO, ORDO, ICD10CM, etc.)
+    range: DiseaseCodeSystems
+    required: true
+
+  snomedct_64572001_mondo:
+    title: 5.1 Disease [MONDO]
+    description: The disease code using MONDO terminology. The MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings.
+    range: string
+    required: false
+
+  snomedct_64572001_ordo:
+    title: 5.1 Disease [ORDO]
+    description: The disease code using ORDO terminology.
+    range: string
+    required: false
+
+  snomedct_64572001_icd10cm:
+    title: 5.1 Disease [ICD-10-CM]
+    description: The disease code using ICD-10-CM terminology.
+    range: string
+    required: false
+
+  snomedct_64572001_icd11:
+    title: 5.1 Disease [ICD-11]
+    description: The disease code using ICD-11 terminology.
+    range: string
+    required: false
+
+  snomedct_64572001_omim_p:
+    title: 5.1 Disease [OMIM_P]
+    description: A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings.
+    range: string
+    required: false
+
+  loinc_99498_8:
+    title: 5.2 Verification status
+    description: The verification status of the disease.
+    range: VerificationStatus
+    required: true
+
+  snomedct_424850005:
+    title: 5.3 Age at onset
+    description: The age at the onset of the first symptoms or signs of the disease.
+    range: AgeAtOnset
+    required: false
+
+  snomedct_298059007:
+    title: 5.4 Date of onset
+    description: The date at onset of first symptoms or signs of the disease. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively
+    range: union_date_string
+    required: false
+
+  snomedct_423493009:
+    title: 5.5 Age at diagnosis
+    description: The individual’s age when the diagnosis was made.
+    range: AgeAtDiagnosis
+    required: false
+
+  snomedct_432213005:
+    title: 5.6 Date of diagnosis
+    description: The date on which the disease was determined. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively
+    range: union_date_string
+    required: false
+
+  snomedct_363698007:
+    title: 5.7 Body Site [SNOMEDCT]
+    description: The specific body site affected by disease is encoded using all descendants of SCT Body Structure (123037004).
+    range: string
+    required: false
+
+  snomedct_263493007:
+    title: 5.8 Clinical status
+    description: The clinical status of the disease indicates whether it is active, inactive, or resolved.
+    range: ClinicalStatus
+    required: false
+
+  snomedct_246112005:
+    title: 5.9 Disease severity
+    description: The severity of the disease is categorised by clinical evaluation.
+    range: DiseaseSeverity
+    required: false
+
+  rarelink_5_disease_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  DiseaseCodeSystems:
+    permissible_values:
+      mondo:
+        description: MONDO
+        meaning: MONDO
+      ordo:
+        description: ORDO
+        meaning: ORDO
+      icd10cm:
+        description: ICD-10-CM
+        meaning: ICD10CM
+      icd11:
+        description: ICD-11
+        meaning: ICD11
+      omim:
+        description: OMIM
+        meaning: OMIM
+      '':
+        description: No value provided
+        meaning: null
+
+  VerificationStatus:
+    permissible_values:
+      hl7fhir_unconfirmed:
+        description: Unconfirmed
+        meaning: HL7FHIR:unconfirmed
+      hl7fhir_provisional:
+        description: Provisional
+        meaning: HL7FHIR:provisional
+      hl7fhir_differential:
+        description: Differential
+        meaning: HL7FHIR:differential
+      hl7fhir_confirmed:
+        description: Confirmed
+        meaning: HL7FHIR:confirmed
+      hl7fhir_refuted:
+        description: Refuted
+        meaning: HL7FHIR:refuted
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: HL7FHIR:entered-in-error
+      '':
+        description: No value provided
+        meaning: null
+      
+
+  AgeAtOnset:
+    permissible_values:
+      snomedct_118189007:
+        description: Prenatal
+        meaning: SNOMEDCT:118189007
+      snomedct_3950001:
+        description: Birth
+        meaning: SNOMEDCT:3950001
+      snomedct_410672004:
+        description: Date
+        meaning: SNOMEDCT:410672004
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006
+      '':
+        description: No value provided
+        meaning: null
+
+  AgeAtDiagnosis:
+    permissible_values:
+      snomedct_118189007:
+        description: Prenatal
+        meaning: SNOMEDCT:118189007
+      snomedct_3950001:
+        description: Birth
+        meaning: SNOMEDCT:3950001
+      snomedct_410672004:
+        description: Date
+        meaning: SNOMEDCT:410672004
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006
+      '':
+        description: No value provided
+        meaning: null
+
+  ClinicalStatus:
+    permissible_values:
+      hl7fhir_active:
+        description: Active
+        meaning: HL7FHIR:active
+      hl7fhir_recurrence:
+        description: Recurrence
+        meaning: HL7FHIR:recurrence
+      hl7fhir_relapse:
+        description: Relapse
+        meaning: HL7FHIR:relapse
+      hl7fhir_inactive:
+        description: Inactive
+        meaning: HL7FHIR:inactive
+      hl7fhir_remission:
+        description: Remission
+        meaning: HL7FHIR:remission
+      hl7fhir_resolved:
+        description: Resolved
+        meaning: HL7FHIR:resolved
+      '':
+        description: No value provided
+        meaning: null
+
+  DiseaseSeverity:
+    permissible_values:
+      snomedct_24484000:
+        description: Severe
+        meaning: SNOMEDCT:24484000
+      snomedct_6736007:
+        description: Moderate
+        meaning: SNOMEDCT:6736007
+      snomedct_255604002:
+        description: Mild
+        meaning: SNOMEDCT:255604002
+      '':
+        description: No value provided
+        meaning: null

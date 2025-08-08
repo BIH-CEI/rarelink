@@ -1,0 +1,221 @@
+patient_id,first_name,last_name,birth_date,sex,patient_status
+P001,Jacob,Smith,2015-01-12,M,Alive
+P002,Emily,Johnson,2012-03-04,F,Alive
+P003,Michael,Brown,2017-06-17,M,Alive
+P004,Olivia,Garcia,2010-02-20,F,Alive
+P005,Daniel,Martinez,2014-10-05,M,Alive
+P006,Emma,Hernandez,2011-09-12,F,Alive
+P007,Alexander,Lopez,2016-04-25,M,Alive
+P008,Sophia,Gonzalez,2009-12-03,F,Alive
+P009,Liam,Rodriguez,2013-08-30,M,Alive
+P010,Grace,Wilson,2015-11-15,F,Alive
+
+patient_id,disease_name,disease_code,date_of_onset,disease_status,formal_criteria
+P001,Kabuki syndrome,ORPHA:527,2017-06-01,Confirmed,Meets formal diagnostic criteria
+P002,Kabuki syndrome,ORPHA:527,2014-05-10,Confirmed,Meets formal diagnostic criteria
+P003,Kabuki syndrome,ORPHA:527,2018-03-22,Confirmed,Meets formal diagnostic criteria
+P004,Kabuki syndrome,ORPHA:527,2012-07-15,Confirmed,Meets formal diagnostic criteria
+P005,Kabuki syndrome,ORPHA:527,2016-09-01,Confirmed,Meets formal diagnostic criteria
+P006,Kabuki syndrome,ORPHA:527,2013-11-30,Confirmed,Meets formal diagnostic criteria
+P007,Kabuki syndrome,ORPHA:527,2018-12-01,Confirmed,Meets formal diagnostic criteria
+P008,Kabuki syndrome,ORPHA:527,2011-03-01,Confirmed,Meets formal diagnostic criteria
+P009,Kabuki syndrome,ORPHA:527,2015-05-01,Confirmed,Meets formal diagnostic criteria
+P010,Kabuki syndrome,ORPHA:527,2017-08-20,Confirmed,Meets formal diagnostic criteria
+
+
+patient_id,variant_id,transcript,HGVS_cDNA,gene,HGVS_protein,variant_classification,zygosity
+
+# P001 - Two variants (Compound Heterozygous)
+P001,V1,NM_020738.4,NM_020738.4:c.4269del,Gene KIDINS220,n/a,Pathogenic,compound heterozygous
+P001,V2,NM_003482.4,NM_003482.4:c.16529A>G,KMT2D,n/a,Pathogenic,compound heterozygous
+
+# P002 - Single variant
+P002,V1,NM_015545.4,NM_001197104.2:c.3019G>T,Gene KMT2A,n/a,Pathogenic,heterozygous
+
+# P003 - Single variant
+P003,V1,NM_001197104.2,NM_001197104.2:c.3019G>T,Gene KMT2A,n/a,Pathogenic,heterozygous
+
+# P004 - Single variant
+P004,V1,NM_003482.4,NM_003482.4:c.16522-5_16522-2del,KMT2D,n/a,Pathogenic,heterozygous
+
+# P005 - Single variant
+P005,V1,NM_001197104.2,NM_001197104.2:c.5803-1G>A,KMT2A,n/a,Likely pathogenic,heterozygous
+
+# P006 - Single variant
+P006,V1,NM_003482.4,NM_003482.4:c.16529A>G,KMT2D,n/a,likely Pathogenic,heterozygous
+
+# P007 - Single variant
+P007,V1,NM_020738.4,NM_020738.4:c.4269del,Gene KIDINS220,n/a,Pathogenic,heterozygous
+
+# P008 - Single variant
+P008,V1,NM_015545.4,NM_001197104.2:c.3019G>T,Gene KMT2A,n/a,Pathogenic,heterozygous
+
+# P009 - Two variants (Compound Heterozygous)
+P009,V1,NM_001197104.2,NM_001197104.2:c.3019G>T,Gene KMT2A,n/a,Pathogenic,compound heterozygous
+P009,V2,NM_003482.4,NM_003482.4:c.16529A>G,KMT2D,n/a,Pathogenic,compound heterozygous
+
+# P010 - Two variants (Compound Heterozygous)
+P010,V1,NM_003482.4,NM_003482.4:c.16522-5_16522-2del,KMT2D,n/a,Pathogenic,compound heterozygous
+P010,V2,NM_015545.4,NM_001197104.2:c.3019G>T,Gene KMT2A,n/a,Pathogenic,compound heterozygous
+
+
+patient_id,phenotype_code,phenotype_label,onset_date,onset_age_category,temporal_modifier,severity,phenotype_status
+
+# P001: Jacob Smith (DOB: 2015-01-12)
+P001,HP:0002553,Arched eyebrows,2015-01-12,Congenital,Persistent,Mild,Present
+P001,HP:0000356,Large ears,2015-01-12,Congenital,Persistent,Moderate,Present
+P001,HP:0001252,Hypotonia,2015-04-12,Infant,Persistent,Moderate,Present
+P001,HP:0008897,Postnatal growth retardation,2016-01-12,Infant,Persistent,Moderate,Present
+P001,HP:0001249,Intellectual disability,2017-01-12,Childhood,Persistent,Mild,Present
+P001,HP:0000365,Hearing impairment,2018-01-12,Childhood,Persistent,Mild,Present
+
+
+P002,HP:0000356,Large ears,2012-03-04,Congenital,Persistent,Mild,Present
+P002,HP:0000175,Cleft palate,2012-06-04,Infant,Persistent,Moderate,Present
+P002,HP:0000929,Scoliosis,2014-03-04,Childhood,Persistent,Mild,Present
+P002,HP:0001250,Seizures,2015-03-04,Childhood,Intermittent,Moderate,Present
+
+
+# P003: Michael Brown (DOB: 2017-06-17)
+P003,HP:0000637,Long palpebral fissures,2017-06-17,Congenital,Persistent,Mild,Present
+P003,HP:0000356,Large ears,2017-06-17,Congenital,Persistent,Mild,Present
+P003,HP:0001252,Hypotonia,2017-09-17,Infant,Persistent,Moderate,Present
+P003,HP:0001263,Global developmental delay,2018-06-17,Infant,Persistent,Moderate,Present
+P003,HP:0000508,Ptosis,2018-06-17,Infant,Persistent,Mild,Present
+P003,HP:0001388,Joint laxity,2019-06-17,Childhood,Persistent,Mild,Present
+P003,HP:0000365,Hearing impairment,2020-06-17,Childhood,Persistent,Moderate,Present
+
+
+# P004: Olivia Garcia (DOB: 2010-02-20)
+P004,HP:0000175,Cleft palate,2010-02-20,Congenital,Persistent,Moderate,Present
+P004,HP:0004322,Short stature,2011-02-20,Infant,Persistent,Moderate,Present
+P004,HP:0000929,Scoliosis,2014-02-20,Childhood,Persistent,Moderate,Present
+
+
+# P005: Daniel Martinez (DOB: 2014-10-05)
+P005,HP:0001013,Persistent fetal fingertip pads,2014-10-05,Congenital,Persistent,Mild,Present
+P005,HP:0000356,Large ears,2014-10-05,Congenital,Persistent,Moderate,Present
+P005,HP:0001252,Hypotonia,2015-01-05,Infant,Persistent,Moderate,Present
+P005,HP:0001156,Brachydactyly,2015-10-05,Infant,Persistent,Mild,Present
+P005,HP:0001250,Seizures,2017-10-05,Childhood,Intermittent,Moderate,Present
+P005,HP:0000689,Dental malocclusion,2018-10-05,Childhood,Persistent,Mild,Present
+
+
+# P006: Emma Hernandez (DOB: 2011-09-12)
+P006,HP:0000508,Ptosis,2012-03-12,Infant,Persistent,Mild,Present
+P006,HP:0000365,Hearing impairment,2014-09-12,Childhood,Persistent,Moderate,Present
+
+
+# P007: Alexander Lopez (DOB: 2016-04-25)
+P007,HP:0002553,Arched eyebrows,2016-04-25,Congenital,Persistent,Moderate,Present
+P007,HP:0004322,Short stature,2017-04-25,Infant,Persistent,Moderate,Present
+P007,HP:0001388,Joint laxity,2018-04-25,Childhood,Persistent,Mild,Present
+P007,HP:0000403,Recurrent otitis media,2019-04-25,Childhood,Intermittent,Moderate,Present
+
+
+# P008: Sophia Gonzalez (DOB: 2009-12-03)
+P008,HP:0000356,Large ears,2009-12-03,Congenital,Persistent,Mild,Present
+P008,HP:0001627,Congenital heart defect,2009-12-03,Congenital,Persistent,Moderate,Present
+P008,HP:0001252,Hypotonia,2010-03-03,Infant,Persistent,Moderate,Present
+P008,HP:0001156,Brachydactyly,2010-12-03,Infant,Persistent,Mild,Present
+P008,HP:0000929,Scoliosis,2012-12-03,Childhood,Persistent,Mild,Present
+P008,HP:0000824,Growth hormone deficiency,2013-12-03,Childhood,Persistent,Moderate,Present
+
+
+# P009: Liam Rodriguez (DOB: 2013-08-30)
+P009,HP:0002553,Arched eyebrows,2013-08-30,Congenital,Persistent,Mild,Present
+P009,HP:0000175,Cleft palate,2013-12-30,Infant,Persistent,Moderate,Present
+P009,HP:0004322,Short stature,2014-08-30,Infant,Persistent,Moderate,Present
+P009,HP:0001388,Joint laxity,2015-08-30,Childhood,Persistent,Mild,Present
+P009,HP:0000365,Hearing impairment,2016-08-30,Childhood,Persistent,Mild,Present
+
+
+# P010: Grace Wilson (DOB: 2015-11-15)
+P010,HP:0000356,Large ears,2015-11-15,Congenital,Persistent,Moderate,Present
+P010,HP:0001250,Seizures,2016-05-15,Infant,Intermittent,Moderate,Present
+P010,HP:0000689,Dental malocclusion,2018-11-15,Childhood,Persistent,Mild,Present
+P010,HP:0000929,Scoliosis,2019-11-15,Childhood,Persistent,Mild,Present
+P010,HP:0000824,Growth hormone deficiency,2020-11-15,Childhood,Persistent,Moderate,Present
+
+patient_id,measurement_date,lab_test,lab_value,lab_unit,reference_range
+
+# P001 - Two visits, same 4 labs each time
+P001,2021-01-10,IgG,7.2,g/L,6-16
+P001,2021-01-10,TSH,4.6,uIU/mL,0.5-5.0
+P001,2021-01-10,WBC,5.6,10^9/L,4.0-11.0
+P001,2021-01-10,GH,2.1,ng/mL,0.1-5.0
+
+P001,2022-03-15,IgG,8.1,g/L,6-16
+P001,2022-03-15,TSH,5.2,uIU/mL,0.5-5.0   # slightly above normal
+P001,2022-03-15,WBC,5.3,10^9/L,4.0-11.0
+P001,2022-03-15,GH,1.8,ng/mL,0.1-5.0
+
+# P002 - Three visits, same 3 labs each time
+P002,2020-05-20,IgG,9.1,g/L,6-16
+P002,2020-05-20,TSH,3.5,uIU/mL,0.5-5.0
+P002,2020-05-20,WBC,6.2,10^9/L,4.0-11.0
+
+P002,2021-05-20,IgG,7.8,g/L,6-16
+P002,2021-05-20,TSH,4.1,uIU/mL,0.5-5.0
+P002,2021-05-20,WBC,5.9,10^9/L,4.0-11.0
+
+P002,2022-05-20,IgG,6.5,g/L,6-16
+P002,2022-05-20,TSH,5.3,uIU/mL,0.5-5.0   # slightly above normal
+P002,2022-05-20,WBC,4.3,10^9/L,4.0-11.0
+
+# P003 - One visit, 2 labs
+P003,2021-02-01,GH,1.2,ng/mL,0.1-5.0
+P003,2021-02-01,TSH,4.8,uIU/mL,0.5-5.0
+
+# P004 - Two visits, 2 labs each time
+P004,2021-07-09,IgG,6.2,g/L,6-16
+P004,2021-07-09,WBC,4.8,10^9/L,4.0-11.0
+
+P004,2023-01-11,IgG,7.1,g/L,6-16
+P004,2023-01-11,WBC,5.0,10^9/L,4.0-11.0
+
+# P005 - Three visits, 2 labs each time
+P005,2020-11-30,TSH,3.9,uIU/mL,0.5-5.0
+P005,2020-11-30,GH,2.0,ng/mL,0.1-5.0
+
+P005,2021-11-30,TSH,4.3,uIU/mL,0.5-5.0
+P005,2021-11-30,GH,3.2,ng/mL,0.1-5.0
+
+P005,2022-11-30,TSH,5.6,uIU/mL,0.5-5.0   # out of normal range
+P005,2022-11-30,GH,1.9,ng/mL,0.1-5.0
+
+# P006 - One visit, 4 labs
+P006,2022-04-25,IgG,6.1,g/L,6-16
+P006,2022-04-25,TSH,5.5,uIU/mL,0.5-5.0   # slightly high
+P006,2022-04-25,WBC,4.0,10^9/L,4.0-11.0
+P006,2022-04-25,GH,2.2,ng/mL,0.1-5.0
+
+# P007 - Three visits, 2 labs each time
+P007,2020-09-10,IgG,5.9,g/L,6-16        # slightly low
+P007,2020-09-10,TSH,2.3,uIU/mL,0.5-5.0
+
+P007,2021-09-10,IgG,6.3,g/L,6-16
+P007,2021-09-10,TSH,2.9,uIU/mL,0.5-5.0
+
+P007,2022-09-10,IgG,7.0,g/L,6-16
+P007,2022-09-10,TSH,4.9,uIU/mL,0.5-5.0
+
+# P008 - Two visits, 2 labs each time
+P008,2021-06-01,WBC,5.4,10^9/L,4.0-11.0
+P008,2021-06-01,GH,0.8,ng/mL,0.1-5.0
+
+P008,2022-06-01,WBC,6.1,10^9/L,4.0-11.0
+P008,2022-06-01,GH,1.5,ng/mL,0.1-5.0
+
+# P009 - One visit, 2 labs
+P009,2023-03-03,IgG,8.0,g/L,6-16
+P009,2023-03-03,GH,2.6,ng/mL,0.1-5.0
+
+# P010 - Two visits, 3 labs each time
+P010,2020-12-12,TSH,5.2,uIU/mL,0.5-5.0   # slightly high
+P010,2020-12-12,WBC,5.1,10^9/L,4.0-11.0
+P010,2020-12-12,GH,2.1,ng/mL,0.1-5.0
+
+P010,2022-12-12,TSH,4.0,uIU/mL,0.5-5.0
+P010,2022-12-12,WBC,6.7,10^9/L,4.0-11.0
+P010,2022-12-12,GH,3.4,ng/mL,0.1-5.0

@@ -1,0 +1,45 @@
+{
+  "resourceType": "Bundle",
+  "id": "ec5901e1-cd96-4c04-9df1-cae0422fb2b1",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.749+00:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Condition?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-condition-undiagnosed-rd-case"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Condition/3fee6b06bea8f946a31f8e15e215dfcd",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "3fee6b06bea8f946a31f8e15e215dfcd",
+      "meta": {
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:23.984+00:00",
+        "source": "#eXVpShc5lH3woNWq",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://www.orpha.net/ORDO",
+          "version": "OMIM2024_08_09",
+          "code": "616874",
+          "display": "Rare disorder without a determined diagnosis after full investigation"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "recordedDate": "2025-04-12"
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

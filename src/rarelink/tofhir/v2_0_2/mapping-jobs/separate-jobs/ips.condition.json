@@ -1,0 +1,48 @@
+{
+  "id": "ips.condition",
+  "name": "ips.condition",
+  "description": "ips condition rarelink",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "terminologyServiceSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "https://data.bioontology.org/ontologies/",
+    "returnMinimal": true,
+    "securitySettings": {
+      "jsonClass": "FixedTokenAuthenticationSettings",
+      "token": "459b70e9-ac04-4d33-b9e8-22f953af4105 "
+    }
+  },
+  "mappings": [
+    {
+      "name": "ips.condition",
+      "mappingRef": "rarelink/ips.condition",
+      "sourceBinding": {
+        "rarelinkDisease": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_5_disease"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

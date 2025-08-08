@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "UndiagnosedRDCaseVS",
+  "id": "undiagnosed-rd-case-vs",
+  "title": "Undiagnosed Rare Disease Case Value Set",
+  "description": "Value set for capturing undiagnosed rare disease cases.",
+  "url": "https://rarelink.bih-charite.de/fhir/ValueSet/undiagnosed-rd-case-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.orpha.net/ORDO",
+        "concept": [
+          {
+            "code": "616874",
+            "display": "Rare disorder without a determined diagnosis after full investigation"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "373067005",
+            "display": "A Rare Disease was diagnosed"
+          }
+        ]
+      }
+    ]
+  }
+}

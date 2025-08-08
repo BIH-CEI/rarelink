@@ -1,0 +1,52 @@
+{
+  "resourceType": "Bundle",
+  "id": "1841273d-1216-4b22-ae21-7bd87b78bfec",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.845+00:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Procedure?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-ips-procedure"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Procedure/77ce40d107487ffff0d36d8516d2166a",
+    "resource": {
+      "resourceType": "Procedure",
+      "id": "77ce40d107487ffff0d36d8516d2166a",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:42.609+00:00",
+        "source": "#uM48Yn7dEpYatMGA",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "completed",
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "2752008"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "performedDateTime": "2021-05-06",
+      "bodySite": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "112975008"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

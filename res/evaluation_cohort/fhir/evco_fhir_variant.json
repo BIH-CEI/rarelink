@@ -1,0 +1,1074 @@
+{
+  "resourceType": "Bundle",
+  "id": "cf6a4db1-6922-4979-ad22-732129fe6825",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.611+00:00"
+  },
+  "type": "searchset",
+  "total": 10,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-genetic-variant"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/e7c11fc35bffc54da50ab84d8e6e1864",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "e7c11fc35bffc54da50ab84d8e6e1864",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:31.561+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_001197104.2:c.3019G>T"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_001197104.2"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7132"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/ea841c60b3be7c84fa6e35adea07bb6b",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ea841c60b3be7c84fa6e35adea07bb6b",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:31.618+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_001197104.2:c.5803-1G>A"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_001197104.2"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7132"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/8720f0ba6ed46d6819a5b3247829052e",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "8720f0ba6ed46d6819a5b3247829052e",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:31.671+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_003482.4:c.16522-5_16522-2del"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_003482.4"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7133"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/7e73e4e308a23d93d8f183a032d25e10",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "7e73e4e308a23d93d8f183a032d25e10",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:31.712+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_020738.4:c.4269del"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_020738.4"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:29508"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/c6ac240af45aaaa1ab2b9cb1a36727fd",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "c6ac240af45aaaa1ab2b9cb1a36727fd",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:31.844+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_001197104.2:c.3019G>T"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_001197104.2"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7132"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/76cedf1d3833934ef26bb54e82725be9",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "76cedf1d3833934ef26bb54e82725be9",
+      "meta": {
+        "versionId": "38",
+        "lastUpdated": "2025-05-09T08:43:31.882+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_003482.4:c.16529A>G"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_003482.4"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7133"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26217-2",
+            "display": "Compunt Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/40272afcca2e5ca11379acdb91750e7b",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "40272afcca2e5ca11379acdb91750e7b",
+      "meta": {
+        "versionId": "38",
+        "lastUpdated": "2025-05-09T08:43:31.948+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_020738.4:c.4269del"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_020738.4"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:29508"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26217-2",
+            "display": "Compunt Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/3995f299f5e7d17595b242c72690e032",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "3995f299f5e7d17595b242c72690e032",
+      "meta": {
+        "versionId": "38",
+        "lastUpdated": "2025-05-09T08:43:31.970+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_001197104.2:c.3019G>T"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_001197104.2"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7132"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26217-2",
+            "display": "Compunt Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/684fb6c76877888211d3c012cfbc140f",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "684fb6c76877888211d3c012cfbc140f",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:32.001+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_001197104.2:c.3019G>T"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_001197104.2"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7132"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/f1cec91ac8af7cafb2d91cca1dc06367",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "f1cec91ac8af7cafb2d91cca1dc06367",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:32.031+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "version": "LNC278",
+          "code": "69548-6",
+          "display": "Genetic variant assessment"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48004-6",
+            "display": "DNA change (c.HGVS)"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://varnomen.hgvs.org",
+            "code": "NM_003482.4:c.16529A>G"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "51958-7",
+            "display": "Transcript reference sequence [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.ncbi.nlm.nih.gov/refseq",
+            "code": "NM_003482.4"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "48018-6",
+            "display": "Gene studied [ID]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://www.genenames.org",
+            "version": "2025-04-25",
+            "code": "HGNC:7133"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53034-5",
+            "display": "Allelic state"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6706-1",
+            "display": "(simple) Heterozygous"
+          } ]
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

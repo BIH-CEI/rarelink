@@ -1,0 +1,253 @@
+{
+  "id": "Rarelink_6_4_family_history",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_4_family_history",
+  "version": "latest",
+  "name": "Rarelink_6_4_family_history",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_6_4_family_history",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_6_4_family_history",
+        "path": "Rarelink_6_4_family_history",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_6_4_family_history.record_id",
+        "path": "Rarelink_6_4_family_history.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "Unique identifier for individual record within a project",
+        "short": "Record Identifier"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.family_history_pseudonym",
+        "path": "Rarelink_6_4_family_history.family_history_pseudonym",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.4.0 Pseudonym",
+        "short": "6.4.0 Pseudonym"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.snomedct_64245008",
+        "path": "Rarelink_6_4_family_history.snomedct_64245008",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.1 Propositus/-a",
+        "short": "6.4.1 Propositus/-a"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.snomedct_408732007",
+        "path": "Rarelink_6_4_family_history.snomedct_408732007",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.2 Relationship of the individual to the index case / propositus/a",
+        "short": "6.4.2 Relationship of the individual to the index case / propositus/a"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.snomedct_842009",
+        "path": "Rarelink_6_4_family_history.snomedct_842009",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.3 Consanguinity",
+        "short": "6.4.3 Consanguinity"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.snomedct_444018008",
+        "path": "Rarelink_6_4_family_history.snomedct_444018008",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.4 Family Member Relationship",
+        "short": "6.4.4 Family Member Relationship"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.hl7fhir_fmh_status",
+        "path": "Rarelink_6_4_family_history.hl7fhir_fmh_status",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.5 Family Member Record Status",
+        "short": "6.4.5 Family Member Record Status"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_54123_5",
+        "path": "Rarelink_6_4_family_history.loinc_54123_5",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.6 Family Member Sex",
+        "short": "6.4.6 Family Member Sex"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_54141_7",
+        "path": "Rarelink_6_4_family_history.loinc_54141_7",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/integer"
+            ]
+          }
+        ],
+        "definition": "6.4.7 Family Member Age",
+        "short": "6.4.7 Family Member Age"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_54124_3",
+        "path": "Rarelink_6_4_family_history.loinc_54124_3",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "6.4.8 Family Member Date of Birth",
+        "short": "6.4.8 Family Member Date of Birth"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.snomedct_740604001",
+        "path": "Rarelink_6_4_family_history.snomedct_740604001",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.4.9 Family Member Deceased",
+        "short": "6.4.9 Family Member Deceased"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_54112_8",
+        "path": "Rarelink_6_4_family_history.loinc_54112_8",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.4.10 Family Member Cause of Death [ICD10CM]",
+        "short": "6.4.10 Family Member Cause of Death [ICD10CM]"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_92662_6",
+        "path": "Rarelink_6_4_family_history.loinc_92662_6",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/integer"
+            ]
+          }
+        ],
+        "definition": "6.4.11 Family Member Deceased Age",
+        "short": "6.4.11 Family Member Deceased Age"
+      },
+      {
+        "id": "Rarelink_6_4_family_history.loinc_75315_2",
+        "path": "Rarelink_6_4_family_history.loinc_75315_2",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.4.12 Family Member Disease [MONDO]",
+        "short": "6.4.12 Family Member Disease [MONDO]"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+id: https://github.com/BIH-CEI/RareLink/types
+name: rarelink_types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
+default_prefix: rarelink
+default_range: string
+
+types:
+  union_date_string:
+    typeof: string
+    description: A field that allows both dates and empty strings.
+    pattern: ^(\d{4}-\d{2}-\d{2}|)$

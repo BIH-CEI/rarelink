@@ -1,0 +1,2279 @@
+{
+  "resourceType": "Bundle",
+  "id": "af08fd37-3a5c-4a4c-b1b3-160fa0ff26e8",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.631+00:00"
+  },
+  "type": "searchset",
+  "total": 47,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-ips-measurement-laboratory"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/d61c4c027b61ba71f89fdfae1d2f702f",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "d61c4c027b61ba71f89fdfae1d2f702f",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.886+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2021-05-21",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/4b925f128f103538ecefac6b35c25c56",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "4b925f128f103538ecefac6b35c25c56",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.902+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2020-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 3.9,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/f55821939a7c1f3636d19644813b95df",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "f55821939a7c1f3636d19644813b95df",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.915+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2022-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1.9,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/bc75dbde77285a92294f8c73e0705d3e",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "bc75dbde77285a92294f8c73e0705d3e",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.927+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "effectiveDateTime": "2020-09-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.9,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C78801"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/1cac3a4becd6600e62ea56d1efc86d34",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "1cac3a4becd6600e62ea56d1efc86d34",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.939+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2020-05-20",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 9.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/49f1f64a7151c0bc39ccc9f4568efd3d",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "49f1f64a7151c0bc39ccc9f4568efd3d",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.958+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2020-05-20",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 3.5,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/2117044b7be7bb63899937558a4f66cd",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2117044b7be7bb63899937558a4f66cd",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.970+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2020-12-12",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C78800"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/ec48ba397537ab0ec652a03806fe8e50",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ec48ba397537ab0ec652a03806fe8e50",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.985+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "effectiveDateTime": "2023-01-11",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 14.5,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/5cd689be07f488fabe271640a8667fc7",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "5cd689be07f488fabe271640a8667fc7",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:37.998+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2022-05-19",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 10.4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/31d7e5632c12b32dc53d2fa7ad3c3812",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "31d7e5632c12b32dc53d2fa7ad3c3812",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.011+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2022-03-15",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.6,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/e6f0f19bf05048887453f44578d79d08",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "e6f0f19bf05048887453f44578d79d08",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.024+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "effectiveDateTime": "2020-10-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 6.3,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/2a6bf28cd3a80d494071bc4ba4254eb4",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2a6bf28cd3a80d494071bc4ba4254eb4",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.039+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2022-05-19",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/7b9d5a8dbf3571f690135916ebd6d1e3",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "7b9d5a8dbf3571f690135916ebd6d1e3",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.061+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "effectiveDateTime": "2021-06-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/913662ad35320a0386e3ba8f8a99b5b9",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "913662ad35320a0386e3ba8f8a99b5b9",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.073+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2022-12-13",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 0.4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C25640"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/38cc55bc08bf829803880e34b945f52a",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "38cc55bc08bf829803880e34b945f52a",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.086+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "effectiveDateTime": "2021-07-09",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 4.8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/85dd9c09cd5102f454780aa983384804",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "85dd9c09cd5102f454780aa983384804",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.097+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2020-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/8aa6af144e67a2b5db0da0ab12f07a39",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "8aa6af144e67a2b5db0da0ab12f07a39",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.109+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2021-05-21",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 7.8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/925495da09de02f4bed60427f904b03a",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "925495da09de02f4bed60427f904b03a",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.121+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-01-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/b4dacb0bca3773eb503d35b9c605aeb6",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "b4dacb0bca3773eb503d35b9c605aeb6",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.133+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
+      },
+      "effectiveDateTime": "2021-02-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 4.8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/9aaa9279f0ab0ff22f51654741b91b6c",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9aaa9279f0ab0ff22f51654741b91b6c",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.148+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "effectiveDateTime": "2021-07-09",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 6.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/877f24f8d519acdaaadac2042e460942",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "877f24f8d519acdaaadac2042e460942",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.163+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "effectiveDateTime": "2022-06-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C14165"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/1c5a5251a4a31faeb909c1019d785907",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "1c5a5251a4a31faeb909c1019d785907",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.189+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2022-03-15",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1.8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/0844a8a74b310eda8d0808304e7693aa",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "0844a8a74b310eda8d0808304e7693aa",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.204+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "effectiveDateTime": "2020-10-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2.3,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/c92c188361af91aee2750ea9022825e7",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "c92c188361af91aee2750ea9022825e7",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.215+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2021-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 3.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/9cf04ba4d90f46f0e632c1053f334396",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9cf04ba4d90f46f0e632c1053f334396",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.226+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "effectiveDateTime": "2020-09-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2.3,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/f7f1690d5cd89fd2f8b37ffd02058df9",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "f7f1690d5cd89fd2f8b37ffd02058df9",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.238+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "effectiveDateTime": "2022-04-25",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.5,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C78800"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/9fd6c7d3b5b2d4ee3ecbdde1810688d0",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9fd6c7d3b5b2d4ee3ecbdde1810688d0",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.251+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2022-12-13",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/bbb9b1ee18fc4ce29bc7d4b951c0a72e",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "bbb9b1ee18fc4ce29bc7d4b951c0a72e",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.263+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
+      },
+      "effectiveDateTime": "2023-03-03",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/9faf4c6ffd98372276179ff806b711d7",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9faf4c6ffd98372276179ff806b711d7",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.277+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2022-03-15",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 15.4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/a74fc7632e1cab8f36bd4170d18cf944",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "a74fc7632e1cab8f36bd4170d18cf944",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.290+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2020-05-20",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 7.9,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/d82b0f401bb6c6f7ffd1e2236495da5c",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "d82b0f401bb6c6f7ffd1e2236495da5c",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.310+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2021-05-21",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 6.8,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/95cfd06d451b9d080fe2a5b6c6fc707d",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "95cfd06d451b9d080fe2a5b6c6fc707d",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.322+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2022-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.6,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C78800"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/be8968e18bce1a292cac9e5246b08180",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "be8968e18bce1a292cac9e5246b08180",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.333+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "effectiveDateTime": "2022-04-25",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 4,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/fed1329e6b8eb81c5b6940114c9d1eaf",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "fed1329e6b8eb81c5b6940114c9d1eaf",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.345+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-01-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.6,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/ec4b42634a6360e8f5af028520b9db42",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ec4b42634a6360e8f5af028520b9db42",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.357+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "effectiveDateTime": "2022-06-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 6.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/6e9c8237f430b01d05a824f07f83e00d",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "6e9c8237f430b01d05a824f07f83e00d",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.369+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "63364-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2021-11-30",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 4.3,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000178"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/2683d0d5ecb26d84efab21b2509d51b5",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2683d0d5ecb26d84efab21b2509d51b5",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.383+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
+      },
+      "effectiveDateTime": "2021-02-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/3fc0243fbd2e5b5287c12cded227ba11",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "3fc0243fbd2e5b5287c12cded227ba11",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.399+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "effectiveDateTime": "2023-01-11",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.6,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/ae45265ca0536ad069b168262db1aed3",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ae45265ca0536ad069b168262db1aed3",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.427+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "effectiveDateTime": "2022-04-25",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 6.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/69b31c6bfdab950bfd0d315a270eb664",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "69b31c6bfdab950bfd0d315a270eb664",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.453+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2022-05-19",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/d158a91317fff277f47eb437daa82729",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "d158a91317fff277f47eb437daa82729",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.467+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
+      },
+      "effectiveDateTime": "2023-03-03",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2.6,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/b893f5982d51878c1e5267e4446ede23",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "b893f5982d51878c1e5267e4446ede23",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.488+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14672-7"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-01-10",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 7.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000175"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/7994ae5b71b11137bdaff528a8035561",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "7994ae5b71b11137bdaff528a8035561",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.500+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2022-12-13",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 7.5,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/002f89925a1ca5b61a1ea050fc20d0aa",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "002f89925a1ca5b61a1ea050fc20d0aa",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.513+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2020-12-12",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 0.3,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C25640"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/a8b353b9f0265902eed61ebb6d241ffc",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "a8b353b9f0265902eed61ebb6d241ffc",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.524+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "effectiveDateTime": "2022-04-25",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 2.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/6091b188384a38723bb1c3fe20ed64ed",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "6091b188384a38723bb1c3fe20ed64ed",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.537+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LP14695-8"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "effectiveDateTime": "2021-06-01",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 0.2,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000275"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "version": "24.01e",
+          "code": "C25640"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/377bfe6b23a79ed91f5ef5a40fb82c68",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "377bfe6b23a79ed91f5ef5a40fb82c68",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:43:38.554+00:00",
+        "source": "#dfhC5Cj50mHZfcxv",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org",
+          "version": "LNC278",
+          "code": "LA12894-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2020-12-12",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 5.1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000179"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

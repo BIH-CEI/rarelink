@@ -1,0 +1,45 @@
+{
+  "id": "Rarelink_8_disability",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_8_disability",
+  "version": "latest",
+  "name": "Rarelink_8_disability",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_8_disability",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_8_disability",
+        "path": "Rarelink_8_disability",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_8_disability.rarelink_icf_score",
+        "path": "Rarelink_8_disability.rarelink_icf_score",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "8.1 Classification of functioning / disability",
+        "short": "8.1 Classification of functioning / disability"
+      }
+    ]
+  }
+}

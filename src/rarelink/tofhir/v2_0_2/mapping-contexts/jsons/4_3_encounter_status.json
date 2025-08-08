@@ -1,0 +1,60 @@
+{
+  "name": "4_3_encounter_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "hl7fhir_planned",
+      "source_display": "Planned",
+      "target_code": "planned",
+      "target_display": "Planned"
+    },
+    {
+      "source_code": "hl7fhir_arrived",
+      "source_display": "Arrived",
+      "target_code": "arrived",
+      "target_display": "Arrived"
+    },
+    {
+      "source_code": "hl7fhir_triaged",
+      "source_display": "Triaged",
+      "target_code": "triaged",
+      "target_display": "Triaged"
+    },
+    {
+      "source_code": "hl7fhir_in-progress",
+      "source_display": "In Progress",
+      "target_code": "in-progress",
+      "target_display": "In Progress"
+    },
+    {
+      "source_code": "hl7fhir_onleave",
+      "source_display": "On Leave",
+      "target_code": "onleave",
+      "target_display": "On Leave"
+    },
+    {
+      "source_code": "hl7fhir_finished",
+      "source_display": "Finished",
+      "target_code": "finished",
+      "target_display": "Finished"
+    },
+    {
+      "source_code": "hl7fhir_cancelled",
+      "source_display": "Cancelled",
+      "target_code": "cancelled",
+      "target_display": "Cancelled"
+    },
+    {
+      "source_code": "hl7fhir_entered-in-error",
+      "source_display": "Entered in Error",
+      "target_code": "entered-in-error",
+      "target_display": "Entered in Error"
+    },
+    {
+      "source_code": "hl7fhir_unknown",
+      "source_display": "Unknown",
+      "target_code": "unknown",
+      "target_display": "Unknown"
+    }
+  ]
+}

@@ -1,0 +1,794 @@
+{
+  "resourceType": "Bundle",
+  "id": "e4b17873-71f8-4a1d-86a4-b2acf6a50823",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.587+00:00"
+  },
+  "type": "searchset",
+  "total": 10,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-diagnostic-implication"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/62866df2c3955322b0c8968fcc97958e",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "62866df2c3955322b0c8968fcc97958e",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.598+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/e7c11fc35bffc54da50ab84d8e6e1864",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/f74f4e193412a7cb3fee8ae6e5f8470c",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "f74f4e193412a7cb3fee8ae6e5f8470c",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.648+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/ea841c60b3be7c84fa6e35adea07bb6b",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/2faf2ef96893082ca708dff754b3b4db",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2faf2ef96893082ca708dff754b3b4db",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.693+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/8720f0ba6ed46d6819a5b3247829052e",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/8a36d27bcc967b0ec49b31ec3c7136ec",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "8a36d27bcc967b0ec49b31ec3c7136ec",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.732+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/7e73e4e308a23d93d8f183a032d25e10",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/515d5a0a7080828805442a6eb5618bcc",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "515d5a0a7080828805442a6eb5618bcc",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.790+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/76cedf1d3833934ef26bb54e82725be9",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/400155e63cb69422537066ae18c296e1",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "400155e63cb69422537066ae18c296e1",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.828+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/40272afcca2e5ca11379acdb91750e7b",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/4acde3bde4f7ba95d3b386c5b6bd1b13",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "4acde3bde4f7ba95d3b386c5b6bd1b13",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.859+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/c6ac240af45aaaa1ab2b9cb1a36727fd",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/2ad5de561c774ce90e3dbc7518218550",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2ad5de561c774ce90e3dbc7518218550",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:31.926+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/3995f299f5e7d17595b242c72690e032",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/6ad627735afc950c27f71a3707a44b55",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "6ad627735afc950c27f71a3707a44b55",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:32.016+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/684fb6c76877888211d3c012cfbc140f",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/f41eda53222cc8722ba6a6206667c3ec",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "f41eda53222cc8722ba6a6206667c3ec",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:32.047+00:00",
+        "source": "#yd1R815TRDFPE6YW",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "GE"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+          "version": "3.0.0",
+          "code": "diagnostic-implication",
+          "display": "Diagnostic Implication"
+        } ]
+      },
+      "derivedFrom": [ {
+        "reference": "Observation/f1cec91ac8af7cafb2d91cca1dc06367",
+        "type": "Observation"
+      } ],
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "53037-8",
+            "display": "Genetic variation clinical significance [Imp]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "LA26332-9",
+            "display": "Likely pathogenic"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "version": "LNC278",
+            "code": "81259-4",
+            "display": "Associated phenotype"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://purl.obolibrary.org/obo/mondo.owl",
+            "version": "2025-06-03",
+            "code": "0007843"
+          } ],
+          "text": "Genomic Diagnosis"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

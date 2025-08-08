@@ -1,0 +1,66 @@
+{
+  "id": "ips.procedure",
+  "url": "rarelink/ips.procedure",
+  "name": "ips.procedure",
+  "title": "RareLink Measurements - IPS Procedure",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkMeasurements",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_3_measurements",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "ips.procedure",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Procedure', record_id)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure"
+            ]
+          },
+          "resourceType": "Procedure",
+          "code": {
+            "coding": [
+              {
+                "code": "{{snomedct_122869004}}",
+                "system": "{{iif(snomedct_122869004.empty().not(), 'http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips')}}",
+                "version": "{{iif(snomedct_122869004.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+              }
+            ]
+          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "performedDateTime": "{{ncit_c82577}}",
+          "bodySite": [
+            {
+              "coding": [
+                {
+                  "code": "{{snomedct_122869004_bdsite}}",
+                  "system": "{{iif(snomedct_122869004_bdsite.empty().not(), 'http://snomed.info/sct')}}",
+                  "version": "{{iif(snomedct_122869004_bdsite.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                }
+              ]
+            }
+          ],
+          "status": "{{snomedct_122869004_status}}",
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "RareLink Measurements - IPS Procedure",
+      "precondition": {
+        "name": "measurementProcedure",
+        "language": "text/fhirpath",
+        "expression": "measurement_category = 'procedure'"
+      }
+    }
+  ],
+  "context": {}
+}

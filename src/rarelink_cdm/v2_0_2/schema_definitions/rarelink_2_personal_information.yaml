@@ -1,0 +1,140 @@
+id: https://w3id.org/linkml/rarelink/personal_information
+name: rarelink_2_personal_information
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  SNOMEDCT: http://snomed.info/sct/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  PersonalInformation:
+    description: >
+      The section Personal Information (2) of the RareLink CDM
+    slots:
+      - snomedct_184099003
+      - snomedct_281053000
+      - snomedct_1296886006
+      - snomedct_263495000
+      - snomedct_370159000
+      - rarelink_2_personal_information_complete
+
+
+
+
+
+slots:
+  snomedct_184099003:
+    title: 2.1 Date of birth
+    description: The individual's date of birth. If the exact month or day is allowd to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively.
+    range: date
+    required: true
+  snomedct_281053000:
+    title: 2.2 Sex at birth
+    description: The individual's sex that was assigned at birth
+    range: SexAtBirth
+    required: false
+  snomedct_1296886006:
+    title: 2.3 Karyotypic Sex
+    description: The chromosomal sex of an individual
+    range: KaryotypicSex
+    required: false
+  snomedct_263495000:
+    title: 2.4 Gender Identity
+    description: The individual's self-assigned gender
+    range: GenderIdentity
+    required: false
+  snomedct_370159000:
+    title: 2.5 Country of birth
+    description: The individual's country of birth. Please enter a two or three letter ISO3166 code which you can search in the link provided in the description above.
+    range: string
+    required: false
+  rarelink_2_personal_information_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  SexAtBirth:
+    permissible_values:
+      snomedct_248152002:
+        description: Female
+        meaning: SNOMEDCT:248152002
+      snomedct_248153007:
+        description: Male
+        meaning: SNOMEDCT:248153007
+      snomedct_184115007:
+        description: Patient sex unknown
+        meaning: SNOMEDCT:184115007
+      snomedct_32570691000036108:
+        description: Intersex
+        meaning: "SNOMEDCT:32570691000036108"
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null
+  KaryotypicSex:
+    permissible_values:
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006
+      snomedct_734875008:
+        description: XX
+        meaning: SNOMEDCT:734875008
+      snomedct_734876009:
+        description: XY
+        meaning: SNOMEDCT:734876009
+      snomedct_80427008:
+        description: X0
+        meaning: SNOMEDCT:80427008
+      snomedct_65162001:
+        description: XXY
+        meaning: SNOMEDCT:65162001
+      snomedct_35111009:
+        description: XXX
+        meaning: SNOMEDCT:35111009
+      snomedct_403760006:
+        description: XXYY
+        meaning: SNOMEDCT:403760006
+      snomedct_78317008:
+        description: XXXY
+        meaning: SNOMEDCT:78317008
+      snomedct_10567003:
+        description: XXXX
+        meaning: SNOMEDCT:10567003
+      snomedct_48930007:
+        description: XYY
+        meaning: SNOMEDCT:48930007
+      snomedct_74964007:
+        description: Other
+        meaning: SNOMEDCT:74964007
+      '':
+        description: No value provided
+        meaning: null
+        
+  GenderIdentity:
+    permissible_values:
+      snomedct_446141000124107:
+        description: Female gender identity
+        meaning: SNOMEDCT:446141000124107
+      snomedct_446151000124109:
+        description: Male gender identity
+        meaning: SNOMEDCT:446151000124109
+      snomedct_394743007:
+        description: Gender unknown
+        meaning: SNOMEDCT:394743007
+      snomedct_33791000087105:
+        description: Identifies as nonbinary gender
+        meaning: SNOMEDCT:33791000087105
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null

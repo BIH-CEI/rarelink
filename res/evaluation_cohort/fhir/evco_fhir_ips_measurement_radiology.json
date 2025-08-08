@@ -1,0 +1,76 @@
+{
+  "resourceType": "Bundle",
+  "id": "da33845a-39e0-4222-889b-33a63bef56ca",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.731+00:00"
+  },
+  "type": "searchset",
+  "total": 1,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-ips-measurement-radiology"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/e6ac819a4450a275b4e79790ec57aa35",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "e6ac819a4450a275b4e79790ec57aa35",
+      "meta": {
+        "versionId": "3",
+        "lastUpdated": "2025-05-09T08:43:39.903+00:00",
+        "source": "#4DQ4R6PYvB1rwh34",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-radiology" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "imaging",
+          "display": "laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "https://loinc.org/",
+          "version": "LNC278",
+          "code": "36554-4"
+        } ],
+        "text": "Measurements - Assay"
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2021-05-06",
+      "performer": [ {
+        "display": "unknown"
+      } ],
+      "valueQuantity": {
+        "value": 1,
+        "system": "http://www.ontobee.org/ontology/UO",
+        "code": "0000307"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "https://ncit.nci.nih.gov",
+          "version": "24.01e",
+          "code": "C3333"
+        } ]
+      } ],
+      "method": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "399208008"
+        } ],
+        "text": "Measurement - Procedure"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

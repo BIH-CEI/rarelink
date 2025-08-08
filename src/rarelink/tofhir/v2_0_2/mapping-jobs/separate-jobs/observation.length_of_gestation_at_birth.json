@@ -1,0 +1,39 @@
+{
+  "id": "observation.length_of_gestation_at_birth",
+  "name": "Observation.length_of_gestation_at_birth",
+  "description": "Observation.length_of_gestation_at_birth",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "http://wl-medic-pt-t.wiss.uk-koeln.de/redcap/api/",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "observation.length_of_gestation_at_birth",
+      "mappingRef": "rarelink/observation.length_of_gestation_at_birth",
+      "sourceBinding": {
+        "RareLinkPatientStatus": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "51-rarelink_3_patient_status"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

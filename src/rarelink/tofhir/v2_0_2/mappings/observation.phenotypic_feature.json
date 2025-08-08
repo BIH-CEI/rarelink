@@ -1,0 +1,194 @@
+{
+  "id": "observation.phenotypic_feature",
+  "url": "rarelink/observation.phenotypic_feature",
+  "name": "observation.phenotypic_feature",
+  "title": "RareLink Observation Phenotyic Feature",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkPhenotypicFeature",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_2_phenotypic_feature",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observation.phenotypic_feature",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & snomedct_363778006 & hp_0003674 & hp_0003674 & hp_0011008 & hp_0012824 & hp_0012823_ncbitaxon & hp_0012823_hp1 & hp_0012823_hp2 & hp_0012823_hp3)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "registered",
+          "code": {
+            "coding": [
+              {
+                "system": "{{'http://purl.obolibrary.org/obo/hp.owl'}}",
+                "version": "{{'2025-05-06'}}",
+                "code": "{{? snomedct_8116006.substring(3)}}"
+              }
+            ]
+          },
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "{{? iif(hp_0003674.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+                  "version": "{{? iif(hp_0003674.empty().not(), '2025-05-06')}}",
+                  "code": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%phenotypeAgeOfOnset, hp_0003674, 'target_display')}}"
+                }
+              ]
+            }
+          ],
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "effectiveDateTime": "{{? snomedct_8116006_onset}}",
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "{{? iif(hp_0012823_snomed.empty().not(), 'http://snomed.info/sct')}}",
+                "version": "{{? iif(hp_0012823_snomed.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                "code": "{{? hp_0012823_snomed}}"
+              }
+            ],
+            "text": "{{? iif(hp_0012823_snomed.empty().not(), 'Phenotypic Finding - Body Site')}}"
+          },
+          "method": {
+            "coding": [
+              {
+              "system": "{{? iif(phenotypicfeature_evidence.empty().not(), 'https://www.evidenceontology.org/')}}",
+              "version": "{{? iif(phenotypicfeature_evidence.empty().not(), 'v2024-07-19')}}",
+              "code": "{{? phenotypicfeature_evidence.substring(4)}}"
+              }
+            ],
+            "text": "{{? iif(phenotypicfeature_evidence.empty().not(), 'Phenotypic Feature - Evidence')}}"
+          },
+        "extension": [
+          {
+            "url": "{{? iif(snomedct_363778006.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "{{? iif(snomedct_363778006.empty().not(), 'http://snomed.info/sct')}}",
+                  "version": "{{? iif(snomedct_363778006.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                  "code": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006, 'target_code')}}",
+                  "display": "{{? mpp:getConcept(%phenotypeStatus, snomedct_363778006 , 'target_display')}}"
+                }
+              ]
+            }
+          },
+          {
+            "url": "{{? iif(snomedct_8116006_resolut.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date')}}",
+            "valueDateTime": {
+                "date": "{{? snomedct_8116006_resolut}}"
+            }
+          },
+          {
+            "url" : "{{? iif(hp_0011008.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                  {
+                    "system": "{{? iif(hp_0011008.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+                    "version": "{{? iif(hp_0011008.empty().not(), '2025-05-06')}}",
+                    "code": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%phenotypeTemporalPattern, hp_0011008, 'target_display')}}"
+                  }
+                ]
+              }
+          },
+          {
+            "url" : "{{? iif(hp_0012824.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+              "system": "{{? iif(hp_0012824.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+              "version": "{{? iif(hp_0012824.empty().not(), '2025-05-06')}}",
+              "code": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_code')}}",
+              "display": "{{? mpp:getConcept(%phenotypeSeverity, hp_0012824, 'target_display')}}"
+                }
+              ]
+            }
+          },
+          {
+            "url": "{{? iif(hp_0012823_hp1.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "{{? iif(hp_0012823_hp1.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+                  "version": "{{? iif(hp_0012823_hp1.empty().not(), '2025-05-06')}}",
+                  "code": "{{? hp_0012823_hp1.substring(3))}}"
+                }
+              ]
+            }
+          },
+          {
+            "url": "{{? iif(hp_0012823_hp2.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "{{? iif(hp_0012823_hp2.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+                  "version": "{{? iif(hp_0012823_hp2.empty().not(), '2025-05-06')}}",
+                  "code": "{{? hp_0012823_hp2.substring(3))}}"
+                }
+              ]
+            }
+          },
+          {
+            "url": "{{? iif(hp_0012823_hp3.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "{{? iif(hp_0012823_hp3.empty().not(), 'http://purl.obolibrary.org/obo/hp.owl')}}",
+                  "version": "{{? iif(hp_0012823_hp3.empty().not(), '2025-05-06')}}",
+                  "code": "{{? hp_0012823_hp3.substring(3))}}"
+                }
+              ]
+            }
+          },
+          {
+            "url": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-organism')}}",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "{{? iif(hp_0012823_ncbitaxon.empty().not(), 'http://purl.obolibrary.org/obo/NCBITaxon.owl')}}",
+                  "version": "{{? iif(hp_0012823_ncbitaxon.empty().not(), '2024-07-03')}}",
+                  "code": "{{? hp_0012823_ncbitaxon}}"
+                }
+              ]
+            }
+          }
+        ]
+        }
+      },
+      "description": "RareLink Observation Phenotyic Feature"
+    }
+  ],
+  "context": {
+    "phenotypeStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_2_2_status_phenotype.csv"
+    },
+    "phenotypeAgeOfOnset": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_2_5_age_of_onset.csv"
+    },
+    "phenotypeTemporalPattern": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_2_6_temporal_pattern.csv"
+    },
+    "phenotypeSeverity": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_2_7_phenotype_severity.csv"
+    }
+  }
+}

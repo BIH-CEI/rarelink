@@ -1,0 +1,45 @@
+{
+  "id": "ips.patient",
+  "name": "ips.patient",
+  "description": "ips.patient",
+  "useFhirSinkAsIdentityService": false,
+  "sourceSettings": {
+    "redcap-kafka-source": {
+      "name": "redcap-kafka-source",
+      "sourceUri": "${REDCAP_URL}",
+      "asStream": false,
+      "jsonClass": "KafkaSourceSettings",
+      "asRedCap": true,
+      "bootstrapServers": "kafka-1:29092"
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "returnMinimal": false
+  },
+  "mappings": [
+    {
+      "name": "ips.patient",
+      "mappingRef": "rarelink/ips.patient",
+      "sourceBinding": {
+        "rarelinkpatient": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "${REDCAP_PROJECT_ID}-rarelink_1_formal_criteria"
+        },
+        "rarelinkpersonalinformation": {
+          "sourceRef": "redcap-kafka-source",
+          "jsonClass": "KafkaSource",
+          "options": {},
+          "topicName": "${REDCAP_PROJECT_ID}-rarelink_2_personal_information"
+        }
+      }
+    }
+  ],
+  "dataProcessingSettings": {
+    "saveErroneousRecords": false,
+    "archiveMode": "off"
+  }
+}

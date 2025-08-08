@@ -1,0 +1,190 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-ips-patient",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient",
+  "name": "RareLinkIPSPatient",
+  "title": "RareLink IPS Patient",
+  "status": "draft",
+  "description": "A RareLink-specific profile for the IPS Patient resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.extension",
+        "path": "Patient.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Patient.extension:birth_place",
+        "path": "Patient.extension",
+        "sliceName": "birth_place",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:date_of_admission",
+        "path": "Patient.extension",
+        "sliceName": "date_of_admission",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:recorded_sex_at_birth",
+        "path": "Patient.extension",
+        "sliceName": "recorded_sex_at_birth",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:cause_of_death",
+        "path": "Patient.extension",
+        "sliceName": "cause_of_death",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:vital_status",
+        "path": "Patient.extension",
+        "sliceName": "vital_status",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier.use",
+        "path": "Patient.identifier.use",
+        "patternCode": "official"
+      },
+      {
+        "id": "Patient.identifier.type.coding.system",
+        "path": "Patient.identifier.type.coding.system",
+        "patternUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Patient.identifier.type.coding.code",
+        "path": "Patient.identifier.type.coding.code",
+        "patternCode": "422549004"
+      },
+      {
+        "id": "Patient.identifier.value",
+        "path": "Patient.identifier.value",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.name.extension:dataAbsentReason",
+        "path": "Patient.name.extension",
+        "sliceName": "dataAbsentReason",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.extension:dataAbsentReason.value[x]",
+        "path": "Patient.name.extension.value[x]",
+        "patternCode": "unknown"
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "path": "Patient.deceased[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.deceased[x]:deceasedBoolean",
+        "path": "Patient.deceased[x]",
+        "sliceName": "deceasedBoolean",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.deceased[x]:deceasedDateTime",
+        "path": "Patient.deceased[x]",
+        "sliceName": "deceasedDateTime",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://www.human-phenotype-ontology.org",
+      "concept" : [{
+        "code" : "0011460",
+        "display" : "Embryonal onset (0w-8w embryonal)"
+      },
+      {
+        "code" : "0011461",
+        "display" : "Fetal onset (8w embryonal - birth)"
+      },
+      {
+        "code" : "0003577",
+        "display" : "Congenital onset (at birth)"
+      },
+      {
+        "code" : "0003623",
+        "display" : "Neonatal onset (0d-28d)"
+      },
+      {
+        "code" : "0003593",
+        "display" : "Infantile onset (28d-1y)"
+      },
+      {
+        "code" : "0011463",
+        "display" : "Childhood onset (1y-5y)"
+      },
+      {
+        "code" : "0003621",
+        "display" : "Juvenile onset (5y-15y)"
+      },
+      {
+        "code" : "0011462",
+        "display" : "Young adult onset (16y-40y)"
+      },
+      {
+        "code" : "0003596",
+        "display" : "Middle age adult onset (40y-60y)"
+      },
+      {
+        "code" : "0003584",
+        "display" : "Late adult onset (60y+)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.human-phenotype-ontology.org"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://www.human-phenotype-ontology.org",
+      "concept" : [{
+        "code" : "0012827",
+        "display" : "Borderline"
+      },
+      {
+        "code" : "0012825",
+        "display" : "Mild"
+      },
+      {
+        "code" : "0012826",
+        "display" : "Moderate"
+      },
+      {
+        "code" : "0012829",
+        "display" : "Profound"
+      },
+      {
+        "code" : "0012828",
+        "display" : "Severe"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.human-phenotype-ontology.org"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://www.human-phenotype-ontology.org",
+      "concept" : [{
+        "code" : "0011009",
+        "display" : "Acute"
+      },
+      {
+        "code" : "0011010",
+        "display" : "Chronic"
+      },
+      {
+        "code" : "0031914",
+        "display" : "Fluctuating"
+      },
+      {
+        "code" : "0025297",
+        "display" : "Prolonged"
+      },
+      {
+        "code" : "0031796",
+        "display" : "Recurrent"
+      },
+      {
+        "code" : "0031915",
+        "display" : "Stable"
+      },
+      {
+        "code" : "0011011",
+        "display" : "Subacute"
+      },
+      {
+        "code" : "0025153",
+        "display" : "Transient"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.human-phenotype-ontology.org"
+}
+-------------------------------------------------------------------------------------

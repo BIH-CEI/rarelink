@@ -1,0 +1,119 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_4_care_pathway.yaml
+name: rarelink_4_care_pathway
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  HL7FHIR: http://hl7.org/fhir/
+  SNOMEDCT: http://snomed.info/sct/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  CarePathway:
+    description: >
+      The section Care Pathway (4) of the RareLink CDM, documenting encounters
+      including their start and end dates, status, and class.
+    slots:
+      - hl7fhir_enc_period_start
+      - hl7fhir_enc_period_end
+      - snomedct_305058001
+      - hl7fhir_encounter_class
+      - rarelink_4_care_pathway_complete
+
+slots:
+  hl7fhir_enc_period_start:
+    title: 4.1 Encounter Start
+    description: >
+      The beginning of an encounter of the individual. If the specific month or 
+      day is not known, select the 1st day of the month or the 1st month of the year.
+    range: union_date_string
+    required: false
+
+  hl7fhir_enc_period_end:
+    title: 4.2 Encounter End
+    description: >
+      The end of an encounter of the individual. If the specific month or 
+      day is not known, select the 1st day of the month or the 1st month of the year.
+    range: union_date_string
+    required: false
+
+  snomedct_305058001:
+    title: 4.3 Encounter Status
+    description: >
+      The status of an encounter of the individual at the time of data capture.
+    range: EncounterStatus
+    required: true
+
+  hl7fhir_encounter_class:
+    title: 4.4 Encounter Class
+    description: >
+      The class of an encounter of the individual at the time of data capture.
+    range: EncounterClass
+    required: true
+
+  rarelink_4_care_pathway_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  EncounterStatus:
+    permissible_values:
+      hl7fhir_planned:
+        description: Planned
+        meaning: HL7FHIR:planned
+      hl7fhir_arrived:
+        description: Arrived
+        meaning: HL7FHIR:arrived
+      hl7fhir_triaged:
+        description: Triaged
+        meaning: HL7FHIR:triaged
+      hl7fhir_in-progress:
+        description: In Progress
+        meaning: HL7FHIR:in-progress
+      hl7fhir_onleave:
+        description: On Leave
+        meaning: HL7FHIR:onleave
+      hl7fhir_finished:
+        description: Finished
+        meaning: HL7FHIR:finished
+      hl7fhir_cancelled:
+        description: Cancelled
+        meaning: HL7FHIR:cancelled
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: HL7FHIR:entered-in-error
+      hl7fhir_unknown:
+        description: Unknown
+        meaning: HL7FHIR:unknown
+
+  EncounterClass:
+    permissible_values:
+      hl7fhir_amb:
+        description: Ambulatory
+        meaning: HL7FHIR:amb
+      hl7fhir_imp:
+        description: Inpatient
+        meaning: HL7FHIR:imp
+      hl7fhir_obsenc:
+        description: Observation
+        meaning: HL7FHIR:obsenc
+      hl7fhir_emer:
+        description: Emergency
+        meaning: HL7FHIR:emer
+      hl7fhir_vr:
+        description: Virtual
+        meaning: HL7FHIR:vr
+      hl7fhir_hh:
+        description: Home Health
+        meaning: HL7FHIR:hh
+      rarelink_rdc:
+        description: RD Specialist Center
+        meaning: rarelink:rdc
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006

@@ -1,0 +1,104 @@
+services:
+  tofhir:
+    platform: linux/amd64
+    image: srdc/tofhir-engine:latest
+    container_name: tofhir
+    environment:
+      - CONTEXT_PATH=conf
+      - LOGBACK_CONF_FILE=/usr/local/tofhir/conf/docker/logback-engine.xml
+      - SOURCE_URL=${REDCAP_URL}
+    command: ["run --job /usr/local/tofhir/conf/mapping-jobs/rarelink-cdm.json"] ##rarelink-cdm job # CLI: run --job path.json
+    volumes:
+      - ./src/rarelink/tofhir/v2_0_2:/usr/local/tofhir/conf
+    env_file:
+      - .env
+    depends_on:
+      tofhir-redcap:
+        condition: service_healthy
+    networks:
+      - shared-network
+      
+  tofhir-redcap:
+    platform: linux/amd64
+    image: srdc/tofhir-redcap:latest
+    container_name: tofhir-redcap
+    ports:
+      - 8095:8095
+    environment:
+      - APP_CONF_FILE=/usr/local/tofhir-redcap/application.conf
+      - REDCAP_PROJECTS_FILEPATH=/usr/local/tofhir-redcap/redcap-projects.json
+    env_file:
+      - .env
+    volumes:
+      - ./src/rarelink/tofhir/v2_0_2/tofhir-redcap-application.conf:/usr/local/tofhir-redcap/application.conf
+      - ./redcap-projects.json:/usr/local/tofhir-redcap/redcap-projects.json
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8095/tofhir-redcap/notification"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      kafka-1:
+        condition: service_healthy
+      kafka-2:
+        condition: service_healthy
+    networks:
+      - shared-network
+
+  kafka-1:
+    image: bitnami/kafka:latest
+    container_name: kafka-1
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_CFG_NODE_ID: 1
+      KAFKA_CFG_BROKER_ID: 1
+      KAFKA_CFG_PROCESS_ROLES: 'broker,controller'
+      KAFKA_KRAFT_CLUSTER_ID: abcdefghijklmnopqrstuv
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT'
+      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_CFG_LISTENERS: 'PLAINTEXT://kafka-1:29092,CONTROLLER://kafka-1:29093,PLAINTEXT_HOST://0.0.0.0:9092'
+      KAFKA_CFG_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka-1:29092,PLAINTEXT_HOST://localhost:9092'
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: '1@kafka-1:29093,2@kafka-2:29093'
+    healthcheck:
+      test: [ "CMD", "kafka-topics.sh", "--bootstrap-server", "localhost:9092", "--list" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - shared-network
+
+  kafka-2:
+    image: bitnami/kafka:latest
+    container_name: kafka-2
+    ports:
+      - 9192:9192
+    environment:
+      KAFKA_CFG_NODE_ID: 2
+      KAFKA_CFG_BROKER_ID: 2
+      KAFKA_CFG_PROCESS_ROLES: 'broker,controller'
+      KAFKA_KRAFT_CLUSTER_ID: abcdefghijklmnopqrstuv
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT'
+      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_CFG_LISTENERS: 'PLAINTEXT://kafka-2:29092,CONTROLLER://kafka-2:29093,PLAINTEXT_HOST://0.0.0.0:9192'
+      KAFKA_CFG_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka-2:29092,PLAINTEXT_HOST://localhost:9192'
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: '1@kafka-1:29093,2@kafka-2:29093'
+    healthcheck:
+      test: [ "CMD", "kafka-topics.sh", "--bootstrap-server", "localhost:9192", "--list" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true

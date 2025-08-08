@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-condition-undiagnosed-rd-case",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case",
+  "name": "RareLinkConditionUndiagnosedRDCase",
+  "title": "RareLink Condition for Undiagnosed RD Case",
+  "status": "draft",
+  "description": "A RareLink-specific Condition profile for documenting undiagnosed rare disease cases based on the IPS Condition profile.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.code.coding.code",
+        "path": "Condition.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/undiagnosed-rd-case-vs"
+        }
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.subject.identifier",
+        "path": "Condition.subject.identifier",
+        "mustSupport": true
+      }
+    ]
+  }
+}

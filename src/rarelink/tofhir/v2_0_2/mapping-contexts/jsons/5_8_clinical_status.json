@@ -1,0 +1,42 @@
+{
+  "name": "5_8_clinical_status.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "hl7fhir_active",
+      "source_display": "Active",
+      "target_code": "active",
+      "target_display": "Active"
+    },
+    {
+      "source_code": "hl7fhir_recurrence",
+      "source_display": "Recurrence",
+      "target_code": "recurrence",
+      "target_display": "Recurrence"
+    },
+    {
+      "source_code": "hl7fhir_relapse",
+      "source_display": "Relapse",
+      "target_code": "relapse",
+      "target_display": "Relapse"
+    },
+    {
+      "source_code": "hl7fhir_inactive",
+      "source_display": "Inactive",
+      "target_code": "inactive",
+      "target_display": "Inactive"
+    },
+    {
+      "source_code": "hl7fhir_remission",
+      "source_display": "Remission",
+      "target_code": "remission",
+      "target_display": "Remission"
+    },
+    {
+      "source_code": "hl7fhir_resolved",
+      "source_display": "Resolved",
+      "target_code": "resolved",
+      "target_display": "Resolved"
+    }
+  ]
+}

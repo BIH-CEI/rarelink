@@ -1,0 +1,646 @@
+{
+  "resourceType": "Bundle",
+  "id": "47b465dc-bca4-44ea-ada7-5802fe3c098f",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.809+00:00"
+  },
+  "type": "searchset",
+  "total": 10,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Consent?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-consent"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Consent/55518032075c9f47e0965154b73a125e",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "55518032075c9f47e0965154b73a125e",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.423+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/77530b564c200d9215d1aaf54d92b2f2",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "77530b564c200d9215d1aaf54d92b2f2",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.516+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/d8476dad4e3f653517f98bf36a00c913",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "d8476dad4e3f653517f98bf36a00c913",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.623+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "261665006",
+            "display": "Unknown"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/9ee64c140081a17b801fa4104b07a48f",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "9ee64c140081a17b801fa4104b07a48f",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.662+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/37dffc8eff187d8dcb733b89d1fd09df",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "37dffc8eff187d8dcb733b89d1fd09df",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.711+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/18a00f55e062bd8cc8cccc3442625521",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "18a00f55e062bd8cc8cccc3442625521",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.733+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "dateTime": "2023-04-12",
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/e3b387a34d59758c44dede162b8b4301",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "e3b387a34d59758c44dede162b8b4301",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.769+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/738d5e59db5c6e7284008afa8f6e03af",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "738d5e59db5c6e7284008afa8f6e03af",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.791+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373067005",
+            "display": "No"
+          } ]
+        }
+      } ],
+      "status": "rejected",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/dc18ec7da198137bcfefedf7fa2eb515",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "dc18ec7da198137bcfefedf7fa2eb515",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.820+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Consent/9b5b7a39b8ace5701287e2a5163bafa7",
+    "resource": {
+      "resourceType": "Consent",
+      "id": "9b5b7a39b8ace5701287e2a5163bafa7",
+      "meta": {
+        "versionId": "4",
+        "lastUpdated": "2025-05-09T08:31:22.839+00:00",
+        "source": "#nUDxNxyX5K0u4yye",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "id": "European Rare Disease Registry Infrastructure - Consent to the reuse of data",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "2024-09-10",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      }, {
+        "id": "European Rare Disease Registry Infrastructure - Agreement to becontacted forresearch purposes",
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "373066001",
+            "display": "Yes"
+          } ]
+        }
+      } ],
+      "status": "active",
+      "scope": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ],
+        "text": "Consent to participate in research protocol and information sharing required"
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+          "version": "v4.0.1",
+          "code": "research",
+          "display": "Research"
+        } ]
+      } ],
+      "dateTime": "2023-04-12",
+      "policy": [ {
+        "authority": "RareLinkEvaluationCohort"
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

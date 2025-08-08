@@ -1,0 +1,1087 @@
+1,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+record_id,rarelink_1_formal_criteria,,text,Registry ID the of Individual,,,,,,,,,,,,,
+snomedct_422549004,rarelink_1_formal_criteria,"<div class=""rich-text-field-label""><p>Welcome to the <a href=""https://rarelink.readthedocs.io/en/latest/2_rarelink_framework/2_2_rarelink_cdm_instruments.html#id1"">RareLink-CDM Data Capture!</a></p> <ul> <li><span style=""font-weight: normal;"">For detailed guidance, please refer to the </span><a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html"">Manual Data Capture Guide.</a></li> <li><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">R</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">areLink</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> documentation </a><span style=""font-weight: normal;"">or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">.</a></span></li> <li><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the </span><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing gu</a><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">ide</a>.</li> </ul></div>",text,1.1 Pseudonym,,The (local) patient-related Identification code,,,,,,y,,,,,"Variable:
+SNOMED:422549004 | Pseudonym |
+Choices: n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.identifier.value
+- GA4GH Phenopacket Schema v2.0 Element: Individual.id"
+snomedct_399423000,rarelink_1_formal_criteria,,text,1.2 Date of Admission,,The date of admission or data capture of the individual,date_ymd,,,,,y,,,,,"Variable:
+SNOMED:399423000 | Date of admission (observable entity) |
+Choices: n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR IPS: Patient.Extension:DateOfAdmission
+- GA4GH Phenopacket Schema v2.0 Element: Individual.time_at_last_encounter"
+snomedct_184099003,rarelink_2_personal_information,"<p>RareLink - 2) Personal Information</p> <div class=""rich-text-field-label"" style=""margin: 0; padding: 0;""> <ul> <li style=""font-size: 8pt; line-height: 1.2;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Personal Information sheet, refer to the<a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#personal-information""> Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you have questions about RareLink, check out the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">R</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">areLink</a><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> documentation</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">.</a></span></li> <li style=""font-size: 8pt;""><span style=""font-size: 8pt; font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the </span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing </a></span><span style=""font-size: 8pt;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">gu</a><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">ide</a></span><span style=""font-size: 8pt; font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">.</a></span></li> </ul> </div>",text,2.1 Date of birth,,"The individual's date of birth. If the exact month or day is not allowed to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively.",date_ymd,,,,,y,,,,,"Variable:
+SNOMED:184099003 | Date of Birth |
+Choices: n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.birthDate
+- GA4GH Phenopacket Schema v2.0 Element: Individual.date_of_birth"
+snomedct_281053000,rarelink_2_personal_information,,dropdown,2.2 Sex at birth,"snomedct_248152002, Female | snomedct_248153007, Male | snomedct_184115007, Patient sex unknown | snomedct_32570691000036108, Intersex | snomedct_1220561009, Not recorded",The individual's sex that was assigned at birth,,,,,,,,,,,"Variable:
+SNOMED:281053000 | Sex at Birth |
+Choices: 
+- SNOMED:248152002 | Female
+- SNOMED:248153007 | Male
+- SNOMED:184115007 | Patient sex unknown
+- SNOMED:32570691000036108 | Intersex
+- SNOMED:1220561009 | Not recorded
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.extension:individual-recordedSexOrGender
+- GA4GH Phenopacket Schema v2.0 Element: Individual.sex"
+snomedct_1296886006,rarelink_2_personal_information,,dropdown,2.3 Karyotypic Sex,"snomedct_261665006, Unknown | snomedct_734875008, XX | snomedct_734876009, XY | snomedct_80427008, X0 | snomedct_65162001, XXY | snomedct_35111009, XXX | snomedct_403760006, XXYY | snomedct_78317008, XXXY | snomedct_10567003, XXXX | snomedct_48930007, XYY | snomedct_74964007, Other",The chromosomal sex of an individual,,,,,,,,,,,"Variable:
+SNOMED:1296886006 | Karyotypic Sex |
+Choices: 
+- SNOMED:261665006 | Unknown
+- SNOMED:734875008 | XX
+- SNOMED:734876009 | XY
+- SNOMED:80427008 | X0
+- SNOMED:65162001 | XXY
+- SNOMED:35111009 | XXX
+- SNOMED:403760006 | XXYY
+- SNOMED:78317008 | XXXY
+- SNOMED:10567003 | XXXX
+- SNOMED:48930007 | XYY
+- SNOMED:74964007 | Other
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Observation.value
+- GA4GH Phenopacket Schema v2.0 Element: Individual.karyotypic_sex"
+snomedct_263495000,rarelink_2_personal_information,,dropdown,2.4 Gender Identity,"snomedct_446141000124107, Female gender identity | snomedct_446151000124109, Male gender identity | snomedct_394743007, Gender unknown | snomedct_33791000087105, Identifies as nonbinary gender | snomedct_1220561009, Not recorded",The self-assigned gender of the individual,,,,,,,,,,,"Variable:
+SNOMED:263495000 | Gender Identity |
+Choices: 
+- SNOMED:446141000124107 | Female gender identity
+- SNOMED:446151000124109 | Male gender identity
+- SNOMED:394743007 | Gender unknown
+- SNOMED:33791000087105 | Identifies as nonbinary gender
+- SNOMED:1220561009 | Not recorded
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.extension:individual-genderIdentity
+- GA4GH Phenopacket Schema v2.0 Element: Individual.gender"
+snomedct_370159000,rarelink_2_personal_information,,text,2.5 Country of Birth,,The individual's country of birth. Please enter a two or three letter ISO3166 code which you can search in the link provided in the description above.,,,,,,,,,,,"Variable:
+SNOMED:370159000 | Country of Birth |
+Choices: ISO 3166 - 2 or 3 letter country code
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.extension:patient-birthPlace
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+patient_status_date,rarelink_3_patient_status,"<p>RareLink - 3) Patient Status</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Patient Status sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#patient-status"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",text,Date of Completion for the Sheet,,,date_ymd,,,,,y,,,,,
+snomedct_278844005,rarelink_3_patient_status,,dropdown,3.1 Vital Status,"snomedct_438949009, Alive | snomedct_419099009, Dead | snomedct_399307001, Unknown - Lost in follow-up | snomedct_185924006, Unknown - Opted-out | snomedct_261665006, Unknown - Other Reason",The individual’s general clinical status or vital status.,,,,,,,,,,,"Variable:
+SNOMED:278844005 | Vital Status |
+Choices: 
+- SNOMED:438949009 | Alive
+- SNOMED:419099009 | Dead
+- SNOMED:399307001 | Unknown - Lost in follow-up
+- SNOMED:185924006 | Unknown - Opted-out
+- SNOMED:261665006 | Unknown - Other Reason
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.deceased.deceasedBoolean or Observation.value
+- GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.status"
+snomedct_398299004,rarelink_3_patient_status,,text,3.2 Time of Death,,"If deceased, the individual’s date of death. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,[snomedct_278844005] = 'snomedct_419099009',,,,,,"Variable:
+SNOMED:398299004 | Time of Death |
+Choices: n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Patient.deceasedDateTime
+- GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.time_of_death"
+snomedct_184305005,rarelink_3_patient_status,,text,3.3 Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,"If deceased, the individual’s primary cause of death (i.e. according to the death certificate).",,,,,[snomedct_278844005] = 'snomedct_419099009',,,,,,"Variable:
+SNOMED:184305005 | Cause of Death |
+Choices: n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Observation.value.coding.code
+- GA4GH Phenopacket Schema v2.0 Element: Individual.VitalStatus.cause_of_death"
+snomedct_105727008,rarelink_3_patient_status,,dropdown,3.4 Age Category,"snomedct_3658006, Infancy | snomedct_713153009, Toddler | snomedct_255398004, Childhood | snomedct_263659003, Adolescence | snomedct_41847000, Adulthood | snomedct_303112003, Fetal period | snomedct_419099009, Dead | snomedct_261665006, Unknown",The individual's age category at the time of data capture (1.2).,,,,,,,,,,,"Variable:
+SNOMED:105727008 | Age Category |
+Choices: 
+- SNOMED:3658006 | Infancy
+- SNOMED:713153009 | Toddler
+- SNOMED:255398004 | Childhood
+- SNOMED:263659003 | Adolescence
+- SNOMED:41847000 | Adulthood
+- SNOMED:303112003 | Fetal period
+- SNOMED:419099009 | Dead
+- SNOMED:261665006 | Unknown
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Observation.value.coding.code
+- GA4GH Phenopacket Schema v2.0 Element: Individual.time_at_last_encounter.ontology_class"
+snomedct_412726003,rarelink_3_patient_status,,text,3.5 Length of Gestation at Birth [weeks+days],,"The duration of the pregnancy in weeks and days, from the first day of the last menstrual period to the day of delivery, formatted as XX+X (weeks+days).",,,,,,,,,,,"Variable:
+SNOMED:412726003 | Length of Gestation at Birth [weeks+days] |
+Choices: 
+- n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Observation.component:weeks.valueQuantity and Observation.component:days.valueQuantity
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+snomedct_723663001,rarelink_3_patient_status,,dropdown,3.6 Undiagnosed RD Case,"snomedct_373066001, Yes | snomedct_373067005, No",Identifies cases where an RD diagnosis has not been established.,,,,,,,,,,,"Variable:
+SNOMED:723663001 | Undiagnosed RD Case |
+Choices: 
+- SNOMED:373066001 | Yes
+- SNOMED:373067005 | No
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Condition.code (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass (e.g., ORDO:616874 - Rare disorder without a determined diagnosis after full investigation)"
+hl7fhir_enc_period_start,rarelink_4_care_pathway,"<div class=""rich-text-field-label""><p>RareLink - 4) Care Pathway</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Care Pathway sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#care-pathway"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul></div>",text,4.1 Encounter Start,,"The beginning of an encounter of the individual. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable:
+HL7 FHIR:encounter.period.start | Encounter Start |
+Choices: n/a
+Version(s): 
+- HL7 FHIR Version 4.0.1
+Mapping:
+- HL7 FHIR Expression v4.0.1: Encounter.period.start
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+hl7fhir_enc_period_end,rarelink_4_care_pathway,,text,4.2 Encounter End,,"The end of an encounter of the individual. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable:
+HL7 FHIR:encounter.period.end | Encounter End |
+Choices: n/a
+Version(s): 
+- HL7 FHIR Version 4.0.1
+Mapping:
+- HL7 FHIR Expression v4.0.1: Encounter.period.end
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+snomedct_305058001,rarelink_4_care_pathway,,dropdown,4.3 Encounter Status,"hl7fhir_planned, Planned | hl7fhir_arrived, Arrived | hl7fhir_triaged, Triaged | hl7fhir_in-progress, In Progress | hl7fhir_onleave, On Leave | hl7fhir_finished, Finished | hl7fhir_cancelled, Cancelled | hl7fhir_entered-in-error, Entered in Error | hl7fhir_unknown, Unknown",The status of an encounter of the individual at the time of data capture.,,,,,,y,,,,,"Variable:
+SNOMED:305058001 | Encounter Status |
+Choices: 
+- SNOMED:planned | Planned
+- SNOMED:arrived | Arrived
+- SNOMED:triaged | Triaged
+- SNOMED:in-progress | In Progress
+- SNOMED:onleave | On Leave
+- SNOMED:finished | Finished
+- SNOMED:cancelled | Cancelled
+- SNOMED:entered-in-error | Entered in Error
+- SNOMED:unknown | Unknown
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Encounter.status
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+hl7fhir_encounter_class,rarelink_4_care_pathway,,dropdown,4.4 Encounter Class,"hl7fhir_amb, Ambulatory | hl7fhir_imp, Inpatient | hl7fhir_obsenc, Observation | hl7fhir_emer, Emergency | hl7fhir_vr, Virtual | hl7fhir_hh, Home Health | rarelink_rdc, RD Specialist Center | snomedct_261665006, Unknown",The class of an encounter of the individual at the time of data capture.,,,,,,y,,,,,"Variable:
+HL7 FHIR:encounter.class | Encounter Class |
+Choices: 
+- HL7 FHIR:AMB | Ambulatory
+- HL7 FHIR:IMP | Inpatient
+- HL7 FHIR:OBSENC | Observation
+- HL7 FHIR:EMER | Emergency
+- HL7 FHIR:VR | Virtual
+- HL7 FHIR:HH | Home Health
+- HL7 FHIR:RDC | RD Specialist Center
+- SNOMED:261665006 | Unknown
+Version(s): 
+- HL7 FHIR Version 4.0.1
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1: Encounter.class
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+disease_coding,rarelink_5_disease,"<p>RareLink - 5) Disease</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Disease sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#disease"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",dropdown,Please choose the encoding of the disease to be captured,"mondo, MONDO | ordo, ORDO | icd10cm, ICD10CM | icd11, ICD11 | omim, OMIM",We recommend using MONDO to capture diseases with,,,,,,,,,,,
+snomedct_64572001_mondo,rarelink_5_disease,,text,5.1 Disease [MONDO],BIOPORTAL:MONDO,"Please look up the MONDO code for the disease that the individual was affected by. If a genetic diagnosis or subtypes were diagnosed, please also provide the same MONDO code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'mondo',y,,,,,"Variable: 
+SNOMED:64572001 | Disease  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
+snomedct_64572001_ordo,rarelink_5_disease,,text,5.1 Disease [ORDO],BIOPORTAL:ORDO,Please look up the ORDO code for the disease that the individual was affected by.,,,,,[disease_coding] = 'ordo',y,,,,,"Variable: 
+SNOMED:64572001 | Disease  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
+snomedct_64572001_icd10cm,rarelink_5_disease,,text,5.1 Disease [ICD10CM],BIOPORTAL:ICD10CM,Please look up the ICD10CM code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd10cm',y,,,,,"Variable: 
+SNOMED:64572001 | Disease  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
+snomedct_64572001_icd11,rarelink_5_disease,,text,5.1 Disease [ICD11],,Please enter the ICD11 code for the disease that the individual was affected by.,,,,,[disease_coding] = 'icd11',y,,,,,"Variable: 
+SNOMED:64572001 | Disease  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
+snomedct_64572001_omim_p,rarelink_5_disease,,text,5.1 Disease [OMIM_P],BIOPORTAL:OMIM,"A disease that the individual was affected by.  If a genetic diagnosis or subtypes were diagnosed, please also provide the same OMIM_p code as you will use for the related variants in 6.1 Genetic Findings.",,,,,[disease_coding] = 'omim',y,,,,,"Variable: 
+SNOMED:64572001 | Disease  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.term:OntologyClass  "
+loinc_99498_8,rarelink_5_disease,,dropdown,5.2 Verification Status,"hl7fhir_unconfirmed, Unconfirmed | hl7fhir_provisional, Provisional | hl7fhir_differential, Differential | hl7fhir_confirmed, Confirmed | hl7fhir_refuted, Refuted | hl7fhir_entered-in-error, Entered in Error",The verification status of the disease.,,,,,,,,,,,"Variable: 
+LOINC:99498-8 | Verification Status  
+Choices: 
+- HL7FHIR:unconfirmed | Unconfirmed  
+- HL7FHIR:provisional | Provisional  
+- HL7FHIR:differential | Differential  
+- HL7FHIR:confirmed | Confirmed  
+- HL7FHIR:refuted | Refuted  
+- HL7FHIR:entered-in-error | Entered in Error  
+Version(s): 
+- LOINC vLNC278 LNC278  
+- HL7 FHIR Version 4.0.1  
+Mapping: 
+- HL7 FHIR IPS: Condition.Extension(RareLink)
+- GA4GH Phenopacket Schema v2.0 Element: Disease.excluded "
+snomedct_424850005,rarelink_5_disease,,dropdown,5.3 Age at Onset,"snomedct_118189007, Prenatal | snomedct_3950001, Birth | snomedct_410672004, Date | snomedct_261665006, Unknown",The age at the onset of the first symptoms or signs of the disease.,,,,,,,,,,,"Variable: 
+SNOMED:424850005 | Age at Onset  
+Choices: 
+- SNOMED:118189007 | Prenatal  
+- SNOMED:3950001 | Birth  
+- SNOMED:410672004 | Date  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.onsetString or Observation.valueCodeableConcept  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.onset  "
+snomedct_298059007,rarelink_5_disease,,text,5.4 Date of Onset,,"The date at onset of first symptoms or signs of the disease. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable: 
+SNOMED:298059007 | Date of Onset  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.onsetDateTime  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.onset  "
+snomedct_423493009,rarelink_5_disease,,dropdown,5.5 Age at Diagnosis,"snomedct_118189007, Prenatal | snomedct_3950001, Birth | snomedct_410672004, Date | snomedct_261665006, Unknown",The individual’s age when the diagnosis was made.,,,,,,,,,,,"Variable: 
+SNOMED:423493009 | Age at Diagnosis  
+Choices: 
+- SNOMED:118189007 | Prenatal  
+- SNOMED:3950001 | Birth  
+- SNOMED:410672004 | Date  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.valueCodeableConcept  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+snomedct_432213005,rarelink_5_disease,,text,5.6 Date of Diagnosis,,"The date on which the disease was determined. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable: 
+SNOMED:432213005 | Date of Diagnosis  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.recordedDate  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.onset  "
+snomedct_363698007,rarelink_5_disease,,text,5.7 Body Site [SNOMED CT],BIOPORTAL:SNOMEDCT,The specific body site affected by disease is encoded using all descendants of SCT Body Structure (123037004).,,,,,,,,,,,"Variable: 
+SNOMED:363698007 | Body Site  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.bodySite.coding:snomed-ct  
+- GA4GH Phenopacket Schema v2.0 Element: Disease.primary_site.OntologyClass  "
+snomedct_263493007,rarelink_5_disease,,dropdown,5.8 Clinical Status,"hl7fhir_active, Active | hl7fhir_recurrence, Recurrence | hl7fhir_relapse, Relapse | hl7fhir_inactive, Inactive | hl7fhir_remission, Remission | hl7fhir_resolved, Resolved","The clinical status of the disease indicates whether it is active, inactive, or resolved.",,,,,,,,,,,"Variable: 
+SNOMED:263493007 | Clinical Status  
+Choices: 
+- HL7FHIR:active | Active  
+- HL7FHIR:recurrence | Recurrence  
+- HL7FHIR:relapse | Relapse  
+- HL7FHIR:inactive | Inactive  
+- HL7FHIR:remission | Remission  
+- HL7FHIR:resolved | Resolved  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+- HL7 FHIR Version 4.0.1  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.clinicalStatus  
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.progress_status.ProgressStatus  "
+snomedct_246112005,rarelink_5_disease,,dropdown,5.9 Disease Severity,"snomedct_24484000, Severe | snomedct_6736007, Moderate | snomedct_255604002, Mild",The severity of the disease is categorised by clinical evaluation.,,,,,,,,,,,"Variable: 
+SNOMED:246112005 | Severity  
+Choices: 
+- SNOMED:24484000 | Severe  
+- SNOMED:6736007 | Moderate  
+- SNOMED:255604002 | Mild  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.severity  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+genetic_diagnosis_code,rarelink_6_1_genetic_findings,"<div class=""rich-text-field-label""><p>RareLink - 6.1) Genetic Findings</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Genetic Findings sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#genetic-findings"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul></div>",dropdown,Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.,"mondo, MONDO | omim, OMIM","If you want to link it to a specific Disease, please use the same code system.",,,,,,,,,,,
+snomedct_106221001_mondo,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [MONDO],BIOPORTAL:MONDO,The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.,,,,,[genetic_diagnosis_code] = 'mondo',y,,,,,"Variable: 
+SNOMED:106221001 | Genomic Diagnosis
+Choices: 
+n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping: 
+- HL7 FHIR Expression v4.0.1: [Suggested] : Condition.code
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.Diagnosis.disease"
+snomedct_106221001_omim_p,rarelink_6_1_genetic_findings,,text,6.1.1 Genomic Diagnosis [OMIM_p],BIOPORTAL:OMIM,The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.,,,,,[genetic_diagnosis_code] = 'omim',y,,,,,"Variable: 
+SNOMED:106221001 | Genomic Diagnosis
+Choices: 
+n/a
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Condition.code
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.Diagnosis.disease
+"
+ga4gh_progress_status,rarelink_6_1_genetic_findings,,dropdown,6.1.2 Progress Status of Interpretation,"ga4gh_unknown_progress, Unknown progress | ga4gh_in_progress, In progress | ga4gh_completed, Completed | ga4gh_solved, Solved | ga4gh_unsolved, Unsolved
+",​​The interpretation has a ProgressStatus that refers to the status of the attempted diagnosis.,,,,,,,,,,,"Variable: 
+GA4GH:progress_status | Progress Status of Interpretation
+Choices: 
+GA4GH:UNKNOWN_PROGRESS | No information is available about the diagnosis
+GA4GH:IN_PROGRESS | No diagnosis has been found to date but additional differential diagnostic work is in progress.
+GA4GH:COMPLETED | The work on the interpretation is complete.
+GA4GH:SOLVED | The interpretation is complete and also considered to be a definitive diagnosis
+GA4GH:UNSOLVED | The interpretation is complete but no definitive diagnosis was found
+Version(s): 
+- GA4GH Phenopacket Schema Version 2.0
+Mapping: 
+- HL7 FHIR Expression v4.0.1: [Suggested] Condition.extension (VS: GA4GH)
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.progress_status"
+ga4gh_interp_status,rarelink_6_1_genetic_findings,,dropdown,6.1.3 Interpretation Status,"ga4gh_unknown_status, Unknown status | ga4gh_rejected, Rejected | ga4gh_candidate, Candidate | ga4gh_contributory, Contributory | ga4gh_causative, Causative",An enumeration that describes the conclusion made about the genomic interpretation.,,,,,,,,,,,"Variable: 
+GA4GH:interpretation_status | Interpretation Status
+Choices: 
+GA4GH:UNKNOWN_STATUS | No information is available about the status
+GA4GH:REJECTED | The variant or gene reported here is interpreted not to be related to the diagnosis
+GA4GH:CANDIDATE | The variant or gene reported here is interpreted to possibly be related to the diagnosis
+GA4GH:CONTRIBUTORY | The variant or gene reported here is interpreted to be related to the diagnosis
+GA4GH:CAUSATIVE | The variant or gene reported here is interpreted to be causative of the diagnosis
+Version(s): 
+- GA4GH Phenopacket Schema Version 2.0
+Mapping: 
+- FHIR Expression v4.0.1: [Suggested] Condition.extension (VS: GA4GH)
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.GenomicInterpretation"
+loinc_81304_8,rarelink_6_1_genetic_findings,,dropdown,6.1.4 Structural Variant Analysis Method,"loinc_la26406-1, Karyotyping | loinc_la26404-6, FISH | loinc_la26418-6, PCR | loinc_la26419-4, qPCR (real-time PCR) | loinc_la26400-4, SNP array | loinc_la26813-8, Restriction fragment length polymorphism (RFLP) | loinc_la26810-4, DNA hybridization | loinc_la26398-0, Sequencing | loinc_la26415-2, MLPA | loinc_la46-8, Other",The method used to analyse structural variants in the genome.,,,,,,,,,,,"Variable: 
+LOINC:81304-8 | Structural Variant Analysis Method
+Choices: 
+LOINC:LA26406-1 | Karyotyping
+LOINC:LA26404-6 | FISH
+LOINC:LA26418-6 | PCR
+LOINC:LA26419-4 | qPCR (real-time PCR)
+LOINC:LA26400-4 | SNP array
+LOINC:LA26813-8 | Restriction fragment length polymorphism (RFLP)
+LOINC:LA26810-4 | DNA hybridization
+LOINC:LA26398-0 | Sequencing
+LOINC:LA26415-2 | MLPA
+LOINC:LA46-8 | Other
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.method
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_81304_8_other,rarelink_6_1_genetic_findings,,text,6.1.4 Other Structural Variant Analysis Method [LOINC],BIOPORTAL:LOINC,Please seach for the method in here (Tip: use OLS or LOINC to search for the code and type it in here).,,,,,[loinc_81304_8] = 'loinc_la46-8',,,,,,"Variable: 
+LOINC:81304-8 | Structural Variant Analysis Method Other
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.method
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_62374_4,rarelink_6_1_genetic_findings,,dropdown,6.1.5 Reference Genome,"loinc_la14032-9, NCBI Build 34 (hg16) | loinc_la14029-5, GRCh37 (hg19) | loinc_la14030-3, NCBI Build 36.1 (hg18) | loinc_la14031-1, NCBI Build 35 (hg17) | loinc_la26806-2, GRCh38 (hg38)",The reference genome used for analysing the genetic variant.,,,,,,,,,,,"Variable: 
+LOINC:62374-4 | Reference Genome
+Choices: 
+LOINC:LA14032-9 | NCBI Build 34 (hg16)
+LOINC:LA14029-5 | GRCh37 (hg19)
+LOINC:LA14030-3 | NCBI Build 36.1 (hg18)
+LOINC:LA14031-1 | NCBI Build 35 (hg17)
+LOINC:LA26806-2 | GRCh38 (hg38)
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:genomic-ref-seq
+- GA4GH Phenopacket Schema v2.0 Element:"
+loinc_lp7824_8,rarelink_6_1_genetic_findings,,text,6.1.6 Genetic Mutation String,,An unvalidated (HGVS) string that describes the variant change.,,,,,,,,,,,"Variable: 
+LOINC:LP7824-8 | Genetic Mutation String
+Choices: 
+n/a
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.component:Variant.valueString
+- GA4GH Phenopacket Schema v2.0 Element: [...].VariantInterpretation.VariationDescriptor.Extension"
+variant_expression,rarelink_6_1_genetic_findings,,dropdown,Please choose the type of the variant's validated HGVS expression,"ghgvs, Genomic DNA change [g.HGVS] | chgvs, Sequence DNA change [c.HGVS] | phgvs, Amino Acid Change [p.HGVS]",We recommend using sequence DNA change expressions (c.HGVS) if possible.,,,,,,,,,,,
+loinc_81290_9,rarelink_6_1_genetic_findings,,text,6.1.7 Genomic DNA Change [g.HGVS],,The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression.,,,,,[variant_expression] = 'ghgvs',,,,,,"Variable: 
+LOINC:81290-9 | Genomic DNA Change
+Choices: 
+n/a
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Variant.valueCode
+- GA4GH Phenopacket Schema v2.0 Element: ""[...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"""
+loinc_48004_6,rarelink_6_1_genetic_findings,,text,6.1.8 Sequence DNA Change [c.HGVS],,The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression,,,,,[variant_expression] = 'chgvs',,,,,,"Variable: 
+LOINC:48004-6 | Sequence DNA Change
+Choices: 
+n/a
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Variant.valueCode
+- GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
+loinc_48005_3,rarelink_6_1_genetic_findings,,text,6.1.9 Amino Acid Change [p.HGVS],,The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression,,,,,[variant_expression] = 'phgvs',,,,,,"Variable: 
+LOINC:48005-3 | Amino Acid Change
+Choices: 
+n/a
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:AminoAcidChange
+- GA4GH Phenopacket Schema v2.0 Element: [...]VariantInterpretation.VariationDescriptor.Expression [+] [...].MoleculeContext"
+variant_validation,rarelink_6_1_genetic_findings,,radio,Are you sure the entered HGVS expression was validated using the variant validator? ,"yes, Yes - I'm sure | no, No, I need to check again",Please use the links above to ensure validation of the expression you entered!,,,,,"[loinc_81290_9] <> '' or 
+[loinc_48004_6] <> '' or 
+[loinc_48005_3] <> ''",y,,,,,
+loinc_48018_6,rarelink_6_1_genetic_findings,,text,6.1.10 Gene [HGNC-NR],BIOPORTAL:HGNC-NR,The specific gene or genes that were analysed or identified in the study.,,,,,,,,,,,"Variable: 
+LOINC:48018-6 | Gene
+Choices: 
+n/a
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0 Variant profile: Observation.component:Gene
+- GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.GeneDescriptor.value_id"
+loinc_53034_5,rarelink_6_1_genetic_findings,,dropdown,6.1.11 Zygosity,"loinc_la6705-3, Homozygous | loinc_la6706-1, (simple) Heterozygous | loinc_la26217-2, Compound heterozygous | loinc_la26220-6, Double heterozygous | loinc_la6707-9, Hemizygous | loinc_la6703-8, Heteroplasmic | loinc_la6704-6, Homoplasmic | loinc_53034_5_other, Other",The zygosity of the genetic variant.,,,,,,,,,,,"Variable: 
+LOINC:53034-5 | Zygosity
+Choices: 
+LOINC:LA6705-3 | Homozygous
+LOINC:LA6706-1 | (simple) Heterozygous
+LOINC:LA26217-2 | Compound heterozygous
+LOINC:LA26220-6 | Double heterozygous
+LOINC:LA6707-9 | Hemizygous
+LOINC:LA6703-8 | Heteroplasmic
+LOINC:LA6704-6 | Homoplasmic
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:geneticsAllele.State | VS: Allelic State
+- GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
+loinc_53034_5_other,rarelink_6_1_genetic_findings,,text,6.1.11A Zygosity - Other [LOINC],BIOPORTAL:LOINC,Please search for a different zygosity in LOINC.,,,,,[loinc_53034_5] = 'loinc_53034_5_other',,,,,,"Variable: 
+LOINC:53034-5 | Zygosity
+Choices: 
+LOINC:LA6705-3 | Homozygous
+LOINC:LA6706-1 | (simple) Heterozygous
+LOINC:LA26217-2 | Compound heterozygous
+LOINC:LA26220-6 | Double heterozygous
+LOINC:LA6707-9 | Hemizygous
+LOINC:LA6703-8 | Heteroplasmic
+LOINC:LA6704-6 | Homoplasmic
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:geneticsAllele.State | VS: Allelic State
+- GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.variationDescriptor.AllelicState"
+loinc_48002_0,rarelink_6_1_genetic_findings,,dropdown,6.1.12 Genomic Source Class,"loinc_la6683-2, Germline | loinc_la6684-0, Somatic | loinc_la10429-1, Fetal | loinc_la18194-3, Likely germline | loinc_la18195-0, Likely somatic | loinc_la18196-8, Likely fetal | loinc_la18197-6, Unknown genomic origin | loinc_la26807-0, De novo","The classification of the genomic source, such as germline, somatic, or other origins.",,,,,,,,,,,"Variable: 
+LOINC:48002-0 | Genomic Source Class
+Choices: 
+LOINC:LA6683-2 | Germline
+LOINC:LA6684-0 | Somatic
+LOINC:LA10429-1 | Fetal
+LOINC:LA18194-3 | Likely germline
+LOINC:LA18195-0 | Likely somatic
+LOINC:LA18196-8 | Likely fetal
+LOINC:LA18197-6 | Unknown genomic origin
+LOINC:LA26807-0 | De novo
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:GenomicSourceClass
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_48019_4,rarelink_6_1_genetic_findings,,dropdown,6.1.13 DNA Change Type,"loinc_la9658-1, Wild type | loinc_la6692-3, Deletion | loinc_la6686-5, Duplication | loinc_la6687-3, Insertion | loinc_la6688-1, Insertion/Deletion | loinc_la6689-9, Inversion | loinc_la6690-7, Substitution | loinc_48019_4_other, Other","The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.",,,,,,,,,,,"Variable: 
+LOINC:48019-4 | DNA Change Type
+Choices: 
+LOINC:LA9658-1 | Wild type
+LOINC:LA6692-3 | Deletion
+LOINC:LA6686-5 | Duplication
+LOINC:LA6687-3 | Insertion
+LOINC:LA6688-1 | Insertion/Deletion
+LOINC:LA6689-9 | Inversion
+LOINC:LA6690-7 | Substitution
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping:
+- HL7 FHIR GenomicsReporting 3.0.0: Variant.type
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_48019_4_other,rarelink_6_1_genetic_findings,,text,6.1.13A DNA Change Type - Other [LOINC],BIOPORTAL:LOINC,Please search for a different DNA change typ in LOINC.,,,,,[loinc_48019_4] = 'loinc_48019_4_other',,,,,,"Variable: 
+LOINC:48019-4 | DNA Change Type
+Choices: 
+LOINC:LA9658-1 | Wild type
+LOINC:LA6692-3 | Deletion
+LOINC:LA6686-5 | Duplication
+LOINC:LA6687-3 | Insertion
+LOINC:LA6688-1 | Insertion/Deletion
+LOINC:LA6689-9 | Inversion
+LOINC:LA6690-7 | Substitution
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping:
+- HL7 FHIR GenomicsReporting 3.0.0: Variant.type
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+loinc_53037_8,rarelink_6_1_genetic_findings,,dropdown,6.1.14 Clinical Significance [ACMG],"loinc_la6668-3, Pathogenic | loinc_la26332-9, Likely pathogenic | loinc_la26333-7, Uncertain significance | loinc_la26334-5, Likely benign | loinc_la6675-8, Benign | loinc_la4489-6, Unknown","The clinical significance of the genetic variant, indicating its impact on health and disease.",,,,,,,,,,,"Variable: 
+LOINC:53037-8 | Clinical Significance [ACMG]
+Choices: 
+LOINC:LA6668-3 | Pathogenic
+LOINC:LA26332-9 | Likely pathogenic
+LOINC:LA26333-7 | Uncertain significance
+LOINC:LA26334-5 | Likely benign
+LOINC:LA6675-8 | Benign
+LOINC:LA4489-6 | Unknown
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.component:Variant.Interpretation
+- GA4GH Phenopacket Schema v2.0 Element: Interpretation.AcmgPathogenicityClassification"
+ga4gh_therap_action,rarelink_6_1_genetic_findings,,dropdown,6.1.15 Therapeutic Actionability,"ga4gh_unknown_actionability, Unknown actionability | ga4gh_not_actionable, Not actionable | ga4gh_actionable, Actionable
+","An enumeration flagging the variant as being a candidate for treatment/ clinical intervention of the disorder caused by this variant, which could improve the clinical outcome.",,,,,,,,,,,"Variable: 
+GA4GH:therapeutic_actionability | Therapeutic Actionability
+Choices: 
+GA4GH:UNKNOWN_ACTIONABILITY | There is not enough information at this time to support any therapeutic actionability for this variant
+GA4GH:NOT_ACTIONABLE | This variant has no therapeutic actionability.
+GA4GH:ACTIONABLE | This variant is known to be therapeutically actionable.
+Version(s): 
+- GA4GH Phenopacket Schema Version 2.0
+Mapping: 
+- HL7 FHIR Expression v4.0.1: n/a
+- GA4GH Phenopacket Schema v2.0 Element: [...].GenomicInterpretation.VariantInterpretation.therapeutic_actionability"
+loinc_93044_6,rarelink_6_1_genetic_findings,,dropdown,6.1.16 Clinical Annotation Level Of Evidence,"loinc_la30200-2, Very strong evidence pathogenic | loinc_la30201-0, Strong evidence pathogenic | loinc_la30202-8, Moderate evidence pathogenic | loinc_la30203-6, Supporting evidence pathogenic | loinc_la30204-4, Supporting evidence benign | loinc_la30205-1, Strong evidence benign | loinc_la30206-9, Stand-alone evidence pathogenic",The level of evidence supporting the clinical annotation of the genetic variant.,,,,,,,,,,,"Variable: 
+LOINC:93044-6 | Clinical Annotation Level Of Evidence
+Choices: 
+LOINC:LA30200-2 | Very strong evidence pathogenic
+LOINC:LA30201-0 | Strong evidence pathogenic
+LOINC:LA30202-8 | Moderate evidence pathogenic
+LOINC:LA30203-6 | Supporting evidence pathogenic
+LOINC:LA30204-4 | Supporting evidence benign
+LOINC:LA30205-1 | Strong evidence benign
+LOINC:LA30206-9 | Stand-alone evidence pathogenic
+Version(s): 
+- LOINC vLNC278 LNC278
+Mapping: 
+- HL7 FHIR GenomicsReporting 3.0.0: Observation.extension:Variant.Interpretation
+- GA4GH Phenopacket Schema v2.0 Elemen: n/a"
+snomedct_8116006,rarelink_6_2_phenotypic_feature,"<p>RareLink - 6.2) Phenotypic Feature</p> <ul> <li style=""font-size: 8pt;""><span style=""font-size: 8pt;"">Tip: For guidance on entering data into the Phenotypic Feature sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#phenotypic-features"">Manual Data Capture Guide</a>.</span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",text,6.2.1 Phenotypic Feature,BIOPORTAL:HP,An observed physical and clinical characteristic encoded with HPO.,,,,,,y,,,,,"Variable: 
+SNOMED:8116006 | Phenotypic Feature  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.Code  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.type"
+snomedct_363778006,rarelink_6_2_phenotypic_feature,,dropdown,6.2.2 Status,"snomedct_410605003, Confirmed present | snomedct_723511001, Refuted","The current status of the phenotypic feature, indicating whether it is confirmed or refuted.",,,,,,y,,,,,"Variable: 
+SNOMED:363778006 | Status  
+Choices: 
+- SNOMED:410605003 | Confirmed present  
+- SNOMED:723511001 | Refuted  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01 
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.Status (Rec VS: observation.status)  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.excluded "
+snomedct_8116006_onset,rarelink_6_2_phenotypic_feature,,text,6.2.3 Determination Date,,"The date on which the phenotypic feature was observed or recorded (we the time it was observed). If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively",date_ymd,,,,,,,,,,"Variable: 
+SNOMED:439272007:704321009=363778006 | Determination Date  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset  "
+snomedct_8116006_resolut,rarelink_6_2_phenotypic_feature,,text,6.2.4 Resolution Date,,Time at which the feature resolved or abated.,date_ymd,,,,,,,,,,"Variable: 
+HPO:0034382 | Resolution Date  
+Choices: 
+n/a  
+Version(s): 
+P25-05-06 2025-05-06  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.resolution"
+hp_0003674,rarelink_6_2_phenotypic_feature,,dropdown,6.2.5 Age of Onset,"hp_0011460, Embryonal onset (0w-8w embryonal) | hp_0011461, Fetal onset (8w embryonal - birth) | hp_0003577, Congenital onset (at birth) | hp_0003623, Neonatal onset (0d-28d) | hp_0003593, Infantile onset (28d-1y) | hp_0011463, Childhood onset (1y-5y) | hp_0003621, Juvenile onset (5y-15y) | hp_0011462, Young adult onset (16y-40y) | hp_0003596, Middle age adult onset (40y-60y) | hp_0003584, Late adult onset (60y+)",,,,,,,,,,,,"Variable: 
+HP:0003674 | Onset Category  
+Choices: 
+- HP:0011460 | Embryonal onset (0w-8w embryonal)  
+- HP:0011461 | Fetal onset (8w embryonal - birth)  
+- HP:0003577 | Congenital onset (at birth)  
+- HP:0003623 | Neonatal onset (0d-28d)  
+- HP:0003593 | Infantile onset (28d-1y)  
+- HP:0011463 | Childhood onset (1y-5y)  
+- HP:0003621 | Juvenile onset (5y-15y)  
+- HP:0011462 | Young adult onset (16y-40y)  
+- HP:0003596 | Middle age adult onset (40y-60y)  
+- HP:0003584 | Late adult onset (60y+)  
+Version(s): 
+P25-05-06 2025-05-06  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.category  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset"
+hp_0011008,rarelink_6_2_phenotypic_feature,,dropdown,6.2.6 Temporal Pattern,"hp_0011009, Acute | hp_0011010, Chronic | hp_0031914, Fluctuating | hp_0025297, Prolonged | hp_0031796, Recurrent | hp_0031915, Stable | hp_0011011, Subactue | hp_0025153, Transient",,,,,,,,,,,,"Variable: 
+HP:0011008 | Temporal Pattern  
+Choices: 
+- HP:0011009 | Acute  
+- HP:0011010 | Chronic  
+- HP:0031914 | Fluctuating  
+- HP:0025297 | Prolonged  
+- HP:0031796 | Recurrent  
+- HP:0031915 | Stable  
+- HP:0011011 | Subactue  
+- HP:0025153 | Transient  
+Version(s): 
+P25-05-06 2025-05-06  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.interpretation  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers"
+hp_0012824,rarelink_6_2_phenotypic_feature,,dropdown,6.2.7 Phenotype Severity,"hp_0012827, Borderline | hp_0012825, Mild | hp_0012826, Moderate | hp_0012829, Profound | hp_0012828, Severe",,,,,,,,,,,,"Variable: 
+HP:0012824 | Severity  
+Choices: 
+- HP:0012827 | Borderline  
+- HP:0012825 | Mild  
+- HP:0012826 | Moderate  
+- HP:0012829 | Profound  
+- HP:0012828 | Severe  
+Version(s): 
+P25-05-06 2025-05-06  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Observation.interpretation  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
+"
+hp_0012823_hp1,rarelink_6_2_phenotypic_feature,,text,6.2.8A Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,,,,,,,"Variable: 
+GA4GH:phenotypicfeature.modifier | Modifier  
+Choices: 
+n/a  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+hp_0012823_hp2,rarelink_6_2_phenotypic_feature,,text,6.2.8B Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[hp_0012823_hp1] <> """"",,,,,,"Variable: 
+GA4GH:phenotypicfeature.modifier | Modifier  
+Choices: 
+n/a  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+hp_0012823_hp3,rarelink_6_2_phenotypic_feature,,text,6.2.8C Clinical Modifier [HP],BIOPORTAL:HP,"Further clinical modifiers to describe a specific phenotypic feature, if possible part of these: https://hpo.jax.org/browse/term/HP:0012823 ",,,,,"[hp_0012823_hp2] <> """"",,,,,,"Variable: 
+GA4GH:phenotypicfeature.modifier | Modifier  
+Choices: 
+n/a  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+hp_0012823_ncbitaxon,rarelink_6_2_phenotypic_feature,,text,"6.2.8D If applicable, what was the causing organism? [NCBITAXON]",BIOPORTAL:NCBITAXON,"If applicable, select the causing organism in NCBITaxon and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort. ",,,,,,,,,,,"Variable: 
+GA4GH:phenotypicfeature.modifier | Modifier  
+Choices: 
+n/a  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+hp_0012823_snomedct,rarelink_6_2_phenotypic_feature,,text,"6.2.8E If applicable, what was the primary body site? [SNOMED]",BIOPORTAL:SNOMEDCT,"If applicable, select the primary bodysite in SNOMED and consider the tips above. It is recommended to select a common set of choices if capturing phenotypes for a cohort.",,,,,,,,,,,"Variable: 
+GA4GH:phenotypicfeature.modifier | Modifier  
+Choices: 
+n/a  
+Version(s): 
+- GA4GH Phenopacket Schema v2.0  
+Mapping: 
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.extension  
+- GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifier"
+phenotypicfeature_evidence,rarelink_6_2_phenotypic_feature,,text,6.2.9 Evidence for the phenotype [ECO],BIOPORTAL:ECO,The evidence for an assertion of the observation of a type defined within the Evidence & Conclusion Ontology (ECO).,,,,,,,,,,,
+measurement_category,rarelink_6_3_measurements,"<p>RareLink - 6.3) Measurements</p> <ul> <li style=""font-size: 8pt;"">For guidance on entering data into the Phenotypic Features sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#measurements"">Manual Data Capture Guide</a>.</li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",dropdown,6.3.0A Category,"social-history, Social History | vital-signs, Vital Signs | imaging, Imaging | laboratory, Laboratory | procedure, Procedure | survey, Survey | exam, Exam | therapy, Therapy | activity, Activity",The type of measurement performed.,,,,,,y,,,,,"Variable: measurement_category | 6.3.0 Measurement Category
+Choices: 
+- social-history | Social History  
+- vital-signs | Vital Signs  
+- imaging | Imaging  
+- laboratory | Laboratory  
+- procedure | Procedure  
+- survey | Survey  
+- exam | Exam  
+- therapy | Therapy  
+- activity | Activity  
+Version(s): 
+- HL7 FHIR v4.0.1
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Obersvation.category
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+measurement_status,rarelink_6_3_measurements,,dropdown,6.3.0B Status,"registered, Registered | preliminary, Preliminary | final, Final | amended, Amended | corrected, Corrected | cancelled, Cancelled | unknown, Unknown",The status of the measurement.,,,,,[measurement_category] != 'procedure',y,,,,,"Variable: measurement_status | 6.3.0B Measurement Status
+Choices: 
+- registered | Registered
+- preliminary | Preliminary
+- final | Final
+- amended | Amended
+- corrected | Corrected
+- cancelled | Cancelled
+- unknown | Unknown
+Version(s): 
+- HL7 FHIR v4.0.1
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Obersvation.status
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+ncit_c60819,rarelink_6_3_measurements,,text,6.3.1 Assay,BIOPORTAL:LOINC,Please search the assay in LOINC and see tips above.,,,,,[measurement_category] != 'vital-signs' and [measurement_category] != 'procedure',y,,,,,"Variable: NCIT:C60819 | Assay
+Choices: n/a
+Version(s):
+T.01e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.assay"
+ln_85353_1,rarelink_6_3_measurements,,dropdown,6.3.1A Vital Signs Panel,"85353_1, Vital Signs Panel | 9279_1, Respiratory Rate [/min] | 8867_4, Heart Rate [/min] | 2708_6, Oxygen Saturation [%] | 8310_5, Body Temperature [Cel, degF] | 8302_2, Body Height [cm] | 9843_4, Head Circumference [cm] | 29463_7, Body Weight [kg] | 39156_5, Body Mass Index [kg/m2] | 8480_6, Systolic Blood Pressure [mmHg] | 8462_4, Diastolic Blood Pressure [mmHg] | other, Other",The type of vital sign measurement performed.,,,,,[measurement_category] = 'vital-signs',y,,,,,"Variable: LOINC:85353_1 | Vital Signs Panel  
+Choices:  
+- 9279_1, Respiratory Rate [/min]  
+- 8867_4, Heart Rate [/min]  
+- 2708_6, Oxygen Saturation [%]  
+- 8310_5, Body Temperature [Cel, degF]  
+- 8302_2, Body Height [cm]  
+- 9843_4, Head Circumference [cm]  
+- 29463_7, Body Weight [kg]  
+- 39156_5, Body Mass Index [kg/m2]  
+- 8480_6, Systolic Blood Pressure [mmHg]  
+- 8462_4, Diastolic Blood Pressure [mmHg]  
+- other, Other  
+Version(s):  
+- LOINC vLNC278
+Mapping:  
+- HL7 FHIR Expression v4.0.1: Observation.code  
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.assay"
+ln_85353_1_other,rarelink_6_3_measurements,,text,6.3.1A Other Vital Sign,BIOPORTAL:LOINC,"If not found in the list of choices above, the type of vital sign measurement performed",,,,,[ln_85353_1] = 'other',,,,,,
+ncit_c25712,rarelink_6_3_measurements,,text,6.3.2 Value,,Please enter a two decimal number,number,0.00,999999.99,,[measurement_category] != 'procedure',y,,,,,"Variable: NCIT:C25712 | Value
+Choices: n/a
+Version(s):
+T.01e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x]
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c92571,rarelink_6_3_measurements,,text,6.3.3 Value Unit,BIOPORTAL:UO,"Please search the unit in the Unit Ontology (UO). Tip: Search for the official abbreviations (e.g. dl, kg, l, etc.)",,,,,"([measurement_category] != 'vital-signs' or [ln_85353_1_other] <> """") and [measurement_category] != 'procedure'",y,,,,,"Variable: NCIT:C92571 | Measurement Unit Description
+Choices: n/a
+Version(s):
+T.01e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x].unit
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c41255,rarelink_6_3_measurements,,text,6.3.4 Interpretation,BIOPORTAL:NCIT,"Please search for an interpretation in NCIT, e.g. positive / negative, below/above reference range, etc. ",,,,,[measurement_category] != 'procedure',,,,,,"Variable: NCIT:C41255 | Interpretation
+Choices: n/a
+Version(s):
+T.01e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.interpretation
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
+ncit_c82577,rarelink_6_3_measurements,,text,6.3.5 Time Observed,,YYYY-MM-DD,date_ymd,,,,,y,,,,,"Variable: NCIT:C82577 | Test Time
+Choices:
+- n/a
+Version(s):
+T.01e
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed"
+procedure,rarelink_6_3_measurements,,dropdown,Procedure as NCIT or SNOMEDCT?,"ncit, NCIT | snomed, SNOMEDCT",,,,,,[measurement_category] != 'procedure',,,,,,
+snomedct_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],BIOPORTAL:NCIT,Please search for the procedure in NCIT and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'ncit',,,,,,"Variable: SNOMED:122869004 | Procedure
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
+snomedct_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED and see tips above.,,,,,[measurement_category] != 'procedure' and [procedure] = 'snomed',,,,,,"Variable: SNOMED:122869004 | Procedure
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
+snomedct_122869004_descr,rarelink_6_3_measurements,,descriptive,"<p>If the measurement category ""procedure"" is selected, the following information will be displayed within the <a href=""https://build.fhir.org/ig/HL7/fhir-ips/StructureDefinition-Procedure-uv-ips.html"">FHIR-IPS Procedure Profile</a></p> <ul> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">Please use a code from the following: </span><a href=""https://build.fhir.org/ig/HL7/fhir-ips/ValueSet-procedures-uv-ips.html"">IPS Procedures Value Set</a> and if possible from </span><a href=""https://hl7.org/fhir/R4/valueset-body-site.html"">SNOMED BodyStructures </a>.</li> </ul>",BIOPORTAL:SNOMEDCT,,,,,,[measurement_category] = 'procedure',,,,,,
+snomedct_122869004,rarelink_6_3_measurements,,text,6.3.7 Procedure [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the procedure in SNOMED,,,,,[measurement_category] = 'procedure',y,,,,,"Variable: SNOMED:122869004 | Procedure
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
+- GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
+snomedct_122869004_bdsite,rarelink_6_3_measurements,,text,6.3.7A Body Site [SNOMEDCT],BIOPORTAL:SNOMEDCT,Please search for the body site in SNOMED,,,,,[measurement_category] = 'procedure',,,,,,"Variable: SNOMED:122869004 - BodySite | Procedure - Body Site
+Choices: 
+- n/a
+Version(s):
+- SNOMED CT SNOMEDCT_US_2024_09_01
+Mapping:
+- HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.bodySite
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+snomedct_122869004_status,rarelink_6_3_measurements,,dropdown,6.3.7B Procedure Status [SNOMEDCT],"preparation, Preparation | in-progress, In Progress | not-done, Not Done | on-hold, On Hold | stopped, Stopped | completed, Completed | entered-in-error, Entered in Error | unknown, Unknown
+",The status of the procedure,,,,,[measurement_category] = 'procedure',y,,,,,"Variable: SNOMED:122869004 - EventStatus | Procedure - Event Status
+Choices:
+- preparation | Preparation
+- in-progress | In Progress
+- not-done | Not Done
+- on-hold | On Hold
+- stopped | Stopped
+- completed | Completed
+- entered-in-error | Entered in Error
+- unknown | Unknown
+Version(s):
+- HL7 FHIR v4.0.1
+Mapping:
+- HL7 FHIR Expression v5.0.0: Observation.status
+- GA4GH Phenopacket Schema v2.0 Element: n/a"
+family_history_pseudonym,rarelink_6_4_family_history,"RareLink - 6.4) Family History
+
+ <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul>",text,6.4.0 Pseudonym,,"If a pseudonym was already assigned to the specific family member, please enter it here to identify across records.",,,,,,y,,,,,
+snomedct_64245008,rarelink_6_4_family_history,,dropdown,6.4.1 Propositus/-a,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown | snomedct_1220561009, Not recorded","Is the individual the first affected family member who seeks medical attention for a genetic disorder, leading to the diagnosis of other family members.",,,,,,,,,,,"SNOMED:64245008 | Propositus/-a  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+- SNOMED:1220561009 | Not recorded  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: n/a
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member) "
+snomedct_408732007,rarelink_6_4_family_history,,dropdown,6.4.2 Relationship of the individual to the index case / propositus/a,"snomedct_65656005, Natural mother | snomedct_9947008, Natural father | snomedct_83420006, Natural daughter | snomedct_113160008, Natural son | snomedct_60614009, Natural brother | snomedct_73678001, Natural sister | snomedct_11286003, Twin sibling | snomedct_45929001, Half-brother | snomedct_2272004, Half-sister | snomedct_62296006, Natural grandfather | snomedct_17945006, Natural grandmother | snomedct_1220561009, Not recorded","Specifies the familial relationship of the individual being evaluated to the index case or propositus/proposita.
+Disclaimer:",,,,,,,,,,,"SNOMED:408732007 | Relationship of the individual to the index case / propositus/a  
+Choices: 
+- SNOMED:65656005 | Natural mother  
+- SNOMED:9947008 | Natural father  
+- SNOMED:83420006 | Natural daughter  
+- SNOMED:113160008 | Natural son  
+- SNOMED:60614009 | Natural brother  
+- SNOMED:73678001 | Natural sister  
+- SNOMED:11286003 | Twin sibling  
+- SNOMED:45929001 | Half-brother  
+- SNOMED:2272004 | Half-sister  
+- SNOMED:62296006 | Natural grandfather  
+- SNOMED:17945006 | Natural grandmother  
+- SNOMED:1220561009 | Not recorded  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: n/a  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives → 1 Phenopacket per family member)  "
+snomedct_842009,rarelink_6_4_family_history,,dropdown,6.4.3 Consanguinity,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown | snomedct_1220561009, Not recorded","The presence of a biological relationship between parents who are related by blood, typically as first or second cousins.",,,,,,,,,,,"Variable: 
+SNOMED:842009 | Consanguinity  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+- SNOMED:1220561009 | Not recorded  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Family.consanguinous_parents  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.consanguinous_parents)  "
+snomedct_444018008,rarelink_6_4_family_history,,dropdown,6.4.4 Family Member Relationship,"snomedct_65656005, Natural mother | snomedct_9947008, Natural father | snomedct_83420006, Natural daughter | snomedct_113160008, Natural son | snomedct_60614009, Natural brother | snomedct_73678001, Natural sister | snomedct_11286003, Twin sibling | snomedct_45929001, Half-brother | snomedct_2272004, Half-sister | snomedct_62296006, Natural grandfather | snomedct_17945006, Natural grandmother | snomedct_1220561009, Not recorded",Specifies the relationship of the selected family member to the patient.,,,,,,y,,,,,"Variable: 
+SNOMED:444018008 | Family Member Relationship  
+Choices: 
+- SNOMED:65656005 | Natural mother  
+- SNOMED:9947008 | Natural father  
+- SNOMED:83420006 | Natural daughter  
+- SNOMED:113160008 | Natural son  
+- SNOMED:60614009 | Natural brother  
+- SNOMED:73678001 | Natural sister  
+- SNOMED:11286003 | Twin sibling  
+- SNOMED:45929001 | Half-brother  
+- SNOMED:2272004 | Half-sister  
+- SNOMED:62296006 | Natural grandfather  
+- SNOMED:17945006 | Natural grandmother  
+- SNOMED:1220561009 | Not recorded  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.relationship.coding (VS: FamilyMember)  
+- GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.individual_id  "
+hl7fhir_fmh_status,rarelink_6_4_family_history,,dropdown,6.4.5 Family Member Record Status,"hl7fhir_partial, Partial | hl7fhir_completed, Completed | hl7fhir_entered-in-error, Entered in Error | hl7fhir_health-unknown, Health Unknown",Specifies the record’s status of the family history of a specific family member.,,,,,,y,,,,,"Variable: 
+HL7 FHIR:familymemberhistory.status | Family Member Record Status  
+Choices: 
+- HL7 FHIR:partial | Partial  
+- HL7 FHIR:completed | Completed  
+- HL7 FHIR:entered-in-error | Entered in Error  
+- HL7 FHIR:health-unknown | Health Unknown  
+Version(s): 
+- HL7 FHIR Version 4.0.1  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.status (VS: FamilyHistoryStatus)  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+loinc_54123_5,rarelink_6_4_family_history,,dropdown,6.4.6 Family Member Sex,"snomedct_248152002, Female | snomedct_248153007, Male | snomedct_184115007, Patient sex unknown | snomedct_32570691000036108, Intersex | snomedct_1220561009, Not recorded","Specifies the sex (or gender) of the specific family member. If possible, the sex assigned at birth should be selected.",,,,,,,,,,,"Variable: 
+LOINC:54123-5 | Family Member Sex  
+Choices: 
+- SNOMED:248152002 | Female  
+- SNOMED:248153007 | Male  
+- SNOMED:184115007 | Patient sex unknown  
+- SNOMED:32570691000036108 | Intersex  
+- SNOMED:1220561009 | Not recorded  
+Version(s): 
+- LOINC vLNC278 LNC278  
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.sex (VS: AdministrativeGender)  
+- GA4GH Phenopacket Schema v2.0 Element: Family.Pedigree.Person.sex  "
+loinc_54141_7,rarelink_6_4_family_history,,text,6.4.7 Family Member Age,,Records the current age in full years of the selected family member.,integer,0,200,,,,,,,,"Variable: 
+LOINC:54141-7 | Family Member Age  
+Choices: 
+n/a  
+Version(s): 
+- LOINC vLNC278 LNC278  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.ageAge  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+loinc_54124_3,rarelink_6_4_family_history,,text,6.4.8 Family Member Date of Birth,,Records the date of birth of the selected family member.,date_ymd,,,,,,,,,,"Variable: 
+LOINC:54124-3 | Family Member Date of Birth  
+Choices: 
+n/a  
+Version(s): 
+- LOINC vLNC278 LNC278  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.bornDate  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+snomedct_740604001,rarelink_6_4_family_history,,dropdown,6.4.9 Family Member Deceased,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown",Indicates whether the selected family member is deceased.,,,,,,,,,,,"Variable: 
+SNOMED:740604001 | Family Member Deceased  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceased.deceasedBoolean  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+loinc_54112_8,rarelink_6_4_family_history,,text,6.4.10 Family Member Cause of Death [ICD10CM],BIOPORTAL:ICD10CM,Records the cause of death of the selected deceased family member.,,,,,[snomedct_740604001] = 'snomedct_373066001',,,,,,"Variable: 
+LOINC:54112-8 | Family Member Cause of Death  
+Choices: 
+n/a  
+Version(s): 
+- LOINC vLNC278 LNC278  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code & FamilyMemberHistory.condition.contributedToDeath  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+loinc_92662_6,rarelink_6_4_family_history,,text,6.4.11 Family Member Deceased Age,,Records the current age in full years of the selected family member. ,integer,0,200,,[snomedct_740604001] = 'snomedct_373066001',,,,,,"Variable: 
+LOINC:92662-6 | Family Member Deceased Age  
+Choices: 
+n/a  
+Version(s): 
+- LOINC vLNC278 LNC278  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.deceasedAge  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+loinc_75315_2,rarelink_6_4_family_history,,text,6.4.12 Family Member Disease [MONDO],BIOPORTAL:MONDO,Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.,,,,,,,,,,,"Variable: 
+LOINC:75315-2 | Family Member Disease  
+Choices: 
+n/a  
+Version(s): 
+- LOINC vLNC278 LNC278  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: FamilyMemberHistory.condition.code  
+- GA4GH Phenopacket Schema v2.0 Element: (Family.relatives)  "
+snomedct_309370004,rarelink_7_consent,"<div class=""rich-text-field-label""><p>RareLink - 7) Consent</p> <ul> <li style=""font-size: 8pt;"">For guidance on entering data into the Consent sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#consent"">Manual Data Capture Guide</a>.<span style=""font-weight: normal;""><br></span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul></div>",dropdown,7.1 Consent Status,"hl7fhir_draft, Pending | hl7fhir_proposed, Proposed | hl7fhir_active, Active | hl7fhir_rejected, Rejected | hl7fhir_inactive, Inactive | hl7fhir_entered-in-error, Entered in Error",Indicates the current status of the consent.,,,,,,y,,,,,"Variable: 
+SNOMED:309370004 | Consent Status  
+Choices: 
+- HL7FHIR:draft | Pending  
+- HL7FHIR:proposed | Proposed  
+- HL7FHIR:active | Active  
+- HL7FHIR:rejected | Rejected  
+- HL7FHIR:inactive | Inactive  
+- HL7FHIR:entered-in-error | Entered in Error  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Consent.status  
+- GA4GH Phenopacket Schema v2.0 Element: n/a "
+hl7fhir_consent_datetime,rarelink_7_consent,,text,7.2 Consent Date,,Records the date when the consent was given.,date_ymd,,,,,,,,,,"Variable: 
+HL7 FHIR:consent.datetime | Consent Date  
+Choices: 
+n/a  
+Version(s): 
+- HL7 FHIR Version 4.0.1  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Consent.dateTime  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+snomedct_386318002,rarelink_7_consent,,text,7.3 Health Policy Monitoring,,"The references to the policies that are included in this consent scope. Policies may be organisational, but are often defined jurisdictionally, or in law. For example: Your entity or organization having regulatory jurisdiction or accountability for enforcing policies pertaining to Consent Directives.",,,,,,y,,,,,"Variable: 
+SNOMED:386318002 | Health Policy Monitoring  
+Choices: 
+n/a  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Consent.policy  
+- GA4GH Phenopacket Schema v2.0 Element: n/a "
+rarelink_consent_contact,rarelink_7_consent,,dropdown,7.4 Agreement to be contacted for research purposes,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
+",Indicates whether the patient agrees to be contacted for research purposes.,,,,,,y,,,,,"Variable: 
+RareLinkCode:consent_contact_research | Agreement to be contacted for research purposes  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- RareLink Custom Codes Version 2.0
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Consent.scope.coding  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+rarelink_consent_data,rarelink_7_consent,,dropdown,7.5 Consent to the reuse of data,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
+",Indicates whether the patient consents to the reuse of their data.,,,,,,y,,,,,"Variable: 
+RareLinkCode:conset_data_reuse | Consent to the reuse of data  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- RareLink Custom Codes Version 2.0
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: Consent.scope.coding  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+snomedct_123038009,rarelink_7_consent,,dropdown,7.6 Biological sample,"snomedct_373066001, Yes | snomedct_373067005, No | snomedct_261665006, Unknown
+",Indicates whether a patient's biological sample is available for research.,,,,,,,,,,,"Variable: 
+SNOMED:123038009 | Biological sample  
+Choices: 
+- SNOMED:373066001 | Yes  
+- SNOMED:373067005 | No  
+- SNOMED:261665006 | Unknown  
+Version(s): 
+- SNOMED CT SNOMEDCT_US_2024_09_01 SNOMEDCT_US_2024_09_01  
+Mapping: 
+- HL7 FHIR Expression v4.0.1: n/a  
+- GA4GH Phenopacket Schema v2.0 Element: n/a  "
+rarelink_biobank_link,rarelink_7_consent,,text,7.7 Link to a biobank,,"If there is a biological sample, this data element indicates the link to the biobank of the patient's biological sample.",,,,,,,,,,,"Variable: 
+RareLinkCode:biobank_link | Link to a biobank  
+Choices: 
+n/a  
+Version(s): 
+- RareLink Custom Codes Version 2.0
+Mapping: 
+- HL7 FHIR Expression v4.0.1: n/a  
+- GA4GH Phenopacket Schema v2.0 Element: n/a "
+rarelink_icf_score,rarelink_8_disability,"<div class=""rich-text-field-label""><p>RareLink - 8) Disability</p> <ul> <li style=""font-size: 8pt;"">Tip: For guidance on entering data into the Disability sheet, refer to the <a href=""https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html#disability"">Manual Data Capture Guide</a>.<span style=""font-weight: normal;""><br></span></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you have questions about RareLink, check out the </span><a href=""https://rarelink.readthedocs.io/en/latest/index.html"">RareLink documentation</a><span style=""font-weight: normal;""><a href=""https://rarelink.readthedocs.io/en/latest/index.html""> </a>or the </span><a href=""https://rarelink.readthedocs.io/en/latest/7_faq.html"">FAQ.</a></li> <li style=""font-size: 8pt;""><span style=""font-weight: normal;"">If you find issues, have feedback, or want to contribute, please see the</span> <a href=""https://rarelink.readthedocs.io/en/latest/8_contributing.html"">contributing guide.</a></li> </ul></div>",text,8.1 Classification of functioning / disability,BIOPORTAL:ICF,,,,,,,,,,,,"Variable: 
+RareLinkCode:icf_score | Classification of functioning / disability  
+Choices: 
+n/a  
+Version(s): 
+- RareLink Custom Codes Version 2.0
+Mapping: 
+- ICF: Classification of functioning / disability  
+- HL7 FHIR Expression v4.0.1: n/a  
+- GA4GH Phenopacket Schema v2.0 Element: n/a"

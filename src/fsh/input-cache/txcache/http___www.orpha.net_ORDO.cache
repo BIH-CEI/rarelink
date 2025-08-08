@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : false,
+    "include" : [{
+      "system" : "http://www.orpha.net/ORDO",
+      "concept" : [{
+        "code" : "616874",
+        "display" : "Rare disorder without a determined diagnosis after full investigation"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.orpha.net/ORDO"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://www.orpha.net/ORDO",
+      "concept" : [{
+        "code" : "616874",
+        "display" : "Rare disorder without a determined diagnosis after full investigation"
+      }]
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.orpha.net/ORDO"
+}
+-------------------------------------------------------------------------------------

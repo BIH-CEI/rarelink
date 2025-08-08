@@ -1,0 +1,57 @@
+{
+  "id": "encounter.care_pathway",
+  "url": "rarelink/encounter",
+  "name": "encounter.care_pathway",
+  "title": "RareLink CDM - Encounter IPS Resource",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkencounter",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_4_care_pathway",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "rarelink",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Encounter', record_id & hl7fhir_enc_period_start & hl7fhir_enc_period_end & encounterclass & encounterstatus)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter"
+            ]
+          },
+          "resourceType": "Encounter",
+          "status": "{{mpp:getConcept(%encounterstatus, snomedct_305058001, 'target_code')}}",
+          "class": {
+            "system": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'system')}}",
+            "code": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_code')}}",
+            "display": "{{mpp:getConcept(%encounterclass, hl7fhir_encounter_class, 'target_display')}}"
+          },
+          "period": {
+            "start": "{{? hl7fhir_enc_period_start}}",
+            "end": "{{? hl7fhir_enc_period_end}}"
+          },
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "Rarelink_4_Encounter"
+    }
+  ],
+  "context": {
+    "encounterclass": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/4_4_encounter_class.csv"
+    },
+    "encounterstatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/4_3_encounter_status.csv"
+    }
+  }
+}

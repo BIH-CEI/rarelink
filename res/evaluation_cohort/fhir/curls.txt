@@ -1,0 +1,94 @@
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observations.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_diagnostic_implication.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_variant.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_labs.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/FamilyMemberHistory?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_family_member_history.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-measurements-others&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_measurements_other.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-vital-signs&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_vitalsigns.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-radiology&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_ips_measurement_radiology.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Condition?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_condition.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Encounter?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_encounter_care_pathway.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation/eb51cd67a54156ee5d46263ddae5c1d3' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_length_of_gestation_eb51cd67a54156ee5d46263ddae5c1d3.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation/698571ba6c7ea2cf2d37025942176616' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_karyotypic_sex_698571ba6c7ea2cf2d37025942176616.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Condition/3fee6b06bea8f946a31f8e15e215dfcd' \
+  -o res/evaluation_cohort/fhir/evco_fhir_condition_3fee6b06bea8f946a31f8e15e215dfcd.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Consent?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_consents.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Patient?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_patient.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Procedure?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_procedure.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_age_category.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_gestation_at_birth.json
+
+curl -s \
+  -H "Accept: application/fhir+json" \
+  'http://localhost:8080/fhir/Observation?_profile=https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-karyotypic-sex&_count=100&_format=json' \
+  -o res/evaluation_cohort/fhir/evco_fhir_observation_karyotypic_sex.json

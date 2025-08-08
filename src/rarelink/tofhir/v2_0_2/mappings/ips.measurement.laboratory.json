@@ -1,0 +1,109 @@
+{
+  "id": "ips.measurement.laboratory",
+  "url": "rarelink/ips.measurement.laboratory",
+  "name": "ips.measurement.laboratory",
+  "title": "IPS Measurement Laboratory RareLink ",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkMeasurements",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_3_measurements",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "ips.measurement",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & measurement_category & ncit_c60819 & ncit_c82577 & ncit_c92571 & ncit_c25712 & ncit_c41255 & snomedct_122869004_ncit & snomedct_122869004_snomed)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "{{measurement_status}}",
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "{{'http://terminology.hl7.org/CodeSystem/observation-category'}}",
+                  "code": "{{measurement_category}}",
+                  "display": "{{'Laboratory'}}"
+                }
+              ],
+              "@sliceName": "laboratory"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "{{'https://loinc.org'}}",
+                "code": "{{ncit_c60819}}",
+                "version": "{{'LNC278'}}"
+              }
+            ],
+            "text": "{{'Measurements - Assay'}}"
+          },
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "effectiveDateTime": "{{ncit_c82577}}",
+          "performer": [
+            {
+              "display": "{{'unknown'}}"
+            }
+          ],
+          "valueQuantity": {
+            "system": "{{'http://www.ontobee.org/ontology/UO'}}",
+            "code": "{{ncit_c92571.substring(3)}}",
+            "value": "{{ncit_c25712.toDecimal()}}"
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": "{{? iif(ncit_c41255.empty().not(), 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl')}}",
+                  "code": "{{? ncit_c41255.substring(10)}}",
+                  "version": "{{? iif(ncit_c41255.empty().not(), '24.01e')}}"
+                }
+              ]
+            }
+          ],
+          "method": {
+            "coding": [
+              {
+                "system": "{{? iif(snomedct_122869004_ncit.empty().not(), 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl')}}",
+                "code": "{{? snomedct_122869004_ncit}}",
+                "version": "{{? iif(snomedct_122869004_ncit.empty().not(), '24.01e')}}"
+              },
+              {
+                "system": "{{? iif(snomedct_122869004_snomed.empty().not(), 'http://snomed.info/sct')}}",
+                "code": "{{? snomedct_122869004_snomed}}",
+                "version": "{{? iif(snomedct_122869004_snomed.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+              }
+            ],
+            "text": "{{? iif(snomedct_122869004_snomed.empty().not(), 'Measurement - Procedure')}}"
+          }
+        }
+      },
+      "description": "IPS Measurement RareLink ",
+      "precondition": {
+        "name": "laboratoryMeasurements",
+        "language": "text/fhirpath",
+        "expression": "measurement_category = 'laboratory'"
+      }
+    }
+  ],
+  "context": {
+    "measurementCategory": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_3_0_measurement_category.csv"
+    }
+  }
+}

@@ -1,0 +1,292 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_6_4_family_history.yaml
+name: rarelink_6_4_family_history
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  SNOMEDCT: http://snomed.info/sct/
+  LOINC: https://loinc.org/
+  HL7FHIR: http://hl7.org/fhir/
+  ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  FamilyHistory:
+    description: >
+      Captures the family history of the individual, detailing relationships,
+      consanguinity, and specific family member details like diseases, age,
+      sex, and cause of death.
+    slots:
+      - family_history_pseudonym
+      - snomedct_64245008
+      - snomedct_408732007
+      - snomedct_842009
+      - snomedct_444018008
+      - hl7fhir_fmh_status
+      - loinc_54123_5
+      - loinc_54141_7
+      - loinc_54124_3
+      - snomedct_740604001
+      - loinc_54112_8
+      - loinc_92662_6
+      - loinc_75315_2
+      - rarelink_6_4_family_history_complete
+
+slots:
+  family_history_pseudonym:
+    title: 6.4.0 Pseudonym
+    description: >
+      A pseudonym assigned to the specific family member to identify across records.
+    range: string
+    required: false
+
+  snomedct_64245008:
+    title: 6.4.1 Propositus/-a
+    description: >
+      Indicates whether the individual is the first affected family member who
+      seeks medical attention for a genetic disorder.
+    range: string
+    required: false
+
+  snomedct_408732007:
+    title: 6.4.2 Relationship of the individual to the index case / propositus/a
+    description: >
+      Specifies the familial relationship of the individual being evaluated
+      to the index case.
+    range: string
+    required: false
+
+  snomedct_842009:
+    title: 6.4.3 Consanguinity
+    description: >
+      Indicates whether the parents of the individual are related by blood.
+    range: string
+    required: false
+
+  snomedct_444018008:
+    title: 6.4.4 Family Member Relationship
+    description: >
+      Specifies the relationship of the selected family member to the patient.
+    range: string
+    required: false
+
+  hl7fhir_fmh_status:
+    title: 6.4.5 Family Member Record Status
+    description: >
+      Specifies the record’s status of the family history of a specific family member.
+    range: string
+    required: false
+
+  loinc_54123_5:
+    title: 6.4.6 Family Member Sex
+    description: >
+      Specifies the sex (or gender) of the specific family member. If possible,
+      the sex assigned at birth should be selected.
+    range: string
+    required: false
+
+  loinc_54141_7:
+    title: 6.4.7 Family Member Age
+    description: >
+      Records the current age in full years of the selected family member.
+    range: integer
+    required: false
+
+  loinc_54124_3:
+    title: 6.4.8 Family Member Date of Birth
+    description: >
+      Records the date of birth of the selected family member.
+    range: date
+    required: false
+
+  snomedct_740604001:
+    title: 6.4.9 Family Member Deceased
+    description: >
+      Indicates whether the selected family member is deceased.
+    range: string
+    required: false
+
+  loinc_54112_8:
+    title: 6.4.10 Family Member Cause of Death [ICD10CM]
+    description: >
+      Records the cause of death of the selected deceased family member.
+    range: string
+    required: false
+
+  loinc_92662_6:
+    title: 6.4.11 Family Member Deceased Age
+    description: >
+      Records the age at which the family member passed away.
+    range: integer
+    required: false
+
+  loinc_75315_2: 
+    title: 6.4.12 Family Member Disease [MONDO]
+    description: >
+      Indicates whether the selected family member is affected by the same RD
+      as the individual or a different rare disease, encoded with MONDO.
+    range: string
+    required: false
+
+  rarelink_6_4_family_history_complete:
+    description: >
+      Completion status for the family history form.
+    range: string
+    required: false
+
+
+enums:
+  PropositusStatus:
+    description: >
+      Indicates whether the individual is the first affected family member who seeks medical attention.
+    permissible_values:
+      snomedct_373066001:
+        description: Yes
+        meaning: SNOMEDCT:373066001
+      snomedct_373067005:
+        description: No
+        meaning: SNOMEDCT:373067005
+      snomedct_261665006:
+        description: Unknown
+        meaning: SNOMEDCT:261665006
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null
+
+  RelationshipToIndexCase:
+    description: >
+      Specifies the relationship of the individual to the index case.
+    permissible_values:
+      snomedct_65656005:
+        description: Natural mother
+        meaning: SNOMEDCT:65656005
+      snomedct_9947008:
+        description: Natural father
+        meaning: SNOMEDCT:9947008
+      snomedct_83420006:
+        description: Natural daughter
+        meaning: SNOMEDCT:83420006
+      snomedct_113160008:
+        description: Natural son
+        meaning: SNOMEDCT:113160008
+      snomedct_60614009:
+        description: Natural brother
+        meaning: SNOMEDCT:60614009
+      snomedct_73678001:
+        description: Natural sister
+        meaning: SNOMEDCT:73678001
+      snomedct_11286003:
+        description: Twin sibling
+        meaning: SNOMEDCT:11286003
+      snomedct_45929001:
+        description: Half-brother
+        meaning: SNOMEDCT:45929001
+      snomedct_2272004:
+        description: Half-sister
+        meaning: SNOMEDCT:2272004
+      snomedct_62296006:
+        description: Natural grandfather
+        meaning: SNOMEDCT:62296006
+      snomedct_17945006:
+        description: Natural grandmother
+        meaning: SNOMEDCT:17945006
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null
+
+  FamilyRelationship:
+    description: >
+      Specifies the relationship of the selected family member to the patient.
+    permissible_values:
+      snomedct_65656005:
+        description: Natural mother
+        meaning: SNOMEDCT:65656005
+      snomedct_9947008:
+        description: Natural father
+        meaning: SNOMEDCT:9947008
+      snomedct_83420006:
+        description: Natural daughter
+        meaning: SNOMEDCT:83420006
+      snomedct_113160008:
+        description: Natural son
+        meaning: SNOMEDCT:113160008
+      snomedct_60614009:
+        description: Natural brother
+        meaning: SNOMEDCT:60614009
+      snomedct_73678001:
+        description: Natural sister
+        meaning: SNOMEDCT:73678001
+      snomedct_11286003:
+        description: Twin sibling
+        meaning: SNOMEDCT:11286003
+      snomedct_45929001:
+        description: Half-brother
+        meaning: SNOMEDCT:45929001
+      snomedct_2272004:
+        description: Half-sister
+        meaning: SNOMEDCT:2272004
+      snomedct_62296006:
+        description: Natural grandfather
+        meaning: SNOMEDCT:62296006
+      snomedct_17945006:
+        description: Natural grandmother
+        meaning: SNOMEDCT:17945006
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null
+
+  FamilyRecordStatus:
+    description: >
+      Specifies the record’s status of the family history.
+    permissible_values:
+      hl7fhir_partial:
+        description: Partial
+        meaning: HL7FHIR:partial
+      hl7fhir_completed:
+        description: Completed
+        meaning: HL7FHIR:completed
+      hl7fhir_entered-in-error:
+        description: Entered in Error
+        meaning: HL7FHIR:entered-in-error
+      hl7fhir_health-unknown:
+        description: Health Unknown
+        meaning: HL7FHIR:health-unknown
+      '':
+        description: No value provided
+        meaning: null
+
+  FamilyMemberSex:
+    description: >
+      Specifies the sex (or gender) of the specific family member.
+    permissible_values:
+      snomedct_248152002:
+        description: Female
+        meaning: SNOMEDCT:248152002
+      snomedct_248153007:
+        description: Male
+        meaning: SNOMEDCT:248153007
+      snomedct_184115007:
+        description: Patient sex unknown
+        meaning: SNOMEDCT:184115007
+      snomedct_32570691000036108:
+        description: Intersex
+        meaning: SNOMEDCT:32570691000036108
+      snomedct_1220561009:
+        description: Not recorded
+        meaning: SNOMEDCT:1220561009
+      '':
+        description: No value provided
+        meaning: null

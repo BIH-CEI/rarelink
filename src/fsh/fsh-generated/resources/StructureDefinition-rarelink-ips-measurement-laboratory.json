@@ -1,0 +1,72 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-ips-measurement-laboratory",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory",
+  "name": "RareLinkIPSMeasurementLaboratory",
+  "title": "RareLink IPS Measurement Laboratory",
+  "status": "draft",
+  "description": "A RareLink-specific profile for laboratory measurements based on the IPS Observation profile.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "max": "1"
+      },
+      {
+        "id": "Observation.category.coding",
+        "path": "Observation.category.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.category.coding.code",
+        "path": "Observation.category.coding.code",
+        "patternCode": "laboratory"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject.identifier",
+        "path": "Observation.subject.identifier",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+            "valueCode": "unknown"
+          }
+        ],
+        "path": "Observation.performer"
+      },
+      {
+        "id": "Observation.interpretation.coding.system",
+        "path": "Observation.interpretation.coding.system",
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+      },
+      {
+        "id": "Observation.method.coding.system",
+        "path": "Observation.method.coding.system",
+        "patternUri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+      }
+    ]
+  }
+}

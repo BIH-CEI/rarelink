@@ -1,0 +1,982 @@
+{
+  "resourceType": "Bundle",
+  "id": "c9b3318f-3bcb-49b4-8fc5-27c7e0bf88ba",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.826+00:00"
+  },
+  "type": "searchset",
+  "total": 10,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Patient?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-ips-patient"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Patient/7413bc7a5269d20bcb70d5b96b3a04ef",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "7413bc7a5269d20bcb70d5b96b3a04ef",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:42:57.240+00:00",
+        "source": "#53HEBjdDYEkyrKTb",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "CAN"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-13"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA2-8",
+              "display": "Male"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo7"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "male",
+      "birthDate": "2016-04-25",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/d6d27d6d5836206e4b665026df236c77",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "d6d27d6d5836206e4b665026df236c77",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:42:57.482+00:00",
+        "source": "#OU6jiy2rQ0dZiseD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "USA"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-12"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA2-8",
+              "display": "Male"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo3"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "male",
+      "birthDate": "2017-06-17",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/8462c600fc75951df56a81973c0cede1",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "8462c600fc75951df56a81973c0cede1",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:42:57.532+00:00",
+        "source": "#RPChH5Vi4UpsqjAk",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "JAP"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-13"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA3-6",
+              "display": "Female"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo8"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "female",
+      "birthDate": "2009-12-03",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/28d94ef1c221913ff6cda2628fcfad1d",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "28d94ef1c221913ff6cda2628fcfad1d",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:42:58.534+00:00",
+        "source": "#lkrkH2pzftnS96ZJ",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "GER"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-12"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA2-8",
+              "display": "Male"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo5"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "male",
+      "birthDate": "2014-10-05",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/c57a66597158f602ca13f7636fc2aa98",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "c57a66597158f602ca13f7636fc2aa98",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:42:58.699+00:00",
+        "source": "#cGFl5xu10P6VTN6e",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "GER"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-13"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA3-6",
+              "display": "Female"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo6"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "female",
+      "birthDate": "2014-10-05",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/4c07dadaa158b8513be1d3edfa72fe91",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "4c07dadaa158b8513be1d3edfa72fe91",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:43:00.157+00:00",
+        "source": "#QAHkseq9WXwtwedY",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "SA"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-13"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA2-8",
+              "display": "Male"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo9"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "male",
+      "birthDate": "2013-08-30",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/6b72ca46729582619f2a13c9190df29f",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "6b72ca46729582619f2a13c9190df29f",
+      "meta": {
+        "versionId": "6",
+        "lastUpdated": "2025-05-09T08:43:00.157+00:00",
+        "source": "#yx6PzGCGDDaNc6p8",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "GER"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-12"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA2-8",
+              "display": "Male"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo1"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "male",
+      "birthDate": "2015-01-12",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/65878435ab8835a9d5259537a03629fa",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "65878435ab8835a9d5259537a03629fa",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:43:00.466+00:00",
+        "source": "#I7GZMoUOInoH8oia",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "AFG"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-13"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA3-6",
+              "display": "Female"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo10"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "female",
+      "birthDate": "2015-11-15",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/556efd38861891b9f4630cbfe05da4aa",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "556efd38861891b9f4630cbfe05da4aa",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:43:01.491+00:00",
+        "source": "#7BlgXSq7tOxyYfzs",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-12"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA3-6",
+              "display": "Female"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo4"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "unknown",
+      "birthDate": "2010-02-20",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Patient/a363ff2b1833e3df408910f5b3d04334",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "a363ff2b1833e3df408910f5b3d04334",
+      "meta": {
+        "versionId": "5",
+        "lastUpdated": "2025-05-09T08:43:01.782+00:00",
+        "source": "#KN9pCY5w50XHhYcJ",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient" ]
+      },
+      "text": {
+        "status": "extensions",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "extension": [ {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+        "extension": [ {
+          "url": "countryCode",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/NamingSystem/v3-iso3166-1",
+              "version": "ISO 3166-1:2020(en)",
+              "code": "TUR"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "370159000",
+              "display": "Country of Birth"
+            } ]
+          }
+        } ]
+      }, {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+        "extension": [ {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "399423000",
+              "display": "Date of Admission"
+            } ]
+          }
+        }, {
+          "url": "value",
+          "valueDateTime": "2025-04-12"
+        } ]
+      }, {
+        "url": "https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html",
+        "extension": [ {
+          "url": "value",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "LA3-6",
+              "display": "Female"
+            } ]
+          }
+        }, {
+          "url": "codeDefinition",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "version": "SNOMEDCT_US_2024_09_01",
+              "code": "281053000",
+              "display": "Sex at Birth"
+            } ]
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "type": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "version": "SNOMEDCT_US_2024_09_01",
+            "code": "422549004",
+            "display": "Patient-related Identification code (observable entity)"
+          } ]
+        },
+        "value": "EvCo2"
+      } ],
+      "name": [ {
+        "text": "unknown"
+      } ],
+      "gender": "female",
+      "birthDate": "2012-03-04",
+      "deceasedBoolean": false
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

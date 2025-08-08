@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GA4GH Phenopacket Schema &mdash; rarelink 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f46623cf" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rarelink
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_file.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/guide_file.html">RareLink User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_file.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowlegements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rarelink</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GA4GH Phenopacket Schema</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/background/3_ga4gh_phenopacket_schema.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ga4gh-phenopacket-schema">
+<h1>GA4GH Phenopacket Schema<a class="headerlink" href="#ga4gh-phenopacket-schema" title="Link to this heading"></a></h1>
+<p>The Phenopacket schema, developed by the Global Alliance for Genomics and Health
+(GA4GH), is an open standard designed to facilitate the exchange of detailed
+phenotypic and genomic data. It is particularly useful for capturing rich
+clinical data and complex phenotypes in a structured format, making it ideal
+for rare disease (RD) research. The schema enables the precise description of
+a patient’s clinical features, genetic information, diagnoses, and disease
+progression, all of which are critical for understanding rare diseases.
+Phenopackets are widely adopted in bioinformatics pipelines to ensure the
+standardization of data across different institutions and studies, enhancing
+data reusability and interoperability.</p>
+<p>RareLink integrates the Phenopacket schema to streamline RD data management by
+ensuring that clinical and genomic data from patients are encoded in a
+standardized format. By adopting this schema, RareLink allows for more precise
+and seamless sharing of patient data across different healthcare institutions
+and research projects. This integration helps overcome the challenge of
+fragmented RD data, as Phenopackets offer a universal language for describing
+the clinical characteristics of RD patients. In doing so, RareLink significantly
+enhances the bioinformatic output, making it easier to connect RD patient
+registries with broader genomic research databases, improving the potential for
+discovering new therapies.</p>
+<p>Several tools have been developed around the Phenopacket schema, supporting the
+collection, analysis, and dissemination of RD data. Tools such as the
+Phenopacket validator ensure that data adhere to the schema’s strict standards,
+preventing inconsistencies and improving data quality. Additionally, the GA4GH
+Beacon network allows researchers to query datasets to find specific genomic
+variants associated with phenotypic data encoded in Phenopackets. These tools
+have helped to broaden the impact of Phenopackets in RD research by promoting
+data accuracy, accessibility, and reusability across multiple platforms and
+projects.</p>
+<p>The incorporation of the Phenopacket schema into RareLink has enabled
+significant advancements in RD research by ensuring that high-quality,
+standardized data is consistently captured, shared, and analyzed. This not only
+facilitates collaboration between research centers and hospitals but also
+accelerates the discovery of potential treatments by making data accessible to
+bioinformaticians and clinicians worldwide. As more tools and frameworks are
+built around the Phenopacket schema, the potential for breakthroughs in RD
+diagnosis and treatment continues to grow.</p>
+<a class="reference internal image-reference" href="../_images/phenopacket-schema-v2.png"><img alt="GA4GH Phenopacket Schema" class="align-center" src="../_images/phenopacket-schema-v2.png" style="width: 600px; height: 400px;" /></a>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41587-022-01357-4">The GA4GH Phenopacket schema defines a computable representation of clinical data</a></p></li>
+<li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/ggn2.202200016">GA4GH Phenopackets: A Practical Introduction</a></p></li>
+<li><p><a class="reference external" href="https://www.medrxiv.org/content/10.1101/2024.05.29.24308104v1">A corpus of GA4GH Phenopackets: case-level phenotyping for genomic diagnostics and discovery</a></p></li>
+<li><p><a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0285433">Phenopacket-tools: Building and validating GA4GH Phenopackets</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

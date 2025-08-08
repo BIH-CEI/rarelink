@@ -1,0 +1,463 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_6_1_genetic_findings.yaml
+name: rarelink_6_1_genetic_findings
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  MONDO: https://purl.obolibrary.org/obo/MONDO_
+  OMIM: https://omim.org/entry/
+  HGNC: https://www.genenames.org/
+  LOINC: https://loinc.org/
+  GA4GH: https://ga4gh.org/
+imports:
+  - linkml:types
+  - rarelink_types
+  - rarelink_code_systems
+default_range: string
+default_prefix: rarelink
+
+classes:
+  GeneticFindings:
+    description: >
+      Captures details about genetic findings and associated metadata like genomic
+      diagnoses, interpretation, zygosity, clinical significance, and more.
+    slots:
+      - genetic_diagnosis_code
+      - snomedct_106221001_mondo
+      - snomedct_106221001_omim_p
+      - ga4gh_progress_status
+      - ga4gh_interp_status
+      - loinc_81304_8
+      - loinc_81304_8_other
+      - loinc_62374_4
+      - loinc_lp7824_8
+      - variant_expression
+      - loinc_81290_9
+      - loinc_48004_6
+      - loinc_48005_3
+      - variant_validation
+      - loinc_48018_6
+      - loinc_53034_5
+      - loinc_53034_5_other
+      - loinc_48002_0
+      - loinc_48019_4
+      - loinc_48019_4_other
+      - loinc_53037_8
+      - ga4gh_therap_action
+      - loinc_93044_6
+      - rarelink_6_1_genetic_findings_complete
+
+slots:
+  genetic_diagnosis_code:
+    title: 6.1.0 Genetic Diagnosis Code System
+    description: The encoding system used for the genetic diagnosis (e.g., MONDO, OMIM)
+    range: string
+    required: true
+
+  snomedct_106221001_mondo:
+    title: 6.1.1 Genetic Diagnosis [MONDO]
+    description: The genetic finding of a variant can be linked to a disease in (5.1) if the same MONDO codes is used.
+    range: string
+    required: false
+
+  snomedct_106221001_omim_p:
+    title: 6.1.1 Genetic Diagnosis [OMIM_p]
+    description: The genetic finding of a variant can be linked to a disease in (5.1) if the same OMIM codes is used.
+    range: string
+    required: false
+
+  ga4gh_progress_status:
+    title: 6.1.2 Progress Status of Interpretation
+    description: ​​The interpretation has a ProgressStatus that refers to the status of the attempted diagnosis.
+    range: InterpretationProgressStatus
+    required: false
+
+  ga4gh_interp_status:
+    title: 6.1.3 Interpretation Status
+    description: An enumeration that describes the conclusion made about the genomic interpretation.
+    range: InterpretationStatus
+    required: false
+
+  loinc_81304_8:
+    title: 6.1.4 Structural Variant Analysis Method
+    description: The method used to analyse structural variants in the genome.
+    range: StructuralVariantMethod
+    required: false
+
+  loinc_81304_8_other:
+    title: 6.1.4 Structural Variant Analysis Method - Other [LOINC]
+    description: Please search for a different structural variant analysis method in LOINC.
+    range: string
+    required: false
+
+  loinc_62374_4:
+    title: 6.1.5 Reference Genome
+    description: The reference genome used for analysing the genetic variant.
+    range: ReferenceGenome
+    required: false
+
+  loinc_lp7824_8:
+    title: 6.1.6 Genetic Mutation String
+    description: An unvalidated (HGVS) string that describes the variant change.
+    range: string
+    required: false
+
+  variant_expression:
+    title: Validated HGVS Variant Expression Type
+    description: We recommend using sequence DNA change expressions (c.HGVS) if possible.
+    range: VariantExpressionType
+    required: false
+
+  loinc_81290_9:
+    title: 6.1.7 Genomic DNA Change [g.HGVS]
+    description: The specific change in the genomic DNA sequence encoded with a validated g.HGVS expression.
+    range: string
+    required: false
+
+  loinc_48004_6:
+    title: 6.1.8 Sequence DNA Change [c.HGVS]
+    description: The specific change in the DNA sequence at the nucleotide level with a validated c.HGVS expression
+    range: string
+    required: false
+
+  loinc_48005_3:
+    title: 6.1.9 Amino Acid Change [p.HGVS]
+    description: The specific change in the amino acid sequence resulting from a genetic variant as a validated p.HGVS expression
+    range: string
+    required: false
+
+  variant_validation:
+    title: HGVS Validation Confirmation 
+    description: Are you sure the entered HGVS expression was validated using the variant validator?
+    range: boolean
+    required: false
+
+  loinc_48018_6:
+    title: 6.1.10 Gene [HGNC-NR]
+    description: The specific gene or genes that were analysed or identified in the study.
+    range: string
+    required: false
+
+  loinc_53034_5:
+    title: 6.1.11 Zygosity
+    description: The zygosity of the genetic variant.
+    range: Zygosity
+    required: false
+
+  loinc_53034_5_other:
+    title: 6.1.11A Zygosity - Other [LOINC]
+    description: Please search for a different zygosity in LOINC.
+    range: string
+    required: false
+
+  loinc_48002_0:
+    title: 6.1.12 Genomic Source Class
+    description: The classification of the genomic source, such as germline, somatic, or other origins.
+    range: GenomicSourceClass
+    required: false
+
+  loinc_48019_4:
+    title: 6.1.13 DNA Change Type
+    description: The variant’s type of DNA change, such as point mutation, deletion, insertion, or other types.
+    range: DNAChangeType
+    required: false
+
+  loinc_48019_4_other:
+    title: 6.1.13A DNA Change Type - Other [LOINC]
+    description: Please search for a different DNA change typ in LOINC.
+    range: string
+    required: false
+
+  loinc_53037_8:
+    title: 6.1.14 Clinical Significance [ACMG]
+    description: The clinical significance of the genetic variant, indicating its impact on health and disease.
+    range: ClinicalSignificance
+    required: false
+
+  ga4gh_therap_action:
+    title: 6.1.15 Therapeutic Actionability
+    description: An enumeration flagging the variant as being a candidate for treatment/ clinical intervention of the disorder caused by this variant, which could improve the clinical outcome.
+    range: TherapeuticActionability
+    required: false
+
+  loinc_93044_6:
+    title: 6.1.16 Clinical Annotation Level Of Evidence
+    description: The level of evidence supporting the clinical annotation of the genetic variant.
+    range: LevelOfEvidence
+    required: false
+
+  rarelink_6_1_genetic_findings_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  InterpretationProgressStatus:
+    permissible_values:
+      ga4gh_unknown_progress:
+        description: No information is available about the diagnosis
+        meaning: GA4GH:unknown_progress
+      ga4gh_in_progress:
+        description: Additional differential diagnostic work is in progress
+        meaning: GA4GH:in_progress
+      ga4gh_completed:
+        description: The work on the interpretation is complete
+        meaning: GA4GH:completed
+      ga4gh_solved:
+        description: The interpretation is complete and definitive diagnosis made
+        meaning: GA4GH:solved
+      ga4gh_unsolved:
+        description: The interpretation is complete but no definitive diagnosis
+        meaning: GA4GH:unsolved
+      '':
+        description: No value provided
+        meaning: null
+
+  InterpretationStatus:
+    permissible_values:
+      ga4gh_unknown_status:
+        description: No information available about the status
+        meaning: GA4GH:unknown_status
+      ga4gh_rejected:
+        description: Variant not related to the diagnosis
+        meaning: GA4GH:rejected
+      ga4gh_candidate:
+        description: Variant possibly related to the diagnosis
+        meaning: GA4GH:candidate
+      ga4gh_contributory:
+        description: Variant related to the diagnosis
+        meaning: GA4GH:contributory
+      ga4gh_causative:
+        description: Variant causative of the diagnosis
+        meaning: GA4GH:causative
+      '':
+        description: No value provided
+        meaning: null
+
+  StructuralVariantMethod:
+    permissible_values:
+      loinc_la26406-1:
+        description: Karyotyping
+        meaning: LOINC:LA26406-1
+      loinc_la26404-6:
+        description: FISH
+        meaning: LOINC:LA26404-6
+      loinc_la26418-6:
+        description: PCR
+        meaning: LOINC:LA26418-6
+      loinc_la26419-4:
+        description: qPCR (real-time PCR)
+        meaning: LOINC:LA26419-4
+      loinc_la26400-4:
+        description: SNP array
+        meaning: LOINC:LA26400-4
+      loinc_la26813-8:
+        description: Restriction fragment length polymorphism (RFLP)
+        meaning: LOINC:LA26813-8
+      loinc_la26810-4:
+        description: DNA hybridization
+        meaning: LOINC:LA26810-4
+      loinc_la26398-0:
+        description: Sequencing
+        meaning: LOINC:LA26398-0
+      loinc_la26415-2:
+        description: MLPA
+        meaning: LOINC:LA26415-2
+      loinc_la46-8:
+        description: Other
+        meaning: LOINC:LA46-8
+      '':
+        description: No value provided
+        meaning: null
+
+  ReferenceGenome:
+    permissible_values:
+      loinc_la14032-9:
+        description: NCBI Build 34 (hg16)
+        meaning: LOINC:LA14032-9
+      loinc_la14029-5:
+        description: GRCh37 (hg19)
+        meaning: LOINC:LA14029-5
+      loinc_la14030-3:
+        description: NCBI Build 36.1 (hg18)
+        meaning: LOINC:LA14030-3
+      loinc_la14031-1:
+        description: NCBI Build 35 (hg17)
+        meaning: LOINC:LA14031-1
+      loinc_la26806-2:
+        description: GRCh38 (hg38)
+        meaning: LOINC:LA26806-2
+      '':
+        description: No value provided
+        meaning: null
+
+  VariantExpressionType:
+    permissible_values:
+      ghgvs:
+        description: Genomic DNA change [g.HGVS]
+        meaning: g.HGVS
+      chgvs:
+        description: Sequence DNA change [c.HGVS]
+        meaning: c.HGVS
+      phgvs:
+        description: Amino Acid Change [p.HGVS]
+        meaning: p.HGVS
+      '':
+        description: No value provided
+        meaning: null
+
+
+  Zygosity:
+    permissible_values:
+      loinc_la6705-3:
+        description: Homozygous
+        meaning: LOINC:LA6705-3
+      loinc_la6706-1:
+        description: (simple) Heterozygous
+        meaning: LOINC:LA6706-1
+      loinc_la26217-2:
+        description: Compound heterozygous
+        meaning: LOINC:LA26217-2
+      loinc_la26220-6:
+        description: Double heterozygous
+        meaning: LOINC:LA26220-6
+      loinc_la6707-9:
+        description: Hemizygous
+        meaning: LOINC:LA6707-9
+      loinc_la6703-8:
+        description: Heteroplasmic
+        meaning: LOINC:LA6703-8
+      loinc_la6704-6:
+        description: Homoplasmic
+        meaning: LOINC:LA6704-6
+      loinc_53034_5_other:
+        description: Other
+        meaning: LOINC:53034-5
+      '':
+        description: No value provided
+        meaning: null
+
+  GenomicSourceClass:
+    permissible_values:
+      loinc_la6683-2:
+        description: Germline
+        meaning: LOINC:LA6683-2
+      loinc_la6684-0:
+        description: Somatic
+        meaning: LOINC:LA6684-0
+      loinc_la10429-1:
+        description: Fetal
+        meaning: LOINC:LA10429-1
+      loinc_la18194-3:
+        description: Likely germline
+        meaning: LOINC:LA18194-3
+      loinc_la18195-0:
+        description: Likely somatic
+        meaning: LOINC:LA18195-0
+      loinc_la18196-8:
+        description: Likely fetal
+        meaning: LOINC:LA18196-8
+      loinc_la18197-6:
+        description: Unknown genomic origin
+        meaning: LOINC:LA18197-6
+      loinc_la26807-0:
+        description: De novo
+        meaning: LOINC:LA26807-0
+      '':
+        description: No value provided
+        meaning: null
+
+  DNAChangeType:
+    permissible_values:
+      loinc_la9658-1:
+        description: Wild type
+        meaning: LOINC:LA9658-1
+      loinc_la6692-3:
+        description: Deletion
+        meaning: LOINC:LA6692-3
+      loinc_la6686-5:
+        description: Duplication
+        meaning: LOINC:LA6686-5
+      loinc_la6687-3:
+        description: Insertion
+        meaning: LOINC:LA6687-3
+      loinc_la6688-1:
+        description: Insertion/Deletion
+        meaning: LOINC:LA6688-1
+      loinc_la6689-9:
+        description: Inversion
+        meaning: LOINC:LA6689-9
+      loinc_la6690-7:
+        description: Substitution
+        meaning: LOINC:LA6690-7
+      loinc_48019_4_other:
+        description: Other
+        meaning: LOINC:48019-4
+      '':
+        description: No value provided
+        meaning: null
+
+  ClinicalSignificance:
+    permissible_values:
+      loinc_la6668-3:
+        description: Pathogenic
+        meaning: LOINC:LA6668-3
+      loinc_la26332-9:
+        description: Likely pathogenic
+        meaning: LOINC:LA26332-9
+      loinc_la26333-7:
+        description: Uncertain significance
+        meaning: LOINC:LA26333-7
+      loinc_la26334-5:
+        description: Likely benign
+        meaning: LOINC:LA26334-5
+      loinc_la6675-8:
+        description: Benign
+        meaning: LOINC:LA6675-8
+      loinc_la4489-6:
+        description: Unknown
+        meaning: LOINC:LA4489-6
+      '':
+        description: No value provided
+        meaning: null
+
+  TherapeuticActionability:
+    permissible_values:
+      ga4gh_unknown_actionability:
+        description: No therapeutic actionability available
+        meaning: GA4GH:unknown_actionability
+      ga4gh_not_actionable:
+        description: No therapeutic actionability
+        meaning: GA4GH:not_actionable
+      ga4gh_actionable:
+        description: Therapeutically actionable
+        meaning: GA4GH:actionable
+      '':
+        description: No value provided
+        meaning: null
+
+  LevelOfEvidence:
+    permissible_values:
+      loinc_la30200-2:
+        description: Very strong evidence pathogenic
+        meaning: LOINC:LA30200-2
+      loinc_la30201-0:
+        description: Strong evidence pathogenic
+        meaning: LOINC:LA30201-0
+      loinc_la30202-8:
+        description: Moderate evidence pathogenic
+        meaning: LOINC:LA30202-8
+      loinc_la30203-6:
+        description: Supporting evidence pathogenic
+        meaning: LOINC:LA30203-6
+      loinc_la30204-4:
+        description: Supporting evidence benign
+        meaning: LOINC:LA30204-4
+      loinc_la30205-1:
+        description: Strong evidence benign
+        meaning: LOINC:LA30205-1
+      loinc_la30206-9:
+        description: Stand-alone evidence pathogenic
+        meaning: LOINC:LA30206-9
+      '':
+        description: No value provided
+        meaning: null

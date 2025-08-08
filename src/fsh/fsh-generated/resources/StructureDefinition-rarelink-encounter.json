@@ -1,0 +1,58 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rarelink-encounter",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter",
+  "name": "RareLinkEncounter",
+  "title": "RareLink Encounter",
+  "status": "draft",
+  "description": "A RareLink-specific Encounter profile based on the Encounter resource.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/encounter-status"
+        }
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://rarelink.bih-charite.de/fhir/ValueSet/encounter-class-vs"
+        }
+      },
+      {
+        "id": "Encounter.subject",
+        "path": "Encounter.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.subject.reference",
+        "path": "Encounter.subject.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.subject.identifier",
+        "path": "Encounter.subject.identifier",
+        "mustSupport": true
+      }
+    ]
+  }
+}

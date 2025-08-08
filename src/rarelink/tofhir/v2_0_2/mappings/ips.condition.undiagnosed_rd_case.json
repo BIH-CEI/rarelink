@@ -1,0 +1,60 @@
+{
+  "id": "ips.condition.undiagnosed_rd_case",
+  "url": "rarelink/ips.condition.undiagnosed_rd_case",
+  "name": "ips.condition.undiagnosed_rd_case",
+  "title": "Condition RareLink CDM Undiagnosed RD Case",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "RareLinkPatientStatus",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_3_patient_status",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "condition.undiagnosed_rd_case",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Condition', record_id & 'Undiagnosed')}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case"
+            ]
+          },
+          "resourceType": "Condition",
+          "code": {
+            "coding": [
+              {
+                "code": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_code')}}",
+                "system": "{{? iif(snomedct_723663001.empty().not(), 'http://www.orpha.net/ORDO')}}",
+                "display": "{{? mpp:getConcept(%undiagnoseRDcase, snomedct_723663001, 'target_display')}}",
+                "version": "{{? iif(snomedct_723663001.empty().not(), 'OMIM2024_08_09')}}"
+              }
+            ]
+          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "recordedDate": "{{? patient_status_date.toDate()}}",
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "Condition RareLink CDM Undiagnosed RD Case",
+      "precondition": {
+        "name": "noRDDiagnosisMade",
+        "language": "text/fhirpath",
+        "expression": "snomedct_723663001 = 'snomedct_373066001'"
+      }
+    }
+  ],
+  "context": {
+    "undiagnoseRDcase": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/3_6_undiagnosed_rd_case.csv"
+    }
+  }
+}

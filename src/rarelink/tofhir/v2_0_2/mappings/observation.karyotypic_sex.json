@@ -1,0 +1,70 @@
+{
+  "id": "observation.karyotypic_sex",
+  "url": "rarelink/karyotypic_sex",
+  "name": "observation.karyotypic_sex",
+  "title": "RareLink CDM ",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "personalinformation",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_2_personal_information",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "observationr401",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Karyotypic Sex')}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-karyotypic-sex"
+            ]
+          },
+          "resourceType": "Observation",
+          "status": "{{'final'}}",
+          "code": {
+            "coding": [
+              {
+                "code": "{{'1296886006'}}",
+                "system": "{{'http://snomed.info/sct'}}",
+                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "display": "{{'Karyotypic Sex'}}"
+              }
+            ]
+          },
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_code')}}",
+                "system": "{{'http://snomed.info/sct'}}",
+                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "display": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_display')}}"
+              }
+            ]
+          },
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "RareLink CDM 2.3 Karyotypic Sex - Observation Resource",
+      "precondition": {
+        "name": "karyotypicSexExists",
+        "language": "text/fhirpath",
+        "expression": "snomedct_1296886006.empty().not()"
+      }
+    }
+  ],
+  "context": {
+    "karyotypicSexConceptMap": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/2_3_karyotypic_sex.csv"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cause-of-death",
+  "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death",
+  "name": "CauseOfDeath",
+  "title": "Cause of Death",
+  "status": "draft",
+  "description": "The cause of death for the patient.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Cause of Death",
+        "definition": "The cause of death for the patient."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "min": 2
+      },
+      {
+        "id": "Extension.extension:causeOfDeath",
+        "path": "Extension.extension",
+        "sliceName": "causeOfDeath",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-code"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:codeDefinition",
+        "path": "Extension.extension",
+        "sliceName": "codeDefinition",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

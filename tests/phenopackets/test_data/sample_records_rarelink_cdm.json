@@ -1,0 +1,984 @@
+[
+
+   {
+    "record_id": "101",
+    "formal_criteria": {
+      "snomedct_422549004": "TEST_13JAN",
+      "snomedct_399423000": "2025-01-10",
+      "rarelink_1_formal_criteria_complete": "2"
+    },
+    "personal_information": {
+      "snomedct_184099003": "2020-01-05",
+      "snomedct_281053000": "",
+      "snomedct_1296886006": "snomedct_734875008",
+      "snomedct_263495000": "snomedct_394743007",
+      "snomedct_370159000": "GER",
+      "rarelink_2_personal_information_complete": "2"
+    },
+    "consent": {
+      "snomedct_309370004": "hl7fhir_rejected",
+      "hl7fhir_consent_datetime": "2024-11-30",
+      "snomedct_386318002": "41i29\u00df0",
+      "rarelink_consent_contact": "snomedct_373066001",
+      "rarelink_consent_data": "snomedct_373066001",
+      "snomedct_123038009": "snomedct_261665006",
+      "rarelink_biobank_link": "r12",
+      "rarelink_7_consent_complete": "2"
+    },
+    "disability": {
+      "rarelink_icf_score": "",
+      "rarelink_8_disability_complete": "2"
+    },
+    "repeated_elements": [
+      {
+        "redcap_repeat_instrument": "rarelink_3_patient_status",
+        "redcap_repeat_instance": 1,
+        "patient_status": {
+          "patient_status_date": "2024-11-29",
+          "snomedct_278844005": "snomedct_419099009",
+          "snomedct_398299004": "2024-11-29",
+          "snomedct_184305005": "ICD10CM:G46.4",
+          "snomedct_105727008": "snomedct_255398004",
+          "snomedct_412726003": "36+4",
+          "snomedct_723663001": "snomedct_373066001",
+          "rarelink_3_patient_status_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_3_patient_status",
+        "redcap_repeat_instance": 2,
+        "patient_status": {
+          "patient_status_date": "2025-01-04",
+          "snomedct_278844005": "",
+          "snomedct_398299004": "",
+          "snomedct_184305005": "",
+          "snomedct_105727008": "",
+          "snomedct_412726003": "",
+          "snomedct_723663001": "",
+          "rarelink_3_patient_status_complete": "0"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 1,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2024-08-21",
+          "hl7fhir_enc_period_end": "2024-09-21",
+          "snomedct_305058001": "hl7fhir_finished",
+          "hl7fhir_encounter_class": "hl7fhir_obsenc",
+          "rarelink_4_care_pathway_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 1,
+        "disease": {
+          "disease_coding": "ordo",
+          "snomedct_64572001_mondo": "",
+          "snomedct_64572001_ordo": "ORPHA:459345",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_confirmed",
+          "snomedct_424850005": "snomedct_3950001",
+          "snomedct_298059007": "2022-11-30",
+          "snomedct_423493009": "snomedct_3950001",
+          "snomedct_432213005": "2023-09-10",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "hl7fhir_inactive",
+          "snomedct_246112005": "snomedct_24484000",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 2,
+        "disease": {
+          "disease_coding": "mondo",
+          "snomedct_64572001_mondo": "MONDO:0019499",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_confirmed",
+          "snomedct_424850005": "snomedct_3950001",
+          "snomedct_298059007": "",
+          "snomedct_423493009": "snomedct_410672004",
+          "snomedct_432213005": "2020-01-28",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "hl7fhir_active",
+          "snomedct_246112005": "snomedct_6736007",
+          "rarelink_5_disease_complete": "1"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 3,
+        "disease": {
+          "disease_coding": "icd10cm",
+          "snomedct_64572001_mondo": "",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "ICD10CM:Z82.3",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_confirmed",
+          "snomedct_424850005": "snomedct_410672004",
+          "snomedct_298059007": "2020-05-09",
+          "snomedct_423493009": "snomedct_410672004",
+          "snomedct_432213005": "2020-09-09",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "hl7fhir_active",
+          "snomedct_246112005": "snomedct_24484000",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 4,
+        "disease": {
+          "disease_coding": "mondo",
+          "snomedct_64572001_mondo": "MONDO:0002367",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_provisional",
+          "snomedct_424850005": "",
+          "snomedct_298059007": "",
+          "snomedct_423493009": "snomedct_410672004",
+          "snomedct_432213005": "SNOMEDCT_US_2024_09_01",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "hl7fhir_active",
+          "snomedct_246112005": "snomedct_24484000",
+          "rarelink_5_disease_complete": "0"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+        "redcap_repeat_instance": 1,
+        "genetic_findings": {
+          "genetic_diagnosis_code": "omim",
+          "snomedct_106221001_mondo": "",
+          "snomedct_106221001_omim_p": "OMIM:241600",
+          "ga4gh_progress_status": "ga4gh_completed",
+          "ga4gh_interp_status": "ga4gh_candidate",
+          "loinc_81304_8": "loinc_la46-8",
+          "loinc_62374_4": "loinc_la26806-2",
+          "loinc_lp7824_8": "",
+          "variant_expression": "chgvs",
+          "loinc_81290_9": "",
+          "loinc_48004_6": "NM_006883.2:c.-507G>C",
+          "loinc_48005_3": "",
+          "variant_validation": true,
+          "loinc_48018_6": "HGNC:10853",
+          "loinc_53034_5": "loinc_53034_5_other",
+          "loinc_53034_5_other": "LOINC:LA6703-8",
+          "loinc_48002_0": "loinc_la10429-1",
+          "loinc_48019_4": "loinc_48019_4_other",
+          "loinc_48019_4_other": "LOINC:LP71749-3",
+          "loinc_53037_8": "loinc_la26333-7",
+          "ga4gh_therap_action": "ga4gh_not_actionable",
+          "loinc_93044_6": "loinc_la30201-0",
+          "rarelink_6_1_genetic_findings_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 1,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0001059",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2022-10-14",
+          "snomedct_8116006_resolut": "2025-02-28",
+          "hp_0003674": "hp_0003621",
+          "hp_0011008": "hp_0025297",
+          "hp_0012824": "hp_0012826",
+          "hp_0012823_hp1": "HP:0012825",
+          "hp_0012823_hp2": "HP:0012828",
+          "hp_0012823_hp3": "HP:0031598",
+          "hp_0012823_ncbitaxon": "NCBITAXON:90964",
+          "hp_0012823_snomed": "SNOMEDCT:303726000",
+          "phenotypicfeature_evidence": "ECO:0007225",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 2,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0002967",
+          "snomedct_363778006": "snomedct_723511001",
+          "snomedct_8116006_onset": "2022-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0011462",
+          "hp_0011008": "",
+          "hp_0012824": "",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "1"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 3,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0002665",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2023-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003577",
+          "hp_0011008": "hp_0031914",
+          "hp_0012824": "hp_0012825",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "NCBITAXON:10376",
+          "hp_0012823_snomed": "SNOMEDCT:31099001",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 4,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0004322",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2021-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0011463",
+          "hp_0011008": "hp_0031915",
+          "hp_0012824": "hp_0012826",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 1,
+        "measurements": {
+          "measurement_category": "vital-signs",
+          "measurement_status": "final",
+          "ncit_c60819": "LOINC:LP7720-8",
+          "ln_85353_1": "LOINC:9279_1",
+          "ln_85353_1_other": "",
+          "ncit_c25712": 5.01,
+          "ncit_c92571": "UO_0000276",
+          "ncit_c41255": "Thesaurus:C78219",
+          "ncit_c82577": "2024-10-14",
+          "snomedct_122869004_ncit": "Thesaurus:C17610",
+          "snomedct_122869004_snomed": "",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 2,
+        "measurements": {
+          "measurement_category": "imaging",
+          "measurement_status": "final",
+          "ncit_c60819": "LOINC:LP7536-8",
+          "ln_85353_1": "",
+          "ln_85353_1_other": "",
+          "ncit_c25712": 4.56,
+          "ncit_c92571": "UO_0000178",
+          "ncit_c41255": "Thesaurus:C75330",
+          "ncit_c82577": "2023-10-14",
+          "snomedct_122869004_ncit": "",
+          "snomedct_122869004_snomed": "",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "1"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_4_family_history",
+        "redcap_repeat_instance": 1,
+        "family_history": {
+          "family_history_pseudonym": "OTI398",
+          "snomedct_64245008": "snomedct_373066001",
+          "snomedct_408732007": "",
+          "snomedct_842009": "snomedct_373067005",
+          "snomedct_444018008": "snomedct_45929001",
+          "hl7fhir_fmh_status": "hl7fhir_partial",
+          "loinc_54123_5": "snomedct_248153007",
+          "loinc_54141_7": null,
+          "loinc_54124_3": "2021-09-09",
+          "snomedct_740604001": "snomedct_261665006",
+          "loinc_54112_8": "",
+          "loinc_92662_6": null,
+          "loinc_75315_2": "MONDO:0030693",
+          "rarelink_6_4_family_history_complete": "2"
+        }
+      }
+    ]
+  },
+  {
+    "record_id": "102",
+    "formal_criteria": {
+      "snomedct_422549004": "TESTEST2_10JAN",
+      "snomedct_399423000": "2025-01-10",
+      "rarelink_1_formal_criteria_complete": "2"
+    },
+    "personal_information": {
+      "snomedct_184099003": "2020-02-27",
+      "snomedct_281053000": "snomedct_248153007",
+      "snomedct_1296886006": "snomedct_65162001",
+      "snomedct_263495000": "snomedct_446141000124107",
+      "snomedct_370159000": "GER",
+      "rarelink_2_personal_information_complete": "2"
+    },
+    "consent": {
+      "snomedct_309370004": "hl7fhir_active",
+      "hl7fhir_consent_datetime": "2023-09-09",
+      "snomedct_386318002": "dwa",
+      "rarelink_consent_contact": "snomedct_373066001",
+      "rarelink_consent_data": "snomedct_373066001",
+      "snomedct_123038009": "snomedct_373067005",
+      "rarelink_biobank_link": "",
+      "rarelink_7_consent_complete": "2"
+    },
+    "disability": {
+      "rarelink_icf_score": "",
+      "rarelink_8_disability_complete": "2"
+    },
+    "repeated_elements": [
+      {
+        "redcap_repeat_instrument": "rarelink_3_patient_status",
+        "redcap_repeat_instance": 1,
+        "patient_status": {
+          "patient_status_date": "2024-09-09",
+          "snomedct_278844005": "snomedct_438949009",
+          "snomedct_398299004": "",
+          "snomedct_184305005": "",
+          "snomedct_105727008": "snomedct_263659003",
+          "snomedct_412726003": "37+1",
+          "snomedct_723663001": "snomedct_373067005",
+          "rarelink_3_patient_status_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 1,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2022-09-09",
+          "hl7fhir_enc_period_end": "",
+          "snomedct_305058001": "hl7fhir_in-progress",
+          "hl7fhir_encounter_class": "hl7fhir_amb",
+          "rarelink_4_care_pathway_complete": "0"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 2,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2023-09-09",
+          "hl7fhir_enc_period_end": "2023-09-30",
+          "snomedct_305058001": "hl7fhir_finished",
+          "hl7fhir_encounter_class": "hl7fhir_imp",
+          "rarelink_4_care_pathway_complete": "0"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 1,
+        "disease": {
+          "disease_coding": "ordo",
+          "snomedct_64572001_mondo": "",
+          "snomedct_64572001_ordo": "ORPHA:484",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_confirmed",
+          "snomedct_424850005": "snomedct_410672004",
+          "snomedct_298059007": "2014-09-09",
+          "snomedct_423493009": "snomedct_410672004",
+          "snomedct_432213005": "2014-09-30",
+          "snomedct_363698007": "SNOMEDCT:788244004",
+          "snomedct_263493007": "hl7fhir_active",
+          "snomedct_246112005": "snomedct_6736007",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 2,
+        "disease": {
+          "disease_coding": "ordo",
+          "snomedct_64572001_mondo": "",
+          "snomedct_64572001_ordo": "ORPHA:34145",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "",
+          "snomedct_424850005": "",
+          "snomedct_298059007": "",
+          "snomedct_423493009": "",
+          "snomedct_432213005": "",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "",
+          "snomedct_246112005": "",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+        "redcap_repeat_instance": 1,
+        "genetic_findings": {
+          "genetic_diagnosis_code": "mondo",
+          "snomedct_106221001_mondo": "MONDO:0006823",
+          "snomedct_106221001_omim_p": "",
+          "ga4gh_progress_status": "ga4gh_in_progress",
+          "ga4gh_interp_status": "ga4gh_rejected",
+          "loinc_81304_8": "loinc_la26418-6",
+          "loinc_62374_4": "loinc_la26806-2",
+          "loinc_lp7824_8": "",
+          "variant_expression": "chgvs",
+          "loinc_81290_9": "",
+          "loinc_48004_6": "NM_001377304.1:c.-16G>A",
+          "loinc_48005_3": "",
+          "variant_validation": true,
+          "loinc_48018_6": "HGNC:4238",
+          "loinc_53034_5": "loinc_la6705-3",
+          "loinc_53034_5_other": "",
+          "loinc_48002_0": "loinc_la6684-0",
+          "loinc_48019_4": "loinc_la6692-3",
+          "loinc_48019_4_other": "",
+          "loinc_53037_8": "loinc_la26332-9",
+          "ga4gh_therap_action": "ga4gh_not_actionable",
+          "loinc_93044_6": "loinc_la30201-0",
+          "rarelink_6_1_genetic_findings_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 1,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0002315",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2022-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003621",
+          "hp_0011008": "hp_0031796",
+          "hp_0012824": "hp_0012825",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "ECO:0000180",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 2,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0000133",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2020-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003621",
+          "hp_0011008": "hp_0025297",
+          "hp_0012824": "hp_0012828",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 3,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0000823",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2023-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003621",
+          "hp_0011008": "hp_0031915",
+          "hp_0012824": "hp_0012825",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 4,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0002076",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "",
+          "hp_0011008": "",
+          "hp_0012824": "",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "0"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 1,
+        "measurements": {
+          "measurement_category": "vital-signs",
+          "measurement_status": "final",
+          "ncit_c60819": "",
+          "ln_85353_1": "LOINC:other",
+          "ln_85353_1_other": "LP32150-2",
+          "ncit_c25712": 6.0,
+          "ncit_c92571": "UO_0000033",
+          "ncit_c41255": "Thesaurus:C14165",
+          "ncit_c82577": "2022-10-14",
+          "snomedct_122869004_ncit": "Thesaurus:C12434",
+          "snomedct_122869004_snomed": "",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 2,
+        "measurements": {
+          "measurement_category": "laboratory",
+          "measurement_status": "final",
+          "ncit_c60819": "LOINC:LP18044-5",
+          "ln_85353_1": "",
+          "ln_85353_1_other": "",
+          "ncit_c25712": 1.54,
+          "ncit_c92571": "UO_0010046",
+          "ncit_c41255": "Thesaurus:C54722",
+          "ncit_c82577": "2024-10-14",
+          "snomedct_122869004_ncit": "Thesaurus:C12434",
+          "snomedct_122869004_snomed": "SNOMEDCT:449341000124102",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_4_family_history",
+        "redcap_repeat_instance": 1,
+        "family_history": {
+          "family_history_pseudonym": "GOW204",
+          "snomedct_64245008": "snomedct_373066001",
+          "snomedct_408732007": "",
+          "snomedct_842009": "snomedct_373066001",
+          "snomedct_444018008": "snomedct_65656005",
+          "hl7fhir_fmh_status": "hl7fhir_completed",
+          "loinc_54123_5": "snomedct_248152002",
+          "loinc_54141_7": 44,
+          "loinc_54124_3": "1980-09-09",
+          "snomedct_740604001": "snomedct_373067005",
+          "loinc_54112_8": "",
+          "loinc_92662_6": null,
+          "loinc_75315_2": "MONDO:0006823",
+          "rarelink_6_4_family_history_complete": "2"
+        }
+      }
+    ]
+  },
+  {
+    "record_id": "103",
+    "formal_criteria": {
+      "snomedct_422549004": "EFG678",
+      "snomedct_399423000": "2024-09-09",
+      "rarelink_1_formal_criteria_complete": "2"
+    },
+    "personal_information": {
+      "snomedct_184099003": "2020-01-01",
+      "snomedct_281053000": "snomedct_248153007",
+      "snomedct_1296886006": "snomedct_734876009",
+      "snomedct_263495000": "snomedct_1220561009",
+      "snomedct_370159000": "TUR",
+      "rarelink_2_personal_information_complete": "2"
+    },
+    "consent": {
+      "snomedct_309370004": "hl7fhir_active",
+      "hl7fhir_consent_datetime": "2024-03-09",
+      "snomedct_386318002": "dwa",
+      "rarelink_consent_contact": "snomedct_373066001",
+      "rarelink_consent_data": "snomedct_373066001",
+      "snomedct_123038009": "snomedct_373067005",
+      "rarelink_biobank_link": "",
+      "rarelink_7_consent_complete": "2"
+    },
+    "disability": {
+      "rarelink_icf_score": "",
+      "rarelink_8_disability_complete": "2"
+    },
+    "repeated_elements": [
+      {
+        "redcap_repeat_instrument": "rarelink_3_patient_status",
+        "redcap_repeat_instance": 1,
+        "patient_status": {
+          "patient_status_date": "2024-09-09",
+          "snomedct_278844005": "snomedct_438949009",
+          "snomedct_398299004": "",
+          "snomedct_184305005": "",
+          "snomedct_105727008": "snomedct_713153009",
+          "snomedct_412726003": "37+3",
+          "snomedct_723663001": "snomedct_373066001",
+          "rarelink_3_patient_status_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_3_patient_status",
+        "redcap_repeat_instance": 2,
+        "patient_status": {
+          "patient_status_date": "2025-01-05",
+          "snomedct_278844005": "snomedct_419099009",
+          "snomedct_398299004": "2025-01-28",
+          "snomedct_184305005": "ICD10CM:D70.1",
+          "snomedct_105727008": "snomedct_419099009",
+          "snomedct_412726003": "",
+          "snomedct_723663001": "snomedct_373067005",
+          "rarelink_3_patient_status_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 1,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2021-09-09",
+          "hl7fhir_enc_period_end": "2021-09-30",
+          "snomedct_305058001": "hl7fhir_finished",
+          "hl7fhir_encounter_class": "hl7fhir_imp",
+          "rarelink_4_care_pathway_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_4_care_pathway",
+        "redcap_repeat_instance": 2,
+        "care_pathway": {
+          "hl7fhir_enc_period_start": "2021-09-09",
+          "hl7fhir_enc_period_end": "",
+          "snomedct_305058001": "hl7fhir_in-progress",
+          "hl7fhir_encounter_class": "hl7fhir_amb",
+          "rarelink_4_care_pathway_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 1,
+        "disease": {
+          "disease_coding": "mondo",
+          "snomedct_64572001_mondo": "MONDO:0010518",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_differential",
+          "snomedct_424850005": "snomedct_410672004",
+          "snomedct_298059007": "2021-08-09",
+          "snomedct_423493009": "",
+          "snomedct_432213005": "",
+          "snomedct_363698007": "SNOMEDCT:250065000",
+          "snomedct_263493007": "hl7fhir_active",
+          "snomedct_246112005": "snomedct_24484000",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 2,
+        "disease": {
+          "disease_coding": "mondo",
+          "snomedct_64572001_mondo": "MONDO:0021679",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "",
+          "loinc_99498_8": "hl7fhir_confirmed",
+          "snomedct_424850005": "",
+          "snomedct_298059007": "2021-05-09",
+          "snomedct_423493009": "",
+          "snomedct_432213005": "2021-09-12",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "hl7fhir_recurrence",
+          "snomedct_246112005": "snomedct_24484000",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_5_disease",
+        "redcap_repeat_instance": 3,
+        "disease": {
+          "disease_coding": "omim",
+          "snomedct_64572001_mondo": "",
+          "snomedct_64572001_ordo": "",
+          "snomedct_64572001_icd10cm": "",
+          "snomedct_64572001_icd11": "",
+          "snomedct_64572001_omim_p": "OMIM:613759",
+          "loinc_99498_8": "",
+          "snomedct_424850005": "",
+          "snomedct_298059007": "",
+          "snomedct_423493009": "",
+          "snomedct_432213005": "",
+          "snomedct_363698007": "",
+          "snomedct_263493007": "",
+          "snomedct_246112005": "",
+          "rarelink_5_disease_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+        "redcap_repeat_instance": 1,
+        "genetic_findings": {
+          "genetic_diagnosis_code": "mondo",
+          "snomedct_106221001_mondo": "MONDO:0010518",
+          "snomedct_106221001_omim_p": "",
+          "ga4gh_progress_status": "ga4gh_unsolved",
+          "ga4gh_interp_status": "ga4gh_candidate",
+          "loinc_81304_8": "loinc_la26404-6",
+          "loinc_62374_4": "loinc_la26806-2",
+          "loinc_lp7824_8": "",
+          "variant_expression": "ghgvs",
+          "loinc_81290_9": "NC_000023.11:g.48683512T>C",
+          "loinc_48004_6": "",
+          "loinc_48005_3": "",
+          "variant_validation": true,
+          "loinc_48018_6": "HGNC:12731",
+          "loinc_53034_5": "loinc_la6706-1",
+          "loinc_53034_5_other": "",
+          "loinc_48002_0": "loinc_la18194-3",
+          "loinc_48019_4": "loinc_la6692-3",
+          "loinc_48019_4_other": "",
+          "loinc_53037_8": "loinc_la26332-9",
+          "ga4gh_therap_action": "ga4gh_actionable",
+          "loinc_93044_6": "loinc_la30200-2",
+          "rarelink_6_1_genetic_findings_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+        "redcap_repeat_instance": 2,
+        "genetic_findings": {
+          "genetic_diagnosis_code": "mondo",
+          "snomedct_106221001_mondo": "MONDO:0010518",
+          "snomedct_106221001_omim_p": "",
+          "ga4gh_progress_status": "ga4gh_in_progress",
+          "ga4gh_interp_status": "ga4gh_contributory",
+          "loinc_81304_8": "loinc_la26418-6",
+          "loinc_62374_4": "loinc_la26806-2",
+          "loinc_lp7824_8": "test test",
+          "variant_expression": "chgvs",
+          "loinc_81290_9": "",
+          "loinc_48004_6": "NM_000377.3:c.6T>C",
+          "loinc_48005_3": "",
+          "variant_validation": true,
+          "loinc_48018_6": "",
+          "loinc_53034_5": "loinc_la6705-3",
+          "loinc_53034_5_other": "",
+          "loinc_48002_0": "loinc_la6684-0",
+          "loinc_48019_4": "loinc_la6692-3",
+          "loinc_48019_4_other": "",
+          "loinc_53037_8": "loinc_la26332-9",
+          "ga4gh_therap_action": "ga4gh_not_actionable",
+          "loinc_93044_6": "loinc_la30201-0",
+          "rarelink_6_1_genetic_findings_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_1_genetic_findings",
+        "redcap_repeat_instance": 3,
+        "genetic_findings": {
+          "genetic_diagnosis_code": "omim",
+          "snomedct_106221001_mondo": "",
+          "snomedct_106221001_omim_p": "OMIM:613759",
+          "ga4gh_progress_status": "ga4gh_unsolved",
+          "ga4gh_interp_status": "ga4gh_unknown_status",
+          "loinc_81304_8": "loinc_la26418-6",
+          "loinc_62374_4": "loinc_la26806-2",
+          "loinc_lp7824_8": "",
+          "variant_expression": "chgvs",
+          "loinc_81290_9": "",
+          "loinc_48004_6": "NM_000377.3:c.6T>C",
+          "loinc_48005_3": "",
+          "variant_validation": true,
+          "loinc_48018_6": "HGNC:1100",
+          "loinc_53034_5": "loinc_la6706-1",
+          "loinc_53034_5_other": "",
+          "loinc_48002_0": "loinc_la10429-1",
+          "loinc_48019_4": "loinc_la6692-3",
+          "loinc_48019_4_other": "",
+          "loinc_53037_8": "loinc_la26333-7",
+          "ga4gh_therap_action": "ga4gh_unknown_actionability",
+          "loinc_93044_6": "loinc_la30202-8",
+          "rarelink_6_1_genetic_findings_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 1,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0002719",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2022-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0011463",
+          "hp_0011008": "hp_0031796",
+          "hp_0012824": "hp_0012829",
+          "hp_0012823_hp1": "HP:0030206",
+          "hp_0012823_hp2": "HP:0040272",
+          "hp_0012823_hp3": "HP:0012708",
+          "hp_0012823_ncbitaxon": "NCBITAXON:90964",
+          "hp_0012823_snomed": "SNOMEDCT:462887004",
+          "phenotypicfeature_evidence": "ECO:0007225",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 2,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0000979",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2023-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0011463",
+          "hp_0011008": "hp_0031914",
+          "hp_0012824": "hp_0012829",
+          "hp_0012823_hp1": "HP:0002423",
+          "hp_0012823_hp2": "HP:0031122",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "NCBITAXON:2049174",
+          "hp_0012823_snomed": "SNOMEDCT:410300003",
+          "phenotypicfeature_evidence": "ECO:0001272",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 3,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0011127",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2024-10-14",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003596",
+          "hp_0011008": "hp_0031796",
+          "hp_0012824": "hp_0012826",
+          "hp_0012823_hp1": "HP:0030460",
+          "hp_0012823_hp2": "HP:0008009",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "NCBITAXON:99822",
+          "hp_0012823_snomed": "SNOMEDCT:818983003",
+          "phenotypicfeature_evidence": "ECO:0007224",
+          "rarelink_6_2_phenotypic_feature_complete": "1"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_2_phenotypic_feature",
+        "redcap_repeat_instance": 4,
+        "phenotypic_feature": {
+          "snomedct_8116006": "HP:0012059",
+          "snomedct_363778006": "snomedct_410605003",
+          "snomedct_8116006_onset": "2023-10-21",
+          "snomedct_8116006_resolut": "",
+          "hp_0003674": "hp_0003596",
+          "hp_0011008": "hp_0011010",
+          "hp_0012824": "hp_0012825",
+          "hp_0012823_hp1": "",
+          "hp_0012823_hp2": "",
+          "hp_0012823_hp3": "",
+          "hp_0012823_ncbitaxon": "",
+          "hp_0012823_snomed": "",
+          "phenotypicfeature_evidence": "",
+          "rarelink_6_2_phenotypic_feature_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 1,
+        "measurements": {
+          "measurement_category": "vital-signs",
+          "measurement_status": "corrected",
+          "ncit_c60819": "",
+          "ln_85353_1": "LOINC:2708_6",
+          "ln_85353_1_other": "",
+          "ncit_c25712": 2.0,
+          "ncit_c92571": "",
+          "ncit_c41255": "Thesaurus:C3262",
+          "ncit_c82577": "2023-10-14",
+          "snomedct_122869004_ncit": "",
+          "snomedct_122869004_snomed": "",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_3_measurements",
+        "redcap_repeat_instance": 2,
+        "measurements": {
+          "measurement_category": "exam",
+          "measurement_status": "amended",
+          "ncit_c60819": "LOINC:MTHU020483",
+          "ln_85353_1": "",
+          "ln_85353_1_other": "",
+          "ncit_c25712": 1.0,
+          "ncit_c92571": "UO_0000236",
+          "ncit_c41255": "Thesaurus:C25247",
+          "ncit_c82577": "2023-10-31",
+          "snomedct_122869004_ncit": "",
+          "snomedct_122869004_snomed": "",
+          "snomedct_122869004": "",
+          "snomedct_122869004_bdsite": "",
+          "snomedct_122869004_status": "",
+          "rarelink_6_3_measurements_complete": "2"
+        }
+      },
+      {
+        "redcap_repeat_instrument": "rarelink_6_4_family_history",
+        "redcap_repeat_instance": 1,
+        "family_history": {
+          "family_history_pseudonym": "GLW409",
+          "snomedct_64245008": "snomedct_373067005",
+          "snomedct_408732007": "",
+          "snomedct_842009": "snomedct_373067005",
+          "snomedct_444018008": "snomedct_60614009",
+          "hl7fhir_fmh_status": "hl7fhir_partial",
+          "loinc_54123_5": "snomedct_248152002",
+          "loinc_54141_7": 11,
+          "loinc_54124_3": "2013-09-09",
+          "snomedct_740604001": "snomedct_373067005",
+          "loinc_54112_8": "",
+          "loinc_92662_6": null,
+          "loinc_75315_2": "",
+          "rarelink_6_4_family_history_complete": "0"
+        }
+      }
+    ]
+  }
+]

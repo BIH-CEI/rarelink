@@ -1,0 +1,77 @@
+{
+  "id": "Rarelink_1_formal_criteria",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_1_formal_criteria",
+  "version": "latest",
+  "name": "Rarelink_1_formal_criteria",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_1_formal_criteria",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_1_formal_criteria",
+        "path": "Rarelink_1_formal_criteria",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_1_formal_criteria.record_id",
+        "path": "Rarelink_1_formal_criteria.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "Registry ID the of Individual",
+        "short": "Registry ID the of Individual"
+      },
+      {
+        "id": "Rarelink_1_formal_criteria.snomedct_422549004",
+        "path": "Rarelink_1_formal_criteria.snomedct_422549004",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "1.1 Pseudonym",
+        "short": "1.1 Pseudonym"
+      },
+      {
+        "id": "Rarelink_1_formal_criteria.snomedct_399423000",
+        "path": "Rarelink_1_formal_criteria.snomedct_399423000",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/date"
+            ]
+          }
+        ],
+        "definition": "1.2 Date of Admission",
+        "short": "1.2 Date of Admission"
+      }
+    ]
+  }
+}

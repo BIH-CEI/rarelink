@@ -1,0 +1,82 @@
+id: https://github.com/BIH-CEI/RareLink/rarelink_cdm.yaml
+name: rarelink_cdm
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  rarelink_cdm: https://github.com/BIH-CEI/RareLink/rarelink_cdm/
+imports:
+  - linkml:types
+  - rarelink_code_systems
+  - rarelink_repeated_elements
+  - rarelink_1_formal_criteria
+  - rarelink_2_personal_information
+  - rarelink_3_patient_status
+  - rarelink_4_care_pathway
+  - rarelink_5_disease
+  - rarelink_6_1_genetic_findings
+  - rarelink_6_2_phenotypic_feature
+  - rarelink_6_3_measurements
+  - rarelink_6_4_family_history
+  - rarelink_7_consent
+  - rarelink_8_disability
+
+default_prefix: rarelink_cdm
+default_range: string
+
+classes:
+  Record:
+    description: >
+      Base class for all records, containing nested data for formal criteria,
+      personal information, patient status, and other sections. The record ID uniquely identifies a record.
+    slots:
+      - record_id
+      - formal_criteria
+      - personal_information
+      - patient_status
+      - repeated_elements
+      - consent
+      - disability
+    tree_root: true
+
+slots:
+  record_id:
+    description: The unique record identifier assigned by the local REDCap project
+    range: string
+    required: true
+    identifier: true
+
+  formal_criteria:
+    description: Nested section containing formal criteria data
+    range: FormalCriteria
+    required: false
+    inlined: true
+
+  personal_information:
+    description: Nested section containing personal information data
+    range: PersonalInformation
+    required: false
+    inlined: true
+
+  patient_status:
+    description: Nested section containing patient status data
+    range: PatientStatus
+    required: false
+    inlined: true
+
+  repeated_elements:
+    description: Container for repeated elements
+    multivalued: true
+    inlined_as_list: true
+    range: RepeatedElement
+
+  consent:
+    description: Nested section containing consent data
+    range: Consent
+    required: false
+    inlined: true
+
+  disability:
+    description: Nested section containing disability data
+    range: Disability
+    required: false
+    inlined: true

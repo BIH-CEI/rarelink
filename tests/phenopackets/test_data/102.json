@@ -1,0 +1,376 @@
+{
+  "id": "102",
+  "subject": {
+    "id": "TESTEST2_10JAN",
+    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P4Y10M"
+      }
+    },
+    "vitalStatus": {},
+    "sex": "MALE",
+    "karyotypicSex": "XXY",
+    "gender": {
+      "id": "SNOMEDCT:446141000124107",
+      "label": "Identifies as female gender"
+    },
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    }
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002315",
+        "label": "Headache"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y7M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0000133",
+        "label": "Gonadal dysgenesis"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y7M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0000823",
+        "label": "Delayed puberty"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y7M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "id": "HP:0002076",
+        "label": "Migraine"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y7M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP18044-5",
+        "label": "Growth hormone-releasing hormone"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0010046",
+            "label": "united states customary cup"
+          },
+          "value": 1.54
+        }
+      },
+      "procedure": {
+        "code": {
+          "id": "THESAURUS:C12434",
+          "label": "Unknown Procedure"
+        }
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "TESTEST2_10JAN-interpretation-0",
+      "progressStatus": "IN_PROGRESS",
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0006823",
+          "label": "Klinefelter syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "REJECTED",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "id": "d24713415a6d40a886b8a7ea6f035b",
+                "geneContext": {
+                  "valueId": "HGNC:4238",
+                  "symbol": "GFI1B"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs",
+                    "value": "NM_001377304.1:c.-16G>A"
+                  }
+                ],
+                "structuralType": {
+                  "id": "LOINC:LA6692-3",
+                  "label": "Deletion"
+                },
+                "allelicState": {
+                  "id": "LOINC:LA6705-3",
+                  "label": "Homozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "ORPHA:484",
+        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-5Y-5M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:788244004",
+        "label": "Entire hair follicle of head"
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:484",
+        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P-5Y-5M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:788244004",
+        "label": "Entire hair follicle of head"
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2025-03-23T13:49:14.152524Z",
+    "createdBy": "Adam G.",
+    "resources": [
+      {
+        "id": "snomedct",
+        "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
+        "url": "http://snomed.info/sct",
+        "version": "SNOMEDCT_US_2024_09_01",
+        "namespacePrefix": "SNOMEDCT",
+        "iriPrefix": "http://snomed.info/sct"
+      },
+      {
+        "id": "mondo",
+        "name": "Monarch Disease Ontology",
+        "url": "https://purl.obolibrary.org/obo/MONDO/",
+        "version": "2025-06-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+      },
+      {
+        "id": "hpo",
+        "name": "Human Phenotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2025-05-06",
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "LNC278",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "omim",
+        "name": "Online Mendelian Inheritance",
+        "url": "https://omim.org/",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "orpha",
+        "name": "Orphanet Rare Disease Ontology",
+        "url": "https://www.orpha.net/",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "ORPHA",
+        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
+      },
+      {
+        "id": "ncit",
+        "name": "NCI Thesaurus OBO Edition",
+        "url": "https://ncit.nci.nih.gov/",
+        "version": "24.01e",
+        "namespacePrefix": "NCIT",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "OMIM2024_08_09",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org/",
+        "version": "2024-08-23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "hgvs",
+        "name": "Human Genome Variation Society",
+        "url": "https://varnomen.hgvs.org/",
+        "version": "21.0.0",
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
+      },
+      {
+        "id": "icd11",
+        "name": "International Classification of Diseases, Eleventh Revision",
+        "url": "https://icd.who.int/en",
+        "version": "SNOMEDCT_US_2024_09_01",
+        "namespacePrefix": "ICD11",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
+      },
+      {
+        "id": "icd10cm",
+        "name": "ICD-10 Clinical Modification",
+        "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
+        "version": "2023",
+        "namespacePrefix": "ICD10CM",
+        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "https://www.sequenceontology.org/",
+        "version": "2.6",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "geno",
+        "name": "GENO - The Genotype Ontology",
+        "url": "https://www.genoontology.org/",
+        "version": "2023-10-08",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "iso3166",
+        "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
+        "url": "https://www.iso.org/iso-3166-country-codes.html",
+        "version": "2020(en)",
+        "namespacePrefix": "ISO3166",
+        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
+      },
+      {
+        "id": "icf",
+        "name": "International Classification of Functioning, Disability and Health",
+        "url": "https://www.who.int/classifications/icf/en/",
+        "version": "1.0.2",
+        "namespacePrefix": "ICF",
+        "iriPrefix": "http://hl7.org/fhir/sid/icf"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0"
+  }
+}

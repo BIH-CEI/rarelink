@@ -1,0 +1,414 @@
+{
+  "resourceType": "Bundle",
+  "id": "cc311c2c-6e22-4683-a018-2a1c1446ecce",
+  "meta": {
+    "lastUpdated": "2025-05-09T08:54:29.860+00:00"
+  },
+  "type": "searchset",
+  "total": 10,
+  "link": [ {
+    "relation": "self",
+    "url": "http://localhost:8080/fhir/Observation?_count=100&_format=json&_profile=https%3A%2F%2Frarelink.bih-charite.de%2Ffhir%2FStructureDefinition%2Frarelink-observation-age-category"
+  } ],
+  "entry": [ {
+    "fullUrl": "http://localhost:8080/fhir/Observation/a2cecd14544a311f91cb3291af1dd2fa",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "a2cecd14544a311f91cb3291af1dd2fa",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:17.995+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/c57a66597158f602ca13f7636fc2aa98"
+      },
+      "effectiveDateTime": "2025-04-13",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/4d8ce3e8dae0424345df92a61bfb9687",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "4d8ce3e8dae0424345df92a61bfb9687",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.058+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/65878435ab8835a9d5259537a03629fa"
+      },
+      "effectiveDateTime": "2025-04-13",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/8893c9ac9b3466b7e2cc3df441b1681f",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "8893c9ac9b3466b7e2cc3df441b1681f",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.078+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/556efd38861891b9f4630cbfe05da4aa"
+      },
+      "effectiveDateTime": "2025-04-12",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/90866e103b939c853388583848a0abd4",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "90866e103b939c853388583848a0abd4",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.097+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/8462c600fc75951df56a81973c0cede1"
+      },
+      "effectiveDateTime": "2025-04-13",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/ff7467210da29a521a1caec1390a6ff1",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ff7467210da29a521a1caec1390a6ff1",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.117+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/7413bc7a5269d20bcb70d5b96b3a04ef"
+      },
+      "effectiveDateTime": "2025-04-13",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/576295642b2323ad71f5e70a9e3273b3",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "576295642b2323ad71f5e70a9e3273b3",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.141+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/a363ff2b1833e3df408910f5b3d04334"
+      },
+      "effectiveDateTime": "2025-04-12",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/0a2ef7e879350e87acc6f65df8f16375",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "0a2ef7e879350e87acc6f65df8f16375",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.167+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/28d94ef1c221913ff6cda2628fcfad1d"
+      },
+      "effectiveDateTime": "2025-04-12",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/9d7d7612c0b2325eedb27c89591d99eb",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "9d7d7612c0b2325eedb27c89591d99eb",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.182+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/d6d27d6d5836206e4b665026df236c77"
+      },
+      "effectiveDateTime": "2025-04-12",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/8093e2594ce3b29933a547d77abab4f0",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "8093e2594ce3b29933a547d77abab4f0",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.200+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/4c07dadaa158b8513be1d3edfa72fe91"
+      },
+      "effectiveDateTime": "2025-04-13",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "263659003",
+          "display": "Adolescence"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "http://localhost:8080/fhir/Observation/feeaed533c1d04fa14d093795cdf34e5",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "feeaed533c1d04fa14d093795cdf34e5",
+      "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-05-09T08:43:18.217+00:00",
+        "source": "#k0mx4vKbk6kVHMrD",
+        "profile": [ "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>"
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "105727008",
+          "display": "Age Category"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/6b72ca46729582619f2a13c9190df29f"
+      },
+      "effectiveDateTime": "2025-04-12",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "version": "SNOMEDCT_US_2024_09_01",
+          "code": "255398004",
+          "display": "Childhood"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}

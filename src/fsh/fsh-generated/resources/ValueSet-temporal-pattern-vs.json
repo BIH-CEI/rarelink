@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "TemporalPatternVS",
+  "id": "temporal-pattern-vs",
+  "title": "Temporal Pattern Value Set",
+  "description": "Value set for capturing the temporal pattern of phenotypic features.",
+  "url": "https://rarelink.bih-charite.de/fhir/ValueSet/temporal-pattern-vs",
+  "compose": {
+    "include": [
+      {
+        "system": "http://purl.obolibrary.org/obo/hp.owl",
+        "concept": [
+          {
+            "code": "HP:0011009",
+            "display": "Acute"
+          },
+          {
+            "code": "HP:0011010",
+            "display": "Chronic"
+          },
+          {
+            "code": "HP:0031914",
+            "display": "Fluctuating"
+          },
+          {
+            "code": "HP:0025297",
+            "display": "Prolonged"
+          },
+          {
+            "code": "HP:0031796",
+            "display": "Recurrent"
+          },
+          {
+            "code": "HP:0031915",
+            "display": "Stable"
+          },
+          {
+            "code": "HP:0011011",
+            "display": "Subacute"
+          },
+          {
+            "code": "HP:0025153",
+            "display": "Transient"
+          }
+        ]
+      }
+    ]
+  }
+}

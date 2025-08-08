@@ -1,0 +1,397 @@
+{
+  "id": "Rarelink_6_1_genetic_findings",
+  "resourceType": "StructureDefinition",
+  "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_1_genetic_findings",
+  "version": "latest",
+  "name": "Rarelink_6_1_genetic_findings",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Rarelink_6_1_genetic_findings",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Rarelink_6_1_genetic_findings",
+        "path": "Rarelink_6_1_genetic_findings",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.record_id",
+        "path": "Rarelink_6_1_genetic_findings.record_id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "id",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/id"
+            ]
+          }
+        ],
+        "definition": "6.1.0 Record ID",
+        "short": "6.1.0 Record ID"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.genetic_diagnosis_code",
+        "path": "Rarelink_6_1_genetic_findings.genetic_diagnosis_code",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "Please choose the corresponding code system for a genetic diagnosis related to the variant captured below.",
+        "short": "Please choose the corresponding code system for a genetic diagnosis related to the variant captured below."
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.snomedct_106221001_mondo",
+        "path": "Rarelink_6_1_genetic_findings.snomedct_106221001_mondo",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.1 Genomic Diagnosis [MONDO]",
+        "short": "6.1.1 Genomic Diagnosis [MONDO]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.snomedct_106221001_omim_p",
+        "path": "Rarelink_6_1_genetic_findings.snomedct_106221001_omim_p",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.1 Genomic Diagnosis [OMIM_p]",
+        "short": "6.1.1 Genomic Diagnosis [OMIM_p]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.ga4gh_progress_status",
+        "path": "Rarelink_6_1_genetic_findings.ga4gh_progress_status",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.2 Progress Status of Interpretation",
+        "short": "6.1.2 Progress Status of Interpretation"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.ga4gh_interp_status",
+        "path": "Rarelink_6_1_genetic_findings.ga4gh_interp_status",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.3 Interpretation Status",
+        "short": "6.1.3 Interpretation Status"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_81304_8",
+        "path": "Rarelink_6_1_genetic_findings.loinc_81304_8",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.4 Structural Variant Analysis Method",
+        "short": "6.1.4 Structural Variant Analysis Method"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_62374_4",
+        "path": "Rarelink_6_1_genetic_findings.loinc_62374_4",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.5 Reference Genome",
+        "short": "6.1.5 Reference Genome"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_lp7824_8",
+        "path": "Rarelink_6_1_genetic_findings.loinc_lp7824_8",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.6 Genetic Mutation String",
+        "short": "6.1.6 Genetic Mutation String"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.variant_expression",
+        "path": "Rarelink_6_1_genetic_findings.variant_expression",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "Please choose the type of the variant's validated HGVS expression",
+        "short": "Please choose the type of the variant's validated HGVS expression"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_81290_9",
+        "path": "Rarelink_6_1_genetic_findings.loinc_81290_9",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.7 Genomic DNA Change [g.HGVS]",
+        "short": "6.1.7 Genomic DNA Change [g.HGVS]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48004_6",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48004_6",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.8 Sequence DNA Change [c.HGVS]",
+        "short": "6.1.8 Sequence DNA Change [c.HGVS]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48005_3",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48005_3",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.9 Amino Acid Change [p.HGVS]",
+        "short": "6.1.9 Amino Acid Change [p.HGVS]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.variant_validation",
+        "path": "Rarelink_6_1_genetic_findings.variant_validation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "Are you sure the entered HGVS expression was validated using the variant validator?",
+        "short": "Are you sure the entered HGVS expression was validated using the variant validator?"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48018_6",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48018_6",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.10 Gene [HGNC-NR]",
+        "short": "6.1.10 Gene [HGNC-NR]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_53034_5",
+        "path": "Rarelink_6_1_genetic_findings.loinc_53034_5",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.11 Zygosity",
+        "short": "6.1.11 Zygosity"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_53034_5_other",
+        "path": "Rarelink_6_1_genetic_findings.loinc_53034_5_other",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.11A Zygosity - Other [LOINC]",
+        "short": "6.1.11A Zygosity - Other [LOINC]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48002_0",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48002_0",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.12 Genomic Source Class",
+        "short": "6.1.12 Genomic Source Class"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48019_4",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48019_4",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.13 DNA Change Type",
+        "short": "6.1.13 DNA Change Type"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_48019_4_other",
+        "path": "Rarelink_6_1_genetic_findings.loinc_48019_4_other",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ],
+        "definition": "6.1.13A DNA Change Type - Other [LOINC]",
+        "short": "6.1.13A DNA Change Type - Other [LOINC]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_53037_8",
+        "path": "Rarelink_6_1_genetic_findings.loinc_53037_8",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.14 Clinical Significance [ACMG]",
+        "short": "6.1.14 Clinical Significance [ACMG]"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.ga4gh_therap_action",
+        "path": "Rarelink_6_1_genetic_findings.ga4gh_therap_action",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.15 Therapeutic Actionability",
+        "short": "6.1.15 Therapeutic Actionability"
+      },
+      {
+        "id": "Rarelink_6_1_genetic_findings.loinc_93044_6",
+        "path": "Rarelink_6_1_genetic_findings.loinc_93044_6",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/code"
+            ]
+          }
+        ],
+        "definition": "6.1.16 Clinical Annotation Level Of Evidence",
+        "short": "6.1.16 Clinical Annotation Level Of Evidence"
+      }
+    ]
+  }
+}
