@@ -1,10 +1,14 @@
 [build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
+requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "rarelink"
-version = "2.0.2"
+version = "2.0.2"                  
+description = "RareLink - A REDCap-based Python framework linking international registries to HL7 FHIR and GA4GH Phenopackets"
+readme = "README.md"
+requires-python = ">=3.10, <3.13"
+license = { file = "LICENSE" }
 authors = [
     {name = "Adam SL Graefe", email="adam.graefe@bih-charite.de"},
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
@@ -15,18 +19,7 @@ authors = [
     {name = "Sylvia Thun", email="sylvia.thun@bih-charite.de"},
     {name = "Oya Beyan", email="oya.beyan@uni-koeln.de"}
 ]
-
-description = "RareLink - A REDCap-based Python framework linking international registries to HL7 FHIR and GA4GH Phenopackets"
-readme = "README.md"
-requires-python = ">=3.10, <3.13"
-keywords = [
-    "Rare Disease",
-    "Interoperability",
-    "FHIR",
-    "Phenopacket Schema",
-    "REDCap"
-]
-license = { file = "LICENSE" }
+keywords = ["Rare Disease", "Interoperability", "FHIR", "Phenopacket Schema", "REDCap"]
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
@@ -35,57 +28,55 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Rare Diseases"
+    "Topic :: Scientific/Engineering :: Medical Science Apps."
 ]
+
+# ⚠️ Runtime dependencies ONLY here
 dependencies = [
     "numpy",
-    "jupyter", 
-    "pandas", 
-    "phenopackets", 
+    "pandas",
+    "phenopackets",
     "pyphetools",
-    "pytest",
     "requests",
-    "config",
-    "sphinx-autobuild",
-    "sphinx-copybutton",
-    "sphinx-rtd-theme",
-    "typer",
-    "pytest-mock",
+    "typer>=0.9",
     "tqdm",
-    "node",
-    "npm",
     "linkml>=1.9.0",
     "linkml-runtime>=1.9.0",
     "pydantic<2.11",
     "schema-automator",
     "python-dotenv",
-    "docker",
     "rd-cdm>=2.0.2",
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=7.0.0,<8.0.0"]
-docs = ["sphinx>=7.0.0", "sphinx-rtd-theme>=1.3.0", "sphinx-copybutton>=0.5.0"]
+# Dev/test/docs extras; NOT installed for end users
+test = ["pytest>=7,<9", "pytest-mock"]
+docs = ["sphinx>=7", "sphinx-rtd-theme>=1.3", "sphinx-copybutton>=0.5"]
+dev  = [
+  "build", "twine",
+  "jupyter",
+  "sphinx>=7", "sphinx-rtd-theme>=1.3", "sphinx-copybutton>=0.5",
+  "pytest>=7,<9", "pytest-mock",
+  "docker",       # if you really need this for dev
+]
 
 [project.urls]
-homepage = "https://github.com/BIH-CEI/RareLink"
-repository = "https://github.com/BIH-CEI/RareLink.git"
-documentation = "https://rarelink.readthedocs.io/en/latest/"
-bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
+Homepage = "https://github.com/BIH-CEI/RareLink"
+Repository = "https://github.com/BIH-CEI/RareLink.git"
+Documentation = "https://rarelink.readthedocs.io/en/latest/"
+Bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
+
+[project.scripts]
+rarelink = "rarelink.cli:app"
+rarelink-cdm-generate = "rarelink.cdm.codegen_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["rarelink*", "rarelink_cdm*"]
 
-[tool.setuptools.dynamic]
-version = { attr = "rarelink.__version__" }
-
-# The following would provide a command line executable called `sample`
-# which executes the function `main` from this package when invoked.
-
-[project.scripts]
-rarelink = "rarelink.cli:app"
-rarelink-cdm-generate = "rarelink.cdm.codegen_cli:main"
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json", "*.csv", "*.tsv"]
