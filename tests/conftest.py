@@ -11,8 +11,8 @@ def pytest_ignore_collect(collection_path, config):
     ):
         return True
 
-    # Ignore any files in the rarelink_cdm/v2_0_0/datamodel folder
-    if "rarelink_cdm/v2_0_0/datamodel" in path_str:
+    # Ignore any files in the rarelink_cdm/v2_0_2/datamodel folder
+    if "rarelink_cdm/v2_0_2/datamodel" in path_str:
         return True
 
     # Ignore all files in the rd-cdm submodule
@@ -24,7 +24,7 @@ def pytest_ignore_collect(collection_path, config):
 def set_bioportal_api_key():
     """
     Ensures the BioPortal API key is available for tests by setting it
-    as an environment variable or creating the Oaklib configuration file.
+    as an environment variable
     """
     api_key = os.getenv("BIOPORTAL_API_KEY")
     if not api_key:

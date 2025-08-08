@@ -1,0 +1,169 @@
+{
+  "id": "ips.condition",
+  "url": "rarelink/ips.condition",
+  "name": "ips.condition",
+  "title": "IPS Condition",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkDisease",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_5_disease",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "RareLink IPS Condition",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Condition', record_id & '_' & snomedct_64572001_ordo & snomedct_64572001_mondo & snomedct_64572001_omim & snomedct_64572001_icd10cm & snomedct_64572001_icd11 & snomedct_263493007 & loinc_99498_8 & snomedct_298059007 & snomedct_432213005)}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-condition"
+            ]
+          },
+          "resourceType": "Condition",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "{{'http://terminology.hl7.org/CodeSystem/condition-clinical'}}",
+                "code": "{{? mpp:getConcept(%diseaseClinicalStatus, snomedct_263493007, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%diseaseClinicalStatus, snomedct_263493007, 'target_display')}}",
+                "version": "{{'v4.0.1'}}"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "{{? iif(snomedct_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                "code": "{{? iif(snomedct_64572001_mondo.empty().not(), snomedct_64572001_mondo.substring(6))}}",
+                "version": "{{? iif(snomedct_64572001_mondo.empty().not(), '2025-06-03')}}"
+              },
+              {
+                "system": "{{? iif(snomedct_64572001_ordo.empty().not(), 'http://www.orpha.net/')}}",
+                "code": "{{? iif(snomedct_64572001_ordo.empty().not(), snomedct_64572001_ordo.substring(6))}}",
+                "version": "{{? iif(snomedct_64572001_ordo.empty().not(), '4.7')}}"
+              },
+              {
+                "system": "{{? iif(snomedct_64572001_omim_p.empty().not(), 'https://omim.org/')}}",
+                "code": "{{? iif(snomedct_64572001_omim_p.empty().not(), snomedct_64572001_omim_p)}}",
+                "version": "{{? iif(snomedct_64572001_omim_p.empty().not(), 'OMIM2024_08_09')}}"
+              },
+              {
+                "system": "{{? iif(snomedct_64572001_icd10cm.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
+                "code": "{{? iif(snomedct_64572001_icd10cm.empty().not(), snomedct_64572001_icd10cm)}}",
+                "version": "{{? iif(snomedct_64572001_icd10cm.empty().not(), 'CD10CM_2025')}}"
+              },
+              {
+                "system": "{{? iif(snomedct_64572001_icd11.empty().not(), 'https://icd.who.int/en')}}",
+                "code": "{{? iif(snomedct_64572001_icd11.empty().not(), snomedct_64572001_icd11)}}",
+                "version": "{{? iif(snomedct_64572001_icd11.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "{{'http://terminology.hl7.org/CodeSystem/condition-ver-status'}}",
+                "code": "{{? mpp:getConcept(%diseaseVerificationStatus, loinc_99498_8, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%diseaseVerificationStatus, loinc_99498_8, 'target_display')}}",
+                "version": "{{'v4.0.1'}}"
+              }
+            ]
+          },
+          "severity": {
+            "coding": [
+              {
+                "system": "{{? iif(snomedct_246112005.empty().not(), 'http://snomed.info/sct')}}",
+                "code": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_display')}}",
+                "version": "{{? iif(snomedct_246112005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+              }
+            ]
+          },
+          "bodySite": [
+            {
+              "coding": [
+                {
+                  "system": "{{? iif(snomedct_363698007.empty().not(), 'http://snomed.info/sct')}}",
+                  "code": "{{? snomedct_363698007}}",
+                  "version": "{{? iif(snomedct_363698007.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                }
+              ]
+            }
+          ],
+          "subject": {
+            "reference": "Patient/{{mpp:getHashedId('Patient', record_id)}}",
+            "identifier": {
+              "value": "{{? record_id}}"
+            }
+          },
+          "onsetDateTime": "{{? snomedct_298059007.toDate()}}",
+          "recordedDate": "{{? snomedct_432213005.toDate()}}",
+          "text": {
+            "status": "{{'generated'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "extension": [
+            {
+              "id": "{{? iif(snomedct_423493009.empty().not(), 'ERDRI-CDS - Age at Diagnosis')}}",
+              "url": "{{? iif(snomedct_423493009.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomedct_423493009.empty().not(), 'http://snomed.info/sct')}}",
+                    "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_display')}}",
+                    "version": "{{? iif(snomedct_423493009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                  }
+                ],
+                "text": "{{? iif(snomedct_423493009.empty().not(), 'SNOMED:423493009 - Age at Diagnosis')}}"
+              }
+            },
+            {
+              "id": "{{? iif(snomedct_424850005.empty().not(), 'ERDRI-CDS - Age at Onset')}}",
+              "url": "{{? iif(snomedct_424850005.empty().not(), 'https://rarelink.readthedocs.io/en/latest/index.html')}}",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomedct_424850005.empty().not(), 'http://snomed.info/sct')}}",
+                    "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_display')}}",
+                    "version": "{{? iif(snomedct_424850005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                  }
+                ],
+                "text": "{{? iif(snomedct_424850005.empty().not(), 'SNOMED:424850005 - Age at Onset')}}"
+              }
+            }
+          ]
+        }
+      },
+      "description": "RareLink IPS Condition"
+    }
+  ],
+  "context": {
+    "diseaseVerificationStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_2_verification_status.csv"
+    },
+    "rarelinkAgeAtDiagnosis": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_5_age_at_diagnosis.csv"
+    },
+    "diseaseClinicalStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_8_clinical_status.csv"
+    },
+    "diseaseAgeAtOnset": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_3_age_at_onset.csv"
+    },
+    "diseaseSeverity": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/5_9_severity.csv"
+    }
+  }
+}

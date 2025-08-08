@@ -1,10 +1,10 @@
-﻿<?xml version="2.0.0.dev1" encoding="UTF-8" ?>
-<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="RareLink v2.0.0 - Template REDCap project for the RareLink Rare Disease Framework in REDCap linking international registries, FHIR, and Phenopackets. Read the Documentation (https://rarelink.readthedocs.io/en/latest/index.html) and the GitHub Reposity (https://github.com/BIH-CEI/RareLink) for more information." AsOfDateTime="2024-12-04T16:33:21" CreationDateTime="2024-12-04T16:33:21" SourceSystem="REDCap" SourceSystemVersion="14.8.2">
-<Study OID="Project.RareLinkv2.0.0Template">
+﻿<?xml version="2.0.2.dev1" encoding="UTF-8" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="RareLink v2.0.2 - Template REDCap project for the RareLink Rare Disease Framework in REDCap linking international registries, FHIR, and Phenopackets. Read the Documentation (https://rarelink.readthedocs.io/en/latest/index.html) and the GitHub Reposity (https://github.com/BIH-CEI/RareLink) for more information." AsOfDateTime="2024-12-04T16:33:21" CreationDateTime="2024-12-04T16:33:21" SourceSystem="REDCap" SourceSystemVersion="14.8.2">
+<Study OID="Project.RareLinkv2.0.2Template">
 <GlobalVariables>
-	<StudyName>RareLink v2.0.0 - Template Project</StudyName>
-	<StudyDescription>This file contains the metadata, events, and data for REDCap project "RareLink v2.0.0 - Template Project".</StudyDescription>
-	<ProtocolName>RareLink v2.0.0 - Template Project</ProtocolName>
+	<StudyName>RareLink v2.0.2 - Template Project</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "RareLink v2.0.2 - Template Project".</StudyDescription>
+	<ProtocolName>RareLink v2.0.2 - Template Project</ProtocolName>
 	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
 	<redcap:CustomRecordLabel></redcap:CustomRecordLabel>
 	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
@@ -39,7 +39,7 @@
 		</redcap:RepeatingInstruments>
 	</redcap:RepeatingInstrumentsAndEvents>
 </GlobalVariables>
-<MetaDataVersion OID="Metadata.RareLinkv2.0.0Template_2024-12-04_1633" Name="RareLink v2.0.0 - Template Project" redcap:RecordIdField="record_id">
+<MetaDataVersion OID="Metadata.RareLinkv2.0.2Template_2024-12-04_1633" Name="RareLink v2.0.2 - Template Project" redcap:RecordIdField="record_id">
 	<FormDef OID="Form.rarelink_1_formal_criteria" Name="Rarelink 1 Formal Criteria" Repeating="No" redcap:FormName="rarelink_1_formal_criteria">
 		<ItemGroupRef ItemGroupOID="rarelink_1_formal_criteria.record_id" Mandatory="No"/>
 		<ItemGroupRef ItemGroupOID="rarelink_1_formal_criteria.rarelink_1_formal_criteria_timestamp" Mandatory="No"/>
@@ -1215,7 +1215,7 @@ HPO:0034382 | Resolution Date
 Choices: 
 n/a  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.resolution">
@@ -1235,7 +1235,7 @@ Choices:
 - HP:0003596 | Middle age adult onset (40y-60y)  
 - HP:0003584 | Late adult onset (60y+)  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.category  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset">
@@ -1254,7 +1254,7 @@ Choices:
 - HP:0011011 | Subactue  
 - HP:0025153 | Transient  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.interpretation  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers">
@@ -1270,7 +1270,7 @@ Choices:
 - HP:0012829 | Profound  
 - HP:0012828 | Severe  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.interpretation  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
@@ -1364,7 +1364,7 @@ Mapping:
 	<ItemDef OID="ncit_c60819" Name="ncit_c60819" DataType="text" Length="999" redcap:Variable="ncit_c60819" redcap:FieldType="text" redcap:FieldNote="Please search the assay in LOINC and see tips above." redcap:OntologySearch="BIOPORTAL:LOINC" redcap:FieldAnnotation="Variable: NCIT:C60819 | Assay
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.assay">
@@ -1373,7 +1373,7 @@ Mapping:
 	<ItemDef OID="ncit_c25712" Name="ncit_c25712" DataType="float" Length="999" redcap:Variable="ncit_c25712" redcap:FieldType="text" redcap:TextValidationType="number_2dp" redcap:FieldNote="Please enter a two decimal number" redcap:FieldAnnotation="Variable: NCIT:C25712 | Value
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x]
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value">
@@ -1390,7 +1390,7 @@ Mapping:
 	<ItemDef OID="ncit_c92571" Name="ncit_c92571" DataType="text" Length="999" redcap:Variable="ncit_c92571" redcap:FieldType="text" redcap:FieldNote="Please search the unit in the Unit Ontology (UO). Tip: Search for the official abbreviations (e.g. dl, kg, l, etc.)" redcap:OntologySearch="BIOPORTAL:UO" redcap:FieldAnnotation="Variable: NCIT:C92571 | Measurement Unit Description
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x].unit
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value">
@@ -1399,7 +1399,7 @@ Mapping:
 	<ItemDef OID="ncit_c41255" Name="ncit_c41255" DataType="text" Length="999" redcap:Variable="ncit_c41255" redcap:FieldType="text" redcap:FieldNote="Please search for an interpretation in NCIT, e.g. positive / negative, below/above reference range, etc. " redcap:OntologySearch="BIOPORTAL:NCIT" redcap:FieldAnnotation="Variable: NCIT:C41255 | Interpretation
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.interpretation
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value">
@@ -1409,7 +1409,7 @@ Mapping:
 Choices:
 - n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed">
@@ -1419,7 +1419,7 @@ Mapping:
 Choices: 
 - n/a
 Version(s):
-- SNOMED CT v2024-09-01
+- SNOMED CT vSNOMEDCT_US_2024_09_01
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure">
@@ -1429,7 +1429,7 @@ Mapping:
 Choices: 
 - n/a
 Version(s):
-- SNOMED CT v2024-09-01
+- SNOMED CT vSNOMEDCT_US_2024_09_01
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure">

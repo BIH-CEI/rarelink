@@ -14,11 +14,13 @@ registries to FHIR and Phenopackets.
 #### Packages & Compatibility
 
 [![REDCap](https://img.shields.io/badge/REDCap-API-darkred.svg)](https://www.project-redcap.org/)
-[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.0-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
+[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.2-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
-[![PyPheTools](https://img.shields.io/badge/PyPheTools-0.3.0+-blue.svg)](https://github.com/monarch-initiative/pyphetools)
 [![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
-[![HL7 FHIR: R4 | IPS v2.0.0 | GenomicsReporting v3.0.0](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.0%20%7C%20GenomicsReporting%20v3.0.0-orange.svg)](https://hl7.org/fhir/)
+[![HL7 FHIR: R4](https://img.shields.io/badge/HL7%20FHIR-R4%20%7C%20IPS%20v2.0.2%20%7C%20GenomicsReporting%20v3.0.0-orange.svg)](https://hl7.org/fhir/)
+[![FHIR IPS v2.0.2](https://img.shields.io/badge/FHIR_IPS-v2.0.2-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
+[![FHIR Genomics Reporting v3.0.0](https://img.shields.io/badge/FHIR_Genomics_Reporting-v3.0.0-yellow)](https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html#findings)
+
 
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
 
@@ -89,7 +91,7 @@ REDCap:
 5. **HL7 FHIR Export**: RareLink uses the open-source 
    [_toFHIR_ Engine](https://github.com/srdc/tofhir) to export data to any FHIR 
    server, supporting profiles based on the 
-   [HL7 International Patient Summary v2.0.0](https://build.fhir.org/ig/HL7/fhir-ips/),
+   [HL7 International Patient Summary v2.0.2](https://build.fhir.org/ig/HL7/fhir-ips/),
    the [HL7 GenomicsReporting v3.0.0](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)
    or FHIR Base Resources (v4.0.1).
    - [FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
@@ -234,15 +236,15 @@ use of REDCap for rare disease research and care.
 ## Resources 
 
 ### Ontologies
-- Human Phenotype Ontology (HP, Version 2024-08-13) [🔗](http://www.human-phenotype-ontology.org)
-- Monarch Initiative Disease Ontology (MONDO, Version Version 2024-09-03) [🔗](https://mondo.monarchinitiative.org/)
-- Online Mendelian Inheritance in Man (OMIM, Version 2024-09-12) [🔗](https://www.omim.org/)
-- Orphanet Rare Disease Ontology (OPRHA, Version 2024-09-12) [🔗](https://www.orpha.net/)
+- Human Phenotype Ontology (HP, Version 2025-05-06) [🔗](http://www.human-phenotype-ontology.org)
+- Monarch Initiative Disease Ontology (MONDO, Version Version 2025-06-03) [🔗](https://mondo.monarchinitiative.org/)
+- Online Mendelian Inheritance in Man (OMIM, Version OMIM2024_08_09) [🔗](https://www.omim.org/)
+- Orphanet Rare Disease Ontology (OPRHA, Version OMIM2024_08_09) [🔗](https://www.orpha.net/)
 - National Center for Biotechnology Information Taxonomy (NCBITaxon, Version 2024-07-03) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
-- Logical Observation Identifiers Names and Codes (LOINC, Version 2.78) [🔗](https://loinc.org/)
+- Logical Observation Identifiers Names and Codes (LOINC, Version LNC278) [🔗](https://loinc.org/)
 - HUGO Gene Nomenclature Committee (HGNC, Version 2024-08-23) [🔗](https://www.genenames.org/)
 - Gene Ontology (GENO, Version 2023-10-08) [🔗](https://geneontology.org/)
-- NCI Thesaurus OBO Edition (NCIT, Version Version 24.04e ) [🔗](https://obofoundry.org/ontology/ncit.html)
+- NCI Thesaurus OBO Edition (NCIT, Version Version 24.01e ) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
 - [toFHIR](https://github.com/srdc/tofhir)

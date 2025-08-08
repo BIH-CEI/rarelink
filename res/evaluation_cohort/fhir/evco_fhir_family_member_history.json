@@ -30,7 +30,7 @@
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://snomed.info/sct",
-            "version": "2024-09-01",
+            "version": "SNOMEDCT_US_2024_09_01",
             "code": "373067005",
             "display": "No"
           } ]
@@ -40,7 +40,7 @@
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://snomed.info/sct",
-            "version": "2024-09-01",
+            "version": "SNOMEDCT_US_2024_09_01",
             "code": "373067005",
             "display": "No"
           } ]
@@ -56,7 +56,7 @@
       "relationship": {
         "coding": [ {
           "system": "http://snomed.info/sct",
-          "version": "2024-09-01",
+          "version": "SNOMEDCT_US_2024_09_01",
           "code": "60614009",
           "display": "Natural brother"
         } ]
@@ -64,7 +64,7 @@
       "sex": {
         "coding": [ {
           "system": "http://hl7.org/fhir/ValueSet/administrative-gender",
-          "version": "2024-09-01",
+          "version": "SNOMEDCT_US_2024_09_01",
           "code": "male",
           "display": "Male"
         } ]
@@ -75,7 +75,7 @@
         "code": {
           "coding": [ {
             "system": "http://purl.obolibrary.org/obo/mondo.owl",
-            "version": "2024-09-03",
+            "version": "2025-06-03",
             "code": "MONDO:0007843"
           } ],
           "text": "Family Member Disease [MONDO] - Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease."

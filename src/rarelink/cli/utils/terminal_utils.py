@@ -1,8 +1,13 @@
 import typer
 from tqdm import tqdm
 import sys
-import tty 
-import termios
+try:
+    import tty
+    import termios  # POSIX only
+    _POSIX = True
+except ImportError:      # Windows
+    import msvcrt
+    _POSIX = False
 
 def before_header_separator(separator_length: int = 80):
     """
@@ -63,25 +68,53 @@ def masked_input(prompt: str, mask: str = "#") -> str:
     """
     sys.stdout.write(prompt)
     sys.stdout.flush()
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    entered = ""
-    try:
-        tty.setraw(fd)
+
+    if _POSIX:
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        entered = ""
+        try:
+            tty.setraw(fd)
+            while True:
+                char = sys.stdin.read(1)
+                if char in ("\r", "\n"):
+                    sys.stdout.write("\n")
+                    sys.stdout.flush()
+                    break
+                elif char == "\x7f":  # Backspace
+                    if entered:
+                        entered = entered[:-1]
+                        sys.stdout.write("\b \b")
+                else:
+                    entered += char
+                    sys.stdout.write(mask)
+                sys.stdout.flush()
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return entered
+    else:
+        entered = ""
         while True:
-            char = sys.stdin.read(1)
-            if char == "\r" or char == "\n":  # Handle Enter key
-                sys.stdout.write("\n")  # Ensure new line
+            ch = msvcrt.getch()
+            # handle special keys (arrows, etc.) which come as two bytes: 0 or 224 then code
+            if ch in (b"\x00", b"\xe0"):
+                msvcrt.getch()
+                continue
+            if ch in (b"\r", b"\n"):
+                sys.stdout.write("\n")
                 sys.stdout.flush()
                 break
-            elif char == "\x7f":  # Handle Backspace key
+            if ch == b"\x08":  # Backspace
                 if entered:
                     entered = entered[:-1]
-                    sys.stdout.write("\b \b")  # Remove last mask character
+                    sys.stdout.write("\b \b")
+            elif ch == b"\x03":  # Ctrl+C
+                raise KeyboardInterrupt
             else:
-                entered += char
+                try:
+                    entered += ch.decode(errors="ignore")
+                except Exception:
+                    continue
                 sys.stdout.write(mask)
             sys.stdout.flush()
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return entered
+        return entered

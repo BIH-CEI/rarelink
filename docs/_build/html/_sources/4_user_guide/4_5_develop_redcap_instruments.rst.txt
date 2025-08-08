@@ -106,7 +106,7 @@ but we recommend keeping these in there so that they are part your project's
     - HP:0012829 | Profound  
     - HP:0012828 | Severe  
     Version(s): 
-    - HPO Version 2024-08-13  
+    - HPO Version 2025-05-06  
     Mapping: 
     - HL7 FHIR Expression v4.0.1: Observation.interpretation  
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity

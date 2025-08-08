@@ -15,6 +15,7 @@ from ..label_fetching import (
     fetch_label_from_bioportal
 )
 from ..date_handling import convert_date_to_iso_age, date_to_timestamp
+from rarelink_cdm import import_from_latest
 
 logger = logging.getLogger(__name__)
 
@@ -136,17 +137,19 @@ class DataProcessor:
             # Use the provided class directly
             self.enum_classes[prefix] = enum_class_or_path
     
-    def fetch_mapping_value(self, 
-                          mapping_name: str, 
-                          code: str, 
-                          default_value: Any = None) -> Any:
-        """Fetch a mapping value"""
+    def fetch_mapping_value(
+        self,
+        mapping_name: str,
+        code: str,
+        default_value: Any = None
+    ) -> Any:
+        """Fetch a mapping value from the latest rarelink_cdm version."""
         if not code:
             return default_value
-        
+
         try:
-            # Import here to avoid circular import
-            from rarelink_cdm.v2_0_0.mappings.phenopackets.mapping_dicts import get_mapping_by_name
+            mod = import_from_latest("mappings.phenopackets.mapping_dicts")
+            get_mapping_by_name = getattr(mod, "get_mapping_by_name")
             mapping = get_mapping_by_name(mapping_name)
             return mapping.get(code, default_value)
         except Exception as e:

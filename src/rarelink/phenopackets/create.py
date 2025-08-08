@@ -5,6 +5,11 @@ import traceback
 from typing import Dict, Any, Optional
 from rarelink.utils.processor import DataProcessor
 from rarelink.phenopackets.mappings.utils.common_utils import add_enum_classes_to_processor
+from rarelink_cdm import get_codesystems_container_class
+from rarelink.phenopackets.mappings.metadata_mapper import _collect_used_prefixes_from_blocks
+from rarelink.phenopackets.mappings.metadata_mapper import (
+    _collect_used_prefixes_from_blocks as collect_prefixes_from_blocks,
+)
 
 # Import new mapper classes
 from rarelink.phenopackets.mappings.individual_mapper import IndividualMapper
@@ -280,19 +285,33 @@ def create_phenopacket(
         )
 
         # --- Metadata ---
-        metadata_config = mapping_configs.get("metadata", {})
-        metadata_mapper = MetadataMapper(None)  # Metadata mapper doesn't need a processor
-        metadata = metadata_mapper.map(
-            data={},
-            created_by=created_by,
-            code_systems=metadata_config.get("code_systems")
+        metadata_config = mapping_configs.get("metadata", {}) or {}
+        code_systems = metadata_config.get("code_systems")
+        if not code_systems:
+            try:
+                CodeSystemsContainerCls = get_codesystems_container_class()
+                code_systems = CodeSystemsContainerCls()
+            except Exception as e:
+                logger.warning(f"Could not auto-load CodeSystemsContainer: {e}")
+                code_systems = metadata_config.get("code_systems")
+
+        used_prefixes = collect_prefixes_from_blocks(
+            features=phenotypic_features,
+            diseases=diseases,
+            measurements=measurements,
+            medical_actions=medical_actions,
+            interpretations=interpretations,
         )
-
         if debug:
-            logger.debug(f"Record {record_id}: {len(phenotypic_features)} phenotypic features, "
-                         f"{len(measurements)} measurements, {len(diseases)} diseases, "
-                         f"{len(medical_actions)} medical actions")
-
+            logger.debug(f"[metadata] used CURIE prefixes: {sorted(used_prefixes)}")
+            
+        metadata = MetadataMapper(None).map(
+            data={},                     # no need to pass the whole packet since we supply prefixes
+            created_by=created_by,
+            code_systems=code_systems,
+            used_prefixes=used_prefixes, # ← make sure this is here
+        )
+        
         phenopacket = Phenopacket(
             id=record_id,
             subject=individual,

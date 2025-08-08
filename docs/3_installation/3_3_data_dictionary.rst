@@ -12,6 +12,13 @@ REDCap project. Read the :ref:`2_2` section to learn more about the RareLink CDM
 Instruments. In case you have any questions, please contact your local REDCap 
 administrator, or :ref:`12` us. 
 
+- :ref:`data_dictionary_installation`
+- :ref:`data_dictionary_customise`
+
+_____________________________________________
+
+.. _data_dictionary_installation:
+
 Installation
 -------------
 
@@ -19,7 +26,7 @@ ________________________________________________________________________________
 
 1. **Download the instruments from the RareLink REDCap project.**
 
-- :download:`Download RareLink CDM Data Dictionary v2.0.0 <../../res/rarelink_cdm_datadictionary - v2_0_0.csv>`
+- :download:`Download RareLink CDM Data Dictionary v2.0.2 <../../res/rarelink_cdm_datadictionary - v2_0_2.csv>`
 
 2. **Upload the data dictionary to your REDCap project**
 
@@ -135,4 +142,66 @@ additional fields or instruments. This can be done by following the
 established RareLink guidelines given in the :ref:`4_5` section. Feel free to 
 :ref:`12` us in case you have any questions or need help.
 
+________________________________
+
+.. _data_dictionary_customise:
+
+Customise the Data Dictionary
+-----------------------------
+
+In many cases it may be necessary to customise the RareLink-CDM Data Dictionary
+to suit your specific needs or simplify manual data capture. To ensure that the FHIR 
+and Phenopacket modules work correctly, it is important to follow the guidelines below. 
+
+To customise your RareLink-CDM Data Dictionary, you can... 
+
+Hide fields 
+^^^^^^^^^^^^^^^
+
+- ...add the ``@HIDDEN`` actiontag to fields that you do not want to display in the REDCap project.
+  This can be useful for fields that are not required in your specific profect for manual data entry and 
+  can therefore be hidden from the user interface.
+  - You can find more information on the ``@HIDDEN`` action tag in the  
+    `ActionTag REDCap documentation <https://www.ctsi.ufl.edu/wordpress/files/2019/02/Using-Action-Tags-in-REDCap.pdf>`_.
+  
+  .. note::
+      Make sure you do not hide fields that are marked as ``required`` within the REDCap instrument and RareLink-CDM. 
+      You can find all the required fields in the :ref:`cdm_overview` subsection of the :ref:`2_2` section.
+
+
+Change labels & descriptions 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ...change the field labels or field descriptions to better suit your project needs. 
+  This can be useful to clarify the meaning of a field or to provide additional information to the user.
+  - You can find more information on how to change field labels and descriptions in the 
+    `REDCap documentation <https://kb.wisc.edu/smph/informatics/page.php?id=92573>`_.
+
+   .. important:: 
+      **Do not change the field name or variable**: The field variables/names in the RareLink-CDM Data Dictionary are 
+      used to map the data to FHIR and Phenopackets. Changing the field names will break the mapping.
+
+
+Multi-language management
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ...edit and add the language settings for the RareLink-CDM using the REDCap 
+  `Multi-language Management feature <https://kb.wisc.edu/smph/informatics/page.php?id=115603>`_.
+  This can be useful to provide the RareLink-CDM instruments in multiple languages for your users.
+
+.. note:: 
+   Feel free to :ref:`12` in case you are interested in creating official language versions of the RareLink-CDM Instruments
+   or RareLink. We are happy to collaborate with you on this and support you in the process.
+
+Add new fields & instruments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ... add new fields and instruments to the RareLink-CDM as extensions:
+  This can be useful to capture additional information that is not included in the RareLink-CDM Data Dictionary.
+  For this please refer to the guidelines in the :ref:`4_5` section on how to extend the RareLink-CDM Data Dictionary.
+
+.. hint::
+   In case you have questions, please :ref:`12` directly or `write an issue on GitHub <https://github.com/BIH-CEI/rarelink/issues/new>`_
+   to ensure you make use of the RareLink framework in the best possible way. 
+   We are happy to help you with any questions you may have and collaborate on extensions and improvements.
 

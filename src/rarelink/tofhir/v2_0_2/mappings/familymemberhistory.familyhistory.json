@@ -1,0 +1,184 @@
+{
+  "id": "familymemberhistory.familyhistory",
+  "url": "rarelink/familymemberhistory.familyhistory",
+  "name": "familymemberhistory.familyhistory",
+  "title": "RareLink Family History",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkFamilyHistory",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_4_family_history",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "familymemberhistory.familyhistory",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('FamilyMemberHistory', record_id & 'Family History')}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory"
+            ]
+          },
+          "resourceType": "FamilyMemberHistory",
+          "identifier": [
+            {
+              "value": "{{family_history_pseudonym}}"
+            }
+          ],
+          "status": "{{mpp:getConcept(%familyStatus, hl7fhir_fmh_status, 'target_code')}}",
+          "patient": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "relationship": {
+            "coding": [
+              {
+                "system": "{{'http://snomed.info/sct'}}",
+                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "code": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_code')}}",
+                "display": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_display')}}"
+              }
+            ]
+          },
+          "sex": {
+            "coding": [
+              {
+                "system": "{{? iif(loinc_54123_5.empty().not(),'http://hl7.org/fhir/ValueSet/administrative-gender')}}",
+                "version": "{{? iif(loinc_54123_5.empty().not(),'SNOMEDCT_US_2024_09_01')}}",
+                "code": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_code')}}",
+                "display": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_display')}}"
+              }
+            ]
+          },
+          "bornDate": {
+            "{{#bornDateVar}}": "{{iif(loinc_54124_3.exists(),true)}}",
+            "{{?}}": "{{loinc_54124_3.toDate()}}"
+          },
+          "ageAge": {
+            "value": {
+              "{{#valueVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
+              "{{?}}": "{{loinc_54141_7}}"
+            },
+            "system": {
+              "{{#systemVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
+              "{{?}}": "{{'http://unitsofmeasure.org'}}"
+            },
+            "code": {
+              "{{#codeVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
+              "{{?}}": "{{'a'}}"
+            },
+            "unit": {
+              "{{#unitVar}}": "{{iif(loinc_54124_3.exists().not(), true)}}",
+              "{{?}}": "{{'years'}}"
+            }
+          },
+          "deceasedBoolean": "{{? mpp:getConcept(%familyDeceased, snomedct_740604001, 'target_code').toBoolean()}}",
+          "condition": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "{{? iif(loinc_54112_8.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
+                    "version": "{{? iif(loinc_54112_8.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "code": "{{? loinc_54112_8}}"
+                  }
+                ],
+                "text": "{{? iif(loinc_54112_8.empty().not(), 'Family Member Cause of Death [ICD10CM] - Records the cause of death of the selected deceased family member.')}}"
+              },
+              "contributedToDeath": "{{? iif(loinc_54112_8.empty().not(), true)}}"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "{{? iif(loinc_75315_2.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                    "version": "{{? iif(loinc_75315_2.empty().not(),'2025-06-03')}}",
+                    "code": "{{? loinc_75315_2}}"
+                  }
+                ],
+                "text": "{{? iif(loinc_75315_2.empty().not(), 'Family Member Disease [MONDO] - Indicates whether the selected family member is affected by the same RD as the individual or a different rare disease.')}}"
+              }
+            }
+          ],
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "extension": [
+            {
+              "url": "{{? iif(snomedct_64245008.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus')}}",
+              "valueCoding": {
+                "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
+                "version": "{{? iif(snomedct_64245008.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                "code": "{{? iif(snomedct_64245008.empty().not(), '64245008')}}",
+                "display": "{{? iif(snomedct_64245008.empty().not(), 'Propositus (finding)')}}"
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
+                    "version": "{{? iif(snomedct_64245008.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "code": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "{{? iif(snomedct_842009.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity')}}",
+              "valueCoding": {
+                "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
+                "version": "{{? iif(snomedct_842009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                "code": "{{? iif(snomedct_842009.empty().not(), '842009')}}",
+                "display": "{{? iif(snomedct_842009.empty().not(), 'Consanguinity (finding)')}}"
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
+                    "version": "{{? iif(snomedct_842009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "code": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_display')}}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "description": "RareLink_6_4_Family_History"
+    }
+  ],
+  "context": {
+    "familyRelationship": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_5_family_member_relationship.csv"
+    },
+    "familySex": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_7_family_member_sex.csv"
+    },
+    "familyStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_6_family_member_record_status.csv"
+    },
+    "familyPropositus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_2_propositus.csv"
+    },
+    "familyConsanguinity": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_4_consanguinity.csv"
+    },
+    "familyDeceased": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_10_family_member_deceased.csv"
+    },
+    "familyRelationshipPropositus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_4_3_relationship_to_propositus.csv"
+    }
+  }
+}

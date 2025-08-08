@@ -7,6 +7,8 @@ import importlib.machinery
 from pathlib import Path
 from typing import Optional
 import logging
+from rarelink_cdm import import_from_latest, list_available_versions, import_from_version
+
 
 from rarelink.cli.utils.terminal_utils import (
     between_section_separator,
@@ -39,6 +41,9 @@ def export(
     ),
     mappings: Path = typer.Option(
         None, "--mappings", "-m", help="Path to custom mapping configuration module"
+    ),
+    label_dict: Path = typer.Option(
+        None, "--label-dict", help="Path to JSON file with code→label mappings"
     ),
     debug: bool = typer.Option(
         False, "--debug", "-d", help="Enable debug mode for verbose logging"
@@ -96,8 +101,6 @@ def export(
             )
             raise typer.Exit(1)
 
-    between_section_separator()
-
     # Fetch CREATED_BY from env or argument
     _created_by = created_by or os.getenv("CREATED_BY")
     if not _created_by and not skip_validation:
@@ -133,8 +136,6 @@ def export(
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
-
-    between_section_separator()
 
     # Step 3: Determine output directory
     if output_dir is None:
@@ -197,31 +198,67 @@ def export(
             )
             raise typer.Exit(1)
     else:
-        # No custom mappings provided, prompt user
-        try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink-CDM mappings?")
+        try_default = typer.confirm(
+            "No custom mappings provided. Would you like to try with default RareLink-CDM mappings?"
+        )
         if try_default:
+            # First try “latest”, then gracefully fall back through all available versions.
+            tried = []
+            mod = None
             try:
-                from rarelink_cdm.v2_0_0.mappings.phenopackets import create_rarelink_phenopacket_mappings
-                mapping_configs = create_rarelink_phenopacket_mappings()
-                logger.info("Using default RareLink-CDM mappings")
-            except ImportError:
-                typer.secho(
-                    error_text("❌ Default RareLink-CDM mappings not available."),
-                    fg=typer.colors.RED
-                )
-                raise typer.Exit(1)
+                mod = import_from_latest("mappings.phenopackets")
+            except Exception as first_err:
+                tried.append(("latest", str(first_err)))
+                for v in list_available_versions():
+                    try:
+                        mod = import_from_version(v, "mappings.phenopackets")
+                        logger.info(f"Using RareLink-CDM mappings from {v}")
+                        break
+                    except Exception as e:
+                        tried.append((v, str(e)))
+                        continue
+                if mod is None:
+                    detail = "; ".join(f"{v}: {err}" for v, err in tried)
+                    typer.secho(
+                        error_text(f"❌ Default RareLink-CDM mappings not available ({detail})"),
+                        fg=typer.colors.RED,
+                    )
+                    raise typer.Exit(1)
+
+            create_rarelink_phenopacket_mappings = getattr(
+                mod, "create_rarelink_phenopacket_mappings"
+            )
+            mapping_configs = create_rarelink_phenopacket_mappings()
+            logger.info("Using default RareLink-CDM mappings")
         else:
             typer.secho(
                 error_text("❌ Mapping configurations are required."),
-                fg=typer.colors.RED
+                fg=typer.colors.RED,
             )
             raise typer.Exit(1)
-
     if debug:
         logger.debug("Using the following mapping configurations:")
         for key, value in mapping_configs.items():
             logger.debug(f"- {key}: {list(value.keys()) if isinstance(value, dict) else type(value)}")
 
+    if label_dict:
+        from rarelink.utils.label_fetching import fetch_label as _orig_fetch_label
+
+        # 1) load code→label map
+        with open(label_dict, "r") as lf:
+            label_map = json.load(lf)
+
+        # 2) monkey‐patch the pipeline’s fetch_label so it prefers your dict
+        def fetch_label(code: str, enum_class=None, label_dict=None):
+            # priority: your map → existing logic
+            if code in label_map:
+                return label_map[code]
+            return _orig_fetch_label(code, enum_class=enum_class, label_dict=label_map)
+
+        # 3) inject into the phenopacket pipeline namespace
+        import rarelink.utils.label_fetching as mu
+        mu.fetch_label = fetch_label
+        
     typer.echo("NOTE: This pipeline fetches labels from BIOPORTAL. "
                "Ensure you have an internet connection as this may take a while - time to get a tea ☕ ...")
 

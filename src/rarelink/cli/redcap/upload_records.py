@@ -3,6 +3,7 @@ import requests
 import typer
 from pathlib import Path
 from dotenv import dotenv_values
+import importlib.resources as resources 
 from rarelink.cli.utils.terminal_utils import (
     end_of_section_separator,
     between_section_separator,
@@ -15,20 +16,49 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
-from rarelink_cdm.v2_0_0.mappings.redcap import REVERSE_PROCESSING
-from rarelink.utils.validation import validate_linkml_data
 from rarelink.utils.schema_processing import linkml_to_redcap  
+from rarelink_cdm import get_latest_version, import_from_latest
 import logging
+
+def validate_linkml_data(*args, **kwargs):
+    from rarelink.utils.validation import validate_linkml_data as _impl
+    return _impl(*args, **kwargs)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 app = typer.Typer()
 
-REPO_ROOT = Path(__file__).resolve().parents[4]
+try:
+    _redcap = import_from_latest("mappings.redcap")
+    REVERSE_PROCESSING = getattr(_redcap, "REVERSE_PROCESSING")
+except Exception as e:
+    logging.getLogger(__name__).error(f"Could not import REVERSE_PROCESSING from latest CDM: {e}")
+    raise
+
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")
-BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml"
-TEMPLATE_JSON = REPO_ROOT / "src/rarelink_cdm/v2_0_0/mappings/redcap/template.json"
+
+def _resolve_latest_schema_path() -> Path:
+    """
+    Locate the LinkML schema file inside the latest rarelink_cdm vX_Y_Z
+    package and return a concrete Path on disk.
+    """
+    latest = get_latest_version()  # e.g., 'v2_0_2'
+    pkg = f"rarelink_cdm.{latest}.schema_definitions"
+    res = resources.files(pkg) / "rarelink_cdm.yaml"
+    # as_file extracts to a temp file if needed so tools can read a real path
+    with resources.as_file(res) as p:
+        return Path(p)
+
+def _load_latest_template_dict() -> dict:
+    """
+    Load the REDCap template.json from the latest rarelink_cdm package.
+    """
+    latest = get_latest_version()
+    pkg = f"rarelink_cdm.{latest}.mappings.redcap"
+    res = resources.files(pkg) / "template.json"
+    with resources.as_file(res) as p:
+        return json.loads(Path(p).read_text(encoding="utf-8"))
 
 @app.command()
 def app(input_file: Path = typer.Option(
@@ -69,11 +99,13 @@ def app(input_file: Path = typer.Option(
 
     # Step 1: Validate LinkML data
     typer.echo("🔄 Validating LinkML data before transformation...")
-    if not validate_linkml_data(BASE_SCHEMA_PATH, input_file):
-        error_text(f"❌ Validation of LinkML data failed. Please run "
-                   f"{format_command('`linkml-validate --schema src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml <path_to_your.json>` for details')} ")
+    schema_path = _resolve_latest_schema_path()
+    if not validate_linkml_data(schema_path, input_file):
+        error_text(
+            "❌ Validation of LinkML data failed. "
+            f"Please run {format_command(f'linkml-validate --schema {schema_path} {input_file}')} for details"
+        )
         raise typer.Exit(1)
-    
     success_text("✅ Validation successful!")
 
     # Step 2: Count `record_id` instances in the input file
@@ -87,20 +119,14 @@ def app(input_file: Path = typer.Option(
 
     # Step 3: Transform LinkML data to REDCap flat format using MAPPING_FUNCTIONS
     processed_file = DEFAULT_OUTPUT_DIR / f"{project_name.replace(' ', '_')}-import-records.json"
-    template_path = "src/rarelink_cdm/v2_0_0/mappings/redcap/template.json"
-    
-    # Load the template into a dictionary
+
     try:
-        with open(template_path, 'r') as template_file:
-            template_dict = json.load(template_file)
+        template_dict = _load_latest_template_dict()
     except Exception as e:
-        error_text(f"❌ Error loading template: {e}")
+        error_text(f"❌ Error loading template.json from latest CDM: {e}")
         raise typer.Exit(1)
 
-    linkml_to_redcap(input_file, 
-                     processed_file, 
-                     template_dict, 
-                     REVERSE_PROCESSING)
+    linkml_to_redcap(input_file, processed_file, template_dict, REVERSE_PROCESSING)
 
     # Step 4: Read the processed file to prepare for upload
     try:

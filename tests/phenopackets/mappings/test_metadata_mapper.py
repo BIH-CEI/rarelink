@@ -4,9 +4,13 @@ from unittest.mock import Mock, patch
 
 from rarelink.phenopackets.mappings.metadata_mapper import MetadataMapper
 from phenopackets import MetaData
-from rarelink_cdm.v2_0_0.datamodel import CodeSystemsContainer
+from rarelink_cdm import import_from_latest
 
-# Set up logging
+CodeSystemsContainer = getattr(
+    import_from_latest("datamodel"),
+    "CodeSystemsContainer"
+)
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 

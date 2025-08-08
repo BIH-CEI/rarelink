@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
-from rarelink.phenopackets.pipeline import phenopacket_pipeline
+from rarelink.phenopackets import phenopacket_pipeline
 
 class TestRedcapToPhenopacketWorkflow(unittest.TestCase):
     """

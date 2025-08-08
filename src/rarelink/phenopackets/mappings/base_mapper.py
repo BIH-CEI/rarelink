@@ -271,3 +271,18 @@ class BaseMapper(Generic[T]):
         
         # Filter out dummy instruments
         return [i for i in instruments if i and i != "__dummy__"]
+    
+    def map_genetics_to_geno_ontology(self, 
+                             data: Dict[str, Any], 
+                             instruments: List[str]) -> Optional[T]:
+        """
+        Map genetic data to a GENO ontology for Phenopacket-Analaysis tools.
+        
+        Args:
+            data (Dict[str, Any]): Input genetic data
+            instruments (List[str]): List of instruments for field access
+            
+        Returns:
+            Optional[T]: Mapped genotype entity or None on failure
+        """
+        raise NotImplementedError("Subclasses must implement map_loinc_to_geno_ontology")

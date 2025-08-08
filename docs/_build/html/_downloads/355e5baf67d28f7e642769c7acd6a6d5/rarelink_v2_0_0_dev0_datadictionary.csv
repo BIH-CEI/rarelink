@@ -677,7 +677,7 @@ HPO:0034382 | Resolution Date
 Choices: 
 n/a  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.effectiveDateTime  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.resolution"
@@ -695,7 +695,7 @@ Choices:
 - HP:0003596 | Middle age adult onset (40y-60y)  
 - HP:0003584 | Late adult onset (60y+)  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.category  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.onset"
@@ -711,7 +711,7 @@ Choices:
 - HP:0011011 | Subactue  
 - HP:0025153 | Transient  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.interpretation  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers"
@@ -724,7 +724,7 @@ Choices:
 - HP:0012829 | Profound  
 - HP:0012828 | Severe  
 Version(s): 
-- HPO Version 2024-08-13  
+- HPO Version 2025-05-06  
 Mapping: 
 - HL7 FHIR Expression v4.0.1: Observation.interpretation  
 - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
@@ -788,28 +788,28 @@ measurements_descr,rarelink_6_3_measurements,RareLink - 6.3) Measurements,descri
 ncit_c60819,rarelink_6_3_measurements,,text,6.3.1 Assay,BIOPORTAL:LOINC,Please search the assay in LOINC and see tips above.,,,,,,y,,,,,"Variable: NCIT:C60819 | Assay
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.assay"
 ncit_c25712,rarelink_6_3_measurements,,text,6.3.2 Value,,Please enter a two decimal number,number_2dp,0.00,999999.99,,,y,,,,,"Variable: NCIT:C25712 | Value
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x]
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
 ncit_c92571,rarelink_6_3_measurements,,text,6.3.3 Value Unit,BIOPORTAL:UO,"Please search the unit in the Unit Ontology (UO). Tip: Search for the official abbreviations (e.g. dl, kg, l, etc.)",,,,,,y,,,,,"Variable: NCIT:C92571 | Measurement Unit Description
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.value[x].unit
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
 ncit_c41255,rarelink_6_3_measurements,,text,6.3.4 Interpretation,BIOPORTAL:NCIT,"Please search for an interpretation in NCIT, e.g. positive / negative, below/above reference range, etc. ",,,,,,,,,,,"Variable: NCIT:C41255 | Interpretation
 Choices: n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.interpretation
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.measurement_value"
@@ -817,7 +817,7 @@ ncit_c82577,rarelink_6_3_measurements,,text,6.3.5 Time Observed,,YYYY-MM-DD,date
 Choices:
 - n/a
 Version(s):
-- NCIT v24.04e
+- NCIT v24.01e
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Observation.effectiveDateTime
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.time_observed"
@@ -825,7 +825,7 @@ snomedct_122869004_ncit,rarelink_6_3_measurements,,text,6.3.6A Procedure [NCIT],
 Choices: 
 - n/a
 Version(s):
-- SNOMED CT v2024-09-01
+- SNOMED CT vSNOMEDCT_US_2024_09_01
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
@@ -833,7 +833,7 @@ snomedct_122869004_snomed,rarelink_6_3_measurements,,text,6.3.6B Procedure [SNOM
 Choices: 
 - n/a
 Version(s):
-- SNOMED CT v2024-09-01
+- SNOMED CT vSNOMEDCT_US_2024_09_01
 Mapping:
 - HL7 FHIR Expression v4.0.1 [Suggested]: Procedure.code
 - GA4GH Phenopacket Schema v2.0 Element: Measurement.procedure"
