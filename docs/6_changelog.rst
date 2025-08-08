@@ -13,13 +13,15 @@ The following changes have been made since the last version:
 Dynamic versioning for code systems:
 """"""""""""""""""""""""""""""""""""""
 - Implemented dynamic retrieval of the latest CodeSystemsContainer definitions
-  from the RD-CDM PyPi package so that Phenopacket metadata always reflects the 
-  most current ontology/code system versions from the RareLink-CDM.
-- The MetaData mapper now scans actual Phenopacket content to detect which
-  code systems (e.g., MONDO, HPO, LOINC, HGVS, GENO) are used and inserts only
-  those resources with their correct, up-to-date version identifiers.
-  - This ensures generated Phenopackets remain consistent with the latest 
-    controlled vocabularies without manual version updates.
+  from the RD-CDM PyPi package so that the RareLink-CDM always reflects the 
+  most current ontology/code system versions.
+- The RareLink/CDM engine also updates the entire RareLink-CDM and its toFHIR mappings
+  when updates of element codes or ontology versions were made to the RD-CDM package.
+- The MetaData mapper of the Phenopacket Engine now scans actual Phenopacket
+  content to detect which code systems (e.g., MONDO, HPO, LOINC, HGVS, GENO) are 
+  used and inserts only those resources with their correct, up-to-date version identifiers 
+  to ensure generated Phenopackets remain consistent with the latest 
+  controlled vocabularies without manual version updates.
 
 Phenopacket Pipeline: 
 """"""""""""""""""""""""
