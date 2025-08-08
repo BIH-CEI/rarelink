@@ -1,0 +1,532 @@
+{
+  "id": "genomicreporting.genetic_findings",
+  "url": "rarelink/genomicreporting.genetic_findings",
+  "name": "genomicreporting.genetic_findings",
+  "title": "RareLink Observation Genetic Findings",
+  "isDraft": false,
+  "source": [
+    {
+      "alias": "rarelinkGeneticFindings",
+      "url": "https://github.com/BIH-CEI/rarelink/StructureDefinition/Rarelink_6_1_genetic_findings",
+      "joinOn": []
+    }
+  ],
+  "variable": [],
+  "mapping": [
+    {
+      "expression": {
+        "name": "genetic_findings.variant",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings Variant')}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant"
+            ]
+          },
+          "resourceType": "Observation",
+          "code": {
+            "coding": [
+              {
+                "code": "{{'69548-6'}}",
+                "system": "{{'http://loinc.org'}}",
+                "version": "{{'LNC278'}}",
+                "display": "{{'Genetic variant assessment'}}"
+              }
+            ]
+          },
+          "method": {
+            "coding": [
+              {
+                "{{#codingVar}}": "{{loinc_81304_8.exists()}}",
+                "{{?}}": {
+                  "code": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_code')}}",
+                  "system": "{{? iif(loinc_81304_8.empty().not(), 'https://loinc.org/')}}",
+                  "version": "{{? iif(loinc_81304_8.empty().not(), 'LNC278')}}",
+                  "display": "{{? mpp:getConcept(%geneticsMethod, loinc_81304_8, 'target_display')}}"
+                }
+              },
+              {
+                "{{#codingVar}}": "{{loinc_81304_8_other.exists()}}",
+                "{{?}}": {
+                  "code": "{{? loinc_81304_8_other}}",
+                  "system": "{{? iif(loinc_81304_8.empty().not(), 'https://loinc.org/')}}",
+                  "version": "{{? iif(loinc_81304_8.empty().not(), 'LNC278')}}"
+                }
+              }
+            ]
+          },
+          "category": [
+            {
+              "coding": [
+                {
+                  "code": "{{'laboratory'}}",
+                  "system": "{{'http://terminology.hl7.org/CodeSystem/observation-category'}}"
+                }
+              ],
+              "@sliceName": "labCategory"
+            },
+            {
+              "coding": [
+                {
+                  "code": "{{'GE'}}",
+                  "system": "{{'http://terminology.hl7.org/CodeSystem/v2-0074'}}"
+                }
+              ],
+              "@sliceName": "geCategory"
+            }
+          ],
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_81290_9.empty().not(), '81290-9')}}",
+                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_81290_9.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_81290_9.empty().not(), 'Genomic DNA change (gHGVS)')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? loinc_81290_9}}",
+                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://varnomen.hgvs.org')}}"
+                  }
+                ]
+              },
+              "@sliceName": "genomic-hgvs"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_81290_9.empty().not(), '48013-7')}}",
+                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_81290_9.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_81290_9.empty().not(), 'Genomic reference sequence [ID]')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_81290_9.empty().not(), loinc_81290_9.utl:split(':')[0])}}",
+                    "system": "{{? iif(loinc_81290_9.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                  }
+                ]
+              },
+              "@sliceName": "genomic-ref-seq"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48004_6.empty().not(), '48004-6')}}",
+                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48004_6.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48004_6.empty().not(), 'DNA change (c.HGVS)')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? loinc_48004_6}}",
+                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://varnomen.hgvs.org')}}"
+                  }
+                ]
+              },
+              "@sliceName": "representative-coding-hgvs"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48004_6.empty().not(), '51958-7')}}",
+                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48004_6.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48004_6.empty().not(), 'Transcript reference sequence [ID]')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48004_6.empty().not(), loinc_48004_6.utl:split(':')[0])}}",
+                    "system": "{{? iif(loinc_48004_6.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                  }
+                ]
+              },
+              "@sliceName": "representative-transcript-ref-seq"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48005_3.empty().not(), '48005-3')}}",
+                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48005_3.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48005_3.empty().not(), 'Amino acid change (pHGVS)')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? loinc_48005_3}}",
+                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://varnomen.hgvs.org')}}"
+                  }
+                ]
+              },
+              "@sliceName": "representative-protein-hgvs"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48005_3.empty().not(), 'protein-ref-seq')}}",
+                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs')}}",
+                    "version": "{{? iif(loinc_48005_3.empty().not(), '3.0.0')}}",
+                    "display": "{{? iif(loinc_48005_3.empty().not(), 'An identifier for the protein reference sequence.')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48005_3.empty().not(), loinc_48005_3.utl:split(':')[0])}}",
+                    "system": "{{? iif(loinc_48005_3.empty().not(), 'http://www.ncbi.nlm.nih.gov/refseq')}}"
+                  }
+                ]
+              },
+              "@sliceName": "representative-protein-ref-seq"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_62374_4.empty().not(), '62374-4')}}",
+                    "system": "{{? iif(loinc_62374_4.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_62374_4.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_62374_4.empty().not(), 'Human reference sequence assembly version')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_code')}}",
+                    "system": "{{? iif(loinc_62374_4.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_62374_4.empty().not(), 'LNC278')}}",
+                    "display": "{{? mpp:getConcept(%geneticsReferenceGenome, loinc_62374_4, 'target_display')}}"
+                  }
+                ]
+              },
+              "@sliceName": "reference-sequence-assembly"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48018_6.empty().not(), '48018-6')}}",
+                    "system": "{{? iif(loinc_48018_6.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48018_6.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48018_6.empty().not(), 'Gene studied [ID]')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? loinc_48018_6}}",
+                    "system": "{{? iif(loinc_48018_6.empty().not(), 'https://www.genenames.org')}}",
+                    "version": "{{? iif(loinc_48018_6.empty().not(), '2025-04-25')}}"
+                  }
+                ]
+              },
+              "@sliceName": "gene-studied"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_53034_5.empty().not(), '53034-5')}}",
+                    "system": "{{? iif(loinc_53034_5.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_53034_5.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_53034_5.empty().not(), 'Allelic state')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "{{#codingVar}}": "{{loinc_53034_5.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_code')}}",
+                      "system": "{{? iif(loinc_53034_5.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_53034_5.empty().not(), 'LNC278')}}",
+                      "display": "{{? mpp:getConcept(%geneticsZygosity, loinc_53034_5, 'target_display')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{loinc_53034_5_other.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? loinc_53034_5_other}}",
+                      "system": "{{? iif(loinc_53034_5_other.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_53034_5_other.empty().not(), 'LNC278')}}"
+                    }
+                  }
+                ]
+              },
+              "@sliceName": "allelic-state"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48002_0.empty().not(), '48002-0')}}",
+                    "system": "{{? iif(loinc_48002_0.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48002_0.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48002_0.empty().not(), 'Genomic source class [Type]')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsGenomicSourceClass, loinc_48002_0, 'target_code')}}",
+                    "system": "{{? iif(loinc_48002_0.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48002_0.empty().not(), 'LNC278')}}",
+                    "display": "{{? mpp:getConcept(%geneticsGenomicSourceClass, loinc_48002_0, 'target_display')}}"
+                  }
+                ]
+              },
+              "@sliceName": "genomic-source-class"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_48019_4.empty().not(), '48019-4')}}",
+                    "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_48019_4.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_48019_4.empty().not(), 'DNA change type')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "{{#codingVar}}": "{{loinc_48019_4.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_code')}}",
+                      "system": "{{? iif(loinc_48019_4.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_48019_4.empty().not(), 'LNC278')}}",
+                      "display": "{{? mpp:getConcept(%geneticsDNAChangeType, loinc_48019_4, 'target_display')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{loinc_48019_4_other.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? loinc_48019_4_other}}",
+                      "system": "{{? iif(loinc_48019_4_other.empty().not(), 'http://loinc.org')}}",
+                      "version": "{{? iif(loinc_48019_4_other.empty().not(), 'LNC278')}}"
+                    }
+                  }
+                ]
+              },
+              "@sliceName": "coding-change-type"
+            }
+          ],
+          "status": "{{'final'}}",
+          "subject": "{{mpp:createFhirReferenceWithHashedId('Patient', record_id)}}",
+          "text": {
+            "status": "generated",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          }
+        }
+      },
+      "description": "genetic_findings.variant"
+    },
+    {
+      "expression": {
+        "name": "genetic_findings.diagnostic_implication",
+        "language": "application/fhir-template+json",
+        "value": {
+          "id": "{{mpp:getHashedId('Observation', record_id & 'Genetic Findings Implication')}}",
+          "meta": {
+            "profile": [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication"
+            ]
+          },
+          "resourceType": "Observation",
+          "code": {
+            "coding": [
+              {
+                "code": "{{'diagnostic-implication'}}",
+                "system": "{{'http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs'}}",
+                "version": "{{'3.0.0'}}",
+                "display": "{{'Diagnostic Implication'}}"
+              }
+            ]
+          },
+          "derivedFrom": [
+            {
+              "reference": "{{'Observation/' & mpp:getHashedId('Observation', record_id & 'Genetic Findings Variant')}}",
+              "type": "{{'Observation'}}",
+              "@sliceName": "variant"
+            }
+          ],
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_93044_6.empty().not(), '93044-6')}}",
+                    "system": "{{? iif(loinc_93044_6.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_93044_6.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_93044_6.empty().not(), 'Level of evidence')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsClinicalAnnotation, loinc_93044_6, 'target_code')}}",
+                    "system": "{{? iif(loinc_93044_6.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_93044_6.empty().not(), 'LNC278')}}",
+                    "display": "{{? mpp:getConcept(%geneticsClinicalAnnotation, loinc_93044_6, 'target_display')}}"
+                  }
+                ]
+              },
+              "@sliceName": "evidence-level"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{? iif(loinc_53037_8.empty().not(), '53037-8')}}",
+                    "system": "{{? iif(loinc_53037_8.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_53037_8.empty().not(), 'LNC278')}}",
+                    "display": "{{? iif(loinc_53037_8.empty().not(), 'Genetic variation clinical significance [Imp]')}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{? mpp:getConcept(%geneticsClinicalSignifiance, loinc_53037_8, 'target_code')}}",
+                    "system": "{{? iif(loinc_53037_8.empty().not(), 'http://loinc.org')}}",
+                    "version": "{{? iif(loinc_53037_8.empty().not(), 'LNC278')}}",
+                    "display": "{{? mpp:getConcept(%geneticsClinicalSignifiance, loinc_53037_8, 'target_display')}}"
+                  }
+                ]
+              },
+              "@sliceName": "clinical-significance"
+            },
+            {
+              "code": {
+                "coding": [
+                  {
+                    "code": "{{'81259-4'}}",
+                    "system": "{{'http://loinc.org'}}",
+                    "version": "{{'LNC278'}}",
+                    "display": "{{'Associated phenotype'}}"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "{{#codingVar}}": "{{snomedct_106221001_mondo.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? snomedct_106221001_mondo.substring(6)}}",
+                      "system": "{{? iif(snomedct_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+                      "version": "{{? iif(snomedct_106221001_mondo.empty().not(), '2025-06-03')}}"
+                    }
+                  },
+                  {
+                    "{{#codingVar}}": "{{snomedct_106221001_omim_p.exists()}}",
+                    "{{?}}": {
+                      "code": "{{? snomedct_106221001_omim_p}}",
+                      "system": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'https://omim.org/')}}",
+                      "version": "{{? iif(snomedct_106221001_omim_p.empty().not(), 'OMIM2024_08_09')}}"
+                    }
+                  }
+                ],
+                "text": "{{'Genomic Diagnosis'}}"
+              },
+              "@sliceName": "predicted-phenotype"
+            }
+          ],
+          "text": {
+            "status": "{{'extensions'}}",
+            "div": "{{'<div xmlns=\"http://www.w3.org/1999/xhtml\">  <p><strong>RareLink Observation</strong></p>  <p>This observation is generated as part of the RareLink REDCap project and its Common Data Model (CDM). It provides a comprehensive framework around REDCap harmonising and linking international rare disease registries using FHIR, Phenopackets, and international Ontologies and Terminologies. This resource contains structured data and extensions to ensure interoperability and adherence to international standards.</p>  <ul>    <li><strong>Status:</strong> Registered</li>    <li><strong>Category:</strong> Phenotypic Feature</li>    <li><strong>Code:</strong> Human Phenotype Ontology (HPO)</li>    <li><strong>Extensions:</strong> Includes additional metadata for enhanced interpretation</li>  </ul>  <p>For more details, visit the <a href=\"https://github.com/BIH-CEI/rarelink\">RareLink GitHub Repository</a> or the <a href=\"https://rarelink.readthedocs.io/en/latest/index.html\">documentation</a>.</p></div>'}}"
+          },
+          "status": "{{'final'}}",
+          "category": [
+            {
+              "coding": [
+                {
+                  "code": "{{'laboratory'}}",
+                  "system": "{{'http://terminology.hl7.org/CodeSystem/observation-category'}}"
+                }
+              ],
+              "@sliceName": "labCategory"
+            },
+            {
+              "coding": [
+                {
+                  "code": "{{'GE'}}",
+                  "system": "{{'http://terminology.hl7.org/CodeSystem/v2-0074'}}"
+                }
+              ],
+              "@sliceName": "geCategory"
+            }
+          ]
+        }
+      },
+      "description": "genetic_findings.diagnostic_implication"
+    }
+  ],
+  "context": {
+    "geneticsZygosity": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_11_zygosity.csv"
+    },
+    "geneticsClinicalAnnotation": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_16_clinical_annotation_level_of_evidence.csv"
+    },
+    "geneticsDNAChangeType": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_13_dna_change_type.csv"
+    },
+    "geneticsMethod": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_4_structural_variant_analysis_method.csv"
+    },
+    "phenopacketsInterpretation": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_3_interpretation_status.csv"
+    },
+    "geneticsReferenceGenome": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_5_reference_genome.csv"
+    },
+    "geneticsGenomicSourceClass": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_12_genomic_source_class.csv"
+    },
+    "geneticsProgressStatus": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_2_progress_status_of_interpretation.csv"
+    },
+    "geneticsClinicalSignifiance": {
+      "category": "concept-map",
+      "url": "$CONTEXT_REPO/6_1_14_clinical_significance_acmg.csv"
+    }
+  }
+}

@@ -88,7 +88,7 @@ class TestVariationDescriptorMapper(unittest.TestCase):
             if len(descriptor.expressions) > 0:
                 # Each expression should have a syntax and value
                 for expr in descriptor.expressions:
-                    self.assertEqual(expr.syntax, "hgvs")
+                    self.assertEqual(expr.syntax, "hgvs.g")
                     self.assertIsNotNone(expr.value)
                     self.assertGreater(len(expr.value), 0)
                     

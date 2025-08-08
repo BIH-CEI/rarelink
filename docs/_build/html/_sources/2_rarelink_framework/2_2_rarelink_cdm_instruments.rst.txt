@@ -4,7 +4,7 @@ RareLink-CDM
 =============================
 
 .. warning:: 
-    RareLink v2.0.0 is currently under development, and many things are 
+    RareLink v2.0.2 is currently under development, and many things are 
     subject to change. Please reach out before implementing or using the 
     software to ensure you have the latest updates and guidance.
 
@@ -24,8 +24,8 @@ RareLink CDM Data Dictionary
 ----------------------------
 
 
-- :download:`Download RareLink CDM Data Dictionary v2.0.0 <../../res/rarelink_cdm_v2_0_0_datadictionary.csv>`
-- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_0_instruments.zip>`
+- :download:`Download RareLink CDM Data Dictionary v2.0.2 <../../res/rarelink_cdm_v2_0_2_datadictionary.csv>`
+- :download:`Download all RareLink CDM instruments seperately as a .zip file <../../res/rarelink_cdm_v2_0_2_instruments.zip>`
 
 
 RuleSet for Codes and Codesystems
@@ -52,7 +52,7 @@ ________
 
 The RareLink CDM Data Dictionary is available for download as a CSV file:
 
-:download:`Download RareLink CDM Data Dictionary v2.0.0 <../..//res/rarelink_v2_0_0_datadictionary.csv>`
+:download:`Download RareLink CDM Data Dictionary v2.0.2 <../..//res/rarelink_v2_0_2_datadictionary.csv>`
 
 .. tip::
     Read :ref:`3_1` for more information on how to import the RareLink CDM Data Dictionary into your local REDCap project.
@@ -84,7 +84,7 @@ Example Field Annotation of 6.2.6 Temporal Pattern:
     - HP:0011011 | Subactue  
     - HP:0025153 | Transient  
     Version(s): 
-    - HPO Version 2024-08-13  
+    - HPO Version 2025-05-06  
     Mapping: 
     - HL7 FHIR Expression v4.0.1: Observation.interpretation  
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.modifiers

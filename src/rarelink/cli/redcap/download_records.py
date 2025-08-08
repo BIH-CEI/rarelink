@@ -2,6 +2,7 @@ import typer
 from pathlib import Path
 from typing import Optional
 import logging
+import importlib.resources as resources 
 from dotenv import dotenv_values
 
 from rarelink.cli.utils.terminal_utils import (
@@ -20,15 +21,41 @@ from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
 from rarelink.utils.validation import validate_linkml_data
-from rarelink_cdm.v2_0_0.mappings.redcap import MAPPING_FUNCTIONS
+from rarelink_cdm import import_from_latest, get_latest_version
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()
 
+try:
+    _redcap = import_from_latest("mappings.redcap")
+    MAPPING_FUNCTIONS = getattr(_redcap, "MAPPING_FUNCTIONS")
+except Exception as e:
+    logging.getLogger(__name__).error(f"Could not import MAPPING_FUNCTIONS from latest CDM: {e}")
+    raise
+
 REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
-BASE_SCHEMA_PATH = REPO_ROOT / "src/rarelink_cdm/v2_0_0/schema_definitions/rarelink_cdm.yaml"
 ENV_PATH = Path(".env")  # Path to your .env file
+
+def _resolve_latest_schema_path() -> Path:
+    """
+    Finds the rarelink_cdm YAML schema in the latest vX_Y_Z package using
+    importlib.resources, and returns a concrete filesystem Path.
+    """
+    latest = get_latest_version()  # e.g., 'v2_0_2'
+    package = f"rarelink_cdm.{latest}.schema_definitions"
+    try:
+        # NOTE: files() returns a Traversable; / "rarelink_cdm.yaml" appends the filename
+        schema_res = resources.files(package) / "rarelink_cdm.yaml"
+        # Some tools need a real path on disk; as_file extracts to a temp file if needed
+        with resources.as_file(schema_res) as p:
+            return Path(p)
+    except Exception as e:
+        logger.error(f"Failed to locate latest CDM schema in package '{package}': {e}")
+        raise
+
+# late-bound default; only computed if --rarelink-cdm is chosen
+BASE_SCHEMA_PATH: Optional[Path] = None
 
 RARELINK_CDM_INSTRUMENTS = [
     "rarelink_1_formal_criteria",

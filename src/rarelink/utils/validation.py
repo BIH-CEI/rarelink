@@ -1,8 +1,9 @@
 from pyphetools.creation.variant_validator import VariantValidator
 from logging import Logger
-from rarelink_cdm.v2_0_0.mappings.redcap import HGVS_VARIABLES, REFERENCE_GENOME_MAPPING
+from rarelink_cdm import import_from_latest
 import typer
 import io
+import logging
 from contextlib import redirect_stdout
 import subprocess
 from pathlib import Path
@@ -12,12 +13,26 @@ logger = Logger(__name__)
 
 URL_SCHEME = (
     "https://rest.variantvalidator.org/VariantValidator/variantvalidator/%s/%s%%3A%s/%s?content-type=application%%2Fjson"
+
 )
+
+logger = logging.getLogger(__name__)
+
+try:
+    redcap = import_from_latest("mappings.redcap")
+    HGVS_VARIABLES = getattr(redcap, "HGVS_VARIABLES")
+    REFERENCE_GENOME_MAPPING = getattr(redcap, "REFERENCE_GENOME_MAPPING")
+except Exception as e:
+    logger.warning(f"Falling back to built-in defaults; could not import latest redcap mappings: {e}")
+    # Sensible built-ins if you want a fallback:
+    HGVS_VARIABLES = ["loinc_48004_6", "loinc_69548_6"]  # ← example placeholders
+    REFERENCE_GENOME_MAPPING = {"LA30124-3": "hg19", "LA26806-2": "hg38"}  # ← example placeholders
 
 def validate_and_encode_hgvs(
     data: dict,
     transcript_key: str = None,
     variables: list[str] = None
+    
 ) -> dict:
     """
     Validate and encode HGVS strings in a (possibly nested) record using VariantValidator.

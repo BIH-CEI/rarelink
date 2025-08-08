@@ -71,16 +71,41 @@ def redcap_to_linkml(flat_data_file, output_file, mapping_functions):
 
 if __name__ == "__main__":
     import argparse
-    from rarelink_cdm.v2_0_0.mappings.redcap import MAPPING_FUNCTIONS
+    import logging
+    from rarelink_cdm import import_from_latest, import_from_version, get_latest_version
 
     parser = argparse.ArgumentParser(
-        description="Transform flat REDCap data to LinkML schema.")
-    parser.add_argument("flat_data_file", 
-                        help="Path to the input flat JSON data file")
-    parser.add_argument("output_file", 
-                        help="Path to the output transformed JSON data file")
-
+        description="Transform flat REDCap data to LinkML schema."
+    )
+    parser.add_argument("flat_data_file", help="Path to the input flat JSON data file")
+    parser.add_argument("output_file", help="Path to the output transformed JSON data file")
+    parser.add_argument(
+        "--cdm-version",
+        help="Force a specific rarelink_cdm version (e.g., v2_0_2). Defaults to newest available.",
+        default=None,
+    )
     args = parser.parse_args()
+
+    # Dynamically load mapping functions from the requested/latest CDM
+    log = logging.getLogger(__name__)
+    try:
+        if args.cdm_version:
+            mod = import_from_version(args.cdm_version, "mappings.redcap")
+            log.info(f"Using rarelink_cdm mappings from {args.cdm_version}")
+        else:
+            # prefer truly importable newest
+            latest = get_latest_version()
+            try:
+                mod = import_from_version(latest, "mappings.redcap")
+                log.info(f"Using rarelink_cdm mappings from {latest}")
+            except Exception:
+                # fallback scan across versions
+                mod = import_from_latest("mappings.redcap")
+                log.info("Using rarelink_cdm mappings from newest importable version")
+        MAPPING_FUNCTIONS = getattr(mod, "MAPPING_FUNCTIONS")
+    except Exception as e:
+        raise SystemExit(f"Failed to import MAPPING_FUNCTIONS from rarelink_cdm: {e}")
+
     redcap_to_linkml(args.flat_data_file, args.output_file, MAPPING_FUNCTIONS)
 
 
@@ -91,13 +116,6 @@ if __name__ == "__main__":
 def process_redcap_to_linkml(record, processing_rules):
     """
     Applies reverse processing rules to convert REDCap fields back to LinkML format.
-
-    Args:
-        record (dict): A single record to process.
-        processing_rules (dict): Dictionary of reverse processing rules.
-
-    Returns:
-        dict: The processed record.
     """
     for field, processing_function in processing_rules.items():
         if field in record and record[field] is not None:
@@ -107,29 +125,18 @@ def process_redcap_to_linkml(record, processing_rules):
 
 def linkml_to_redcap(input_file, output_file, template, reverse_processing_rules):
     """
-    Transforms nested JSON data from input_file into a flattened REDCap-like 
-    structure with all variables included, even if empty, based on a template,
-    and applies reverse processing rules.
-
-    Args:
-        input_file (str): Path to the input JSON file with nested structure.
-        output_file (str): Path to the output JSON file to store flattened data.
-        template (dict): Template dictionary with all possible keys initialized 
-        with empty values.
-        reverse_processing_rules (dict): Dictionary of reverse processing rules.
+    Transforms nested JSON data from input_file into a flattened REDCap-like structure
+    with all variables, based on a template, and applies reverse processing rules.
     """
-    # Validate template
     if not isinstance(template, dict):
         raise ValueError("Template must be a dictionary with key-value pairs.")
 
-    # Load the input data
     with open(input_file, 'r') as file:
         data = json.load(file)
 
     final_records = []
 
     for record in data:
-        # Initialize the base record using the template
         base_record = template.copy()
         base_record.update({
             "record_id": record.get("record_id", ""),
@@ -137,50 +144,40 @@ def linkml_to_redcap(input_file, output_file, template, reverse_processing_rules
             "redcap_repeat_instance": ""
         })
 
-        # Flatten the base level of the record (non-repeating data)
+        # Flatten non-repeating level
         for key, value in record.items():
-            if isinstance(value, dict):  # Handle nested fields
+            if isinstance(value, dict):
                 for sub_key, sub_value in value.items():
                     if sub_key in base_record:
                         base_record[sub_key] = sub_value
-            elif not isinstance(value, list):  # Skip repeated elements
+            elif not isinstance(value, list):
                 if key in base_record:
                     base_record[key] = value
 
-        # Apply reverse processing rules to the non-repeating base record
         base_record = process_redcap_to_linkml(base_record, reverse_processing_rules)
-
-        # Add the non-repeating base record to the final records first
         final_records.append(base_record)
 
-        # Process repeating elements
+        # Repeating elements
         for key, value in record.items():
-            if isinstance(value, list):  # Handle repeated elements
+            if isinstance(value, list):
                 for repeated in value:
                     repeated_record = template.copy()
                     repeated_record.update({
-                        "record_id": record["record_id"],
-                        "redcap_repeat_instrument": repeated.get(
-                            "redcap_repeat_instrument", ""),
-                        "redcap_repeat_instance": repeated.get(
-                            "redcap_repeat_instance", ""),
+                        "record_id": record.get("record_id", ""),
+                        "redcap_repeat_instrument": repeated.get("redcap_repeat_instrument", ""),
+                        "redcap_repeat_instance": repeated.get("redcap_repeat_instance", ""),
                     })
-                    for repeated_key, repeated_value in repeated.items():
-                        if repeated_key not in ["redcap_repeat_instrument", 
-                                                "redcap_repeat_instance"]:
-                            if isinstance(repeated_value, dict):
-                                for sub_key, sub_value in repeated_value.items():
-                                    if sub_key in repeated_record:
-                                        repeated_record[sub_key] = sub_value
+                    for rk, rv in repeated.items():
+                        if rk not in ["redcap_repeat_instrument", "redcap_repeat_instance"]:
+                            if isinstance(rv, dict):
+                                for sk, sv in rv.items():
+                                    if sk in repeated_record:
+                                        repeated_record[sk] = sv
                             else:
-                                repeated_record[repeated_key] = repeated_value
+                                repeated_record[rk] = rv
 
-                    # Apply reverse processing rules to repeated records
                     repeated_record = process_redcap_to_linkml(repeated_record, reverse_processing_rules)
-
-                    # Append repeated records after non-repeating
                     final_records.append(repeated_record)
 
-    # Write the final data to the output file
     with open(output_file, 'w') as file:
         json.dump(final_records, file, indent=4)

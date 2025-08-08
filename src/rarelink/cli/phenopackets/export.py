@@ -7,6 +7,8 @@ import importlib.machinery
 from pathlib import Path
 from typing import Optional
 import logging
+from rarelink_cdm import import_from_latest, list_available_versions, import_from_version
+
 
 from rarelink.cli.utils.terminal_utils import (
     between_section_separator,
@@ -196,26 +198,44 @@ def export(
             )
             raise typer.Exit(1)
     else:
-        # No custom mappings provided, prompt user
-        try_default = typer.confirm("No custom mappings provided. Would you like to try with default RareLink-CDM mappings?")
+        try_default = typer.confirm(
+            "No custom mappings provided. Would you like to try with default RareLink-CDM mappings?"
+        )
         if try_default:
+            # First try “latest”, then gracefully fall back through all available versions.
+            tried = []
+            mod = None
             try:
-                from rarelink_cdm.v2_0_0.mappings.phenopackets import create_rarelink_phenopacket_mappings
-                mapping_configs = create_rarelink_phenopacket_mappings()
-                logger.info("Using default RareLink-CDM mappings")
-            except ImportError:
-                typer.secho(
-                    error_text("❌ Default RareLink-CDM mappings not available."),
-                    fg=typer.colors.RED
-                )
-                raise typer.Exit(1)
+                mod = import_from_latest("mappings.phenopackets")
+            except Exception as first_err:
+                tried.append(("latest", str(first_err)))
+                for v in list_available_versions():
+                    try:
+                        mod = import_from_version(v, "mappings.phenopackets")
+                        logger.info(f"Using RareLink-CDM mappings from {v}")
+                        break
+                    except Exception as e:
+                        tried.append((v, str(e)))
+                        continue
+                if mod is None:
+                    detail = "; ".join(f"{v}: {err}" for v, err in tried)
+                    typer.secho(
+                        error_text(f"❌ Default RareLink-CDM mappings not available ({detail})"),
+                        fg=typer.colors.RED,
+                    )
+                    raise typer.Exit(1)
+
+            create_rarelink_phenopacket_mappings = getattr(
+                mod, "create_rarelink_phenopacket_mappings"
+            )
+            mapping_configs = create_rarelink_phenopacket_mappings()
+            logger.info("Using default RareLink-CDM mappings")
         else:
             typer.secho(
                 error_text("❌ Mapping configurations are required."),
-                fg=typer.colors.RED
+                fg=typer.colors.RED,
             )
             raise typer.Exit(1)
-
     if debug:
         logger.debug("Using the following mapping configurations:")
         for key, value in mapping_configs.items():

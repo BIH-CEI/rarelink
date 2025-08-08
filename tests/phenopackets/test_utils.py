@@ -7,6 +7,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
+from rarelink_cdm import import_from_latest 
 
 logger = logging.getLogger(__name__)
 
@@ -119,25 +120,24 @@ def get_record_by_id(record_id: str) -> Optional[Dict[str, Any]]:
 def get_rarelink_disease_config() -> Dict[str, Any]:
     """
     Get disease mapping configuration directly from RareLink CDM.
-    
-    Returns:
-        Dict[str, Any]: Disease mapping configuration
     """
     try:
-        from rarelink_cdm.v2_0_0.mappings.phenopackets.disease import DISEASE_BLOCK
-        from rarelink_cdm.v2_0_0.mappings.phenopackets.mapping_dicts import mapping_dicts
-        from rarelink_cdm.v2_0_0.mappings.phenopackets.label_dicts import label_dicts
-        
-        # Get disease verification status mapping
+        mod_disease = import_from_latest("mappings.phenopackets.disease")
+        mod_mapping_dicts = import_from_latest("mappings.phenopackets.mapping_dicts")
+        mod_label_dicts = import_from_latest("mappings.phenopackets.label_dicts")
+
+        DISEASE_BLOCK = getattr(mod_disease, "DISEASE_BLOCK")
+        mapping_dicts = getattr(mod_mapping_dicts, "mapping_dicts")
+        label_dicts = getattr(mod_label_dicts, "label_dicts")
+
         disease_verification_mapping = {}
         for mapping_dict in mapping_dicts:
             if mapping_dict["name"] == "map_disease_verification_status":
                 disease_verification_mapping = mapping_dict["mapping"]
                 break
-        
-        # Get age at onset labels
+
         age_at_onset_labels = label_dicts.get("AgeAtOnset", {})
-        
+
         return {
             "mapping_block": DISEASE_BLOCK,
             "mapping_dicts": {
@@ -147,15 +147,15 @@ def get_rarelink_disease_config() -> Dict[str, Any]:
                 "AgeAtOnset": age_at_onset_labels
             }
         }
-    except ImportError:
-        # Fallback if RareLink CDM import fails
+    except Exception:
+        # Fallback remains unchanged
         return {
             "mapping_block": {
                 "redcap_repeat_instrument": "rarelink_5_disease",
                 "term_field_1": "snomedct_64572001_mondo",
                 "term_field_2": "snomedct_64572001_ordo",
                 "term_field_3": "snomedct_64572001_icd10cm",
-                "term_field_4": "snomedct_64572001_icd11", 
+                "term_field_4": "snomedct_64572001_icd11",
                 "term_field_5": "snomedct_64572001_omim_p",
                 "excluded_field": "loinc_99498_8",
                 "onset_date_field": "snomedct_298059007",
@@ -167,15 +167,14 @@ def get_rarelink_disease_config() -> Dict[str, Any]:
 def get_all_rarelink_configs() -> Dict[str, Any]:
     """
     Get all mapping configurations directly from RareLink CDM.
-    
-    Returns:
-        Dict[str, Any]: All mapping configurations
     """
     try:
-        from rarelink_cdm.v2_0_0.mappings.phenopackets.combined import create_rarelink_phenopacket_mappings
+        mod_combined = import_from_latest("mappings.phenopackets.combined")
+        create_rarelink_phenopacket_mappings = getattr(
+            mod_combined, "create_rarelink_phenopacket_mappings"
+        )
         return create_rarelink_phenopacket_mappings()
-    except ImportError:
-        # Fallback to empty configs if import fails
+    except Exception:
         return {}
 
 def get_disease_instances_from_record(record: Dict[str, Any]) -> List[Dict[str, Any]]:

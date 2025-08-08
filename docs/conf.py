@@ -23,7 +23,7 @@ author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
                     Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
                         Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
           
-release = '2.0.0.dev1'
+release = '2.0.2.dev1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -79,7 +79,7 @@ doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     # TODO - change to stable when we arrive there
-    "pandas": ("https://pandas.pydata.org/pandas-docs/version/2.0.0/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/version/2.0.2/", None),
     "requests": ("https://docs.python-requests.org/en/stable/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.11.0/", None),
     "statsmodels": ("https://www.statsmodels.org/stable/", None),

@@ -3,12 +3,12 @@ id: rarelink-ig
 name: RareLinkImplementationGuide
 title: "RareLink Implementation Guide"
 description: >
-  An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.
-version: 2.0.0
+  An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.2 profiles and Genomics Reporting 3.0.0 profiles.
+version: 2.0.2
 status: draft
 license: BSD-3-Clause
 copyrightYear: 2025
-releaseLabel: 2.0.0
+releaseLabel: 2.0.2
 fhirVersion: 4.0.1
 publisher:
   name: Berlin Institute of Health - Charité Universitätsmedizin Berlin
@@ -17,7 +17,7 @@ publisher:
 dependencies:
   hl7.fhir.uv.ips:
     uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
-    version: 2.0.0-ballot
+    version: 2.0.2-ballot
   hl7.fhir.uv.genomics-reporting:
     uri: http://hl7.org/fhir/uv/genomics-reporting/ImplementationGuide/hl7.fhir.uv.genomics-reporting
     version: 3.0.0

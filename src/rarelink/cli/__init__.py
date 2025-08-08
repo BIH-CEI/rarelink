@@ -39,7 +39,7 @@ def version_callback(value: bool):
     Display the RareLink version and exit.
     """
     if value:
-        typer.echo("RareLink version 2.0.0.dev1")
+        typer.echo("RareLink version 2.0.2.dev1")
         raise typer.Exit()
 
 @app.callback()

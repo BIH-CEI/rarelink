@@ -15,7 +15,7 @@ authors = [
     {name = "Oya Beyan", email="oya.beyan@uni-koeln.de"}
 ]
 
-description = "Rare Disease Interoperability Framework linking Registry Use, HL7 FHIR and the GA4GH Phenopacket Schema"
+description = "RareLink - A REDCap-based Python framework linking international registries to HL7 FHIR and GA4GH Phenopackets"
 readme = "README.md"
 requires-python = ">=3.10, <3.13"
 keywords = [
@@ -53,10 +53,13 @@ dependencies = [
     "tqdm",
     "node",
     "npm",
-    "linkml",
+    "linkml>=1.9.0",
+    "linkml-runtime>=1.9.0",
+    "pydantic<2.11",
     "schema-automator",
     "python-dotenv",
-    "docker"
+    "docker",
+    "rd-cdm>=2.0.2",
 ]
 dynamic = ["version"]
 
@@ -85,3 +88,4 @@ version = { attr = "rarelink.__version__" }
 
 [project.scripts]
 rarelink = "rarelink.cli:app"
+rarelink-cdm-generate = "rarelink.cdm.codegen_cli:main"

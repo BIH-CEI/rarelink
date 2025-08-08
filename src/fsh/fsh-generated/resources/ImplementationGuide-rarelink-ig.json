@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "rarelink-ig",
   "url": "https://rarelink.bih-charite.de/fhir/ImplementationGuide/rarelink-ig",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "name": "RareLinkImplementationGuide",
   "title": "RareLink Implementation Guide",
   "status": "draft",
@@ -22,7 +22,7 @@
       ]
     }
   ],
-  "description": "An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.\n",
+  "description": "An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.2 profiles and Genomics Reporting 3.0.0 profiles.\n",
   "packageId": "rarelink-ig",
   "license": "BSD-3-Clause",
   "fhirVersion": [
@@ -32,7 +32,7 @@
     {
       "packageId": "hl7.fhir.uv.ips",
       "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
-      "version": "2.0.0-ballot",
+      "version": "2.0.2-ballot",
       "id": "hl7_fhir_uv_ips"
     },
     {
@@ -581,7 +581,7 @@
       },
       {
         "code": "releaselabel",
-        "value": "2.0.0"
+        "value": "2.0.2"
       }
     ]
   }

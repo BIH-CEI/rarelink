@@ -70,18 +70,24 @@ def _ensure_utc_datetime(dt: datetime) -> datetime:
 
 def date_to_timestamp(date_input: Union[str, datetime, Timestamp]) -> Optional[Timestamp]:
     """
-    Convert a date to a Protobuf Timestamp in UTC.
+    Convert a date-like input to a Protobuf Timestamp in UTC.
+
+    - Accepts ISO strings or datetime objects.
+    - Always passes a timezone-aware UTC datetime to FromDatetime.
     """
     dt = parse_date(date_input)
     if not dt:
         return None
 
-    timestamp = Timestamp()
-    # Protobuf’s FromDatetime can accept a naive datetime but interprets it as UTC.
-    # We already have dt in UTC, so:
-    timestamp.FromDatetime(dt.replace(tzinfo=None))
-    return timestamp
+    # Normalize to an aware UTC datetime
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    else:
+        dt = dt.astimezone(timezone.utc)
 
+    ts = Timestamp()
+    ts.FromDatetime(dt)  # explicit, aware UTC datetime
+    return ts
 
 def convert_date_to_iso_age(event_date: Union[str, datetime, Timestamp],
                             dob: Union[str, datetime, Timestamp]) -> Optional[str]:
