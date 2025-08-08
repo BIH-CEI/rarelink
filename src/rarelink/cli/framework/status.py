@@ -1,5 +1,6 @@
 import typer
-import subprocess
+from importlib import metadata as ilm
+
 from rarelink.cli.utils.terminal_utils import end_of_section_separator
 from rarelink.cli.utils.string_utils import (
     success_text,
@@ -8,22 +9,39 @@ from rarelink.cli.utils.string_utils import (
     format_header,
 )
 
-app = typer.Typer()
+app = typer.Typer(name="framework", help="Setup and manage the RareLink framework.")
 
 @app.command()
-def status():
+def status() -> None:
     """
     Display the current version and installation details of RareLink.
+    Never exits with error just because the package isn't installed.
     """
     format_header("RareLink Framework Status")
     hint_text("Checking RareLink framework status...")
+
     try:
-        # Execute `pip show rarelink`
-        subprocess.run(["pip", "show", "rarelink"], check=True)
-        typer.secho(success_text("✅ RareLink framework is installed and operational."))
-    except subprocess.CalledProcessError as e:
-        typer.secho(error_text("❌ Error executing pip show rarelink."))
-        typer.secho(error_text(str(e)))
-        raise typer.Exit(code=1)
+        v = ilm.version("rarelink")
+        typer.secho(success_text(f"✅ RareLink is installed: {v}"))
+    except ilm.PackageNotFoundError:
+        typer.secho(error_text("ℹ️ RareLink is not installed in this environment."))
+        hint_text("You can install it with: `pip install -e .` from the repo root.")
+
+    end_of_section_separator()
+
+@app.command(name="version")
+def version_cmd() -> None:
+    """
+    Display only the installed version of RareLink.
+    Prints 'unknown' if not installed, but does not error.
+    """
+    format_header("RareLink Version")
+    hint_text("Fetching RareLink version...")
+
+    try:
+        v = ilm.version("rarelink")
+        typer.secho(success_text(v))
+    except ilm.PackageNotFoundError:
+        typer.secho(error_text("unknown"))
 
     end_of_section_separator()

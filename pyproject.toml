@@ -62,7 +62,6 @@ dependencies = [
     "docker",
     "rd-cdm>=2.0.2",
 ]
-dynamic = ["version"]
 
 [project.optional-dependencies]
 test = ["pytest>=7.0.0,<8.0.0"]
