@@ -93,4 +93,8 @@ include = ["rarelink*", "rarelink_cdm*"]
 [tool.setuptools.exclude-package-data]
 rarelink = [
   "fsh/output/**",
+  "fsh/fsh-generated", 
+  "fsh/input-cache",
+  "fsh/temp",
+  "fsh/template"
 ]

@@ -17,6 +17,10 @@ recursive-include src *
 # Explicitly exclude docs/ and RareLink-FHIR IG
 prune docs
 prune src/fsh/output
+prune src/fsh/fsh-generated
+prune src/fsh/input-cache
+prune src/fsh/temp
+prune src/fsh/template
 
 # Common CI/dev folders you don't need in sdist (optional)
 prune .github

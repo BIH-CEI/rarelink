@@ -7,10 +7,11 @@ v2.0.3 (2025-09-24)
 -------------------
 
 - Fixed RareLink FHIR IG versioning back to 2.0.0
-- 
+- Excluded the entire FHIR IG from the PyPi package to reduce package size (in a future version the RareLink FHIR IG will be published as a separate Git repo and package)
+- Updated overview Figure 1 in the README and documentation to reflect the current state of the RareLink framework
 
 
-v2.0.2 (inclunding v2.0.1)
+v2.0.2 (including v2.0.1)
 ----------------------------
 
 The current version now published is v2.0.1.
