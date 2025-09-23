@@ -1,4 +1,4 @@
-# RareLink REDCap
+![RareLink logo](docs/_static/res/rarelink_logo_no_background.png)
 
 A novel rare disease framework for REDCap linking international
 registries to FHIR and Phenopackets.
