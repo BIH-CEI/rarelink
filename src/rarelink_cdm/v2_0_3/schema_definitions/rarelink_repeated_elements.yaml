@@ -1,0 +1,81 @@
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_3/linkml/rarelink_repeated_elements.yaml
+name: rarelink_repeated_elements
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+imports:
+  - linkml:types
+  - rarelink_code_systems
+  - rarelink_4_care_pathway
+  - rarelink_5_disease
+  - rarelink_6_1_genetic_findings
+  - rarelink_6_2_phenotypic_feature
+  - rarelink_6_3_measurements
+  - rarelink_6_4_family_history
+
+default_range: string
+default_prefix: rarelink
+
+classes:
+  RepeatedElement:
+    description: >
+      A generic container for repeated elements such as instruments and their 
+      instances used to define repeating data structures across the RareLink-CDM.
+    slots:
+      - redcap_repeat_instrument
+      - redcap_repeat_instance
+      - care_pathway
+      - disease
+      - genetic_findings
+      - phenotypic_feature
+      - measurements
+      - family_history
+
+slots:
+  redcap_repeat_instrument:
+    description: If applicable, the repeated REDCap instrument name.
+    range: string
+    required: false
+
+  redcap_repeat_instance:
+    description: If applicable, the REDCap instrument's repetition instance.
+    range: integer
+    required: false
+
+  care_pathway:
+    description: >
+      The care pathway data for the repeated element.
+    range: CarePathway
+    required: false
+
+  disease:
+    description: >
+      The disease data for the repeated element.
+    range: Disease
+    required: false
+
+  genetic_findings:
+    description: >
+      Genetic findings data for the repeated element.
+    range: GeneticFindings
+    required: false
+
+  phenotypic_feature:
+    description: >
+      Phenotypic feature data for the repeated element.
+    range: PhenotypicFeature
+    required: false
+
+  measurements:
+    description: >
+      Measurement data for the repeated element.
+    range: Measurement
+    required: false
+
+  family_history:
+    description: >
+      Family history data for the repeated element.
+    range: FamilyHistory
+    required: false
+  
+

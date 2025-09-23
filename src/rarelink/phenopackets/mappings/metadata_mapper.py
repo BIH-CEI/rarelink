@@ -1,28 +1,41 @@
+"""Metadata mapper for Phenopackets.
+
+This module inspects a Phenopacket (or a collection thereof), discovers which
+code systems are actually *used* (by CURIE prefixes like HP:, MONDO:, GENO:, etc.),
+and then builds a `MetaData` block whose `resources` only include those systems.
+
+Key ideas:
+- We traverse the packet(s) breadth-first, collecting CURIE prefixes found in common
+  fields (id/value_id/code) and a few special cases (HGVS syntax, GA4GH enums).
+- We look up the latest known versions for each code system from the current
+  `CodeSystemsContainer` in `rarelink_cdm` and overlay those versions in the output.
+- If no `used_prefixes` are provided, we infer them from the data.
+"""
+
 from __future__ import annotations
 
-from typing import Dict, Any, Optional, Set, List
-import logging
-from datetime import datetime, timezone
 import dataclasses
+import logging
 import re
+import sys
+import typing
 from collections import deque
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional, Set, get_args, get_origin, ForwardRef
 
-from phenopackets import (
-    MetaData,
-    Resource,
-    Phenopacket
-)
+from phenopackets import MetaData, Phenopacket, Resource
+
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 from rarelink.utils.date_handling import date_to_timestamp
 from rarelink_cdm import get_codesystems_container_class
-import sys
-import typing
-from typing import get_origin, get_args, ForwardRef
 
 logger = logging.getLogger(__name__)
 
+# --- Configuration -----------------------------------------------------------------
+
 # Map CodeSystemsContainer field names → CURIE prefixes that imply usage
-_FIELD_TO_PREFIXES = {
+# (Keys must match the dataclass field names in the container.)
+_FIELD_TO_PREFIXES: Dict[str, List[str]] = {
     "hpo": ["HP", "HPO"],
     "mondo": ["MONDO", "Mondo"],
     "SNOMEDCT": ["SNOMEDCT", "SCTID"],
@@ -47,23 +60,53 @@ _FIELD_TO_PREFIXES = {
     "vo": ["VO"],
 }
 
+# Fields we consider "safe/interesting" for deep traversal on dataclasses/objects.
+_ALLOWED_KEYS: Set[str] = {
+    # code-ish fields
+    "type", "term", "assay", "measurement_type", "measurementType",
+    "evidence_code", "evidenceCode", "modifiers", "evidence",
+    "procedure", "disease_stage", "diseaseStage",
+    "expressions", "allelic_state", "allelicState", "zygosity",
+    "gene", "gene_context", "geneContext",
+    "ontology_class", "ontologyClass",
+    "value", "quantity", "unit",
+    "taxonomy", "agent", "treatment",
+    # block containers
+    "subject",
+    "phenotypic_features", "phenotypicFeatures",
+    "diseases",
+    "measurements",
+    "medical_actions", "medicalActions",
+    "interpretations",
+    "diagnosis",
+    "genomic_interpretations", "genomicInterpretations",
+    "variant_interpretation", "variantInterpretation",
+    "variation_descriptor", "variationDescriptor",
+    # time-ish (safe)
+    "time_observed", "timeObserved",
+    "time_at_last_encounter", "timeAtLastEncounter",
+}
+
+# Stop traversal if an object graph is unexpectedly huge (defensive).
+_MAX_SCAN_NODES = 20_000
+
+# CURIE prefix matcher (e.g., "HP:0001250" → "HP")
 _CURIE_PREFIX_RE = re.compile(r"^([A-Za-z0-9]+):")
 
-def _is_hgvs_syntax(val: str) -> bool:
-    if not isinstance(val, str):
-        return False
-    s = val.strip().lower()
-    return s == "hgvs" or s.startswith("hgvs.")
 
+# --- Helpers: code system metadata --------------------------------------------------
 
 def _resolve_enum_class_from_field(container_cls, field):
-    """
-    Given a dataclass Field from CodeSystemsContainer, resolve the LinkML
-    enum class referenced in its type annotation (e.g., Union[str, "HP"] -> HP).
-    Returns the class object or None if it cannot be resolved.
+    """Resolve a LinkML enum class referenced in a CodeSystemsContainer field.
+
+    Some container fields are annotated like `Union[str, "HP"]`. This inspects the
+    annotation and returns the actual enum class object (e.g., HP) if present.
+
+    Returns:
+        The enum class object, or None if it cannot be resolved.
     """
     ann = field.type
-    enum_name = None
+    enum_name: Optional[str] = None
 
     origin = get_origin(ann)
     if origin is typing.Union:
@@ -84,8 +127,17 @@ def _resolve_enum_class_from_field(container_cls, field):
     return getattr(mod, enum_name, None)
 
 
-def _latest_versions_map() -> dict[str, str]:
-    versions: dict[str, str] = {}
+def _latest_versions_map() -> Dict[str, str]:
+    """Build a map of container field name → latest known version string.
+
+    We prefer reading the version from the LinkML enum definition (`_defn.version`
+    or `_defn.code_set_version`). If that's missing, we instantiate the container and
+    try `code_set_version`/`version` on the instance payload.
+
+    Returns:
+        Dict of `{field_name: "version"}` (missing entries mean we could not resolve).
+    """
+    versions: Dict[str, str] = {}
     try:
         LatestCls = get_codesystems_container_class()
         for f in dataclasses.fields(LatestCls):
@@ -96,7 +148,7 @@ def _latest_versions_map() -> dict[str, str]:
                 if defn is not None:
                     raw_ver = getattr(defn, "code_set_version", None) or getattr(defn, "version", None)
             if not raw_ver:
-                # if enum isn’t present, try instance (legacy datamodel objects)
+                # If enum isn’t present, try instance (legacy datamodel objects).
                 inst = getattr(LatestCls(), f.name, None)
                 if inst is not None:
                     raw_ver = getattr(inst, "code_set_version", None) or getattr(inst, "version", None)
@@ -107,15 +159,20 @@ def _latest_versions_map() -> dict[str, str]:
     return versions
 
 
-def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) -> list[Resource]:
+def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) -> List[Resource]:
+    """Select `Resource` entries for code systems that are actually used.
+
+    Args:
+        code_systems_container: Instance of the CodeSystemsContainer.
+        used_prefixes: Set of CURIE prefixes detected in the packet(s); if empty,
+            we include *all* code systems.
+
+    Returns:
+        A list of `Resource` objects suitable for `MetaData.resources`.
     """
-    Return Resource entries for only the used code systems, but with VERSION
-    overlaid from the *latest* container when available.
-    """
-    resources: list[Resource] = []
+    resources: List[Resource] = []
     latest_ver = _latest_versions_map()
 
-    # normalize once
     used_upper = {p.upper() for p in (used_prefixes or set())}
     include_all = not used_upper
 
@@ -130,6 +187,7 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
             if prefixes.isdisjoint(used_upper):
                 continue
 
+        # Normalize payload (support both modern payloads and legacy objects).
         if all(hasattr(value, a) for a in ("name", "url", "version")):
             name = value.name
             url = value.url
@@ -143,6 +201,7 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
             ns = getattr(value, "prefix", None)
             iri = getattr(value, "iri_prefix", None)
 
+        # Overlay with the latest known version if available.
         if fname in latest_ver and latest_ver[fname]:
             if str(ver) != str(latest_ver[fname]) and logger.isEnabledFor(logging.DEBUG):
                 logger.debug(f"[metadata] overriding {fname} version {ver!r} -> {latest_ver[fname]!r}")
@@ -161,80 +220,68 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
     return resources
 
 
-_ALLOWED_KEYS = {
-    # code-ish fields
-    "type", "term", "assay", "measurement_type", "measurementType",
-    "evidence_code", "evidenceCode", "modifiers", "evidence",
-    "procedure", "disease_stage", "diseaseStage",
-    "expressions", "allelic_state", "allelicState", "zygosity",
-    "gene", "gene_context", "geneContext",
-    "ontology_class", "ontologyClass",
-    "value", "quantity", "unit",
-    "taxonomy", "agent", "treatment",
-    # block containers
-    "subject",
-    "phenotypic_features", "phenotypicFeatures",
-    "diseases",
-    "measurements",
-    "medical_actions", "medicalActions",
-    "interpretations",
-    "genomic_interpretations", "genomicInterpretations",
-    "variation_descriptors", "variationDescriptors",
-    # time-ish (safe)
-    "time_observed", "timeObserved",
-    "time_at_last_encounter", "timeAtLastEncounter",
-}
-
+# --- Helpers: prefix collection (deep scan) ----------------------------------------
 
 def _maybe_add_curie_prefix(s: Optional[str], used: Set[str]) -> None:
+    """If `s` looks like a CURIE (e.g., 'HP:0001250'), add its prefix to `used`."""
     if not isinstance(s, str):
         return
     m = _CURIE_PREFIX_RE.match(s)
     if m:
         used.add(m.group(1).upper())
 
+
 def _is_hgvs_syntax(syntax: Optional[str]) -> bool:
+    """Return True when an expression syntax is HGVS (e.g., 'hgvs' or 'hgvs.c')."""
     return isinstance(syntax, str) and syntax.lower().startswith("hgvs")
 
-def _extract_prefix(curie: str) -> Optional[str]:
-    if not isinstance(curie, str) or ":" not in curie:
-        return None
-    return curie.split(":", 1)[0].upper()
 
 def _collect_prefixes_deep(*roots: Any) -> Set[str]:
+    """Traverse arbitrary packet-like objects and collect CURIE prefixes.
+
+    We scan:
+      - `id` / `value_id` / `valueId` / `code` attributes and dict keys
+      - `expressions[].syntax` for HGVS
+      - GA4GH enums via presence of `progress_status`/`interpretation_status`
+      - Specific nested attributes such as `gene_context.value_id`
+
+    The traversal is defensive (deduped objects; node cap).
+
+    Returns:
+        Set of uppercase CURIE prefixes seen (e.g., {"HP", "MONDO", "GENO"}).
+    """
     used: Set[str] = set()
     q = deque(roots)
     seen: Set[int] = set()
-    max_nodes = 20000
     nodes = 0
 
     while q:
         obj = q.popleft()
         if obj is None:
             continue
+
         oid = id(obj)
         if oid in seen:
             continue
         seen.add(oid)
 
         nodes += 1
-        if nodes > max_nodes:
+        if nodes > _MAX_SCAN_NODES:
             logger.debug("[metadata] prefix scan hit node cap; stopping early")
             break
 
-        # sequence
+        # Sequences
         if isinstance(obj, (list, tuple, set)):
             q.extend(obj)
             continue
 
-        # dict
+        # Dicts
         if isinstance(obj, dict):
             for k, v in obj.items():
                 if k in ("id", "value_id", "valueId", "code"):
                     _maybe_add_curie_prefix(v, used)
                 elif k == "syntax" and _is_hgvs_syntax(v):
                     used.add("HGVS")
-                # GA4GH enums by presence (strings)
                 elif k in ("progress_status", "interpretation_status", "progressStatus", "interpretationStatus"):
                     if v is not None:
                         used.add("GA4GH")
@@ -242,7 +289,7 @@ def _collect_prefixes_deep(*roots: Any) -> Set[str]:
                     q.append(v)
             continue
 
-        # dataclass objects
+        # Dataclasses
         if dataclasses.is_dataclass(obj):
             for f in dataclasses.fields(obj):
                 name = f.name
@@ -251,45 +298,42 @@ def _collect_prefixes_deep(*roots: Any) -> Set[str]:
                 except Exception:
                     continue
 
-                # collect direct IDs/codes
                 if name in ("id", "value_id", "valueId", "code"):
                     _maybe_add_curie_prefix(v, used)
 
-                # expressions → HGVS
                 if name == "expressions" and isinstance(v, (list, tuple)):
                     for ex in v:
                         try:
-                            syn = getattr(ex, "syntax", None)
-                            if _is_hgvs_syntax(syn):
+                            if _is_hgvs_syntax(getattr(ex, "syntax", None)):
                                 used.add("HGVS")
                         except Exception:
                             pass
                         q.append(ex)
 
-                # GA4GH enums on interpretation/progress
                 if name in ("progress_status", "interpretation_status", "progressStatus", "interpretationStatus"):
                     if v is not None:
                         used.add("GA4GH")
 
-                # traverse only whitelisted attrs (plus basic containers)
+                # Traverse selected fields (plus common container types).
                 if name in _ALLOWED_KEYS or isinstance(v, (list, tuple, dict)) or dataclasses.is_dataclass(v):
                     q.append(v)
 
-            # also pick up common direct attrs that might not be dataclass fields (defensive)
+            # Fall-through checks on dataclasses (defensive)
             for k in ("id", "value_id", "valueId", "code"):
                 if hasattr(obj, k):
                     _maybe_add_curie_prefix(getattr(obj, k, None), used)
 
-            # gene context HGNC
             for gc_name in ("gene_context", "geneContext"):
                 if hasattr(obj, gc_name):
                     gc = getattr(obj, gc_name)
                     if gc is not None:
-                        _maybe_add_curie_prefix(getattr(gc, "value_id", None) or getattr(gc, "valueId", None), used)
-
+                        _maybe_add_curie_prefix(
+                            getattr(gc, "value_id", None) or getattr(gc, "valueId", None),
+                            used,
+                        )
             continue
 
-        # generic object with attributes
+        # Generic objects
         for k in ("id", "value_id", "valueId", "code"):
             if hasattr(obj, k):
                 _maybe_add_curie_prefix(getattr(obj, k, None), used)
@@ -316,158 +360,128 @@ def _collect_prefixes_deep(*roots: Any) -> Set[str]:
 
     return used
 
-def _collect_used_prefixes_from_blocks(
+def _prefixes_from_variants(interpretations, variation_descriptors) -> Set[str]:
+    """Extract HGNC/GENO/HGVS prefixes directly from variant containers (robust)."""
+    used: Set[str] = set()
+
+    # 1) Top-level variation_descriptors
+    for vd in variation_descriptors or []:
+        try:
+            gc = getattr(vd, "gene_context", None) or getattr(vd, "geneContext", None)
+            if gc:
+                vid = getattr(gc, "value_id", None) or getattr(gc, "valueId", None)
+                if isinstance(vid, str) and ":" in vid:
+                    used.add(vid.split(":", 1)[0].upper())
+
+            allelic = getattr(vd, "allelic_state", None) or getattr(vd, "allelicState", None)
+            aid = getattr(allelic, "id", None) if allelic else None
+            if isinstance(aid, str) and ":" in aid:
+                used.add(aid.split(":", 1)[0].upper())
+                # policy: LOINC LA allelic states still imply GENO context
+                if aid.upper().startswith("LOINC:LA"):
+                    used.add("GENO")
+
+            exprs = getattr(vd, "expressions", None) or []
+            for ex in exprs:
+                syn = getattr(ex, "syntax", None)
+                if isinstance(syn, str) and syn.lower().startswith("hgvs"):
+                    used.add("HGVS")
+        except Exception:
+            pass
+
+    # 2) Variants embedded in interpretations
+    for intr in interpretations or []:
+        try:
+            diag = getattr(intr, "diagnosis", None)
+            gis = (getattr(diag, "genomic_interpretations", None)
+                   or getattr(diag, "genomicInterpretations", None) or [])
+            for gi in gis:
+                vint = (getattr(gi, "variant_interpretation", None)
+                        or getattr(gi, "variantInterpretation", None))
+                vd = (getattr(vint, "variation_descriptor", None)
+                      or getattr(vint, "variationDescriptor", None))
+                if not vd:
+                    continue
+
+                gc = getattr(vd, "gene_context", None) or getattr(vd, "geneContext", None)
+                if gc:
+                    vid = getattr(gc, "value_id", None) or getattr(gc, "valueId", None)
+                    if isinstance(vid, str) and ":" in vid:
+                        used.add(vid.split(":", 1)[0].upper())
+
+                allelic = getattr(vd, "allelic_state", None) or getattr(vd, "allelicState", None)
+                aid = getattr(allelic, "id", None) if allelic else None
+                if isinstance(aid, str) and ":" in aid:
+                    used.add(aid.split(":", 1)[0].upper())
+                    if aid.upper().startswith("LOINC:LA"):
+                        used.add("GENO")
+
+                exprs = getattr(vd, "expressions", None) or []
+                for ex in exprs:
+                    syn = getattr(ex, "syntax", None)
+                    if isinstance(syn, str) and syn.lower().startswith("hgvs"):
+                        used.add("HGVS")
+        except Exception:
+            pass
+
+    return used
+
+
+def _collect_used_prefixes_from_packet(pkt: Phenopacket) -> Set[str]:
+    """Shortcut for collecting prefixes from a single Phenopacket."""
+    return _collect_prefixes_deep(pkt)
+
+
+def _collect_used_prefixes_from_packets(pkts: List[Phenopacket]) -> Set[str]:
+    """Collect prefixes from multiple Phenopackets at once (union)."""
+    return _collect_prefixes_deep(*pkts)
+
+def collect_used_prefixes_from_blocks(
     *,
     features=None,
     diseases=None,
     measurements=None,
     medical_actions=None,
     interpretations=None,
+    variation_descriptors=None,
 ) -> Set[str]:
-    """
-    Collect CURIE prefixes used anywhere in the main Phenopacket blocks.
-    Handles both snake_case and camelCase models, and inspects
-    variant structures for HGVS/GENO/HGNC, plus LOINC LA* allelic states.
-    """
-    used: Set[str] = set()
-
-    def _maybe_add(value):
-        if not value or not isinstance(value, str):
-            return
-        p = _extract_prefix(value)
-        if p:
-            used.add(p)
-
-    # --- Phenotypic features ---
-    for f in features or []:
-        t = getattr(f, "type", None)
-        if t is not None:
-            _maybe_add(getattr(t, "id", None))
-        # severity
-        sev = getattr(f, "severity", None)
-        if sev is not None:
-            _maybe_add(getattr(sev, "id", None))
-        # modifiers
-        for m in getattr(f, "modifiers", []) or []:
-            _maybe_add(getattr(m, "id", None))
-        # evidence (ECO etc.)
-        for ev in getattr(f, "evidence", []) or []:
-            ec = getattr(ev, "evidence_code", None) or getattr(ev, "evidenceCode", None)
-            if ec is not None:
-                _maybe_add(getattr(ec, "id", None))
-
-    # --- Diseases ---
-    for d in diseases or []:
-        term = getattr(d, "term", None)
-        if term is not None:
-            _maybe_add(getattr(term, "id", None))
-        # primary_site / stage etc. if present
-        ps = getattr(d, "primary_site", None) or getattr(d, "primarySite", None)
-        if ps is not None:
-            _maybe_add(getattr(ps, "id", None))
-        for st in getattr(d, "disease_stage", []) or getattr(d, "diseaseStage", []) or []:
-            _maybe_add(getattr(st, "id", None))
-
-    # --- Measurements ---
-    for m in measurements or []:
-        assay = getattr(m, "assay", None)
-        if assay is not None:
-            _maybe_add(getattr(assay, "id", None))
-        mtype = getattr(m, "measurement_type", None) or getattr(m, "measurementType", None)
-        if mtype is not None:
-            _maybe_add(getattr(mtype, "id", None))
-        # value as OntologyClass
-        val = getattr(m, "value", None)
-        if val is not None:
-            oc = getattr(val, "ontology_class", None) or getattr(val, "ontologyClass", None)
-            if oc is not None:
-                _maybe_add(getattr(oc, "id", None))
-
-    # --- Medical Actions (procedures & treatments) ---
-    for a in medical_actions or []:
-        proc = getattr(a, "procedure", None)
-        if proc is not None:
-            code = getattr(proc, "code", None)
-            if code is not None:
-                _maybe_add(getattr(code, "id", None))
-        trt = getattr(a, "treatment", None)
-        if trt is not None:
-            agent = getattr(trt, "agent", None)
-            if agent is not None:
-                _maybe_add(getattr(agent, "id", None))
-        # adverse events are OntologyClass list
-        for ev in getattr(a, "adverse_events", []) or getattr(a, "adverseEvents", []) or []:
-            _maybe_add(getattr(ev, "id", None))
-
-    # --- Interpretations → GenomicInterpretation → VariationDescriptor ---
-    for intr in interpretations or []:
-        diag = getattr(intr, "diagnosis", None)
-        gi_list = (
-            getattr(diag, "genomic_interpretations", None)
-            or getattr(diag, "genomicInterpretations", None)
-            or []
-        )
-        for gi in gi_list:
-            vint = (
-                getattr(gi, "variant_interpretation", None)
-                or getattr(gi, "variantInterpretation", None)
-            )
-            if not vint:
-                continue
-            vd = (
-                getattr(vint, "variation_descriptor", None)
-                or getattr(vint, "variationDescriptor", None)
-            )
-            if not vd:
-                continue
-
-            # allelic_state → typically GENO, sometimes LOINC:LA****
-            allelic = getattr(vd, "allelic_state", None) or getattr(vd, "allelicState", None)
-            if allelic is not None:
-                _maybe_add(getattr(allelic, "id", None))
-
-            # expressions[ ].syntax == hgvs or hgvs.* → HGVS
-            for ex in getattr(vd, "expressions", []) or []:
-                syn = getattr(ex, "syntax", None)
-                if _is_hgvs_syntax(syn):
-                    used.add("HGVS")
-
-            # gene_context.value_id → HGNC
-            gc = getattr(vd, "gene_context", None) or getattr(vd, "geneContext", None)
-            if gc is not None:
-                vid = getattr(gc, "value_id", None) or getattr(gc, "valueId", None)
-                _maybe_add(vid)
-
-            # structural_type (sometimes LOINC LA-codes or SO terms)
-            st = getattr(vd, "structural_type", None) or getattr(vd, "structuralType", None)
-            if st is not None:
-                _maybe_add(getattr(st, "id", None))
-
+    """Collect CURIE prefixes from packet blocks (generic scan + variant-specific pass)."""
+    used = _collect_prefixes_deep(
+        features,
+        diseases,
+        measurements,
+        medical_actions,
+        interpretations,
+        variation_descriptors,
+    )
+    used |= _prefixes_from_variants(interpretations, variation_descriptors)
     return used
 
 
-def _collect_used_prefixes_from_packet(pkt: Phenopacket) -> Set[str]:
-    return _collect_prefixes_deep(pkt)
-
-def _collect_used_prefixes_from_blocks(**kwargs) -> Set[str]:
-    return _collect_prefixes_deep(*[v for v in kwargs.values() if v is not None])
+# --- Mapper ------------------------------------------------------------------------
 
 class MetadataMapper(BaseMapper[MetaData]):
-    """
-    Mapper for MetaData entity in the Phenopacket schema.
+    """Mapper for Phenopackets `MetaData`.
 
     Behavior:
       - Includes only resources for code systems actually referenced in the Phenopacket(s).
       - If no CodeSystemsContainer is provided, automatically instantiates the latest one
-        from `rarelink_cdm` using `get_codesystems_container_class()`.
+        via `rarelink_cdm.get_codesystems_container_class()`.
+      - Overlays versions with the latest values known to the container.
     """
 
     def map(self, data: Dict[str, Any], **kwargs) -> MetaData:
-        """
-        Args (kwargs):
-            created_by: str
-            code_systems: an instance of latest CodeSystemsContainer (optional)
-            used_prefixes: Set[str]  (optional; if omitted we try to infer from `data` if it's a Phenopacket)
+        """Map a Phenopacket or packet collection to a `MetaData` instance.
+
+        Keyword Args:
+            created_by: Optional[str] – value for `MetaData.created_by`.
+            code_systems: Optional[CodeSystemsContainer] – if omitted, we load the latest.
+            used_prefixes: Optional[Set[str]] – override auto-detection.
+
+        Notes:
+            - If `data` is a `Phenopacket`, we infer prefixes from it.
+            - If `data` is a dict with key `"phenopackets"` (list of Phenopacket),
+              we infer the union across all.
         """
         created_by = kwargs.get("created_by", "") or ""
         code_systems = kwargs.get("code_systems")
@@ -480,9 +494,13 @@ class MetadataMapper(BaseMapper[MetaData]):
             except Exception as e:
                 logger.warning(f"Auto-load CodeSystemsContainer failed: {e}")
 
-        # If caller didn’t pass used_prefixes, best-effort inference if data is Phenopacket-like
-        if not used_prefixes and isinstance(data, Phenopacket):
-            used_prefixes = _collect_used_prefixes_from_packet(data)
+        # Infer used prefixes if not provided
+        if not used_prefixes:
+            if isinstance(data, Phenopacket):
+                used_prefixes = _collect_used_prefixes_from_packet(data)
+            elif isinstance(data, dict) and isinstance(data.get("phenopackets"), list):
+                pkts = [p for p in data["phenopackets"] if isinstance(p, Phenopacket)]
+                used_prefixes = _collect_used_prefixes_from_packets(pkts)
 
         return self._map_single_entity(
             {},
@@ -493,6 +511,7 @@ class MetadataMapper(BaseMapper[MetaData]):
         )
 
     def _map_single_entity(self, data: Dict[str, Any], instruments: list, **kwargs) -> MetaData:
+        """Build a single `MetaData` with the given context (internal entry point)."""
         created_by = kwargs.get("created_by", "") or ""
         code_systems = kwargs.get("code_systems")
         used_prefixes: Set[str] = set(kwargs.get("used_prefixes") or [])
@@ -500,7 +519,7 @@ class MetadataMapper(BaseMapper[MetaData]):
         created_time = datetime.now(timezone.utc).isoformat()
         created_timestamp = date_to_timestamp(created_time)
 
-        resources = []
+        resources: List[Resource] = []
         if code_systems:
             resources = _filter_fields_by_prefixes(code_systems, used_prefixes)
 
@@ -511,18 +530,12 @@ class MetadataMapper(BaseMapper[MetaData]):
             phenopacket_schema_version="2.0",
         )
 
-    def _map_multi_entity(
-        self,
-        data: Dict[str, Any],
-        instruments: list,
-        **kwargs,
-    ) -> Optional[MetaData]:
-        """
-        Multi-entity case:
+    def _map_multi_entity(self, data: Dict[str, Any], instruments: list, **kwargs) -> Optional[MetaData]:
+        """Map multiple Phenopackets to a shared `MetaData` (for batch exports).
 
-        - If `data` contains a list of Phenopackets under key 'phenopackets', collect a union
-          of prefixes across all and filter resources accordingly.
-        - If caller provides `used_prefixes`, that overrides inference.
+        If `used_prefixes` are provided, they override auto-detection. Otherwise:
+        - If `data` has key `"phenopackets"` with a list of Phenopacket objects, we infer
+          the union of prefixes across all packets.
         """
         created_by = kwargs.get("created_by", "") or ""
         code_systems = kwargs.get("code_systems")
@@ -535,16 +548,11 @@ class MetadataMapper(BaseMapper[MetaData]):
             except Exception as e:
                 logger.warning(f"Auto-load CodeSystemsContainer failed: {e}")
 
-        # Infer used prefixes across multiple phenopackets, if not supplied
         if not used_prefixes:
             pkts: List[Phenopacket] = []
             if isinstance(data, dict) and isinstance(data.get("phenopackets"), list):
                 pkts = [p for p in data["phenopackets"] if isinstance(p, Phenopacket)]
-            # Union all prefixes across packets
-            agg: Set[str] = set()
-            for p in pkts:
-                agg |= _collect_used_prefixes_from_packet(p)
-            used_prefixes = agg
+            used_prefixes = _collect_used_prefixes_from_packets(pkts)
 
         return self._map_single_entity(
             {},
@@ -553,3 +561,4 @@ class MetadataMapper(BaseMapper[MetaData]):
             code_systems=code_systems,
             used_prefixes=used_prefixes,
         )
+        

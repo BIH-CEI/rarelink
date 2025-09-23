@@ -1,0 +1,233 @@
+id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_3/linkml/rarelink_6_2_phenotypic_feature.yaml
+name: rarelink_6_2_phenotypic_feature
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rarelink: https://github.com/BIH-CEI/rarelink/
+  hp: http://purl.obolibrary.org/obo/HP_
+  eco: http://purl.obolibrary.org/obo/ECO_
+  snomed: http://snomed.info/sct/
+  ncbitaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+imports:
+  - linkml:types
+  - rarelink_types
+default_range: string
+default_prefix: rarelink
+
+classes:
+  PhenotypicFeature:
+    description: >
+      The section Phenotypic Feature (6.2) of the RareLink CDM.
+    slots:
+      - snomedct_8116006
+      - snomedct_363778006
+      - snomedct_8116006_onset
+      - snomedct_8116006_resolut
+      - hp_0003674
+      - hp_0011008
+      - hp_0012824
+      - hp_0012823_hp1
+      - hp_0012823_hp2
+      - hp_0012823_hp3
+      - hp_0012823_ncbitaxon
+      - hp_0012823_snomedct
+      - phenotypicfeature_evidence
+      - rarelink_6_2_phenotypic_feature_complete
+
+slots:
+  snomedct_8116006:
+    title: 6.2.1 Phenotypic Feature
+    description: >
+      An observed physical and clinical characteristic encoded with HPO.
+    range: string
+    required: true
+
+  snomedct_363778006:
+    title: 6.2.2 Phenotypic Feature Status
+    description: >
+      The current status of the phenotypic feature, indicating whether it is confirmed or refuted.
+    range: PhenotypicFeatureStatus
+    required: false
+
+  snomedct_8116006_onset:
+    title: 6.2.3 Determination Date
+    description: >
+      The date on which the phenotypic feature was observed or recorded. If the specific month
+      or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
+    range: union_date_string
+    required: false
+
+  snomedct_8116006_resolut:
+    title: 6.2.4 Resolution Date
+    description: >
+      Time at which the feature resolved or abated.
+    range: union_date_string
+    required: false
+
+  hp_0003674:
+    title: 6.2.5 Age of Onset
+    description: >
+      The age of onset of the phenotypic feature, encoded with HPO.
+    range: AgeOfOnset
+    required: false
+
+  hp_0011008:
+    title: 6.2.6 Temporal Pattern
+    description: >
+      The temporal pattern of the phenotypic feature, encoded with HPO.
+    range: TemporalPattern
+    required: false
+
+  hp_0012824:
+    title: 6.2.7 Phenotype Severity
+    description: >
+      The severity of the phenotypic feature, encoded with HPO.
+    range: PhenotypeSeverity
+    required: false
+
+  hp_0012823_hp1:
+    title: 6.2.8A Clinical Modifier [HP]
+    description: >
+      Further clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
+    range: string
+    required: false
+
+  hp_0012823_hp2:
+    title: 6.2.8B Clinical Modifier [HP]
+    description: >
+      Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
+    range: string
+    required: false
+
+  hp_0012823_hp3:
+    title: 6.2.8C Clinical Modifier [HP]
+    description: >
+      Additional clinical modifiers to describe the specific phenotypic feature, encoded with HPO.
+    range: string
+    required: false
+
+  hp_0012823_ncbitaxon:
+    title: 6.2.8D Causing Organism [NCBITaxon]
+    description: >
+      The causing organism, if applicable, encoded with NCBITaxon.
+    range: string
+    required: false
+
+  hp_0012823_snomedct:
+    title: 6.2.8E Primary Body Site
+    description: >
+      The primary body site affected by the phenotypic feature, encoded with SNOMED.
+    range: string
+    required: false
+
+  phenotypicfeature_evidence:
+    title: 6.2.9 Evidence for the phenotype [ECO]
+    description: >
+      The evidence for an assertion of the observation of a type, defined within the
+      Evidence & Conclusion Ontology (ECO).
+    range: string
+    required: false
+
+  rarelink_6_2_phenotypic_feature_complete:
+    description: Completion status of this section
+    range: string
+    required: true
+
+enums:
+  PhenotypicFeatureStatus:
+    permissible_values:
+      snomedct_410605003:
+        description: Confirmed present
+        meaning: SNOMED:410605003
+      snomedct_723511001:
+        description: Refuted
+        meaning: SNOMED:723511001
+      '':
+        description: No value provided
+        meaning: null
+
+  AgeOfOnset:
+    permissible_values:
+      hp_0011460:
+        description: Embryonal onset (0w-8w embryonal)
+        meaning: HP:0011460
+      hp_0011461:
+        description: Fetal onset (8w embryonal - birth)
+        meaning: HP:0011461
+      hp_0003577:
+        description: Congenital onset (at birth)
+        meaning: HP:0003577
+      hp_0003623:
+        description: Neonatal onset (0d-28d)
+        meaning: HP:0003623
+      hp_0003593:
+        description: Infantile onset (28d-1y)
+        meaning: HP:0003593
+      hp_0011463:
+        description: Childhood onset (1y-5y)
+        meaning: HP:0011463
+      hp_0003621:
+        description: Juvenile onset (5y-15y)
+        meaning: HP:0003621
+      hp_0011462:
+        description: Young adult onset (16y-40y)
+        meaning: HP:0011462
+      hp_0003596:
+        description: Middle age adult onset (40y-60y)
+        meaning: HP:0003596
+      hp_0003584:
+        description: Late adult onset (60y+)
+        meaning: HP:0003584
+      '':
+        description: No value provided
+        meaning: null
+
+  TemporalPattern:
+    permissible_values:
+      hp_0011009:
+        description: Acute
+        meaning: HP:0011009
+      hp_0011010:
+        description: Chronic
+        meaning: HP:0011010
+      hp_0031914:
+        description: Fluctuating
+        meaning: HP:0031914
+      hp_0025297:
+        description: Prolonged
+        meaning: HP:0025297
+      hp_0031796:
+        description: Recurrent
+        meaning: HP:0031796
+      hp_0031915:
+        description: Stable
+        meaning: HP:0031915
+      hp_0011011:
+        description: Subacute
+        meaning: HP:0011011
+      hp_0025153:
+        description: Transient
+        meaning: HP:0025153
+      '':
+        description: No value provided
+        meaning: null
+
+  PhenotypeSeverity:
+    permissible_values:
+      hp_0012827:
+        description: Borderline
+        meaning: HP:0012827
+      hp_0012825:
+        description: Mild
+        meaning: HP:0012825
+      hp_0012826:
+        description: Moderate
+        meaning: HP:0012826
+      hp_0012829:
+        description: Profound
+        meaning: HP:0012829
+      hp_0012828:
+        description: Severe
+        meaning: HP:0012828
+      '':
+        description: No value provided
+        meaning: null

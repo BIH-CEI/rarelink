@@ -1,0 +1,70 @@
+{
+  "name": "4_4_encounter_class.csv",
+  "category": "Concept Map",
+  "data": [
+    {
+      "source_code": "hl7fhir_amb",
+      "source_display": "Ambulatory",
+      "target_code": "AMB",
+      "target_display": "Ambulatory",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "hl7fhir_imp",
+      "source_display": "Inpatient",
+      "target_code": "IMP",
+      "target_display": "Inpatient",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "hl7fhir_obsenc",
+      "source_display": "Observation",
+      "target_code": "OBSENC",
+      "target_display": "Observation",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "hl7fhir_emer",
+      "source_display": "Emergency",
+      "target_code": "EMER",
+      "target_display": "Emergency",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "hl7fhir_vr",
+      "source_display": "Virtual",
+      "target_code": "VR",
+      "target_display": "Virtual",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "hl7fhir_hh",
+      "source_display": "Home Health",
+      "target_code": "HH",
+      "target_display": "Home Health",
+      "system": "https://hl7.org/fhir/R4/",
+      "version": "R4"
+    },
+    {
+      "source_code": "rarelink_rdc",
+      "source_display": "RD Specialist Center",
+      "target_code": "RDC",
+      "target_display": "RD Specialist Center",
+      "system": "https://github.com/BIH-CEI/RareLink",
+      "version": "2.0.3"
+    },
+    {
+      "source_code": "snomedct_261665006",
+      "source_display": "Unknown",
+      "target_code": "261665006",
+      "target_display": "Unknown",
+      "system": "http://snomed.info/sct",
+      "version": "SNOMEDCT_US_2024_09_01"
+    }
+  ]
+}

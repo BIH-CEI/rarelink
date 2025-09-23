@@ -51,26 +51,26 @@ def get_app():
         help=f"Setup, manage, and execute the Phenopackets module: {format_command('rarelink phenopackets --help')} for more information.",
     )
 
+    def _version_callback(value: bool):
+        if value:
+            from rarelink import __version__
+            typer.echo(f"RareLink version {__version__}")
+            raise typer.Exit()
+
     @app.callback()
     def main(
         version: bool = typer.Option(
             None,
             "--version",
-            callback=lambda v: (_show_version_and_exit() if v else None),
+            "-V",
+            callback=_version_callback,
             is_eager=True,
-            help="Show the RareLink version and exit.",
+            help="Show RareLink version and exit.",
         )
     ):
         pass
 
     return app
-
-
-def _show_version_and_exit():
-    import typer
-
-    typer.echo("RareLink version 2.0.2.dev1")
-    raise typer.Exit()
 
 
 def __getattr__(name: str):

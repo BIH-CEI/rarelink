@@ -23,7 +23,7 @@ from rarelink.cli.utils.string_utils import (
 from rarelink.cli.utils.validation_utils import (
     validate_env
 )
-from rarelink.phenopackets import phenopacket_pipeline
+
 
 app = typer.Typer()
 
@@ -80,7 +80,9 @@ def export(
 
         # Determine which env keys are required
         required_env_vars = ["CREATED_BY"]
-        if not bioportal_api_token:
+        # Only require BioPortal when we actually plan to use it
+        will_use_bioportal = (bioportal_api_token or os.getenv("BIOPORTAL_API_TOKEN")) and not label_dict
+        if will_use_bioportal:
             required_env_vars.append("BIOPORTAL_API_TOKEN")
 
         try:
@@ -259,8 +261,13 @@ def export(
         import rarelink.utils.label_fetching as mu
         mu.fetch_label = fetch_label
         
-    typer.echo("NOTE: This pipeline fetches labels from BIOPORTAL. "
-               "Ensure you have an internet connection as this may take a while - time to get a tea ☕ ...")
+    from rarelink.phenopackets import phenopacket_pipeline
+
+    if not label_dict:
+        typer.echo("NOTE: This pipeline may fetch labels from BIOPORTAL. "
+                   "Ensure you have an internet connection as this may take a while - time to get a tea ☕ ...")
+    else:
+        typer.echo("Using local label dictionary for labels (no BioPortal needed).")
 
     try:
         typer.echo("🚀 Processing your records to Phenopackets...")

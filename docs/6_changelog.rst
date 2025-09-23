@@ -3,7 +3,18 @@
 Changelog
 ===========
 
-v2.0.2 (inclunding v2.0.1)
+v2.0.3 (2025-09-24)
+-------------------
+
+- FHIR-IG: Fixed RareLink FHIR IG version label back to 2.0.0
+- PyPi package: Excluded the entire FHIR IG from the PyPi package to reduce package size (in a future version the RareLink FHIR IG will be published as a separate Git repo and package)
+- Figure: Updated overview Figure in the README and documentation to reflect the current state of the RareLink framework
+- RareLink-Phenopacket engine: fixed Metadata mapper to correctly include the ontologies within the VariationDescriptors
+- RareLink-Phenopacket engine: fixed label fetching from local JSONs for pipeline 
+- Warnings: fixed DeprecationWarnings in code and tests
+
+
+v2.0.2 (including v2.0.1)
 ----------------------------
 
 The current version now published is v2.0.1.

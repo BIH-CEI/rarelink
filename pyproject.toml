@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rarelink"
-version = "2.0.2"                  
+version = "2.0.3"                  
 description = "RareLink - A REDCap-based Python framework linking international registries to HL7 FHIR and GA4GH Phenopackets"
 readme = "README.md"
 requires-python = ">=3.10, <3.13"
 license = { file = "LICENSE" }
 authors = [
-    {name = "Adam SL Graefe", email="adam.graefe@bih-charite.de"},
+    {name = "Adam SL Graefe", email="adam.graefe@charite.de"},
     {name = "Filip Rehburg", email="filip.rehburg@charite.de"},
     {name = "Samer Alkarkoukly", email="mabbouda@uni-koeln.de"},
     {name = "Daniel Danis", email="daniel.danis@bih-charite.de"},
@@ -89,3 +89,12 @@ include = ["rarelink*", "rarelink_cdm*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml", "*.yml", "*.json", "*.csv", "*.tsv"]
+
+[tool.setuptools.exclude-package-data]
+rarelink = [
+  "fsh/output/**",
+  "fsh/fsh-generated", 
+  "fsh/input-cache",
+  "fsh/temp",
+  "fsh/template"
+]

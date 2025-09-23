@@ -23,7 +23,7 @@ author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
                     Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
                         Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
           
-release = '2.0.2.dev1'
+release = '2.0.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -92,6 +92,8 @@ intersphinx_mapping = {
 html_theme = 'sphinx_rtd_theme'  # experiment with this
 html_static_path = ['_static']
 
+html_logo = "_static/res/rarelink_logo_no_background.png"
+
 html_theme_options = {
     # Collapse all navigation entries by default
     "collapse_navigation": False,
@@ -101,6 +103,9 @@ html_theme_options = {
     "navigation_depth": 2,
     # Show only the titles (no sub-headings in the sidebar)
     "titles_only": False,
+    # show logo and version
+    "logo_only": True,       
+    "display_version": True,
 }
 
 
