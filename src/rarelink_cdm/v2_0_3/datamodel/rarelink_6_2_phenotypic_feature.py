@@ -2,7 +2,7 @@
 # Generation date: 2025-03-23T15:59:26
 # Schema: rarelink_6_2_phenotypic_feature
 #
-# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_2/linkml/rarelink_6_2_phenotypic_feature.yaml
+# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_3/linkml/rarelink_6_2_phenotypic_feature.yaml
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 

@@ -2,7 +2,7 @@
 # Generation date: 2025-03-02T17:05:38
 # Schema: rarelink_repeated_elements
 #
-# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_2/linkml/rarelink_repeated_elements.yaml
+# id: https://github.com/BIH-CEI/RareLink/blob/develop/src/rarelink_cdm_linkml/v2_0_3/linkml/rarelink_repeated_elements.yaml
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 

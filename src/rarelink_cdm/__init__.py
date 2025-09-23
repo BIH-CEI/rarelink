@@ -15,7 +15,7 @@ __all__ = [
 _VERSION_RX = re.compile(r"^v(\d+)_(\d+)_(\d+)$")
 
 def list_available_versions() -> list[str]:
-    """Return version package names like ['v2_0_2', 'v2_0_1', ...] found on disk."""
+    """Return version package names like ['v2_0_3', 'v2_0_1', ...] found on disk."""
     pkg_path = Path(__file__).parent
     names = []
     for m in pkgutil.iter_modules([str(pkg_path)]):

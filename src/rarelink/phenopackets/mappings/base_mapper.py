@@ -3,6 +3,7 @@ import logging
 from typing import Any, Dict, List, Optional, TypeVar, Generic, Callable, Union
 from rarelink.utils.processor import DataProcessor
 from rarelink.utils.field_access import get_multi_instrument_field_value
+import rarelink.utils.label_fetching as labels
 
 # Define type variable for the return type of mappers
 T = TypeVar('T')
@@ -170,75 +171,37 @@ class BaseMapper(Generic[T]):
     
     def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
         """
-        Fetch a label for a code using a hierarchical approach.
-        
-        Args:
-            code (str): The code to look up
-            enum_class (Any, optional): Enum class name (string) or actual enum class
-            
-        Returns:
-            Optional[str]: The label or None if not found
+        Fetch a label with a single, patchable entrypoint:
+        - resolve enum_class if given as a string via processor.enum_classes
+        - merge/flatten mapping-config label dicts
+        - delegate to rarelink.utils.label_fetching.fetch_label
+            (so CLI monkey-patches and local dict precedence take effect)
         """
         if not code:
             return None
-        
-        # Get mapping configuration
-        mapping_config = self.processor.mapping_config or {}
-        
-        # Step 1: Try label dictionaries from the configuration
-        label_dicts = mapping_config.get("label_dicts", {})
-        if label_dicts:
-            # First, check if enum_class is a string that matches a dictionary name
-            if isinstance(enum_class, str) and enum_class in label_dicts:
-                specific_dict = label_dicts.get(enum_class, {})
-                if code in specific_dict:
-                    return specific_dict[code]
-            
-            # Next, try looking through all dictionaries
-            for dict_name, label_dict in label_dicts.items():
-                if code in label_dict:
-                    return label_dict[code]
-        
-        # Step 2: Try enum classes from configuration
-        enum_classes = getattr(self.processor, "enum_classes", {})
-        if enum_classes:
-            # If enum_class is provided as a string, get the actual class
-            if isinstance(enum_class, str) and enum_class in enum_classes:
-                enum_obj = enum_classes[enum_class]
-                label = self.processor.fetch_label_from_enum(code, enum_obj)
-                if label:
-                    return label
-                
-            # If enum_class is provided as an actual class
-            elif enum_class:
-                label = self.processor.fetch_label_from_enum(code, enum_class)
-                if label:
-                    return label
-                
-            # Try prefix-based enum lookup 
-            for prefix, enum_obj in enum_classes.items():
-                if code.startswith(prefix):
-                    label = self.processor.fetch_label_from_enum(code, enum_obj)
-                    if label:
-                        return label
-        
-        # Step 3: Finally, try BioPortal (most expensive option)
-        # For codes with a colon format
-        if ":" in code:
-            label = self.processor.fetch_label_from_bioportal(code)
-            if label:
-                return label
-        
-        # For codes without a colon, try processing first
+
+        # Resolve enum class if provided as a name
+        enum_obj = None
+        if isinstance(enum_class, str):
+            enum_obj = getattr(self.processor, "enum_classes", {}).get(enum_class)
         else:
-            processed_code = self.process_code(code)
-            if processed_code != code and ":" in processed_code:
-                label = self.processor.fetch_label_from_bioportal(processed_code)
-                if label:
-                    return label
-        
-        # Return None if no label found
-        return None
+            enum_obj = enum_class
+
+        # Flatten mapping-config label dicts (support dict-of-dicts or flat dict)
+        merged_dict: Dict[str, str] = {}
+        mapping_config = self.processor.mapping_config or {}
+        label_dicts = mapping_config.get("label_dicts") or {}
+        if isinstance(label_dicts, dict):
+            # If it's a dict-of-dicts, merge values
+            for v in label_dicts.values():
+                if isinstance(v, dict):
+                    merged_dict.update(v)
+            # If the dict is already flat (values not dicts), also merge as-is
+            if all(not isinstance(v, dict) for v in label_dicts.values()):
+                merged_dict.update(label_dicts)
+
+        # Delegate to the shared function (this is what the CLI patches)
+        return labels.fetch_label(code, enum_class=enum_obj, label_dict=merged_dict)
     
     def fetch_mapping_value(self, mapping_name: str, code: str, default: Any = None) -> Any:
         """Fetch a mapping value using the processor"""
