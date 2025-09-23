@@ -5,7 +5,6 @@
 # id: https://github.com/BIH-CEI/RareLink/rarelink_6_1_genetic_findings.yaml
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
-import dataclasses
 from dataclasses import dataclass
 from typing import (
     Any,
@@ -20,7 +19,6 @@ from linkml_runtime.linkml_model.meta import (
     PermissibleValue
 )
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from linkml_runtime.utils.slot import Slot
 from linkml_runtime.utils.yamlutils import YAMLRoot
@@ -34,8 +32,6 @@ from linkml_runtime.utils.metamodelcore import Bool
 metamodel_version = "1.7.0"
 version = None
 
-# Overwrite dataclasses _init_fn to add **kwargs in __init__
-dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 GA4GH = CurieNamespace('GA4GH', 'https://ga4gh.org/')
