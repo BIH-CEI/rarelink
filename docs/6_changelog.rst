@@ -3,6 +3,13 @@
 Changelog
 ===========
 
+v2.0.3 (2025-09-24)
+-------------------
+
+- Fixed RareLink FHIR IG versioning back to 2.0.0
+- 
+
+
 v2.0.2 (inclunding v2.0.1)
 ----------------------------
 
