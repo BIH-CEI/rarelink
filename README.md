@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="200"/>
+  <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="400"/>
 </p>
 
 A novel rare disease framework for REDCap linking international
