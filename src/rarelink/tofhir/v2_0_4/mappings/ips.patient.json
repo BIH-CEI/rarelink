@@ -131,7 +131,7 @@
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://loinc.org')}}",
+                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
                         "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
                         "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
                         "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"

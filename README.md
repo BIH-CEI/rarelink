@@ -1,4 +1,6 @@
-![RareLink logo](docs/_static/res/rarelink_logo_no_background.png)
+<p align="center">
+  <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="200"/>
+</p>
 
 A novel rare disease framework for REDCap linking international
 registries to FHIR and Phenopackets.
@@ -126,7 +128,13 @@ pip install --upgrade pip
 
 > **Note**: You need Python ≥3.10 but <3.13 to be able to use RareLink! 
 
-Next, clone the RareLink repository, navigate to its root directory, and
+Next, install rarelink through pypi...
+
+```bash
+pip install rarelink
+```
+
+... or clone the RareLink repository, navigate to its root directory, and
  install RareLink using:
 
 ```bash

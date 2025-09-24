@@ -23,7 +23,7 @@ author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
                     Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
                         Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
           
-release = '2.0.3'
+release = '2.0.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

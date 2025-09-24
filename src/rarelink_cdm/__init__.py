@@ -15,7 +15,7 @@ __all__ = [
 _VERSION_RX = re.compile(r"^v(\d+)_(\d+)_(\d+)$")
 
 def list_available_versions() -> list[str]:
-    """Return version package names like ['v2_0_3', 'v2_0_1', ...] found on disk."""
+    """Return version package names like ['v2_0_4', 'v2_0_1', ...] found on disk."""
     pkg_path = Path(__file__).parent
     names = []
     for m in pkgutil.iter_modules([str(pkg_path)]):
@@ -60,7 +60,7 @@ def import_from_latest(submodule: str):
 def get_codesystems_container_class(version: str | None = None):
     """Return CodeSystemsContainer from the requested (or newest) version."""
     if version:
-        mod = import_from_version(version, "datamodel")
+        mod = import_from_version(version, "python_datamodel")
     else:
-        mod = import_from_latest("datamodel")
+        mod = import_from_latest("python_datamodel")
     return getattr(mod, "CodeSystemsContainer")

@@ -30,7 +30,7 @@ def sync_and_generate(dest_root: Path) -> Path:
         yaml.safe_dump(schema, f, sort_keys=False)
     
     # Regenerate Python classes from schema
-    out_dir = dest / "datamodel"
+    out_dir = dest / "python_datamodel"
     subprocess.run([
         "gen-python",
         str(schema_yaml),
