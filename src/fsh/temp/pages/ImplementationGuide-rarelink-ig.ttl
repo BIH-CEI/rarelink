@@ -11,10 +11,10 @@
   fhir:id [ fhir:v "rarelink-ig"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide rarelink-ig</b></p><a name=\"rarelink-ig\"> </a><a name=\"hcrarelink-ig\"> </a><a name=\"rarelink-ig-en-US\"> </a><h2>RareLinkImplementationGuide</h2><p>The official URL for this implementation guide is: </p><pre>https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig</pre><div><p>An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.2 profiles and Genomics Reporting 3.0.0 profiles.</p>\n</div></div>"^^rdf:XMLLiteral
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide rarelink-ig</b></p><a name=\"rarelink-ig\"> </a><a name=\"hcrarelink-ig\"> </a><a name=\"rarelink-ig-en-US\"> </a><h2>RareLinkImplementationGuide</h2><p>The official URL for this implementation guide is: </p><pre>https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig</pre><div><p>An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.</p>\n</div></div>"^^rdf:XMLLiteral
   ] ; # 
   fhir:url [ fhir:v "https://github.com/BIH-CEI/RareLink/ImplementationGuide/rarelink-ig"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "2.0.2"] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
   fhir:name [ fhir:v "RareLinkImplementationGuide"] ; # 
   fhir:title [ fhir:v "RareLink Implementation Guide"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
@@ -30,7 +30,7 @@
        fhir:value [ fhir:v "adam.graefe@charite.de" ]
      ] )
   ] ) ; # 
-  fhir:description [ fhir:v "An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.2 profiles and Genomics Reporting 3.0.0 profiles.\n"] ; # 
+  fhir:description [ fhir:v "An Implementation Guide for RareLink Common Data Model, based on the ontology-based rare disease common data model (RD-CDM) harmonising the European Rare Disease Infrastructure Common Data Set, HL7 FHIR R4, and Phenopackets; and integrating the IPS 2.0.0 profiles and Genomics Reporting 3.0.0 profiles.\n"] ; # 
   fhir:packageId [ fhir:v "rarelink-ig"] ; # 
   fhir:license [ fhir:v "BSD-3-Clause"] ; # 
   fhir:fhirVersion ( [ fhir:v "4.0.1"] ) ; # 
@@ -71,7 +71,7 @@
        fhir:link <http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips>
      ] ;
      fhir:packageId [ fhir:v "hl7.fhir.uv.ips" ] ;
-     fhir:version [ fhir:v "2.0.2-ballot" ]
+     fhir:version [ fhir:v "2.0.0-ballot" ]
   ] [
      fhir:id [ fhir:v "hl7_fhir_uv_genomics_reporting" ] ;
      fhir:uri [
@@ -108,7 +108,7 @@
          fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
-           fhir:v "2.0.2"
+           fhir:v "2.0.0"
          ]
        ] ) ;
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
@@ -489,7 +489,7 @@
          fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
-           fhir:v "2.0.2"
+           fhir:v "2.0.0"
          ]
        ] ) ;
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]

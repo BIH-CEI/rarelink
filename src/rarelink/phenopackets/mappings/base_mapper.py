@@ -13,7 +13,8 @@ logger = logging.getLogger(__name__)
 class BaseMapper(Generic[T]):
     """
     Base class for all mappers in the RareLink-Phenopackets engine.
-    Provides common functionality for field access, error handling, and entity creation.
+    Provides common functionality for field access, error handling, and entity 
+    creation.
     
     Type parameter T represents the type of entity this mapper creates.
     """
@@ -23,7 +24,8 @@ class BaseMapper(Generic[T]):
         Initialize the mapper with a data processor.
         
         Args:
-            processor (DataProcessor): Processor for field access and data manipulation
+            processor (DataProcessor): Processor for field access and data 
+            manipulation
         """
         self.processor = processor
         self.debug_mode = getattr(processor, 'debug_mode', False)
@@ -37,8 +39,10 @@ class BaseMapper(Generic[T]):
             **kwargs: Additional mapping parameters
             
         Returns:
-            Union[List[T], T, None]: Mapped entity or list of entities or None on failure
+            Union[List[T], T, None]: Mapped entity or list of entities or None 
+            on failure
         """
+        
         try:
             # Extract mapping configuration from processor
             config = self.processor.mapping_config
@@ -69,7 +73,8 @@ class BaseMapper(Generic[T]):
             # Return empty list for multi-entity mappers, None for single-entity mappers
             return [] if config.get("multi_entity", False) else None
     
-    def _map_single_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[T]:
+    def _map_single_entity(
+        self, data: Dict[str, Any], instruments: List[str], **kwargs) -> Optional[T]:
         """
         Map data to a single entity. Override in subclasses.
         
@@ -83,7 +88,8 @@ class BaseMapper(Generic[T]):
         """
         raise NotImplementedError("Subclasses must implement _map_single_entity")
     
-    def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[T]:
+    def _map_multi_entity(
+        self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[T]:
         """
         Map data to multiple entities. Override in subclasses.
         
@@ -103,13 +109,14 @@ class BaseMapper(Generic[T]):
                   instruments: List[str] = None, 
                   default: Any = None) -> Any:
         """
-        Get a field value from data using the field name from the mapping configuration.
+        Get a field value from data using the field name from the mapping 
+        configuration.
         
         Args:
             data (Dict[str, Any]): Input data to extract from
             field_name (str): Name of the field in the mapping configuration
-            instruments (List[str], optional): List of instruments for field access
-            default (Any, optional): Default value if field not found
+            instruments (List[str], optional): List of instruments for field 
+            access default (Any, optional): Default value if field not found
             
         Returns:
             Any: Field value or default
@@ -147,8 +154,9 @@ class BaseMapper(Generic[T]):
         Args:
             func (Callable): Function to execute
             error_msg (str): Message to log on error
-            debug (bool, optional): Whether to log debug info, defaults to self.debug_mode
-            default_return (Any, optional): Value to return on error
+            debug (bool, optional): Whether to log debug info, defaults to 
+            self.debug_mode default_return (Any, optional): Value to return on 
+            error.
             **kwargs: Arguments to pass to func
             
         Returns:
@@ -183,7 +191,8 @@ class BaseMapper(Generic[T]):
         # Resolve enum class if provided as a name
         enum_obj = None
         if isinstance(enum_class, str):
-            enum_obj = getattr(self.processor, "enum_classes", {}).get(enum_class)
+            enum_obj = getattr(
+                self.processor, "enum_classes", {}).get(enum_class)
         else:
             enum_obj = enum_class
 
@@ -203,7 +212,8 @@ class BaseMapper(Generic[T]):
         # Delegate to the shared function (this is what the CLI patches)
         return labels.fetch_label(code, enum_class=enum_obj, label_dict=merged_dict)
     
-    def fetch_mapping_value(self, mapping_name: str, code: str, default: Any = None) -> Any:
+    def fetch_mapping_value(
+        self, mapping_name: str, code: str, default: Any = None) -> Any:
         """Fetch a mapping value using the processor"""
         return self.processor.fetch_mapping_value(mapping_name, code, default)
     
@@ -212,7 +222,8 @@ class BaseMapper(Generic[T]):
         Get instruments from the mapping configuration.
         
         Args:
-            config (Dict[str, Any], optional): Mapping configuration, defaults to processor's config
+            config (Dict[str, Any], optional): 
+                Mapping configuration, defaults to processor's config
             
         Returns:
             List[str]: List of instrument names
@@ -248,4 +259,5 @@ class BaseMapper(Generic[T]):
         Returns:
             Optional[T]: Mapped genotype entity or None on failure
         """
-        raise NotImplementedError("Subclasses must implement map_loinc_to_geno_ontology")
+        raise NotImplementedError(
+            "Subclasses must implement map_loinc_to_geno_ontology")

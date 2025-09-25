@@ -1,4 +1,4 @@
-from rarelink_cdm.v2_0_3.datamodel import CodeSystemsContainer
+from rarelink_cdm.v2_0_4.python_datamodel import CodeSystemsContainer
 from dataclasses import dataclass
 
 @dataclass

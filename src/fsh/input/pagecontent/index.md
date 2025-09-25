@@ -22,7 +22,7 @@ The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CD
 - [RD-CDM repository](https://github.com/BIH-CEI/rd-cdm)
 - [RD-CDM documentation](https://rd-cdm.readthedocs.io/en/latest/)
 
-{% include img.html img="rd_cdm_v2_0_2.png" caption="Figure 1: Schematic overview of the entire ontology-based rare disease common data model" width="70%" %}
+{% include img.html img="rd_cdm_v2_0_0.png" caption="Figure 1: Schematic overview of the entire ontology-based rare disease common data model" width="70%" %}
 
 ### RareLink Software Architecture
 
@@ -45,7 +45,7 @@ Further details on semi-automatic or manual data capture, FHIR import via CIDS, 
 
 RareLink comes with FHIR R4 StructureDefinitions covering:
 
-- **HL7 International Patient Summary (IPS) v2.0.2**  
+- **HL7 International Patient Summary (IPS) v2.0.0**  
   Dependency: [IPS Implementation Guide](https://build.fhir.org/ig/HL7/fhir-ips/)  
 - **HL7 Genomics Reporting v3.0.0**  
   Dependency: [Genomics Reporting IG](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)  

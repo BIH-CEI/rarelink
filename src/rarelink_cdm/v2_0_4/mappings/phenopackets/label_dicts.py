@@ -1,5 +1,5 @@
 """
-This dictionary contains the "description field" of the RareLink-CDM v2.0.3
+This dictionary contains the "description field" of the RareLink-CDM v2.0.4
 LinkML schema, to fetch the label for writing Phenopackets.
     
 """

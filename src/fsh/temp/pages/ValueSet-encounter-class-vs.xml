@@ -6,7 +6,7 @@
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet encounter-class-vs</b></p><a name="encounter-class-vs"> </a><a name="hcencounter-class-vs"> </a><a name="encounter-class-vs-en-US"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include these codes as defined in <code>http://hl7.org/fhir/R4</code><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>AMB</td><td>Ambulatory</td></tr><tr><td>IMP</td><td>Inpatient</td></tr><tr><td>OBSENC</td><td>Observation</td></tr><tr><td>EMER</td><td>Emergency</td></tr><tr><td>VR</td><td>Virtual</td></tr><tr><td>HH</td><td>Home Health</td></tr></table></li><li>Include these codes as defined in <code>http://github.com/BIH-CEI/RareLink</code><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>RDC</td><td>RD Specialist Center</td></tr></table></li><li>Include these codes as defined in <a href="http://www.snomed.org/"><code>http://snomed.info/sct</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="http://snomed.info/id/261665006">261665006</a></td><td>Unknown</td></tr></table></li></ul></div>
   </text>
   <url value="https://github.com/BIH-CEI/RareLink/ValueSet/encounter-class-vs"/>
-  <version value="2.0.2"/>
+  <version value="2.0.0"/>
   <name value="EncounterClassVS"/>
   <title value="Encounter Class Value Set"/>
   <status value="draft"/>

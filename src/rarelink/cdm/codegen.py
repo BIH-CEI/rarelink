@@ -172,13 +172,13 @@ def _copy_previous_tree(prev_version_dir: Path, new_version_dir: Path, *, force:
     copytree(prev_version_dir, new_version_dir, ignore=ignore, dirs_exist_ok=False)
              
 def _version_digits(v: str) -> str:
-    # "v2_0_2" -> "2.0.3" for printing if needed
+    # "v2_0_2" -> "2.0.4" for printing if needed
     return v[1:].replace("_", ".")
 
 def scaffold_version_package(version: str, root: Path, from_version: str | None = None, *, force: bool = False) -> dict:
     version_dir = root / version
     schema_dir = version_dir / "schema_definitions"
-    datamodel_dir = version_dir / "datamodel"
+    datamodel_dir = version_dir / "python_datamodel"
 
     # 1) decide previous
     if not from_version:
@@ -209,7 +209,7 @@ def scaffold_version_package(version: str, root: Path, from_version: str | None 
         "__all__ = ['CodeSystemsContainer']\n", encoding="utf-8",
     )
     (version_dir / "__init__.py").write_text(
-        "from .datamodel import CodeSystemsContainer\n"
+        "from .python_datamodel import CodeSystemsContainer\n"
         "__all__ = ['CodeSystemsContainer']\n", encoding="utf-8",
     )
 

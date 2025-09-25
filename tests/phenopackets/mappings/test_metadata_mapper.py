@@ -7,7 +7,7 @@ from phenopackets import MetaData
 from rarelink_cdm import import_from_latest
 
 CodeSystemsContainer = getattr(
-    import_from_latest("datamodel"),
+    import_from_latest("python_datamodel"),
     "CodeSystemsContainer"
 )
 

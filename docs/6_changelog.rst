@@ -3,6 +3,12 @@
 Changelog
 ===========
 
+v2.0.4 (2025-09-25)
+---------------------
+
+- FHIR Export: fixed CLI export and tofhir condig .yml and docker files for the FHIR export and module
+- FHIR IG: fixed image paths in the FHIR IG to correctly display the RD-CDM image
+
 v2.0.3 (2025-09-24)
 -------------------
 

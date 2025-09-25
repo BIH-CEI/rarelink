@@ -1,6 +1,6 @@
 
 """
-These are specific mappings from the Rarelink CDM v2.0.3 to the Phenopackets 
+These are specific mappings from the Rarelink CDM v2.0.4 to the Phenopackets 
 schema where specific codes are required. These mappings are used to convert
 the codes in the CDM to the required codes in the Phenopackets schema.
 """
