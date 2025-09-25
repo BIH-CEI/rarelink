@@ -20,7 +20,7 @@ registries to FHIR and Phenopackets.
 [![REDCap](https://img.shields.io/badge/REDCap-API-darkred.svg)](https://www.project-redcap.org/)
 [![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.2-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
-[![LinkML](https://img.shields.io/badge/LinkML-1.8.0+-green.svg)](https://linkml.io/)
+[![LinkML](https://img.shields.io/badge/LinkML-1.9.0+-green.svg)](https://linkml.io/)
 [![HL7 FHIR](https://img.shields.io/badge/HL7%20FHIR-R4-orange.svg)](https://hl7.org/fhir/)
 [![FHIR IPS v2.0.0](https://img.shields.io/badge/FHIR_IPS-v2.0.0-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
 [![FHIR Genomics Reporting v3.0.0](https://img.shields.io/badge/FHIR_Genomics_Reporting-v3.0.0-yellow)](https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html#findings)
@@ -246,15 +246,15 @@ use of REDCap for rare disease research and care.
 ## Resources 
 
 ### Ontologies
-- Human Phenotype Ontology (HP, Version 2025-05-06) [🔗](http://www.human-phenotype-ontology.org)
-- Monarch Initiative Disease Ontology (MONDO, Version Version 2025-06-03) [🔗](https://mondo.monarchinitiative.org/)
-- Online Mendelian Inheritance in Man (OMIM, Version OMIM2024_08_09) [🔗](https://www.omim.org/)
-- Orphanet Rare Disease Ontology (OPRHA, Version OMIM2024_08_09) [🔗](https://www.orpha.net/)
-- National Center for Biotechnology Information Taxonomy (NCBITaxon, Version 2024-07-03) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
-- Logical Observation Identifiers Names and Codes (LOINC, Version LNC278) [🔗](https://loinc.org/)
-- HUGO Gene Nomenclature Committee (HGNC, Version 2024-08-23) [🔗](https://www.genenames.org/)
-- Gene Ontology (GENO, Version 2023-10-08) [🔗](https://geneontology.org/)
-- NCI Thesaurus OBO Edition (NCIT, Version Version 24.01e ) [🔗](https://obofoundry.org/ontology/ncit.html)
+- Human Phenotype Ontology (HP) [🔗](http://www.human-phenotype-ontology.org)
+- Monarch Initiative Disease Ontology (MONDO) [🔗](https://mondo.monarchinitiative.org/)
+- Online Mendelian Inheritance in Man (OMIM) [🔗](https://www.omim.org/)
+- Orphanet Rare Disease Ontology (OPRHA) [🔗](https://www.orpha.net/)
+- National Center for Biotechnology Information Taxonomy (NCBITaxon) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
+- Logical Observation Identifiers Names and Codes (LOINC) [🔗](https://loinc.org/)
+- HUGO Gene Nomenclature Committee (HGNC) [🔗](https://www.genenames.org/)
+- Gene Ontology (GENO) [🔗](https://geneontology.org/)
+- NCI Thesaurus OBO Edition (NCIT) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
 - [toFHIR](https://github.com/srdc/tofhir)
@@ -274,7 +274,6 @@ We would like to extend our thanks to everyone in the last three years for their
   - [Adam SL Graefe](https://github.com/aslgraefe)
   - [Filip Rehburg](https://github.com/frehburg)
   - [Samer Alkarkoukly](https://github.com/alkarkoukly)
-  - [Daniel R Korn](https://github.com/DnlRKorn)
   - [Daniel Danis](https://github.com/ielis)
   - [Peter N. Robinson](https://github.com/pnrobinson)
   - Sylvia Thun
