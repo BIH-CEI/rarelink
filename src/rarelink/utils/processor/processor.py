@@ -15,7 +15,7 @@ from ..label_fetching import (
     fetch_label_from_bioportal
 )
 from ..date_handling import convert_date_to_iso_age, date_to_timestamp
-from rarelink_cdm import import_from_latest
+from rarelink.rarelink_cdm import import_from_latest
 
 logger = logging.getLogger(__name__)
 

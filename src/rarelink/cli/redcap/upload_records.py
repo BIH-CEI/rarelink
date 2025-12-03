@@ -17,7 +17,7 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.utils.schema_processing import linkml_to_redcap  
-from rarelink_cdm import get_latest_version, import_from_latest
+from rarelink.rarelink_cdm import get_latest_version, import_from_latest
 import logging
 
 def validate_linkml_data(*args, **kwargs):

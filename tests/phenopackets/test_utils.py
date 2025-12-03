@@ -7,7 +7,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
-from rarelink_cdm import import_from_latest 
+from rarelink.rarelink_cdm import import_from_latest 
 
 logger = logging.getLogger(__name__)
 

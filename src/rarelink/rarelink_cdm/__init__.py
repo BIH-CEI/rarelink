@@ -1,6 +1,7 @@
-# src/rarelink_cdm/__init__.py
 from importlib import import_module
 from pathlib import Path
+from importlib import resources
+from .python_datamodel import CodeSystemsContainer
 import pkgutil
 import re
 
@@ -10,6 +11,8 @@ __all__ = [
     "import_from_latest",
     "import_from_version",
     "list_available_versions",
+    "CodeSystemsContainer",
+    "get_data_dictionary_path"
 ]
 
 _VERSION_RX = re.compile(r"^v(\d+)_(\d+)_(\d+)$")
@@ -35,7 +38,7 @@ def get_latest_version() -> str:
     """Return the newest version that can actually be imported (prefers highest)."""
     for v in list_available_versions():
         try:
-            _try_import_version(v)  # smoke test the package
+            _try_import_version(v) 
             return v
         except Exception:
             continue
@@ -64,3 +67,8 @@ def get_codesystems_container_class(version: str | None = None):
     else:
         mod = import_from_latest("python_datamodel")
     return getattr(mod, "CodeSystemsContainer")
+
+def get_data_dictionary_path():
+    return resources.files("rarelink").joinpath(
+        "rarelink_cdm", "rarelink_cdm_datadictionary.csv"
+    )

@@ -7,7 +7,7 @@ import importlib.machinery
 from pathlib import Path
 from typing import Optional
 import logging
-from rarelink_cdm import import_from_latest, list_available_versions, import_from_version
+from rarelink.rarelink_cdm import import_from_latest, list_available_versions, import_from_version
 
 
 from rarelink.cli.utils.terminal_utils import (

@@ -1,6 +1,6 @@
 from pyphetools.creation.variant_validator import VariantValidator
 from logging import Logger
-from rarelink_cdm import import_from_latest
+from rarelink.rarelink_cdm import import_from_latest
 import typer
 import io
 import logging
@@ -25,9 +25,8 @@ try:
     REFERENCE_GENOME_MAPPING = getattr(redcap, "REFERENCE_GENOME_MAPPING")
 except Exception as e:
     logger.warning(f"Falling back to built-in defaults; could not import latest redcap mappings: {e}")
-    # Sensible built-ins if you want a fallback:
-    HGVS_VARIABLES = ["loinc_48004_6", "loinc_69548_6"]  # ← example placeholders
-    REFERENCE_GENOME_MAPPING = {"LA30124-3": "hg19", "LA26806-2": "hg38"}  # ← example placeholders
+    HGVS_VARIABLES = ["loinc_48004_6", "loinc_69548_6"] 
+    REFERENCE_GENOME_MAPPING = {"LA30124-3": "hg19", "LA26806-2": "hg38"} 
 
 def validate_and_encode_hgvs(
     data: dict,

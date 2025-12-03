@@ -27,7 +27,6 @@ from .pipeline_utils import (
     validate_pipeline_config,
     log_pipeline_results
 )
-from .version_utils import get_current_version
 from .logging_utils import (
     setup_logger,
     log_info,
@@ -74,8 +73,6 @@ __all__ = [
     "execute_pipeline",
     "validate_pipeline_config",
     "log_pipeline_results",
-    # Version utils
-    "get_current_version",
     # Logging utils
     "setup_logger",
     "log_info",

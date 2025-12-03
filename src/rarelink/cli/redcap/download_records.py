@@ -20,7 +20,7 @@ from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
-from rarelink_cdm import import_from_latest, get_latest_version
+from rarelink.rarelink_cdm import import_from_latest, get_latest_version
 
 def validate_linkml_data(*args, **kwargs):
     """

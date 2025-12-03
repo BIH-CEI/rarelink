@@ -2,7 +2,14 @@ import doctest
 import os
 import sys
 from docutils import nodes
+from pathlib import Path
 from docutils.parsers.rst import roles
+try:
+    import tomllib  # Python 3.11+
+except ImportError:  # pragma: no cover - fallback for older environments
+    import tomli as tomllib
+src_path = os.path.abspath(os.path.join("..", "src"))
+sys.path.insert(0, src_path)
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -23,7 +30,16 @@ author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
                     Beata Derfalvi, Nicola Wright, Susanna Wiegand, Peter Kühnen, \
                         Melissa A Haendel, Sylvia Thun, Peter N Robinson, Oya Beyan' 
           
-release = '2.0.4'
+root_dir = Path(__file__).resolve().parents[1]
+pyproject_path = root_dir / "pyproject.toml"
+
+with pyproject_path.open("rb") as f:
+    pyproject = tomllib.load(f)
+
+# PEP 621: version is under [project]
+release = pyproject["project"]["version"]
+# Short X.Y version (optional but nice for Sphinx)
+version = ".".join(release.split(".")[:2])
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

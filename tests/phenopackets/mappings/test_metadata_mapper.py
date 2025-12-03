@@ -4,7 +4,7 @@ from unittest.mock import Mock, patch
 
 from rarelink.phenopackets.mappings.metadata_mapper import MetadataMapper
 from phenopackets import MetaData
-from rarelink_cdm import import_from_latest
+from rarelink.rarelink_cdm import import_from_latest
 
 CodeSystemsContainer = getattr(
     import_from_latest("python_datamodel"),

@@ -1,7 +1,7 @@
 from typing import Dict, Any
 
 # Import mapping blocks and code systems
-from rarelink_cdm.v2_0_4.mappings.phenopackets import (
+from rarelink_cdm.mappings.phenopackets import (
     INDIVIDUAL_BLOCK,
     VITAL_STATUS_BLOCK,
     DISEASE_BLOCK,
@@ -38,9 +38,9 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
                 "map_karyotypic_sex": mapping_dict_lookup.get("map_karyotypic_sex", {})
             },
             "enum_classes": {
-                "SexAtBirth": "rarelink_cdm.v2_0_4.python_datamodel.SexAtBirth",
-                "GenderIdentity": "rarelink_cdm.v2_0_4.python_datamodel.GenderIdentity",
-                "KaryotypicSex": "rarelink_cdm.v2_0_4.python_datamodel.KaryotypicSex"
+                "SexAtBirth": "rarelink_cdm.python_datamodel.SexAtBirth",
+                "GenderIdentity": "rarelink_cdm.python_datamodel.GenderIdentity",
+                "KaryotypicSex": "rarelink_cdm.python_datamodel.KaryotypicSex"
             }
         },
         "vitalStatus": {
@@ -57,8 +57,8 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
                 "map_disease_verification_status": mapping_dict_lookup.get("map_disease_verification_status", {})
             },
             "enum_classes": {
-                "AgeAtDiagnosis": "rarelink_cdm.v2_0_4.python_datamodel.AgeAtDiagnosis",
-                "AgeAtOnset": "rarelink_cdm.v2_0_4.python_datamodel.AgeAtOnset",
+                "AgeAtDiagnosis": "rarelink_cdm.python_datamodel.AgeAtDiagnosis",
+                "AgeAtOnset": "rarelink_cdm.python_datamodel.AgeAtOnset",
             }
         },
         # Standard single configuration for phenotypic features 
@@ -70,9 +70,9 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
                 "phenotypic_feature_status": mapping_dict_lookup.get("phenotypic_feature_status", {})
             },
             "enum_classes": {
-                "TemporalPattern": "rarelink_cdm.v2_0_4.python_datamodel.TemporalPattern",
-                "AgeOfOnset": "rarelink_cdm.v2_0_4.python_datamodel.AgeOfOnset",
-                "PhenotypeSeverity": "rarelink_cdm.v2_0_4.python_datamodel.PhenotypeSeverity"
+                "TemporalPattern": "rarelink_cdm.python_datamodel.TemporalPattern",
+                "AgeOfOnset": "rarelink_cdm.python_datamodel.AgeOfOnset",
+                "PhenotypeSeverity": "rarelink_cdm.python_datamodel.PhenotypeSeverity"
             }
         },
         "measurements": {
@@ -96,17 +96,17 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
             "mapping_block": INTERPRETATION_BLOCK,
             "label_dicts": {},
             "enum_classes": {
-                "InterpretationProgressStatus": "rarelink_cdm.v2_0_4.python_datamodel.InterpretationProgressStatus",
-                "InterpretationStatus": "rarelink_cdm.v2_0_4.python_datamodel.InterpretationStatus",
-                "StructuralVariantMethod": "rarelink_cdm.v2_0_4.python_datamodel.StructuralVariantMethod",
-                "ReferenceGenome": "rarelink_cdm.v2_0_4.python_datamodel.ReferenceGenome",
-                "VariantExpressionType": "rarelink_cdm.v2_0_4.python_datamodel.VariantExpressionType",
-                "Zygosity": "rarelink_cdm.v2_0_4.python_datamodel.Zygosity",
-                "GenomicSourceClass": "rarelink_cdm.v2_0_4.python_datamodel.GenomicSourceClass",
-                "DNAChangeType": "rarelink_cdm.v2_0_4.python_datamodel.DNAChangeType",
-                "ClinicalSignificance": "rarelink_cdm.v2_0_4.python_datamodel.ClinicalSignificance",
-                "TherapeuticActionability": "rarelink_cdm.v2_0_4.python_datamodel.TherapeuticActionability",
-                "LevelOfEvidence": "rarelink_cdm.v2_0_4.python_datamodel.LevelOfEvidence"
+                "InterpretationProgressStatus": "rarelink_cdm.python_datamodel.InterpretationProgressStatus",
+                "InterpretationStatus": "rarelink_cdm.python_datamodel.InterpretationStatus",
+                "StructuralVariantMethod": "rarelink_cdm.python_datamodel.StructuralVariantMethod",
+                "ReferenceGenome": "rarelink_cdm.python_datamodel.ReferenceGenome",
+                "VariantExpressionType": "rarelink_cdm.python_datamodel.VariantExpressionType",
+                "Zygosity": "rarelink_cdm.python_datamodel.Zygosity",
+                "GenomicSourceClass": "rarelink_cdm.python_datamodel.GenomicSourceClass",
+                "DNAChangeType": "rarelink_cdm.python_datamodel.DNAChangeType",
+                "ClinicalSignificance": "rarelink_cdm.python_datamodel.ClinicalSignificance",
+                "TherapeuticActionability": "rarelink_cdm.python_datamodel.TherapeuticActionability",
+                "LevelOfEvidence": "rarelink_cdm.python_datamodel.LevelOfEvidence"
             }
         },
         "metadata": {
