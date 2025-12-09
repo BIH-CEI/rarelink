@@ -1,13 +1,15 @@
 import doctest
 import os
 import sys
+import shutil
 from docutils import nodes
 from pathlib import Path
 from docutils.parsers.rst import roles
 try:
-    import tomllib  # Python 3.11+
-except ImportError:  # pragma: no cover - fallback for older environments
+    import tomllib
+except ImportError:
     import tomli as tomllib
+    
 src_path = os.path.abspath(os.path.join("..", "src"))
 sys.path.insert(0, src_path)
 
@@ -23,7 +25,7 @@ src_path = os.path.abspath(os.path.join('..', 'src'))
 sys.path.insert(0, src_path)
 
 project = 'RareLink REDCap Documentation'
-copyright = '2024, Berlin Institute of Health - Charité Universitätsmedizin Berlin'
+copyright = '2025, Berlin Institute of Health - Charité Universitätsmedizin Berlin'
 author = 'Adam SL Graefe, Filip Rehburg, Samer Alkarkoukly, Alexander Bartschke\
             Daniel Danis, Ana Grönke, Miriam R Hübner, Steffen Sander, \
                 Jana Zschüntzsch, Elisabeth F Nyoungui, Tatiana Kalashnikova, \
@@ -36,10 +38,45 @@ pyproject_path = root_dir / "pyproject.toml"
 with pyproject_path.open("rb") as f:
     pyproject = tomllib.load(f)
 
-# PEP 621: version is under [project]
 release = pyproject["project"]["version"]
-# Short X.Y version (optional but nice for Sphinx)
 version = ".".join(release.split(".")[:2])
+
+docs_dir = Path(__file__).parent
+static_dir = docs_dir / "_static"
+static_dir.mkdir(exist_ok=True)
+
+data_dict_version = release
+data_dict_label = "v" + data_dict_version.replace(".", "_")
+
+data_dict_src = (
+    root_dir
+    / "src"
+    / "rarelink"
+    / "rarelink_cdm"
+    / f"rarelink_cdm_datadictionary - {data_dict_label}.csv"
+)
+
+data_dict_dst_name = f"rarelink_cdm_datadictionary - {data_dict_label}.csv"
+data_dict_dst = static_dir / data_dict_dst_name
+
+if data_dict_src.is_file():
+    shutil.copy2(data_dict_src, data_dict_dst)
+else:
+    raise RuntimeError(
+        f"Data dictionary not found for version {data_dict_version}: {data_dict_src}"
+    )
+
+# IMPORTANT: entire :download: role goes into ONE substitution
+# Adjust ../../_static/ if this RST lives at a different depth
+download_role = (
+    f":download:`Download: RareLink-CDM Data Dictionary (v{data_dict_version}) "
+    f"<../_static/{data_dict_dst_name}>`"
+)
+
+rst_prolog = f"""
+.. |data_dict_download| replace:: {download_role}
+"""
+
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

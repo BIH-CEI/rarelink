@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Develop REDCap Instruments &mdash; RareLink REDCap Documentation 2.0.2.dev1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+  <title>Develop REDCap Instruments &mdash; RareLink REDCap Documentation 2.0.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e5cc39df" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=25d36582"></script>
+      <script src="../_static/documentation_options.js?v=09beee0d"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="REDCap Tools" href="4_6_redcap_tools.html" />
-    <link rel="prev" title="Generate FHIR Resources" href="4_4_tofhir_module.html" /> 
+    <link rel="prev" title="FHIR Module" href="4_4_fhir_module.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,9 +36,9 @@
 
           
           
-          <a href="../index.html" class="icon icon-home">
-            RareLink REDCap Documentation
-              <img src="../_static/RareLink SpinxDocs Logo.png" class="logo" alt="Logo"/>
+          <a href="../index.html">
+            
+              <img src="../_static/rarelink_logo_no_background.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -50,46 +50,163 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Background</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html">Rare Diseases and Interoperability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html#definitons">Definitons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_1_rd_interoperability.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_2_ontologies.html">Ontologies &amp; Terminologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_2_ontologies.html#ontologies-used-in-rarelink">Ontologies used in RareLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_2_ontologies.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html">GA4GH Phenopackets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#phenopacket-blocks">Phenopacket Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_3_ga4gh_phenopacket_schema.html#phenopacket-tools">Phenopacket Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html">HL7 FHIR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html#fhir-and-rare-diseases-rds">FHIR and Rare Diseases (RDs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html#fhir-overview-clinicians">FHIR Overview - Clinicians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html#fhir-overview-developers">FHIR Overview - Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html#fhir-overview-architects">FHIR Overview - Architects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_4_hl7_fhir.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_5_rd_cdm.html">RD-CDM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_5_rd_cdm.html#rd-cdm-v2-0-0-overview">RD-CDM v2.0.0 Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_5_rd_cdm.html#key-success-factors-of-a-rare-disease-common-data-model">Key Success Factors of a Rare Disease Common Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_5_rd_cdm.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_background/1_6_redcap.html">REDCap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#redcap-projects">REDCap Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#redcap-instruments">REDCap Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#redcap-data-dictionary">REDCap Data Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#redcap-api">REDCap API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#redcap-ontology-services">REDCap Ontology Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_background/1_6_redcap.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RareLink Framework</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html">RareLink Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_1_rarelink_overview.html#rarelink-framework-components">RareLink Framework components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html">RareLink-CDM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#contents">Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#redcap-data-dictionary">REDCap Data Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#linkml-schema">LinkML Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rules-for-redcap-codes-and-codesystems">Rules for REDCap codes and codesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#redcap-field-annotations">REDCap Field Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm.html#rarelink-cdm-instruments">RareLink-CDM Instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html">RareLink CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#framework-setup-framework">1. Framework Setup (<code class="docutils literal notranslate"><span class="pre">framework</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#redcap-setup-setup">2. REDCap Setup (<code class="docutils literal notranslate"><span class="pre">setup</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#redcap-tools-redcap">3. REDCap Tools (<code class="docutils literal notranslate"><span class="pre">redcap</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#fhir-configuration-and-pipelines-fhir">4. FHIR configuration and pipelines (<code class="docutils literal notranslate"><span class="pre">fhir</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_rarelink_framework/2_3_rarelink_cli.html#phenopacket-export-phenopackets">5. Phenopacket Export (<code class="docutils literal notranslate"><span class="pre">phenopackets</span></code>)</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html">Set up the RareLink Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_1_setup_rarelink_framework.html#rarelink-framework-cli-config">RareLink Framework CLI config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html">Set up a REDCap Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html#next-steps-and-further-reading">Next Steps and further reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_2_setup_redcap_project.html#rarelink-cli-commands">RareLink CLI Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html">Set up the Data Dictionary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html#separate-rarelink-cdm-instruments">Separate RareLink-CDM Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html#extensional-rarelink-cdm-instruments">Extensional RareLink-CDM Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_3_data_dictionary.html#customise-the-data-dictionary">Customise the Data Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3_installation/3_4_redcap_api.html">Set up the REDCap API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_installation/3_4_redcap_api.html#api-set-up">API Set Up</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Guide for Manual Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Data Capture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Generate Phenopackets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_4_tofhir_module.html">Generate FHIR Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_manual_data_capture.html">Manual Data Capture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#general-information-please-read">General Information (please read!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#formal-criteria">(1) Formal Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#personal-information">(2) Personal Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#patient-status">(3) Patient Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#care-pathway">(4) Care Pathway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#disease">(5) Disease</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#genetic-findings">(6.1) Genetic Findings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#phenotypic-features">(6.2) Phenotypic Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#measurements">(6.3) Measurements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#family-history">(6.4) Family History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#consent">(7) Consent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_1_manual_data_capture.html#disability">(8) Disability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_import_mapper.html">Semi-Automatic Import</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_2_import_mapper.html#overview-of-components">Overview of Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_2_import_mapper.html#steps-when-importing-data">Steps When Importing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_2_import_mapper.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_2_import_mapper.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_3_phenopackets.html">Phenopackets Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#get-started">Get started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#rarelink-cdm-to-phenopackets">RareLink-CDM to Phenopackets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#rarelink-phenopacket-engine">RareLink-Phenopacket engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#all-command-line-options">All Command-Line Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#mapping-configuration-structure">Mapping Configuration Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#advanced-configuration-options">Advanced Configuration Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#mapping-strategies">Mapping Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_3_phenopackets.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_4_fhir_module.html">FHIR Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_4_fhir_module.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_4_fhir_module.html#rarelink-cdm-fhir-profiles">RareLink-CDM FHIR Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_4_fhir_module.html#rarelink-cli-fhir-commands">RareLink-CLI FHIR Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_4_fhir_module.html#docker-commands">Docker Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_4_fhir_module.html#importing-fhir-to-redcap">Importing FHIR to REDCap</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Develop REDCap Instruments</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#redcap-instrument-structure">REDCap instrument structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#redcap-inherent-rules">REDCap-inherent rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rarelink-obligatory-rules">RareLink obligatory Rules:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rarelink-optional-rules">RareLink optional rules:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-obligatory-rules">RareLink obligatory rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rarelink-optional-rules">RareLink optional rules</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_6_redcap_tools.html">REDCap Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_6_redcap_tools.html#api-endpoints">API Endpoints</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../5_contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ &amp; Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-5-2025-11-19">v2.0.5 (2025-11-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-4-2025-09-25">v2.0.4 (2025-09-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-3-2025-09-24">v2.0.3 (2025-09-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-2-including-v2-0-1">v2.0.2 (including v2.0.1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-0">v2.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#v2-0-0-dev1-under-development">v2.0.0.dev1 (Under Development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_changelog.html#previous-versions-up-to-v2-0">Previous versions (up to v2.0):</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_faq.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../8_glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9_acknowledgements.html">Acknowlegements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10_license.html">License</a></li>
@@ -128,7 +245,7 @@
 If the rules are followd upon development of the REDCap sheets,
 mapping and setup steps will be required to convert the data into the
 Phenopackets or FHIR format. For example, see the section <a class="reference internal" href="4_3_phenopackets.html#phenopackets-other-redcap-data-models"><span class="std std-ref">Usage for other REDCap data models</span></a>
-of the <a class="reference internal" href="4_3_phenopackets.html#rarelink-phenopacket-module"><span class="std std-ref">RareLink-Phenopacket module</span></a>.</p>
+of the <span class="xref std std-ref">rarelink-phenopacket-module</span>.</p>
 <hr class="docutils" />
 <section id="redcap-instrument-structure">
 <h2>REDCap instrument structure<a class="headerlink" href="#redcap-instrument-structure" title="Link to this heading"></a></h2>
@@ -153,7 +270,7 @@ characters, therefore only alphanumeric characters and underscores are allowed.<
 </section>
 <hr class="docutils" />
 <section id="rarelink-obligatory-rules">
-<h2>RareLink obligatory Rules:<a class="headerlink" href="#rarelink-obligatory-rules" title="Link to this heading"></a></h2>
+<h2>RareLink obligatory rules<a class="headerlink" href="#rarelink-obligatory-rules" title="Link to this heading"></a></h2>
 <section id="data-element-output">
 <h3>1) Data element output<a class="headerlink" href="#data-element-output" title="Link to this heading"></a></h3>
 <p>The <strong>output (i.e. the answer) to each question in your REDCap instrument MUST be encoded
@@ -166,7 +283,7 @@ be processed by the RareLink framework.</p>
 <div><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Single</span> <span class="pre">Choice</span> <span class="pre">Dropdown</span> <span class="pre">&amp;</span> <span class="pre">Radio-Button</span> <span class="pre">fields</span></code>: the choices (i.e. the
 data elemen’ts value set) <strong>must</strong> be encoded with <a class="reference internal" href="../1_background/1_2_ontologies.html#id1"><span class="std std-ref">Ontologies &amp; Terminologies</span></a> codes,
-their official prefixes and their respective  <em>preferred labels</em>.</p>
+their official BIOPORTAL prefixes and their respective  <em>preferred labels</em>.</p>
 <ul class="simple">
 <li><p>e.g.: <strong>snomedct_32218000</strong> or <strong>hp_5200403</strong>.</p></li>
 </ul>
@@ -219,7 +336,7 @@ Choices:
 -<span class="w"> </span>HP:0012829<span class="w"> </span><span class="p">|</span><span class="w"> </span>Profound
 -<span class="w"> </span>HP:0012828<span class="w"> </span><span class="p">|</span><span class="w"> </span>Severe
 Version<span class="o">(</span>s<span class="o">)</span>:
--<span class="w"> </span>HPO<span class="w"> </span>Version<span class="w"> </span><span class="m">2024</span>-08-13
+-<span class="w"> </span>HPO<span class="w"> </span>Version<span class="w"> </span><span class="m">2025</span>-05-06
 Mapping:
 -<span class="w"> </span>HL7<span class="w"> </span>FHIR<span class="w"> </span>Expression<span class="w"> </span>v4.0.1:<span class="w"> </span>Observation.interpretation
 -<span class="w"> </span>GA4GH<span class="w"> </span>Phenopacket<span class="w"> </span>Schema<span class="w"> </span>v2.0<span class="w"> </span>Element:<span class="w"> </span>PhenotypicFeature.severity
@@ -228,7 +345,7 @@ Mapping:
 </section>
 </section>
 <section id="rarelink-optional-rules">
-<h2>RareLink optional rules:<a class="headerlink" href="#rarelink-optional-rules" title="Link to this heading"></a></h2>
+<h2>RareLink optional rules<a class="headerlink" href="#rarelink-optional-rules" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The REDCap variable names should also be encoded with <a class="reference internal" href="../1_background/1_2_ontologies.html#id1"><span class="std std-ref">Ontologies &amp; Terminologies</span></a> codes and
 their respective <em>preferred labels</em> and using their official prefix
@@ -251,14 +368,14 @@ on how to activate this feature.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4_4_tofhir_module.html" class="btn btn-neutral float-left" title="Generate FHIR Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_4_fhir_module.html" class="btn btn-neutral float-left" title="FHIR Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="4_6_redcap_tools.html" class="btn btn-neutral float-right" title="REDCap Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Berlin Institute of Health, Charité Universitätsmedizin Berlin.</p>
+    <p>&#169; Copyright 2025, Berlin Institute of Health - Charité Universitätsmedizin Berlin.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -5,7 +5,7 @@ and runs PythonGenerator to produce dataclasses.
 from pathlib import Path
 import yaml
 
-from rarelink.cdm.codegen import (
+from rarelink.rd_cdm.codegen import (
     generate_python_classes,
     _ensure_rarelink_types
 )

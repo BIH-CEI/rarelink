@@ -39,7 +39,7 @@ you **should or must** comply with when creating your REDCap shets.
 
 _____________________________________________________________________________________
 
-RareLink obligatory Rules:
+RareLink obligatory rules
 ---------------------------
 
 1) Data element output
@@ -54,7 +54,7 @@ be processed by the RareLink framework.
 
     - ``Single Choice Dropdown & Radio-Button fields``: the choices (i.e. the 
       data elemen'ts value set) **must** be encoded with :ref:`1_2` codes,
-      their official prefixes and their respective  *preferred labels*. 
+      their official BIOPORTAL prefixes and their respective  *preferred labels*. 
 
       - e.g.: **snomedct_32218000** or **hp_5200403**.
 
@@ -112,7 +112,7 @@ but we recommend keeping these in there so that they are part your project's
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
 
 
-RareLink optional rules:
+RareLink optional rules
 -----------------------------
 
 - The REDCap variable names should also be encoded with :ref:`1_2` codes and 

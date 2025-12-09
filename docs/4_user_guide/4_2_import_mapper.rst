@@ -60,8 +60,8 @@ The semi-automatic import process involves several key components:
 
   - :ref:`2_2`
   - :ref:`rarelink_cdm_linkml` 
-  - `RareLink-CDM v2.0.2 LinkML yaml schema files <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_2/schema_definitions>`_
-  - `RareLink-CDM v2.0.2 LinkML python model and classes <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_2/datamodel>`_
+  - `RareLink-CDM LinkML yaml schema files <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/rarelink_cdm/schema_definitions>`_
+  - `RareLink-CDM LinkML python model and classes <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/python_datamodel>`_
   
 - **LinkML Map**: 
 
@@ -235,7 +235,7 @@ Below you can find a **snippet of the RareLink-CDM SSSOM Template File:**
    # RareLink-CDM SSSOM Template File
    # This template maps source data elements from a registry CSV file to the target RareLink-CDM schema.
    # SSSOM documentation: https://mapping-commons.github.io/sssom/
-   # RareLink-CDM LinkML schema: https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/v2_0_2/schema_definitions
+   # RareLink-CDM LinkML schema: https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/rarelink_cdm/schema_definitions
    #
    # Columns:
    #   subject_id      : Unique identifier for the source record (<record_id>).
@@ -381,7 +381,7 @@ LinkML schema using the following command:
 
 .. code-block:: bash
 
-    linkml-validate --schema src/rarelink_cdm/v2_0_2/schema_definitions/rarelink_cdm.yaml <path_to_your_data.json>
+    linkml-validate --schema src/rarelink/rarelink_cdm/schema_definitions/rarelink_cdm.yaml <path_to_your_data.json>
 
 This validation step ensures that your data conforms to the model before 
 proceeding to further export (such as to Phenopackets) or upload to REDCap.

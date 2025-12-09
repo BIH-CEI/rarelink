@@ -8,7 +8,7 @@ Covers:
 - File rename and overwrite behavior.
 """
 from pathlib import Path
-from rarelink.cdm.codegen import update_data_dictionary_csv
+from rarelink.rd_cdm.codegen import update_data_dictionary_csv
 
 def test_update_text_versions_label_and_bullet(tmp_path: Path):
     """

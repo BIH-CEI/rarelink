@@ -2,8 +2,6 @@
 import unittest
 import tempfile
 import subprocess
-import os
-import signal
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 from typer.testing import CliRunner

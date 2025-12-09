@@ -7,7 +7,7 @@ and monkeypatching the path resolver.
 from pathlib import Path
 import yaml
 
-from rarelink.cdm.codegen import (
+from rarelink.rd_cdm.codegen import (
     build_schema_with_versions,
 )
 

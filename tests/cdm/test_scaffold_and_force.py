@@ -4,7 +4,7 @@ without 'copying onto myself' errors or __pycache__ collisions.
 """
 from pathlib import Path
 
-from rarelink.cdm.codegen import scaffold_version_package
+from rarelink.rd_cdm.codegen import scaffold_version_package
 
 def test_scaffold_force_overwrite(tmp_path: Path, monkeypatch):
     """

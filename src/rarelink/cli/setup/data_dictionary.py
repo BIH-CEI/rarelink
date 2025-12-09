@@ -40,7 +40,8 @@ redcap_url = config.get("REDCAP_URL")
 @app.command()
 def app():
     """
-    Upload the most current RareLink-CDM Data Dictionary to an existing REDCap project.
+    Upload the most current RareLink-CDM Data Dictionary to an existing 
+    REDCap project.
     """
     format_header("RareLink-CDM Data Dictionary Upload")
 
@@ -115,7 +116,8 @@ def app():
     try:
         response = requests.post(redcap_url, data=data)
         response.raise_for_status()
-        success_text("✅ Data Dictionary uploaded successfully to your REDCap project.")
+        success_text(
+            "✅ Data Dictionary uploaded successfully to your REDCap project.")
     except requests.RequestException as e:
         typer.secho(error_text(f"❌ Failed to upload Data Dictionary: {e}"))
         raise typer.Exit(1)
