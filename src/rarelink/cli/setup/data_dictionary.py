@@ -28,7 +28,8 @@ app = typer.Typer()
 # Documentation and download URLs
 DOCS_RD_CDM_URL = "https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html"
 DOCS_REDCAP_PROJECT_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html"
-DOCS_UPLOAD_DATA_DICTIONARY_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_3_setup_rarelink_instruments.html"
+DOCS_MANUAL_DATA_CAPTURE_URL = "https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html"
+DOCS_UPLOAD_DATA_DICTIONARY_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_3_data_dictionary.html"
 CHANGELOG_URL = "https://rarelink.readthedocs.io/en/latest/6_changelog.html"
 
 downloads_folder = Path.home() / "Downloads"
@@ -61,7 +62,7 @@ def app():
         typer.secho(
             error_text(
                 "Upload canceled. You can manually upload the data dictionary using "
-                f"the instructions here: {hyperlink('Manual Upload Instructions', DOCS_UPLOAD_DATA_DICTIONARY_URL)}"
+                f"the instructions here: {hyperlink('Manual Data Dictionary Setup', DOCS_UPLOAD_DATA_DICTIONARY_URL)}"
             )
         )
         raise typer.Exit()
@@ -73,7 +74,9 @@ def app():
         typer.secho(
             error_text(
                 f"❌ Data Dictionary file not found in package ({DATA_DICT_LABEL}): {e}. "
-                "Please reinstall rarelink or open an issue."
+                "Please reinstall rarelink or open an issue. "
+                "Or, you can manually download the data dictionary from: "
+                f"{hyperlink('Manual Data Dictionary Setup', DOCS_UPLOAD_DATA_DICTIONARY_URL)}"
             ),
             fg=typer.colors.RED,
         )
@@ -123,8 +126,8 @@ def app():
     hint_text("\n👉 Next steps:")
     typer.echo("1. View the uploaded dictionary in REDCap.")
     typer.echo(
-        "2. Learn more about manual uploads here: "
-        f"{hyperlink('Manual Upload Instructions', DOCS_UPLOAD_DATA_DICTIONARY_URL)}"
+        "2. Learn more about manual data capture here: "
+        f"{hyperlink('Manual Data Capture Guide', DOCS_MANUAL_DATA_CAPTURE_URL)}"
     )
     typer.echo(
         "3. Explore REDCap project setup documentation here: "
