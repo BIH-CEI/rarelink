@@ -1,6 +1,5 @@
 from pyphetools.creation.variant_validator import VariantValidator
-from logging import Logger
-from rarelink.rarelink_cdm import import_from_latest
+from rarelink.rarelink_cdm.mappings.redcap import HGVS_VARIABLES, REFERENCE_GENOME_MAPPING
 import typer
 import io
 import logging
@@ -9,24 +8,23 @@ import subprocess
 from pathlib import Path
 from rarelink.cli.utils.string_utils import success_text, error_text
 
-
-logger = Logger(__name__)   
+logger = logging.getLogger(__name__)
 
 URL_SCHEME = (
     "https://rest.variantvalidator.org/VariantValidator/variantvalidator/%s/%s%%3A%s/%s?content-type=application%%2Fjson"
-
 )
 
-logger = logging.getLogger(__name__)
-
+# backup in case the import fails
 try:
-    redcap = import_from_latest("mappings.redcap")
-    HGVS_VARIABLES = getattr(redcap, "HGVS_VARIABLES")
-    REFERENCE_GENOME_MAPPING = getattr(redcap, "REFERENCE_GENOME_MAPPING")
-except Exception as e:
-    logger.warning(f"Falling back to built-in defaults; could not import latest redcap mappings: {e}")
-    HGVS_VARIABLES = ["loinc_48004_6", "loinc_69548_6"] 
-    REFERENCE_GENOME_MAPPING = {"LA30124-3": "hg19", "LA26806-2": "hg38"} 
+    HGVS_VARIABLES  # noqa: F821
+    REFERENCE_GENOME_MAPPING  # noqa: F821
+except NameError as e:
+    logger.warning(
+        "Falling back to built-in HGVS defaults; could not import redcap mappings: %s",
+        e,
+    )
+    HGVS_VARIABLES = ["loinc_48004_6", "loinc_69548_6"]
+    REFERENCE_GENOME_MAPPING = {"LA30124-3": "hg19", "LA26806-2": "hg38"}
 
 def validate_and_encode_hgvs(
     data: dict,
@@ -35,15 +33,17 @@ def validate_and_encode_hgvs(
     
 ) -> dict:
     """
-    Validate and encode HGVS strings in a (possibly nested) record using VariantValidator.
-    Additionally, count and record the number of attempted validations, successes,
-    and failures. The summary is attached to the record under the key
-    '_hgvs_validation_summary'.
+    Validate and encode HGVS strings in a (possibly nested) record using 
+    VariantValidator. Additionally, count and record the number of attempted 
+    validations, successes, and failures. The summary is attached to the record 
+    under the key '_hgvs_validation_summary'.
 
     Args:
         data (dict): Data (a single record) potentially containing HGVS strings.
-        transcript_key (str): Key in each dict that contains transcript information.
-        variables (list[str]): List of keys to treat as HGVS strings. Defaults to HGVS_VARIABLES.
+        transcript_key (str): Key in each dict that contains transcript 
+            information. 
+        variables (list[str]): List of keys to treat as HGVS strings. 
+            Defaults to HGVS_VARIABLES.
 
     Returns:
         dict: The original record (modified in place) with an added '_hgvs_validation_summary' field.

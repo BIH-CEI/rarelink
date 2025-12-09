@@ -72,7 +72,7 @@ def redcap_to_linkml(flat_data_file, output_file, mapping_functions):
 if __name__ == "__main__":
     import argparse
     import logging
-    from rarelink_cdm import import_from_latest, import_from_version, get_latest_version
+    from rarelink.rarelink_cdm import import_from_latest, import_from_version, get_latest_version
 
     parser = argparse.ArgumentParser(
         description="Transform flat REDCap data to LinkML schema."

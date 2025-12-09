@@ -15,7 +15,10 @@ from ..label_fetching import (
     fetch_label_from_bioportal
 )
 from ..date_handling import convert_date_to_iso_age, date_to_timestamp
-from rarelink.rarelink_cdm import import_from_latest
+from ..date_handling import convert_date_to_iso_age, date_to_timestamp
+from rarelink.rarelink_cdm.mappings.phenopackets.mapping_dicts import (
+    get_mapping_by_name,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -141,21 +144,25 @@ class DataProcessor:
         self,
         mapping_name: str,
         code: str,
-        default_value: Any = None
+        default_value: Any = None,
     ) -> Any:
-        """Fetch a mapping value from the latest rarelink_cdm version."""
+        """
+        Fetch a mapping value from the bundled RareLink-CDM mapping_dicts.
+
+        mapping_name: name of the mapping dict (as understood by get_mapping_by_name)
+        code:         key to look up in that mapping
+        """
         if not code:
             return default_value
 
         try:
-            mod = import_from_latest("mappings.phenopackets.mapping_dicts")
-            get_mapping_by_name = getattr(mod, "get_mapping_by_name")
             mapping = get_mapping_by_name(mapping_name)
             return mapping.get(code, default_value)
         except Exception as e:
             if self.debug_mode:
-                logger.error(f"Error fetching mapping value: {e}")
+                logger.error(f"Error fetching mapping value '{mapping_name}' for code '{code}': {e}")
             return default_value
+
     
     def convert_date_to_iso_age(self, 
                               event_date: Union[str, datetime], 
