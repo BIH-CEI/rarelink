@@ -9,7 +9,7 @@ RD-CDM
 
 _________________________________________________________________________________
 
-RD-CDM v2.0.0 Overview
+RD-CDM Overview
 -----------------------
 
 The ontology-based Rare Diseases Common Data Model (RD CDM) v2.0 was developed to address

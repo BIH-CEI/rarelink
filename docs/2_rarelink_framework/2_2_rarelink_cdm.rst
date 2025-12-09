@@ -181,7 +181,7 @@ with REDCap's :ref:`rule_set`, the data dictionary requirements and to ensure
 alignment with:
 
 - international registries (e.g., the `European Reference Networks (ERNs) <https://health.ec.europa.eu/rare-diseases-and-european-reference-networks/european-reference-networks_en>`_),
-- the `HL7 FHIR International Patient Summary (IPS) v2.0.2 <https://build.fhir.org/ig/HL7/fhir-ips/>`_,
+- the `HL7 FHIR International Patient Summary (IPS) v2.0.0 <https://build.fhir.org/ig/HL7/fhir-ips/>`_,
 - the `HL7 Genomics Reporting v3.0.0 Profiles <https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html>`_,  and
 - the `GA4GH Phenopacket Schema <https://rarelink.readthedocs.io/en/latest/1_background/1_3_ga4gh_phenopacket_schema.html>`_.
 

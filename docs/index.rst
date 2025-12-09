@@ -11,7 +11,7 @@ worldwide, yet data quality and scarcity pose significant challenges in research
 and clinical care. RareLink aims to standardize and streamline RD data management 
 around REDCap by providing a structured project setup that ensures consistency 
 across data collection instruments, variables, and data dictionaries. RareLink 
-has integrated the `ontology-based rare disease common data model (RD-CDM) <https://github.com/BIH-CEI/rd-cdm>`_ 
+has integrated the `ontology-based rare disease common data model (RD-CDM) <https://www.nature.com/articles/s41597-025-04558-z>`_ 
 into its core, allowing its linkage and preconifgured export to data the 
 standards HL7 FHIR and the GA4GH Phenopacket Schema. In the following you will 
 find detailed information on the RareLink framework, including its background, 
@@ -33,9 +33,12 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________
 
+.. tip:: 
+   - **Manuscript:** RareLink was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+
 .. note::
+    Further links: 
    - **GitHub Repository:** https://github.com/BIH-CEI/RareLink
-   - The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
    - **FHIR Implementation Guide:** https://bih-cei.github.io/rarelink/
 
 ________________________________________________________________________________
@@ -43,7 +46,6 @@ ________________________________________________________________________________
 .. figure:: _static/res/rarelink_docs.png
 
 ________________________________________________________________________________
-
 
 Sections
 ---------

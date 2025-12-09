@@ -3,6 +3,9 @@
 RareLink Framework
 ==================
 
+.. tip:: 
+   - **Manuscript:** RareLink was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+
 In this section we elaborate on the development of the RareLink framework, how 
 it is designed to facilitate the management of rare disease data, and how it
 supports the creation of interoperable and reusable datasets. We provide an

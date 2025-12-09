@@ -8,6 +8,6 @@ Please check out our github Repository for more information:
 
 You can also email us directly at: 
 
-- `adam.graefe@charite.de`
+- adam.graefe[at]charite.de
 
 

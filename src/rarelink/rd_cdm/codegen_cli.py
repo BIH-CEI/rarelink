@@ -7,9 +7,9 @@ def main():
     """Generate `rarelink_cdm/{version}` from installed rd-cdm resources."""
 
 @main.command("generate")
-@click.option("--version", required=True, help="target rarelink_cdm version, e.g., v2_0_2")
+@click.option("--version", required=True, help="target rarelink_cdm version")
 @click.option("--dest", type=click.Path(file_okay=False, dir_okay=True, path_type=Path), default=Path("src/rarelink_cdm"))
-@click.option("--from-version", "from_version", required=False, help="previous rarelink_cdm version to clone, e.g., v2_0_2")
+@click.option("--from-version", "from_version", required=False, help="previous rarelink_cdm version to clone")
 @click.option("--res-dir", type=click.Path(file_okay=False, dir_okay=True, path_type=Path), default=Path("res"))
 @click.option("--update-dictionary/--no-update-dictionary", default=True, help="Update & rename the data dictionary CSV")
 @click.option("--force/--no-force", default=False, help="Delete the target version folder before copying")

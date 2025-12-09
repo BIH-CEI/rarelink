@@ -5,7 +5,7 @@ import traceback
 from typing import Dict, Any, Optional
 from rarelink.utils.processor import DataProcessor
 from rarelink.phenopackets.mappings.utils.common_utils import add_enum_classes_to_processor
-from rarelink_cdm import get_codesystems_container_class
+from rarelink.rarelink_cdm import get_codesystems_container_class
 from rarelink.phenopackets.mappings.metadata_mapper import collect_used_prefixes_from_blocks
 
 # Import new mapper classes

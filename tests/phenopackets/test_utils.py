@@ -7,7 +7,14 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
-from rarelink.rarelink_cdm import import_from_latest 
+
+from rarelink.rarelink_cdm.mappings.phenopackets import disease as _disease_mod
+from rarelink.rarelink_cdm.mappings.phenopackets import mapping_dicts as _mapping_dicts_mod
+from rarelink.rarelink_cdm.mappings.phenopackets import label_dicts as _label_dicts_mod
+from rarelink.rarelink_cdm.mappings.phenopackets.combined import (
+    create_rarelink_phenopacket_mappings as _create_rarelink_phenopacket_mappings,
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -122,13 +129,9 @@ def get_rarelink_disease_config() -> Dict[str, Any]:
     Get disease mapping configuration directly from RareLink CDM.
     """
     try:
-        mod_disease = import_from_latest("mappings.phenopackets.disease")
-        mod_mapping_dicts = import_from_latest("mappings.phenopackets.mapping_dicts")
-        mod_label_dicts = import_from_latest("mappings.phenopackets.label_dicts")
-
-        DISEASE_BLOCK = getattr(mod_disease, "DISEASE_BLOCK")
-        mapping_dicts = getattr(mod_mapping_dicts, "mapping_dicts")
-        label_dicts = getattr(mod_label_dicts, "label_dicts")
+        DISEASE_BLOCK = _disease_mod.DISEASE_BLOCK
+        mapping_dicts = _mapping_dicts_mod.mapping_dicts
+        label_dicts = _label_dicts_mod.label_dicts
 
         disease_verification_mapping = {}
         for mapping_dict in mapping_dicts:
@@ -169,11 +172,7 @@ def get_all_rarelink_configs() -> Dict[str, Any]:
     Get all mapping configurations directly from RareLink CDM.
     """
     try:
-        mod_combined = import_from_latest("mappings.phenopackets.combined")
-        create_rarelink_phenopacket_mappings = getattr(
-            mod_combined, "create_rarelink_phenopacket_mappings"
-        )
-        return create_rarelink_phenopacket_mappings()
+        return _create_rarelink_phenopacket_mappings()
     except Exception:
         return {}
 

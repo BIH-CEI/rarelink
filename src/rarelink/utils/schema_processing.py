@@ -72,7 +72,6 @@ def redcap_to_linkml(flat_data_file, output_file, mapping_functions):
 if __name__ == "__main__":
     import argparse
     import logging
-    from rarelink.rarelink_cdm import import_from_latest, import_from_version, get_latest_version
 
     parser = argparse.ArgumentParser(
         description="Transform flat REDCap data to LinkML schema."
@@ -81,34 +80,14 @@ if __name__ == "__main__":
     parser.add_argument("output_file", help="Path to the output transformed JSON data file")
     parser.add_argument(
         "--cdm-version",
-        help="Force a specific rarelink_cdm version (e.g., v2_0_2). Defaults to newest available.",
+        help="Force a specific rarelink_cdm version. Defaults to newest available.",
         default=None,
     )
     args = parser.parse_args()
 
     # Dynamically load mapping functions from the requested/latest CDM
     log = logging.getLogger(__name__)
-    try:
-        if args.cdm_version:
-            mod = import_from_version(args.cdm_version, "mappings.redcap")
-            log.info(f"Using rarelink_cdm mappings from {args.cdm_version}")
-        else:
-            # prefer truly importable newest
-            latest = get_latest_version()
-            try:
-                mod = import_from_version(latest, "mappings.redcap")
-                log.info(f"Using rarelink_cdm mappings from {latest}")
-            except Exception:
-                # fallback scan across versions
-                mod = import_from_latest("mappings.redcap")
-                log.info("Using rarelink_cdm mappings from newest importable version")
-        MAPPING_FUNCTIONS = getattr(mod, "MAPPING_FUNCTIONS")
-    except Exception as e:
-        raise SystemExit(f"Failed to import MAPPING_FUNCTIONS from rarelink_cdm: {e}")
-
-    redcap_to_linkml(args.flat_data_file, args.output_file, MAPPING_FUNCTIONS)
-
-
+    log.info("Using RareLink-CDM mappings bundled with this rarelink version")
 
 # Process LinkML to REDCap
 # ------------------------

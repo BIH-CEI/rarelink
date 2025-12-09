@@ -1,4 +1,4 @@
-# src/rarelink/cdm/codegen.py
+# src/rarelink/rd_cdm/codegen.py
 from __future__ import annotations
 from pathlib import Path
 import importlib.resources as ilr

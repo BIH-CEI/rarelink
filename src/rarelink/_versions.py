@@ -10,6 +10,8 @@ __all__ = [
     "DATA_DICT_LABEL",
     "FHIR_IG_VERSION",
     "FHIR_IG_LABEL",
+    "RD_CDM_VERSION",
+    "RD_CDM_LABEL",
 ]
 
 # -------------------------------
@@ -29,3 +31,9 @@ DATA_DICT_LABEL: str = "v" + DATA_DICT_VERSION.replace(".", "_")
 # -------------------------------
 FHIR_IG_VERSION: str = "2.0.0"
 FHIR_IG_LABEL: str = FHIR_IG_VERSION
+
+# -------------------------------
+# 4) RD-CDM version
+# -------------------------------
+RD_CDM_VERSION: str = _pkg_version("rd-cdm")
+RD_CDM_LABEL: str = "v" + RD_CDM_VERSION.replace(".", "_")
