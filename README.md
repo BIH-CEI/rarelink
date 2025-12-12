@@ -2,8 +2,8 @@
   <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="300"/>
 </p>
 
-A novel REDCap-based framework for rare disease interoperability linking 
-international registries to HL7 FHIR and GA4GH Phenopackets.
+> A novel REDCap-based framework for rare disease interoperability linking 
+  international registries to HL7 FHIR and GA4GH Phenopackets.
 
 #### Framework
 <!-- RareLink Badges -->
