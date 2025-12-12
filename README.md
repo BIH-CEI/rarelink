@@ -44,17 +44,19 @@ ________________________________________________________________________________
 - [Resources](#resources-)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [Citing](#citing)
 
 ## Project Description
 
-RareLink - A novel rare disease framework in REDCap that connects international 
-registries, FHIR, and Phenopackets. It provides comprehensive 
+RareLink is a novel rare disease framework based on REDCap that connects 
+international registries, FHIR, and Phenopackets. It provides comprehensive 
 documentation and user guides to enable sustainable data management for your 
 local rare disease REDCap project.
 
 Built on the [RD-CDM](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html), 
 all RareLink-CDM pipelines are preconfigured to generate FHIR resources compliant
 with the [HL7 International Patient Summary](https://build.fhir.org/ig/HL7/fhir-ips/) 
+, [HL7 Genomics Reporting profiles](https://build.fhir.org/ig/HL7/genomics-reporting/) 
 or validated GA4GH Phenopackets. For disease-specific extensions, detailed guides  
 are available to help you develop sheets that integrate seamlessly with the 
 RareLink framework.
@@ -97,7 +99,7 @@ REDCap:
    the [HL7 GenomicsReporting v3.0.0](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)
    and FHIR Base Resources (v4.0.1).
    - [RareLink FHIR Implementation Guide in draft](https://bih-cei.github.io/rarelink/) 
-6. **RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
+6. **Customising RareLink & RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
    extensions ensure compatibility with the RareLink framework and its pipelines.
 
 ## Getting Started
@@ -161,7 +163,8 @@ BIOPORTAL_API_TOKEN=your_api_token_here
 
 ### Running Tests
 
-To ensure everything is set up correctly, run the test suite using `pytest`:
+To ensure everything is set up correctly, run the test suite using `pytest` (this
+may take a while...):
 
 ```bash
 pytest
@@ -238,7 +241,7 @@ the RareLink framework:
 
 Please write an issue or exchange with other users in the discussions if you
 encounter any problems or wish to give feedback. Feel free to reach out to 
-adam.graefe@charite.de, if you are interested in collaborating and improve the
+adam.graefe[at]charite.de, if you are interested in collaborating and improve the
 use of REDCap for rare disease research and care.
 
 ## Resources 
@@ -265,6 +268,14 @@ This project is licensed under the terms of the [open-source Apache 2.0 License]
 
 We would like to extend our thanks to everyone in the last three years for their
  support in the development of this project.
+
+## Citing
+
+When using the software or its specifications please cite: 
+
+```
+Graefe, A.S.L., Rehburg, F., Alkarkoukly, S. et al. RareLink: scalable REDCap-based framework for rare disease interoperability linking international registries to FHIR and Phenopackets. npj Genom. Med. 10, 72 (2025). https://doi.org/10.1038/s41525-025-00534-z
+```
 
 ---
 

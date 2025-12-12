@@ -43,7 +43,8 @@ class DataProcessor:
         field_path = self.mapping_config.get(field_name)
         if not field_path:
             if self.debug_mode:
-                logger.debug(f"Field '{field_name}' not found in mapping config")
+                logger.debug(
+                    f"Field '{field_name}' not found in mapping config")
             return default_value
         
         return get_field_value(data, field_path, default_value)
@@ -113,7 +114,8 @@ class DataProcessor:
         """Fetch a label from an enum class"""
         return fetch_label_from_enum(code, enum_class)
     
-    def fetch_label_from_dict(self, code: str, label_dict: Dict[str, str]) -> Optional[str]:
+    def fetch_label_from_dict(
+        self, code: str, label_dict: Dict[str, str]) -> Optional[str]:
         """Fetch a label from a dictionary"""
         return fetch_label_from_dict(code, label_dict)
     
@@ -122,23 +124,26 @@ class DataProcessor:
         return fetch_label_from_bioportal(code)
     
     def add_enum_class(self, prefix: str, enum_class_or_path) -> None:
-        """Add an enum class for label lookups"""
         if not enum_class_or_path:
             return
-        
+
         if isinstance(enum_class_or_path, str):
-            # Import the class from the path
             try:
                 module_path, class_name = enum_class_or_path.rsplit('.', 1)
+
+                # backwards compatibility: old package path before move
+                if module_path == "rarelink_cdm" or module_path.startswith("rarelink_cdm."):
+                    module_path = "rarelink." + module_path
+
                 module = importlib.import_module(module_path)
                 enum_class = getattr(module, class_name)
                 self.enum_classes[prefix] = enum_class
             except Exception as e:
                 logger.error(f"Failed to import enum class: {e}")
         else:
-            # Use the provided class directly
             self.enum_classes[prefix] = enum_class_or_path
-    
+
+        
     def fetch_mapping_value(
         self,
         mapping_name: str,
@@ -148,7 +153,8 @@ class DataProcessor:
         """
         Fetch a mapping value from the bundled RareLink-CDM mapping_dicts.
 
-        mapping_name: name of the mapping dict (as understood by get_mapping_by_name)
+        mapping_name: name of the mapping dict (as understood by 
+                            get_mapping_by_name)
         code:         key to look up in that mapping
         """
         if not code:
@@ -159,7 +165,8 @@ class DataProcessor:
             return mapping.get(code, default_value)
         except Exception as e:
             if self.debug_mode:
-                logger.error(f"Error fetching mapping value '{mapping_name}' for code '{code}': {e}")
+                logger.error(f"Error fetching mapping value '{mapping_name}' "
+                             f"for code '{code}': {e}")
             return default_value
 
     
