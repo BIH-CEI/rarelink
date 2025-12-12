@@ -2,11 +2,6 @@
   <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="300"/>
 </p>
 
-A novel REDCap-based framework for rare disease interoperability linking 
-international registries to HL7 FHIR and GA4GH Phenopackets. The corresponding
-paper was recently published in npj Genomic Medicine! 
-You can read it here: https://www.nature.com/articles/s41525-025-00534-z
-
 #### Framework
 <!-- RareLink Badges -->
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
@@ -27,6 +22,10 @@ You can read it here: https://www.nature.com/articles/s41525-025-00534-z
 [![FHIR IPS v2.0.0](https://img.shields.io/badge/FHIR_IPS-v2.0.0-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
 [![FHIR Genomics Reporting v3.0.0](https://img.shields.io/badge/FHIR_Genomics_Reporting-v3.0.0-yellow)](https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html#findings)
 
+A novel REDCap-based framework for rare disease interoperability linking 
+international registries to HL7 FHIR and GA4GH Phenopackets. The corresponding
+paper was recently published in npj Genomic Medicine! 
+You can read it here: https://www.nature.com/articles/s41525-025-00534-z
 
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
 
