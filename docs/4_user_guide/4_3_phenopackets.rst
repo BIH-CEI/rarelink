@@ -426,9 +426,16 @@ The mapping configuration is a nested dictionary with the following key componen
    - ``diseases``
    - ``phenotypicFeatures``
    - ``measurements``
+   - ``medical_actions``
    - ``variationDescriptor``
    - ``interpretations``
    - ``metadata``
+
+
+.. tip:: 
+  ... check out the RareLink-CDM combined.py and all other mappings 
+  (*src/rarelink/rarelink_cdm/mappings/phenopackets/*) to see the full
+  structure and examples of mapping configurations: 
 
 Advanced Configuration Options
 -------------------------------
