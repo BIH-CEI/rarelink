@@ -86,7 +86,7 @@ RareLink-Phenopacket engine
 
 The RareLink-Phenopacket module is developed in a modular way to allow for easy
 adaptation to other REDCap data structures. All data model specific 
-configurations and mappings of the :ref:`2_2` are within its `GitHub folder <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm>`_. 
+configurations and mappings of the :ref:`2_2` are within its `GitHub folder <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/rarelink_cdm>`_. 
 Therefore, all functions and modules we developed can be used or adapted for 
 other REDCap data models extending the :ref:`2_2` once the data model is
 converted to a similar :ref:`LinkML schema <rarelink_cdm_linkml>`. 

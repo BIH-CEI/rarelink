@@ -15,7 +15,6 @@ from ..label_fetching import (
     fetch_label_from_bioportal
 )
 from ..date_handling import convert_date_to_iso_age, date_to_timestamp
-from ..date_handling import convert_date_to_iso_age, date_to_timestamp
 from rarelink.rarelink_cdm.mappings.phenopackets.mapping_dicts import (
     get_mapping_by_name,
 )

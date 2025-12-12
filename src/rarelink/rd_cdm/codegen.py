@@ -45,7 +45,7 @@ def _ensure_rarelink_types(schema_dir: Path) -> Path:
     Ensure rarelink_types.yaml is present next to the generated schema.
     Strategy:
       1) If already exists -> return it.
-      2) Copy from the newest existing src/rarelink_cdm/v*/schema_definitions/rarelink_types.yaml
+      2) Copy from the newest existing src/rarelink/rarelink_cdm/v*/schema_definitions/rarelink_types.yaml
       3) Otherwise write a minimal stub.
     Never raises; always returns a path.
     """
@@ -55,7 +55,7 @@ def _ensure_rarelink_types(schema_dir: Path) -> Path:
 
     # Find the latest rarelink_types.yaml in the repo
     candidates = sorted(
-        glob.glob("src/rarelink_cdm/v*/schema_definitions/rarelink_types.yaml")
+        glob.glob("src/rarelink/rarelink_cdm/v*/schema_definitions/rarelink_types.yaml")
     )
     if candidates:
         latest = candidates[-1]

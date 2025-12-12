@@ -8,7 +8,7 @@ def main():
 
 @main.command("generate")
 @click.option("--version", required=True, help="target rarelink_cdm version")
-@click.option("--dest", type=click.Path(file_okay=False, dir_okay=True, path_type=Path), default=Path("src/rarelink_cdm"))
+@click.option("--dest", type=click.Path(file_okay=False, dir_okay=True, path_type=Path), default=Path("src/rarelink/rarelink_cdm"))
 @click.option("--from-version", "from_version", required=False, help="previous rarelink_cdm version to clone")
 @click.option("--res-dir", type=click.Path(file_okay=False, dir_okay=True, path_type=Path), default=Path("res"))
 @click.option("--update-dictionary/--no-update-dictionary", default=True, help="Update & rename the data dictionary CSV")

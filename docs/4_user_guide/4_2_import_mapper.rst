@@ -61,7 +61,7 @@ The semi-automatic import process involves several key components:
   - :ref:`2_2`
   - :ref:`rarelink_cdm_linkml` 
   - `RareLink-CDM LinkML yaml schema files <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/rarelink_cdm/schema_definitions>`_
-  - `RareLink-CDM LinkML python model and classes <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink_cdm/python_datamodel>`_
+  - `RareLink-CDM LinkML python model and classes <https://github.com/BIH-CEI/rarelink/tree/develop/src/rarelink/rarelink_cdm/python_datamodel>`_
   
 - **LinkML Map**: 
 
