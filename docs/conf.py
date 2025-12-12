@@ -145,7 +145,7 @@ intersphinx_mapping = {
 html_theme = 'sphinx_rtd_theme'  # experiment with this
 html_static_path = ['_static']
 
-html_logo = "_static/res/rarelink_logo_no_background.png"
+html_logo = "_static/res/rarelink_logo_w.png"
 
 html_theme_options = {
     # Collapse all navigation entries by default
