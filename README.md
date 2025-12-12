@@ -30,7 +30,7 @@ registries to FHIR and Phenopackets.
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
-> The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+> **Note**: The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
 ________________________________________________________________________________
 
 ## Table of Contents
