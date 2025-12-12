@@ -3,7 +3,9 @@
 </p>
 
 > A novel REDCap-based framework for rare disease interoperability linking 
-  international registries to HL7 FHIR and GA4GH Phenopackets.
+  international registries to HL7 FHIR and GA4GH Phenopackets. The corresponding
+  paper was recently published in npj Genomic Medicine! 
+  You can read it here: https://www.nature.com/articles/s41525-025-00534-z
 
 #### Framework
 <!-- RareLink Badges -->
