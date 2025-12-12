@@ -79,8 +79,8 @@ Description: "The severity of the phenotypic feature."
 * extension[ClinicalModifier1]
 Extension: ClinicalModifier1
 Id: clinical-modifier-1
-Title: "Cliical Modifier"
-Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+Title: "Clinical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (derived from clinical modifiers - HP:0012823)"
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
 * valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
@@ -89,8 +89,8 @@ Description: "Modifier describing a specific phenotypic feature further (deerive
 * extension[ClinicalModifier2]
 Extension: ClinicalModifier2
 Id: clinical-modifier-2
-Title: "Cliical Modifier"
-Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+Title: "Clinical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (derived from clinical modifiers - HP:0012823)"
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
 * valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
@@ -99,8 +99,8 @@ Description: "Modifier describing a specific phenotypic feature further (deerive
 * extension[ClinicalModifier3]
 Extension: ClinicalModifier3
 Id: clinical-modifier-3
-Title: "Cliical Modifier"
-Description: "Modifier describing a specific phenotypic feature further (deerived from clinical modifiers - HP:0012823)"
+Title: "Clinical Modifier"
+Description: "Modifier describing a specific phenotypic feature further (derived from clinical modifiers - HP:0012823)"
 * value[x] only CodeableConcept
 * valueCodeableConcept.coding 1..1
 * valueCodeableConcept.coding.system = "http://purl.obolibrary.org/obo/hp.owl"
@@ -152,7 +152,7 @@ Description: "Value set for capturing the temporal pattern of phenotypic feature
 * HP#HP:0025153 "Transient"
 
 ValueSet: PhenotypeSeverityVS
-Id: phenotypie-severity-vs
+Id: phenotype-severity-vs
 Title: "Phenotype Severity Value Set"
 Description: "Value set for capturing phenotype severity."
 * HP#HP:0012827 "Borderline"

@@ -17,7 +17,7 @@ from rarelink.cli.utils.string_utils import (
 )
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.utils.schema_processing import linkml_to_redcap  
-from rarelink_cdm import get_latest_version, import_from_latest
+from rarelink.rarelink_cdm.mappings.redcap import REVERSE_PROCESSING
 import logging
 
 def validate_linkml_data(*args, **kwargs):
@@ -28,34 +28,25 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 app = typer.Typer()
 
-try:
-    _redcap = import_from_latest("mappings.redcap")
-    REVERSE_PROCESSING = getattr(_redcap, "REVERSE_PROCESSING")
-except Exception as e:
-    logging.getLogger(__name__).error(f"Could not import REVERSE_PROCESSING from latest CDM: {e}")
-    raise
-
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")
 
 def _resolve_latest_schema_path() -> Path:
     """
-    Locate the LinkML schema file inside the latest rarelink_cdm vX_Y_Z
-    package and return a concrete Path on disk.
+    Locate the LinkML schema file inside the bundled rarelink_cdm package
+    and return a concrete Path on disk.
     """
-    latest = get_latest_version()  # e.g., 'v2_0_2'
-    pkg = f"rarelink_cdm.{latest}.schema_definitions"
+    pkg = "rarelink.rarelink_cdm.schema_definitions"
     res = resources.files(pkg) / "rarelink_cdm.yaml"
-    # as_file extracts to a temp file if needed so tools can read a real path
     with resources.as_file(res) as p:
         return Path(p)
 
+
 def _load_latest_template_dict() -> dict:
     """
-    Load the REDCap template.json from the latest rarelink_cdm package.
+    Load the REDCap template.json from the bundled rarelink_cdm mappings.
     """
-    latest = get_latest_version()
-    pkg = f"rarelink_cdm.{latest}.mappings.redcap"
+    pkg = "rarelink.rarelink_cdm.mappings.redcap"
     res = resources.files(pkg) / "template.json"
     with resources.as_file(res) as p:
         return json.loads(Path(p).read_text(encoding="utf-8"))

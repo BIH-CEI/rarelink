@@ -4,12 +4,12 @@ RD-CDM
 =======
 
 .. tip::
-   The RD-CDM v2.0.2 has been published in Nature Scientific Data. You can read 
+   The RD-CDM has been published in Nature Scientific Data. You can read 
    it here: https://www.nature.com/articles/s41597-025-04558-z.
 
 _________________________________________________________________________________
 
-RD-CDM v2.0.2 Overview
+RD-CDM Overview
 -----------------------
 
 The ontology-based Rare Diseases Common Data Model (RD CDM) v2.0 was developed to address
@@ -24,9 +24,9 @@ involved overcoming challenges such as the lack of standardized terms for
 disease characteristics and the need to represent highly variable clinical data
 across different rare diseases.
 
-.. figure:: ../_static/res/rd_cdm_v2_0_2.svg
+.. figure:: ../_static/res/rd_cdm_v2_0_0.svg
 
-   Depicts version 2.0.2 of our ontology-based rare disease common data model (RD-CDM) based on the European Rare Disease Registry Infrastructure - Common Data Set (ERDRI-CDS), HL7 FHIR base resources v4.0.1 and the GA4GH Phenopacket Schema v2.0. The sections are derived from the ERDRI-CDS, and the section Diagnosis is extended by four subsections. For each section, all data elements and their data types. This data model does not define any cardinalities of relationships between elements or sections.
+   Depicts version 2.0.0 of our ontology-based rare disease common data model (RD-CDM) based on the European Rare Disease Registry Infrastructure - Common Data Set (ERDRI-CDS), HL7 FHIR base resources v4.0.1 and the GA4GH Phenopacket Schema v2.0. The sections are derived from the ERDRI-CDS, and the section Diagnosis is extended by four subsections. For each section, all data elements and their data types. This data model does not define any cardinalities of relationships between elements or sections.
 
 
 .. tip:: 
@@ -52,7 +52,7 @@ seamlessly integrated into existing healthcare systems without exceeding the
 avaliable resources is also essential. Addressing these complexities, the 
 RD CDM v2.0 provides a framework that enhances the consistency of rare disease 
 data, enabling better comparative analysis across research institutions and 
-healthcare settings. While the RD-CDM v2.0.2 is not a balloted version, it can 
+healthcare settings. While the RD-CDM v2.0.0 is not a balloted version, it can 
 serve as a template for future standardization efforts in rare disease research.
 
 Key success factors for the RD-CDM include its ability to support secondary

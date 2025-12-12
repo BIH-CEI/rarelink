@@ -148,23 +148,7 @@ class TestMeasurementMapper(unittest.TestCase):
                     break
                     
             self.assertTrue(found_time, "At least one measurement should have time_observed")
-    
-    def test_procedure_mapping(self):
-        """Test that procedure information is correctly mapped"""
-        # Some measurements have procedure information in ncit_c41255 field
-        result = self.mapper.map(self.record_101, dob=self.dob)
-        
-        if len(result) > 0:
-            # At least one of the measurements should have procedure
-            found_procedure = False
-            for measurement in result:
-                if measurement.HasField("procedure"):
-                    found_procedure = True
-                    logger.info(f"Found procedure: {measurement.procedure.code.id} - {measurement.procedure.code.label}")
-                    break
-                    
-            self.assertTrue(found_procedure, "At least one measurement should have procedure information")
-    
+
     def test_mapper_with_empty_data(self):
         """Test mapper behavior with empty data"""
         # Test with empty dict

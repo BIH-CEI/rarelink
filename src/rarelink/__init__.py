@@ -1,6 +1,3 @@
-from importlib.metadata import version, PackageNotFoundError
+from importlib.metadata import version as _pkg_version
 
-try:
-    __version__ = version("rarelink")
-except PackageNotFoundError:
-    __version__ = "0.0.0+local"  # or None/raise, your call
+__version__ = _pkg_version("rarelink")

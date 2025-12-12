@@ -14,7 +14,7 @@ research and care, largely due to the scarcity of available data and resources.
 
 Interoperability plays a crucial role in addressing these challenges. It ensures
 that clinical data can be shared and understood across systems, which is 
-especially important in rare disease research. Many healthcare institutions 
+especially important in rare disease (RD) research. Many healthcare institutions 
 lack standardized approaches to data collection and storage, which leads to 
 inconsistencies and makes data exchange difficult. Without the use of 
 internationally recognized ontologies and coding systems, the data collected 
@@ -33,17 +33,17 @@ the inclusion of ontology codes enables precise bioinformatic analysis, which is
 critical given the limited number of patients and data points available in RD 
 research.
 
-Ultimately, the success of rare disease research depends heavily on the ability 
+Ultimately, the success of RD research depends heavily on the ability 
 to connect and compare data from different sources. The development and 
 implementation of frameworks like RareLink enable more efficient diagnoses, 
 research, and treatment options by addressing one of the core issues: 
 interoperability. By promoting standardized, reusable data, RareLink 
-provides a foundation for advancements in rare disease care, facilitating a 
+provides a foundation for advancements in RD care, facilitating a 
 future where more patients can receive timely diagnoses and access to effective 
 treatments.
 
 .. tip:: 
-    Read section on Rare Diseases in the article:
+    Read the section on Rare Diseases in the article:
      `Why Digital Medicine depends on Interoperability (Lehne M et al., 2019) <https://www.nature.com/articles/s41746-019-0158-1>`_
 
 
@@ -71,12 +71,12 @@ Definitons
     structuring and codification enhance machine-to-machine communication, 
     improving accuracy and outcomes.
 
-- Ontologies: 
+- Medical Ontologies: 
     Formal and explicit representations of the concepts and relationships within
     an area of healthcare designed to facilitate the organisation, integration, 
     and exchange of knowledge across healthcare systems and applications.
 
-- Terminologies:
+- Medical Terminologies:
     Encompass the vocabulary used in all healthcare communication and 
     documentation aspects, including terms for conditions, procedures, and 
     equipment, facilitating precise communication and supporting electronic 
@@ -87,4 +87,5 @@ Further Reading
 ---------------
 - `The FAIR Guiding Principles for scientific data management and stewardship (Wilkinson et al., 2016) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/>`_
 - `Why Digital Medicine depends on Interoperability (Lehne M et al., 2019) <https://www.nature.com/articles/s41746-019-0158-1>`_
+- `Classification, Ontology, and Precision Medicine (Haendel MA et al., 2018) <https://pubmed.ncbi.nlm.nih.gov/30304648/>`_
 

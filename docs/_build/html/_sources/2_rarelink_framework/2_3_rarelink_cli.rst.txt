@@ -3,9 +3,6 @@
 RareLink CLI
 =============
 
-.. warning:: 
-   RareLink v2.0.2 is under development. Please :ref:`12` us before using
-   it to ensure you have the latest updates and guidance.
 
 
 The RareLink Command Line Interface (CLI) is a tool that allows you to interact
@@ -15,6 +12,18 @@ data stored in the framework. The CLI is designed to be user-friendly and
 intuitive, and it provides a simple and efficient way to work with the RareLink
 framework.
 
+**Overview**
+
+- :ref:`rarelink_cli_framework`
+- :ref:`rarelink_cli_setup`
+- :ref:`rarelink_cli_redcap`
+- :ref:`rarelink_cli_fhir`
+- :ref:`rarelink_cli_phenopackets`
+
+_____________________________________________________________________________________
+
+
+.. _rarelink_cli_framework:
 
 1. Framework Setup (``framework``)
 _________________________________
@@ -50,6 +59,7 @@ to the latest version.
 
 _____________________________________________________________________________________
 
+.. _rarelink_cli_setup:
 
 2. REDCap Setup (``setup``)
 ________________________________
@@ -62,7 +72,7 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-setup --help
+    rarelink setup --help
 
 - guided project setup, documentation links, admin instructions
 
@@ -82,18 +92,18 @@ ________________________________________________________________________________
     rarelink setup keys 
 
 - Configure the RareLink framework by setting up API keys and variables. This
- process ensures the .env file contains necessary configurations - see :ref:`3_4`
- for more details, functionalities, and instructions.
+  process ensures the .env file contains necessary configurations - see :ref:`3_4`
+  for more details, functionalities, and instructions.
 
 _____________________________________________________________________________________
 
 
 .. code-block:: console
 
-    rarelink setup dictionary
+    rarelink setup dictionary-dictionary
 
 - Upload the most current RareLink-CDM Data Dictionary to an existing 
-REDCap project.
+  REDCap project.
 
 _____________________________________________________________________________________
 
@@ -119,6 +129,9 @@ ________________________________________________________________________________
     file to prevent accidental sharing of sensitive information.
 
 
+.. _rarelink_cli_redcap:
+
+
 3. REDCap Tools (``redcap``)
 ___________________________________
 
@@ -127,29 +140,108 @@ local REDCap project.
 
 .. code-block:: console
 
-    rarelink redcap-tools --help
+    rarelink redcap --help
 
 The overview of all redcap-tools functionalities and commands.
 
 _____________________________________________________________________________________
 
+Download REDCap Records Command
+---------------------------------
+
 .. code-block:: console
 
-    rarelink redcap-tools download-records
+    rarelink redcap download-records [OPTIONS]
 
-Download records from your REDCap project as JSON files and save them locally.
+Options:
+  -o, --output-dir PATH       Directory to save fetched and processed records
+  -r, --records TEXT          Record IDs to fetch (comma-separated, e.g. “101,102”)
+  -i, --instruments TEXT      Instruments/forms to fetch (comma-separated)
+  -l, --linkml PATH           Custom LinkML schema for validation
+      --rarelink-cdm          Use RareLink-CDM instruments and schema
+      --filter TEXT           REDCap filter logic to apply (e.g. “[age] > 30”)
+  --help                      Show this message and exit
+
+Description
+~~~~~~~~~~~
+
+Download REDCap records, arms, and events, process them into the RareLink-CDM schema,
+validate the result against a LinkML schema (either RareLink-CDM or a custom one),
+and save JSON outputs.
 
 .. attention::
-    If your project is in PRODUCTION mode, the downloaded data might be sensitive.
-    It must only be stored within your organisational site's approved storage.
-    Read here more about the REDCap project modes :ref:`1_6` and discuss this
-    with your REDCap administrator.
+    If your project is in PRODUCTION mode, the downloaded data may be sensitive.
+    Store it only in approved, secure storage. See the REDCap “Project Status” docs
+    for more guidance.
+
+.. hint::
+    If your dataset includes genetic HGVS mutations, please run 
+    ``rarelink redcap validate-hgvs`` after downloading records to ensure proper 
+    phenopackets and genomics quality of the genetic data.
+
+_____________________________________________________________________________________
+
+.. _rarelink_redcap_validate_hgvs:
+
+Validate HGVS Strings CLI Command
+----------------------------------
+
+.. rubric:: Command
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs [OPTIONS]
+
+.. rubric:: Description
+
+   Validate and encode HGVS strings in the downloaded records to ensure proper
+   phenopackets and genomics quality of the genetic data. This command will
+   iterate through your downloaded data, validate all HGVS strings (recursing
+   into nested structures), and give you a summary of the validation process.
+
+.. rubric:: Options
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 60
+
+   * - Option
+     - Description
+   * - ``-i, --input-file <PATH>``
+     - Path to the specific JSON file containing REDCap records.  
+       If omitted, the command will prompt or use the default download directory.
+   * - ``-d, --input-dir <DIR>``
+     - Directory containing REDCap records; looks for ``<PROJECT_NAME>-records.json`` inside.
+   * - ``-v, --hgvs-variable <FIELD_NAME>``
+     - (Repeatable) Name of an HGVS field to validate.  
+       You can specify this flag multiple times to validate custom HGVS fields.  
+       If omitted, defaults to the built-in ``HGVS_VARIABLES`` list.
+   * - ``--help``
+     - Show this message and exit.
+
+.. rubric:: Examples
+
+Validate using the default HGVS fields:
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs
+
+Specify a custom set of HGVS fields:
+
+.. code-block:: console
+
+    rarelink redcap validate-hgvs \\
+      -i ~/Downloads/MyProject-records.json \\
+      -v loinc_81290_9 \\
+      -v CUSTOM_HGVS_FIELD \\
+      -v OTHER_HGVS_FIELD
 
 _____________________________________________________________________________________
 
 .. code-block:: console 
 
-    rarelink redcap-tools fetch-metadata
+    rarelink redcap fetch-metadata
 
 - Fetch all metadata from your current REDCap project. 
 
@@ -157,12 +249,20 @@ ________________________________________________________________________________
 
 .. code-block:: console
 
-    rarelink redcap-tools upload-records (to be implemented)
+    rarelink redcap upload-records
 
 - Upload records to your REDCap project from JSON files stored locally.
 
+.. warning:: 
+    This command will overwrite existing records with the same record_id in your
+    REDCap project. Make sure have unique ``record_id``s or back up your data
+    before running this command, e.g. by running 
+    `rarelink redcap download-records`.
+
 _____________________________________________________________________________________
 
+
+.. _rarelink_cli_fhir:
 
 4. FHIR configuration and pipelines (``fhir``)
 ______________________________________________
@@ -207,7 +307,7 @@ ________________________________________________________________________________
 
     rarelink fhir export
 
-- Export data to the configured FHIR server using the ToFHIR pipeline.
+- Export data to the configured FHIR server using the toFHIR pipeline.
 
 
 .. note::
@@ -217,14 +317,17 @@ ________________________________________________________________________________
 
 - `download-records` (fetch records as JSON files)
 
+_____________________________________________________________________________________
 
-5. Phenopacket Export (``phenopacket``)
+.. _rarelink_cli_phenopackets:
+
+5. Phenopacket Export (``phenopackets``)
 ________________________________________
 
 Export data to Phenopackets using the ToPhenopacket pipeline.
 
 .. code-block:: console
 
-    rarelink phenopacket export
+    rarelink phenopackets export
 
 - Exports REDCap from your configured project data to local Phenopackets.

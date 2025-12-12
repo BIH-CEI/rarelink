@@ -1,9 +1,6 @@
 <p align="center">
-  <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="400"/>
+  <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="300"/>
 </p>
-
-A novel rare disease framework for REDCap linking international
-registries to FHIR and Phenopackets.
 
 #### Framework
 <!-- RareLink Badges -->
@@ -12,7 +9,7 @@ registries to FHIR and Phenopackets.
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue) 
 [![PyPI](https://img.shields.io/pypi/v/rarelink.svg)](https://pypi.org/project/rarelink/)
 [![Downloads](https://img.shields.io/pypi/dm/rarelink.svg?label=downloads)](https://pypi.org/project/rarelink/)
-[![License: Apache v2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache v2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://github.com/BIH-CEI/rarelink/blob/develop/LICENSE)
 [![DOI](https://zenodo.org/badge/832241577.svg)](https://doi.org/10.5281/zenodo.14253810)
 
 #### Packages & Compatibility
@@ -25,12 +22,15 @@ registries to FHIR and Phenopackets.
 [![FHIR IPS v2.0.0](https://img.shields.io/badge/FHIR_IPS-v2.0.0-purple)](https://build.fhir.org/ig/HL7/fhir-ips/)
 [![FHIR Genomics Reporting v3.0.0](https://img.shields.io/badge/FHIR_Genomics_Reporting-v3.0.0-yellow)](https://hl7.org/fhir/uv/genomics-reporting/STU3/general.html#findings)
 
+A novel REDCap-based framework for rare disease interoperability linking 
+international registries to HL7 FHIR and GA4GH Phenopackets. The corresponding
+paper was recently published in npj Genomic Medicine! 
+You can read it here: https://www.nature.com/articles/s41525-025-00534-z
 
 [-> This way to the RareLink documentation](https://rarelink.readthedocs.io/en/latest/) 
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
-> **Note:** The paper has been submitted to a journal - you can find the preprint here: https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1
 ________________________________________________________________________________
 
 ## Table of Contents
@@ -44,17 +44,19 @@ ________________________________________________________________________________
 - [Resources](#resources-)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [Citing](#citing)
 
 ## Project Description
 
-RareLink - A novel rare disease framework in REDCap that connects international 
-registries, FHIR, and Phenopackets. It provides comprehensive 
+RareLink is a novel rare disease framework based on REDCap that connects 
+international registries, FHIR, and Phenopackets. It provides comprehensive 
 documentation and user guides to enable sustainable data management for your 
 local rare disease REDCap project.
 
 Built on the [RD-CDM](https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html), 
 all RareLink-CDM pipelines are preconfigured to generate FHIR resources compliant
 with the [HL7 International Patient Summary](https://build.fhir.org/ig/HL7/fhir-ips/) 
+, [HL7 Genomics Reporting profiles](https://build.fhir.org/ig/HL7/genomics-reporting/) 
 or validated GA4GH Phenopackets. For disease-specific extensions, detailed guides  
 are available to help you develop sheets that integrate seamlessly with the 
 RareLink framework.
@@ -88,18 +90,16 @@ REDCap:
    data to the RareLink-CDM, which is in [LinkML](https://github.com/linkml/).
    This process includes syntactic mapping, local semantic encoding, validation,
    and data upload to REDCap for FHIR or Phenopacket export.
-4. **Phenopacket Export**: Predefined configurations enable seamless export of 
-   the RD-CDM data to validated Phenopackets utilising the [Phenopacket Mapper]((https://github.com/BIH-CEI/phenopacket_mapper)).
-   RareLink guides ensure compatibility for developing custom REDCap instruments
-   and [LinkML-based](https://github.com/linkml/) extensions.
+4. **RareLink-Phenopacket Engine**: Predefined configurations enable seamless 
+   export of the RD-CDM data and extensions to validated Phenopackets -> [User Guide](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_3_phenopackets.html).
 5. **HL7 FHIR Export**: RareLink uses the open-source 
    [_toFHIR_ Engine](https://github.com/srdc/tofhir) to export data to any FHIR 
    server, supporting profiles based on the 
-   [HL7 International Patient Summary v2.0.2](https://build.fhir.org/ig/HL7/fhir-ips/),
+   [HL7 International Patient Summary v2.0.0](https://build.fhir.org/ig/HL7/fhir-ips/),
    the [HL7 GenomicsReporting v3.0.0](https://hl7.org/fhir/uv/genomics-reporting/STU3/index.html)
-   or FHIR Base Resources (v4.0.1).
-   - [FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
-6. **RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
+   and FHIR Base Resources (v4.0.1).
+   - [RareLink FHIR Implementation Guide in draft](https://bih-cei.github.io/rarelink/) 
+6. **Customising RareLink & RD-CDM Extensions**: [Guidelines for modeling and encoding custom data](https://rarelink.readthedocs.io/en/latest/4_user_guide/4_5_develop_redcap_instruments.html)
    extensions ensure compatibility with the RareLink framework and its pipelines.
 
 ## Getting Started
@@ -163,7 +163,8 @@ BIOPORTAL_API_TOKEN=your_api_token_here
 
 ### Running Tests
 
-To ensure everything is set up correctly, run the test suite using `pytest`:
+To ensure everything is set up correctly, run the test suite using `pytest` (this
+may take a while...):
 
 ```bash
 pytest
@@ -240,7 +241,7 @@ the RareLink framework:
 
 Please write an issue or exchange with other users in the discussions if you
 encounter any problems or wish to give feedback. Feel free to reach out to 
-adam.graefe@charite.de, if you are interested in collaborating and improve the
+adam.graefe[at]charite.de, if you are interested in collaborating and improve the
 use of REDCap for rare disease research and care.
 
 ## Resources 
@@ -249,11 +250,11 @@ use of REDCap for rare disease research and care.
 - Human Phenotype Ontology (HP) [🔗](http://www.human-phenotype-ontology.org)
 - Monarch Initiative Disease Ontology (MONDO) [🔗](https://mondo.monarchinitiative.org/)
 - Online Mendelian Inheritance in Man (OMIM) [🔗](https://www.omim.org/)
-- Orphanet Rare Disease Ontology (OPRHA) [🔗](https://www.orpha.net/)
+- Orphanet Rare Disease Ontology (ORDO) [🔗](https://www.orpha.net/)
 - National Center for Biotechnology Information Taxonomy (NCBITaxon) [🔗](https://www.ncbi.nlm.nih.gov/taxonomy)
 - Logical Observation Identifiers Names and Codes (LOINC) [🔗](https://loinc.org/)
 - HUGO Gene Nomenclature Committee (HGNC) [🔗](https://www.genenames.org/)
-- Gene Ontology (GENO) [🔗](https://geneontology.org/)
+- Gene Ontology (GO) [🔗](https://geneontology.org/)
 - NCI Thesaurus OBO Edition (NCIT) [🔗](https://obofoundry.org/ontology/ncit.html)
 
 ### Submodules
@@ -267,6 +268,16 @@ This project is licensed under the terms of the [open-source Apache 2.0 License]
 
 We would like to extend our thanks to everyone in the last three years for their
  support in the development of this project.
+
+## Citing
+
+When using the software or its specifications please cite: 
+
+
+> Graefe, A.S.L., Rehburg, F., Alkarkoukly, S. et al. RareLink: scalable 
+  REDCap-based framework for rare disease interoperability linking 
+  international registries to FHIR and Phenopackets. 
+  npj Genom. Med. 10, 72 (2025). https://doi.org/10.1038/s41525-025-00534-z
 
 ---
 

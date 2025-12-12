@@ -11,7 +11,7 @@ REDCap
 .. note:: 
     Read the REDCap Technical Overview `HERE <https://projectredcap.org/wp-content/resources/REDCapTechnicalOverview.pdf>`_
     which includes remarks on Best Practices, Dependencies, Infrastrucutre 
-    Requirements, User Privilages, Authentication, Export, Interoperability, and more.
+    Requirements, User Privileges, Authentication, Export, Interoperability, and more.
 
 REDCap (Research Electronic Data Capture) is a web- and survey-based application 
 designed to capture data and create databases and projects for clinical research
@@ -29,8 +29,8 @@ potentially hindering data exchange and interoperability.
 
 
 .. tip:: 
-    - Read more here on how to `Join & Get REDCap <https://projectredcap.org/partners/join/>`_
-    - Read the `REDCap FAQs <https://projectredcap.org/about/faq/>`_
+    - Read more here on how to `Join & Get REDCap <https://projectredcap.org/partners/join/>`_.
+    - Read the `REDCap FAQs <https://projectredcap.org/about/faq/>`_.
 
 REDCap Projects
 ---------------
@@ -94,7 +94,7 @@ REDCap API
 The REDCap API is an interface that allows external applications to connect to REDCap remotely, and is
 used for programmatically retrieving or modifying data or settings within REDCap. This includes
 performing automated data imports/exports from a specified REDCap project, importing/exporting a
-project’s metadata (i.e. data dictionary), events. This is even an API method for creating whole new
+project’s metadata (i.e. data dictionary), and events. This is even an API method for creating whole new
 projects. The API is a built-in feature of REDCap, so no installation is required. The REDCap API
 implements the use of tokens as a means of authenticating and validating all API requests that are
 received. Similar to the Data Import Tool in REDCap’s web interface, the API also implements data
@@ -114,7 +114,7 @@ services, such as integrating the ontology server `BioPortal <https://bioportal.
 This allows users to define variables and value sets using standard
 ontologies, such as the Human Phenotype Ontology (HPO), the Logical Observation
 Identifiers Names and Codes (LOINC), or the Systematized Nomenclature of
-Medicine (SNOMED). 
+Medicine (SNOMEDCT). 
 
 .. tip::
     For more information on the integration of BioPortal with REDCap, read `HERE <https://redcap.smhs.gwu.edu/sites/g/files/zaskib651/files/2021-07/Biomedical%20Ontology%20Field.pdf>`_.

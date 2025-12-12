@@ -11,8 +11,8 @@ def pytest_ignore_collect(collection_path, config):
     ):
         return True
 
-    # Ignore any files in the rarelink_cdm/v2_0_2/datamodel folder
-    if "rarelink_cdm/v2_0_2/datamodel" in path_str:
+    # Ignore any files in the rarelink/rarelink_cdm/datamodel folder
+    if "rarelink/rarelink_cdm/datamodel" in path_str:
         return True
 
     # Ignore all files in the rd-cdm submodule

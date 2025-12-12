@@ -22,7 +22,7 @@ prune src/fsh/input-cache
 prune src/fsh/temp
 prune src/fsh/template
 
-# Common CI/dev folders you don't need in sdist (optional)
+# Common CI/dev folders you don't need in sdist
 prune .github
 prune .git
 prune .venv

@@ -1,29 +1,32 @@
 {
-  "id": "101",
+  "id": "1",
   "subject": {
-    "id": "TEST_13JAN",
-    "dateOfBirth": "2020-01-05T00:00:00Z",
-    "timeAtLastEncounter": {
+    "id": "TodayTest",
+    "date_of_birth": "2015-01-12T00:00:00Z",
+    "time_at_last_encounter": {
       "age": {
-        "iso8601duration": "P5Y0M"
+        "iso8601duration": "P10Y8M"
       }
     },
-    "vitalStatus": {},
-    "karyotypicSex": "XX",
+    "vital_status": {
+      "status": "ALIVE"
+    },
+    "sex": "MALE",
+    "karyotypic_sex": "XY",
     "gender": {
-      "id": "SNOMEDCT:394743007",
-      "label": "Gender unknown"
+      "id": "SNOMEDCT:446151000124109",
+      "label": "Male gender identity"
     },
     "taxonomy": {
       "id": "NCBITaxon:9606",
       "label": "Homo sapiens"
     }
   },
-  "phenotypicFeatures": [
+  "phenotypic_features": [
     {
       "type": {
-        "id": "HP:0001059",
-        "label": "Pterygium"
+        "id": "HP:0002553",
+        "label": "Highly arched eyebrow"
       },
       "severity": {
         "id": "HP:0012826",
@@ -31,53 +34,49 @@
       },
       "modifiers": [
         {
-          "id": "HP:0025297",
-          "label": "Prolonged"
+          "id": "HP:0031915",
+          "label": "Stable"
         },
         {
-          "id": "HP:0012825",
-          "label": "Mild"
-        },
-        {
-          "id": "HP:0012828",
-          "label": "Severe"
-        },
-        {
-          "id": "HP:0031598",
-          "label": "Notched P wave"
-        },
-        {
-          "id": "NCBITAXON:90964",
-          "label": "Staphylococcaceae"
-        },
-        {
-          "id": "SNOMEDCT:303726000",
-          "label": "Shoulder joint prosthesis"
+          "id": "NCBITAXON:178566",
+          "label": "Streptomyces mexicanus"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y9M"
+          "iso8601duration": "P10Y2M"
         }
       },
       "resolution": {
         "age": {
-          "iso8601duration": "P5Y1M"
+          "iso8601duration": "P10Y3M"
         }
       },
       "evidence": [
         {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
+          "evidence_code": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
           }
         }
       ]
     },
     {
       "type": {
-        "id": "HP:0002967",
-        "label": "Cubitus valgus"
+        "id": "HP:0000400",
+        "label": "Macrotia"
+      },
+      "onset": {
+        "ontology_class": {
+          "id": "HP:0003577",
+          "label": "Congenital onset (at birth)"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001252",
+        "label": "Hypotonia"
       },
       "severity": {
         "id": "HP:0012826",
@@ -85,95 +84,20 @@
       },
       "modifiers": [
         {
-          "id": "HP:0012825",
-          "label": "Mild"
-        },
-        {
-          "id": "HP:0012828",
-          "label": "Severe"
-        },
-        {
-          "id": "HP:0031598",
-          "label": "Notched P wave"
-        },
-        {
-          "id": "NCBITAXON:90964",
-          "label": "Staphylococcaceae"
-        },
-        {
-          "id": "SNOMEDCT:303726000",
-          "label": "Shoulder joint prosthesis"
-        },
-        {
-          "id": "SNOMEDCT:303726000",
-          "label": "Shoulder joint prosthesis"
+          "id": "HP:0031796",
+          "label": "Recurrent"
         }
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y9M"
+          "iso8601duration": "P0Y3M"
         }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
+      }
     },
     {
       "type": {
-        "id": "HP:0002665",
-        "label": "Lymphoma"
-      },
-      "severity": {
-        "id": "HP:0012826",
-        "label": "Moderate"
-      },
-      "modifiers": [
-        {
-          "id": "HP:0031914",
-          "label": "Fluctuating"
-        },
-        {
-          "id": "NCBITAXON:10376",
-          "label": "human gammaherpesvirus 4"
-        },
-        {
-          "id": "SNOMEDCT:31099001",
-          "label": "Systemic"
-        }
-      ],
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y9M"
-        }
-      },
-      "resolution": {
-        "age": {
-          "iso8601duration": "P5Y1M"
-        }
-      },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
-        }
-      ]
-    },
-    {
-      "type": {
-        "id": "HP:0004322",
-        "label": "Short stature"
+        "id": "HP:0008897",
+        "label": "Postnatal growth retardation"
       },
       "severity": {
         "id": "HP:0012826",
@@ -187,97 +111,287 @@
       ],
       "onset": {
         "age": {
-          "iso8601duration": "P2Y9M"
+          "iso8601duration": "P1Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001256",
+        "label": "Mild intellectual disability"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y0M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000365",
+        "label": "Hearing impairment"
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y0M"
         }
       },
       "resolution": {
         "age": {
-          "iso8601duration": "P5Y1M"
+          "iso8601duration": "P10Y3M"
         }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001297",
+        "label": "Stroke"
       },
-      "evidence": [
-        {
-          "evidenceCode": {
-            "id": "ECO:0007225",
-            "label": "clinical study evidence used in automatic assertion"
-          }
+      "onset": {
+        "age": {
+          "iso8601duration": "P10Y8M"
         }
-      ]
+      }
     }
   ],
   "measurements": [
     {
       "assay": {
-        "id": "LOINC:LP7720-8",
-        "label": "White blood cells"
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000276",
-            "label": "amount per container"
+            "id": "UO:0000175",
+            "label": "gram per liter"
           },
-          "value": 5.01
+          "value": 7.2
         }
       },
-      "procedure": {
-        "code": {
-          "id": "THESAURUS:C17610",
-          "label": "Unknown Procedure"
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P5Y11M"
         }
       }
     },
     {
       "assay": {
-        "id": "LOINC:LP7536-8",
-        "label": "Red Blood Cells"
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
       },
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000178",
-            "label": "unit per milliliter"
+            "id": "UO:0000179",
+            "label": "unit per liter"
           },
-          "value": 4.56
+          "value": 5.6
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P5Y11M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 2.1
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P5Y11M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14672-7",
+        "label": "IgG"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000175",
+            "label": "gram per liter"
+          },
+          "value": 15.4
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P7Y2M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LA12894-4",
+        "label": "Leukocytes"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000179",
+            "label": "unit per liter"
+          },
+          "value": 5.6
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P7Y2M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP14695-8",
+        "label": "Somatotropin"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000275",
+            "label": "nanogram per milliliter"
+          },
+          "value": 1.8
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P7Y2M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:36554-4",
+        "label": "View:Find:Pt:Chest:Doc:XR"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 1.0
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P6Y3M"
+        }
+      },
+      "procedure": {
+        "code": {
+          "id": "SNOMEDCT:399208008",
+          "label": "Plain X-ray of chest"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP428372-9",
+        "label": "SURVEY.COVID"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 1.0
+        }
+      },
+      "time_observed": {
+        "age": {
+          "iso8601duration": "P6Y3M"
         }
       }
     }
   ],
   "interpretations": [
     {
-      "id": "TEST_13JAN-interpretation-0",
-      "progressStatus": "COMPLETED",
+      "id": "TodayTest-interpretation-0",
+      "progress_status": "SOLVED",
       "diagnosis": {
         "disease": {
-          "id": "OMIM:241600",
-          "label": "IMMUNODEFICIENCY 43"
+          "id": "MONDO:0007843",
+          "label": "Kabuki syndrome 1"
         },
-        "genomicInterpretations": [
+        "genomic_interpretations": [
           {
-            "subjectOrBiosampleId": "1",
-            "interpretationStatus": "CANDIDATE",
-            "variantInterpretation": {
-              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
-              "therapeuticActionability": "NOT_ACTIONABLE",
-              "variationDescriptor": {
-                "id": "ddc8017366f447d8808bedb78d9292",
-                "geneContext": {
-                  "valueId": "HGNC:10853",
-                  "symbol": "SHOX"
+            "subject_or_biosample_id": "1",
+            "interpretation_status": "CAUSATIVE",
+            "variant_interpretation": {
+              "acmg_pathogenicity_classification": "PATHOGENIC",
+              "variation_descriptor": {
+                "id": "ca36958a635d47049b390644349be2",
+                "gene_context": {
+                  "value_id": "HGNC:29508",
+                  "symbol": "KIDINS220"
                 },
                 "expressions": [
                   {
-                    "syntax": "hgvs",
-                    "value": "NM_006883.2:c.-507G>C"
+                    "syntax": "hgvs.c",
+                    "value": "NM_020738.4:c.4269del"
                   }
                 ],
-                "structuralType": {
-                  "id": "LOINC:LP71749-3",
-                  "label": "Chromosomal nuclear Ab pattern"
+                "allelic_state": {
+                  "id": "GENO:0000402",
+                  "label": "Compound heterozygous"
+                }
+              }
+            }
+          },
+          {
+            "subject_or_biosample_id": "2",
+            "interpretation_status": "CAUSATIVE",
+            "variant_interpretation": {
+              "acmg_pathogenicity_classification": "PATHOGENIC",
+              "variation_descriptor": {
+                "id": "792df3849b38431480596a5e5a0a5c",
+                "gene_context": {
+                  "value_id": "HGNC:7133",
+                  "symbol": "KMT2D"
                 },
-                "allelicState": {
-                  "id": "LOINC:53034-5-OTHER",
-                  "label": "Unknown Allelic State"
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_003482.4:c.16529A>G"
+                  }
+                ],
+                "allelic_state": {
+                  "id": "GENO:0000402",
+                  "label": "Compound heterozygous"
                 }
               }
             }
@@ -289,190 +403,117 @@
   "diseases": [
     {
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "MONDO:0007843",
+        "label": "Kabuki syndrome 1"
       },
       "onset": {
         "age": {
-          "iso8601duration": "P2Y10M"
+          "iso8601duration": "P2Y4M"
+        }
+      },
+      "primary_site": {
+        "id": "SNOMEDCT:31099001",
+        "label": "Systemic"
+      }
+    }
+  ],
+  "medical_actions": [
+    {
+      "procedure": {
+        "code": {
+          "id": "SNOMEDCT:2752008",
+          "label": "Incudopexy"
+        },
+        "performed": {
+          "age": {
+            "iso8601duration": "P6Y3M"
+          }
         }
       }
     },
     {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      }
-    },
-    {
-      "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
-      },
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
+      "procedure": {
+        "code": {
+          "id": "MAXO:0001017",
+          "label": "vaccination"
+        },
+        "performed": {
+          "age": {
+            "iso8601duration": "P10Y11M"
+          }
         }
       }
     }
   ],
-  "metaData": {
-    "created": "2025-03-23T13:48:30.815944Z",
-    "createdBy": "Adam G.",
+  "meta_data": {
+    "created": "2025-12-12T16:36:54.700805Z",
+    "created_by": "Adam G.",
     "resources": [
-      {
-        "id": "snomedct",
-        "name": "Systematized Medical Nomenclature for Medicine\u2013Clinical Terminology",
-        "url": "http://snomed.info/sct",
-        "version": "SNOMEDCT_US_2024_09_01",
-        "namespacePrefix": "SNOMEDCT",
-        "iriPrefix": "http://snomed.info/sct"
-      },
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
         "version": "2025-06-03",
-        "namespacePrefix": "MONDO",
-        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+        "namespace_prefix": "MONDO",
+        "iri_prefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
       {
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
         "version": "2025-05-06",
-        "namespacePrefix": "HPO",
-        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+        "namespace_prefix": "HPO",
+        "iri_prefix": "http://purl.obolibrary.org/obo/HP_"
       },
       {
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
         "version": "LNC278",
-        "namespacePrefix": "LOINC",
-        "iriPrefix": "http://loinc.org"
-      },
-      {
-        "id": "omim",
-        "name": "Online Mendelian Inheritance",
-        "url": "https://omim.org/",
-        "version": "OMIM2024_08_09",
-        "namespacePrefix": "OMIM",
-        "iriPrefix": "https://www.omim.org/entry/"
-      },
-      {
-        "id": "orpha",
-        "name": "Orphanet Rare Disease Ontology",
-        "url": "https://www.orpha.net/",
-        "version": "OMIM2024_08_09",
-        "namespacePrefix": "ORPHA",
-        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_"
-      },
-      {
-        "id": "ncit",
-        "name": "NCI Thesaurus OBO Edition",
-        "url": "https://ncit.nci.nih.gov/",
-        "version": "24.01e",
-        "namespacePrefix": "NCIT",
-        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+        "namespace_prefix": "LOINC",
+        "iri_prefix": "http://loinc.org"
       },
       {
         "id": "uo",
         "name": "Units of Measurement Ontology",
         "url": "https://www.ontobee.org/ontology/UO",
-        "version": "OMIM2024_08_09",
-        "namespacePrefix": "UO",
-        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
+        "version": "2023-05-25",
+        "namespace_prefix": "UO",
+        "iri_prefix": "http://purl.obolibrary.org/obo/UO_"
       },
       {
         "id": "hgnc",
         "name": "HUGO Gene Nomenclature Committee",
         "url": "https://www.genenames.org/",
         "version": "2024-08-23",
-        "namespacePrefix": "HGNC",
-        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+        "namespace_prefix": "HGNC",
+        "iri_prefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
       },
       {
         "id": "hgvs",
         "name": "Human Genome Variation Society",
         "url": "https://varnomen.hgvs.org/",
         "version": "21.0.0",
-        "namespacePrefix": "HGVS",
-        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+        "namespace_prefix": "HGVS",
+        "iri_prefix": "https://varnomen.hgvs.org/recommendations/variant/"
       },
       {
         "id": "ga4gh",
         "name": "Global Alliance for Genomics and Health",
         "url": "https://www.ga4gh.org/",
         "version": "v2.0",
-        "namespacePrefix": "GA4GH",
-        "iriPrefix": "https://www.ga4gh.org/"
-      },
-      {
-        "id": "icd11",
-        "name": "International Classification of Diseases, Eleventh Revision",
-        "url": "https://icd.who.int/en",
-        "version": "SNOMEDCT_US_2024_09_01",
-        "namespacePrefix": "ICD11",
-        "iriPrefix": "http://hl7.org/fhir/sid/icd-11"
-      },
-      {
-        "id": "icd10cm",
-        "name": "ICD-10 Clinical Modification",
-        "url": "https://www.cdc.gov/nchs/icd/icd10cm.htm",
-        "version": "2023",
-        "namespacePrefix": "ICD10CM",
-        "iriPrefix": "http://hl7.org/fhir/sid/icd-10-cm"
-      },
-      {
-        "id": "so",
-        "name": "Sequence types and features ontology",
-        "url": "https://www.sequenceontology.org/",
-        "version": "2.6",
-        "namespacePrefix": "SO",
-        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+        "namespace_prefix": "GA4GH",
+        "iri_prefix": "https://www.ga4gh.org/"
       },
       {
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
         "version": "2023-10-08",
-        "namespacePrefix": "GENO",
-        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
-      },
-      {
-        "id": "iso3166",
-        "name": "ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes",
-        "url": "https://www.iso.org/iso-3166-country-codes.html",
-        "version": "2020(en)",
-        "namespacePrefix": "ISO3166",
-        "iriPrefix": "https://www.iso.org/iso-3166-country-codes.html#alpha2"
-      },
-      {
-        "id": "icf",
-        "name": "International Classification of Functioning, Disability and Health",
-        "url": "https://www.who.int/classifications/icf/en/",
-        "version": "1.0.2",
-        "namespacePrefix": "ICF",
-        "iriPrefix": "http://hl7.org/fhir/sid/icf"
+        "namespace_prefix": "GENO",
+        "iri_prefix": "http://purl.obolibrary.org/obo/GENO_"
       }
     ],
-    "phenopacketSchemaVersion": "2.0"
+    "phenopacket_schema_version": "2.0"
   }
 }

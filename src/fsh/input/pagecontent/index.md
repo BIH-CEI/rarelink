@@ -4,7 +4,7 @@ Welcome to the RareLink Implementation Guide – a non-balloted extension of the
 
 - [RareLink repository](https://github.com/BIH-CEI/RareLink)
 - [RareLink documentation](https://rarelink.readthedocs.io/en/latest/index.html)
-- [RareLink paper prepint](https://www.medrxiv.org/content/10.1101/2025.05.09.25327342v1)
+- [RareLink manuscript in npj Genomic Medicine](https://www.nature.com/articles/s41525-025-00534-z)
 
 ### Scope and Objectives
 
@@ -12,7 +12,7 @@ The RareLink project aims to:
 
 - **Enhance** interoperability in data capture for rare disease registries using REDCap forms preconfigured with ontology-based instruments.  
 - **Automate** transformation of REDCap records and import of retrospective data into interoperable formats (FHIR resources and Phenopacket JSON) for downstream analysis and data sharing.  
-- **Extend** the ERDRI-CDS by utilising the the ontology-based rare disease common data model, and its corresponding RareLink Common Data Model (RareLink-CDM) with accompanying FHIR profiles and value sets.  
+- **Extend** the ERDRI-CDS by utilising the ontology-based rare disease common data model, and its corresponding RareLink Common Data Model (RareLink-CDM) with accompanying FHIR profiles and value sets.  
 - **Facilitate** cross-registry research and clinical workflows by leveraging HL7 IPS and Genomics Reporting dependencies and facilitating the use of Phenopacket-based analysis tools.
 
 ### Background
@@ -28,7 +28,7 @@ The RareLink framework builds on the novel Rare Disease Common Data Model (RD-CD
 
 RareLink consists of:
 1. [The RareLink Documentation](https://rarelink.readthedocs.io/en/latest/index.html) centralising all components of the RareLink framework, installation and user guides, as well as background and additional information.
-2. **The RareLink-CDM**: its corresponding REDCap data dictionary can be imported into any REDCap project with each instrument displaying a section within the RD-CDM for manuel data entry of [LinkML-based](https://linkml.io/) semi-automatic data capture. The profiles in this implementation guide represent the entire RareLink-CDM with all elements of the RD-CDM mapped to FHIR elements and can also be used for import via the [Clinical Data Interoperability Services](https://www.sciencedirect.com/science/article/pii/S1532046421002008).
+2. **The RareLink-CDM**: its corresponding REDCap data dictionary can be imported into any REDCap project with each instrument displaying a section within the RD-CDM for manual data entry of [LinkML-based](https://linkml.io/) semi-automatic data capture. The profiles in this implementation guide represent the entire RareLink-CDM with all elements of the RD-CDM mapped to FHIR elements and can also be used for import via the [Clinical Data Interoperability Services](https://www.sciencedirect.com/science/article/pii/S1532046421002008).
 3. **A command-line interface (CLI)** (`rarelink`) interacting with the API of a local REDCap for:
    - REDCap API authentication, setup, and framework settings
    - Interaction with REDCap to download or upload records or setup the data dictionary

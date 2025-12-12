@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rarelink"
-version = "2.0.4"                  
+version = "2.0.5"                  
 description = "RareLink - A REDCap-based Python framework linking international registries to HL7 FHIR and GA4GH Phenopackets"
 readme = "README.md"
 requires-python = ">=3.10, <3.13"
@@ -21,7 +21,7 @@ authors = [
 ]
 keywords = ["Rare Disease", "Interoperability", "FHIR", "Phenopacket Schema", "REDCap"]
 classifiers = [
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3.10",
@@ -33,7 +33,6 @@ classifiers = [
 
 dependencies = [
     "numpy",
-    "jupyter", 
     "pandas", 
     "phenopackets", 
     "pyphetools",
@@ -77,7 +76,7 @@ Bugtracker = "https://github.com/BIH-CEI/RareLink/issues"
 
 [project.scripts]
 rarelink = "rarelink.cli:app"
-rarelink-cdm-generate = "rarelink.cdm.codegen_cli:main"
+rarelink-cdm-generate = "rarelink.rd_cdm.codegen_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -85,10 +84,10 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["rarelink*", "rarelink_cdm*"]
+include = ["rarelink*"]
 
 [tool.setuptools.package-data]
-"*" = ["*.yaml", "*.yml", "*.json", "*.csv", "*.tsv"]
+rarelink = ["rd_cdm/*", "rarelink_cdm/**/*", "*.yaml", "*.yml", "*.json", "*.csv", "*.tsv"]
 
 [tool.setuptools.exclude-package-data]
 rarelink = [

@@ -5,7 +5,7 @@ import traceback
 from typing import Dict, Any, Optional
 from rarelink.utils.processor import DataProcessor
 from rarelink.phenopackets.mappings.utils.common_utils import add_enum_classes_to_processor
-from rarelink_cdm import get_codesystems_container_class
+from rarelink.rarelink_cdm import get_codesystems_container_class
 from rarelink.phenopackets.mappings.metadata_mapper import collect_used_prefixes_from_blocks
 
 # Import new mapper classes
@@ -216,39 +216,48 @@ def create_phenopacket(
         else:
             proc, _ = create_processor("measurements")
             measurement_mapper = MeasurementMapper(proc)
-            measurements = measurement_mapper.map(data, dob=individual.date_of_birth)
+            measurements = measurement_mapper.map(
+                data, dob=individual.date_of_birth)
         if debug:
             logger.debug(f"Total measurements: {len(measurements)}")
 
         # --- Medical Actions (Procedures and Treatments) ---
         medical_actions = []
-        proc_processor, _ = create_processor("procedures")
+        proc_processor, _ = create_processor("medical_actions")
         medical_action_mapper = MedicalActionMapper(proc_processor)
-        proc_actions = medical_action_mapper.map(data, dob=individual.date_of_birth)
+        proc_actions = medical_action_mapper.map(
+            data, dob=individual.date_of_birth)
         if proc_actions:
             medical_actions.extend(proc_actions)
-            logger.debug(f"Added {len(proc_actions)} procedure-based medical actions")
+            logger.debug(
+                f"Added {len(proc_actions)} procedure-based medical actions")
 
         treatments_config = mapping_configs.get("treatments")
         if treatments_config:
             if isinstance(treatments_config, list):
                 for i, config in enumerate(treatments_config):
                     try:
-                        # Use the helper to get a base processor from the first element of the treatments list.
+                        # Use the helper to get a base processor from 
+                        # the first element of the treatments list.
                         proc, _ = create_processor("treatments")
                         # Merge the specific treatment config overrides
                         for key, value in config.items():
                             if key != "mapping_block":
                                 proc.mapping_config[key] = value
                         proc.enable_debug(debug)
-                        add_enum_classes_to_processor(proc, config.get("enum_classes", {}))
+                        add_enum_classes_to_processor(
+                            proc, config.get("enum_classes", {}))
                         treatment_mapper = MedicalActionMapper(proc)
-                        treat_actions = treatment_mapper.map(data, dob=individual.date_of_birth)
+                        treat_actions = treatment_mapper.map(
+                            data, dob=individual.date_of_birth)
                         if treat_actions:
                             medical_actions.extend(treat_actions)
-                            logger.debug(f"Added {len(treat_actions)} treatment actions from config {i+1}")
+                            logger.debug(
+                                f"Added {len(treat_actions)} "
+                                f"treatment actions from config {i+1}")
                     except Exception as e:
-                        logger.error(f"Error processing treatment config {i+1}: {e}")
+                        logger.error(
+                            f"Error processing treatment config {i+1}: {e}")
                         if debug:
                             logger.debug(traceback.format_exc())
             elif isinstance(treatments_config, dict):

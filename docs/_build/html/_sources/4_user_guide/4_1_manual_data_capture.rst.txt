@@ -1,7 +1,7 @@
 .. _4_1:
 
-Manual Data Capture Guide
-==========================
+Manual Data Capture
+====================
 
 .. hint::
     This section offers detailed guidance for manually entering data into
@@ -11,6 +11,29 @@ Manual Data Capture Guide
 
     - Instructions for installing the RareLink CDM instruments in REDCap are available at :ref:`3_1`.
 
+**Overview**
+
+- :ref:`general_information`
+- :ref:`manualguide_formal_criteria`
+- :ref:`manualguide_personal_information`
+- :ref:`manualguide_patient_status`
+- :ref:`manualguide_care_pathway`
+- :ref:`manualguide_disease`
+- :ref:`manualguide_genetic_findings`
+- :ref:`manualguide_phenotypic_features`
+- :ref:`manualguide_measurements`
+- :ref:`manualguide_family_history`
+- :ref:`manualguide_consent`
+- :ref:`manualguide_disability`
+
+.. hint::
+    In case you would like to customise your RareLink-CDM Data Dictionary to simplify manual data entry,
+    please refer to the :ref:`data_dictionary_customise` section for more information. Also,
+    feel free to :ref:`12` us or `write an issue on GitHub <https://github.com/BIH-CEI/rarelink/issues/new>`_
+    in case you have any questions or need help.
+_________________________________________________________________________________
+
+.. _general_information:
 
 General Information (please read!)
 -------------------------------------
@@ -25,6 +48,10 @@ process:
   the manual data capture process, please find more information in the :ref:`7`
   section or `write a GitHub issue <https://github.com/BIH-CEI/rarelink/issues>`_.
   RareLink is a collaborative effort, and we welcome your feedback.
+- **ERDRI-CDS**: The European Registry Registration requires specific fields to 
+  be completed. You can find the `ERDRI-CDS here <https://eu-rd-platform.jrc.ec.europa.eu/system/files/public/CDS/EU_RD_Platform_CDS_Final.pdf>`_ 
+  and the corresponding fields in the RareLink-CDM marked with ``ERDRI-CDS`` 
+  in the guide.
 - **Data Security**: Ensure your local REDCap project is set up, and everything
   is sorted with your local REDCap administrator. When capturing real patient
   data, ensure that the REDCap project is in **Production Mode**! Read the 
@@ -41,14 +68,20 @@ process:
   expands. Please  check the :ref:`6` and :ref:`7` sections for updates and 
   additional information.
 
+_________________________________________________________________________________
+
+
 Types of Fields: 
 """"""""""""""""""
+
 - **Mandatory Fields** ``*``: Mandatory fields are marked within this guide with a red
   asterisk (``*``). Ensure that all mandatory fields are completed before saving
   the form.
 - **Optional Fields**: Fields that are not mandatory can be left blank if the 
   information is unknown or not required. This flexibility allows for partial 
   data entry while maintaining focus on required fields.
+
+_________________________________________________________________________________
 
 Types of Instruments:
 """""""""""""""""""""""
@@ -83,11 +116,24 @@ history. You can repeat these forms to reflect changes over time.
    </div>
 
 
-_________________________________________________________________________________
+.. important:: 
+  
+  When creating a record, the minimal fields that must to be filled in are: 
+
+  - 1.1 Psuedonym
+  - 1.2 Date of Admission
+  - 2.1 Date (or Year) of Birth
+  - 7.1 Consent Status
+
+  ... please find below more information about the fields.
+
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
 
 
+.. _manualguide_formal_criteria:
 
 (1) Formal Criteria
 -----------------------------
@@ -102,12 +148,16 @@ individuals:
 - **Record ID**: Unique identifier for the record automatically assigned by the
   local REDCap project. It is not editable, but can be used for reference within
   your REDCap project, study, or registry.
-- **1.1 - Pseudonym** (``*``): Unique identifier for the individual, often used as a local
-  patient-related identification code or registry ID
+- **1.1 - Pseudonym** (``*``, ``ERDRI-CDS``): Unique identifier for the individual, often used as a local
+  patient-related identification code or registry ID.
 - **1.2 - Date of Admission** (``*``): The date of admission or data
   capture. Ensure the format is YYYY-MM-DD.
 
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_personal_information:
 
 (2) Personal Information
 ----------------------------------
@@ -116,18 +166,30 @@ ________________________________________________________________________________
 | **Single-Entry Form** |
 +-----------------------+
 
-This section captures personal details about the individual:
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
-- **2.1 - Date of Birth** (``*``): The individual's date of birth.
-  If exact dates are not allowed to be entered, enter approximate dates in the
-  format ``01.MM.YYYY`` or ``01.01.YYYY``.
-- **2.5 - Country of Birth**: Refer to the `ISO 3166 Country Codes <https://www.iso.org/obp/ui/#search/
-  code/>`_ to search for the country code. Enter only the three- letter ISO 
-  code (e.g., ``CAN``, ``TUR``).
+- This section captures personal details about the individual.
 - Fields that are not mandatory can be left blank if the information is
   unknown or not required.
 
+Fields:
+~~~~~~~~~~
+
+- **2.1 - Date of Birth** (``*``, ``ERDRI-CDS``): The individual's date of birth.
+  If exact dates are not allowed to be entered, enter approximate dates in the
+  format ``01.MM.YYYY`` or ``01.01.YYYY``.
+- **2.2 - Sex at Birth**: ``ERDRI-CDS``
+- **2.5 - Country of Birth**: Refer to the `ISO 3166 Country Codes <https://www.iso.org/obp/ui/#search/
+  code/>`_ to search for the country code. Enter only the three-letter ISO 
+  code (e.g., ``CAN``, ``TUR``).
+
+
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_patient_status:
 
 (3) Patient Status
 -----------------------------
@@ -136,20 +198,36 @@ ________________________________________________________________________________
 | **Repeated Form** |
 +-------------------+
 
-This section tracks the status of the patient over time:
 
+General Notes:
+~~~~~~~~~~~~~~~~~~
+
+- This section tracks the status of the patient over time.
 - Forms can be **repeated** to reflect changes over time (e.g., vital status,
   rare disease cases).
 - For ontology-specific searches, use `OLS Platform <https://www.ebi.ac.uk/
   ols4/ontologies>`_ for a smoother experience.
 - If exact dates are unknown, enter approximate dates in the format
   ``01.MM.YYYY`` or ``01.01.YYYY``.
-- **3.5 - Length of Gestation at Birth**: specify exact weeks and days in the
-  format ``35+6``.
 - Fields that are not mandatory can be left blank if the information is
   unknown or not required.
 
+Fields:
+~~~~~~~~~~
+
+- **patient_status_date**: ``*``
+- **3.1 - Vital Status**: ``ERDRI-CDS``
+- **3.2 - Time of Death**: ``ERDRI-CDS``
+- **3.5 - Length of Gestation at Birth**: specify exact weeks and days in the
+  format ``35+6``.
+- **3.6 Undiagnosed RD Case**: ``ERDRI-CDS``
+
+
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_care_pathway:
 
 (4) Care Pathway
 --------------------------
@@ -158,7 +236,8 @@ ________________________________________________________________________________
 | **Repeated Form** |
 +-------------------+
 
-This section provides information about the care pathway:
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
 - It is a **repeated** form, with one encounter per form.
 - If possible, use the dates of the encounter. 
@@ -167,10 +246,21 @@ This section provides information about the care pathway:
 - If the specific month or day is not known, select the 1st day of the
   month or the 1st month of the year, respectively (e.g., ``01.June.2022``,
   ``01.01.2014``).
-- **4.3 Encounter Status** ``*``: mandatory to ensure alignment with the IPS-FHIR profiles.
-- **4.4 Encounter Type** ``*``: mandatory to ensure alignment with the IPS-FHIR profiles.
+
+Fields:
+~~~~~~~~~~
+
+- **4.1 Encounter Date**: ``ERDRI-CDS`` 
+- **4.3 Encounter Status** ``*``: mandatory to ensure alignment with the 
+  IPS-FHIR profiles.
+- **4.4 Encounter Type** ``*``: mandatory to ensure alignment with the IPS-FHIR 
+  profiles - for ``ERDRI-CDS``: please select `RD specialist centre`!  
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
+
+.. _manualguide_disease:
 
 (5) Disease
 ----------------------
@@ -180,28 +270,38 @@ ________________________________________________________________________________
 +-------------------+
 
 .. hint::
-    If you have difficlties finding the rare disease, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
-    ontology-specific searches, for example the `OLS-MONDO Search <https://www.ebi.ac.uk/ols4/ontologies/mondo>`_ 
+    If you have difficulties finding the rare disease, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ 
+    for ontology-specific searches, for example the `OLS-MONDO Search <https://www.ebi.ac.uk/ols4/ontologies/mondo>`_.
 
-This section provides details about diseases:
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
 - It is a **repeated** form; you can enter as many diseases as you wish with one
   disease per form
-- **5.1 Disease** ``*``: one ontologies can be selected for encoding. We recommend
-  using *MONDO* to encode a disease.
+- If information for a specific field is not known, leave it blank.
+- If the specific month or day is not known, select the 1st day of the
+  month or the 1st month of the year (e.g., ``01.June.2022``, ``01.01.2014``).
+
+Fields:
+~~~~~~~~~~
+
+- **5.1 Disease** (``*`` & ``ERDRI-CDS``): one ontology can be selected for 
+  encoding. We recommend using *MONDO* to encode a disease.
 
     - To link a disease to genetic variant(s) in Section **6.1 Genetic Findings**,
       enter the same *MONDO* or *OMIM_p* codes here. (*OMIM_g* codes refer to genes,
       while *OMIM_p* codes refer to phenotypes (see `OMIM <https://www.omim.org/>`_).)
     - The **ICD-11** is not integrated into BioPortal; use the `ICD-11 Browser
       <https://icd.who.int/browse/2024-01/mms/en>`_ for codes like `AA10`.
-- If information for a specific field is not known, leave it blank.
-- **5.3 Age at Onset** and **5.5 Age at Diagnosis**: select "prenatal" or "birth"
-  where applicable, and always enter dates if available. 
-- If the specific month or day is not known, select the 1st day of the
-  month or the 1st month of the year (e.g., ``01.June.2022``, ``01.01.2014``).
+
+- **5.3 Age at Onset** and **5.5 Age at Diagnosis** (``ERDRI-CDS``): select 
+  "prenatal" or "birth" where applicable, and always enter dates if available. 
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
+
+.. _manualguide_genetic_findings:
 
 (6.1) Genetic Findings
 ------------------------------
@@ -211,20 +311,36 @@ ________________________________________________________________________________
 +-------------------+
 
 .. hint::
-    If you have difficlties finding concepts, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
+    If you have difficulties finding concepts, use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
     ontology-specific search!
 
-This section provides details about genetic findings:
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
-- **Note:** Fields that are not mandatory can be left blank if the information is
-  unknown or not required .Fill in all other fields about the variant, 
+- Fields that are not mandatory can be left blank if the information is
+  unknown or not required.
+- Fill in all other fields about the variant, 
   depending on the information available and your current use case. It is a
   **repeated** form; you can enter as many variants as needed.
-- **6.1.1 Genomic Diagnosis**: To link a variant to a genetic diagnosis, 
-  select the corresponding disease, if applicable, also to the **5.1 Disease**. 
-  You can also link multiple variants to a single disease by repeating the form!
-- **HGVS Variant Expression**: Please select the appropriate HGVS nomenclature
-  for the variant. 
+
+Fields:
+~~~~~~~~~~
+
+- **6.1.1 Genomic Diagnosis** (``ERDRI-CDS``): 
+
+  - To link a variant to a genetic diagnosis, select the corresponding disease, 
+    if applicable, also to the **5.1 Disease**. 
+  - You can also link multiple variants to a single disease 
+    by repeating the form!
+
+- **6.1.2 Progress Status of interpretation**: required when creating GA4GH 
+  Phenopackets - You can find the exact definitions here: `GA4GH ProgressStatus <https://phenopacket-schema.readthedocs.io/en/latest/interpretation.html#rstprogressstatus>`_.
+- **6.1.3 Interpretation Status**: required when creating GA4GH Phenopackets -
+  you can find the exact definitions here: `GA4GH InterpretationStatus <https://phenopacket-schema.readthedocs.io/en/latest/genomic-interpretation.html#rstinterpretationstatus>`_.
+- **6.1.6 Genetic Mutation String**: If the variant is not validated or you are 
+  unsure how to validate, enter all information in this field.
+- **6.1.7 - 6.1.9 Variant Expression [HGVS]** (``ERDRI-CDS``): Please select 
+  the appropriate HGVS nomenclature for the variant. 
 
   > **If you are unsure, prioritize** ``c.HGVS``.
 
@@ -235,20 +351,17 @@ This section provides details about genetic findings:
       all information in the **6.1.6 Genetic Mutation String** field.
 
 - **HGVS Validation**: 
+
     1. Validate mutations using `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/>`_
-       or `Varsome <https://varsome.com/>`_
+       or `Varsome <https://varsome.com/>`_.
     2. Confirm the expression with the `HGVS Validator <https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/>`_.
     3. If the validation fails, enter the details in the **6.1.6 Genetic Mutation String** field.
     4. ``*``: **Are you sure the entered HGVS expression was validated using 
        the variant validator?** - this field is mandatory to ensure the
        validation status.
-- **6.1.2 Progress Status of Interpretation**: recommended when creating GA4GH Phenopackets.
-- **6.1.3 Interpretation Status**: recommended when creating GA4GH Phenopackets.
 
-- Phenopacket Value Sets:
-  - Progress Status: ga4gh_unknown_progress, No information is available about the diagnosis | ga4gh_in_progress, No diagnosis has been found to date but additional differential diagnostic work is in progress. | ga4gh_completed, The work on the interpretation is complete. | ga4gh_solved, The interpretation is complete and also considered to be a definitive diagnosis | ga4gh_unsolved, The interpretation is complete but no definitive diagnosis was found
-  - Interpretation Status: ga4gh_unknown_status, No information is available about the status | ga4gh_rejected, The variant or gene reported here is interpreted not to be related to the diagnosis | ga4gh_candidate, The variant or gene reported here is interpreted to possibly be related to the diagnosis | ga4gh_contributory, The variant or gene reported here is interpreted to be related to the diagnosis | ga4gh_causative, The variant or gene reported here is interpreted to be causative of the diagnosis
-  - Therapeutic Actionability: ga4gh_unknown_actionability, There is not enough information at this time to support any therapeutic actionability for this variant | ga4gh_not_actionable, This variant has no therapeutic actionability. | ga4gh_actionable, This variant is known to be therapeutically actionable.
+- **6.1.15 Therapeutic Actionability**: recommended when creating GA4GH 
+  Phenopackets - you can find the exact definitions here: `GA4GH TherapeuticActionability <https://phenopacket-schema.readthedocs.io/en/latest/variant-interpretation.html#rsttherapeuticactionability>`_.
 
 .. attention::
     The quality of the variant's validated HGVS expression is crucial for the 
@@ -256,7 +369,11 @@ This section provides details about genetic findings:
     Phenopackets. If you are unsure about the validation, enter all information
     in the **6.1.6 Genetic Mutation String** field and consult a geneticist.
 
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_phenotypic_features:
 
 (6.2) Phenotypic Features
 ---------------------------------
@@ -271,9 +388,17 @@ ________________________________________________________________________________
 
 This section provides details about phenotypic features:
 
+General Notes:
+~~~~~~~~~~~~~~~~~~
+- Use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
+  ontology-specific searches, or visit `HPO <https://hpo.jax.org/app/>`_ for
+  HPO codes.
 
-- **6.2.1 Phenotypic Feature** ``*``: It is a **repeated** form; enter as many
-  phenotypic features as needed.
+Fields: 
+~~~~~~~~~~
+
+- **6.2.1 Phenotypic Feature** (``*`` & ``ERDRI-CDS``): It is a 
+  **repeated** form; enter as many phenotypic features as needed.
 - **6.2.2 Status** ``*``: Always enter the status as either confirmed or refuted.
 - **6.2.3 Determination Date**: If the specific month or day is not known for
   the determination date, select the 1st day of the month or the 1st month of 
@@ -281,18 +406,21 @@ This section provides details about phenotypic features:
 
     - **Note:** If possible, capture the time a characteristic was observed by
       the individual, *not* the time it was recorded.
-- Use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
-  ontology-specific searches, or visit `HPO <https://hpo.jax.org/app/>`_ for
-  HPO codes.
+
 - **6.2.8 Clinical Modifiers**: Encode modifiers for more detailed deep phenotyping, e.g.:
     - subclasses of `HP:0012823 (Clinical modifier) <https://hpo.jax.org/browse/term/HP:0012823>`_, 
     - infectious agents using NCBITAXON,
-    - or the body site using SNOMED.
+    - or the body site using SNOMED CT.
 - **6.2.9 Evidence**: as recommended by the Phenopacket Scehma, try to provide 
   the evidence code for the phenotypic feature, *e.g. ECO:0006017 ("author 
   statement from published clinical study used in manual assertion")*.
 
+
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_measurements:
 
 (6.3) Measurements
 ----------------------------
@@ -306,12 +434,17 @@ ________________________________________________________________________________
   Define a set of rules for capturing measurements within a cohort to
   improve subsequent analyses.
 
-This section provides information about measurements:
 
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
 - It is a **repeated** form; capture information for one measurement and
-  repeat as many times as necessary. - Fields that are not mandatory can be left blank if the information is
-  unknown or not required.
+  repeat as many times as necessary. - Fields that are not mandatory can be left
+  blank if the information is unknown or not required.
+
+Fields:
+~~~~~~~~~~
+
 - **6.3.0 Category** ``*``: mandatory to ensure alignment with the IPS-FHIR profiles.
 - **6.3.1 Assay** ``*``: encoded with LOINC codes. Use the `LOINC Search <https://loinc.org/search/>`_
   to find the correct code if you cannot find it in the embedded search.
@@ -325,11 +458,16 @@ This section provides information about measurements:
   or `Below Reference Range <https://www.ebi.ac.uk/ols4/ontologies/ncit/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C78801?lang=en>`_.
 - **6.3.5 Time Observed**: ``*``: mandatory to ensure alignment with the IPS-FHIR profiles.
 
-.. note:: 
+.. tip:: 
   `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
   ontology-specific searches if you cannot find the concepts you are looking for.
 
+
+Return to `top <#top>`_.
+
 _________________________________________________________________________________
+
+.. _manualguide_family_history:
 
 (6.4) Family History
 ----------------------------
@@ -338,11 +476,18 @@ ________________________________________________________________________________
 | **Repeated Form** |
 +-------------------+
 
-This section captures family history details:
+General Notes:
+~~~~~~~~~~~~~~~~~~
 
 - It is a **repeated** form; capture information for one family member per
   sheet. Fields that are not mandatory can be left blank if the information is
   unknown or not required.
+- Use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
+  ontology-specific searches.
+
+Fields:
+~~~~~~~~~~
+
 - **6.4.0 Pseudonym** ``*``: The pseudonym assigned to the family member must be
   entered.
 - **6.4.4 Family Member Relationship** ``*``: the relationship of the family 
@@ -350,10 +495,12 @@ This section captures family history details:
   IPS-FHIR profiles.
 - **6.4.5 Family Member Record Status** ``*``: the record's status - mandatory 
   to ensure alignment with the IPS-FHIR profiles.
-- Use the `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
-  ontology-specific searches.
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
+
+.. _manualguide_consent:
 
 (7) Consent
 ---------------------
@@ -364,17 +511,31 @@ ________________________________________________________________________________
 
 This section captures consent-specific data:
 
+General Notes:
+~~~~~~~~~~~~~~~~~~
+
 - Specify consent details for registry use.
-- **7.1 Consent Status**: ``*```
+- The fields marked with ``ERDRI-CDS`` are required for the European Registry 
+  Registration.
+
+Fields:
+~~~~~~~~~~
+
+- **7.1 Consent Status**: ``*``
 - **7.3 Health Policy Monitoring** ``*``: if unsure, you can enter any string 
   that indicates an unknown status for this field.
-- **7.4 Agreement to be contacted for research purposes** ``*``: this field 
-  is mandatory to ensure align with the European Registry Registration!
-- **7.5 Consent to the reuse of data** ``*``: this field 
-  is mandatory to ensure align with the European Registry Registration!
-- **7.7 Link to a biobank**: Provide a link to the BioBank, if applicable.
+- **7.4 Agreement to be contacted for research purposes**: ``*`` & ``ERDRI-CDS``
+- **7.5 Consent to the reuse of data**: ``*`` & ``ERDRI-CDS``
+- **7.6 Biological sample** : ``ERDRI-CDS``
+- **7.7 Link to a biobank** (``ERDRI-CDS``): If applicable, provide a link to 
+  the BioBank.
+
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
+
+.. _manualguide_disability:
 
 (8) Disability
 -------------------------
@@ -388,6 +549,9 @@ This section provides details about disabilities:
 - Enter the disability code from the ICF (International Classification of
   Functioning, Disability, and Health).
 - Ensure the data corresponds to the date of admission or data entry.
+- **8.1 Disability**: ``ERDRI-CDS``
+
+Return to `top <#top>`_.
 
 _________________________________________________________________________________
 

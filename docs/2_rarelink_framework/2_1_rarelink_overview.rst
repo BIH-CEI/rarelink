@@ -3,6 +3,9 @@
 RareLink Overview
 =================
 
+.. tip:: 
+   - **Manuscript:** RareLink was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+
 RareLink aims to maximise the utility of REDCap by providing a comprehensive 
 framework designed specifically for rare disease (RD) research and care. 
 At the core of RareLink is this documentation, the RareLink instruments that are 

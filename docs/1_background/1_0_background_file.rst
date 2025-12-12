@@ -3,6 +3,9 @@
 Background
 =============
 
+.. tip:: 
+   - **Manuscript:** RareLink was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+
 RareLink was developed as a response to the widespread challenges in rare 
 disease (RD) data management, specifically the lack of interoperability and 
 standardization in healthcare information systems. As REDCap is widely used 

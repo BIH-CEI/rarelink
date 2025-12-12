@@ -27,7 +27,7 @@ from phenopackets import MetaData, Phenopacket, Resource
 
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 from rarelink.utils.date_handling import date_to_timestamp
-from rarelink_cdm import get_codesystems_container_class
+from rarelink.rarelink_cdm import get_codesystems_container_class
 
 logger = logging.getLogger(__name__)
 
