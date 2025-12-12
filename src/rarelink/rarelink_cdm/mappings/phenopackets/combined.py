@@ -9,6 +9,7 @@ from rarelink.rarelink_cdm.mappings.phenopackets import (
     VARIATION_DESCRIPTOR_BLOCK,
     PHENOTYPIC_FEATURES_BLOCK,
     MEASUREMENT_BLOCK,
+    MEDICAL_ACTION_BLOCK,
     RARELINK_CODE_SYSTEMS,
     mapping_dicts,
     label_dicts
@@ -78,6 +79,12 @@ def create_rarelink_phenopacket_mappings() -> Dict[str, Any]:
         "measurements": {
             "instrument_name": "rarelink_6_3_measurements",
             "mapping_block": MEASUREMENT_BLOCK,
+            "label_dicts": {},
+            "mapping_dicts": {}
+        },
+        "medical_actions": {
+            "instrument_name": "rarelink_6_3_measurements",
+            "mapping_block": MEDICAL_ACTION_BLOCK,
             "label_dicts": {},
             "mapping_dicts": {}
         },

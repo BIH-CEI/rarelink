@@ -1,5 +1,5 @@
 # Auto generated from rarelink_6_3_measurements.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-23T15:59:43
+# Generation date: 2025-12-12T17:20:00
 # Schema: rarelink_6_3_measurements
 #
 # id: https://github.com/BIH-CEI/RareLink/rarelink_6_3_measurements.yaml
@@ -10,15 +10,14 @@ from dataclasses import dataclass
 from typing import (
     Any,
     ClassVar,
-    Dict,
-    List,
     Optional,
     Union
 )
-
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.yamlutils import YAMLRoot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot
+)
 from rdflib import (
     URIRef
 )
@@ -28,7 +27,6 @@ from linkml_runtime.utils.metamodelcore import XSDDate
 
 metamodel_version = "1.7.0"
 version = None
-
 
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
@@ -60,7 +58,7 @@ class Measurement(YAMLRoot):
     The section Measurements (6.3) of the RareLink CDM. This section captures assay-related measurements and their
     corresponding values, units, interpretations, and procedures.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = RARELINK["Measurement"]
     class_class_curie: ClassVar[str] = "rarelink:Measurement"
@@ -80,10 +78,11 @@ class Measurement(YAMLRoot):
     snomedct_122869004_ncit: Optional[str] = None
     snomedct_122869004_snomed: Optional[str] = None
     snomedct_122869004: Optional[str] = None
+    snomedct_122869004_maxo: Optional[str] = None
     snomedct_122869004_bdsite: Optional[str] = None
     snomedct_122869004_status: Optional[str] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.measurement_category):
             self.MissingRequiredField("measurement_category")
         if not isinstance(self.measurement_category, str):
@@ -128,6 +127,9 @@ class Measurement(YAMLRoot):
 
         if self.snomedct_122869004 is not None and not isinstance(self.snomedct_122869004, str):
             self.snomedct_122869004 = str(self.snomedct_122869004)
+
+        if self.snomedct_122869004_maxo is not None and not isinstance(self.snomedct_122869004_maxo, str):
+            self.snomedct_122869004_maxo = str(self.snomedct_122869004_maxo)
 
         if self.snomedct_122869004_bdsite is not None and not isinstance(self.snomedct_122869004_bdsite, str):
             self.snomedct_122869004_bdsite = str(self.snomedct_122869004_bdsite)
@@ -181,6 +183,9 @@ slots.snomedct_122869004_snomed = Slot(uri=RARELINK.snomedct_122869004_snomed, n
 slots.snomedct_122869004 = Slot(uri=RARELINK.snomedct_122869004, name="snomedct_122869004", curie=RARELINK.curie('snomedct_122869004'),
                    model_uri=RARELINK.snomedct_122869004, domain=None, range=Optional[str])
 
+slots.snomedct_122869004_maxo = Slot(uri=RARELINK.snomedct_122869004_maxo, name="snomedct_122869004_maxo", curie=RARELINK.curie('snomedct_122869004_maxo'),
+                   model_uri=RARELINK.snomedct_122869004_maxo, domain=None, range=Optional[str])
+
 slots.snomedct_122869004_bdsite = Slot(uri=RARELINK.snomedct_122869004_bdsite, name="snomedct_122869004_bdsite", curie=RARELINK.curie('snomedct_122869004_bdsite'),
                    model_uri=RARELINK.snomedct_122869004_bdsite, domain=None, range=Optional[str])
 
@@ -189,3 +194,4 @@ slots.snomedct_122869004_status = Slot(uri=RARELINK.snomedct_122869004_status, n
 
 slots.rarelink_6_3_measurements_complete = Slot(uri=RARELINK.rarelink_6_3_measurements_complete, name="rarelink_6_3_measurements_complete", curie=RARELINK.curie('rarelink_6_3_measurements_complete'),
                    model_uri=RARELINK.rarelink_6_3_measurements_complete, domain=None, range=str)
+

@@ -158,6 +158,7 @@ def fetch_label_from_bioportal(code: str) -> Optional[str]:
             "UO":      {"api": "UO",         "iri": f"http://purl.obolibrary.org/obo/UO_{identifier}"},
             "VO":      {"api": "VO",         "iri": f"http://purl.obolibrary.org/obo/VO_{identifier}"},
             "GENO":    {"api": "GENO",       "iri": f"http://purl.obolibrary.org/obo/GENO_{identifier}"},
+            "MAXO":    {"api": "MAXO",       "iri": f"http://purl.obolibrary.org/obo/MAXO_{identifier}"}
         }
 
         mapping = ontology_map.get(ontology)

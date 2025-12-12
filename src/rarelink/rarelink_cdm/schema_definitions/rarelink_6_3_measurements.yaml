@@ -32,6 +32,7 @@ classes:
       - snomedct_122869004_ncit
       - snomedct_122869004_snomed
       - snomedct_122869004
+      - snomedct_122869004_maxo
       - snomedct_122869004_bdsite
       - snomedct_122869004_status
       - rarelink_6_3_measurements_complete
@@ -120,7 +121,14 @@ slots:
   snomedct_122869004:
     title: 6.3.7 Procedure [SNOMEDCT]
     description: >
-      The procedure related to the measurement, encoded with SNOMEDCT
+      A procedure itself, encoded with SNOMEDCT
+    range: string
+    required: false
+
+  snomedct_122869004_maxo:
+    title: 6.3.7A Procedure Method [MAXO]
+    description: >
+      A procedure itself, encoded with MAXO.
     range: string
     required: false
 

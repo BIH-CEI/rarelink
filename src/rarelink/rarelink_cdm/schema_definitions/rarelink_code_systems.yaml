@@ -91,6 +91,10 @@ enums:
     description: International Classification of Functioning, Disability and Health
     code_set: https://www.who.int/classifications/icf/en/
     code_set_version: '1.0.2'
+  MAXO:
+    description: Medical Action Ontology
+    code_set: https://purl.obolibrary.org/obo/maxo.owl
+    code_set_version: '2025-04-24'
 classes:
   CodeSystemsContainer:
     description: A container class for all code systems used in RareLink.
@@ -176,4 +180,8 @@ classes:
       icf:
         description: International Classification of Functioning, Disability and Health
         range: ICF
+        required: true
+      maxo:
+        description: Medical Action Ontology
+        range: MAXO
         required: true

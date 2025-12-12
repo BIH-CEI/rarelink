@@ -109,7 +109,8 @@ def app(
     # Ask about custom LinkML schema if not using RareLink-CDM
     if not rarelink_cdm and linkml_schema is None:
         use_custom_schema = typer.confirm(
-            "Do you have a custom LinkML schema available for validation?",
+            "Do you have a custom LinkML schema available for validation? "
+            "(select No to use the RareLink-CDM schema)",
             default=False,
         )
         if use_custom_schema:

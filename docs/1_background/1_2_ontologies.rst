@@ -94,6 +94,12 @@ The following codesystems are used in the RareLink Core Framework:
     The **Sequence Ontology** provides standardized vocabulary for genomic 
     annotation components, enhancing sharing and analysis of genomic information.
 
+:`MAXO <https://bioportal.bioontology.org/ontologies/MAXO>`_:
+    The **Medical Action Ontology (MAxO)** provides a structured vocabulary for 
+    medical procedures, interventions, therapies, and treatments for disease 
+    with an emphasis on rare disease (RD). MAxO provides a vocabulary to 
+    annotate diseases and phenotypes with recommended treatments and interventions.
+
 .. note:: The versions used by the RareLink Core Framework can be found here: 
     `RareLink Ontologies <https://github.com/BIH-CEI/rarelink/blob/develop/src/rarelink/rarelink_cdm/python_datamodel/rarelink_code_systems.py>`_.
 

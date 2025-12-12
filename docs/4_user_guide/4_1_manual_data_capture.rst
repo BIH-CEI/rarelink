@@ -431,8 +431,8 @@ ________________________________________________________________________________
 
 
 .. tip::
-  Define a set of rules for capturing measurements within a cohort to
-  improve subsequent analyses.
+  Define a set of rules for capturing measurements and procedures within 
+  a cohort to improve subsequent analyses.
 
 
 General Notes:
@@ -461,6 +461,35 @@ Fields:
 .. tip:: 
   `OLS Platform <https://www.ebi.ac.uk/ols4/ontologies>`_ for
   ontology-specific searches if you cannot find the concepts you are looking for.
+
+The **Measurements** form can also be used to capture **medical procedures** by
+selecting the measurement category **``procedure``**.
+
+When the category **procedure** is selected:
+
+- The recorded information is interpreted as a **medical action**
+- The data are mapped differently depending on the target standard:
+
+**FHIR / IPS**
+  - The information is exported into the **FHIR-IPS Procedure Profile**
+  - Procedures **must** be encoded using **SNOMED CT**
+  - Whenever possible, use concepts from:
+    - `IPS Procedures Value Set <https://build.fhir.org/ig/HL7/fhir-ips/en/ValueSet-procedures-uv-ips.html>`_
+    - **SNOMED CT Body Structures** (for anatomical targets)
+
+**GA4GH Phenopackets**
+  - The information is stored in the **MedicalAction** block
+  - Procedures may be encoded using:
+    - **SNOMED CT**, or
+    - **MAXO (Medical Action Ontology)**
+  - While both are supported, **MAXO is recommended** where applicable,
+    as current and upcoming analysis algorithms developed by the **HPO team**
+    increasingly rely on MAXO-based representations.
+
+.. note::
+   Only **procedures** (not laboratory or quantitative measurements) should be
+   captured using the *procedure* category. All other observations should use
+   the appropriate measurement category (e.g. laboratory, vital signs).
 
 
 Return to `top <#top>`_.

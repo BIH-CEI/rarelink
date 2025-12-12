@@ -223,7 +223,7 @@ def create_phenopacket(
 
         # --- Medical Actions (Procedures and Treatments) ---
         medical_actions = []
-        proc_processor, _ = create_processor("procedures")
+        proc_processor, _ = create_processor("medical_actions")
         medical_action_mapper = MedicalActionMapper(proc_processor)
         proc_actions = medical_action_mapper.map(
             data, dob=individual.date_of_birth)

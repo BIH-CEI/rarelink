@@ -1,5 +1,5 @@
 # Auto generated from rarelink_code_systems.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-08T12:30:55
+# Generation date: 2025-12-12T17:10:33
 # Schema: code_systems_data
 #
 # id: https://github.com/BIH-CEI/RareLink/code_systems_data
@@ -12,7 +12,7 @@ from typing import (
     Union
 )
 from linkml_runtime.linkml_model.meta import (
-    EnumDefinition
+    EnumDefinition,
 )
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
@@ -81,6 +81,7 @@ class CodeSystemsContainer(YAMLRoot):
     geno: Union[str, "GENO"] = None
     iso3166: Union[str, "ISO3166"] = None
     icf: Union[str, "ICF"] = None
+    maxo: Union[str, "MAXO"] = None
 
 # Enumerations
 class NCBITaxon(EnumDefinitionImpl):
@@ -282,6 +283,16 @@ class ICF(EnumDefinitionImpl):
         code_set_version="1.0.2",
     )
 
+class MAXO(EnumDefinitionImpl):
+    """
+    Medical Action Ontology
+    """
+    _defn = EnumDefinition(
+        name="MAXO",
+        description="Medical Action Ontology",
+        code_set_version="2025-04-24",
+    )
+
 # Slots
 class slots:
     pass
@@ -345,4 +356,7 @@ slots.codeSystemsContainer__iso3166 = Slot(uri=RARELINK.iso3166, name="codeSyste
 
 slots.codeSystemsContainer__icf = Slot(uri=RARELINK.icf, name="codeSystemsContainer__icf", curie=RARELINK.curie('icf'),
                    model_uri=RARELINK.codeSystemsContainer__icf, domain=None, range=Union[str, "ICF"])
+
+slots.codeSystemsContainer__maxo = Slot(uri=RARELINK.maxo, name="codeSystemsContainer__maxo", curie=RARELINK.curie('maxo'),
+                   model_uri=RARELINK.codeSystemsContainer__maxo, domain=None, range=Union[str, "MAXO"])
 

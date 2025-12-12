@@ -25,6 +25,7 @@ FIELD_MAPPINGS = {
     "snomedct_122869004_ncit": "snomedct_122869004_ncit",
     "snomedct_122869004_snomed": "snomedct_122869004_snomed",
     "snomedct_122869004": "snomedct_122869004",
+    "snomedct_122869004_maxo": "snomedct_122869004_maxo",
     "snomedct_122869004_bdsite": "snomedct_122869004_bdsite",
     "snomedct_122869004_status": "snomedct_122869004_status",
     "rarelink_6_3_measurements_complete": "rarelink_6_3_measurements_complete",
@@ -37,6 +38,7 @@ ADDITIONAL_PROCESSING = {
     "ncit_c25712": lambda x: float(x) if x else None,
     "snomedct_122869004_snomed": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
     "snomedct_122869004_bdsite": lambda x: add_prefix_to_code(x, "SNOMEDCT"),
+    "snomedct_122869004": lambda x: add_prefix_to_code(x, "SNOMEDCT")
 }
 
 def map_measurements(entry):

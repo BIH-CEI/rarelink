@@ -40,7 +40,8 @@ def process_code(code: str) -> str:
         "icd9_": "ICD9:",
         "loinc_": "LOINC:",
         "uo_": "UO:",
-        "vo_": "VO:"
+        "vo_": "VO:",
+        "maxo": "MAXO:"
     }
     
     # Check for underscore prefix

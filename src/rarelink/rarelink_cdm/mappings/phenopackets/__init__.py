@@ -15,6 +15,7 @@ from .genetics import (
 from .phenotype import PHENOTYPIC_FEATURES_BLOCK
 from .disease import DISEASE_BLOCK
 from .measurements import MEASUREMENT_BLOCK
+from .medical_action import MEDICAL_ACTION_BLOCK
 from .resources import RARELINK_CODE_SYSTEMS
 from .ontology_paths import ONTOLOGY_PATHS
 from .combined import create_rarelink_phenopacket_mappings
@@ -29,6 +30,7 @@ __all__ = [
     "PHENOTYPIC_FEATURES_BLOCK",
     "DISEASE_BLOCK",
     "MEASUREMENT_BLOCK",
+    "MEDICAL_ACTION_BLOCK",
     "RARELINK_CODE_SYSTEMS",
     "VARIATION_DESCRIPTOR_BLOCK",
     "ONTOLOGY_PATHS",
