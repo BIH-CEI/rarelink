@@ -5,7 +5,12 @@ Changelog
 
 v2.0.5 (2025-11-19)
 ---------------------
-
+- Fixed a few of bugs
+- enhanced versioning and refactored repo folders
+- improved the functionality of MedicalActions for Phenopackets export
+- included MaXo as a novel coding system into the LinkML schema, Python classes,
+  REDCap data dictionary and for Phenopackets export.
+- See release notes here for more detail: https://github.com/BIH-CEI/rarelink/releases/tag/v2.0.5
 
 v2.0.4 (2025-09-25)
 ---------------------
