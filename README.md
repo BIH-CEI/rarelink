@@ -5,6 +5,8 @@
 A novel rare disease framework for REDCap linking international
 registries to FHIR and Phenopackets.
 
+> **Note**: The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+
 #### Framework
 <!-- RareLink Badges -->
 [![Python CI](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml/badge.svg)](https://github.com/BIH-CEI/rarelink/actions/workflows/python_ci.yml)
@@ -30,7 +32,6 @@ registries to FHIR and Phenopackets.
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
-> **Note**: The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
 ________________________________________________________________________________
 
 ## Table of Contents
