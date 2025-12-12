@@ -2,10 +2,11 @@
   <img src="docs/_static/res/rarelink_logo_no_background.png" alt="RareLink logo" width="400"/>
 </p>
 
-A novel rare disease framework for REDCap linking international
-registries to FHIR and Phenopackets.
+A novel REDCap-based framework for rare disease interoperability linking 
+international registries to FHIR and Phenopackets.
 
-> **Note**: The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+> **Note**: The corresponding paper was recently published in npj Genomic Medicine! 
+  You can read it here: https://www.nature.com/articles/s41525-025-00534-z
 
 #### Framework
 <!-- RareLink Badges -->
