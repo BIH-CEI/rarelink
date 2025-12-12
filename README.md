@@ -30,7 +30,7 @@ registries to FHIR and Phenopackets.
 
 [-> This way to the RareLink FHIR Implementation Guide](https://bih-cei.github.io/rarelink/) 
 
-> **Note:** The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
+> The paper was recently published in npj Genomic Medicine: https://www.nature.com/articles/s41525-025-00534-z
 ________________________________________________________________________________
 
 ## Table of Contents
@@ -273,12 +273,11 @@ We would like to extend our thanks to everyone in the last three years for their
 
 When using the software or its specifications please cite: 
 
-```
-Graefe, A.S.L., Rehburg, F., Alkarkoukly, S. et al. RareLink: scalable 
-REDCap-based framework for rare disease interoperability linking 
-international registries to FHIR and Phenopackets. 
-npj Genom. Med. 10, 72 (2025). https://doi.org/10.1038/s41525-025-00534-z
-```
+
+> Graefe, A.S.L., Rehburg, F., Alkarkoukly, S. et al. RareLink: scalable 
+  REDCap-based framework for rare disease interoperability linking 
+  international registries to FHIR and Phenopackets. 
+  npj Genom. Med. 10, 72 (2025). https://doi.org/10.1038/s41525-025-00534-z
 
 ---
 
