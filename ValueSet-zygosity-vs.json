@@ -1,0 +1,60 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "zygosity-vs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet zygosity-vs</b></p><a name=\"zygosity-vs\"> </a><a name=\"hczygosity-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA6705-3/\">LA6705-3</a></td><td>Homozygous</td></tr><tr><td><a href=\"https://loinc.org/LA6706-1/\">LA6706-1</a></td><td>(simple) Heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA26217-2/\">LA26217-2</a></td><td>Compound heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA26220-6/\">LA26220-6</a></td><td>Double heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA6707-9/\">LA6707-9</a></td><td>Hemizygous</td></tr><tr><td><a href=\"https://loinc.org/LA6703-8/\">LA6703-8</a></td><td>Heteroplasmic</td></tr><tr><td><a href=\"https://loinc.org/LA6704-6/\">LA6704-6</a></td><td>Homoplasmic</td></tr></table></li></ul></div>"
+  },
+  "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs",
+  "version" : "2.0.0",
+  "name" : "ZygosityVS",
+  "title" : "Zygosity Value Set",
+  "status" : "draft",
+  "date" : "2025-12-15T08:42:23+00:00",
+  "publisher" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact" : [{
+    "name" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/BIH-CEI/RareLink"
+    },
+    {
+      "system" : "email",
+      "value" : "adam.graefe@charite.de"
+    }]
+  }],
+  "description" : "LOINC LA codes enumerating various zygosity states.",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "LA6705-3",
+        "display" : "Homozygous"
+      },
+      {
+        "code" : "LA6706-1",
+        "display" : "(simple) Heterozygous"
+      },
+      {
+        "code" : "LA26217-2",
+        "display" : "Compound heterozygous"
+      },
+      {
+        "code" : "LA26220-6",
+        "display" : "Double heterozygous"
+      },
+      {
+        "code" : "LA6707-9",
+        "display" : "Hemizygous"
+      },
+      {
+        "code" : "LA6703-8",
+        "display" : "Heteroplasmic"
+      },
+      {
+        "code" : "LA6704-6",
+        "display" : "Homoplasmic"
+      }]
+    }]
+  }
+}

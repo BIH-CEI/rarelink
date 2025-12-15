@@ -1,0 +1,99 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/encounter-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EncounterStatus",
+      "title" : "EncounterStatus",
+      "description" : "Current state of the encounter.",
+      "oids" : ["2.16.840.1.113883.4.642.4.247"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-status.html" : "EncounterStatus"
+    },
+    {
+      "url" : "http://hl7.org/fhir/event-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EventStatus",
+      "title" : "EventStatus",
+      "description" : "Codes identifying the lifecycle stage of an event.",
+      "oids" : ["2.16.840.1.113883.4.642.4.110"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-event-status.html" : "EventStatus"
+    },
+    {
+      "url" : "http://loinc.org",
+      "version" : "3.1.0",
+      "status" : "active",
+      "name" : "LOINC",
+      "title" : "Logical Observation Identifiers, Names and Codes (LOINC)",
+      "description" : "LOINC provides a set of universal names and ID codes for identifying laboratory and clinical test results.1,2 LOINC facilitates the exchange and pooling of results, such as blood hemoglobin, serum potassium, or vital signs, for clinical care, outcomes management, and research. LOINC's universal identifiers (names and codes) can be used in the context of order and observation exchanges between information systems that use syntax standards such as HL73, CEN TC251, ISO TC215, ASTM4, and DICOM. Specifically, the identifier can be used as the coded value for an observation in any other standard that uses the observation/observation value paradigm, whether messages, documents, application programming interface (API), etc. For example, LOINC codes are used widely in the OBX segment Observation Identifier field (OBX-3) of an ORU HL7 (HL7 version 2.x or ASTM 1238-9410) message that may be sent between a Clinical Laboratory Information Management Systems (LIMS) and Electronic Health Record Systems (EHR).5, 6 In this way, LOINC codes provide universal identifiers that allow the exchange of clinical data between heterogeneous computing environments.",
+      "oids" : ["2.16.840.1.113883.6.1"],
+      "uses" : {
+      },
+      "ValueSet-zygosity-vs.html" : "Zygosity Value Set",
+      "ValueSet-clinical-significance-vs.html" : "Clinical Significance Value Set",
+      "ValueSet-dna-change-type-vs.html" : "DNA Change Type Value Set",
+      "ValueSet-level-of-evidence-vs.html" : "Level of Evidence Value Set",
+      "http://hl7.org/fhir/R4/valueset-observation-vitalsignresult.html" : "Vital Signs",
+      "ValueSet-structural-variant-method-vs.html" : "Structural Variant Method Value Set",
+      "ValueSet-genomic-source-class-vs.html" : "Genomic Source Class Value Set",
+      "ValueSet-reference-genome-vs.html" : "Reference Genome Value Set"
+    },
+    {
+      "url" : "http://snomed.info/sct",
+      "version" : null,
+      "status" : "active",
+      "name" : "SNOMED_CT",
+      "title" : "SNOMED CT (all versions)",
+      "description" : "SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO).",
+      "oids" : ["2.16.840.1.113883.6.96"],
+      "uses" : {
+      },
+      "ValueSet-consanguinity-vs.html" : "Consanguinity Value Set",
+      "ValueSet-encounter-class-vs.html" : "Encounter Class Value Set",
+      "ValueSet-family-relationship-vs.html" : "Family Relationship Value Set",
+      "ValueSet-agreement-to-be-contacted-vs.html" : "Agreement to Be Contacted Value Set (ERDRI-CDS)",
+      "ValueSet-age-category-vs.html" : "Age Category Value Set",
+      "ValueSet-age-at-diagnosis-vs.html" : "Age at Diagnosis Value Set",
+      "ValueSet-vital-status-vs.html" : "Vital Status Value Set",
+      "ValueSet-severity-vs.html" : "Severity Value Set",
+      "http://hl7.org/fhir/uv/ips/2024Sep/ValueSet-procedures-uv-ips.html" : "Procedures - IPS",
+      "ValueSet-karyotypic-sex-vs.html" : "Karyotypic Sex Value Set",
+      "ValueSet-undiagnosed-rd-case-vs.html" : "Undiagnosed Rare Disease Case Value Set",
+      "ValueSet-propositus-vs.html" : "Propositus Value Set",
+      "ValueSet-age-at-onset-vs.html" : "Age at Onset Value Set",
+      "ValueSet-phenotype-status-vs.html" : "Phenotype Status Value Set",
+      "ValueSet-consent-to-reuse-vs.html" : "Consent to Reuse Data Value Set (ERDRI-CDS)",
+      "ValueSet-sex-at-birth-vs.html" : "Sex at Birth Value Set",
+      "ValueSet-family-sex-vs.html" : "Family Member Sex Value Set"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "ConditionClinicalStatusCodes",
+      "title" : "Condition Clinical Status Codes",
+      "description" : "Preferred value set for Condition Clinical Status.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1074"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/7.0.1/ValueSet-condition-clinical.html" : "Condition Clinical Status Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+      "version" : "2.0.1",
+      "status" : "active",
+      "name" : "ConditionVerificationStatus",
+      "title" : "ConditionVerificationStatus",
+      "description" : "The verification status to support or decline the clinical status of the condition or diagnosis.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1075"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/7.0.1/ValueSet-condition-ver-status.html" : "ConditionVerificationStatus"
+    }
+  ]
+}

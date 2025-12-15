@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "clinical-significance-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet clinical-significance-vs</b></p><a name=\"clinical-significance-vs\"> </a><a name=\"hcclinical-significance-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA6668-3/\">LA6668-3</a></td><td>Pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA26332-9/\">LA26332-9</a></td><td>Likely pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA26333-7/\">LA26333-7</a></td><td>Uncertain significance</td></tr><tr><td><a href=\"https://loinc.org/LA26334-5/\">LA26334-5</a></td><td>Likely benign</td></tr><tr><td><a href=\"https://loinc.org/LA6675-8/\">LA6675-8</a></td><td>Benign</td></tr><tr><td><a href=\"https://loinc.org/LA4489-6/\">LA4489-6</a></td><td>Unknown</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "ClinicalSignificanceVS"] ; # 
+  fhir:title [ fhir:v "Clinical Significance Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "LOINC LA codes for the clinical significance of a variant."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "LA6668-3" ] ;
+         fhir:display [ fhir:v "Pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA26332-9" ] ;
+         fhir:display [ fhir:v "Likely pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA26333-7" ] ;
+         fhir:display [ fhir:v "Uncertain significance" ]
+       ] [
+         fhir:code [ fhir:v "LA26334-5" ] ;
+         fhir:display [ fhir:v "Likely benign" ]
+       ] [
+         fhir:code [ fhir:v "LA6675-8" ] ;
+         fhir:display [ fhir:v "Benign" ]
+       ] [
+         fhir:code [ fhir:v "LA4489-6" ] ;
+         fhir:display [ fhir:v "Unknown" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

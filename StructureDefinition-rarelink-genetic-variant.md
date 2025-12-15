@@ -1,0 +1,478 @@
+# RareLink Genetic Variant Observation - RareLink Implementation Guide v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RareLink Genetic Variant Observation**
+
+## Resource Profile: RareLink Genetic Variant Observation 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant | *Version*:2.0.0 |
+| Draft as of 2025-12-15 | *Computable Name*:RareLinkGeneticVariant |
+
+ 
+A RareLink-specific profile for documenting genetic findings (genetic_findings.variant), based on the HL7 Genomics Reporting variant profile. 
+
+**Usages:**
+
+* This Profile is not used by any profiles in this Implementation Guide
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/rarelink-ig|current/StructureDefinition/rarelink-genetic-variant)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-rarelink-genetic-variant.csv), [Excel](StructureDefinition-rarelink-genetic-variant.xlsx), [Schematron](StructureDefinition-rarelink-genetic-variant.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "rarelink-genetic-variant",
+  "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant",
+  "version" : "2.0.0",
+  "name" : "RareLinkGeneticVariant",
+  "title" : "RareLink Genetic Variant Observation",
+  "status" : "draft",
+  "date" : "2025-12-15T08:42:23+00:00",
+  "publisher" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact" : [
+    {
+      "name" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://github.com/BIH-CEI/RareLink"
+        },
+        {
+          "system" : "email",
+          "value" : "adam.graefe@charite.de"
+        }
+      ]
+    }
+  ],
+  "description" : "A RareLink-specific profile for documenting genetic findings \n(genetic_findings.variant), based on the HL7 Genomics Reporting variant profile.\n",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Observation",
+  "baseDefinition" : "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant|3.0.0",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Observation",
+        "path" : "Observation"
+      },
+      {
+        "id" : "Observation.status",
+        "path" : "Observation.status",
+        "fixedCode" : "final"
+      },
+      {
+        "id" : "Observation.code.coding.system",
+        "path" : "Observation.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.code.coding.code",
+        "path" : "Observation.code.coding.code",
+        "fixedCode" : "69548-6"
+      },
+      {
+        "id" : "Observation.subject",
+        "path" : "Observation.subject",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.subject.reference",
+        "path" : "Observation.subject.reference",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.subject.identifier",
+        "path" : "Observation.subject.identifier",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.method.coding",
+        "path" : "Observation.method.coding",
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs"
+        }
+      },
+      {
+        "id" : "Observation.component:genomicHgvs",
+        "path" : "Observation.component",
+        "sliceName" : "genomicHgvs",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:genomicHgvs.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:genomicHgvs.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "81290-9"
+      },
+      {
+        "id" : "Observation.component:genomicHgvs.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:genomicHgvs.value[x].coding.system",
+        "path" : "Observation.component.value[x].coding.system",
+        "fixedUri" : "http://varnomen.hgvs.org"
+      },
+      {
+        "id" : "Observation.component:genomicRefSeq",
+        "path" : "Observation.component",
+        "sliceName" : "genomicRefSeq",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:genomicRefSeq.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:genomicRefSeq.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48013-7"
+      },
+      {
+        "id" : "Observation.component:genomicRefSeq.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:representativeCodingHgvs",
+        "path" : "Observation.component",
+        "sliceName" : "representativeCodingHgvs",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:representativeCodingHgvs.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:representativeCodingHgvs.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48004-6"
+      },
+      {
+        "id" : "Observation.component:representativeCodingHgvs.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:representativeCodingHgvs.value[x].coding.system",
+        "path" : "Observation.component.value[x].coding.system",
+        "fixedUri" : "http://varnomen.hgvs.org"
+      },
+      {
+        "id" : "Observation.component:representativeTranscriptRefSeq",
+        "path" : "Observation.component",
+        "sliceName" : "representativeTranscriptRefSeq",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:representativeTranscriptRefSeq.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:representativeTranscriptRefSeq.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "51958-7"
+      },
+      {
+        "id" : "Observation.component:representativeTranscriptRefSeq.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:representativeProteinHgvs",
+        "path" : "Observation.component",
+        "sliceName" : "representativeProteinHgvs",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:representativeProteinHgvs.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:representativeProteinHgvs.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48005-3"
+      },
+      {
+        "id" : "Observation.component:representativeProteinHgvs.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:representativeProteinHgvs.value[x].coding.system",
+        "path" : "Observation.component.value[x].coding.system",
+        "fixedUri" : "http://varnomen.hgvs.org"
+      },
+      {
+        "id" : "Observation.component:representativeProteinRefSeq",
+        "path" : "Observation.component",
+        "sliceName" : "representativeProteinRefSeq",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:representativeProteinRefSeq.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+      },
+      {
+        "id" : "Observation.component:representativeProteinRefSeq.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "protein-ref-seq"
+      },
+      {
+        "id" : "Observation.component:representativeProteinRefSeq.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:referenceSequenceAssembly",
+        "path" : "Observation.component",
+        "sliceName" : "referenceSequenceAssembly",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:referenceSequenceAssembly.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:referenceSequenceAssembly.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "62374-4"
+      },
+      {
+        "id" : "Observation.component:referenceSequenceAssembly.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://rarelink.bih-charite.de/fhir/ValueSet/reference-genome-vs"
+        }
+      },
+      {
+        "id" : "Observation.component:geneStudied",
+        "path" : "Observation.component",
+        "sliceName" : "geneStudied",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:geneStudied.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:geneStudied.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48018-6"
+      },
+      {
+        "id" : "Observation.component:geneStudied.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.component:geneStudied.value[x].coding.system",
+        "path" : "Observation.component.value[x].coding.system",
+        "fixedUri" : "http://www.genenames.org"
+      },
+      {
+        "id" : "Observation.component:allelicState",
+        "path" : "Observation.component",
+        "sliceName" : "allelicState",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:allelicState.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:allelicState.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "53034-5"
+      },
+      {
+        "id" : "Observation.component:allelicState.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs"
+        }
+      },
+      {
+        "id" : "Observation.component:genomicSourceClass",
+        "path" : "Observation.component",
+        "sliceName" : "genomicSourceClass",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:genomicSourceClass.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:genomicSourceClass.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48002-0"
+      },
+      {
+        "id" : "Observation.component:genomicSourceClass.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://rarelink.bih-charite.de/fhir/ValueSet/genomic-source-class-vs"
+        }
+      },
+      {
+        "id" : "Observation.component:codingChangeType",
+        "path" : "Observation.component",
+        "sliceName" : "codingChangeType",
+        "min" : 0,
+        "max" : "1"
+      },
+      {
+        "id" : "Observation.component:codingChangeType.code.coding.system",
+        "path" : "Observation.component.code.coding.system",
+        "fixedUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.component:codingChangeType.code.coding.code",
+        "path" : "Observation.component.code.coding.code",
+        "patternCode" : "48019-4"
+      },
+      {
+        "id" : "Observation.component:codingChangeType.value[x]",
+        "path" : "Observation.component.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "https://rarelink.bih-charite.de/fhir/ValueSet/dna-change-type-vs"
+        }
+      }
+    ]
+  }
+}
+
+```

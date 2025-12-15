@@ -1,0 +1,52 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "reference-genome-vs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet reference-genome-vs</b></p><a name=\"reference-genome-vs\"> </a><a name=\"hcreference-genome-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA14032-9/\">LA14032-9</a></td><td>NCBI Build 34 (hg16)</td></tr><tr><td><a href=\"https://loinc.org/LA14029-5/\">LA14029-5</a></td><td>GRCh37 (hg19)</td></tr><tr><td><a href=\"https://loinc.org/LA14030-3/\">LA14030-3</a></td><td>NCBI Build 36.1 (hg18)</td></tr><tr><td><a href=\"https://loinc.org/LA14031-1/\">LA14031-1</a></td><td>NCBI Build 35 (hg17)</td></tr><tr><td><a href=\"https://loinc.org/LA26806-2/\">LA26806-2</a></td><td>GRCh38 (hg38)</td></tr></table></li></ul></div>"
+  },
+  "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/reference-genome-vs",
+  "version" : "2.0.0",
+  "name" : "ReferenceGenomeVS",
+  "title" : "Reference Genome Value Set",
+  "status" : "draft",
+  "date" : "2025-12-15T08:42:23+00:00",
+  "publisher" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact" : [{
+    "name" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/BIH-CEI/RareLink"
+    },
+    {
+      "system" : "email",
+      "value" : "adam.graefe@charite.de"
+    }]
+  }],
+  "description" : "LOINC LA codes specifying the reference genome build.",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "LA14032-9",
+        "display" : "NCBI Build 34 (hg16)"
+      },
+      {
+        "code" : "LA14029-5",
+        "display" : "GRCh37 (hg19)"
+      },
+      {
+        "code" : "LA14030-3",
+        "display" : "NCBI Build 36.1 (hg18)"
+      },
+      {
+        "code" : "LA14031-1",
+        "display" : "NCBI Build 35 (hg17)"
+      },
+      {
+        "code" : "LA26806-2",
+        "display" : "GRCh38 (hg38)"
+      }]
+    }]
+  }
+}

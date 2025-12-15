@@ -1,0 +1,56 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "clinical-significance-vs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet clinical-significance-vs</b></p><a name=\"clinical-significance-vs\"> </a><a name=\"hcclinical-significance-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA6668-3/\">LA6668-3</a></td><td>Pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA26332-9/\">LA26332-9</a></td><td>Likely pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA26333-7/\">LA26333-7</a></td><td>Uncertain significance</td></tr><tr><td><a href=\"https://loinc.org/LA26334-5/\">LA26334-5</a></td><td>Likely benign</td></tr><tr><td><a href=\"https://loinc.org/LA6675-8/\">LA6675-8</a></td><td>Benign</td></tr><tr><td><a href=\"https://loinc.org/LA4489-6/\">LA4489-6</a></td><td>Unknown</td></tr></table></li></ul></div>"
+  },
+  "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs",
+  "version" : "2.0.0",
+  "name" : "ClinicalSignificanceVS",
+  "title" : "Clinical Significance Value Set",
+  "status" : "draft",
+  "date" : "2025-12-15T08:42:23+00:00",
+  "publisher" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+  "contact" : [{
+    "name" : "Berlin Institute of Health - Charité Universitätsmedizin Berlin",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/BIH-CEI/RareLink"
+    },
+    {
+      "system" : "email",
+      "value" : "adam.graefe@charite.de"
+    }]
+  }],
+  "description" : "LOINC LA codes for the clinical significance of a variant.",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "LA6668-3",
+        "display" : "Pathogenic"
+      },
+      {
+        "code" : "LA26332-9",
+        "display" : "Likely pathogenic"
+      },
+      {
+        "code" : "LA26333-7",
+        "display" : "Uncertain significance"
+      },
+      {
+        "code" : "LA26334-5",
+        "display" : "Likely benign"
+      },
+      {
+        "code" : "LA6675-8",
+        "display" : "Benign"
+      },
+      {
+        "code" : "LA4489-6",
+        "display" : "Unknown"
+      }]
+    }]
+  }
+}

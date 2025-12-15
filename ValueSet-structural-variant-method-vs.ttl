@@ -1,0 +1,78 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "structural-variant-method-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet structural-variant-method-vs</b></p><a name=\"structural-variant-method-vs\"> </a><a name=\"hcstructural-variant-method-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA26406-1/\">LA26406-1</a></td><td>Karyotyping</td></tr><tr><td><a href=\"https://loinc.org/LA26404-6/\">LA26404-6</a></td><td>FISH</td></tr><tr><td><a href=\"https://loinc.org/LA26418-6/\">LA26418-6</a></td><td>PCR</td></tr><tr><td><a href=\"https://loinc.org/LA26419-4/\">LA26419-4</a></td><td>qPCR (real-time PCR)</td></tr><tr><td><a href=\"https://loinc.org/LA26400-4/\">LA26400-4</a></td><td>SNP array</td></tr><tr><td><a href=\"https://loinc.org/LA26813-8/\">LA26813-8</a></td><td>Restriction fragment length polymorphism (RFLP)</td></tr><tr><td><a href=\"https://loinc.org/LA26810-4/\">LA26810-4</a></td><td>DNA hybridization</td></tr><tr><td><a href=\"https://loinc.org/LA26398-0/\">LA26398-0</a></td><td>Sequencing</td></tr><tr><td><a href=\"https://loinc.org/LA26415-2/\">LA26415-2</a></td><td>MLPA</td></tr><tr><td><a href=\"https://loinc.org/LA46-8/\">LA46-8</a></td><td>Other</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "StructuralVariantMethodVS"] ; # 
+  fhir:title [ fhir:v "Structural Variant Method Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "LOINC LA codes enumerating methods for detecting structural variants."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "LA26406-1" ] ;
+         fhir:display [ fhir:v "Karyotyping" ]
+       ] [
+         fhir:code [ fhir:v "LA26404-6" ] ;
+         fhir:display [ fhir:v "FISH" ]
+       ] [
+         fhir:code [ fhir:v "LA26418-6" ] ;
+         fhir:display [ fhir:v "PCR" ]
+       ] [
+         fhir:code [ fhir:v "LA26419-4" ] ;
+         fhir:display [ fhir:v "qPCR (real-time PCR)" ]
+       ] [
+         fhir:code [ fhir:v "LA26400-4" ] ;
+         fhir:display [ fhir:v "SNP array" ]
+       ] [
+         fhir:code [ fhir:v "LA26813-8" ] ;
+         fhir:display [ fhir:v "Restriction fragment length polymorphism (RFLP)" ]
+       ] [
+         fhir:code [ fhir:v "LA26810-4" ] ;
+         fhir:display [ fhir:v "DNA hybridization" ]
+       ] [
+         fhir:code [ fhir:v "LA26398-0" ] ;
+         fhir:display [ fhir:v "Sequencing" ]
+       ] [
+         fhir:code [ fhir:v "LA26415-2" ] ;
+         fhir:display [ fhir:v "MLPA" ]
+       ] [
+         fhir:code [ fhir:v "LA46-8" ] ;
+         fhir:display [ fhir:v "Other" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "level-of-evidence-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet level-of-evidence-vs</b></p><a name=\"level-of-evidence-vs\"> </a><a name=\"hclevel-of-evidence-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA30200-2/\">LA30200-2</a></td><td>Very strong evidence pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA30201-0/\">LA30201-0</a></td><td>Strong evidence pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA30202-8/\">LA30202-8</a></td><td>Moderate evidence pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA30203-6/\">LA30203-6</a></td><td>Supporting evidence pathogenic</td></tr><tr><td><a href=\"https://loinc.org/LA30204-4/\">LA30204-4</a></td><td>Supporting evidence benign</td></tr><tr><td><a href=\"https://loinc.org/LA30205-1/\">LA30205-1</a></td><td>Strong evidence benign</td></tr><tr><td><a href=\"https://loinc.org/LA30206-9/\">LA30206-9</a></td><td>Stand-alone evidence pathogenic</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "LevelOfEvidenceVS"] ; # 
+  fhir:title [ fhir:v "Level of Evidence Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "LOINC LA codes describing evidence strength for a variant."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "LA30200-2" ] ;
+         fhir:display [ fhir:v "Very strong evidence pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA30201-0" ] ;
+         fhir:display [ fhir:v "Strong evidence pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA30202-8" ] ;
+         fhir:display [ fhir:v "Moderate evidence pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA30203-6" ] ;
+         fhir:display [ fhir:v "Supporting evidence pathogenic" ]
+       ] [
+         fhir:code [ fhir:v "LA30204-4" ] ;
+         fhir:display [ fhir:v "Supporting evidence benign" ]
+       ] [
+         fhir:code [ fhir:v "LA30205-1" ] ;
+         fhir:display [ fhir:v "Strong evidence benign" ]
+       ] [
+         fhir:code [ fhir:v "LA30206-9" ] ;
+         fhir:display [ fhir:v "Stand-alone evidence pathogenic" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

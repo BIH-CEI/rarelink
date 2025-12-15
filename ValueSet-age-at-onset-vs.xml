@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="age-at-onset-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet age-at-onset-vs</b></p><a name="age-at-onset-vs"> </a><a name="hcage-at-onset-vs"> </a><ul><li>Include these codes as defined in <a href="http://www.snomed.org/"><code>http://snomed.info/sct</code></a><span title="Version is not explicitly stated. No matching Code System found"> version Not Stated (use latest from terminology server)</span><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="http://snomed.info/id/118189007">118189007</a></td><td>Prenatal</td></tr><tr><td><a href="http://snomed.info/id/3950001">3950001</a></td><td>Birth</td></tr><tr><td><a href="http://snomed.info/id/410672004">410672004</a></td><td>Date</td></tr><tr><td><a href="http://snomed.info/id/261665006">261665006</a></td><td>Unknown</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://rarelink.bih-charite.de/fhir/ValueSet/age-at-onset-vs"/>
+  <version value="2.0.0"/>
+  <name value="AgeAtOnsetVS"/>
+  <title value="Age at Onset Value Set"/>
+  <status value="draft"/>
+  <date value="2025-12-15T08:42:23+00:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="Value set for capturing age at onset."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="118189007"/>
+        <display value="Prenatal"/>
+      </concept>
+      <concept>
+        <code value="3950001"/>
+        <display value="Birth"/>
+      </concept>
+      <concept>
+        <code value="410672004"/>
+        <display value="Date"/>
+      </concept>
+      <concept>
+        <code value="261665006"/>
+        <display value="Unknown"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

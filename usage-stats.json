@@ -1,0 +1,584 @@
+{
+  "package": "rarelink-ig",
+  "version": "2.0.0",
+  "fhirVersion": "4.0.1",
+  "extensions": [
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-diagnosis",
+      "title": "Age at Diagnosis",
+      "types": [
+        "CodeableConcept"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset",
+      "title": "Age at Onset",
+      "types": [
+        "CodeableConcept"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+      "title": "Birth Place",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death",
+      "title": "Cause of Death",
+      "types": [
+        "base64Binary",
+        "boolean",
+        "canonical",
+        "code",
+        "date",
+        "dateTime",
+        "decimal",
+        "id",
+        "instant",
+        "integer",
+        "markdown",
+        "oid",
+        "positiveInt",
+        "string",
+        "time",
+        "unsignedInt",
+        "uri",
+        "url",
+        "uuid",
+        "Address",
+        "Age",
+        "Annotation",
+        "Attachment",
+        "CodeableConcept",
+        "Coding",
+        "ContactPoint",
+        "Count",
+        "Distance",
+        "Duration",
+        "HumanName",
+        "Identifier",
+        "Money",
+        "Period",
+        "Quantity",
+        "Range",
+        "Ratio",
+        "Reference",
+        "SampledData",
+        "Signature",
+        "Timing",
+        "ContactDetail",
+        "Contributor",
+        "DataRequirement",
+        "Expression",
+        "ParameterDefinition",
+        "RelatedArtifact",
+        "TriggerDefinition",
+        "UsageContext",
+        "Dosage",
+        "Meta"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-code",
+      "title": "Cause of Death Code",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition",
+      "title": "Cause of Death Definition",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-agent",
+      "title": "Phenotype Causing Organism",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1",
+      "title": "Clinical Modifier",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2",
+      "title": "Clinical Modifier",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3",
+      "title": "Clinical Modifier",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity",
+      "title": "Consanguinity",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+      "title": "Date of Admission",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+      "title": "Agreement to Be Contacted",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse-data",
+      "title": "Consent to Reuse Data",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity",
+      "title": "Phenotype Severity",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status",
+      "title": "Phenotype Status",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus",
+      "title": "Propositus",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth",
+      "title": "Recorded Sex at Birth",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date",
+      "title": "Resolution Date",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern",
+      "title": "Phenotype Temporal Pattern",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status",
+      "title": "Vital Status",
+      "types": [
+        "CodeableConcept"
+      ]
+    }
+  ],
+  "profiles": {
+    "Condition": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-condition",
+        "title": "RareLink IPS Condition"
+      }
+    ],
+    "Consent": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent",
+        "title": "RareLink Consent"
+      }
+    ],
+    "Observation": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-karyotypic-sex",
+        "title": "RareLink Observation Karyotypic Sex"
+      },
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category",
+        "title": "RareLink Observation Age Category"
+      },
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth",
+        "title": "RareLink Observation Gestation at Birth"
+      },
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-measurements-others",
+        "title": "RareLink Observation Measurements (Others)"
+      },
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-vital-signs",
+        "title": "RareLink Vital Signs Measurements"
+      },
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature",
+        "title": "RareLink Observation Phenotypic Feature"
+      }
+    ],
+    "Encounter": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter",
+        "title": "RareLink Encounter"
+      }
+    ],
+    "FamilyMemberHistory": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory",
+        "title": "RareLink Family History"
+      }
+    ],
+    "Patient": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient",
+        "title": "RareLink IPS Patient"
+      }
+    ],
+    "Procedure": [
+      {
+        "url": "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure",
+        "title": "RareLink IPS Procedure"
+      }
+    ]
+  },
+  "usage": {
+    "http://hl7.org/fhir/StructureDefinition/bodySite": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/data-absent-reason": [
+      "Observation.effective[x]",
+      "Observation.performer",
+      "Patient.name",
+      "Procedure.performed[x]",
+      "StructureDefinition.differential.element",
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support": [
+      "StructureDefinition.differential.element.type",
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/regex": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/translation": [
+      "Condition.bodySite.coding.display",
+      "Condition.code.coding.display",
+      "Condition.severity.coding.display",
+      "Observation.category.coding.display",
+      "Procedure.bodySite.coding.display",
+      "Procedure.code.coding.display"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/workflow-relatedArtifact": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/additional-binding": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name": [
+      "ImplementationGuide.definition.page",
+      "ImplementationGuide.definition.page.page"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment": [
+      "ImplementationGuide.dependsOn"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/resource-information": [
+      "ImplementationGuide.definition.resource"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version": [
+      "StructureDefinition.snapshot"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-risk-assessment": [
+      "Observation"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/repeat-motif-order": [
+      "Observation.component"
+    ],
+    "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/workflow-relatedArtifactComponent": [
+      "Observation.component"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-diagnosis": [
+      "Condition"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset": [
+      "Condition"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place": [
+      "Patient"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death": [
+      "Patient"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-code": [
+      "Extension"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition": [
+      "Extension"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-agent": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity": [
+      "FamilyMemberHistory"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission": [
+      "Patient"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted": [
+      "Consent"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse-data": [
+      "Consent"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus": [
+      "FamilyMemberHistory"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth": [
+      "Patient"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern": [
+      "Observation"
+    ],
+    "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status": [
+      "Patient"
+    ]
+  }
+}

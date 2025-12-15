@@ -1,0 +1,63 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-severity-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "phenotype-severity-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet phenotype-severity-vs</b></p><a name=\"phenotype-severity-vs\"> </a><a name=\"hcphenotype-severity-vs\"> </a><ul><li>Include these codes as defined in <code>http://purl.obolibrary.org/obo/hp.owl</code><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>HP:0012827</td><td>Borderline</td></tr><tr><td>HP:0012825</td><td>Mild</td></tr><tr><td>HP:0012826</td><td>Moderate</td></tr><tr><td>HP:0012829</td><td>Profound</td></tr><tr><td>HP:0012828</td><td>Severe</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-severity-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-severity-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "PhenotypeSeverityVS"] ; # 
+  fhir:title [ fhir:v "Phenotype Severity Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Value set for capturing phenotype severity."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://purl.obolibrary.org/obo/hp.owl"^^xsd:anyURI ;
+         fhir:l <http://purl.obolibrary.org/obo/hp.owl>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "HP:0012827" ] ;
+         fhir:display [ fhir:v "Borderline" ]
+       ] [
+         fhir:code [ fhir:v "HP:0012825" ] ;
+         fhir:display [ fhir:v "Mild" ]
+       ] [
+         fhir:code [ fhir:v "HP:0012826" ] ;
+         fhir:display [ fhir:v "Moderate" ]
+       ] [
+         fhir:code [ fhir:v "HP:0012829" ] ;
+         fhir:display [ fhir:v "Profound" ]
+       ] [
+         fhir:code [ fhir:v "HP:0012828" ] ;
+         fhir:display [ fhir:v "Severe" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

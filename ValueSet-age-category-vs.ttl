@@ -1,0 +1,72 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/age-category-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "age-category-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet age-category-vs</b></p><a name=\"age-category-vs\"> </a><a name=\"hcage-category-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/3658006\">3658006</a></td><td>Infancy</td></tr><tr><td><a href=\"http://snomed.info/id/713153009\">713153009</a></td><td>Toddler</td></tr><tr><td><a href=\"http://snomed.info/id/255398004\">255398004</a></td><td>Childhood</td></tr><tr><td><a href=\"http://snomed.info/id/263659003\">263659003</a></td><td>Adolescence</td></tr><tr><td><a href=\"http://snomed.info/id/41847000\">41847000</a></td><td>Adulthood</td></tr><tr><td><a href=\"http://snomed.info/id/303112003\">303112003</a></td><td>Fetal period</td></tr><tr><td><a href=\"http://snomed.info/id/419099009\">419099009</a></td><td>Dead</td></tr><tr><td><a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>Unknown</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/age-category-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/age-category-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "AgeCategoryVS"] ; # 
+  fhir:title [ fhir:v "Age Category Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Value set for capturing the age category of a patient."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "3658006" ] ;
+         fhir:display [ fhir:v "Infancy" ]
+       ] [
+         fhir:code [ fhir:v "713153009" ] ;
+         fhir:display [ fhir:v "Toddler" ]
+       ] [
+         fhir:code [ fhir:v "255398004" ] ;
+         fhir:display [ fhir:v "Childhood" ]
+       ] [
+         fhir:code [ fhir:v "263659003" ] ;
+         fhir:display [ fhir:v "Adolescence" ]
+       ] [
+         fhir:code [ fhir:v "41847000" ] ;
+         fhir:display [ fhir:v "Adulthood" ]
+       ] [
+         fhir:code [ fhir:v "303112003" ] ;
+         fhir:display [ fhir:v "Fetal period" ]
+       ] [
+         fhir:code [ fhir:v "419099009" ] ;
+         fhir:display [ fhir:v "Dead" ]
+       ] [
+         fhir:code [ fhir:v "261665006" ] ;
+         fhir:display [ fhir:v "Unknown" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,457 @@
+[
+  {
+    "id" : "rarelink-ig",
+    "type" : "ImplementationGuide",
+    "url" : "https://rarelink.bih-charite.de/fhir/ImplementationGuide/rarelink-ig",
+    "version" : "2.0.0",
+    "name" : "RareLinkImplementationGuide"
+  },
+  {
+    "id" : "age-at-diagnosis",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-diagnosis",
+    "version" : "2.0.0",
+    "name" : "AgeAtDiagnosis"
+  },
+  {
+    "id" : "age-at-onset",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/age-at-onset",
+    "version" : "2.0.0",
+    "name" : "AgeAtOnset"
+  },
+  {
+    "id" : "birth-place",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/birth-place",
+    "version" : "2.0.0",
+    "name" : "BirthPlace"
+  },
+  {
+    "id" : "cause-of-death",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death",
+    "version" : "2.0.0",
+    "name" : "CauseOfDeath"
+  },
+  {
+    "id" : "cause-of-death-code",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-code",
+    "version" : "2.0.0",
+    "name" : "CauseOfDeathCode"
+  },
+  {
+    "id" : "cause-of-death-definition",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/cause-of-death-definition",
+    "version" : "2.0.0",
+    "name" : "CauseOfDeathDefinition"
+  },
+  {
+    "id" : "causing-agent",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/causing-agent",
+    "version" : "2.0.0",
+    "name" : "CausingOrganism"
+  },
+  {
+    "id" : "clinical-modifier-1",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-1",
+    "version" : "2.0.0",
+    "name" : "ClinicalModifier1"
+  },
+  {
+    "id" : "clinical-modifier-2",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-2",
+    "version" : "2.0.0",
+    "name" : "ClinicalModifier2"
+  },
+  {
+    "id" : "clinical-modifier-3",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/clinical-modifier-3",
+    "version" : "2.0.0",
+    "name" : "ClinicalModifier3"
+  },
+  {
+    "id" : "consanguinity",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity",
+    "version" : "2.0.0",
+    "name" : "Consanguinity"
+  },
+  {
+    "id" : "date-of-admission",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/date-of-admission",
+    "version" : "2.0.0",
+    "name" : "DateOfAdmission"
+  },
+  {
+    "id" : "erdri-agreement-to-be-contacted",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-agreement-to-be-contacted",
+    "version" : "2.0.0",
+    "name" : "AgreementToBeContacted"
+  },
+  {
+    "id" : "erdri-consent-to-reuse-data",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/erdri-consent-to-reuse-data",
+    "version" : "2.0.0",
+    "name" : "ConsentToReuseData"
+  },
+  {
+    "id" : "phenotype-severity",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-severity",
+    "version" : "2.0.0",
+    "name" : "PhenotypeSeverity"
+  },
+  {
+    "id" : "phenotype-status",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/phenotype-status",
+    "version" : "2.0.0",
+    "name" : "PhenotypeStatus"
+  },
+  {
+    "id" : "propositus",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus",
+    "version" : "2.0.0",
+    "name" : "Propositus"
+  },
+  {
+    "id" : "rarelink-condition-undiagnosed-rd-case",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-condition-undiagnosed-rd-case",
+    "version" : "2.0.0",
+    "name" : "RareLinkConditionUndiagnosedRDCase"
+  },
+  {
+    "id" : "rarelink-consent",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-consent",
+    "version" : "2.0.0",
+    "name" : "RareLinkConsent"
+  },
+  {
+    "id" : "rarelink-diagnostic-implication",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-diagnostic-implication",
+    "version" : "2.0.0",
+    "name" : "RareLinkDiagnosticImplication"
+  },
+  {
+    "id" : "rarelink-encounter",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-encounter",
+    "version" : "2.0.0",
+    "name" : "RareLinkEncounter"
+  },
+  {
+    "id" : "rarelink-familyhistory",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-familyhistory",
+    "version" : "2.0.0",
+    "name" : "RareLinkFamilyHistory"
+  },
+  {
+    "id" : "rarelink-genetic-variant",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-genetic-variant",
+    "version" : "2.0.0",
+    "name" : "RareLinkGeneticVariant"
+  },
+  {
+    "id" : "rarelink-ips-condition",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-condition",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSCondition"
+  },
+  {
+    "id" : "rarelink-ips-measurement-laboratory",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-laboratory",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSMeasurementLaboratory"
+  },
+  {
+    "id" : "rarelink-ips-measurement-radiology",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-measurement-radiology",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSMeasurementRadiology"
+  },
+  {
+    "id" : "rarelink-ips-patient",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-patient",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSPatient"
+  },
+  {
+    "id" : "rarelink-ips-procedure",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-ips-procedure",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSProcedure"
+  },
+  {
+    "id" : "rarelink-karyotypic-sex",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-karyotypic-sex",
+    "version" : "2.0.0",
+    "name" : "RareLinkKaryotypicSex"
+  },
+  {
+    "id" : "rarelink-observation-age-category",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-age-category",
+    "version" : "2.0.0",
+    "name" : "RareLinkAgeCategory"
+  },
+  {
+    "id" : "rarelink-observation-gestation-at-birth",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-gestation-at-birth",
+    "version" : "2.0.0",
+    "name" : "RareLinkGestationAtBirth"
+  },
+  {
+    "id" : "rarelink-observation-measurements-others",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-measurements-others",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSMeasurementsOthers"
+  },
+  {
+    "id" : "rarelink-observation-vital-signs",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-observation-vital-signs",
+    "version" : "2.0.0",
+    "name" : "RareLinkIPSMeasurementsVitalSigns"
+  },
+  {
+    "id" : "rarelink-phenotypic-feature",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/rarelink-phenotypic-feature",
+    "version" : "2.0.0",
+    "name" : "RareLinkPhenotypicFeature"
+  },
+  {
+    "id" : "recorded-sex-at-birth",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/recorded-sex-at-birth",
+    "version" : "2.0.0",
+    "name" : "RecordedSexAtBirth"
+  },
+  {
+    "id" : "resolution-date",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/resolution-date",
+    "version" : "2.0.0",
+    "name" : "ResolutionDate"
+  },
+  {
+    "id" : "temporal-pattern",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/temporal-pattern",
+    "version" : "2.0.0",
+    "name" : "TemporalPattern"
+  },
+  {
+    "id" : "vital-status",
+    "type" : "StructureDefinition",
+    "url" : "https://rarelink.bih-charite.de/fhir/StructureDefinition/vital-status",
+    "version" : "2.0.0",
+    "name" : "VitalStatus"
+  },
+  {
+    "id" : "age-at-diagnosis-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/age-at-diagnosis-vs",
+    "version" : "2.0.0",
+    "name" : "AgeAtDiagnosisVS"
+  },
+  {
+    "id" : "age-at-onset-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/age-at-onset-vs",
+    "version" : "2.0.0",
+    "name" : "AgeAtOnsetVS"
+  },
+  {
+    "id" : "age-category-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/age-category-vs",
+    "version" : "2.0.0",
+    "name" : "AgeCategoryVS"
+  },
+  {
+    "id" : "age-of-onset-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/age-of-onset-vs",
+    "version" : "2.0.0",
+    "name" : "AgeOfOnsetVS"
+  },
+  {
+    "id" : "agreement-to-be-contacted-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/agreement-to-be-contacted-vs",
+    "version" : "2.0.0",
+    "name" : "AgreementToBeContactedVS"
+  },
+  {
+    "id" : "clinical-significance-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/clinical-significance-vs",
+    "version" : "2.0.0",
+    "name" : "ClinicalSignificanceVS"
+  },
+  {
+    "id" : "consanguinity-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/consanguinity-vs",
+    "version" : "2.0.0",
+    "name" : "ConsanguinityVS"
+  },
+  {
+    "id" : "consent-to-reuse-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/consent-to-reuse-vs",
+    "version" : "2.0.0",
+    "name" : "ConsentToReuseVS"
+  },
+  {
+    "id" : "dna-change-type-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/dna-change-type-vs",
+    "version" : "2.0.0",
+    "name" : "DNAChangeTypeVS"
+  },
+  {
+    "id" : "encounter-class-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/encounter-class-vs",
+    "version" : "2.0.0",
+    "name" : "EncounterClassVS"
+  },
+  {
+    "id" : "family-relationship-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/family-relationship-vs",
+    "version" : "2.0.0",
+    "name" : "FamilyRelationshipVS"
+  },
+  {
+    "id" : "family-sex-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/family-sex-vs",
+    "version" : "2.0.0",
+    "name" : "FamilySexVS"
+  },
+  {
+    "id" : "genomic-source-class-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/genomic-source-class-vs",
+    "version" : "2.0.0",
+    "name" : "GenomicSourceClassVS"
+  },
+  {
+    "id" : "karyotypic-sex-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/karyotypic-sex-vs",
+    "version" : "2.0.0",
+    "name" : "KaryotypicSexVS"
+  },
+  {
+    "id" : "level-of-evidence-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs",
+    "version" : "2.0.0",
+    "name" : "LevelOfEvidenceVS"
+  },
+  {
+    "id" : "phenotype-severity-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-severity-vs",
+    "version" : "2.0.0",
+    "name" : "PhenotypeSeverityVS"
+  },
+  {
+    "id" : "phenotype-status-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/phenotype-status-vs",
+    "version" : "2.0.0",
+    "name" : "PhenotypeStatusVS"
+  },
+  {
+    "id" : "propositus-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/propositus-vs",
+    "version" : "2.0.0",
+    "name" : "PropositusVS"
+  },
+  {
+    "id" : "reference-genome-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/reference-genome-vs",
+    "version" : "2.0.0",
+    "name" : "ReferenceGenomeVS"
+  },
+  {
+    "id" : "severity-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/severity-vs",
+    "version" : "2.0.0",
+    "name" : "SeverityVS"
+  },
+  {
+    "id" : "sex-at-birth-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/sex-at-birth-vs",
+    "version" : "2.0.0",
+    "name" : "SexAtBirthVS"
+  },
+  {
+    "id" : "structural-variant-method-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/structural-variant-method-vs",
+    "version" : "2.0.0",
+    "name" : "StructuralVariantMethodVS"
+  },
+  {
+    "id" : "temporal-pattern-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/temporal-pattern-vs",
+    "version" : "2.0.0",
+    "name" : "TemporalPatternVS"
+  },
+  {
+    "id" : "undiagnosed-rd-case-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/undiagnosed-rd-case-vs",
+    "version" : "2.0.0",
+    "name" : "UndiagnosedRDCaseVS"
+  },
+  {
+    "id" : "vital-status-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/vital-status-vs",
+    "version" : "2.0.0",
+    "name" : "VitalStatusVS"
+  },
+  {
+    "id" : "zygosity-vs",
+    "type" : "ValueSet",
+    "url" : "https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs",
+    "version" : "2.0.0",
+    "name" : "ZygosityVS"
+  }
+]

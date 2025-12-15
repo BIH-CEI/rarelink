@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="level-of-evidence-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet level-of-evidence-vs</b></p><a name="level-of-evidence-vs"> </a><a name="hclevel-of-evidence-vs"> </a><ul><li>Include these codes as defined in <a href="http://loinc.org"><code>http://loinc.org</code></a><span title="Version is not explicitly stated. No matching Code System found"> version Not Stated (use latest from terminology server)</span><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href="https://loinc.org/LA30200-2/">LA30200-2</a></td><td>Very strong evidence pathogenic</td></tr><tr><td><a href="https://loinc.org/LA30201-0/">LA30201-0</a></td><td>Strong evidence pathogenic</td></tr><tr><td><a href="https://loinc.org/LA30202-8/">LA30202-8</a></td><td>Moderate evidence pathogenic</td></tr><tr><td><a href="https://loinc.org/LA30203-6/">LA30203-6</a></td><td>Supporting evidence pathogenic</td></tr><tr><td><a href="https://loinc.org/LA30204-4/">LA30204-4</a></td><td>Supporting evidence benign</td></tr><tr><td><a href="https://loinc.org/LA30205-1/">LA30205-1</a></td><td>Strong evidence benign</td></tr><tr><td><a href="https://loinc.org/LA30206-9/">LA30206-9</a></td><td>Stand-alone evidence pathogenic</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://rarelink.bih-charite.de/fhir/ValueSet/level-of-evidence-vs"/>
+  <version value="2.0.0"/>
+  <name value="LevelOfEvidenceVS"/>
+  <title value="Level of Evidence Value Set"/>
+  <status value="draft"/>
+  <date value="2025-12-15T08:42:23+00:00"/>
+  <publisher value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+  <contact>
+    <name value="Berlin Institute of Health - Charité Universitätsmedizin Berlin"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/BIH-CEI/RareLink"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="adam.graefe@charite.de"/>
+    </telecom>
+  </contact>
+  <description value="LOINC LA codes describing evidence strength for a variant."/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="LA30200-2"/>
+        <display value="Very strong evidence pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA30201-0"/>
+        <display value="Strong evidence pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA30202-8"/>
+        <display value="Moderate evidence pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA30203-6"/>
+        <display value="Supporting evidence pathogenic"/>
+      </concept>
+      <concept>
+        <code value="LA30204-4"/>
+        <display value="Supporting evidence benign"/>
+      </concept>
+      <concept>
+        <code value="LA30205-1"/>
+        <display value="Strong evidence benign"/>
+      </concept>
+      <concept>
+        <code value="LA30206-9"/>
+        <display value="Stand-alone evidence pathogenic"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

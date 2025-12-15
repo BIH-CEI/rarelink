@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "zygosity-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet zygosity-vs</b></p><a name=\"zygosity-vs\"> </a><a name=\"hczygosity-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/LA6705-3/\">LA6705-3</a></td><td>Homozygous</td></tr><tr><td><a href=\"https://loinc.org/LA6706-1/\">LA6706-1</a></td><td>(simple) Heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA26217-2/\">LA26217-2</a></td><td>Compound heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA26220-6/\">LA26220-6</a></td><td>Double heterozygous</td></tr><tr><td><a href=\"https://loinc.org/LA6707-9/\">LA6707-9</a></td><td>Hemizygous</td></tr><tr><td><a href=\"https://loinc.org/LA6703-8/\">LA6703-8</a></td><td>Heteroplasmic</td></tr><tr><td><a href=\"https://loinc.org/LA6704-6/\">LA6704-6</a></td><td>Homoplasmic</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs"^^xsd:anyURI ;
+     fhir:l <https://rarelink.bih-charite.de/fhir/ValueSet/zygosity-vs>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "ZygosityVS"] ; # 
+  fhir:title [ fhir:v "Zygosity Value Set"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-15T08:42:23+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://github.com/BIH-CEI/RareLink" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "adam.graefe@charite.de" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "LOINC LA codes enumerating various zygosity states."] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "LA6705-3" ] ;
+         fhir:display [ fhir:v "Homozygous" ]
+       ] [
+         fhir:code [ fhir:v "LA6706-1" ] ;
+         fhir:display [ fhir:v "(simple) Heterozygous" ]
+       ] [
+         fhir:code [ fhir:v "LA26217-2" ] ;
+         fhir:display [ fhir:v "Compound heterozygous" ]
+       ] [
+         fhir:code [ fhir:v "LA26220-6" ] ;
+         fhir:display [ fhir:v "Double heterozygous" ]
+       ] [
+         fhir:code [ fhir:v "LA6707-9" ] ;
+         fhir:display [ fhir:v "Hemizygous" ]
+       ] [
+         fhir:code [ fhir:v "LA6703-8" ] ;
+         fhir:display [ fhir:v "Heteroplasmic" ]
+       ] [
+         fhir:code [ fhir:v "LA6704-6" ] ;
+         fhir:display [ fhir:v "Homoplasmic" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+
