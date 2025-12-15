@@ -3,7 +3,7 @@
 Changelog
 ===========
 
-v2.0.5 (2025-11-19)
+v2.0.5 (2025-12-12)
 ---------------------
 - Fixed a few of bugs
 - enhanced versioning and refactored repo folders
