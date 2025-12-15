@@ -22,9 +22,9 @@ ________________________________________________________________________________
 .. figure:: _static/res/rarelink_overview.png
 
     Overview of the RareLink framework integrated with a local REDCap instance. 
-    The framework comprises the RareLink instruments based on the RD-CDM, the 
-    RareLink API, the toFHIR & CDIS module for export and import to HL7 FHIR IPS
-    and Genomic Reporting Resources, and the RareLink-Phenopackets module for 
+    The framework comprises the RareLink instruments based on the `RD-CDM <https://www.nature.com/articles/s41597-025-04558-z?fromPaywallRec=false>`_,  
+    the RareLink API, the toFHIR & CDIS module for export and import to HL7 FHIR 
+    IPS and Genomic Reporting Resources, and the RareLink-Phenopackets module for 
     direct export to GA4GH Phenopackets. Additionally, the LinkML-based import 
     mapper facilitates data import from tabular databases into REDCap, while 
     the Manual Data Capture Guide assists with the manual data capture of 
@@ -69,7 +69,7 @@ Sections
 8) :doc:`8_glossary`
 9) :doc:`9_acknowledgements`
 10) :doc:`10_license`
-11) :doc:`11_download_manifest`
+11) :doc:`12_contact`
 
 ________________________________________________________________________________
 
@@ -124,7 +124,6 @@ Additional Information
 - :doc:`8_glossary`
 - :doc:`9_acknowledgements`
 - :doc:`10_license`
-- :doc:`11_download_manifest`
 - :doc:`12_contact`
 
 ________________________________________________________________________________
