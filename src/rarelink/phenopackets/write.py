@@ -3,10 +3,16 @@ from pathlib import Path
 from google.protobuf.json_format import MessageToDict
 from phenopackets import VitalStatus as VitalStatusEnum
 
-def write_phenopackets(phenopackets: list, output_dir: str):
+def write_phenopackets(phenopackets: list, output_dir: str, validate: bool = True):
     """
     Writes Phenopackets to JSON files, emitting only the `status` field
     (including default) in the `vital_status` block.
+
+    Args:
+    - phenopackets (list): List of Phenopacket protobuf objects.
+    - output_dir (str): Directory to write JSON files into.
+    - validate (bool): Whether to validate each phenopacket after writing.
+                         Defaults to True.
     """
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -15,7 +21,7 @@ def write_phenopackets(phenopackets: list, output_dir: str):
         # 1) Serialize entire phenopacket normally (no default fields)
         full = MessageToDict(
             phenopacket,
-            preserving_proto_field_name=True,
+            preserving_proto_field_name=False,
             including_default_value_fields=False
         )
 
