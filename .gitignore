@@ -174,9 +174,11 @@ Public/
 *.rarelink_test_redcap_config.json
 
 # DS Store
+# macOS metadata
+.DS_Store
+**/.DS_Store
 .DS_Store/
 .DS_Store?
-.DS_Store
 .src/.DS_Store?
 .src/rarelink/.DS_Store?
 .src/rarelink/utils/.DS_Store?
