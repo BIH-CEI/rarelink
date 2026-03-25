@@ -2,13 +2,13 @@
   "id": "3",
   "subject": {
     "id": "EvCo3",
-    "date_of_birth": "2017-06-17T00:00:00Z",
-    "time_at_last_encounter": {
+    "dateOfBirth": "2017-06-17T00:00:00Z",
+    "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P7Y9M"
       }
     },
-    "vital_status": {
+    "vitalStatus": {
       "status": "ALIVE"
     },
     "sex": "MALE",
@@ -19,9 +19,12 @@
     "taxonomy": {
       "id": "NCBITaxon:9606",
       "label": "Homo sapiens"
+    },
+    "vital_status": {
+      "status": "ALIVE"
     }
   },
-  "phenotypic_features": [
+  "phenotypicFeatures": [
     {
       "type": {
         "id": "HP:0000637",
@@ -32,7 +35,7 @@
         "label": "Moderate"
       },
       "onset": {
-        "ontology_class": {
+        "ontologyClass": {
           "id": "HP:0003577",
           "label": "Congenital onset (at birth)"
         }
@@ -168,7 +171,7 @@
           "value": 1.2
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P3Y7M"
         }
@@ -188,7 +191,7 @@
           "value": 4.8
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P3Y7M"
         }
@@ -198,22 +201,22 @@
   "interpretations": [
     {
       "id": "EvCo3-interpretation-0",
-      "progress_status": "SOLVED",
+      "progressStatus": "SOLVED",
       "diagnosis": {
         "disease": {
           "id": "MONDO:0007843",
           "label": "Kabuki syndrome 1"
         },
-        "genomic_interpretations": [
+        "genomicInterpretations": [
           {
-            "subject_or_biosample_id": "1",
-            "interpretation_status": "CANDIDATE",
-            "variant_interpretation": {
-              "acmg_pathogenicity_classification": "LIKELY_PATHOGENIC",
-              "variation_descriptor": {
-                "id": "d7ae57fd6f1441a795125fad2a332d",
-                "gene_context": {
-                  "value_id": "HGNC:7132",
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CANDIDATE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "variationDescriptor": {
+                "id": "7c2e781f88d04efeae4d8ed8e3a591",
+                "geneContext": {
+                  "valueId": "HGNC:7132",
                   "symbol": "KMT2A"
                 },
                 "expressions": [
@@ -222,7 +225,7 @@
                     "value": "NM_001197104.2:c.3019G>T"
                   }
                 ],
-                "allelic_state": {
+                "allelicState": {
                   "id": "GENO:0000458",
                   "label": "Heterozygous"
                 }
@@ -246,59 +249,75 @@
       }
     }
   ],
-  "meta_data": {
-    "created": "2025-09-23T15:32:38.350095Z",
-    "created_by": "Adam G.",
+  "metaData": {
+    "created": "2026-03-11T16:35:51.818400Z",
+    "createdBy": "AG",
     "resources": [
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
         "version": "2025-06-03",
-        "namespace_prefix": "MONDO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/MONDO_"
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
       {
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
         "version": "2025-05-06",
-        "namespace_prefix": "HPO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/HP_"
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
       },
       {
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
         "version": "LNC278",
-        "namespace_prefix": "LOINC",
-        "iri_prefix": "http://loinc.org"
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "2023-05-25",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
       },
       {
         "id": "hgnc",
         "name": "HUGO Gene Nomenclature Committee",
         "url": "https://www.genenames.org/",
         "version": "2024-08-23",
-        "namespace_prefix": "HGNC",
-        "iri_prefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
       },
       {
         "id": "hgvs",
         "name": "Human Genome Variation Society",
         "url": "https://varnomen.hgvs.org/",
         "version": "21.0.0",
-        "namespace_prefix": "HGVS",
-        "iri_prefix": "https://varnomen.hgvs.org/recommendations/variant/"
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
       },
       {
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
         "version": "2023-10-08",
-        "namespace_prefix": "GENO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/GENO_"
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
       }
     ],
-    "phenopacket_schema_version": "2.0"
+    "phenopacketSchemaVersion": "2.0"
   }
 }
