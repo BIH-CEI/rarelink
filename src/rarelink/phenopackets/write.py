@@ -19,7 +19,7 @@ def write_phenopackets(
     validation_callback: Optional[Callable] = None,
 ) -> None:
     """
-    Serialize Phenopackets to JSON files (camelCase, Phenopacket v2 spec)
+    Serialize Phenopackets to JSON files (Phenopacket v2 spec)
     and optionally validate each one after writing.
 
     Args:
