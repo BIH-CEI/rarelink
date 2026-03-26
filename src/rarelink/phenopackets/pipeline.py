@@ -1,123 +1,162 @@
 # src/rarelink/phenopackets/pipeline.py
-import typer
-from pathlib import Path
-from typing import Dict, Any, Optional
-import logging
-import signal
 import json
+import logging
 import os
+import signal
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
 
-from rarelink.phenopackets import (
-    create_phenopacket
-)
+import typer
+
+from rarelink.phenopackets import create_phenopacket
+from rarelink.phenopackets.write import write_phenopackets
 
 app = typer.Typer()
 
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "phenopackets"
 logger = logging.getLogger(__name__)
 
+
 class TimeoutException(Exception):
     pass
 
+
 def timeout_handler(signum, frame):
-    raise TimeoutException("Pipeline processing exceeded the one-hour timeout limit.")
+    raise TimeoutException(
+        "Pipeline processing exceeded the timeout limit."
+    )
+
+
+@dataclass
+class PipelineResult:
+    """Structured result returned by phenopacket_pipeline."""
+    phenopackets: list = field(default_factory=list)
+    failed_creations: List[Dict[str, str]] = field(default_factory=list)
+    failed_validations: List[Dict[str, str]] = field(default_factory=list)
+    total_records: int = 0
+
+    @property
+    def n_created(self) -> int:
+        return len(self.phenopackets)
+
+    @property
+    def n_failed_creation(self) -> int:
+        return len(self.failed_creations)
+
+    @property
+    def n_failed_validation(self) -> int:
+        return len(self.failed_validations)
+
 
 def phenopacket_pipeline(
-    input_data: list, 
-    output_dir: str, 
-    created_by: str, 
+    input_data: list,
+    output_dir: str,
+    created_by: str,
     mapping_configs: Optional[Dict[str, Any]] = None,
     timeout: int = 3600,
-    debug: bool = False
-):
+    debug: bool = False,
+    progress_callback: Optional[Callable] = None,
+    validation_callback: Optional[Callable] = None,
+) -> PipelineResult:
     """
-    Enhanced pipeline to process input data, create Phenopackets, and write them to files.
-    Now handles different data models through flexible mapping configurations.
+    Process input records into Phenopackets in two explicit phases:
+
+      Phase 1 — Create: all records are mapped and built in memory.
+      Phase 2 — Write & Validate: write_phenopackets() serializes each one
+                to disk and optionally validates it.
 
     Args:
-        input_data (list): List of dictionaries containing individual records.
-        output_dir (str): Directory to save Phenopacket JSON files.
-        created_by (str): Name of the creator (for metadata).
-        mapping_configs (dict, optional): Mapping configurations for Phenopacket creation.
-        timeout (int): Timeout in seconds (default is 3600 seconds = 1 hour).
-        debug (bool): Enable debug mode for verbose logging
+        input_data:          List of record dicts.
+        output_dir:          Directory to write JSON files into.
+        created_by:          Creator name for phenopacket metadata.
+        mapping_configs:     Mapping configurations for Phenopacket creation.
+        timeout:             Wall-clock timeout in seconds (default 3600).
+        debug:               Enable verbose debug logging.
+        progress_callback:   Optional callable(record_id, success, error)
+                             called after each creation attempt.
+        validation_callback: Optional callable(file_path, success, error)
+                             called after each validation attempt.
+                             Forwarded directly to write_phenopackets().
 
     Returns:
-        List: A list of created Phenopacket objects.
+        PipelineResult with created phenopackets and per-stage failure details.
     """
-    # Set up logging level based on debug flag
-    if debug:
-        logging.getLogger('rarelink').setLevel(logging.DEBUG)
-    else:
-        logging.getLogger('rarelink').setLevel(logging.INFO)
+    logging.getLogger("rarelink").setLevel(
+        logging.DEBUG if debug else logging.WARNING
+    )
 
-    # Set up the alarm signal for the timeout
     signal.signal(signal.SIGALRM, timeout_handler)
     signal.alarm(timeout)
 
+    result = PipelineResult(total_records=len(input_data))
+
     try:
-        # Validate mapping_configs
         if not mapping_configs:
             raise ValueError("Mapping configurations are required")
-            
-        # Create directory if it doesn't exist
+
         os.makedirs(output_dir, exist_ok=True)
 
-        # Create Phenopackets
-        phenopackets = []
-        failed_records = []
-        total_records = len(input_data)
-
-        for i, record in enumerate(input_data):
+        # ── Phase 1: Create all Phenopackets ──────────────────────────────────
+        for record in input_data:
+            record_id = record.get("record_id", "unknown")
             try:
-                print(f"Processing record {i+1}/{total_records} (id={record.get('record_id', 'unknown')})")
-                
-                # Use mapping_configs if provided
                 phenopacket = create_phenopacket(
-                    data=record, 
+                    data=record,
                     created_by=created_by,
                     mapping_configs=mapping_configs,
-                    debug=debug
+                    debug=debug,
                 )
-                
-                phenopackets.append(phenopacket)
-                print(f" ... created Phenopacket for record id={record.get('record_id', 'unknown')}")
+                result.phenopackets.append(phenopacket)
+                if progress_callback:
+                    progress_callback(record_id, success=True, error=None)
             except Exception as e:
-                print(f"ERROR creating Phenopacket for record id={record.get('record_id', 'unknown')} - {e}")
-                failed_records.append({
-                    'record_id': record.get('record_id', 'unknown'),
-                    'error': str(e)
-                })
-                
-                # Log additional debug info
+                error_msg = str(e)
+                result.failed_creations.append(
+                    {"record_id": record_id, "error": error_msg}
+                )
+                if progress_callback:
+                    progress_callback(record_id, success=False, error=error_msg)
                 if debug:
-                    logger.debug(f"Record structure: {json.dumps(record, default=str, indent=2)[:1000]}...")
+                    logger.debug(
+                        "Record structure: "
+                        f"{json.dumps(record, default=str, indent=2)[:1000]}..."
+                    )
 
-        # Write Phenopackets to files
-        from rarelink.phenopackets import write_phenopackets
-        logger.info("Writing Phenopackets to files...")
-        write_phenopackets(phenopackets, output_dir)
-        logger.info("Phenopacket pipeline completed successfully.")
+        # ── Phase 2: Write & Validate ─────────────────────────────────────────
+        # Wrap the validation_callback so we can also capture failures into
+        # result.failed_validations for the summary report.
+        def _validation_callback(file_path: str, success: bool, error: Optional[str]):
+            if not success:
+                result.failed_validations.append(
+                    {"file": file_path, "error": error or ""}
+                )
+            if validation_callback:
+                validation_callback(file_path, success=success, error=error)
 
-        # Optionally, log details of failed records
-        if failed_records:
-            logger.warning("Details of failed records:")
-            for fail in failed_records:
-                logger.warning(f"Record ID: {fail['record_id']}")
-                logger.warning(f"Error: {fail['error']}")
+        write_phenopackets(
+            phenopackets=result.phenopackets,
+            output_dir=output_dir,
+            validate=True,
+            validation_callback=_validation_callback,
+        )
 
-            # Write failure report to file for easier debugging
+        # ── Write combined failure report ──────────────────────────────────────
+        all_failures = [
+            {**f, "stage": "creation"} for f in result.failed_creations
+        ] + [
+            {**f, "stage": "validation"} for f in result.failed_validations
+        ]
+        if all_failures:
             failure_file = os.path.join(output_dir, "failures.json")
-            with open(failure_file, 'w') as f:
-                json.dump(failed_records, f, indent=2)
-            logger.info(f"Failure report written to {failure_file}")
+            with open(failure_file, "w") as fh:
+                json.dump(all_failures, fh, indent=2)
+            logger.debug(f"Failure report written to {failure_file}")
 
-        return phenopackets
-    
+        return result
+
     except TimeoutException as te:
         logger.error(f"Timeout occurred: {te}")
-        print(f"WARNING: Processing timed out after {timeout/3600} hour(s).")
         raise
     finally:
-        # Disable the alarm
         signal.alarm(0)
