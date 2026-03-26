@@ -282,8 +282,6 @@ def export(
     from rarelink.phenopackets.pipeline import phenopacket_pipeline
 
     # ── Step 7a: Phase 1 progress bar — Creating ─────────────────────────────
-    # The validation bar is intentionally absent here. It only appears once
-    # all phenopackets have been created, making the two-phase flow explicit.
     create_progress, create_task = _make_progress(
         "Creating  phenopackets", total
     )
@@ -313,8 +311,6 @@ def export(
             raise typer.Exit(1)
 
     # ── Step 7b: Phase 2 progress bar — Validating ───────────────────────────
-    # Only appears after the creation bar has finished. Total is n_created
-    # (records that failed creation have no file to validate).
     n_to_validate = result.n_created
     if n_to_validate > 0:
         validate_progress, validate_task = _make_progress(
@@ -324,10 +320,6 @@ def export(
             def on_validated(file_path, success, error):
                 validate_progress.advance(validate_task)
 
-            # Re-run only the write+validate phase by passing already-created
-            # phenopackets back through a second pipeline call.
-            # To avoid re-creating, we call the internal write+validate loop
-            # directly rather than the full pipeline.
             _run_write_and_validate(
                 phenopackets=result.phenopackets,
                 output_dir=output_dir,

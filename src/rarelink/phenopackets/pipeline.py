@@ -1,4 +1,3 @@
-# src/rarelink/phenopackets/pipeline.py
 import json
 import logging
 import os
@@ -124,8 +123,6 @@ def phenopacket_pipeline(
                     )
 
         # ── Phase 2: Write & Validate ─────────────────────────────────────────
-        # Wrap the validation_callback so we can also capture failures into
-        # result.failed_validations for the summary report.
         def _validation_callback(file_path: str, success: bool, error: Optional[str]):
             if not success:
                 result.failed_validations.append(
