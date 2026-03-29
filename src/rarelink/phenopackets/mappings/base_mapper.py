@@ -4,8 +4,8 @@ from typing import Any, Dict, List, Optional, TypeVar, Generic, Callable, Union
 from rarelink.utils.processor import DataProcessor
 from rarelink.utils.field_access import get_multi_instrument_field_value
 import rarelink.utils.label_fetching as labels
+from functools import lru_cache
 
-# Define type variable for the return type of mappers
 T = TypeVar('T')
 
 logger = logging.getLogger(__name__)
@@ -44,20 +44,12 @@ class BaseMapper(Generic[T]):
         """
         
         try:
-            # Extract mapping configuration from processor
             config = self.processor.mapping_config
-            
-            # Determine if this is a single or multi-entity mapper
             is_multi = config.get("multi_entity", False)
-            
-            # Extract instruments for field access
             instruments = self._get_instruments(config)
-            
-            # Store the instruments in the processor for field access
             if instruments:
                 config["all_instruments"] = instruments
             
-            # Map based on single or multi-entity configuration
             if is_multi:
                 result = self._map_multi_entity(data, instruments, **kwargs)
                 if result is None:
@@ -70,7 +62,6 @@ class BaseMapper(Generic[T]):
             logger.error(f"Error in {self.__class__.__name__}.map: {e}")
             import traceback
             logger.debug(traceback.format_exc())
-            # Return empty list for multi-entity mappers, None for single-entity mappers
             return [] if config.get("multi_entity", False) else None
     
     def _map_single_entity(
@@ -121,14 +112,12 @@ class BaseMapper(Generic[T]):
         Returns:
             Any: Field value or default
         """
-        # Get the field path from the configuration
         field_path = self.processor.mapping_config.get(field_name)
         if not field_path:
             if self.debug_mode:
                 logger.debug(f"Field '{field_name}' not found in mapping config")
             return default
         
-        # Use multi-instrument field access if instruments provided
         if instruments:
             value = get_multi_instrument_field_value(
                 data=data,
@@ -139,7 +128,6 @@ class BaseMapper(Generic[T]):
             if value is not None:
                 return value
         
-        # Fallback to processor's get_field method
         return self.processor.get_field(data, field_name, default)
     
     def safe_execute(self, 
@@ -177,6 +165,7 @@ class BaseMapper(Generic[T]):
         """Process a code using the processor"""
         return self.processor.process_code(code)
     
+    @lru_cache(maxsize=None)
     def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
         """
         Fetch a label with a single, patchable entrypoint:
@@ -188,7 +177,6 @@ class BaseMapper(Generic[T]):
         if not code:
             return None
 
-        # Resolve enum class if provided as a name
         enum_obj = None
         if isinstance(enum_class, str):
             enum_obj = getattr(
@@ -196,20 +184,16 @@ class BaseMapper(Generic[T]):
         else:
             enum_obj = enum_class
 
-        # Flatten mapping-config label dicts (support dict-of-dicts or flat dict)
         merged_dict: Dict[str, str] = {}
         mapping_config = self.processor.mapping_config or {}
         label_dicts = mapping_config.get("label_dicts") or {}
         if isinstance(label_dicts, dict):
-            # If it's a dict-of-dicts, merge values
             for v in label_dicts.values():
                 if isinstance(v, dict):
                     merged_dict.update(v)
-            # If the dict is already flat (values not dicts), also merge as-is
             if all(not isinstance(v, dict) for v in label_dicts.values()):
                 merged_dict.update(label_dicts)
 
-        # Delegate to the shared function (this is what the CLI patches)
         return labels.fetch_label(code, enum_class=enum_obj, label_dict=merged_dict)
     
     def fetch_mapping_value(
@@ -231,19 +215,16 @@ class BaseMapper(Generic[T]):
         config = config or self.processor.mapping_config
         instruments = []
         
-        # Get instrument_name(s)
         instrument_name = config.get("instrument_name")
         if isinstance(instrument_name, (list, set)):
             instruments.extend(list(instrument_name))
         elif instrument_name:
             instruments.append(instrument_name)
         
-        # Add redcap_repeat_instrument if present
         repeat_instrument = config.get("redcap_repeat_instrument")
         if repeat_instrument and repeat_instrument not in instruments:
             instruments.append(repeat_instrument)
         
-        # Filter out dummy instruments
         return [i for i in instruments if i and i != "__dummy__"]
     
     def map_genetics_to_geno_ontology(self, 
