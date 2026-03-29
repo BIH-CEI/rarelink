@@ -12,7 +12,7 @@ from rarelink.utils.mapping import map_entry
 
 FIELD_MAPPINGS = {
     "snomedct_184099003": "snomedct_184099003",
-    "snomedct_281053000": "snomedct_281053000",
+    "loinc_76689_9": "loinc_76689_9",
     "snomedct_1296886006": "snomedct_1296886006",
     "snomedct_263495000": "snomedct_263495000",
     "snomedct_370159000": "snomedct_370159000",

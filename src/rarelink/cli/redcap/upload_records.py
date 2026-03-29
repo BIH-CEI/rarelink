@@ -16,13 +16,10 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
+from rarelink.utils.validation import validate_linkml_data
 from rarelink.utils.schema_processing import linkml_to_redcap  
 from rarelink.rarelink_cdm.mappings.redcap import REVERSE_PROCESSING
 import logging
-
-def validate_linkml_data(*args, **kwargs):
-    from rarelink.utils.validation import validate_linkml_data as _impl
-    return _impl(*args, **kwargs)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

@@ -315,7 +315,7 @@ ______________________________________________________________
   - Cardinality: Required (1..1)
   - Validation: Date format (YYYY-MM-DD)
 
-- 2.2 Sex at Birth (``snomedct_281053000``)
+- 2.2 Sex at Birth (``loinc_76689_9``)
 
   - Cardinality: Optional
   - Validation: Dropdown (choices encoded according to :ref:`1_5`)

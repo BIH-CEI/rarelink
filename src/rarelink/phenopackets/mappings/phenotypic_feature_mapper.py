@@ -1,5 +1,6 @@
 from typing import Dict, Any, Optional, List
 import logging
+import warnings
 from phenopackets import PhenotypicFeature, OntologyClass, TimeElement, Evidence
 
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
@@ -49,7 +50,7 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
         Note: This method is required by the BaseMapper interface but not directly used
         since we always return multiple entities.
         """
-        logger.warning("PhenotypicFeatureMapper._map_single_entity called, but this mapper returns multiple entities")
+        warnings.warn("PhenotypicFeatureMapper._map_single_entity called, but this mapper returns multiple entities")
         return None
     
     def _map_multi_entity(self, data: Dict[str, Any], instruments: List[str], **kwargs) -> List[PhenotypicFeature]:

@@ -12,23 +12,23 @@ enums:
   NCBITaxon:
     description: NCBI organismal classification
     code_set: https://www.ncbi.nlm.nih.gov/taxonomy
-    code_set_version: 'NCBI2024_04_02'
+    code_set_version: '2025_04_10'
   SNOMEDCT:
     description: SNOMED CT
     code_set: http://snomed.info/sct
-    code_set_version: 'SNOMEDCT_US_2024_09_01'
+    code_set_version: '2025AB'
   MONDO:
     description: Monarch Disease Ontology
     code_set: https://purl.obolibrary.org/obo/MONDO/
-    code_set_version: '2025-06-03'
+    code_set_version: '2026-03-03'
   HP:
     description: Human Phenotype Ontology
     code_set: https://www.human-phenotype-ontology.org
-    code_set_version: '2025-05-06'
+    code_set_version: '2026-02-16'
   LOINC:
     description: Logical Observation Identifiers Names and Codes
     code_set: http://loinc.org
-    code_set_version: 'LNC278'
+    code_set_version: '281'
   OMIM:
     description: Online Mendelian Inheritance
     code_set: https://omim.org/
@@ -44,7 +44,7 @@ enums:
   UO:
     description: Units of Measurement Ontology
     code_set: https://www.ontobee.org/ontology/UO
-    code_set_version: '2023-05-25'
+    code_set_version: '2026-01-16'
   HGNC:
     description: HUGO Gene Nomenclature Committee
     code_set: https://www.genenames.org/
@@ -74,7 +74,7 @@ enums:
     description: International Classification of Diseases, Tenth Revision, German
       Modification
     code_set: https://www.bfarm.de/EN/Code-systems/Classifications/ICD/ICD-10-GM/_node.html
-    code_set_version: ''
+    code_set_version: '2026'
   SO:
     description: Sequence types and features ontology
     code_set: https://www.sequenceontology.org/
@@ -82,7 +82,7 @@ enums:
   GENO:
     description: GENO - The Genotype Ontology
     code_set: https://www.genoontology.org/
-    code_set_version: '2023-10-08'
+    code_set_version: '2026-02-02'
   ISO3166:
     description: ISO 3166-1:2020(en) alpha-2 and alpha-3 country codes
     code_set: https://www.iso.org/iso-3166-country-codes.html

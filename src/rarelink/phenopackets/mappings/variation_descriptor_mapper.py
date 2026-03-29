@@ -1,6 +1,7 @@
 from typing import Dict, Any, Optional, List
 import re
 import logging
+import warnings
 from phenopackets import (
     VariationDescriptor,
     OntologyClass,
@@ -40,13 +41,13 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
                 instrument_name = instruments[0]
             
             if not instrument_name:
-                logger.warning("No instrument name found for variation descriptor mapping")
+                warnings.warn("No instrument name found for variation descriptor mapping")
                 return {}
                 
             # Find repeated elements for the specified instrument
             repeated_elements = data.get("repeated_elements", [])
             if not repeated_elements:
-                logger.warning("No repeated elements found in the data")
+                warnings.warn("No repeated elements found in the data")
                 return {}
                 
             # Filter elements for the target instrument
@@ -56,7 +57,7 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
             ]
             
             if not variation_elements:
-                logger.warning(f"No elements found for instrument {instrument_name}")
+                warnings.warn(f"No elements found for instrument {instrument_name}")
                 return {}
                 
             # Dictionary to store the mapped variation descriptors
@@ -67,13 +68,13 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
                 # Extract redcap_repeat_instance
                 instance_id = element.get("redcap_repeat_instance")
                 if not instance_id:
-                    logger.warning("No redcap_repeat_instance found in element")
+                    warnings.warn("No redcap_repeat_instance found in element")
                     continue
                     
                 # Get the genetic findings data
                 genetic_data = element.get("genetic_findings")
                 if not genetic_data:
-                    logger.warning(f"No genetic findings data found in element {instance_id}")
+                    warnings.warn(f"No genetic findings data found in element {instance_id}")
                     continue
                     
                 # Map this element to a VariationDescriptor
@@ -105,7 +106,7 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
         Returns:
             list: Empty list as this mapper doesn't return a list of entities
         """
-        logger.warning("VariationDescriptorMapper._map_multi_entity called, but this mapper returns a dictionary")
+        warnings.warn("VariationDescriptorMapper._map_multi_entity called, but this mapper returns a dictionary")
         return []
         
     def map(self, data: Dict[str, Any], **kwargs) -> Dict[str, VariationDescriptor]:

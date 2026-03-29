@@ -118,8 +118,7 @@ doctest_path = [src_path]
 doctest_test_doctest_blocks = ""
 
 # code to be executed before each doctest block
-doctest_global_setup = """ 
-import numpy as np
+doctest_global_setup = """
 """
 
 doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
@@ -131,12 +130,7 @@ doctest_default_flags = (doctest.REPORT_ONLY_FIRST_FAILURE
 # -- Intersphinx setup --------------------------------------------------------
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
-    # TODO - change to stable when we arrive there
-    "pandas": ("https://pandas.pydata.org/pandas-docs/version/2.0.2/", None),
-    "requests": ("https://docs.python-requests.org/en/stable/", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy-1.11.0/", None),
-    "statsmodels": ("https://www.statsmodels.org/stable/", None),
-    "numpy": ("https://numpy.org/doc/stable/", None),
+    "requests": ("https://docs.python-requests.org/en/stable/", None)
 }
 
 # -- Options for HTML output -------------------------------------------------

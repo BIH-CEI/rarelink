@@ -16,19 +16,12 @@ from rarelink.cli.utils.string_utils import (
     hint_text,
     format_command
 )
+from rarelink.utils.validation import validate_linkml_data
 from rarelink.cli.utils.validation_utils import validate_env
 from rarelink.cli.utils.file_utils import ensure_directory_exists
 from rarelink.utils.redcap import fetch_redcap_data
 from rarelink.utils.schema_processing import redcap_to_linkml
 from rarelink.rarelink_cdm.mappings.redcap import MAPPING_FUNCTIONS
-
-def validate_linkml_data(*args, **kwargs):
-    """
-    Lazy import to avoid utils <-> cli circular import during module import.
-    Test patches target this symbol: rarelink.cli.redcap.download_records.validate_linkml_data
-    """
-    from rarelink.utils.validation import validate_linkml_data as _impl
-    return _impl(*args, **kwargs)
 
 logger = logging.getLogger(__name__)
 app = typer.Typer()
