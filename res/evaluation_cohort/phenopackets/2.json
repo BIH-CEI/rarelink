@@ -19,9 +19,6 @@
     "taxonomy": {
       "id": "NCBITaxon:9606",
       "label": "Homo sapiens"
-    },
-    "vital_status": {
-      "status": "ALIVE"
     }
   },
   "phenotypicFeatures": [
@@ -286,7 +283,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
               "variationDescriptor": {
-                "id": "36e64b48ed5c43d48e65d43fbec1ef",
+                "id": "f1ab0809a04c42dfb056ff0a4ee775",
                 "geneContext": {
                   "valueId": "HGNC:7132",
                   "symbol": "KMT2A"
@@ -322,14 +319,14 @@
     }
   ],
   "metaData": {
-    "created": "2026-03-11T16:35:37.541221Z",
+    "created": "2026-03-29T19:00:16.568276Z",
     "createdBy": "AG",
     "resources": [
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
-        "version": "2025-06-03",
+        "version": "2026-03-03",
         "namespacePrefix": "MONDO",
         "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
@@ -337,7 +334,7 @@
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
-        "version": "2025-05-06",
+        "version": "2026-02-16",
         "namespacePrefix": "HPO",
         "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
       },
@@ -345,7 +342,7 @@
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
-        "version": "LNC278",
+        "version": "281",
         "namespacePrefix": "LOINC",
         "iriPrefix": "http://loinc.org"
       },
@@ -353,7 +350,7 @@
         "id": "uo",
         "name": "Units of Measurement Ontology",
         "url": "https://www.ontobee.org/ontology/UO",
-        "version": "2023-05-25",
+        "version": "2026-01-16",
         "namespacePrefix": "UO",
         "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
       },
@@ -385,7 +382,7 @@
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
-        "version": "2023-10-08",
+        "version": "2026-02-02",
         "namespacePrefix": "GENO",
         "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
       }

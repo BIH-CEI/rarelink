@@ -1,17 +1,18 @@
 {
   "id": "1",
   "subject": {
-    "id": "EvCo1",
+    "id": "TodayTest",
     "dateOfBirth": "2015-01-12T00:00:00Z",
     "timeAtLastEncounter": {
       "age": {
-        "iso8601duration": "P10Y3M"
+        "iso8601duration": "P10Y8M"
       }
     },
     "vitalStatus": {
       "status": "ALIVE"
     },
     "sex": "MALE",
+    "karyotypicSex": "XY",
     "gender": {
       "id": "SNOMEDCT:446151000124109",
       "label": "Male gender identity"
@@ -19,23 +20,46 @@
     "taxonomy": {
       "id": "NCBITaxon:9606",
       "label": "Homo sapiens"
-    },
-    "vital_status": {
-      "status": "ALIVE"
     }
   },
   "phenotypicFeatures": [
     {
       "type": {
-        "id": "HP:0002553",
-        "label": "Highly arched eyebrow"
+        "id": "HP:0032323",
+        "label": "Periodic fever"
       },
-      "onset": {
-        "ontologyClass": {
-          "id": "HP:0003577",
-          "label": "Congenital onset (at birth)"
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        },
+        {
+          "id": "NCBITAXON:178566",
+          "label": "Streptomyces mexicanus"
         }
-      }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P10Y2M"
+        }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P10Y3M"
+        }
+      },
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ]
     },
     {
       "type": {
@@ -131,6 +155,17 @@
       "resolution": {
         "age": {
           "iso8601duration": "P10Y3M"
+        }
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001297",
+        "label": "Stroke"
+      },
+      "onset": {
+        "age": {
+          "iso8601duration": "P10Y8M"
         }
       }
     }
@@ -255,11 +290,51 @@
           "iso8601duration": "P7Y2M"
         }
       }
+    },
+    {
+      "assay": {
+        "id": "LOINC:36554-4",
+        "label": "View:Find:Pt:Chest:Doc:XR"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 1.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P6Y3M"
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP428372-9",
+        "label": "SURVEY.COVID"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000307",
+            "label": "dose unit"
+          },
+          "value": 1.0
+        }
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P6Y3M"
+        }
+      }
     }
   ],
   "interpretations": [
     {
-      "id": "EvCo1-interpretation-0",
+      "id": "TodayTest-interpretation-0",
       "progressStatus": "SOLVED",
       "diagnosis": {
         "disease": {
@@ -273,7 +348,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "db379c356ba74dcc9c2e830de9cc06",
+                "id": "0a25e1898daa46bbb43451552d6e80",
                 "geneContext": {
                   "valueId": "HGNC:29508",
                   "symbol": "KIDINS220"
@@ -297,7 +372,7 @@
             "variantInterpretation": {
               "acmgPathogenicityClassification": "PATHOGENIC",
               "variationDescriptor": {
-                "id": "fa51bd50b0574842a1046f36d5ddb4",
+                "id": "1a160a88fce148acae47a17ec61f30",
                 "geneContext": {
                   "valueId": "HGNC:7133",
                   "symbol": "KMT2D"
@@ -329,18 +404,37 @@
         "age": {
           "iso8601duration": "P2Y4M"
         }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:31099001",
+        "label": "Systemic"
+      }
+    }
+  ],
+  "medicalActions": [
+    {
+      "procedure": {
+        "code": {
+          "id": "SNOMEDCT:2752008",
+          "label": "Incudopexy"
+        },
+        "performed": {
+          "age": {
+            "iso8601duration": "P6Y3M"
+          }
+        }
       }
     }
   ],
   "metaData": {
-    "created": "2026-03-11T16:35:16.075566Z",
+    "created": "2026-03-29T19:00:12.418802Z",
     "createdBy": "AG",
     "resources": [
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
-        "version": "2025-06-03",
+        "version": "2026-03-03",
         "namespacePrefix": "MONDO",
         "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
@@ -348,7 +442,7 @@
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
-        "version": "2025-05-06",
+        "version": "2026-02-16",
         "namespacePrefix": "HPO",
         "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
       },
@@ -356,7 +450,7 @@
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
-        "version": "LNC278",
+        "version": "281",
         "namespacePrefix": "LOINC",
         "iriPrefix": "http://loinc.org"
       },
@@ -364,7 +458,7 @@
         "id": "uo",
         "name": "Units of Measurement Ontology",
         "url": "https://www.ontobee.org/ontology/UO",
-        "version": "2023-05-25",
+        "version": "2026-01-16",
         "namespacePrefix": "UO",
         "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
       },
@@ -396,7 +490,7 @@
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
-        "version": "2023-10-08",
+        "version": "2026-02-02",
         "namespacePrefix": "GENO",
         "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
       }
