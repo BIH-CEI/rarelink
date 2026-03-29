@@ -3,7 +3,7 @@
 Changelog
 ===========
 
-v2.0.6 (2026-XX-XX)
+v2.0.6
 ---------------------
 
 Phenopacket Export Pipeline:
