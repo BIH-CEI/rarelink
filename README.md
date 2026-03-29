@@ -15,7 +15,7 @@
 #### Packages & Compatibility
 
 [![REDCap](https://img.shields.io/badge/REDCap-API-darkred.svg)](https://www.project-redcap.org/)
-[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.2-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
+[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.3-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
 [![LinkML](https://img.shields.io/badge/LinkML-1.9.0+-green.svg)](https://linkml.io/)
 [![HL7 FHIR](https://img.shields.io/badge/HL7%20FHIR-R4-orange.svg)](https://hl7.org/fhir/)
@@ -116,37 +116,38 @@ Documentation on [Setting Up a REDCap Project](https://rarelink.readthedocs.io/e
 
 ## Installation
 
-RareLink can be set up using various Python project management approaches. One
- common method is to use a virtual environment. Below is an example where the
-  virtual environment is named `rarelink-venv`, but you can name it as you prefer:
-
+RareLink requires Python ≥3.10 and <3.13.
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 ```
 
-> **Note**: You need Python ≥3.10 but <3.13 to be able to use RareLink! 
-
-Next, install rarelink through pypi...
-
+### Core install
 ```bash
 pip install rarelink
 ```
 
-... or clone the RareLink repository, navigate to its root directory, and
- install RareLink using:
+This installs everything needed for REDCap interaction, Phenopacket export,
+and the RareLink CLI. It does **not** install Docker, numpy/pandas, or
+documentation/testing tools.
 
+### Optional extras
+
+| Extra | Install command | What it adds |
+|-------|----------------|--------------|
+| `fhir` | `pip install rarelink[fhir]` | Docker SDK for the toFHIR FHIR export pipeline |
+| `data` | `pip install rarelink[data]` | numpy + pandas for tabular data processing |
+| `test` | `pip install rarelink[test]` | pytest and pytest-mock |
+| `docs` | `pip install rarelink[docs]` | Sphinx and documentation themes |
+| `dev` | `pip install rarelink[dev]` | All of the above plus build/twine/jupyter |
+
+For development:
 ```bash
 git clone https://github.com/BIH-CEI/rarelink.git
 cd rarelink
-pip install .
-```
-
-If you want to install development dependencies (e.g., `pytest`), use:
-
-```bash
-pip install .[dev]
+pip install -e .[dev]
+pytest
 ```
 
 ### Setting Up the `.env` File
