@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Optional, TypeVar, Generic, Callable, Union
 from rarelink.utils.processor import DataProcessor
 from rarelink.utils.field_access import get_multi_instrument_field_value
 import rarelink.utils.label_fetching as labels
-from functools import lru_cache
 
 T = TypeVar('T')
 
@@ -165,7 +164,6 @@ class BaseMapper(Generic[T]):
         """Process a code using the processor"""
         return self.processor.process_code(code)
     
-    @lru_cache(maxsize=None)
     def fetch_label(self, code: str, enum_class: Any = None) -> Optional[str]:
         """
         Fetch a label with a single, patchable entrypoint:

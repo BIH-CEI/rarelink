@@ -1,5 +1,6 @@
 import json
 import logging
+import warnings as _warnings
 import os
 import signal
 from dataclasses import dataclass, field
@@ -33,6 +34,7 @@ class PipelineResult:
     phenopackets: list = field(default_factory=list)
     failed_creations: List[Dict[str, str]] = field(default_factory=list)
     failed_validations: List[Dict[str, str]] = field(default_factory=list)
+    creation_warnings: List[Dict[str, str]] = field(default_factory=list)
     total_records: int = 0
 
     @property
@@ -46,7 +48,6 @@ class PipelineResult:
     @property
     def n_failed_validation(self) -> int:
         return len(self.failed_validations)
-
 
 def phenopacket_pipeline(
     input_data: list,
@@ -100,15 +101,29 @@ def phenopacket_pipeline(
         for record in input_data:
             record_id = record.get("record_id", "unknown")
             try:
-                phenopacket = create_phenopacket(
-                    data=record,
-                    created_by=created_by,
-                    mapping_configs=mapping_configs,
-                    debug=debug,
-                )
+                with _warnings.catch_warnings(record=True) as caught:
+                    _warnings.simplefilter("always")
+                    phenopacket = create_phenopacket(
+                        data=record,
+                        created_by=created_by,
+                        mapping_configs=mapping_configs,
+                        debug=debug,
+                    )
+                record_warnings = [str(w.message) for w in caught]
                 result.phenopackets.append(phenopacket)
+
+                for w in record_warnings:
+                    result.creation_warnings.append(
+                        {"record_id": record_id, "warning": w}
+                    )
+
                 if progress_callback:
-                    progress_callback(record_id, success=True, error=None)
+                    # Pass warnings as error string even on success
+                    warn_str = (
+                        "\n".join(f"⚠ {w}" for w in record_warnings)
+                        if record_warnings else None
+                    )
+                    progress_callback(record_id, success=True, error=warn_str)
             except Exception as e:
                 error_msg = str(e)
                 result.failed_creations.append(
@@ -138,7 +153,7 @@ def phenopacket_pipeline(
             validation_callback=_validation_callback,
         )
 
-        # ── Write combined failure report ──────────────────────────────────────
+        # ── Write failure report (only if failures exist) ─────────────────────
         all_failures = [
             {**f, "stage": "creation"} for f in result.failed_creations
         ] + [
@@ -149,6 +164,18 @@ def phenopacket_pipeline(
             with open(failure_file, "w") as fh:
                 json.dump(all_failures, fh, indent=2)
             logger.debug(f"Failure report written to {failure_file}")
+
+        # ── Write warnings report (only if warnings exist) ────────────────────
+        all_warnings = [
+            {**w, "stage": "creation"} for w in result.creation_warnings
+        ]
+        # Prefix warnings will be added by export.py after validation,
+        # but pipeline-level warnings are written here.
+        if all_warnings:
+            warnings_file = os.path.join(output_dir, "warnings.json")
+            with open(warnings_file, "w") as fh:
+                json.dump(all_warnings, fh, indent=2)
+            logger.debug(f"Warnings report written to {warnings_file}")
 
         return result
 

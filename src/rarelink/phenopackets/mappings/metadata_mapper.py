@@ -1,17 +1,3 @@
-"""Metadata mapper for Phenopackets.
-
-This module inspects a Phenopacket (or a collection thereof), discovers which
-code systems are actually *used* (by CURIE prefixes like HP:, MONDO:, GENO:, etc.),
-and then builds a `MetaData` block whose `resources` only include those systems.
-
-Key ideas:
-- We traverse the packet(s) breadth-first, collecting CURIE prefixes found in common
-  fields (id/value_id/code) and a few special cases (HGVS syntax, GA4GH enums).
-- We look up the latest known versions for each code system from the current
-  `CodeSystemsContainer` in `rarelink_cdm` and overlay those versions in the output.
-- If no `used_prefixes` are provided, we infer them from the data.
-"""
-
 from __future__ import annotations
 
 import dataclasses
@@ -19,6 +5,7 @@ import logging
 import re
 import sys
 import typing
+import warnings
 from collections import deque
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Set, get_args, get_origin, ForwardRef
@@ -492,7 +479,7 @@ class MetadataMapper(BaseMapper[MetaData]):
                 ContainerCls = get_codesystems_container_class()
                 code_systems = ContainerCls()
             except Exception as e:
-                logger.warning(f"Auto-load CodeSystemsContainer failed: {e}")
+                warnings.warn(f"Auto-load CodeSystemsContainer failed: {e}")
 
         # Infer used prefixes if not provided
         if not used_prefixes:
@@ -546,7 +533,7 @@ class MetadataMapper(BaseMapper[MetaData]):
                 ContainerCls = get_codesystems_container_class()
                 code_systems = ContainerCls()
             except Exception as e:
-                logger.warning(f"Auto-load CodeSystemsContainer failed: {e}")
+                warnings.warn(f"Auto-load CodeSystemsContainer failed: {e}")
 
         if not used_prefixes:
             pkts: List[Phenopacket] = []
