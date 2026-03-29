@@ -193,7 +193,7 @@ class NCIT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="NCIT",
         description="NCI Thesaurus OBO Edition",
-        code_set_version="24.01e",
+        code_set_version="26.02d",
     )
 
 class UO(EnumDefinitionImpl):
@@ -253,7 +253,7 @@ class ICD11(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD11",
         description="International Classification of Diseases, Eleventh Revision",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10CM(EnumDefinitionImpl):

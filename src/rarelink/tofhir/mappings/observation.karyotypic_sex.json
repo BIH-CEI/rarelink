@@ -31,7 +31,7 @@
               {
                 "code": "{{'1296886006'}}",
                 "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "version": "{{'2025AB'}}",
                 "display": "{{'Karyotypic Sex'}}"
               }
             ]
@@ -42,7 +42,7 @@
               {
                 "code": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_code')}}",
                 "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "version": "{{'2025AB'}}",
                 "display": "{{? mpp:getConcept(%karyotypicSexConceptMap, snomedct_1296886006, 'target_display')}}"
               }
             ]

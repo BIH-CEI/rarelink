@@ -392,7 +392,7 @@ class SNOMEDCT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="SNOMEDCT",
         description="SNOMED CT",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class MONDO(EnumDefinitionImpl):
@@ -402,7 +402,7 @@ class MONDO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="MONDO",
         description="Monarch Disease Ontology",
-        code_set_version="2025-06-03",
+        code_set_version="2026-03-03",
     )
 
 class HP(EnumDefinitionImpl):
@@ -412,7 +412,7 @@ class HP(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="HP",
         description="Human Phenotype Ontology",
-        code_set_version="2025-05-06",
+        code_set_version="2026-02-16",
     )
 
 class LOINC(EnumDefinitionImpl):
@@ -422,7 +422,7 @@ class LOINC(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="LOINC",
         description="Logical Observation Identifiers Names and Codes",
-        code_set_version="LNC278",
+        code_set_version="v281",
     )
 
 class OMIM(EnumDefinitionImpl):
@@ -452,7 +452,7 @@ class NCIT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="NCIT",
         description="NCI Thesaurus OBO Edition",
-        code_set_version="24.01e",
+        code_set_version="26.02d",
     )
 
 class UO(EnumDefinitionImpl):
@@ -512,7 +512,7 @@ class ICD11(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD11",
         description="International Classification of Diseases, Eleventh Revision",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10CM(EnumDefinitionImpl):
@@ -522,7 +522,7 @@ class ICD10CM(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD10CM",
         description="International Classification of Diseases, Tenth Revision, Clinical Modification",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10GM(EnumDefinitionImpl):
@@ -532,7 +532,7 @@ class ICD10GM(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD10GM",
         description="International Classification of Diseases, Tenth Revision, German Modification",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class SO(EnumDefinitionImpl):
@@ -552,7 +552,7 @@ class GENO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="GENO",
         description="GENO - The Genotype Ontology",
-        code_set_version="2023-10-08",
+        code_set_version="2026-02-02",
     )
 
 class ISO3166(EnumDefinitionImpl):

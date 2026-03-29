@@ -81,7 +81,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(rarelink_consent_contact.empty().not(), 'http://snomed.info/sct')}}",
-                    "version": "{{? iif(rarelink_consent_contact.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "version": "{{? iif(rarelink_consent_contact.empty().not(), '2025AB')}}",
                     "code": "{{? mpp:getConcept(%consentContact, rarelink_consent_contact, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%consentContact, rarelink_consent_contact, 'target_display')}}"
                   }

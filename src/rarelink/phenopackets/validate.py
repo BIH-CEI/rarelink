@@ -1,8 +1,8 @@
-# src/rarelink/phenopackets/validate.py
 import json
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from typing import List, Tuple, Union
 import logging

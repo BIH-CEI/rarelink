@@ -13,8 +13,6 @@ DEFAULT_ROUTING_RULES: Dict[str, str] = {
     "ORDO":  "diseases",
 }
 
-_PREFIX_RE = re.compile(r"^([A-Za-z][A-Za-z0-9]*)[:_]")
-
 _SKIP_FIELDS = frozenset({
     "redcap_repeat_instrument",
     "redcap_repeat_instance",

@@ -161,7 +161,7 @@ Example Field Annotation of 6.2.6 Temporal Pattern:
     - HP:0012829 | Profound  
     - HP:0012828 | Severe  
     Version(s): 
-    - HPO Version 2025-05-06  
+    - HPO Version 2026-02-16  
     Mapping: 
     - HL7 FHIR Expression v4.0.1: Observation.interpretation  
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
