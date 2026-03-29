@@ -1,4 +1,3 @@
-# src/rarelink/rd_cdm/codegen.py
 from __future__ import annotations
 from pathlib import Path
 import importlib.resources as ilr
@@ -145,7 +144,6 @@ def generate_python_classes(schema_path: Path, out_pkg_dir: Path) -> Path:
         f.write(code)
     return mod_path
 
-# ---------- NEW: clone previous tree and update ----------
 def _detect_prev_version(root: Path, target_version: str | None = None) -> str | None:
     """Pick the highest existing version under root that is NOT the target."""
     candidates = sorted(
