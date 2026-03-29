@@ -17,15 +17,11 @@ classes:
       The section Personal Information (2) of the RareLink CDM
     slots:
       - snomedct_184099003
-      - snomedct_281053000
+      - loinc_76689_9
       - snomedct_1296886006
       - snomedct_263495000
       - snomedct_370159000
       - rarelink_2_personal_information_complete
-
-
-
-
 
 slots:
   snomedct_184099003:
@@ -33,7 +29,7 @@ slots:
     description: The individual's date of birth. If the exact month or day is allowd to be captured or not known, select the 1st day of the month or the 1st month of the year, respectively.
     range: date
     required: true
-  snomedct_281053000:
+  loinc_76689_9:
     title: 2.2 Sex at birth
     description: The individual's sex that was assigned at birth
     range: SexAtBirth

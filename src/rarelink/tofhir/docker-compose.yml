@@ -48,7 +48,7 @@ services:
       - shared-network
 
   kafka-1:
-    image: bitnami/kafka:latest
+    image: bitnamilegacy/kafka:3.7.0
     container_name: kafka-1
     ports:
       - 9092:9092
@@ -74,7 +74,7 @@ services:
       - shared-network
 
   kafka-2:
-    image: bitnami/kafka:latest
+    image: bitnamilegacy/kafka:3.7.0
     container_name: kafka-2
     ports:
       - 9192:9192

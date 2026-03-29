@@ -5,6 +5,7 @@ import os
 import requests
 from urllib.parse import quote
 from dotenv import load_dotenv
+from functools import lru_cache
 
 from .code_processing import process_code, normalize_hgnc_id
 
@@ -128,7 +129,7 @@ def fetch_label_from_dict(code: str, label_dict: Dict[str, str]) -> Optional[str
 
 
 # ---------- BioPortal lookup ----------
-
+@lru_cache(maxsize=None)
 def fetch_label_from_bioportal(code: str) -> Optional[str]:
     """
     Fetch a label from the BioPortal API.

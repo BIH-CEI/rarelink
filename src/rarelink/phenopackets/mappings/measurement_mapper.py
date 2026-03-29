@@ -1,5 +1,6 @@
 from typing import Dict, Any, List, Optional
 import logging
+import warnings
 from phenopackets import (
     Measurement, 
     OntologyClass, 
@@ -104,7 +105,7 @@ class MeasurementMapper(BaseMapper[Measurement]):
                 
             value = Value(quantity=quantity)
         except (ValueError, TypeError):
-            logger.warning(f"Could not convert value {value_data} to float")
+            warnings.warn(f"Could not convert value {value_data} to float")
             return None
         
         # Process time observed
@@ -320,7 +321,7 @@ class MeasurementMapper(BaseMapper[Measurement]):
                         
                     value = Value(quantity=quantity)
                 except (ValueError, TypeError):
-                    logger.warning(f"Could not convert value {numeric_value} to float")
+                    warnings.warn(f"Could not convert value {numeric_value} to float")
                     return None
             else:
                 # No value available
@@ -356,7 +357,7 @@ class MeasurementMapper(BaseMapper[Measurement]):
                     
                 value = Value(quantity=quantity)
             except (ValueError, TypeError):
-                logger.warning(f"Could not convert value {value_data} to float")
+                warnings.warn(f"Could not convert value {value_data} to float")
                 return None
         
         # Get time observed (date)

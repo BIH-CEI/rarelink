@@ -1,26 +1,58 @@
 # Auto generated from rarelink_code_systems.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-12T17:10:33
+# Generation date: 2026-03-29T20:59:45
 # Schema: code_systems_data
 #
 # id: https://github.com/BIH-CEI/RareLink/code_systems_data
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
+import dataclasses
+import re
 from dataclasses import dataclass
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from typing import (
+    Any,
     ClassVar,
+    Dict,
+    List,
+    Optional,
     Union
+)
+
+from jsonasobj2 import (
+    JsonObj,
+    as_dict
 )
 from linkml_runtime.linkml_model.meta import (
     EnumDefinition,
+    PermissibleValue,
+    PvFormulaOptions
 )
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.formatutils import (
+    camelcase,
+    sfx,
+    underscore
+)
+from linkml_runtime.utils.metamodelcore import (
+    bnode,
+    empty_dict,
+    empty_list
+)
 from linkml_runtime.utils.slot import Slot
 from linkml_runtime.utils.yamlutils import (
-    YAMLRoot
+    YAMLRoot,
+    extended_float,
+    extended_int,
+    extended_str
 )
 from rdflib import (
+    Namespace,
     URIRef
 )
 
@@ -91,7 +123,7 @@ class NCBITaxon(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="NCBITaxon",
         description="NCBI organismal classification",
-        code_set_version="NCBI2024_04_02",
+        code_set_version="2025_04_10",
     )
 
 class SNOMEDCT(EnumDefinitionImpl):
@@ -101,7 +133,7 @@ class SNOMEDCT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="SNOMEDCT",
         description="SNOMED CT",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class MONDO(EnumDefinitionImpl):
@@ -111,7 +143,7 @@ class MONDO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="MONDO",
         description="Monarch Disease Ontology",
-        code_set_version="2025-06-03",
+        code_set_version="2026-03-03",
     )
 
 class HP(EnumDefinitionImpl):
@@ -121,7 +153,7 @@ class HP(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="HP",
         description="Human Phenotype Ontology",
-        code_set_version="2025-05-06",
+        code_set_version="2026-02-16",
     )
 
 class LOINC(EnumDefinitionImpl):
@@ -131,7 +163,7 @@ class LOINC(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="LOINC",
         description="Logical Observation Identifiers Names and Codes",
-        code_set_version="LNC278",
+        code_set_version="281",
     )
 
 class OMIM(EnumDefinitionImpl):
@@ -161,7 +193,7 @@ class NCIT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="NCIT",
         description="NCI Thesaurus OBO Edition",
-        code_set_version="24.01e",
+        code_set_version="26.02d",
     )
 
 class UO(EnumDefinitionImpl):
@@ -171,7 +203,7 @@ class UO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="UO",
         description="Units of Measurement Ontology",
-        code_set_version="2023-05-25",
+        code_set_version="2026-01-16",
     )
 
 class HGNC(EnumDefinitionImpl):
@@ -221,7 +253,7 @@ class ICD11(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD11",
         description="International Classification of Diseases, Eleventh Revision",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10CM(EnumDefinitionImpl):
@@ -241,6 +273,7 @@ class ICD10GM(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD10GM",
         description="International Classification of Diseases, Tenth Revision, German Modification",
+        code_set_version="2026",
     )
 
 class SO(EnumDefinitionImpl):
@@ -260,7 +293,7 @@ class GENO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="GENO",
         description="GENO - The Genotype Ontology",
-        code_set_version="2023-10-08",
+        code_set_version="2026-02-02",
     )
 
 class ISO3166(EnumDefinitionImpl):

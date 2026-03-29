@@ -3,7 +3,75 @@
 Changelog
 ===========
 
-v2.0.5 (2025-11-19)
+v2.0.6
+---------------------
+
+Phenopacket Export Pipeline:
+"""""""""""""""""""""""""""""
+- Fixed camelCase serialization in Phenopacket JSON output (``preserving_proto_field_name=False``),
+  producing valid GA4GH Phenopacket v2 JSON (`#205 <https://github.com/BIH-CEI/rarelink/issues/205>`_)
+- Integrated ``validate.py`` into the export pipeline with a two-tier approach:
+  Python-native structural checks (required fields, CURIE format, schema version)
+  plus optional ``phenopacket-tools`` CLI fallback when available on PATH
+- Added ontology-prefix placement checks as soft validation warnings
+  (e.g. HP: terms outside ``phenotypicFeatures``, MONDO: terms outside ``diseases``)
+- Improved CLI export with Rich progress bars: sequential two-phase display
+  (creation bar completes before validation bar appears)
+- Added structured warnings system: mapper warnings (e.g. "No diagnosis ID found")
+  now use ``warnings.warn()`` consistently, are captured per-record with record ID
+  context, and displayed in the export summary
+- Added ``warnings.json`` output file alongside ``failures.json`` for detailed
+  warning inspection
+- Export summary now includes a Warnings column for both creation and validation
+  stages with deduplicated counts
+
+RD-CDM v2.0.3 Integration:
+""""""""""""""""""""""""""""
+- Updated to `rd-cdm v2.0.3 <https://github.com/BIH-CEI/rd-cdm/releases/tag/v2.0.3>`_
+  with eleven updated ontology/code system versions and the replacement of the
+  deprecated SNOMED CT Sex at Birth concept with LOINC ``76689-9``
+- Updated the RareLink-CDM REDCap data dictionary and instruments to reflect
+  rd-cdm v2.0.3 changes
+- Updated Phenopacket and FHIR export pipelines to use the revised code systems
+  and data element definitions
+
+Ontology Routing Adapter:
+""""""""""""""""""""""""""
+- Designed ``ontology_routing_adapter.py`` for use cases where single repeated
+  elements contain mixed ontology prefixes (e.g. HP and MONDO codes in the same
+  instrument), enabling automatic routing of HP codes to ``phenotypicFeatures``
+  and MONDO/OMIM/ORDO codes to ``diseases``
+  (`#207 <https://github.com/BIH-CEI/rarelink/issues/207>`_)
+
+Package & Dependencies:
+""""""""""""""""""""""""
+- Reduced core dependencies from ~20 to ~10 by moving test, docs, Docker, numpy,
+  and pandas to optional extras (``[test]``, ``[docs]``, ``[fhir]``, ``[data]``,
+  ``[dev]``)
+- Removed unused dependencies: ``node``, ``npm``, ``config``, ``schema-automator``,
+  ``tqdm``
+- Removed the ``rarelink_cdm/rd_cdm/`` codegen subfolder (unused at runtime);
+  future versions will import directly from the ``rd-cdm`` PyPI package
+
+Infrastructure:
+""""""""""""""""
+- Fixed toFHIR Docker Compose: updated Kafka image references from deprecated
+  ``bitnami/kafka:latest`` to ``bitnamilegacy/kafka:3.7.0`` following Bitnami's
+  August 2025 image deprecation
+  (`#210 <https://github.com/BIH-CEI/rarelink/issues/210>`_)
+- Added ``.DS_Store`` to ``.gitignore``
+  (`#202 <https://github.com/BIH-CEI/rarelink/issues/202>`_)
+
+Documentation & Tests:
+"""""""""""""""""""""""
+- Updated installation docs to document optional extras
+  (``pip install rarelink[fhir]``, ``pip install rarelink[data]``, etc.)
+- Updated tests to work with ``PipelineResult`` dataclass return type and
+  corrected mock patch paths
+- Removed unused numpy/pandas references from Sphinx ``conf.py``
+
+
+v2.0.5 (2025-12-12)
 ---------------------
 - Fixed a few of bugs
 - enhanced versioning and refactored repo folders

@@ -21,9 +21,12 @@ ________________________________________________________________________________
   - :ref:`phenopacket-validation`
   - :ref:`rarelink-phenopacket-preconfigurations`
   - :ref:`phenopackets-other-redcap-data-models`
-  - :ref:`troubleshooting`
+  - :ref:`phenopacket-adapters`
 
+        - :ref:`multi-onset-adapter`
+        - :ref:`ontology-routing-adapter`
 
+    - :ref:`troubleshooting`
 _____________________________________________________________________________________
 
 .. _get_started:
@@ -686,55 +689,290 @@ placeholders with relevant codes and Phenopacket terms.
 
 _____________________________________________________________________________________
 
-.. _factory-approach:
+.. _phenopacket-adapters:
 
-Using the Factory Approach
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Phenopacket Adapters
+====================
 
-For more advanced use cases, you can use the PhenopacketMappingFactory to create
-mappings for different data models:
+Adapters are preprocessing functions that transform or split data **before**
+any mapper runs.  They are designed to solve structural challenges that arise
+when a single REDCap instrument or data element does not map cleanly to a
+single Phenopacket block.  All adapters are:
 
-.. code-block:: python
+- **Opt-in** — activated by a configuration key; absent means no effect.
+- **Mapper-agnostic** — they produce data shaped to the conventions that
+  existing mappers already understand, so no mapper code changes are needed.
+- **Reusable** — they are designed for general use, not tied to any specific
+  data model.
 
-    from rarelink.phenopackets.factory import PhenopacketMappingFactory, get_phenopacket_mappings
+The adapters live in ``src/rarelink/phenopackets/adapter/``.
 
-    # Get mappings for RareLink CDM (default)
-    rarelink_mappings = get_phenopacket_mappings()
+-----
 
-    # Get mappings for a custom data model
-    custom_mappings = get_phenopacket_mappings(model_name="your_model")
+.. _multi-onset-adapter:
 
-    # Creating phenopackets with specific model mappings
-    from rarelink.phenopackets import create_phenopacket
+Multi-Onset Adapter
+-------------------
 
-    # Create phenopacket using the specified mappings
-    phenopacket = create_phenopacket(
-        data=record_data,
-        created_by="Your Name",
-        mapping_configs=custom_mappings
-    )
+**Module:** ``rarelink.phenopackets.adapter.multi_onset``
 
-The factory approach provides additional helper functions for working with different
-data models:
+**When to use it**
 
-1. **Converting to Multi-Instrument Format**
+Use the multi-onset adapter when a single clinical finding has been observed
+on **multiple occasions**, each with its own date, and you want to represent
+each observation as a separate ``PhenotypicFeature`` entry with its own
+``onset`` value.
+
+For example, a recurrent respiratory infection may have been recorded on
+three separate dates.  Without multi-onset, only the first date would be
+captured.  With multi-onset, three separate ``PhenotypicFeature`` messages
+are produced — one per date — all sharing the same type, severity, and
+modifiers.
+
+**Configuration**
+
+Enable multi-onset in the mapping block for the relevant phenotypicFeatures
+instrument::
+
+    FEATURES_BLOCK = {
+        "redcap_repeat_instrument": "your_instrument_name",
+        "type_field": "your_type_field",
+        "severity_field": "your_severity_field",
+
+        # Enable multi-onset
+        "multi_onset": True,
+        "onset_date_fields": [
+            "onset_date_1",
+            "onset_date_2",
+            "onset_date_3",
+            # ... add as many as your instrument supports
+        ],
+    }
+
+**What it does**
+
+For each non-empty date in ``onset_date_fields``:
+
+1. Creates the base ``PhenotypicFeature`` using the normal mapping function.
+2. Deep-copies it.
+3. Replaces the ``onset`` field with an ``Age`` element computed from that
+   date and the subject's date of birth.
+4. Appends the copy to the result list.
+
+If no valid dates are found, the base feature (with whatever onset was
+already set) is returned as a single-element list.
+
+**Data shape expected**
+
+The adapter reads onset dates directly from the inner instrument dict of
+each repeated element::
+
+    {
+      "redcap_repeat_instrument": "your_instrument_name",
+      "redcap_repeat_instance": 1,
+      "your_instrument_name": {
+        "your_type_field": "HP:0004469",
+        "severity_field": "HP:0012826",
+        "onset_date_1": "2022-02-01",
+        "onset_date_2": "2023-03-01",
+        "onset_date_3": "2023-12-01"
+      }
+    }
+
+Produces three separate ``PhenotypicFeature`` messages, each with
+``onset.age.iso8601duration`` computed from the respective date and DOB.
+
+**Notes**
+
+- All copies share the same type, severity, and modifiers.
+- If DOB is unavailable, no age calculation is possible and the base
+  feature is returned unchanged.
+- Combine with :ref:`ontology-routing-adapter` when the same instrument
+  also mixes HP and MONDO codes.
+
+-----
+
+.. _ontology-routing-adapter:
+
+Ontology Routing Adapter
+-------------------------
+
+**Module:** ``rarelink.phenopackets.adapter.ontology_routing_adapter``
+
+**When to use it**
+
+Use the ontology routing adapter when a **single data element** (or a set
+of mutually exclusive sub-fields within one instrument) may be populated
+with codes from **different ontologies** depending on the record — and
+each ontology should map to a different Phenopacket block.
+
+The canonical example is a "specific finding" field that stores either an
+HPO term (a phenotypic abnormality) or a MONDO term (a disease entity).
+Both are clinically valid answers to the same question, but they belong in
+different Phenopacket blocks:
+
+.. list-table::
+   :widths: 20 20 60
+   :header-rows: 1
+
+   * - Ontology prefix
+     - Phenopacket block
+     - Semantic basis
+   * - ``HP:``
+     - ``phenotypicFeatures``
+     - HPO terms describe phenotypic abnormalities
+       (``PhenotypicFeature.type``)
+   * - ``MONDO:``
+     - ``diseases``
+     - MONDO terms describe disease entities (``Disease.term``)
+   * - ``OMIM:``
+     - ``diseases``
+     - OMIM identifiers describe disease entities
+   * - ``ORDO:``
+     - ``diseases``
+     - Orphanet identifiers describe rare disease entities
+
+These defaults are grounded in the GA4GH Phenopacket v2 schema and are
+always active.  They can be extended or overridden via the ``rules`` key
+(see below).
+
+**Configuration**
+
+Add an ``ontology_routing`` key to your ``mapping_configs``::
+
+    mapping_configs = {
+        ...
+        "ontology_routing": {
+            "enabled": True,
+
+            # Instruments whose repeated elements should be inspected
+            "instruments": [
+                "your_mixed_instrument",
+                "another_mixed_instrument",
+            ],
+
+            # Per-instrument: which fields to scan for routable codes.
+            # These are the type_field_1…N names from your mapping block.
+            # If omitted, all string fields are scanned (slower, zero-config).
+            "scan_fields": {
+                "your_mixed_instrument": [
+                    "field_holding_hp_or_mondo_1",
+                    "field_holding_hp_or_mondo_2",
+                ],
+                "another_mixed_instrument": [
+                    "field_a",
+                    "field_b",
+                ],
+            },
+
+            # Per-instrument: onset date fields.
+            # The first non-empty value is used as Disease.onset when a
+            # MONDO-coded element is routed to the diseases block.
+            "onset_fields": {
+                "your_mixed_instrument": [
+                    "onset_date_1",
+                    "onset_date_2",
+                ],
+                "another_mixed_instrument": [
+                    "condition_onset_date",
+                ],
+            },
+
+            # Optional: override or extend the built-in prefix→block rules.
+            # Useful if your data model uses a non-standard ontology.
+            # "rules": {
+            #     "HP":    "phenotypicFeatures",
+            #     "MONDO": "diseases",
+            #     "MYCUSTOM": "diseases",
+            # }
+        },
+        ...
+    }
+
+When ``ontology_routing`` is absent from ``mapping_configs``, the adapter
+is never called and pipeline behaviour is identical to before.
+
+**What it does**
+
+Before any mapper runs, the adapter:
+
+1. Iterates over ``data["repeated_elements"]``.
+2. For each element from a configured instrument, scans the configured
+   (or all) string fields for a value whose ontology prefix is in the
+   routing rules.
+3. Routes the element:
+
+   - **HP-coded** → placed in ``data["__routed__phenotypicFeatures"]``
+     *unchanged*.  The ``PhenotypicFeatureMapper`` processes it normally,
+     including multi-onset if configured.
+   - **MONDO/OMIM/ORDO-coded** → *normalized* to the ``term_field_1`` /
+     ``onset_date_field`` convention and placed in
+     ``data["__routed__diseases"]``.  The ``DiseaseMapper`` consumes it
+     via the same path it uses for all other disease data.
+
+4. Elements with no routable code (e.g. a SNOMED sub-field that holds only
+   SNOMED values) are left in the original ``repeated_elements`` stream and
+   processed normally by whatever mapper is configured for that instrument.
+
+The original ``repeated_elements`` list is **never mutated**.
+
+**Data shape expected**
+
+A typical mixed element::
+
+    {
+      "redcap_repeat_instrument": "infections_initial_form",
+      "redcap_repeat_instance": 2,
+      "infections_initial_form": {
+        "type_of_infection": "snomedct_127856007",   ← SNOMED category, ignored
+        "snomedct_127856007": "mondo_0043653",        ← MONDO → diseases
+        "infection_severity": "hp_0012826",
+        "infection_date": "2023-02-01"
+      }
+    }
+
+The adapter detects ``mondo_0043653`` in ``snomedct_127856007``, routes
+the element to ``diseases``, and normalizes it to::
+
+    {
+      "term_field_1":        "mondo_0043653",
+      "onset_date_field":    "2023-02-01",
+      "onset_category_field": None,
+      "excluded_field":       None,
+      "primary_site_field":   None,
+      "__source_instrument": "infections_initial_form",
+      "__source_instance":   2
+    }
+
+**Validation integration**
+
+The adapter also provides :func:`check_prefix_placement`, which is called
+automatically by ``validate_phenopackets`` after each file is written.  It
+inspects the serialized Phenopacket JSON and emits **non-fatal soft warnings**
+when:
+
+- An HP: term appears in ``diseases`` (likely a routing error)
+- A non-HP: term appears in ``phenotypicFeatures`` (MONDO/OMIM in a
+  features block)
+
+These warnings appear in the validation output but do not cause the
+phenopacket to fail validation.  They are intended to help data curators
+catch misconfigured routing rules.
+
+**Adding the adapter to your mapping config**
+
+If you are building a custom data model and have instruments with mixed
+ontology codes, add the ``ontology_routing`` block alongside your existing
+``phenotypicFeatures`` and ``diseases`` configurations.  No changes to
+the mapper classes or the rest of the pipeline are needed.
+
+.. tip::
+   Combine this adapter with the :ref:`multi-onset-adapter` when MONDO-routed
+   elements are diseases observed multiple times.  Configure ``multi_onset``
+   in the base ``phenotypicFeatures`` block; the routing adapter handles the
+   HP/MONDO split first, and the multi-onset adapter then expands the HP
+   elements per date.
    
-   .. code-block:: python
-   
-       updated_config = PhenopacketMappingFactory.convert_to_multi_instrument_format(
-           config=mappings,
-           block_name="phenotypicFeatures"
-       )
-
-2. **Merging Configurations**
-   
-   .. code-block:: python
-   
-       merged_config = PhenopacketMappingFactory.merge_configurations(
-           base_config=base_mappings,
-           override_config=custom_overrides
-       )
-
 _____________________________________________________________________________________
 
 .. _troubleshooting:

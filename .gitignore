@@ -170,13 +170,18 @@ templates/
 # Ignore template files from Public folder
 Public/
 
+# ignore dev folders
+dev/
+
 # Temporary REDCap test config
 *.rarelink_test_redcap_config.json
 
 # DS Store
+# macOS metadata
+.DS_Store
+**/.DS_Store
 .DS_Store/
 .DS_Store?
-.DS_Store
 .src/.DS_Store?
 .src/rarelink/.DS_Store?
 .src/rarelink/utils/.DS_Store?

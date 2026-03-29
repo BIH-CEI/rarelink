@@ -161,7 +161,7 @@ Example Field Annotation of 6.2.6 Temporal Pattern:
     - HP:0012829 | Profound  
     - HP:0012828 | Severe  
     Version(s): 
-    - HPO Version 2025-05-06  
+    - HPO Version 2026-02-16  
     Mapping: 
     - HL7 FHIR Expression v4.0.1: Observation.interpretation  
     - GA4GH Phenopacket Schema v2.0 Element: PhenotypicFeature.severity
@@ -315,7 +315,7 @@ ______________________________________________________________
   - Cardinality: Required (1..1)
   - Validation: Date format (YYYY-MM-DD)
 
-- 2.2 Sex at Birth (``snomedct_281053000``)
+- 2.2 Sex at Birth (``loinc_76689_9``)
 
   - Cardinality: Optional
   - Validation: Dropdown (choices encoded according to :ref:`1_5`)

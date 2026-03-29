@@ -433,7 +433,7 @@ the <a class="reference internal" href="../2_rarelink_framework/2_2_rarelink_cdm
 RareLink-CDM schema, for example:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">rarelink_cdm:snomedct_184099003</span></code> for 2.1 Date of birth, or</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rarelink_cdm:snomedct_281053000</span></code> for 2.2 Sex at birth.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rarelink_cdm:loinc_76689_9</span></code> for 2.2 Sex at birth.</p></li>
 </ul>
 </li>
 <li><p><strong>predicate_label</strong>:
@@ -444,7 +444,7 @@ For the examples above, these would be <code class="docutils literal notranslate
 The target value in the RareLink-CDM. For literal fields, such as dates,
 this is the actual value (e.g., “1970-02-15”). For coded fields, such as
 sex, the object_id is the standardized code from the value set
-(e.g., “SNOMEDCT:248152002” for female) or the code from the code system defined
+(e.g., “LOINC:76689-9” for female) or the code from the code system defined
 by the data element (e.g., “HP:0001250” for a phenotype in element 6.2.1).</p></li>
 <li><p><strong>object_label</strong>: The human-readable label for the target value either from the
 RareLink-CDM value sets or the code system defined by the data element. In
@@ -493,7 +493,7 @@ subject_id   subject_label   predicate_id    predicate_label object_id       obj
 #
 # === Personal Information (Singular) ===
 &lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:snomedct_184099003 &quot;2.1 Date of birth&quot;     &lt;dob&gt;   -       lexical &lt;mapping_date&gt;  manual
-&lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:snomedct_281053000 &quot;2.2 Sex at birth&quot;      &lt;SNOMEDCT_sex_code&gt;     &lt;sex_label&gt;     lexical &lt;mapping_date&gt;  manual
+&lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:loinc_76689_9 &quot;2.2 Sex at birth&quot;      &lt;SNOMEDCT_sex_code&gt;     &lt;sex_label&gt;     lexical &lt;mapping_date&gt;  manual
 &lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:snomedct_1296886006        &quot;2.3 Karyotypic Sex&quot;    &lt;karyotype_code&gt;        &lt;karyotype_label&gt;       lexical &lt;mapping_date&gt;  manual
 &lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:snomedct_263493000 &quot;2.4 Gender Identity&quot;   &lt;SNOMEDCT_gender_code&gt;  &lt;gender_identity_label&gt; lexical &lt;mapping_date&gt;  manual
 &lt;record_id&gt;  &quot;&lt;source_label&gt;&quot;        rarelink_cdm:snomedct_370159000 &quot;2.5 Country of birth&quot;  &lt;ISO3166_code&gt;  &lt;ISO3166_code&gt;  lexical &lt;mapping_date&gt;  manual
@@ -665,7 +665,7 @@ schema.</p>
 subject_id   subject_label   predicate_id    predicate_label object_id       object_label    match_type      mapping_date    mapping_tool
 ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_422549004 &quot;1.1 Pseudonym&quot; ADR001  ADR001  lexical 2025-01-01      manual
 ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_184099003 &quot;2.1 Date of birth&quot;     1970-02-15      -       lexical 2025-01-01      manual
-ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_281053000 &quot;2.2 Sex at birth&quot;      SNOMEDCT:248152002      Female  lexical 2025-01-01      manual
+ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:loinc_76689_9 &quot;2.2 Sex at birth&quot;      LOINC:76689-9      Female  lexical 2025-01-01      manual
 ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_263493000 &quot;2.4 Gender Identity&quot;   SNOMEDCT:446141000124107        Female gender identity  lexical 2025-01-01      manual
 ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_278844005 &quot;3.1 Vital Status&quot;      SNOMEDCT:438949009      Alive   lexical 2025-01-01      manual
 ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:snomedct_64572001_mondo    &quot;5.1 Disease [MONDO]&quot;   MONDO:0012345   Wilson Disease  lexical 2025-01-01      manual
@@ -693,7 +693,7 @@ ADR001       &quot;Patient ADR001&quot;        rarelink_cdm:ncit_c82577        &
 # Mappings for a second patient (ADR002)
 ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:snomedct_422549004 &quot;1.1 Pseudonym&quot; ADR002  ADR002  lexical 2025-01-01      manual
 ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:snomedct_184099003 &quot;2.1 Date of birth&quot;     1982-07-30      1982-07-30      lexical 2025-01-01      manual
-ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:snomedct_281053000 &quot;2.2 Sex at birth&quot;      SNOMEDCT:248153007      Male    lexical 2025-01-01      manual
+ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:loinc_76689_9 &quot;2.2 Sex at birth&quot;      SNOMEDCT:248153007      Male    lexical 2025-01-01      manual
 ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:snomedct_278844005 &quot;3.1 Vital Status&quot;      SNOMEDCT:438949009      Alive   lexical 2025-01-01      manual
 ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:snomedct_64572001_mondo    &quot;5.1 Disease [MONDO]&quot;   MONDO:0010526   Fabry Disease   lexical 2025-01-01      manual
 ADR002       &quot;Patient ADR002&quot;        rarelink_cdm:loinc_99498_8      &quot;5.2 Verification status&quot;       HL7FHIR:differential    Differential    lexical 2025-01-01      manual

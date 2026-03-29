@@ -354,7 +354,8 @@ Fields:
 
     1. Validate mutations using `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/>`_
        or `Varsome <https://varsome.com/>`_.
-    2. Confirm the expression with the `HGVS Validator <https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/>`_.
+    2. Confirm the expression with the `Variant Validator <https://variantvalidator.org/service/validate/>`_ 
+       or the `HGVS Validator <https://lhcforms.nlm.nih.gov/fhir/hgvs-validator/>`_.
     3. If the validation fails, enter the details in the **6.1.6 Genetic Mutation String** field.
     4. ``*``: **Are you sure the entered HGVS expression was validated using 
        the variant validator?** - this field is mandatory to ensure the

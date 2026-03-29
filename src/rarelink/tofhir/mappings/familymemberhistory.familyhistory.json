@@ -36,7 +36,7 @@
             "coding": [
               {
                 "system": "{{'http://snomed.info/sct'}}",
-                "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                "version": "{{'2025AB'}}",
                 "code": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_code')}}",
                 "display": "{{mpp:getConcept(%familyRelationship, snomedct_444018008, 'target_display')}}"
               }
@@ -46,7 +46,7 @@
             "coding": [
               {
                 "system": "{{? iif(loinc_54123_5.empty().not(),'http://hl7.org/fhir/ValueSet/administrative-gender')}}",
-                "version": "{{? iif(loinc_54123_5.empty().not(),'SNOMEDCT_US_2024_09_01')}}",
+                "version": "{{? iif(loinc_54123_5.empty().not(),'2025AB')}}",
                 "code": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_code')}}",
                 "display": "{{? mpp:getConcept(%familySex, loinc_54123_5, 'target_display')}}"
               }
@@ -81,7 +81,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(loinc_54112_8.empty().not(), 'https://www.cdc.gov/nchs/icd/icd10cm.htm')}}",
-                    "version": "{{? iif(loinc_54112_8.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "version": "{{? iif(loinc_54112_8.empty().not(), '2025AB')}}",
                     "code": "{{? loinc_54112_8}}"
                   }
                 ],
@@ -94,7 +94,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(loinc_75315_2.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
-                    "version": "{{? iif(loinc_75315_2.empty().not(),'2025-06-03')}}",
+                    "version": "{{? iif(loinc_75315_2.empty().not(),'2026-03-03')}}",
                     "code": "{{? loinc_75315_2}}"
                   }
                 ],
@@ -111,7 +111,7 @@
               "url": "{{? iif(snomedct_64245008.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/propositus')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
-                "version": "{{? iif(snomedct_64245008.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                "version": "{{? iif(snomedct_64245008.empty().not(), '2025AB')}}",
                 "code": "{{? iif(snomedct_64245008.empty().not(), '64245008')}}",
                 "display": "{{? iif(snomedct_64245008.empty().not(), 'Propositus (finding)')}}"
               },
@@ -119,7 +119,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(snomedct_64245008.empty().not(), 'http://snomed.info/sct')}}",
-                    "version": "{{? iif(snomedct_64245008.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "version": "{{? iif(snomedct_64245008.empty().not(), '2025AB')}}",
                     "code": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyPropositus, snomedct_64245008, 'target_display')}}"
                   }
@@ -130,7 +130,7 @@
               "url": "{{? iif(snomedct_842009.empty().not(), 'https://rarelink.bih-charite.de/fhir/StructureDefinition/consanguinity')}}",
               "valueCoding": {
                 "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
-                "version": "{{? iif(snomedct_842009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                "version": "{{? iif(snomedct_842009.empty().not(), '2025AB')}}",
                 "code": "{{? iif(snomedct_842009.empty().not(), '842009')}}",
                 "display": "{{? iif(snomedct_842009.empty().not(), 'Consanguinity (finding)')}}"
               },
@@ -138,7 +138,7 @@
                 "coding": [
                   {
                     "system": "{{? iif(snomedct_842009.empty().not(), 'http://snomed.info/sct')}}",
-                    "version": "{{? iif(snomedct_842009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                    "version": "{{? iif(snomedct_842009.empty().not(), '2025AB')}}",
                     "code": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%familyConsanguinity, snomedct_842009, 'target_display')}}"
                   }

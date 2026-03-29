@@ -14,14 +14,14 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
     hpo=CodeSystem(
         name="Human Phenotype Ontology",
         prefix="HPO",
-        version="2025-05-06",
+        version="2026-02-16",
         url="http://purl.obolibrary.org/obo/hp.owl",
         iri_prefix="http://purl.obolibrary.org/obo/HP_"
     ),
     loinc=CodeSystem(
         name="Logical Observation Identifiers Names and Codes",
         prefix="LOINC",
-        version="LNC278",
+        version="281",
         url="https://loinc.org",
         iri_prefix="http://loinc.org"
     ),
@@ -35,14 +35,14 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
     icd11=CodeSystem(
         name="International Classification of Diseases, Eleventh Revision",
         prefix="ICD11",
-        version="SNOMEDCT_US_2024_09_01",
+        version="2025AB",
         url="https://icd.who.int/en",
         iri_prefix="http://hl7.org/fhir/sid/icd-11"
     ),
     mondo=CodeSystem(
         name="Monarch Disease Ontology",
         prefix="MONDO",
-        version="2025-06-03",
+        version="2026-03-03",
         url="https://purl.obolibrary.org/obo/MONDO/",
         iri_prefix="http://purl.obolibrary.org/obo/MONDO_"
     ),
@@ -56,21 +56,21 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
     orpha=CodeSystem(
         name="Orphanet Rare Disease Ontology",
         prefix="ORPHA",
-        version="OMIM2024_08_09",
+        version="4.8",
         url="https://www.orpha.net/",
         iri_prefix="https://www.orpha.net/ORDO/Orphanet_"
     ),
     ncit=CodeSystem(
         name="NCI Thesaurus OBO Edition",
         prefix="NCIT",
-        version="24.01e",
+        version="26.02d",
         url="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
         iri_prefix="http://purl.obolibrary.org/obo/NCIT_"
     ),
     uo=CodeSystem(
         name="Units of Measurement Ontology",
         prefix="UO",
-        version="OMIM2024_08_09",
+        version="2026-01-16",
         url="https://www.ontobee.org/ontology/UO",
         iri_prefix="http://purl.obolibrary.org/obo/UO_"
     ),
@@ -98,7 +98,7 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
     SNOMEDCT=CodeSystem(
         name="Systematized Medical Nomenclature for Medicine–Clinical Terminology",
         prefix="SNOMEDCT",
-        version="SNOMEDCT_US_2024_09_01",
+        version="2025AB",
         url="http://snomed.info/sct",
         iri_prefix="http://snomed.info/sct"
     ),
@@ -112,7 +112,7 @@ RARELINK_CODE_SYSTEMS = CodeSystemsContainer(
     geno=CodeSystem(
         name="GENO - The Genotype Ontology",
         prefix="GENO",
-        version="2023-10-08",
+        version="2026-02-02",
         url="https://www.genoontology.org/",
         iri_prefix="http://purl.obolibrary.org/obo/GENO_"
     ),

@@ -1,5 +1,6 @@
 from typing import Dict, Any, Optional, List, Union
 import logging
+import warnings
 from phenopackets import (
     Interpretation,
     OntologyClass,
@@ -8,6 +9,7 @@ from phenopackets import (
     VariantInterpretation,
     VariationDescriptor
 )
+
 
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 
@@ -57,7 +59,7 @@ class InterpretationMapper(BaseMapper[Interpretation]):
         Returns:
             Optional[Interpretation]: None as this mapper always returns multiple entities
         """
-        logger.warning("InterpretationMapper._map_single_entity called, but this mapper returns multiple entities")
+        warnings.warn("InterpretationMapper._map_single_entity called, but this mapper returns multiple entities")
         return None
     
     def _map_multi_entity(self, data: Dict[str, Any], instruments: list, **kwargs) -> List[Interpretation]:
@@ -75,7 +77,7 @@ class InterpretationMapper(BaseMapper[Interpretation]):
 
             # Add this check right here to return empty list if no variation descriptors
             if not variation_descriptors:
-                logger.warning("No variation descriptors provided, cannot create interpretations")
+                warnings.warn("No variation descriptors provided, cannot create interpretations")
                 return []
             
             # Get instrument name from configuration or instruments list
@@ -84,13 +86,13 @@ class InterpretationMapper(BaseMapper[Interpretation]):
                 instrument_name = instruments[0]
 
             if not instrument_name:
-                logger.warning("No instrument name found for interpretation mapping")
+                warnings.warn("No instrument name found for interpretation mapping")
                 return []
 
             # Find repeated elements for the specified instrument
             repeated_elements = data.get("repeated_elements", [])
             if not repeated_elements:
-                logger.warning("No repeated elements found in the data")
+                warnings.warn("No repeated elements found in the data")
                 return []
 
             # Filter elements for the target instrument
@@ -100,7 +102,7 @@ class InterpretationMapper(BaseMapper[Interpretation]):
             ]
 
             if not interpretation_elements:
-                logger.warning(f"No elements found for instrument {instrument_name}")
+                warnings.warn(f"No elements found for instrument {instrument_name}")
                 return []
 
             # Group interpretations by diagnosis using the provided (or empty) variation descriptors
@@ -153,13 +155,13 @@ class InterpretationMapper(BaseMapper[Interpretation]):
             # Get the genetic findings data
             genetic_data = element.get("genetic_findings")
             if not genetic_data:
-                logger.warning("No interpretation data found in this element")
+                warnings.warn("No interpretation data found in this element")
                 continue
                 
             # Genomic Diagnosis
             diagnosis_id = self._extract_diagnosis_id(genetic_data)
             if not diagnosis_id:
-                logger.warning("No diagnosis ID found in element")
+                warnings.warn("No diagnosis ID found in element")
                 continue
                 
             # Progress Status
@@ -184,7 +186,7 @@ class InterpretationMapper(BaseMapper[Interpretation]):
             # Extract redcap_repeat_instance
             instance_id = element.get("redcap_repeat_instance")
             if not instance_id:
-                logger.warning("No redcap_repeat_instance found in element")
+                warnings.warn("No redcap_repeat_instance found in element")
                 continue
                 
             # Check if this instance already exists in the group
@@ -199,7 +201,7 @@ class InterpretationMapper(BaseMapper[Interpretation]):
             # Get the variation descriptor for this instance
             variation_descriptor = variation_descriptors.get(instance_id)
             if not variation_descriptor:
-                logger.warning(f"No variation descriptor found for instance {instance_id}")
+                warnings.warn(f"No variation descriptor found for instance {instance_id}")
                 continue
                 
             # Create genomic interpretation

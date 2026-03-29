@@ -27,55 +27,40 @@ def multi_onset_adapter(
     Returns:
         List[Any]: A list of feature blocks.
     """
-    # Create the base feature using the provided mapping function
     base_feature = mapping_func(feature_type, feature_data, processor, dob)
     
-    # If multi_onset is not enabled or no onset_date_fields defined, return the base feature.
     if not processor.mapping_config.get("multi_onset", False):
         logger.debug("Multi-onset not enabled, returning single feature")
         return [base_feature]
     
-    # Get onset fields from config
     onset_fields = processor.mapping_config.get("onset_date_fields", [])
     if not onset_fields:
         logger.debug("No onset date fields configured, returning single feature")
         return [base_feature]
     
-    # Create a list to store all features
     features = []
     found_onset = False
     
-    # Process each onset field
     for field in onset_fields:
-        # Strip any instrument prefix from the field name
         field_name = field.split(".")[-1] if "." in field else field
         
-        # Try to get the onset value
         onset_value = feature_data.get(field_name)
         if onset_value:
             found_onset = True
             try:
-                # Convert the onset value to a string if needed
                 onset_date_str = onset_value if isinstance(onset_value, str) else str(onset_value)
-                # Ensure dob is a string in proper format
                 dob_str = dob if isinstance(dob, str) else (str(dob) if dob else None)
                 
                 logger.debug(f"Processing onset field '{field_name}' with value '{onset_date_str}'")
                 
-                # Calculate age at onset
                 iso_age = processor.convert_date_to_iso_age(onset_date_str, dob_str)
                 if iso_age:
-                    # Create a new onset TimeElement
                     onset = TimeElement(age=Age(iso8601duration=iso_age))
                     
-                    # Create a deep copy of the base feature
                     feature_copy = copy.deepcopy(base_feature)
                     
-                    # Clear the existing onset field and set the new one
                     feature_copy.ClearField("onset")
                     feature_copy.onset.MergeFrom(onset)
-                    
-                    # Add the feature to our list
                     features.append(feature_copy)
                     logger.debug(f"Created feature with onset from field '{field_name}': {iso_age}")
             except Exception as e:
@@ -83,7 +68,6 @@ def multi_onset_adapter(
                 import traceback
                 logger.debug(traceback.format_exc())
     
-    # If no valid onset values were found, return the base feature
     if not found_onset or not features:
         logger.debug("No valid onset values found, returning base feature")
         return [base_feature]

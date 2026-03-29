@@ -48,7 +48,7 @@
                 "coding": [
                   {
                     "system": "{{'http://snomed.info/sct'}}",
-                    "version": "{{'SNOMEDCT_US_2024_09_01'}}",
+                    "version": "{{'2025AB'}}",
                     "code": "{{'422549004'}}",
                     "display": "{{'Patient-related Identification code (observable entity)'}}"
                   }
@@ -92,7 +92,7 @@
                     "coding": [
                       {
                         "system": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'http://snomed.info/sct')}}",
-                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), '2025AB')}}",
                         "code": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), '370159000')}}",
                         "display": "{{? iif(%rarelinkpersonalinformation.snomedct_370159000.empty().not(), 'Country of Birth')}}"
                       }
@@ -110,7 +110,7 @@
                     "coding": [
                       {
                         "system": "http://snomed.info/sct",
-                        "version": "SNOMEDCT_US_2024_09_01",
+                        "version": "2025AB",
                         "code": "399423000",
                         "display": "Date of Admission"
                       }
@@ -124,30 +124,30 @@
               ]
             },
             {
-              "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html')}}",
+              "url": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-individual-recordedSexOrGender.html')}}",
               "extension": [
                 {
-                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'value')}}",
+                  "url": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'value')}}",
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
-                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
-                        "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_code')}}",
-                        "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, snomedct_281053000, 'target_display')}}"
+                        "system": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'http://snomed.info/sct')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), '281')}}",
+                        "code": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, loinc_76689_9, 'target_code')}}",
+                        "display": "{{? %rarelinkpersonalinformation.mpp:getConcept(%sexatbirth, loinc_76689_9, 'target_display')}}"
                       }
                     ]
                   }
                 },
                 {
-                  "url": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'codeDefinition')}}",
+                  "url": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'codeDefinition')}}",
                   "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'http://snomed.info/sct')}}",
-                        "version": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
-                        "code": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), '281053000')}}",
-                        "display": "{{? iif(%rarelinkpersonalinformation.snomedct_281053000.empty().not(), 'Sex at Birth')}}"
+                        "system": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'http://snomed.info/sct')}}",
+                        "version": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), '281')}}",
+                        "code": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), '281053000')}}",
+                        "display": "{{? iif(%rarelinkpersonalinformation.loinc_76689_9.empty().not(), 'Sex at Birth')}}"
                       }
                     ]
                   }
@@ -163,7 +163,7 @@
                       "coding": [
                         {
                           "system": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'https://www.snomed.org/snomed-ct')}}",
-                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}",
+                          "version": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '2025AB')}}",
                           "code": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), '184305005')}}",
                           "display": "{{? iif(%RareLinkPatientStatus.snomedct_184305005.empty().not(), 'Cause Of Death')}}"
                         }

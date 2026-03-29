@@ -30,7 +30,7 @@
               {
                 "code": "{{snomedct_122869004}}",
                 "system": "{{iif(snomedct_122869004.empty().not(), 'http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips')}}",
-                "version": "{{iif(snomedct_122869004.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                "version": "{{iif(snomedct_122869004.empty().not(), '2025AB')}}"
               }
             ]
           },
@@ -42,7 +42,7 @@
                 {
                   "code": "{{snomedct_122869004_bdsite}}",
                   "system": "{{iif(snomedct_122869004_bdsite.empty().not(), 'http://snomed.info/sct')}}",
-                  "version": "{{iif(snomedct_122869004_bdsite.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                  "version": "{{iif(snomedct_122869004_bdsite.empty().not(), '2025AB')}}"
                 }
               ]
             }

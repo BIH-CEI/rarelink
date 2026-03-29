@@ -1,6 +1,7 @@
 # src/rarelink/phenopackets/mappings/medical_action_mapper.py
 from typing import Any, Dict, List, Optional
 import logging
+import warnings
 
 from phenopackets import (
     Age,
@@ -36,7 +37,7 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
         instruments: List[str],
         **kwargs,
     ) -> Optional[MedicalAction]:
-        logger.warning(
+        warnings.warn(
             "MedicalActionMapper._map_single_entity called, but this mapper "
             "returns multiple entities"
         )
@@ -171,7 +172,7 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
                             age=Age(iso8601duration=iso_age),
                         )
                 except Exception as e:
-                    logger.warning(
+                    warnings.warn(
                         "Could not calculate age at procedure: %s",
                         e,
                     )
@@ -390,7 +391,7 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
                         ),
                     )
                 except (ValueError, TypeError):
-                    logger.warning(
+                    warnings.warn(
                         "Could not convert dose value '%s' to float",
                         dose_value,
                     )
@@ -455,7 +456,7 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
                 try:
                     response_fields[int(key.split("_")[-1])] = value
                 except ValueError:
-                    logger.warning(
+                    warnings.warn(
                         "Invalid response field key format: %s",
                         key,
                     )

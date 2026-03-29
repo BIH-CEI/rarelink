@@ -40,7 +40,7 @@
               {
                 "system": "{{? iif(snomedct_64572001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
                 "code": "{{? iif(snomedct_64572001_mondo.empty().not(), snomedct_64572001_mondo.substring(6))}}",
-                "version": "{{? iif(snomedct_64572001_mondo.empty().not(), '2025-06-03')}}"
+                "version": "{{? iif(snomedct_64572001_mondo.empty().not(), '2026-03-03')}}"
               },
               {
                 "system": "{{? iif(snomedct_64572001_ordo.empty().not(), 'http://www.orpha.net/')}}",
@@ -60,7 +60,7 @@
               {
                 "system": "{{? iif(snomedct_64572001_icd11.empty().not(), 'https://icd.who.int/en')}}",
                 "code": "{{? iif(snomedct_64572001_icd11.empty().not(), snomedct_64572001_icd11)}}",
-                "version": "{{? iif(snomedct_64572001_icd11.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                "version": "{{? iif(snomedct_64572001_icd11.empty().not(), '2025AB')}}"
               }
             ]
           },
@@ -80,7 +80,7 @@
                 "system": "{{? iif(snomedct_246112005.empty().not(), 'http://snomed.info/sct')}}",
                 "code": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_code')}}",
                 "display": "{{? mpp:getConcept(%diseaseSeverity, snomedct_246112005, 'target_display')}}",
-                "version": "{{? iif(snomedct_246112005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                "version": "{{? iif(snomedct_246112005.empty().not(), '2025AB')}}"
               }
             ]
           },
@@ -90,7 +90,7 @@
                 {
                   "system": "{{? iif(snomedct_363698007.empty().not(), 'http://snomed.info/sct')}}",
                   "code": "{{? snomedct_363698007}}",
-                  "version": "{{? iif(snomedct_363698007.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                  "version": "{{? iif(snomedct_363698007.empty().not(), '2025AB')}}"
                 }
               ]
             }
@@ -117,7 +117,7 @@
                     "system": "{{? iif(snomedct_423493009.empty().not(), 'http://snomed.info/sct')}}",
                     "code": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%rarelinkAgeAtDiagnosis, snomedct_423493009, 'target_display')}}",
-                    "version": "{{? iif(snomedct_423493009.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                    "version": "{{? iif(snomedct_423493009.empty().not(), '2025AB')}}"
                   }
                 ],
                 "text": "{{? iif(snomedct_423493009.empty().not(), 'SNOMED:423493009 - Age at Diagnosis')}}"
@@ -132,7 +132,7 @@
                     "system": "{{? iif(snomedct_424850005.empty().not(), 'http://snomed.info/sct')}}",
                     "code": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_code')}}",
                     "display": "{{? mpp:getConcept(%diseaseAgeAtOnset, snomedct_424850005, 'target_display')}}",
-                    "version": "{{? iif(snomedct_424850005.empty().not(), 'SNOMEDCT_US_2024_09_01')}}"
+                    "version": "{{? iif(snomedct_424850005.empty().not(), '2025AB')}}"
                   }
                 ],
                 "text": "{{? iif(snomedct_424850005.empty().not(), 'SNOMED:424850005 - Age at Onset')}}"

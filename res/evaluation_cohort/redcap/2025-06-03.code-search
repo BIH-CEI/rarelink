@@ -1,0 +1,170 @@
+# Query: 2025-06-03
+# ContextLines: 1
+
+35 results - 26 files
+
+res/evaluation_cohort/fhir/evco_fhir_diagnostic_implication.json:
+   80              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+   81:             "version": "2025-06-03",
+   82              "code": "0007843"
+
+  158              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  159:             "version": "2025-06-03",
+  160              "code": "0007843"
+
+  236              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  237:             "version": "2025-06-03",
+  238              "code": "0007843"
+
+  314              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  315:             "version": "2025-06-03",
+  316              "code": "0007843"
+
+  392              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  393:             "version": "2025-06-03",
+  394              "code": "0007843"
+
+  470              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  471:             "version": "2025-06-03",
+  472              "code": "0007843"
+
+  548              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  549:             "version": "2025-06-03",
+  550              "code": "0007843"
+
+  626              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  627:             "version": "2025-06-03",
+  628              "code": "0007843"
+
+  704              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  705:             "version": "2025-06-03",
+  706              "code": "0007843"
+
+  782              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  783:             "version": "2025-06-03",
+  784              "code": "0007843"
+
+res/evaluation_cohort/fhir/evco_fhir_family_member_history.json:
+  77              "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  78:             "version": "2025-06-03",
+  79              "code": "MONDO:0007843"
+
+res/evaluation_cohort/phenopackets/3.json:
+  255          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  256:         "version": "2025-06-03",
+  257          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/4.json:
+  202          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  203:         "version": "2025-06-03",
+  204          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/5.json:
+  309          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  310:         "version": "2025-06-03",
+  311          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/6.json:
+  197          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  198:         "version": "2025-06-03",
+  199          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/7.json:
+  217          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  218:         "version": "2025-06-03",
+  219          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/8.json:
+  255          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  256:         "version": "2025-06-03",
+  257          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/9.json:
+  218          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  219:         "version": "2025-06-03",
+  220          "namespacePrefix": "MONDO",
+
+res/evaluation_cohort/phenopackets/10.json:
+  304          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  305:         "version": "2025-06-03",
+  306          "namespacePrefix": "MONDO",
+
+src/fsh/input/fsh/Bundle-rarelink-example.json:
+  222                "system": "http://purl.obolibrary.org/obo/mondo.owl",
+  223:               "version": "2025-06-03",
+  224                "code": "0007843"
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_2_personal_information.py:
+  289          description="Monarch Disease Ontology",
+  290:         code_set_version="2025-06-03",
+  291      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_3_patient_status.py:
+  252          description="Monarch Disease Ontology",
+  253:         code_set_version="2025-06-03",
+  254      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_4_care_pathway.py:
+  249          description="Monarch Disease Ontology",
+  250:         code_set_version="2025-06-03",
+  251      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_5_diseases.py:
+  404          description="Monarch Disease Ontology",
+  405:         code_set_version="2025-06-03",
+  406      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_6_1_genetic_findings.py:
+  710          description="Monarch Disease Ontology",
+  711:         code_set_version="2025-06-03",
+  712      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_6_4_family_history.py:
+  433          description="Monarch Disease Ontology",
+  434:         code_set_version="2025-06-03",
+  435      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_7_consent.py:
+  247          description="Monarch Disease Ontology",
+  248:         code_set_version="2025-06-03",
+  249      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_cdm.py:
+  930          description="Monarch Disease Ontology",
+  931:         code_set_version="2025-06-03",
+  932      )
+
+src/rarelink/rarelink_cdm/python_datamodel/rarelink_repeated_elements.py:
+  709          description="Monarch Disease Ontology",
+  710:         code_set_version="2025-06-03",
+  711      )
+
+src/rarelink/tofhir/mappings/familymemberhistory.familyhistory.json:
+  96                      "system": "{{? iif(loinc_75315_2.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+  97:                     "version": "{{? iif(loinc_75315_2.empty().not(),'2025-06-03')}}",
+  98                      "code": "{{? loinc_75315_2}}"
+
+src/rarelink/tofhir/mappings/genomicreporting.genetic_findings.json:
+  446                        "system": "{{? iif(snomedct_106221001_mondo.empty().not(), 'http://purl.obolibrary.org/obo/mondo.owl')}}",
+  447:                       "version": "{{? iif(snomedct_106221001_mondo.empty().not(), '2025-06-03')}}"
+  448                      }
+
+src/rarelink/tofhir/mappings/ips.condition.json:
+  42                  "code": "{{? iif(snomedct_64572001_mondo.empty().not(), snomedct_64572001_mondo.substring(6))}}",
+  43:                 "version": "{{? iif(snomedct_64572001_mondo.empty().not(), '2025-06-03')}}"
+  44                },
+
+tests/phenopackets/test_data/101.json:
+  455          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  456:         "version": "2025-06-03",
+  457          "namespace_prefix": "MONDO",
+
+tests/phenopackets/test_data/102.json:
+  248          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  249:         "version": "2025-06-03",
+  250          "namespacePrefix": "MONDO",
+
+tests/phenopackets/test_data/103.json:
+  385          "url": "https://purl.obolibrary.org/obo/MONDO/",
+  386:         "version": "2025-06-03",
+  387          "namespacePrefix": "MONDO",

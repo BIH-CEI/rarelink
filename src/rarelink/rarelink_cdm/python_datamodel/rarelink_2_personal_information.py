@@ -69,7 +69,7 @@ class PersonalInformation(YAMLRoot):
 
     snomedct_184099003: Union[str, XSDDate] = None
     rarelink_2_personal_information_complete: str = None
-    snomedct_281053000: Optional[Union[str, "SexAtBirth"]] = None
+    loinc_76689_9: Optional[Union[str, "SexAtBirth"]] = None
     snomedct_1296886006: Optional[Union[str, "KaryotypicSex"]] = None
     snomedct_263495000: Optional[Union[str, "GenderIdentity"]] = None
     snomedct_370159000: Optional[str] = None
@@ -85,8 +85,8 @@ class PersonalInformation(YAMLRoot):
         if not isinstance(self.rarelink_2_personal_information_complete, str):
             self.rarelink_2_personal_information_complete = str(self.rarelink_2_personal_information_complete)
 
-        if self.snomedct_281053000 is not None and not isinstance(self.snomedct_281053000, SexAtBirth):
-            self.snomedct_281053000 = SexAtBirth(self.snomedct_281053000)
+        if self.loinc_76689_9 is not None and not isinstance(self.loinc_76689_9, SexAtBirth):
+            self.loinc_76689_9 = SexAtBirth(self.loinc_76689_9)
 
         if self.snomedct_1296886006 is not None and not isinstance(self.snomedct_1296886006, KaryotypicSex):
             self.snomedct_1296886006 = KaryotypicSex(self.snomedct_1296886006)
@@ -277,7 +277,7 @@ class SNOMEDCT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="SNOMEDCT",
         description="SNOMED CT",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class MONDO(EnumDefinitionImpl):
@@ -287,7 +287,7 @@ class MONDO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="MONDO",
         description="Monarch Disease Ontology",
-        code_set_version="2025-06-03",
+        code_set_version="2026-03-03",
     )
 
 class HP(EnumDefinitionImpl):
@@ -297,7 +297,7 @@ class HP(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="HP",
         description="Human Phenotype Ontology",
-        code_set_version="2025-05-06",
+        code_set_version="2026-02-16",
     )
 
 class LOINC(EnumDefinitionImpl):
@@ -307,7 +307,7 @@ class LOINC(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="LOINC",
         description="Logical Observation Identifiers Names and Codes",
-        code_set_version="LNC278",
+        code_set_version="v281",
     )
 
 class OMIM(EnumDefinitionImpl):
@@ -337,7 +337,7 @@ class NCIT(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="NCIT",
         description="NCI Thesaurus OBO Edition",
-        code_set_version="24.01e",
+        code_set_version="26.02d",
     )
 
 class UO(EnumDefinitionImpl):
@@ -397,7 +397,7 @@ class ICD11(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD11",
         description="International Classification of Diseases, Eleventh Revision",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10CM(EnumDefinitionImpl):
@@ -407,7 +407,7 @@ class ICD10CM(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD10CM",
         description="International Classification of Diseases, Tenth Revision, Clinical Modification",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class ICD10GM(EnumDefinitionImpl):
@@ -417,7 +417,7 @@ class ICD10GM(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="ICD10GM",
         description="International Classification of Diseases, Tenth Revision, German Modification",
-        code_set_version="SNOMEDCT_US_2024_09_01",
+        code_set_version="2025AB",
     )
 
 class SO(EnumDefinitionImpl):
@@ -437,7 +437,7 @@ class GENO(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="GENO",
         description="GENO - The Genotype Ontology",
-        code_set_version="2023-10-08",
+        code_set_version="2026-02-02",
     )
 
 class ISO3166(EnumDefinitionImpl):
@@ -467,8 +467,8 @@ class slots:
 slots.snomedct_184099003 = Slot(uri=RARELINK.snomedct_184099003, name="snomedct_184099003", curie=RARELINK.curie('snomedct_184099003'),
                    model_uri=RARELINK.snomedct_184099003, domain=None, range=Union[str, XSDDate])
 
-slots.snomedct_281053000 = Slot(uri=RARELINK.snomedct_281053000, name="snomedct_281053000", curie=RARELINK.curie('snomedct_281053000'),
-                   model_uri=RARELINK.snomedct_281053000, domain=None, range=Optional[Union[str, "SexAtBirth"]])
+slots.loinc_76689_9 = Slot(uri=RARELINK.loinc_76689_9, name="loinc_76689_9", curie=RARELINK.curie('loinc_76689_9'),
+                   model_uri=RARELINK.loinc_76689_9, domain=None, range=Optional[Union[str, "SexAtBirth"]])
 
 slots.snomedct_1296886006 = Slot(uri=RARELINK.snomedct_1296886006, name="snomedct_1296886006", curie=RARELINK.curie('snomedct_1296886006'),
                    model_uri=RARELINK.snomedct_1296886006, domain=None, range=Optional[Union[str, "KaryotypicSex"]])

@@ -24,18 +24,34 @@ Follow these steps to set up the project locally and run tests.
       source .venv/bin/activate  # On macOS/Linux
       .venv\Scripts\activate     # On Windows
 
-3. Install dependencies:
+3. Install RareLink:
 
 .. code-block:: bash
 
-      pip install .
+      pip install rarelink
+
+This installs everything needed for REDCap interaction, Phenopacket export,
+and the RareLink CLI.
+
+For optional features, install the relevant extras:
+
+.. code-block:: bash
+
+      pip install rarelink[fhir]    # adds Docker SDK for the toFHIR pipeline
+      pip install rarelink[data]    # adds numpy and pandas for tabular data processing
+
+For development (includes testing, docs, and all optional extras):
+
+.. code-block:: bash
+
+      pip install -e .[dev]
 
 4. Configure all api keys necessary to use rarelink by running the following
 command:
 
 .. code-block:: bash
 
-    rarelink setup keys 
+    rarelink setup keys
 
     This command will prompt you to enter the following keys:
     - BioPortal API key
@@ -43,14 +59,14 @@ command:
     - REDCap URL
     - REDCap project ID
 
-.. note:: 
+.. note::
     You can create your free BioPortal account here: `BioPortal <https://bioportal.bioontology.org/>`_
 
 5. Run tests:
-   Use `pytest` to run the test suite.
-   
+
 .. code-block:: bash
 
+      pip install rarelink[test]
       pytest
 
 _____________________________________________________________________________________
@@ -58,7 +74,7 @@ ________________________________________________________________________________
 RareLink Framework CLI config
 ------------------------------------
 
-Use the following commands to update the framework and its components, view 
+Use the following commands to update the framework and its components, view
 its status or reset the framework. See :ref:`2_3` for more information.
 
 .. code-block:: bash
@@ -91,32 +107,37 @@ ________________________________________________________________________________
 Phenopacket Pipeline Configuration
 ___________________________________
 
-Via the RareLink CLI type:
+The Phenopacket export pipeline requires a BioPortal API key and a
+``CREATED_BY`` value, both configured via:
 
 .. code-block:: bash
 
-    to be implemented
+    rarelink setup keys
 
-This command guides you through setting up the Phenopacket pipeline for RareLink.
-You will be prompted to enter:
-- Your location where to store the Phenopackets.
+Once configured, export Phenopackets with:
+
+.. code-block:: bash
+
+    rarelink phenopackets export --help
 
 _____________________________________________________________________________________
 
 FHIR Pipeline Configuration
 ___________________________
 
+.. note::
+    The FHIR pipeline requires the ``fhir`` extra: ``pip install rarelink[fhir]``
+
 .. code-block:: bash
 
     rarelink fhir setup
 
-This command guides you through setting up the FHIR pipeline for RareLink. 
+This command guides you through setting up the FHIR pipeline for RareLink.
 You will be prompted to enter:
 
 - Your FHIR server URL.
 - If required, your FHIR server username & password.
 
-.. note:: 
-    All sensitive information will also be stored in the 
+.. note::
+    All sensitive information will also be stored in the
     hidden configuration file.
-

@@ -2,16 +2,15 @@
   "id": "7",
   "subject": {
     "id": "EvCo7",
-    "date_of_birth": "2016-04-25T00:00:00Z",
-    "time_at_last_encounter": {
+    "dateOfBirth": "2016-04-25T00:00:00Z",
+    "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P8Y11M"
       }
     },
-    "vital_status": {
+    "vitalStatus": {
       "status": "ALIVE"
     },
-    "sex": "MALE",
     "gender": {
       "id": "SNOMEDCT:446151000124109",
       "label": "Male gender identity"
@@ -21,7 +20,7 @@
       "label": "Homo sapiens"
     }
   },
-  "phenotypic_features": [
+  "phenotypicFeatures": [
     {
       "type": {
         "id": "HP:0002553",
@@ -90,7 +89,7 @@
           "value": 5.9
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P4Y4M"
         }
@@ -110,7 +109,7 @@
           "value": 2.3
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P4Y4M"
         }
@@ -130,7 +129,7 @@
           "value": 6.3
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P4Y5M"
         }
@@ -150,7 +149,7 @@
           "value": 2.3
         }
       },
-      "time_observed": {
+      "timeObserved": {
         "age": {
           "iso8601duration": "P4Y5M"
         }
@@ -160,22 +159,22 @@
   "interpretations": [
     {
       "id": "EvCo7-interpretation-0",
-      "progress_status": "COMPLETED",
+      "progressStatus": "COMPLETED",
       "diagnosis": {
         "disease": {
           "id": "MONDO:0007843",
           "label": "Kabuki syndrome 1"
         },
-        "genomic_interpretations": [
+        "genomicInterpretations": [
           {
-            "subject_or_biosample_id": "1",
-            "interpretation_status": "CONTRIBUTORY",
-            "variant_interpretation": {
-              "acmg_pathogenicity_classification": "PATHOGENIC",
-              "variation_descriptor": {
-                "id": "e4bedc38ed1e48fc8edcd14b3ff58b",
-                "gene_context": {
-                  "value_id": "HGNC:29508",
+            "subjectOrBiosampleId": "1",
+            "interpretationStatus": "CONTRIBUTORY",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "8d74247b4c054eccbd293a11b4ad2e",
+                "geneContext": {
+                  "valueId": "HGNC:29508",
                   "symbol": "KIDINS220"
                 },
                 "expressions": [
@@ -184,7 +183,7 @@
                     "value": "NM_020738.4:c.4269del"
                   }
                 ],
-                "allelic_state": {
+                "allelicState": {
                   "id": "GENO:0000458",
                   "label": "Heterozygous"
                 }
@@ -208,59 +207,75 @@
       }
     }
   ],
-  "meta_data": {
-    "created": "2025-09-23T15:33:23.098017Z",
-    "created_by": "Adam G.",
+  "metaData": {
+    "created": "2026-03-29T18:06:28.811493Z",
+    "createdBy": "AG",
     "resources": [
       {
         "id": "mondo",
         "name": "Monarch Disease Ontology",
         "url": "https://purl.obolibrary.org/obo/MONDO/",
-        "version": "2025-06-03",
-        "namespace_prefix": "MONDO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/MONDO_"
+        "version": "2026-03-03",
+        "namespacePrefix": "MONDO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
       },
       {
         "id": "hpo",
         "name": "Human Phenotype Ontology",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
-        "version": "2025-05-06",
-        "namespace_prefix": "HPO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/HP_"
+        "version": "2026-02-16",
+        "namespacePrefix": "HPO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
       },
       {
         "id": "loinc",
         "name": "Logical Observation Identifiers Names and Codes",
         "url": "https://loinc.org",
-        "version": "LNC278",
-        "namespace_prefix": "LOINC",
-        "iri_prefix": "http://loinc.org"
+        "version": "v281",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "http://loinc.org"
+      },
+      {
+        "id": "uo",
+        "name": "Units of Measurement Ontology",
+        "url": "https://www.ontobee.org/ontology/UO",
+        "version": "2026-01-16",
+        "namespacePrefix": "UO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UO_"
       },
       {
         "id": "hgnc",
         "name": "HUGO Gene Nomenclature Committee",
         "url": "https://www.genenames.org/",
         "version": "2024-08-23",
-        "namespace_prefix": "HGNC",
-        "iri_prefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
       },
       {
         "id": "hgvs",
         "name": "Human Genome Variation Society",
         "url": "https://varnomen.hgvs.org/",
         "version": "21.0.0",
-        "namespace_prefix": "HGVS",
-        "iri_prefix": "https://varnomen.hgvs.org/recommendations/variant/"
+        "namespacePrefix": "HGVS",
+        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/"
+      },
+      {
+        "id": "ga4gh",
+        "name": "Global Alliance for Genomics and Health",
+        "url": "https://www.ga4gh.org/",
+        "version": "v2.0",
+        "namespacePrefix": "GA4GH",
+        "iriPrefix": "https://www.ga4gh.org/"
       },
       {
         "id": "geno",
         "name": "GENO - The Genotype Ontology",
         "url": "https://www.genoontology.org/",
-        "version": "2023-10-08",
-        "namespace_prefix": "GENO",
-        "iri_prefix": "http://purl.obolibrary.org/obo/GENO_"
+        "version": "2026-02-02",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
       }
     ],
-    "phenopacket_schema_version": "2.0"
+    "phenopacketSchemaVersion": "2.0"
   }
 }
