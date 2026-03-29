@@ -1,3 +1,4 @@
+# src/rarelink/phenopackets/validate.py
 import json
 import re
 import shutil
@@ -6,17 +7,14 @@ from pathlib import Path
 from typing import List, Tuple, Union
 import logging
 
+from rarelink.phenopackets.adapter.ontology_routing_adapter import (
+    check_prefix_placement,
+)
+
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Required top-level keys for a Phenopacket v2 JSON document
-# ---------------------------------------------------------------------------
 _REQUIRED_TOP_LEVEL = {"id", "metaData"}
-
-# Required keys inside metaData
 _REQUIRED_METADATA = {"created", "createdBy", "phenopacketSchemaVersion"}
-
-# Basic pattern for CURIE-style ontology term IDs (e.g. HP:0001250, MONDO:0007843)
 _CURIE_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_]*:[A-Za-z0-9._\-]+$")
 
 
@@ -24,23 +22,28 @@ def validate_phenopackets(
     path: Path,
 ) -> Union[Tuple[bool, str], List[Tuple[bool, str]]]:
     """
-    Validates a phenopacket file or directory of phenopackets.
+    Validate a phenopacket file or directory of phenopackets.
 
-    Validation is performed in two stages:
-      1. **Python-native checks** — always available, no external tooling needed.
-         Verifies JSON structure, required fields, and ontology term format.
-      2. **phenopacket-tools CLI** — used automatically when the CLI is on PATH,
-         providing deeper schema-level validation on top of the Python checks.
+    Runs up to three stages:
+
+    1. **Python-native structural checks** — required fields, schema version,
+       CURIE format, ``subject.id``.
+    2. **Ontology-prefix placement checks** — soft warnings when HP: terms
+       appear outside ``phenotypicFeatures`` or MONDO: terms appear outside
+       ``diseases``. Non-fatal: the phenopacket still passes, but warnings
+       are surfaced in the return string to help catch routing errors.
+    3. **phenopacket-tools CLI** — when the CLI is on PATH, provides deeper
+       schema-level validation on top of stages 1 and 2.
 
     Args:
-        path (Path): Path to a single ``.json`` file or a directory of them.
+        path: Path to a single ``.json`` file or a directory.
 
     Returns:
-        - Single file  → ``(bool, str)``  — (passed, detail message)
-        - Directory    → ``List[(bool, str)]`` — one tuple per file
+        - Single file  → ``(bool, str)``
+        - Directory    → ``List[(bool, str)]``
 
     Raises:
-        ValueError: If the path does not exist, is not a JSON file, or a
+        ValueError: If path does not exist, is not a JSON file, or a
                     directory contains no JSON files.
     """
     logger.info("Starting validation of phenopackets...")
@@ -55,7 +58,8 @@ def validate_phenopackets(
 
     if path.is_dir():
         results = [
-            _validate_single_phenopacket(fp) for fp in sorted(path.glob("*.json"))
+            _validate_single_phenopacket(fp)
+            for fp in sorted(path.glob("*.json"))
         ]
         if not results:
             raise ValueError(f"Directory {path} contains no JSON files.")
@@ -68,51 +72,50 @@ def validate_phenopackets(
     raise ValueError(f"Path {path} is neither a file nor a directory.")
 
 
-# ---------------------------------------------------------------------------
-# Internal helpers
-# ---------------------------------------------------------------------------
-
 def _validate_single_phenopacket(file_path: Path) -> Tuple[bool, str]:
     """Run all available validation stages on one file."""
-    logger.info(f"Validating {file_path}...")
+    logger.debug(f"Validating {file_path}...")
 
-    # --- Stage 1: Python-native structural validation ---
+    # Stage 1: structural
     ok, msg = _python_validate(file_path)
     if not ok:
-        logger.error(f"Structural validation failed for {file_path}: {msg}")
+        logger.warning(f"Structural validation failed for {file_path}: {msg}")
         return False, msg
 
-    # --- Stage 2: phenopacket-tools CLI (optional) ---
+    # Stage 2: prefix placement warnings (non-fatal)
+    prefix_warnings = _prefix_placement_check(file_path)
+
+    # Stage 3: CLI (optional)
     if shutil.which("phenopacket-tools"):
-        ok, msg = _cli_validate(file_path)
+        ok, cli_msg = _cli_validate(file_path)
         if not ok:
-            logger.warning(f"CLI validation failed for {file_path}: {msg}")
-            return False, msg
-        logger.info(f"CLI validation passed for {file_path}")
+            logger.warning(f"CLI validation failed for {file_path}: {cli_msg}")
+            detail = cli_msg
+            if prefix_warnings:
+                detail += "\n\nOntology prefix warnings:\n" + "\n".join(
+                    f"  ⚠  {w}" for w in prefix_warnings
+                )
+            return False, detail
+        logger.debug(f"CLI validation passed: {file_path}")
     else:
         logger.debug(
-            "phenopacket-tools CLI not found on PATH — skipping CLI validation. "
-            "Install it for deeper schema checks: "
+            "phenopacket-tools not found on PATH — skipping CLI validation. "
+            "Install for deeper schema checks: "
             "https://github.com/phenopackets/phenopacket-tools"
         )
 
-    logger.info(f"Validation passed: {file_path}")
-    return True, f"OK: {file_path}"
+    detail = f"OK: {file_path}"
+    if prefix_warnings:
+        detail += "\n\nOntology prefix warnings (non-fatal):\n" + "\n".join(
+            f"  ⚠  {w}" for w in prefix_warnings
+        )
+
+    logger.debug(f"Validation passed: {file_path}")
+    return True, detail
 
 
 def _python_validate(file_path: Path) -> Tuple[bool, str]:
-    """
-    Lightweight Python-native checks against the Phenopacket v2 JSON schema:
-
-    - Valid, parseable JSON
-    - Required top-level keys present (``id``, ``metaData``)
-    - ``metaData`` contains ``created``, ``createdBy``, ``phenopacketSchemaVersion``
-    - ``phenopacketSchemaVersion`` is ``"2.0"``
-    - All ontology terms (wherever ``{"id": ..., "label": ...}`` objects appear)
-      have a CURIE-formatted ``id``
-    - ``subject.id`` present when ``subject`` block exists
-    """
-    # 1. Parse JSON
+    """Python-native structural checks against the Phenopacket v2 JSON schema."""
     try:
         with open(file_path) as f:
             doc = json.load(f)
@@ -121,12 +124,10 @@ def _python_validate(file_path: Path) -> Tuple[bool, str]:
 
     errors: List[str] = []
 
-    # 2. Required top-level keys
     missing = _REQUIRED_TOP_LEVEL - doc.keys()
     if missing:
         errors.append(f"Missing required top-level keys: {sorted(missing)}")
 
-    # 3. metaData checks
     meta = doc.get("metaData", {})
     if isinstance(meta, dict):
         missing_meta = _REQUIRED_METADATA - meta.keys()
@@ -137,51 +138,32 @@ def _python_validate(file_path: Path) -> Tuple[bool, str]:
         schema_ver = meta.get("phenopacketSchemaVersion", "")
         if schema_ver and not schema_ver.startswith("2"):
             errors.append(
-                f"phenopacketSchemaVersion is '{schema_ver}', expected '2.0'"
+                f"phenopacketSchemaVersion is '{schema_ver}', expected '2.x'"
             )
 
-    # 4. subject.id
     subject = doc.get("subject")
     if subject is not None:
         if not isinstance(subject, dict) or not subject.get("id"):
             errors.append("subject block is present but missing 'id'")
 
-    # 5. Ontology term CURIE format — walk the whole document
-    curie_errors = _check_curie_terms(doc, path="$")
-    errors.extend(curie_errors)
+    errors.extend(_check_curie_terms(doc, path="$"))
 
     if errors:
-        detail = "; ".join(errors)
-        return False, detail
-
+        return False, "; ".join(errors)
     return True, "Structural checks passed"
 
 
-def _check_curie_terms(node, path: str) -> List[str]:
-    """
-    Recursively walk *node* and collect CURIE-format violations for any
-    object that has an ``"id"`` key whose sibling is ``"label"`` — i.e. an
-    OntologyClass-like object.
-    """
-    errors: List[str] = []
-
-    if isinstance(node, dict):
-        # Looks like an OntologyClass if it has both "id" and "label"
-        if "id" in node and "label" in node:
-            term_id = node["id"]
-            if isinstance(term_id, str) and not _CURIE_PATTERN.match(term_id):
-                errors.append(
-                    f"Ontology term id '{term_id}' at {path} "
-                    f"is not a valid CURIE (expected format PREFIX:localid)"
-                )
-        for key, value in node.items():
-            errors.extend(_check_curie_terms(value, path=f"{path}.{key}"))
-
-    elif isinstance(node, list):
-        for i, item in enumerate(node):
-            errors.extend(_check_curie_terms(item, path=f"{path}[{i}]"))
-
-    return errors
+def _prefix_placement_check(file_path: Path) -> List[str]:
+    """Load the phenopacket JSON and run ontology-prefix placement checks."""
+    try:
+        with open(file_path) as f:
+            doc = json.load(f)
+        return check_prefix_placement(doc)
+    except Exception as exc:
+        logger.debug(
+            f"Could not run prefix-placement check on {file_path}: {exc}"
+        )
+        return []
 
 
 def _cli_validate(file_path: Path) -> Tuple[bool, str]:
@@ -196,9 +178,27 @@ def _cli_validate(file_path: Path) -> Tuple[bool, str]:
         return False, exc.output or str(exc)
 
 
-# ---------------------------------------------------------------------------
-# CLI entry-point
-# ---------------------------------------------------------------------------
+def _check_curie_terms(node, path: str) -> List[str]:
+    """
+    Recursively check that all ontology term ids are valid CURIEs.
+    An OntologyClass-like object is any dict with both ``"id"`` and ``"label"``.
+    """
+    errors: List[str] = []
+    if isinstance(node, dict):
+        if "id" in node and "label" in node:
+            term_id = node["id"]
+            if isinstance(term_id, str) and not _CURIE_PATTERN.match(term_id):
+                errors.append(
+                    f"Ontology term id '{term_id}' at {path} "
+                    f"is not a valid CURIE (expected PREFIX:localid)"
+                )
+        for key, value in node.items():
+            errors.extend(_check_curie_terms(value, path=f"{path}.{key}"))
+    elif isinstance(node, list):
+        for i, item in enumerate(node):
+            errors.extend(_check_curie_terms(item, path=f"{path}[{i}]"))
+    return errors
+
 
 if __name__ == "__main__":
     import argparse

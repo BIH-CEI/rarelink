@@ -282,6 +282,17 @@ def export(
     from rarelink.phenopackets.pipeline import phenopacket_pipeline
 
     # ── Step 7a: Phase 1 progress bar — Creating ─────────────────────────────
+    # Mute all logging output while the progress bars are live.
+    # basicConfig attaches handlers to the ROOT logger, so setting the level
+    # on a child namespace ("rarelink") has no effect — the root handlers still
+    # fire.  Instead we temporarily remove all root handlers and restore them
+    # after both bars finish.  In --debug mode logging stays active.
+    import logging as _logging
+    _root_logger = _logging.getLogger()
+    _saved_handlers = _root_logger.handlers[:]
+    if not debug:
+        _root_logger.handlers = []
+
     create_progress, create_task = _make_progress(
         "Creating  phenopackets", total
     )
@@ -298,9 +309,10 @@ def export(
                 timeout=timeout,
                 debug=debug,
                 progress_callback=on_created,
-                validation_callback=None,   # not wired yet — phase 2 below
+                validation_callback=None,
             )
         except Exception as e:
+            _root_logger.handlers = _saved_handlers  # restore before printing
             typer.secho(
                 error_text(f"❌ Pipeline failed: {str(e)}"),
                 fg=typer.colors.RED,
@@ -311,6 +323,11 @@ def export(
             raise typer.Exit(1)
 
     # ── Step 7b: Phase 2 progress bar — Validating ───────────────────────────
+    # Collect prefix-placement warnings from the detail strings returned by
+    # validate_phenopackets.  They are non-fatal (success=True) but contain
+    # "Ontology prefix warnings" when a MONDO/HP term is in the wrong block.
+    _prefix_warnings: list = []
+
     n_to_validate = result.n_created
     if n_to_validate > 0:
         validate_progress, validate_task = _make_progress(
@@ -319,6 +336,13 @@ def export(
         with validate_progress:
             def on_validated(file_path, success, error):
                 validate_progress.advance(validate_task)
+                # Harvest prefix warnings from the detail string even on success
+                if error and "Ontology prefix warnings" in error:
+                    fname = Path(file_path).name
+                    for line in error.splitlines():
+                        line = line.strip()
+                        if line.startswith("⚠"):
+                            _prefix_warnings.append(f"{fname}: {line.lstrip('⚠').strip()}")
 
             _run_write_and_validate(
                 phenopackets=result.phenopackets,
@@ -327,6 +351,9 @@ def export(
                 validation_callback=on_validated,
                 debug=debug,
             )
+
+    # Restore root logger handlers — logging resumes for the summary section
+    _root_logger.handlers = _saved_handlers
 
     # ── Step 8: Summary ──────────────────────────────────────────────────────
     console.print()
@@ -339,6 +366,7 @@ def export(
         output_dir=output_dir,
         failed_creations=result.failed_creations,
         failed_validations=result.failed_validations,
+        prefix_warnings=_prefix_warnings,
     )
 
     end_of_section_separator()
@@ -385,7 +413,8 @@ def _run_write_and_validate(
             ok, details = validate_phenopackets(file_path)
             if ok:
                 if validation_callback:
-                    validation_callback(str(file_path), success=True, error=None)
+                    # Pass details even on success — may contain prefix warnings
+                    validation_callback(str(file_path), success=True, error=details)
             else:
                 result.failed_validations.append(
                     {"file": str(file_path), "error": details}
@@ -410,10 +439,13 @@ def _print_summary(
     output_dir: Path,
     failed_creations: list,
     failed_validations: list,
+    prefix_warnings: list = None,
 ):
-    """Render a clean Rich summary table with optional failure details."""
+    """Render a clean Rich summary table with failure details and prefix warnings."""
+    prefix_warnings = prefix_warnings or []
     all_ok = (n_failed_creation == 0 and n_failed_validation == 0)
 
+    # ── Stats table ──────────────────────────────────────────────────────────
     table = Table(
         title="Export Summary",
         show_header=True,
@@ -425,26 +457,47 @@ def _print_summary(
     table.add_column("Stage", style="dim", width=24)
     table.add_column("Passed", justify="right", style="green")
     table.add_column("Failed", justify="right")
+    table.add_column("Warnings", justify="right")
     table.add_column("Total", justify="right", style="bold")
 
     def _fail_style(n: int) -> Text:
         return Text(str(n), style="bold red" if n > 0 else "green")
 
-    table.add_row("Creation",   str(n_created),   _fail_style(n_failed_creation),   str(total))
-    table.add_row("Validation", str(n_validated),  _fail_style(n_failed_validation), str(n_created))
+    def _warn_style(n: int) -> Text:
+        return Text(str(n), style="bold yellow" if n > 0 else "dim")
+
+    table.add_row(
+        "Creation",
+        str(n_created),
+        _fail_style(n_failed_creation),
+        _warn_style(0),
+        str(total),
+    )
+    table.add_row(
+        "Validation",
+        str(n_validated),
+        _fail_style(n_failed_validation),
+        _warn_style(len(prefix_warnings)),
+        str(n_created),
+    )
 
     console.print(table)
     console.print(f"  📂 Output directory: [bold]{output_dir}[/bold]\n")
 
-    if all_ok:
+    # ── Success / failure panel ───────────────────────────────────────────────
+    if all_ok and not prefix_warnings:
         console.print(
-            Panel(
-                "✅ [bold green]All phenopackets created and validated successfully![/bold green]",
-                border_style="green",
+                "✅ [green]All phenopackets created and validated successfully![/green]",
             )
-        )
         return
 
+    if all_ok and prefix_warnings:
+        console.print(
+                "✅ [green]All phenopackets created and validated successfully.[/green]\n"
+                "[yellow]Ontology prefix warnings were found — see below.[/yellow]",
+            )
+
+    # ── Creation failures ─────────────────────────────────────────────────────
     if failed_creations:
         console.print()
         fail_table = Table(
@@ -458,6 +511,7 @@ def _print_summary(
             fail_table.add_row(str(f["record_id"]), f["error"])
         console.print(fail_table)
 
+    # ── Validation failures & warnings ───────────────────────────────────────
     if failed_validations:
         console.print()
         val_table = Table(
@@ -470,6 +524,33 @@ def _print_summary(
         for f in failed_validations:
             val_table.add_row(Path(f["file"]).name, f["error"])
         console.print(val_table)
+
+    
+    
+
+    # ── Failures (inline, not tables) ────────────────────────────────────────
+    if failed_creations:
+        console.print(f"\n  [red]❌ Creation failures ({len(failed_creations)}):[/red]")
+        for f in failed_creations[:5]:   # cap at 5 inline; rest in failures.json
+            console.print(f"    [dim]{f['record_id']}[/dim]  {f['error']}")
+        if len(failed_creations) > 5:
+            console.print(f"    [dim]... and {len(failed_creations) - 5} more — see failures.json[/dim]")
+ 
+    if failed_validations:
+        console.print(f"\n  [yellow]⚠  Validation failures ({len(failed_validations)}):[/yellow]")
+        for f in failed_validations[:5]:
+            console.print(f"    [dim]{Path(f['file']).name}[/dim]  {f['error'][:80]}")
+        if len(failed_validations) > 5:
+            console.print(f"    [dim]... and {len(failed_validations) - 5} more — see failures.json[/dim]")
+ 
+    # ── Prefix warnings (inline) ──────────────────────────────────────────────
+    if prefix_warnings:
+        console.print(f"\n  [yellow]⚠  Ontology prefix warnings ({len(prefix_warnings)}) — non-fatal:[/yellow]")
+        for w in prefix_warnings[:5]:
+            console.print(f"    [dim]{w}[/dim]")
+        if len(prefix_warnings) > 5:
+            console.print(f"    [dim]... and {len(prefix_warnings) - 5} more[/dim]")
+ 
 
     failure_file = output_dir / "failures.json"
     if failure_file.exists():
