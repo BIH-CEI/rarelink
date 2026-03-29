@@ -187,7 +187,7 @@ The template contains the following columns:
   RareLink-CDM schema, for example:
 
   - ``rarelink_cdm:snomedct_184099003`` for 2.1 Date of birth, or 
-  - ``rarelink_cdm:snomedct_281053000`` for 2.2 Sex at birth. 
+  - ``rarelink_cdm:loinc_76689_9`` for 2.2 Sex at birth. 
 
 - **predicate_label**:  
   The title of the target element from the schema, i.e. the *name* of the element
@@ -198,7 +198,7 @@ The template contains the following columns:
   The target value in the RareLink-CDM. For literal fields, such as dates, 
   this is the actual value (e.g., "1970-02-15"). For coded fields, such as 
   sex, the object_id is the standardized code from the value set
-  (e.g., "SNOMEDCT:248152002" for female) or the code from the code system defined
+  (e.g., "LOINC:76689-9" for female) or the code from the code system defined
   by the data element (e.g., "HP:0001250" for a phenotype in element 6.2.1).
 
 - **object_label**: The human-readable label for the target value either from the
@@ -255,7 +255,7 @@ Below you can find a **snippet of the RareLink-CDM SSSOM Template File:**
    #
    # === Personal Information (Singular) ===
    <record_id>	"<source_label>"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	<dob>	-	lexical	<mapping_date>	manual
-   <record_id>	"<source_label>"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	<SNOMEDCT_sex_code>	<sex_label>	lexical	<mapping_date>	manual
+   <record_id>	"<source_label>"	rarelink_cdm:loinc_76689_9	"2.2 Sex at birth"	<SNOMEDCT_sex_code>	<sex_label>	lexical	<mapping_date>	manual
    <record_id>	"<source_label>"	rarelink_cdm:snomedct_1296886006	"2.3 Karyotypic Sex"	<karyotype_code>	<karyotype_label>	lexical	<mapping_date>	manual
    <record_id>	"<source_label>"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	<SNOMEDCT_gender_code>	<gender_identity_label>	lexical	<mapping_date>	manual
    <record_id>	"<source_label>"	rarelink_cdm:snomedct_370159000	"2.5 Country of birth"	<ISO3166_code>	<ISO3166_code>	lexical	<mapping_date>	manual
@@ -447,7 +447,7 @@ schema.
    subject_id	subject_label	predicate_id	predicate_label	object_id	object_label	match_type	mapping_date	mapping_tool
    ADR001	"Patient ADR001"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR001	ADR001	lexical	2025-01-01	manual
    ADR001	"Patient ADR001"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1970-02-15	-	lexical	2025-01-01	manual
-   ADR001	"Patient ADR001"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248152002	Female	lexical	2025-01-01	manual
+   ADR001	"Patient ADR001"	rarelink_cdm:loinc_76689_9	"2.2 Sex at birth"	LOINC:76689-9	Female	lexical	2025-01-01	manual
    ADR001	"Patient ADR001"	rarelink_cdm:snomedct_263493000	"2.4 Gender Identity"	SNOMEDCT:446141000124107	Female gender identity	lexical	2025-01-01	manual
    ADR001	"Patient ADR001"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
    ADR001	"Patient ADR001"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0012345	Wilson Disease	lexical	2025-01-01	manual
@@ -475,7 +475,7 @@ schema.
    # Mappings for a second patient (ADR002)
    ADR002	"Patient ADR002"	rarelink_cdm:snomedct_422549004	"1.1 Pseudonym"	ADR002	ADR002	lexical	2025-01-01	manual
    ADR002	"Patient ADR002"	rarelink_cdm:snomedct_184099003	"2.1 Date of birth"	1982-07-30	1982-07-30	lexical	2025-01-01	manual
-   ADR002	"Patient ADR002"	rarelink_cdm:snomedct_281053000	"2.2 Sex at birth"	SNOMEDCT:248153007	Male	lexical	2025-01-01	manual
+   ADR002	"Patient ADR002"	rarelink_cdm:loinc_76689_9	"2.2 Sex at birth"	SNOMEDCT:248153007	Male	lexical	2025-01-01	manual
    ADR002	"Patient ADR002"	rarelink_cdm:snomedct_278844005	"3.1 Vital Status"	SNOMEDCT:438949009	Alive	lexical	2025-01-01	manual
    ADR002	"Patient ADR002"	rarelink_cdm:snomedct_64572001_mondo	"5.1 Disease [MONDO]"	MONDO:0010526	Fabry Disease	lexical	2025-01-01	manual
    ADR002	"Patient ADR002"	rarelink_cdm:loinc_99498_8	"5.2 Verification status"	HL7FHIR:differential	Differential	lexical	2025-01-01	manual

@@ -24,8 +24,8 @@ Version(s):
 Mapping:
 - HL7 FHIR Expression v4.0.1: Patient.birthDate
 - GA4GH Phenopacket Schema v2.0 Element: Individual.date_of_birth"
-snomedct_281053000,rarelink_2_personal_information,,dropdown,2.2 Sex at birth,"snomedct_248152002, Female | snomedct_248153007, Male | snomedct_184115007, Patient sex unknown | snomedct_32570691000036108, Intersex | snomedct_1220561009, Not recorded",The individual's sex that was assigned at birth,,,,,,,,,,,"Variable:
-SNOMED:281053000 | Sex at Birth |
+loinc_76689_9,rarelink_2_personal_information,,dropdown,2.2 Sex at birth,"snomedct_248152002, Female | snomedct_248153007, Male | snomedct_184115007, Patient sex unknown | snomedct_32570691000036108, Intersex | snomedct_1220561009, Not recorded",The individual's sex that was assigned at birth,,,,,,,,,,,"Variable:
+LOINC:76689-9 | Sex at Birth |
 Choices: 
 - SNOMED:248152002 | Female
 - SNOMED:248153007 | Male

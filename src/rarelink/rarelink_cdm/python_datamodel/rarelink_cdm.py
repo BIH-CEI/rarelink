@@ -248,7 +248,7 @@ class PersonalInformation(YAMLRoot):
 
     snomedct_184099003: Union[str, XSDDate] = None
     rarelink_2_personal_information_complete: str = None
-    snomedct_281053000: Optional[Union[str, "SexAtBirth"]] = None
+    loinc_76689_9: Optional[Union[str, "SexAtBirth"]] = None
     snomedct_1296886006: Optional[Union[str, "KaryotypicSex"]] = None
     snomedct_263495000: Optional[Union[str, "GenderIdentity"]] = None
     snomedct_370159000: Optional[str] = None
@@ -264,8 +264,8 @@ class PersonalInformation(YAMLRoot):
         if not isinstance(self.rarelink_2_personal_information_complete, str):
             self.rarelink_2_personal_information_complete = str(self.rarelink_2_personal_information_complete)
 
-        if self.snomedct_281053000 is not None and not isinstance(self.snomedct_281053000, SexAtBirth):
-            self.snomedct_281053000 = SexAtBirth(self.snomedct_281053000)
+        if self.loinc_76689_9 is not None and not isinstance(self.loinc_76689_9, SexAtBirth):
+            self.loinc_76689_9 = SexAtBirth(self.loinc_76689_9)
 
         if self.snomedct_1296886006 is not None and not isinstance(self.snomedct_1296886006, KaryotypicSex):
             self.snomedct_1296886006 = KaryotypicSex(self.snomedct_1296886006)
@@ -2581,8 +2581,8 @@ slots.rarelink_1_formal_criteria_complete = Slot(uri=RARELINK.rarelink_1_formal_
 slots.snomedct_184099003 = Slot(uri=RARELINK.snomedct_184099003, name="snomedct_184099003", curie=RARELINK.curie('snomedct_184099003'),
                    model_uri=RARELINK_CDM.snomedct_184099003, domain=None, range=Union[str, XSDDate])
 
-slots.snomedct_281053000 = Slot(uri=RARELINK.snomedct_281053000, name="snomedct_281053000", curie=RARELINK.curie('snomedct_281053000'),
-                   model_uri=RARELINK_CDM.snomedct_281053000, domain=None, range=Optional[Union[str, "SexAtBirth"]])
+slots.loinc_76689_9 = Slot(uri=RARELINK.loinc_76689_9, name="loinc_76689_9", curie=RARELINK.curie('loinc_76689_9'),
+                   model_uri=RARELINK_CDM.loinc_76689_9, domain=None, range=Optional[Union[str, "SexAtBirth"]])
 
 slots.snomedct_1296886006 = Slot(uri=RARELINK.snomedct_1296886006, name="snomedct_1296886006", curie=RARELINK.curie('snomedct_1296886006'),
                    model_uri=RARELINK_CDM.snomedct_1296886006, domain=None, range=Optional[Union[str, "KaryotypicSex"]])

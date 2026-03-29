@@ -11,7 +11,7 @@ class TestDataProcessor(unittest.TestCase):
         self.mapping_config = {
             "id_field": "record_id",
             "date_of_birth_field": "personal_information.snomedct_184099003",
-            "sex_field": "personal_information.snomedct_281053000",
+            "sex_field": "personal_information.loinc_76689_9",
             "redcap_repeat_instrument": "rarelink_5_disease"
         }
         self.processor = DataProcessor(self.mapping_config)
@@ -19,7 +19,7 @@ class TestDataProcessor(unittest.TestCase):
             "record_id": "101",
             "personal_information": {
                 "snomedct_184099003": "2020-01-05",
-                "snomedct_281053000": "snomedct_248153007"
+                "loinc_76689_9": "snomedct_248153007"
             }
         }
     
