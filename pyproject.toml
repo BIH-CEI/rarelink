@@ -32,22 +32,28 @@ classifiers = [
 ]
 
 dependencies = [
-    "phenopackets",
-    "pyphetools",
-    "requests",
-    "typer",
-    "rich",
-    "linkml>=1.9.0",
-    "linkml-runtime>=1.9.0",
-    "pydantic<2.11",
-    "python-dotenv",
-    "rd-cdm>=2.0.3",
+    "phenopackets>=2.0.2,<3",
+    "pyphetools>=0.9.119,<1",
+    "requests>=2.32,<3",
+    "typer>=0.23,<1",
+    "rich>=14,<15",
+    "linkml>=1.10,<2",
+    "linkml-runtime>=1.10,<2",
+    # Upper bound is deliberate, not just "next major": pydantic 2.11 is known
+    # to break the generated LinkML datamodel. Revisit when regenerating.
+    "pydantic>=2.10,<2.11",
+    "python-dotenv>=1.2,<2",
+    "rd-cdm>=2.0.3,<3",
 ]
 
 [project.optional-dependencies]
-fhir = ["docker"]
-test = ["pytest>=7,<9", "pytest-mock"]
-docs = ["sphinx>=7", "sphinx-rtd-theme>=1.3", "sphinx-copybutton>=0.5"]
+fhir = ["docker>=7.1,<8"]
+test = ["pytest>=9,<10", "pytest-mock>=3.15,<4"]
+docs = [
+    "sphinx>=7,<10",
+    "sphinx-rtd-theme>=1.3,<4",
+    "sphinx-copybutton>=0.5,<1",
+]
 dev = [
     "rarelink[fhir,test,docs]",
     "build",
