@@ -3,13 +3,11 @@ import json
 import logging
 import os
 import importlib.machinery
-import warnings as _warnings
 from pathlib import Path
 from typing import Callable, Optional
 
 import typer
 from rich.console import Console
-from rich.panel import Panel
 from rich.progress import (
     BarColumn,
     MofNCompleteColumn,
@@ -39,8 +37,6 @@ app = typer.Typer()
 console = Console()
 
 ENV_PATH = Path(".env")
-DEFAULT_INPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
-DEFAULT_OUTPUT_DIR = Path.home() / "Downloads"
 
 
 def _make_progress(description: str, total: int) -> tuple:

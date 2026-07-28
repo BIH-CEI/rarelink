@@ -21,8 +21,6 @@ from rarelink.cli.utils.validation_utils import (
 
 app = typer.Typer()
 
-ENV_PATH = Path(".env")
-REDCAP_PROJECTS_FILE = Path("redcap-project.json")
 DOCKER_COMPOSE_PATH = "src/rarelink/tofhir/docker-compose.yml"
 
 

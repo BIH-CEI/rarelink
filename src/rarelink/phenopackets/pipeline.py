@@ -4,17 +4,11 @@ import warnings as _warnings
 import os
 import signal
 from dataclasses import dataclass, field
-from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
-
-import typer
 
 from rarelink.phenopackets import create_phenopacket
 from rarelink.phenopackets.write import write_phenopackets
 
-app = typer.Typer()
-
-DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "phenopackets"
 logger = logging.getLogger(__name__)
 
 
@@ -22,7 +16,7 @@ class TimeoutException(Exception):
     pass
 
 
-def timeout_handler(signum, frame):
+def timeout_handler(_signum, _frame):
     raise TimeoutException(
         "Pipeline processing exceeded the timeout limit."
     )

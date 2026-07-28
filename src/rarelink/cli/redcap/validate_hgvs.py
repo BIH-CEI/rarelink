@@ -24,7 +24,6 @@ logger = logging.getLogger(__name__)
 app = typer.Typer()
 
 # Define constants used across commands
-REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")  # Path to your .env file
 

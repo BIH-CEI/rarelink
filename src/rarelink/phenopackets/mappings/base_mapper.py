@@ -129,37 +129,6 @@ class BaseMapper(Generic[T]):
         
         return self.processor.get_field(data, field_name, default)
     
-    def safe_execute(self, 
-                    func: Callable, 
-                    error_msg: str, 
-                    debug: bool = None, 
-                    default_return: Any = None, 
-                    **kwargs) -> Any:
-        """
-        Execute a function safely with standardized error handling.
-        
-        Args:
-            func (Callable): Function to execute
-            error_msg (str): Message to log on error
-            debug (bool, optional): Whether to log debug info, defaults to 
-            self.debug_mode default_return (Any, optional): Value to return on 
-            error.
-            **kwargs: Arguments to pass to func
-            
-        Returns:
-            Any: Function result or default_return on error
-        """
-        debug = self.debug_mode if debug is None else debug
-        
-        try:
-            return func(**kwargs)
-        except Exception as e:
-            logger.error(f"{error_msg}: {e}")
-            if debug:
-                import traceback
-                logger.debug(traceback.format_exc())
-            return default_return
-    
     def process_code(self, code: str) -> str:
         """Process a code using the processor"""
         return self.processor.process_code(code)
@@ -224,19 +193,3 @@ class BaseMapper(Generic[T]):
             instruments.append(repeat_instrument)
         
         return [i for i in instruments if i and i != "__dummy__"]
-    
-    def map_genetics_to_geno_ontology(self, 
-                             data: Dict[str, Any], 
-                             instruments: List[str]) -> Optional[T]:
-        """
-        Map genetic data to a GENO ontology for Phenopacket-Analaysis tools.
-        
-        Args:
-            data (Dict[str, Any]): Input genetic data
-            instruments (List[str]): List of instruments for field access
-            
-        Returns:
-            Optional[T]: Mapped genotype entity or None on failure
-        """
-        raise NotImplementedError(
-            "Subclasses must implement map_loinc_to_geno_ontology")

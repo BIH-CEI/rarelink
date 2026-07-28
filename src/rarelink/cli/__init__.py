@@ -81,10 +81,3 @@ def __getattr__(name: str):
             _APP = get_app()
         return _APP
     raise AttributeError(name)
-
-
-def _show_version_and_exit():
-    import typer
-    from rarelink import __version__
-    typer.echo(f"RareLink version {__version__}")
-    raise typer.Exit()
