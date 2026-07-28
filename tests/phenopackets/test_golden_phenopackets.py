@@ -97,8 +97,10 @@ def test_phenopacket_matches_golden(generated: Path, record_id: str) -> None:
     )
 
     got = normalize(json.loads(produced.read_text(encoding="utf-8")))
-    want = json.loads(
-        (GOLDEN_DIR / f"{record_id}.json").read_text(encoding="utf-8")
+    # Normalize the golden too: what gets normalized can then change without
+    # forcing a regeneration of every golden file.
+    want = normalize(
+        json.loads((GOLDEN_DIR / f"{record_id}.json").read_text(encoding="utf-8"))
     )
 
     assert got == want, (
@@ -106,6 +108,24 @@ def test_phenopacket_matches_golden(generated: Path, record_id: str) -> None:
         f"If this change is intended, re-run scripts/generate_goldens.py and "
         f"justify the diff in the PR description."
     )
+
+
+@pytest.mark.parametrize("record_id", golden_ids())
+def test_metadata_has_resources(generated: Path, record_id: str) -> None:
+    """Weaker stand-in while metaData.resources is excluded from the golden.
+
+    The exact resource list is environment-dependent (see UNSTABLE_METADATA in
+    _golden_utils), so we only assert that code systems are emitted at all and
+    that each entry is well-formed. Restore the full comparison in Phase 2.4.
+    """
+    doc = json.loads((generated / f"{record_id}.json").read_text(encoding="utf-8"))
+    resources = doc.get("metaData", {}).get("resources", [])
+    assert resources, f"{record_id}: no code-system resources emitted in metaData"
+    for resource in resources:
+        assert resource.get("id"), f"{record_id}: resource without an id: {resource}"
+        assert resource.get("version"), (
+            f"{record_id}: resource {resource.get('id')!r} has no version"
+        )
 
 
 @pytest.mark.parametrize("record_id", golden_ids())
