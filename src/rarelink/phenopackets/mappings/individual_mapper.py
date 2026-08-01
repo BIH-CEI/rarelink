@@ -90,7 +90,11 @@ class IndividualMapper(BaseMapper[Individual]):
             # Creating the Individual block
             individual = Individual(
                 id=id_field,
-                date_of_birth=date_of_birth,
+                date_of_birth=(
+                    date_of_birth
+                    if self.processor.mapping_config.get("emit_date_of_birth", True)
+                    else None
+                ),
                 time_at_last_encounter=time_at_last_encounter,
                 sex=sex,
                 karyotypic_sex=karyotypic_sex,

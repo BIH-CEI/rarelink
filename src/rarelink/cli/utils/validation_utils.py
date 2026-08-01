@@ -65,9 +65,11 @@ def validate_env(required_keys):
         typer.echo("Please run `rarelink framework setup` to configure these.")
         raise typer.Exit(1)
 
+    requested = set(required_keys)
+
     # Validate API key lengths
     for key in ["BIOPORTAL_API_TOKEN", "REDCAP_API_TOKEN"]:
-        if len(env_values.get(key, "")) < 32:
+        if key in requested and len(env_values.get(key, "")) < 32:
             invalid_keys.append(key)
     if invalid_keys:
         typer.secho(
@@ -77,17 +79,18 @@ def validate_env(required_keys):
         raise typer.Exit(1)
 
     # Validate REDCap URL
-    redcap_url = env_values.get("REDCAP_URL", "")
-    validate_url(redcap_url)
+    if "REDCAP_URL" in requested:
+        validate_url(env_values.get("REDCAP_URL", ""))
 
     # Validate REDCap Project ID
-    project_id = env_values.get("REDCAP_PROJECT_ID", "")
-    if not project_id.isdigit():
-        typer.secho(
-            f"❌ Invalid REDCap Project ID in .env: {project_id}. Must be a positive integer.",
-            fg=typer.colors.RED,
-        )
-        raise typer.Exit(1)
+    if "REDCAP_PROJECT_ID" in requested:
+        project_id = env_values.get("REDCAP_PROJECT_ID", "")
+        if not project_id.isdigit():
+            typer.secho(
+                f"❌ Invalid REDCap Project ID in .env: {project_id}. Must be a positive integer.",
+                fg=typer.colors.RED,
+            )
+            raise typer.Exit(1)
 
     # Validate FHIR Repo URL (if it exists)
     fhir_repo_url = env_values.get("FHIR_REPO_URL", "")
