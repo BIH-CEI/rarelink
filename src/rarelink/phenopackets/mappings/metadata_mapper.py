@@ -151,8 +151,9 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
 
     Args:
         code_systems_container: Instance of the CodeSystemsContainer.
-        used_prefixes: Set of CURIE prefixes detected in the packet(s); if empty,
-            we include *all* code systems.
+        used_prefixes: Set of CURIE prefixes detected in the packet(s). If empty,
+            no resources are emitted: `metaData.resources` declares the code
+            systems a packet actually uses.
 
     Returns:
         A list of `Resource` objects suitable for `MetaData.resources`.
@@ -161,7 +162,8 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
     latest_ver = _latest_versions_map()
 
     used_upper = {p.upper() for p in (used_prefixes or set())}
-    include_all = not used_upper
+    if not used_upper:
+        return resources
 
     container_cls = type(code_systems_container)
     for field in dataclasses.fields(code_systems_container):
@@ -176,10 +178,9 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
                 continue
             value = defn
 
-        if not include_all:
-            prefixes = {p.upper() for p in _FIELD_TO_PREFIXES.get(fname, [])}
-            if prefixes.isdisjoint(used_upper):
-                continue
+        prefixes = {p.upper() for p in _FIELD_TO_PREFIXES.get(fname, [])}
+        if prefixes.isdisjoint(used_upper):
+            continue
 
         # Normalize payload (support both modern payloads and legacy objects).
         if all(hasattr(value, a) for a in ("name", "url", "version")):
