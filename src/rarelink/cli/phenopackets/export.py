@@ -110,10 +110,8 @@ def export(
         typer.echo("🔄 Validating setup files...")
         typer.echo("🔄 Validating the .env file...")
 
-        required_env_vars = ["CREATED_BY"]
-        will_use_bioportal = (
-            bioportal_api_token or os.getenv("BIOPORTAL_API_TOKEN")
-        ) and not label_dict
+        required_env_vars = [] if created_by else ["CREATED_BY"]
+        will_use_bioportal = not label_dict and not bioportal_api_token
         if will_use_bioportal:
             required_env_vars.append("BIOPORTAL_API_TOKEN")
 
@@ -146,7 +144,7 @@ def export(
         raise typer.Exit(1)
 
     _api_token = bioportal_api_token or os.getenv("BIOPORTAL_API_TOKEN")
-    if not _api_token and not skip_validation:
+    if not _api_token and not label_dict and not skip_validation:
         typer.secho(
             error_text(
                 "❌ Missing BioPortal API token. "
@@ -250,20 +248,12 @@ def export(
                 f"{list(value.keys()) if isinstance(value, dict) else type(value)}"
             )
 
-    # ── Step 5: Optional label dict patch ───────────────────────────────────
+    # ── Step 5: Optional label dictionary ───────────────────────────────────
     if label_dict:
-        from rarelink.utils.label_fetching import fetch_label as _orig
+        from rarelink.utils.label_fetching import set_label_dict
 
         with open(label_dict, "r") as lf:
-            label_map = json.load(lf)
-
-        def fetch_label(code: str, enum_class=None, label_dict=None):
-            if code in label_map:
-                return label_map[code]
-            return _orig(code, enum_class=enum_class, label_dict=label_map)
-
-        import rarelink.utils.label_fetching as mu
-        mu.fetch_label = fetch_label
+            set_label_dict(json.load(lf))
 
     if not label_dict:
         typer.echo(
