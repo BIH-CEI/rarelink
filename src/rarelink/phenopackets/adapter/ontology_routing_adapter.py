@@ -20,6 +20,10 @@ _SKIP_FIELDS = frozenset({
     "type_of_condition",
 })
 
+# Prefixes that describe phenotypic features and therefore must NOT appear as
+# Disease.term. Named for what it forbids, not for the block it applies to.
+_PREFIXES_DISALLOWED_IN_DISEASES = frozenset({"HP"})
+
 # Public API
 def should_route(mapping_configs: Dict[str, Any]) -> bool:
     """Return True when ontology routing is configured and enabled."""
@@ -154,13 +158,12 @@ def check_prefix_placement(phenopacket_json: Dict[str, Any]) -> List[str]:
                 f"expected HP: prefix (GA4GH Phenopacket v2 convention)"
             )
 
-    # MONDO/OMIM/ORDO codes must only appear as Disease.term
-    disease_prefixes = {"HP"}
+    # Disease.term must carry a disease ontology (MONDO/OMIM/ORDO), never HP:
     for i, disease in enumerate(phenopacket_json.get("diseases", [])):
         term_id = disease.get("term", {}).get("id", "")
         if term_id:
             prefix = term_id.split(":")[0].upper() if ":" in term_id else ""
-            if prefix in disease_prefixes:
+            if prefix in _PREFIXES_DISALLOWED_IN_DISEASES:
                 warnings.append(
                     f"diseases[{i}].term.id = '{term_id}' — "
                     f"HP: terms describe phenotypic features, not diseases "

@@ -125,10 +125,14 @@ def phenopacket_pipeline(
                 )
                 if progress_callback:
                     progress_callback(record_id, success=False, error=error_msg)
-                if debug:
+                # Guard on the logger, not on the `debug` parameter: the level is
+                # already configured above. isEnabledFor avoids serializing the
+                # record when debug output is off (the argument would otherwise
+                # be evaluated eagerly).
+                if logger.isEnabledFor(logging.DEBUG):
                     logger.debug(
-                        "Record structure: "
-                        f"{json.dumps(record, default=str, indent=2)[:1000]}..."
+                        "Record structure: %s...",
+                        json.dumps(record, default=str, indent=2)[:1000],
                     )
 
         # ── Phase 2: Write & Validate ─────────────────────────────────────────

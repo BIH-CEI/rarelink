@@ -1,5 +1,6 @@
 from pathlib import Path
 from dotenv import dotenv_values
+from urllib.parse import urlparse
 import json
 import typer
 import re
@@ -13,6 +14,11 @@ REDCAP_PROJECTS_FILE = Path("redcap-projects.json")
 def validate_url(url, required_keyword=None):
     """
     Validate that a URL is syntactically valid.
+
+    Uses urllib.parse rather than a hand-rolled regex: it already handles IPv4
+    and IPv6 hosts, bare hostnames such as ``localhost``, optional ports and
+    optional paths, and it is maintained upstream.
+
     Accepts:
     - IP addresses (e.g., http://134.95.194.154:6080/fhir)
     - Hostnames (e.g., http://hapi-fhir:8080/fhir)
@@ -20,15 +26,12 @@ def validate_url(url, required_keyword=None):
     - Optional paths (e.g., /fhir, /api)
     - REDCap-specific URLs with 'redcap' in the path (if required_keyword='redcap')
     """
-    regex = (
-        r"^(https?:\/\/)"  # Protocol (http or https)
-        r"(([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+"  # Domain or hostname
-        r"|localhost"  # OR localhost
-        r"|([0-9]{1,3}\.){3}[0-9]{1,3})"  # OR IPv4 address
-        r"(:[0-9]{1,5})?"  # Optional port (e.g., :8080)
-        r"(\/[a-zA-Z0-9-._~%!$&'()*+,;=:@]*)*\/?$"  # Optional path
-    )
-    if not re.match(regex, url):
+    try:
+        parsed = urlparse(url or "")
+    except ValueError:
+        parsed = None
+
+    if parsed is None or parsed.scheme not in ("http", "https") or not parsed.netloc:
         typer.secho(
             f"❌ Invalid URL: {url}. Please ensure the URL is properly formatted "
             f"(e.g., https://example.com, http://hapi-fhir:8080/fhir).",
