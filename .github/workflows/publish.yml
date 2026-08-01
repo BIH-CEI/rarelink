@@ -26,6 +26,16 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Verify tag matches package version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION=$(python -c "import tomllib,pathlib; print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "ERROR: tag $TAG_VERSION != pyproject version $PKG_VERSION"
+            exit 1
+          fi
+          echo "Version check passed: $TAG_VERSION"
+
       - name: Install build dependencies
         run: python -m pip install --upgrade pip build
 
@@ -34,3 +44,35 @@ jobs:
 
       - name: Publish to PyPI via OIDC
         uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    name: 📝 Create GitHub release
+    needs: publish
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Extract release notes from the changelog
+        run: |
+          python scripts/extract_release_notes.py "${GITHUB_REF_NAME#v}" > RELEASE_NOTES.md
+          test -s RELEASE_NOTES.md
+          cat RELEASE_NOTES.md
+
+      - name: Create the release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file RELEASE_NOTES.md
