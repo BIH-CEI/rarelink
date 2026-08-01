@@ -152,8 +152,10 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
     Args:
         code_systems_container: Instance of the CodeSystemsContainer.
         used_prefixes: Set of CURIE prefixes detected in the packet(s). If empty,
-            no resources are emitted: `metaData.resources` declares the code
-            systems a packet actually uses.
+            every code system the caller populated is included. Fields left unset
+            are resolved from the LinkML enum named by the field annotation, but
+            only when filtering by prefix - an unset field is never included just
+            because no prefixes were supplied.
 
     Returns:
         A list of `Resource` objects suitable for `MetaData.resources`.
@@ -162,25 +164,26 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
     latest_ver = _latest_versions_map()
 
     used_upper = {p.upper() for p in (used_prefixes or set())}
-    if not used_upper:
-        return resources
+    include_all = not used_upper
 
     container_cls = type(code_systems_container)
     for field in dataclasses.fields(code_systems_container):
         fname = field.name
         value = getattr(code_systems_container, fname, None)
-        if not value:
-            value = _resolve_enum_class_from_field(container_cls, field)
-            if value is None:
-                continue
-            defn = getattr(value, "_defn", None)
-            if defn is None:
-                continue
-            value = defn
 
-        prefixes = {p.upper() for p in _FIELD_TO_PREFIXES.get(fname, [])}
-        if prefixes.isdisjoint(used_upper):
-            continue
+        if include_all:
+            if not value:
+                continue
+        else:
+            prefixes = {p.upper() for p in _FIELD_TO_PREFIXES.get(fname, [])}
+            if prefixes.isdisjoint(used_upper):
+                continue
+            if not value:
+                enum_cls = _resolve_enum_class_from_field(container_cls, field)
+                defn = getattr(enum_cls, "_defn", None) if enum_cls else None
+                if defn is None:
+                    continue
+                value = defn
 
         # Normalize payload (support both modern payloads and legacy objects).
         if all(hasattr(value, a) for a in ("name", "url", "version")):
