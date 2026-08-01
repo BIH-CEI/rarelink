@@ -101,16 +101,8 @@ def get_data_elements(data: Dict[str, Any],
     if isinstance(data, dict) and "repeated_elements" in data:
         repeated_elements = data["repeated_elements"]
         
-        # Map instrument names to their data field names for RareLink CDM
-        rarelink_cdm_field_map = {
-            "rarelink_6_2_phenotypic_feature": "phenotypic_feature",
-            "rarelink_5_disease": "disease",
-            "rarelink_6_1_genetic_findings": "genetic_findings",
-            "rarelink_6_3_measurements": "measurements",
-            "rarelink_3_patient_status": "patient_status",
-            "rarelink_4_care_pathway": "care_pathway",
-            "rarelink_6_4_family_history": "family_history"
-        }
+        from rarelink.utils.field_access import CDM_INNER_KEY_MAP
+        rarelink_cdm_field_map = CDM_INNER_KEY_MAP
         
         # Get the data field name based on the instrument name
         data_field = rarelink_cdm_field_map.get(instrument_name)
