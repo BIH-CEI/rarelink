@@ -319,20 +319,15 @@ class PhenotypicFeatureMapper(BaseMapper[PhenotypicFeature]):
         # Try the primary type_field as fallback
         type_field = self.processor.mapping_config.get("type_field")
         if type_field:
-            value = None
-            
-            # Try multi-instrument lookup if available
-            if all_instruments:
+            value = data.get(type_field)
+
+            if value is None and all_instruments:
                 value = get_multi_instrument_field_value(
                     data=self.processor.mapping_config.get('full_data', {}),
                     instruments=all_instruments,
                     field_paths=[type_field]
                 )
-            
-            # If not found or multi-instrument lookup not available, use direct field access
-            if value is None:
-                value = data.get(type_field)
-            
+
             if value:
                 type_values.append(value)
         
