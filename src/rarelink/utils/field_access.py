@@ -4,6 +4,31 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+CDM_INNER_KEY_MAP = {
+    "rarelink_6_2_phenotypic_feature": "phenotypic_feature",
+    "rarelink_5_disease": "disease",
+    "rarelink_6_1_genetic_findings": "genetic_findings",
+    "rarelink_6_3_measurements": "measurements",
+    "rarelink_3_patient_status": "patient_status",
+    "rarelink_4_care_pathway": "care_pathway",
+    "rarelink_6_4_family_history": "family_history",
+}
+
+
+def resolve_element_inner(element: Dict[str, Any], instrument: str) -> Dict[str, Any]:
+    """Return the payload dict of one repeated element."""
+    if not isinstance(element, dict):
+        return {}
+    candidate = element.get(instrument)
+    if isinstance(candidate, dict):
+        return candidate
+    cdm_key = CDM_INNER_KEY_MAP.get(instrument)
+    if cdm_key:
+        candidate = element.get(cdm_key)
+        if isinstance(candidate, dict):
+            return candidate
+    return element
+
 def get_field_value(
     data: Dict[str, Any],
     field_path: str,
@@ -61,16 +86,7 @@ def get_multi_instrument_field_value(
     if not data or not instruments or not field_paths:
         return default_value
     
-    # Map instrument names to their data field names for RareLink CDM
-    cdm_field_map = {
-        "rarelink_6_2_phenotypic_feature": "phenotypic_feature",
-        "rarelink_5_disease": "disease",
-        "rarelink_6_1_genetic_findings": "genetic_findings",
-        "rarelink_6_3_measurements": "measurements",
-        "rarelink_3_patient_status": "patient_status",
-        "rarelink_4_care_pathway": "care_pathway",
-        "rarelink_6_4_family_history": "family_history"
-    }
+    cdm_field_map = CDM_INNER_KEY_MAP
     
     # Try each field path with each instrument
     for instrument in instruments:

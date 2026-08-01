@@ -3,6 +3,68 @@
 Changelog
 ===========
 
+v2.0.7
+---------------------
+
+A patch release fixing four defects found while exporting a non-RareLink-CDM
+cohort through the Phenopacket engine.
+
+Phenopacket Engine — repeated elements:
+""""""""""""""""""""""""""""""""""""""""
+- Fixed ``DiseaseMapper._map_multi_entity`` mapping every repeated disease element
+  to the **first** element's term. The whole record (including
+  ``repeated_elements``) was passed into ``_map_single_entity``, so whenever the
+  inner dict was not keyed by the instrument name the lookup fell back to a
+  whole-record scan and returned the first match — emitting N copies of disease #1
+  instead of N distinct diseases
+- Fixed ``PhenotypicFeatureMapper._extract_type_values`` consulting the
+  whole-record multi-instrument scan **before** the element being mapped, so every
+  phenotypic feature in a record inherited the first HPO term. De-duplication then
+  collapsed the duplicates, leaving a packet that looked correct. The
+  ``type_fields`` (plural) branch read the element directly and was always correct,
+  so the two configuration spellings silently disagreed
+- Added ``resolve_element_inner()`` and a single ``CDM_INNER_KEY_MAP`` in
+  ``rarelink.utils.field_access``; the instrument-to-inner-key table had been
+  duplicated verbatim in ``field_access`` and ``common_utils``
+- Added regression tests asserting that distinct repeated elements stay distinct,
+  and that ``type_field`` and ``type_fields`` agree
+  (``tests/phenopackets/test_repeated_elements_are_distinct.py``)
+
+Phenopacket Engine — metadata and labels:
+""""""""""""""""""""""""""""""""""""""""""
+- Fixed ``metaData.resources`` being empty for every packet built with the
+  documented default configuration (``"metadata": {}``). A default-constructed
+  ``CodeSystemsContainer()`` has every field set to ``None`` and the metadata
+  mapper skipped falsy fields; it now falls back to the LinkML enum named by the
+  field annotation, which already carries the name and version, and takes the
+  namespace prefix from the existing ``_FIELD_TO_PREFIXES`` table
+- Added ``set_label_dict()`` / ``get_label_dict()`` to
+  ``rarelink.utils.label_fetching``: a process-wide dictionary consulted by
+  ``fetch_label`` itself. ``--label-dict`` previously reassigned the module
+  attribute, which only reached call sites that had not already done
+  ``from .label_fetching import fetch_label`` — so labels resolved on some code
+  paths and rendered as ``"Unknown Assay"`` / ``"Unknown Procedure"`` on others,
+  depending on import order
+
+CLI — file-based exports:
+""""""""""""""""""""""""""
+- ``validate_env()`` now validates only the keys it is given. It previously
+  enforced the full REDCap credential set regardless of its ``required_keys``
+  argument, so ``rarelink phenopackets export --input-path ...`` — which reads a
+  local JSON file and never touches the REDCap API — failed unless the user
+  supplied a REDCap URL, a numeric project ID and two 32-character tokens
+- ``--created-by`` now satisfies the ``CREATED_BY`` requirement without a ``.env``
+  entry, and ``--label-dict`` no longer requires a BioPortal API token, so a fully
+  offline export needs no ``.env`` file at all
+
+De-identified cohorts:
+""""""""""""""""""""""""
+- Added ``emit_date_of_birth`` to the ``individual`` mapping block. Setting it to
+  ``False`` keeps the derived age ``TimeElement``\ s while withholding
+  ``subject.dateOfBirth`` — the common case for registry data that records an age
+  but no birth date, where a date must be synthesised so ages can be computed but
+  must not be published
+
 v2.0.6
 ---------------------
 

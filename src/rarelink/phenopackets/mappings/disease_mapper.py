@@ -3,7 +3,10 @@ from typing import Dict, Any, List, Optional
 import logging
 from phenopackets import Disease, OntologyClass, TimeElement, Age
 
-from rarelink.utils.field_access import get_multi_instrument_field_value
+from rarelink.utils.field_access import (
+    get_multi_instrument_field_value,
+    resolve_element_inner,
+)
 from rarelink.phenopackets.mappings.base_mapper import BaseMapper
 
 logger = logging.getLogger(__name__)
@@ -215,9 +218,12 @@ class DiseaseMapper(BaseMapper[Disease]):
                         if element.get("redcap_repeat_instrument") == instrument
                     ]
                     for element in disease_elements:
-                        element_data = data.copy()
-                        if instrument in element:
-                            element_data[instrument] = element[instrument]
+                        element_data = {
+                            key: value for key, value in data.items()
+                            if key != "repeated_elements"
+                        }
+                        element_data[instrument] = resolve_element_inner(
+                            element, instrument)
                         disease = self._map_single_entity(element_data, [instrument], dob=dob)
                         if disease:
                             diseases.append(disease)
