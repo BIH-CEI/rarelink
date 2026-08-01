@@ -1,0 +1,90 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/age-of-onset-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "age-of-onset-vs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet age-of-onset-vs</b></p><a name=\"age-of-onset-vs\"> </a><a name=\"hcage-of-onset-vs\"> </a><ul><li>Include these codes as defined in <code>http://purl.obolibrary.org/obo/hp.owl</code><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>HP:0011460</td><td>Embryonal onset (0w-8w embryonal)</td></tr><tr><td>HP:0011461</td><td>Fetal onset (8w embryonal - birth)</td></tr><tr><td>HP:0003577</td><td>Congenital onset (at birth)</td></tr><tr><td>HP:0003623</td><td>Neonatal onset (0d-28d)</td></tr><tr><td>HP:0003593</td><td>Infantile onset (28d-1y)</td></tr><tr><td>HP:0011463</td><td>Childhood onset (1y-5y)</td></tr><tr><td>HP:0003621</td><td>Juvenile onset (5y-15y)</td></tr><tr><td>HP:0011462</td><td>Young adult onset (16y-40y)</td></tr><tr><td>HP:0003596</td><td>Middle age adult onset (40y-60y)</td></tr><tr><td>HP:0003584</td><td>Late adult onset (60y+)</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://rarelink.bih-charite.de/fhir/ValueSet/age-of-onset-vs"] ;
+  fhir:ValueSet.version [ fhir:value "2.0.0"] ;
+  fhir:ValueSet.name [ fhir:value "AgeOfOnsetVS"] ;
+  fhir:ValueSet.title [ fhir:value "Age of Onset Value Set"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-01T16:27:48+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://github.com/BIH-CEI/RareLink" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "adam.graefe@charite.de" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Value set for capturing the age of onset for phenotypes."] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://purl.obolibrary.org/obo/hp.owl" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0011460" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Embryonal onset (0w-8w embryonal)" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0011461" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fetal onset (8w embryonal - birth)" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003577" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Congenital onset (at birth)" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003623" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Neonatal onset (0d-28d)" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003593" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Infantile onset (28d-1y)" ]
+       ], [
+         fhir:index 5 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0011463" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Childhood onset (1y-5y)" ]
+       ], [
+         fhir:index 6 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003621" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Juvenile onset (5y-15y)" ]
+       ], [
+         fhir:index 7 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0011462" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Young adult onset (16y-40y)" ]
+       ], [
+         fhir:index 8 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003596" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Middle age adult onset (40y-60y)" ]
+       ], [
+         fhir:index 9 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "HP:0003584" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Late adult onset (60y+)" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/age-of-onset-vs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

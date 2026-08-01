@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/consent-to-reuse-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "consent-to-reuse-vs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet consent-to-reuse-vs</b></p><a name=\"consent-to-reuse-vs\"> </a><a name=\"hcconsent-to-reuse-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/373066001\">373066001</a></td><td>Yes</td></tr><tr><td><a href=\"http://snomed.info/id/373067005\">373067005</a></td><td>No</td></tr><tr><td><a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>Unknown</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://rarelink.bih-charite.de/fhir/ValueSet/consent-to-reuse-vs"] ;
+  fhir:ValueSet.version [ fhir:value "2.0.0"] ;
+  fhir:ValueSet.name [ fhir:value "ConsentToReuseVS"] ;
+  fhir:ValueSet.title [ fhir:value "Consent to Reuse Data Value Set (ERDRI-CDS)"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-01T16:27:48+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://github.com/BIH-CEI/RareLink" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "adam.graefe@charite.de" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Value set for capturing consent to reuse data."] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "373066001" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Yes" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "373067005" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "No" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "261665006" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/consent-to-reuse-vs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

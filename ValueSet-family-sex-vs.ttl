@@ -1,0 +1,70 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/family-sex-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "family-sex-vs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet family-sex-vs</b></p><a name=\"family-sex-vs\"> </a><a name=\"hcfamily-sex-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/248152002\">248152002</a></td><td>Female</td></tr><tr><td><a href=\"http://snomed.info/id/248153007\">248153007</a></td><td>Male</td></tr><tr><td><a href=\"http://snomed.info/id/184115007\">184115007</a></td><td>Patient sex unknown</td></tr><tr><td><a href=\"http://snomed.info/id/32570691000036108\">32570691000036108</a></td><td>Intersex</td></tr><tr><td><a href=\"http://snomed.info/id/1220561009\">1220561009</a></td><td>Not recorded</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://rarelink.bih-charite.de/fhir/ValueSet/family-sex-vs"] ;
+  fhir:ValueSet.version [ fhir:value "2.0.0"] ;
+  fhir:ValueSet.name [ fhir:value "FamilySexVS"] ;
+  fhir:ValueSet.title [ fhir:value "Family Member Sex Value Set"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-01T16:27:48+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://github.com/BIH-CEI/RareLink" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "adam.graefe@charite.de" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Value set for capturing the sex of a family member."] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "248152002" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Female" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "248153007" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Male" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "184115007" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Patient sex unknown" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "32570691000036108" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Intersex" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1220561009" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Not recorded" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/family-sex-vs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

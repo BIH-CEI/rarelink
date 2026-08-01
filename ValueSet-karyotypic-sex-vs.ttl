@@ -1,0 +1,94 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/karyotypic-sex-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "karyotypic-sex-vs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet karyotypic-sex-vs</b></p><a name=\"karyotypic-sex-vs\"> </a><a name=\"hckaryotypic-sex-vs\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"http://snomed.info/id/261665006\">261665006</a></td><td>Unknown</td></tr><tr><td><a href=\"http://snomed.info/id/734875008\">734875008</a></td><td>XX</td></tr><tr><td><a href=\"http://snomed.info/id/734876009\">734876009</a></td><td>XY</td></tr><tr><td><a href=\"http://snomed.info/id/80427008\">80427008</a></td><td>X0</td></tr><tr><td><a href=\"http://snomed.info/id/65162001\">65162001</a></td><td>XXY</td></tr><tr><td><a href=\"http://snomed.info/id/35111009\">35111009</a></td><td>XXX</td></tr><tr><td><a href=\"http://snomed.info/id/403760006\">403760006</a></td><td>XXYY</td></tr><tr><td><a href=\"http://snomed.info/id/78317008\">78317008</a></td><td>XXXY</td></tr><tr><td><a href=\"http://snomed.info/id/10567003\">10567003</a></td><td>XXXX</td></tr><tr><td><a href=\"http://snomed.info/id/48930007\">48930007</a></td><td>XYY</td></tr><tr><td><a href=\"http://snomed.info/id/74964007\">74964007</a></td><td>Other</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://rarelink.bih-charite.de/fhir/ValueSet/karyotypic-sex-vs"] ;
+  fhir:ValueSet.version [ fhir:value "2.0.0"] ;
+  fhir:ValueSet.name [ fhir:value "KaryotypicSexVS"] ;
+  fhir:ValueSet.title [ fhir:value "Karyotypic Sex Value Set"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-01T16:27:48+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Berlin Institute of Health - Charité Universitätsmedizin Berlin" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://github.com/BIH-CEI/RareLink" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "adam.graefe@charite.de" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Value set for capturing karyotypic sex."] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "261665006" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "734875008" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XX" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "734876009" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XY" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "80427008" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "X0" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "65162001" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XXY" ]
+       ], [
+         fhir:index 5 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "35111009" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XXX" ]
+       ], [
+         fhir:index 6 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "403760006" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XXYY" ]
+       ], [
+         fhir:index 7 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "78317008" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XXXY" ]
+       ], [
+         fhir:index 8 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10567003" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XXXX" ]
+       ], [
+         fhir:index 9 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "48930007" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XYY" ]
+       ], [
+         fhir:index 10 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "74964007" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://rarelink.bih-charite.de/fhir/ValueSet/karyotypic-sex-vs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
