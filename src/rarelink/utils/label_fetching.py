@@ -193,12 +193,27 @@ def fetch_label_from_bioportal(code: str) -> Optional[str]:
 
 # ---------- Unified fetch ----------
 
+_GLOBAL_LABEL_DICT: Dict[str, str] = {}
+
+
+def set_label_dict(mapping: Optional[Dict[str, str]]) -> None:
+    """Install a process-wide code -> label dictionary, or clear it with None."""
+    global _GLOBAL_LABEL_DICT
+    _GLOBAL_LABEL_DICT = dict(mapping or {})
+
+
+def get_label_dict() -> Dict[str, str]:
+    """Return the currently installed process-wide label dictionary."""
+    return dict(_GLOBAL_LABEL_DICT)
+
+
 def fetch_label(code: str, enum_class: Any = None, label_dict: Dict[str, str] = None) -> Optional[str]:
     """
     Fetch a label with the following priority:
       1) Enum (if provided)
       2) Local label_dict (if provided) — using normalized candidates
-      3) BioPortal — only for CURIE-like codes, or after process_code produces one
+      3) The process-wide dictionary installed by set_label_dict()
+      4) BioPortal — only for CURIE-like codes, or after process_code produces one
     """
     if not code:
         return None
@@ -213,6 +228,11 @@ def fetch_label(code: str, enum_class: Any = None, label_dict: Dict[str, str] = 
     # 2) Local dictionary
     if label_dict:
         lbl = fetch_label_from_dict(code, label_dict)
+        if lbl:
+            return lbl
+
+    if _GLOBAL_LABEL_DICT:
+        lbl = fetch_label_from_dict(code, _GLOBAL_LABEL_DICT)
         if lbl:
             return lbl
 
