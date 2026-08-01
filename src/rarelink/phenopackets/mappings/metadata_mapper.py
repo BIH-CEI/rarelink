@@ -163,11 +163,18 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
     used_upper = {p.upper() for p in (used_prefixes or set())}
     include_all = not used_upper
 
+    container_cls = type(code_systems_container)
     for field in dataclasses.fields(code_systems_container):
         fname = field.name
         value = getattr(code_systems_container, fname, None)
         if not value:
-            continue
+            value = _resolve_enum_class_from_field(container_cls, field)
+            if value is None:
+                continue
+            defn = getattr(value, "_defn", None)
+            if defn is None:
+                continue
+            value = defn
 
         if not include_all:
             prefixes = {p.upper() for p in _FIELD_TO_PREFIXES.get(fname, [])}
@@ -187,6 +194,11 @@ def _filter_fields_by_prefixes(code_systems_container, used_prefixes: Set[str]) 
             ver = getattr(value, "code_set_version", None) or getattr(value, "version", None) or ""
             ns = getattr(value, "prefix", None)
             iri = getattr(value, "iri_prefix", None)
+
+        if not ns:
+            prefixes = _FIELD_TO_PREFIXES.get(fname)
+            if prefixes:
+                ns = prefixes[0]
 
         # Overlay with the latest known version if available.
         if fname in latest_ver and latest_ver[fname]:
