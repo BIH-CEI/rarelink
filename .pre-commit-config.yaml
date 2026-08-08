@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^tests/(phenopackets/golden|_baseline)/
+      - id: end-of-file-fixer
+        exclude: ^tests/(phenopackets/golden|_baseline)/
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=2000]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.6
+    hooks:
+      - id: ruff
+        args: [--fix]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args: [--ignore-words-list=nd,ba,fo,te]
+        exclude: ^(tests/(phenopackets/golden|_baseline)/|src/rarelink/rarelink_cdm/.*\.csv|docs/_static/)
+
+  - repo: local
+    hooks:
+      - id: vulture
+        name: vulture (dead code)
+        entry: vulture
+        language: system
+        pass_filenames: false
+        args: [src/rarelink, --min-confidence=80]
