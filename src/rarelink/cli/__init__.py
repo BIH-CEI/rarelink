@@ -4,11 +4,35 @@ Do NOT import subcommand modules at import time to avoid circular imports.
 We expose a lazy `app` so `from rarelink.cli import app` keeps working.
 """
 
+import logging
 from typing import Optional
 
-__all__ = ["app", "get_app"]
+__all__ = ["app", "get_app", "verbosity_to_log_level", "configure_logging"]
 
 _APP: Optional[object] = None
+
+# -v -> INFO, -vv -> DEBUG, -vvv -> DEBUG on every logger, not just rarelink's.
+_VERBOSITY_LEVELS = (logging.WARNING, logging.INFO, logging.DEBUG)
+
+
+def verbosity_to_log_level(verbose: int) -> int:
+    """Map a ``-v`` count to a logging level (saturates at DEBUG)."""
+    return _VERBOSITY_LEVELS[min(verbose, len(_VERBOSITY_LEVELS) - 1)]
+
+
+def configure_logging(verbose: int = 0) -> int:
+    """Configure logging once, from a ``-v`` count. Returns the level applied.
+
+    ``-vvv`` additionally raises the *root* logger so third-party libraries
+    (linkml, requests, ...) become verbose too; below that only RareLink's own
+    loggers are affected, which is what people almost always want.
+    """
+    level = verbosity_to_log_level(verbose)
+    logging.basicConfig(level=level if verbose >= 3 else logging.WARNING)
+    logging.getLogger("rarelink").setLevel(level)
+    if verbose >= 3:
+        logging.getLogger().setLevel(level)
+    return level
 
 
 def get_app():
@@ -66,9 +90,34 @@ def get_app():
             callback=_version_callback,
             is_eager=True,
             help="Show RareLink version and exit.",
-        )
+        ),
+        verbose: int = typer.Option(
+            0,
+            "--verbose",
+            "-v",
+            count=True,
+            help=(
+                "Increase verbosity: -v info, -vv debug, "
+                "-vvv debug including third-party libraries."
+            ),
+        ),
+        debug: bool = typer.Option(
+            False,
+            "--debug",
+            "-d",
+            hidden=True,
+            help="Deprecated alias for -vv.",
+        ),
     ):
-        pass
+        if debug:
+            typer.secho(
+                "⚠  --debug is deprecated and will be removed in a future "
+                "release; use -vv instead.",
+                fg=typer.colors.YELLOW,
+                err=True,
+            )
+            verbose = max(verbose, 2)
+        configure_logging(verbose)
 
     return app
 
