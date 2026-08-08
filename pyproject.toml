@@ -59,7 +59,23 @@ dev = [
     "build",
     "twine",
     "jupyter",
+    "ruff>=0.9,<1",
+    "vulture>=2.14,<3",
+    "pre-commit>=4,<5",
 ]
+
+[tool.ruff]
+line-length = 88
+src = ["src"]
+exclude = ["src/rarelink/rarelink_cdm/python_datamodel"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.vulture]
+min_confidence = 80
+paths = ["src/rarelink"]
 
 [project.urls]
 Homepage = "https://github.com/BIH-CEI/RareLink"
