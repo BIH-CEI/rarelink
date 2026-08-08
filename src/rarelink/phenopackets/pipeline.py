@@ -159,7 +159,7 @@ def phenopacket_pipeline(
         ]
         if all_failures:
             failure_file = os.path.join(output_dir, "failures.json")
-            with open(failure_file, "w") as fh:
+            with open(failure_file, "w", encoding="utf-8") as fh:
                 json.dump(all_failures, fh, indent=2)
             logger.debug(f"Failure report written to {failure_file}")
 
@@ -171,7 +171,7 @@ def phenopacket_pipeline(
         # but pipeline-level warnings are written here.
         if all_warnings:
             warnings_file = os.path.join(output_dir, "warnings.json")
-            with open(warnings_file, "w") as fh:
+            with open(warnings_file, "w", encoding="utf-8") as fh:
                 json.dump(all_warnings, fh, indent=2)
             logger.debug(f"Warnings report written to {warnings_file}")
 

@@ -77,8 +77,14 @@ def export(
     debug: bool = typer.Option(
         False, "--debug", "-d", help="Enable debug mode for verbose logging"
     ),
-    skip_validation: bool = typer.Option(
-        False, "--skip-validation", help="Skip environment validation"
+    skip_env_validation: bool = typer.Option(
+        False,
+        "--skip-env-validation",
+        "--skip-validation",  # deprecated alias, kept for one release
+        help=(
+            "Skip .env/environment validation only — phenopacket validation "
+            "always runs. (--skip-validation is a deprecated alias.)"
+        ),
     ),
     created_by: Optional[str] = typer.Option(
         None, "--created-by", help="Override CREATED_BY from .env"
@@ -100,6 +106,8 @@ def export(
     logger = logging.getLogger("rarelink.cli.phenopackets.export")
 
     format_header("REDCap to Phenopackets Export")
+
+    skip_validation = skip_env_validation  # local alias for the checks below
 
     # ── Step 1: Environment validation ──────────────────────────────────────
     if not skip_validation:
@@ -124,7 +132,7 @@ def export(
                 fg=typer.colors.RED,
             )
             typer.secho(
-                "💡 You can use --skip-validation to bypass this.",
+                "💡 You can use --skip-env-validation to bypass this.",
                 fg=typer.colors.YELLOW,
             )
             raise typer.Exit(1)
@@ -237,13 +245,6 @@ def export(
             )
             raise typer.Exit(1)
 
-    if debug:
-        for key, value in mapping_configs.items():
-            logger.debug(
-                f"- {key}: "
-                f"{list(value.keys()) if isinstance(value, dict) else type(value)}"
-            )
-
     # ── Step 5: Optional label dictionary ───────────────────────────────────
     if label_dict:
         from rarelink.utils.label_fetching import set_label_dict
@@ -342,13 +343,13 @@ def export(
             warnings_file = output_dir / "warnings.json"
             existing = []
             if warnings_file.exists():
-                with open(warnings_file, "r") as fh:
+                with open(warnings_file, "r", encoding="utf-8") as fh:
                     existing = json.load(fh)
             existing.extend(
                 {"file": w.split(":")[0], "warning": w, "stage": "validation"}
                 for w in _prefix_warnings
             )
-            with open(warnings_file, "w") as fh:
+            with open(warnings_file, "w", encoding="utf-8") as fh:
                 json.dump(existing, fh, indent=2)
 
     _root_logger.handlers = _saved_handlers
@@ -405,7 +406,7 @@ def _run_write_and_validate(
             full["subject"]["vitalStatus"] = {"status": status_name}
 
         file_path = output_path / f"{phenopacket.id}.json"
-        with open(file_path, "w") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             _json.dump(full, f, indent=2)
 
         try:
