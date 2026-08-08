@@ -3,7 +3,7 @@ from dotenv import dotenv_values
 from urllib.parse import urlparse
 import json
 import typer
-#2import subprocess
+import subprocess
 from rarelink.cli.utils.string_utils import success_text, error_text, hyperlink
 
 ENV_PATH = Path(".env")

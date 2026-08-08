@@ -62,7 +62,7 @@ FHIR_REPO_URL=http://hapi-fhir:8080/fhir
         finally:
             os.chdir(original_cwd)
 
-        self.assertEqual(result.exit_code, 0)
+        self.assertEqual(result.exit_code, 0, result.output)
         mock_run.assert_called()
 
     @patch('subprocess.run')
