@@ -71,7 +71,7 @@ def export(
         help="Path to custom mapping configuration module"
     ),
     label_dict: Path = typer.Option(
-        None, "--label-dict",
+        None, "--label-dict-path",
         help="Path to JSON file with code→label mappings"
     ),
     debug: bool = typer.Option(
@@ -80,10 +80,9 @@ def export(
     skip_env_validation: bool = typer.Option(
         False,
         "--skip-env-validation",
-        "--skip-validation",  # deprecated alias, kept for one release
         help=(
             "Skip .env/environment validation only — phenopacket validation "
-            "always runs. (--skip-validation is a deprecated alias.)"
+            "always runs."
         ),
     ),
     created_by: Optional[str] = typer.Option(

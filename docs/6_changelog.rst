@@ -40,7 +40,7 @@ Phenopacket Engine — metadata and labels:
   namespace prefix from the existing ``_FIELD_TO_PREFIXES`` table
 - Added ``set_label_dict()`` / ``get_label_dict()`` to
   ``rarelink.utils.label_fetching``: a process-wide dictionary consulted by
-  ``fetch_label`` itself. ``--label-dict`` previously reassigned the module
+  ``fetch_label`` itself. ``--label-dict-path`` previously reassigned the module
   attribute, which only reached call sites that had not already done
   ``from .label_fetching import fetch_label`` — so labels resolved on some code
   paths and rendered as ``"Unknown Assay"`` / ``"Unknown Procedure"`` on others,
@@ -54,7 +54,7 @@ CLI — file-based exports:
   local JSON file and never touches the REDCap API — failed unless the user
   supplied a REDCap URL, a numeric project ID and two 32-character tokens
 - ``--created-by`` now satisfies the ``CREATED_BY`` requirement without a ``.env``
-  entry, and ``--label-dict`` no longer requires a BioPortal API token, so a fully
+  entry, and ``--label-dict-path`` no longer requires a BioPortal API token, so a fully
   offline export needs no ``.env`` file at all
 
 De-identified cohorts:

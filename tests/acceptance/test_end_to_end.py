@@ -69,7 +69,7 @@ FHIR_REPO_URL=http://hapi-fhir:8080/fhir
         self.assertEqual(result.returncode, 0)
         
         # Step 3: Generate phenopackets
-        cmd_phenopackets = [self.cli_path, "phenopackets", "export", "--input-path", str(self.test_dir / "Test_Project-linkml-records.json"), "--output-dir", str(self.test_dir / "phenopackets"), "--skip-validation"]
+        cmd_phenopackets = [self.cli_path, "phenopackets", "export", "--input-path", str(self.test_dir / "Test_Project-linkml-records.json"), "--output-dir", str(self.test_dir / "phenopackets"), "--skip-env-validation"]
         result = subprocess.run(cmd_phenopackets, check=True)
         self.assertEqual(result.returncode, 0)
         
