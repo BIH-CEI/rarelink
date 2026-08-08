@@ -54,7 +54,7 @@ def write_phenopackets(
 
         # 5) Write to disk.
         file_path = output_path / f"{phenopacket.id}.json"
-        with open(file_path, "w") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             json.dump(full, f, indent=2)
         logger.debug(f"Written: {file_path}")
 
