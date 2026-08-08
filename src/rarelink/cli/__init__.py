@@ -11,22 +11,16 @@ __all__ = ["app", "get_app", "verbosity_to_log_level", "configure_logging"]
 
 _APP: Optional[object] = None
 
-# -v -> INFO, -vv -> DEBUG, -vvv -> DEBUG on every logger, not just rarelink's.
 _VERBOSITY_LEVELS = (logging.WARNING, logging.INFO, logging.DEBUG)
 
 
 def verbosity_to_log_level(verbose: int) -> int:
-    """Map a ``-v`` count to a logging level (saturates at DEBUG)."""
     return _VERBOSITY_LEVELS[min(verbose, len(_VERBOSITY_LEVELS) - 1)]
 
 
 def configure_logging(verbose: int = 0) -> int:
-    """Configure logging once, from a ``-v`` count. Returns the level applied.
-
-    ``-vvv`` additionally raises the *root* logger so third-party libraries
-    (linkml, requests, ...) become verbose too; below that only RareLink's own
-    loggers are affected, which is what people almost always want.
-    """
+    """Configure logging from a ``-v`` count. ``-vvv`` also raises the root
+    logger so third-party libraries become verbose."""
     level = verbosity_to_log_level(verbose)
     logging.basicConfig(level=level if verbose >= 3 else logging.WARNING)
     logging.getLogger("rarelink").setLevel(level)
