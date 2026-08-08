@@ -41,7 +41,7 @@ def process_code(code: str) -> str:
         "loinc_": "LOINC:",
         "uo_": "UO:",
         "vo_": "VO:",
-        "maxo": "MAXO:"
+        "maxo_": "MAXO:",
     }
     
     # Check for underscore prefix
@@ -99,22 +99,22 @@ def normalize_hgnc_id(value: str) -> str:
         return value
     
     value = str(value)
-    
-    # Already standard format
+
     if value.startswith("HGNC:"):
         return value
-    
-    # Extract from URL format
+
     if "HGNC:" in value:
         import re
         match = re.search(r'HGNC:(\d+)', value)
         if match:
             return f"HGNC:{match.group(1)}"
-    
-    # Handle numeric only
+
+    if value.lower().startswith("hgnc_"):
+        return f"HGNC:{value[len('hgnc_'):]}"
+
     if value.isdigit():
         return f"HGNC:{value}"
-    
+
     return value
 
 def add_prefix_to_code(code: str, prefix: str = "") -> str:
