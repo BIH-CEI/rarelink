@@ -26,20 +26,11 @@ def validate_url(url, required_keyword=None):
     - Optional paths (e.g., /fhir, /api)
     - REDCap-specific URLs with 'redcap' in the path (if required_keyword='redcap')
     """
-    try:
-        parsed = urlparse(url or "")
-    except ValueError:
-        parsed = None
-
-    if parsed is None or parsed.scheme not in ("http", "https") or not parsed.netloc:
-        typer.secho(
-            f"❌ Invalid URL: {url}. Please ensure the URL is properly formatted "
-            f"(e.g., https://example.com, http://hapi-fhir:8080/fhir).",
-            fg=typer.colors.RED,
-        )
+    parsed = urlparse(url or "")
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        typer.secho(f"❌ Invalid URL: {url}. ...", fg=typer.colors.RED)
         raise typer.Exit(1)
-
-    # Check for required keyword in the URL (e.g., 'redcap')
+        
     if required_keyword and required_keyword not in url:
         typer.secho(
             f"❌ URL must include the keyword '{required_keyword}': {url}.",
