@@ -13,9 +13,8 @@ updates:
         patterns: ["linkml", "linkml-runtime", "linkml-redcap", "linkml-map"]
       dev-tooling:
         patterns: ["pytest*", "ruff", "vulture", "sphinx*"]
-    # rd-cdm is the ontology source of truth: a bump changes metaData.resources,
-    # so it gets its own PR and runs the golden tests on its own.
-    ignore: []
+    # rd-cdm is deliberately ungrouped: a bump changes metaData.resources, so it
+    # gets its own PR and runs the golden tests on its own.
 
   - package-ecosystem: github-actions
     directory: "/"
