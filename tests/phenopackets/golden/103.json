@@ -18,31 +18,18 @@
     {
       "onset": {
         "age": {
-          "iso8601duration": "P1Y7M"
+          "iso8601duration": "P1Y4M"
         }
       },
-      "primarySite": {
-        "id": "SNOMEDCT:250065000",
-        "label": "Legs ataxic"
-      },
       "term": {
-        "id": "MONDO:0010518",
-        "label": "Wiskott-Aldrich syndrome"
+        "id": "MONDO:0021679",
+        "label": "gram-positive bacterial infections"
       }
     },
     {
-      "onset": {
-        "age": {
-          "iso8601duration": "P1Y7M"
-        }
-      },
-      "primarySite": {
-        "id": "SNOMEDCT:250065000",
-        "label": "Legs ataxic"
-      },
       "term": {
-        "id": "MONDO:0010518",
-        "label": "Wiskott-Aldrich syndrome"
+        "id": "OMIM:613759",
+        "label": "IMMUNODEFICIENCY 90 WITH ENCEPHALOPATHY, FUNCTIONAL HYPOSPLENIA, AND HEPATIC DYSFUNCTION"
       }
     }
   ],
@@ -171,73 +158,7 @@
     }
   ],
   "metaData": {
-    "phenopacketSchemaVersion": "2.0",
-    "resources": [
-      {
-        "id": "mondo",
-        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_",
-        "name": "Monarch Disease Ontology",
-        "namespacePrefix": "MONDO",
-        "url": "https://purl.obolibrary.org/obo/MONDO/",
-        "version": "2026-03-03"
-      },
-      {
-        "id": "hpo",
-        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
-        "name": "Human Phenotype Ontology",
-        "namespacePrefix": "HPO",
-        "url": "http://purl.obolibrary.org/obo/hp.owl",
-        "version": "2026-02-16"
-      },
-      {
-        "id": "loinc",
-        "iriPrefix": "http://loinc.org",
-        "name": "Logical Observation Identifiers Names and Codes",
-        "namespacePrefix": "LOINC",
-        "url": "https://loinc.org",
-        "version": "281"
-      },
-      {
-        "id": "uo",
-        "iriPrefix": "http://purl.obolibrary.org/obo/UO_",
-        "name": "Units of Measurement Ontology",
-        "namespacePrefix": "UO",
-        "url": "https://www.ontobee.org/ontology/UO",
-        "version": "2026-01-16"
-      },
-      {
-        "id": "hgnc",
-        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/",
-        "name": "HUGO Gene Nomenclature Committee",
-        "namespacePrefix": "HGNC",
-        "url": "https://www.genenames.org/",
-        "version": "2024-08-23"
-      },
-      {
-        "id": "hgvs",
-        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/",
-        "name": "Human Genome Variation Society",
-        "namespacePrefix": "HGVS",
-        "url": "https://varnomen.hgvs.org/",
-        "version": "21.0.0"
-      },
-      {
-        "id": "ga4gh",
-        "iriPrefix": "https://www.ga4gh.org/",
-        "name": "Global Alliance for Genomics and Health",
-        "namespacePrefix": "GA4GH",
-        "url": "https://www.ga4gh.org/",
-        "version": "v2.0"
-      },
-      {
-        "id": "geno",
-        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_",
-        "name": "GENO - The Genotype Ontology",
-        "namespacePrefix": "GENO",
-        "url": "https://www.genoontology.org/",
-        "version": "2026-02-02"
-      }
-    ]
+    "phenopacketSchemaVersion": "2.0"
   },
   "phenotypicFeatures": [
     {

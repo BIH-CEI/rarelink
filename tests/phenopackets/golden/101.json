@@ -13,35 +13,31 @@
     },
     {
       "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
         }
       },
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
       }
     },
     {
       "onset": {
         "age": {
-          "iso8601duration": "P2Y10M"
+          "iso8601duration": "P0Y4M"
         }
       },
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "ICD10CM:Z82.3",
+        "label": "Family history of stroke"
       }
     },
     {
-      "onset": {
-        "age": {
-          "iso8601duration": "P2Y10M"
-        }
-      },
       "term": {
-        "id": "ORPHA:459345",
-        "label": "Immunodeficiency due to a complement cascade component deficiency"
+        "id": "MONDO:0002367",
+        "label": "kidney cancer"
       }
     }
   ],
@@ -128,73 +124,7 @@
     }
   ],
   "metaData": {
-    "phenopacketSchemaVersion": "2.0",
-    "resources": [
-      {
-        "id": "hpo",
-        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
-        "name": "Human Phenotype Ontology",
-        "namespacePrefix": "HPO",
-        "url": "http://purl.obolibrary.org/obo/hp.owl",
-        "version": "2026-02-16"
-      },
-      {
-        "id": "loinc",
-        "iriPrefix": "http://loinc.org",
-        "name": "Logical Observation Identifiers Names and Codes",
-        "namespacePrefix": "LOINC",
-        "url": "https://loinc.org",
-        "version": "281"
-      },
-      {
-        "id": "orpha",
-        "iriPrefix": "https://www.orpha.net/ORDO/Orphanet_",
-        "name": "Orphanet Rare Disease Ontology",
-        "namespacePrefix": "ORPHA",
-        "url": "https://www.orpha.net/",
-        "version": "4.7"
-      },
-      {
-        "id": "uo",
-        "iriPrefix": "http://purl.obolibrary.org/obo/UO_",
-        "name": "Units of Measurement Ontology",
-        "namespacePrefix": "UO",
-        "url": "https://www.ontobee.org/ontology/UO",
-        "version": "2026-01-16"
-      },
-      {
-        "id": "hgnc",
-        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/",
-        "name": "HUGO Gene Nomenclature Committee",
-        "namespacePrefix": "HGNC",
-        "url": "https://www.genenames.org/",
-        "version": "2024-08-23"
-      },
-      {
-        "id": "hgvs",
-        "iriPrefix": "https://varnomen.hgvs.org/recommendations/variant/",
-        "name": "Human Genome Variation Society",
-        "namespacePrefix": "HGVS",
-        "url": "https://varnomen.hgvs.org/",
-        "version": "21.0.0"
-      },
-      {
-        "id": "ga4gh",
-        "iriPrefix": "https://www.ga4gh.org/",
-        "name": "Global Alliance for Genomics and Health",
-        "namespacePrefix": "GA4GH",
-        "url": "https://www.ga4gh.org/",
-        "version": "v2.0"
-      },
-      {
-        "id": "geno",
-        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_",
-        "name": "GENO - The Genotype Ontology",
-        "namespacePrefix": "GENO",
-        "url": "https://www.genoontology.org/",
-        "version": "2026-02-02"
-      }
-    ]
+    "phenopacketSchemaVersion": "2.0"
   },
   "phenotypicFeatures": [
     {
