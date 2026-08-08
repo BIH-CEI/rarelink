@@ -32,6 +32,7 @@ from rarelink.cli.utils.string_utils import (
     success_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
+from rarelink.phenopackets.validate import check_phenopacket_prefixes
 
 app = typer.Typer()
 console = Console()
@@ -275,20 +276,12 @@ def export(
     if not debug:
         _root_logger.handlers = []
 
-    _creation_warnings: list = []
-
     create_progress, create_task = _make_progress(
         "Creating phenopackets", total
     )
     with create_progress:
         def on_created(record_id, success, error):
             create_progress.advance(create_task)
-            # Collect per-record warnings (success=True but error contains ⚠ lines)
-            if success and error:
-                for line in error.splitlines():
-                    line = line.lstrip("⚠").strip()
-                    if line:
-                        _creation_warnings.append(f"Record {record_id}: {line}")
 
         try:
             result = phenopacket_pipeline(
@@ -312,6 +305,11 @@ def export(
                 traceback.print_exc()
             raise typer.Exit(1)
 
+    _creation_warnings = [
+        f"Record {w['record_id']}: {w['warning']}"
+        for w in result.creation_warnings
+    ]
+
     # ── Step 7b: Phase 2 progress bar — Validating ───────────────────────────
     _prefix_warnings: list = []
 
@@ -323,12 +321,9 @@ def export(
         with validate_progress:
             def on_validated(file_path, success, error):
                 validate_progress.advance(validate_task)
-                if error and "Ontology prefix warnings" in error:
-                    fname = Path(file_path).name
-                    for line in error.splitlines():
-                        line = line.strip()
-                        if line.startswith("⚠"):
-                            _prefix_warnings.append(f"{fname}: {line.lstrip('⚠').strip()}")
+                fname = Path(file_path).name
+                for warning in check_phenopacket_prefixes(Path(file_path)):
+                    _prefix_warnings.append(f"{fname}: {warning}")
 
             _run_write_and_validate(
                 phenopackets=result.phenopackets,
@@ -412,8 +407,7 @@ def _run_write_and_validate(
             ok, details = validate_phenopackets(file_path)
             if ok:
                 if validation_callback:
-                    # Pass details even on success — may contain prefix warnings
-                    validation_callback(str(file_path), success=True, error=details)
+                    validation_callback(str(file_path), success=True, error=None)
             else:
                 result.failed_validations.append(
                     {"file": str(file_path), "error": details}

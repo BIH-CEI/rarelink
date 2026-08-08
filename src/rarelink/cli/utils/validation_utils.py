@@ -3,7 +3,6 @@ from dotenv import dotenv_values
 from urllib.parse import urlparse
 import json
 import typer
-import re
 import subprocess
 from rarelink.cli.utils.string_utils import success_text, error_text, hyperlink
 
@@ -28,9 +27,13 @@ def validate_url(url, required_keyword=None):
     """
     parsed = urlparse(url or "")
     if parsed.scheme not in ("http", "https") or not parsed.netloc:
-        typer.secho(f"❌ Invalid URL: {url}. ...", fg=typer.colors.RED)
+        typer.secho(
+            f"❌ Invalid URL: {url}. Please ensure the URL is properly formatted "
+            f"(e.g., https://example.com, http://hapi-fhir:8080/fhir).",
+            fg=typer.colors.RED,
+        )
         raise typer.Exit(1)
-        
+
     if required_keyword and required_keyword not in url:
         typer.secho(
             f"❌ URL must include the keyword '{required_keyword}': {url}.",

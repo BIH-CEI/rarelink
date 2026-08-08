@@ -153,10 +153,15 @@ def _python_validate(file_path: Path) -> Tuple[bool, str]:
     return True, "Structural checks passed"
 
 
-def _prefix_placement_check(file_path: Path) -> List[str]:
-    """Load the phenopacket JSON and run ontology-prefix placement checks."""
+def check_phenopacket_prefixes(file_path: Path) -> List[str]:
+    """Return ontology-prefix placement warnings for a phenopacket file.
+
+    Public, structured accessor: callers that need the warnings should use this
+    rather than parsing them back out of the human-readable string returned by
+    :func:`validate_phenopackets`.
+    """
     try:
-        with open(file_path) as f:
+        with open(file_path, encoding="utf-8") as f:
             doc = json.load(f)
         return check_prefix_placement(doc)
     except Exception as exc:
@@ -164,6 +169,10 @@ def _prefix_placement_check(file_path: Path) -> List[str]:
             f"Could not run prefix-placement check on {file_path}: {exc}"
         )
         return []
+
+
+# Backwards-compatible private alias.
+_prefix_placement_check = check_phenopacket_prefixes
 
 
 def _cli_validate(file_path: Path) -> Tuple[bool, str]:
