@@ -43,7 +43,7 @@ dependencies = [
     # to break the generated LinkML datamodel. Revisit when regenerating.
     "pydantic>=2.10,<2.11",
     "python-dotenv>=1.2,<2",
-    "rd-cdm>=2.0.3,<3",
+    "rd-cdm>=2.1.0,<3",
 ]
 
 [project.optional-dependencies]
