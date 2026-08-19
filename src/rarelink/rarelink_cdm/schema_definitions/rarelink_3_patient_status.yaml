@@ -7,7 +7,7 @@ prefixes:
   ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
   - linkml:types
-  - rarelink_types
+  - https://w3id.org/linkml/redcap-record
   - rarelink_code_systems
 default_range: string
 default_prefix: rarelink
@@ -41,7 +41,7 @@ slots:
   snomedct_398299004:
     title: 3.2 Time of Death
     description: If deceased, the individual’s date of death. If unknown, use the 1st day/month.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_184305005:

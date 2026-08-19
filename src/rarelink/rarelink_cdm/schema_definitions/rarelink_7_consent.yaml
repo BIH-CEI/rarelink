@@ -7,7 +7,7 @@ prefixes:
   SNOMEDCT: http://snomed.info/sct/
 imports:
   - linkml:types
-  - rarelink_types
+  - https://w3id.org/linkml/redcap-record
   - rarelink_code_systems
 default_range: string
 default_prefix: rarelink
@@ -38,7 +38,7 @@ slots:
     title: 7.2 Consent Date
     description: >
       Records the date when the consent was given.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_386318002:

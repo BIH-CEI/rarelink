@@ -11,9 +11,8 @@ Known Phase-2 tripwires (this is the point of the test):
   * ``python_datamodel.CodeSystemsContainer`` is re-exported from
     ``rarelink_code_systems`` — Phase 2.4 deletes that module, so a shim is
     required to keep this green.
-  * ``UnionDateString`` is declared twice (``rarelink_types`` and, inlined,
-    ``rarelink_repeated_elements``) — Phase 2.2 replaces both with
-    linkml-redcap's ``redcap_date`` behind a deprecated alias.
+  * ``UnionDateString`` was removed deliberately in v2.1.0 (replaced by
+    linkml-redcap's ``redcap_date``).
 """
 
 from __future__ import annotations
@@ -38,14 +37,9 @@ SURFACE: list[tuple[str, str]] = [
     ("rarelink.rarelink_cdm.python_datamodel", "SexAtBirth"),
     ("rarelink.rarelink_cdm.python_datamodel", "ClinicalVitalStatus"),
     ("rarelink.rarelink_cdm.python_datamodel", "PhenotypicFeatureStatus"),
-    # --- the legacy date type ---------------------------------------------
     # NOTE: RepeatedElement is deliberately NOT listed here. It lives only in
     # rarelink_repeated_elements, which currently cannot be imported at all —
     # see test_repeated_elements_module_imports below.
-    (
-        "rarelink.rarelink_cdm.python_datamodel.rarelink_types",
-        "UnionDateString",
-    ),
     # --- default phenopacket mappings used by the CLI ---------------------
     (
         "rarelink.rarelink_cdm.mappings.phenopackets",
