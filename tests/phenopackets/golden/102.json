@@ -1,0 +1,191 @@
+{
+  "diseases": [
+    {
+      "onset": {
+        "age": {
+          "iso8601duration": "P-5Y-5M"
+        }
+      },
+      "primarySite": {
+        "id": "SNOMEDCT:788244004",
+        "label": "Entire hair follicle of head"
+      },
+      "term": {
+        "id": "ORPHA:484",
+        "label": "NON RARE IN EUROPE: Klinefelter syndrome"
+      }
+    },
+    {
+      "term": {
+        "id": "ORPHA:34145",
+        "label": "Immunoglobulin A nephropathy"
+      }
+    }
+  ],
+  "id": "102",
+  "interpretations": [
+    {
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0006823",
+          "label": "Klinefelter syndrome"
+        },
+        "genomicInterpretations": [
+          {
+            "interpretationStatus": "REJECTED",
+            "subjectOrBiosampleId": "1",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "LIKELY_PATHOGENIC",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "allelicState": {
+                  "id": "GENO:0000136",
+                  "label": "Homozygous"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_001377304.1:c.-16G>A"
+                  }
+                ],
+                "geneContext": {
+                  "symbol": "GFI1B",
+                  "valueId": "HGNC:4238"
+                },
+                "id": "variant-1"
+              }
+            }
+          }
+        ]
+      },
+      "id": "TESTEST2_10JAN-interpretation-0",
+      "progressStatus": "IN_PROGRESS"
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP18044-5",
+        "label": "Growth hormone-releasing hormone"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y7M"
+        }
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0010046",
+            "label": "united states customary cup"
+          },
+          "value": 1.54
+        }
+      }
+    }
+  ],
+  "metaData": {
+    "phenopacketSchemaVersion": "2.0"
+  },
+  "phenotypicFeatures": [
+    {
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0000180",
+            "label": "clinical study evidence"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "HP:0031796",
+          "label": "Recurrent"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y7M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "type": {
+        "id": "HP:0002315",
+        "label": "Headache"
+      }
+    },
+    {
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y7M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012828",
+        "label": "Severe"
+      },
+      "type": {
+        "id": "HP:0000133",
+        "label": "Gonadal dysgenesis"
+      }
+    },
+    {
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y7M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "type": {
+        "id": "HP:0000823",
+        "label": "Delayed puberty"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002076",
+        "label": "Migraine"
+      }
+    }
+  ],
+  "subject": {
+    "dateOfBirth": "2020-02-27T00:00:00Z",
+    "gender": {
+      "id": "SNOMEDCT:446141000124107",
+      "label": "Female gender identity"
+    },
+    "id": "TESTEST2_10JAN",
+    "karyotypicSex": "XXY",
+    "sex": "MALE",
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    },
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P4Y10M"
+      }
+    },
+    "vitalStatus": {
+      "status": "UNKNOWN_STATUS"
+    }
+  }
+}

@@ -1,37 +1,10 @@
 # src/rarelink/phenopackets/mappings/utils/common_utils.py
-from typing import Any, Callable, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 import logging
 from datetime import datetime
 from phenopackets import OntologyClass, TimeElement, Age
 
 logger = logging.getLogger(__name__)
-
-def safe_execute(func: Callable, 
-                 error_msg: str, 
-                 debug: bool = False, 
-                 default_return: Any = None, 
-                 **kwargs) -> Any:
-    """
-    Execute a function safely with standardized error handling.
-    
-    Args:
-        func (Callable): Function to execute
-        error_msg (str): Message to log on error
-        debug (bool, optional): Whether to log debug info
-        default_return (Any, optional): Value to return on error
-        **kwargs: Arguments to pass to func
-        
-    Returns:
-        Any: Function result or default_return on error
-    """
-    try:
-        return func(**kwargs)
-    except Exception as e:
-        logger.error(f"{error_msg}: {e}")
-        if debug:
-            import traceback
-            logger.debug(traceback.format_exc())
-        return default_return
 
 def create_ontology_class(id_value: str, 
                           label: Optional[str] = None, 

@@ -1,0 +1,268 @@
+{
+  "diseases": [
+    {
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y10M"
+        }
+      },
+      "term": {
+        "id": "ORPHA:459345",
+        "label": "Immunodeficiency due to a complement cascade component deficiency"
+      }
+    },
+    {
+      "onset": {
+        "ontologyClass": {
+          "id": "SNOMEDCT:3950001",
+          "label": "Birth"
+        }
+      },
+      "term": {
+        "id": "MONDO:0019499",
+        "label": "Turner syndrome"
+      }
+    },
+    {
+      "onset": {
+        "age": {
+          "iso8601duration": "P0Y4M"
+        }
+      },
+      "term": {
+        "id": "ICD10CM:Z82.3",
+        "label": "Family history of stroke"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0002367",
+        "label": "kidney cancer"
+      }
+    }
+  ],
+  "id": "101",
+  "interpretations": [
+    {
+      "diagnosis": {
+        "disease": {
+          "id": "OMIM:241600",
+          "label": "IMMUNODEFICIENCY 43"
+        },
+        "genomicInterpretations": [
+          {
+            "interpretationStatus": "CANDIDATE",
+            "subjectOrBiosampleId": "1",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "UNCERTAIN_SIGNIFICANCE",
+              "therapeuticActionability": "NOT_ACTIONABLE",
+              "variationDescriptor": {
+                "allelicState": {
+                  "id": "GENO:0000137",
+                  "label": "Unknown Allelic State"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_006883.2:c.-507G>C"
+                  }
+                ],
+                "geneContext": {
+                  "symbol": "SHOX",
+                  "valueId": "HGNC:10853"
+                },
+                "id": "variant-1"
+              }
+            }
+          }
+        ]
+      },
+      "id": "TEST_13JAN-interpretation-0",
+      "progressStatus": "COMPLETED"
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:LP7720-8",
+        "label": "White blood cells"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P4Y9M"
+        }
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000276",
+            "label": "amount per container"
+          },
+          "value": 5.01
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:LP7536-8",
+        "label": "Red Blood Cells"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P3Y9M"
+        }
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "UO:0000178",
+            "label": "unit per milliliter"
+          },
+          "value": 4.56
+        }
+      }
+    }
+  ],
+  "metaData": {
+    "phenopacketSchemaVersion": "2.0"
+  },
+  "phenotypicFeatures": [
+    {
+      "evidence": [
+        {
+          "evidenceCode": {
+            "id": "ECO:0007225",
+            "label": "clinical study evidence used in automatic assertion"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "HP:0025297",
+          "label": "Prolonged"
+        },
+        {
+          "id": "HP:0012825",
+          "label": "Mild"
+        },
+        {
+          "id": "HP:0012828",
+          "label": "Severe"
+        },
+        {
+          "id": "HP:0031598",
+          "label": "Notched P wave"
+        },
+        {
+          "id": "NCBITAXON:90964",
+          "label": "Staphylococcaceae"
+        },
+        {
+          "id": "SNOMEDCT:303726000",
+          "label": "Shoulder joint prosthesis"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "resolution": {
+        "age": {
+          "iso8601duration": "P5Y1M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "type": {
+        "id": "HP:0001059",
+        "label": "Pterygium"
+      }
+    },
+    {
+      "excluded": true,
+      "onset": {
+        "age": {
+          "iso8601duration": "P2Y9M"
+        }
+      },
+      "type": {
+        "id": "HP:0002967",
+        "label": "Cubitus valgus"
+      }
+    },
+    {
+      "modifiers": [
+        {
+          "id": "HP:0031914",
+          "label": "Fluctuating"
+        },
+        {
+          "id": "NCBITAXON:10376",
+          "label": "human gammaherpesvirus 4"
+        },
+        {
+          "id": "SNOMEDCT:31099001",
+          "label": "Systemic"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P3Y9M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012825",
+        "label": "Mild"
+      },
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
+      }
+    },
+    {
+      "modifiers": [
+        {
+          "id": "HP:0031915",
+          "label": "Stable"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P1Y9M"
+        }
+      },
+      "severity": {
+        "id": "HP:0012826",
+        "label": "Moderate"
+      },
+      "type": {
+        "id": "HP:0004322",
+        "label": "Short stature"
+      }
+    }
+  ],
+  "subject": {
+    "dateOfBirth": "2020-01-05T00:00:00Z",
+    "gender": {
+      "id": "SNOMEDCT:394743007",
+      "label": "Gender unknown"
+    },
+    "id": "TEST_13JAN",
+    "karyotypicSex": "XX",
+    "taxonomy": {
+      "id": "NCBITaxon:9606",
+      "label": "Homo sapiens"
+    },
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P5Y0M"
+      }
+    },
+    "vitalStatus": {
+      "status": "UNKNOWN_STATUS"
+    }
+  }
+}

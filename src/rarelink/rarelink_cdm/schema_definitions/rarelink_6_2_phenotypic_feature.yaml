@@ -9,7 +9,7 @@ prefixes:
   ncbitaxon: http://purl.obolibrary.org/obo/NCBITaxon_
 imports:
   - linkml:types
-  - rarelink_types
+  - https://w3id.org/linkml/redcap-record
 default_range: string
 default_prefix: rarelink
 
@@ -53,14 +53,14 @@ slots:
     description: >
       The date on which the phenotypic feature was observed or recorded. If the specific month
       or day is not known, select the 1st day of the month or the 1st month of the year, respectively.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_8116006_resolut:
     title: 6.2.4 Resolution Date
     description: >
       Time at which the feature resolved or abated.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   hp_0003674:

@@ -62,7 +62,7 @@ FHIR_REPO_URL=http://hapi-fhir:8080/fhir
         finally:
             os.chdir(original_cwd)
 
-        self.assertEqual(result.exit_code, 0)
+        self.assertEqual(result.exit_code, 0, result.output)
         mock_run.assert_called()
 
     @patch('subprocess.run')
@@ -109,7 +109,7 @@ FHIR_REPO_URL=http://hapi-fhir:8080/fhir
         original_cwd = os.getcwd()
         os.chdir(self.output_dir)
         try:
-            result = self.runner.invoke(phenopackets_app, ["export", "--input-path", str(input_path), "--output-dir", str(output_dir), "--skip-validation"], input="y\n")
+            result = self.runner.invoke(phenopackets_app, ["export", "--input-path", str(input_path), "--output-dir", str(output_dir), "--skip-env-validation"], input="y\n")
         finally:
             os.chdir(original_cwd)
 

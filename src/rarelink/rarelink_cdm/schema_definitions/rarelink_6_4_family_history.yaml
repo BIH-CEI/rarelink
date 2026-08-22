@@ -9,7 +9,6 @@ prefixes:
   ICD10CM: http://hl7.org/fhir/sid/icd-10-cm
 imports:
   - linkml:types
-  - rarelink_types
   - rarelink_code_systems
 default_range: string
 default_prefix: rarelink

@@ -26,7 +26,6 @@ from rarelink.rarelink_cdm.mappings.redcap import MAPPING_FUNCTIONS
 logger = logging.getLogger(__name__)
 app = typer.Typer()
 
-REPO_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_OUTPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
 ENV_PATH = Path(".env")  # Path to your .env file
 

@@ -3,13 +3,11 @@ import json
 import logging
 import os
 import importlib.machinery
-import warnings as _warnings
 from pathlib import Path
 from typing import Callable, Optional
 
 import typer
 from rich.console import Console
-from rich.panel import Panel
 from rich.progress import (
     BarColumn,
     MofNCompleteColumn,
@@ -34,13 +32,12 @@ from rarelink.cli.utils.string_utils import (
     success_text,
 )
 from rarelink.cli.utils.validation_utils import validate_env
+from rarelink.phenopackets.validate import check_phenopacket_prefixes
 
 app = typer.Typer()
 console = Console()
 
 ENV_PATH = Path(".env")
-DEFAULT_INPUT_DIR = Path.home() / "Downloads" / "rarelink_records"
-DEFAULT_OUTPUT_DIR = Path.home() / "Downloads"
 
 
 def _make_progress(description: str, total: int) -> tuple:
@@ -75,14 +72,19 @@ def export(
         help="Path to custom mapping configuration module"
     ),
     label_dict: Path = typer.Option(
-        None, "--label-dict",
+        None, "--label-dict-path",
         help="Path to JSON file with code→label mappings"
     ),
     debug: bool = typer.Option(
         False, "--debug", "-d", help="Enable debug mode for verbose logging"
     ),
-    skip_validation: bool = typer.Option(
-        False, "--skip-validation", help="Skip environment validation"
+    skip_env_validation: bool = typer.Option(
+        False,
+        "--skip-env-validation",
+        help=(
+            "Skip .env/environment validation only — phenopacket validation "
+            "always runs."
+        ),
     ),
     created_by: Optional[str] = typer.Option(
         None, "--created-by", help="Override CREATED_BY from .env"
@@ -104,6 +106,8 @@ def export(
     logger = logging.getLogger("rarelink.cli.phenopackets.export")
 
     format_header("REDCap to Phenopackets Export")
+
+    skip_validation = skip_env_validation  # local alias for the checks below
 
     # ── Step 1: Environment validation ──────────────────────────────────────
     if not skip_validation:
@@ -128,7 +132,7 @@ def export(
                 fg=typer.colors.RED,
             )
             typer.secho(
-                "💡 You can use --skip-validation to bypass this.",
+                "💡 You can use --skip-env-validation to bypass this.",
                 fg=typer.colors.YELLOW,
             )
             raise typer.Exit(1)
@@ -241,13 +245,6 @@ def export(
             )
             raise typer.Exit(1)
 
-    if debug:
-        for key, value in mapping_configs.items():
-            logger.debug(
-                f"- {key}: "
-                f"{list(value.keys()) if isinstance(value, dict) else type(value)}"
-            )
-
     # ── Step 5: Optional label dictionary ───────────────────────────────────
     if label_dict:
         from rarelink.utils.label_fetching import set_label_dict
@@ -279,20 +276,12 @@ def export(
     if not debug:
         _root_logger.handlers = []
 
-    _creation_warnings: list = []
-
     create_progress, create_task = _make_progress(
         "Creating phenopackets", total
     )
     with create_progress:
         def on_created(record_id, success, error):
             create_progress.advance(create_task)
-            # Collect per-record warnings (success=True but error contains ⚠ lines)
-            if success and error:
-                for line in error.splitlines():
-                    line = line.lstrip("⚠").strip()
-                    if line:
-                        _creation_warnings.append(f"Record {record_id}: {line}")
 
         try:
             result = phenopacket_pipeline(
@@ -316,6 +305,11 @@ def export(
                 traceback.print_exc()
             raise typer.Exit(1)
 
+    _creation_warnings = [
+        f"Record {w['record_id']}: {w['warning']}"
+        for w in result.creation_warnings
+    ]
+
     # ── Step 7b: Phase 2 progress bar — Validating ───────────────────────────
     _prefix_warnings: list = []
 
@@ -327,12 +321,9 @@ def export(
         with validate_progress:
             def on_validated(file_path, success, error):
                 validate_progress.advance(validate_task)
-                if error and "Ontology prefix warnings" in error:
-                    fname = Path(file_path).name
-                    for line in error.splitlines():
-                        line = line.strip()
-                        if line.startswith("⚠"):
-                            _prefix_warnings.append(f"{fname}: {line.lstrip('⚠').strip()}")
+                fname = Path(file_path).name
+                for warning in check_phenopacket_prefixes(Path(file_path)):
+                    _prefix_warnings.append(f"{fname}: {warning}")
 
             _run_write_and_validate(
                 phenopackets=result.phenopackets,
@@ -346,13 +337,13 @@ def export(
             warnings_file = output_dir / "warnings.json"
             existing = []
             if warnings_file.exists():
-                with open(warnings_file, "r") as fh:
+                with open(warnings_file, "r", encoding="utf-8") as fh:
                     existing = json.load(fh)
             existing.extend(
                 {"file": w.split(":")[0], "warning": w, "stage": "validation"}
                 for w in _prefix_warnings
             )
-            with open(warnings_file, "w") as fh:
+            with open(warnings_file, "w", encoding="utf-8") as fh:
                 json.dump(existing, fh, indent=2)
 
     _root_logger.handlers = _saved_handlers
@@ -409,15 +400,14 @@ def _run_write_and_validate(
             full["subject"]["vitalStatus"] = {"status": status_name}
 
         file_path = output_path / f"{phenopacket.id}.json"
-        with open(file_path, "w") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             _json.dump(full, f, indent=2)
 
         try:
             ok, details = validate_phenopackets(file_path)
             if ok:
                 if validation_callback:
-                    # Pass details even on success — may contain prefix warnings
-                    validation_callback(str(file_path), success=True, error=details)
+                    validation_callback(str(file_path), success=True, error=None)
             else:
                 result.failed_validations.append(
                     {"file": str(file_path), "error": details}

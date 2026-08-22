@@ -170,7 +170,7 @@ def create_phenopacket(
                     )
                     feature_mapper = PhenotypicFeatureMapper(proc)
                     feats = feature_mapper.map(
-                        data, dob=individual.date_of_birth
+                        data, dob=dob_field
                     )
                     if feats:
                         phenotypic_features.extend(feats)
@@ -189,7 +189,7 @@ def create_phenopacket(
             proc.mapping_config["full_data"] = full_data
             feature_mapper = PhenotypicFeatureMapper(proc)
             phenotypic_features = feature_mapper.map(
-                data, dob=individual.date_of_birth
+                data, dob=dob_field
             )
 
         if debug:
@@ -244,7 +244,7 @@ def create_phenopacket(
                     )
                     measurement_mapper = MeasurementMapper(proc)
                     meas = measurement_mapper.map(
-                        data, dob=individual.date_of_birth
+                        data, dob=dob_field
                     )
                     if meas:
                         measurements.extend(meas)
@@ -261,7 +261,7 @@ def create_phenopacket(
             proc, _ = create_processor("measurements")
             measurement_mapper = MeasurementMapper(proc)
             measurements = measurement_mapper.map(
-                data, dob=individual.date_of_birth
+                data, dob=dob_field
             )
         if debug:
             logger.debug(f"Total measurements: {len(measurements)}")
@@ -271,7 +271,7 @@ def create_phenopacket(
         proc_processor, _ = create_processor("medical_actions")
         medical_action_mapper = MedicalActionMapper(proc_processor)
         proc_actions = medical_action_mapper.map(
-            data, dob=individual.date_of_birth
+            data, dob=dob_field
         )
         if proc_actions:
             medical_actions.extend(proc_actions)
@@ -294,7 +294,7 @@ def create_phenopacket(
                         )
                         treatment_mapper = MedicalActionMapper(proc)
                         treat_actions = treatment_mapper.map(
-                            data, dob=individual.date_of_birth
+                            data, dob=dob_field
                         )
                         if treat_actions:
                             medical_actions.extend(treat_actions)
@@ -312,7 +312,7 @@ def create_phenopacket(
                 proc, _ = create_processor("treatments")
                 treatment_mapper = MedicalActionMapper(proc)
                 treat_actions = treatment_mapper.map(
-                    data, dob=individual.date_of_birth
+                    data, dob=dob_field
                 )
                 if treat_actions:
                     medical_actions.extend(treat_actions)
@@ -326,7 +326,7 @@ def create_phenopacket(
         # ── Diseases ─────────────────────────────────────────────────────────
         disease_processor, _ = create_processor("diseases")
         disease_mapper = DiseaseMapper(disease_processor)
-        diseases = disease_mapper.map(data, dob=individual.date_of_birth)
+        diseases = disease_mapper.map(data, dob=dob_field)
 
         # if ontology_routing is active
         routed_diseases = get_routed_disease_dicts(data)
@@ -342,7 +342,7 @@ def create_phenopacket(
                     )
                     routed_disease_mapper = DiseaseMapper(routed_proc)
                     routed_result = routed_disease_mapper.map(
-                        routed_data, dob=individual.date_of_birth
+                        routed_data, dob=dob_field
                     )
                     if routed_result:
                         diseases.extend(

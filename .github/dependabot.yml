@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]
+    groups:
+      linkml:
+        patterns: ["linkml", "linkml-runtime", "linkml-redcap", "linkml-map"]
+      dev-tooling:
+        patterns: ["pytest*", "ruff", "vulture", "sphinx*"]
+    # rd-cdm is deliberately ungrouped: a bump changes metaData.resources, so it
+    # gets its own PR and runs the golden tests on its own.
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies", "ci"]
+    groups:
+      actions:
+        patterns: ["*"]

@@ -14,10 +14,6 @@ from rarelink.cli.utils.string_utils import (
 
 app = typer.Typer()
 
-ENV_PATH = Path(".env")
-CONFIG_FILE_ROOT = Path("rarelink_apiconfig.json")
-FHIR_CONFIG_FILE = Path("rarelink_fhirconfig.json")
-
 
 @app.command()
 def hapi_server():

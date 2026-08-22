@@ -26,7 +26,6 @@ config = dotenv_values(ENV_PATH)
 app = typer.Typer()
 
 # Documentation and download URLs
-DOCS_RD_CDM_URL = "https://rarelink.readthedocs.io/en/latest/1_background/1_5_rd_cdm.html"
 DOCS_REDCAP_PROJECT_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_2_setup_redcap_project.html"
 DOCS_MANUAL_DATA_CAPTURE_URL = "https://rarelink.readthedocs.io/en/latest/4_user_guide/4_1_manual_data_capture.html"
 DOCS_UPLOAD_DATA_DICTIONARY_URL = "https://rarelink.readthedocs.io/en/latest/3_installation/3_3_data_dictionary.html"

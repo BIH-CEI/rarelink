@@ -12,7 +12,7 @@ prefixes:
   SNOMEDCT: http://snomed.info/sct
 imports:
   - linkml:types
-  - rarelink_types
+  - https://w3id.org/linkml/redcap-record
   - rarelink_code_systems
 default_range: string
 default_prefix: rarelink
@@ -91,7 +91,7 @@ slots:
   snomedct_298059007:
     title: 5.4 Date of onset
     description: The date at onset of first symptoms or signs of the disease. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_423493009:
@@ -103,7 +103,7 @@ slots:
   snomedct_432213005:
     title: 5.6 Date of diagnosis
     description: The date on which the disease was determined. If the specific month or day is not known, select the 1st day of the month or the 1st month of the year, respectively
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_363698007:

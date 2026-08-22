@@ -15,7 +15,7 @@
 #### Packages & Compatibility
 
 [![REDCap](https://img.shields.io/badge/REDCap-API-darkred.svg)](https://www.project-redcap.org/)
-[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.0.3-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
+[![RD-CDM](https://img.shields.io/badge/RD--CDM-v2.1.0-blue.svg)](https://github.com/BIH-CEI/rd-cdm)
 [![Phenopackets](https://img.shields.io/badge/Phenopackets-v2.0-purple.svg)](https://phenopacket-schema.readthedocs.io/en/latest/)
 [![LinkML](https://img.shields.io/badge/LinkML-1.9.0+-green.svg)](https://linkml.io/)
 [![HL7 FHIR](https://img.shields.io/badge/HL7%20FHIR-R4-orange.svg)](https://hl7.org/fhir/)

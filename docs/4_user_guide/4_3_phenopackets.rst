@@ -317,7 +317,7 @@ Export Phenopackets using the command-line interface with various options:
     rarelink phenopackets export --debug
     
     # Skip environment validation
-    rarelink phenopackets export --skip-validation
+    rarelink phenopackets export --skip-env-validation
     
     # Override CREATED_BY from .env
     rarelink phenopackets export --created-by "Your Name"
@@ -352,7 +352,7 @@ All Command-Line Options
      - ``-d``
      - FLAG
      - Enable debug mode for verbose logging
-   * - ``--skip-validation``
+   * - ``--skip-env-validation``
      - 
      - FLAG
      - Skip environment validation

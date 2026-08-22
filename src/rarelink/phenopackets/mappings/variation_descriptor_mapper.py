@@ -140,8 +140,9 @@ class VariationDescriptorMapper(BaseMapper[Dict[str, VariationDescriptor]]):
             Optional[VariationDescriptor]: Mapped VariationDescriptor or None on failure
         """
         try:
-            # Generate a unique ID
-            descriptor_id = self.processor.generate_unique_id()
+            # Deterministic per record: the same input must always produce the
+            # same descriptor id.
+            descriptor_id = f"variant-{instance_id}"
             
             # Extract expressions
             expressions = self._extract_expressions(variation_data)

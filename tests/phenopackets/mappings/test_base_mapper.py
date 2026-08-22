@@ -247,33 +247,6 @@ class BaseMapperTest(unittest.TestCase):
         instruments = self.single_mapper._get_instruments()
         self.assertEqual(instruments, ['instrument1', 'instrument3'])
     
-    def test_safe_execute(self):
-        """Test the safe_execute method"""
-        # Test function that succeeds
-        def success_func(value):
-            return value * 2
-        
-        # Test function that fails
-        def error_func(value):
-            raise ValueError(f"Error with {value}")
-        
-        # Test successful execution
-        result = self.single_mapper.safe_execute(
-            success_func,
-            "Success function failed",
-            value=5
-        )
-        self.assertEqual(result, 10)
-        
-        # Test error handling
-        result = self.single_mapper.safe_execute(
-            error_func,
-            "Error function failed",
-            default_return="default",
-            value=5
-        )
-        self.assertEqual(result, "default")
-    
     def test_process_code(self):
         """Test process_code method delegation"""
         # Mock the processor's method

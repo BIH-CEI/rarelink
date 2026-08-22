@@ -243,7 +243,6 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
                     instrument_data,
                     dob,
                     instrument_name,
-                    element,
                 )
                 if not treatment:
                     continue
@@ -322,7 +321,6 @@ class MedicalActionMapper(BaseMapper[MedicalAction]):
         instrument_data: Dict[str, Any],
         dob: Optional[str],
         instrument_name: str = "",
-        full_element: Optional[Dict[str, Any]] = None,
     ) -> Optional[Treatment]:
         # (unchanged) ...
         mapping_config = self.processor.mapping_config

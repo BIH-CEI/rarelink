@@ -7,7 +7,7 @@ prefixes:
   SNOMEDCT: http://snomed.info/sct/
 imports:
   - linkml:types
-  - rarelink_types
+  - https://w3id.org/linkml/redcap-record
   - rarelink_code_systems
 default_range: string
 default_prefix: rarelink
@@ -30,7 +30,7 @@ slots:
     description: >
       The beginning of an encounter of the individual. If the specific month or 
       day is not known, select the 1st day of the month or the 1st month of the year.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   hl7fhir_enc_period_end:
@@ -38,7 +38,7 @@ slots:
     description: >
       The end of an encounter of the individual. If the specific month or 
       day is not known, select the 1st day of the month or the 1st month of the year.
-    range: union_date_string
+    range: redcap_date
     required: false
 
   snomedct_305058001:
